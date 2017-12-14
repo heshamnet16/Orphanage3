@@ -20,6 +20,7 @@ namespace OrphanageDataModel.Persons
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [ForeignKey("Name")]
         public int NameId { get; set; }
+        public virtual Name Name { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
@@ -35,7 +36,9 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Health_ID", TypeName = "int")]
+        [ForeignKey("HealthStatus")]
         public int? HealthId { get; set; }
+        public virtual Health HealthStatus { get; set; }
 
 
         [Column("FullPhoto", TypeName = "varbinary(max)")]
@@ -58,7 +61,9 @@ namespace OrphanageDataModel.Persons
 
         [Column("Family_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("Family")]
         public int FamilyId { get; set; }
+        public virtual Family Family { get; set; }
 
 
         [Column("IsBailed", TypeName = "bit")]
@@ -67,12 +72,16 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Bail_ID", TypeName = "int")]
+        [ForeignKey("Bail")]
         public int? BailId { get; set; }
+        public virtual Bail Bail { get; set; }
 
 
         [Column("BondsMan_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("Caregiver")]
         public int CaregiverId { get; set; }
+        public virtual Caregiver Caregiver { get; set; }
 
 
 
@@ -148,15 +157,10 @@ namespace OrphanageDataModel.Persons
 
 
 
-        public virtual Bail Bails { get; set; }
 
-        public virtual Caregiver Caregiver { get; set; }
 
-        public virtual Family Family { get; set; }
 
-        public virtual Health HealthStatus { get; set; }
 
-        public virtual Name Name { get; set; }
 
         public virtual Study Education { get; set; }
 

@@ -30,6 +30,11 @@ namespace OrphanageDataModelTest
 
                 var father = dBContext.Fathers.FirstOrDefault();
 
+                var guarantor = dBContext.Guarantors.FirstOrDefault();
+
+                var mother = dBContext.Mothers.FirstOrDefault();
+
+
                 Assert.IsNotNull(xx.Name.First);
                 
                 GC.Collect();
