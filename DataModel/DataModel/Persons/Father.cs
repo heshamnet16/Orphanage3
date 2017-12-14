@@ -11,26 +11,29 @@ namespace OrphanageDataModel.Persons
     public class Father
     {
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
-        [Column("Name_ID", TypeName = "int")]
+        [Column("Name_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("Name")]
         public int NameId { get; set; }
-
+        public virtual Name Name { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime Birthday { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [Column("Dieday", TypeName = "datetime")]
+        [Column("Dieday")]
         public DateTime DateOfDeath { get; set; }
 
 
-        [Column("DeathCertificate_Photo", TypeName = "varbinary(max)")]
+        [Column("DeathCertificate_Photo")]
         public byte[] DeathCertificatePhotoData { get; set; }
 
+
+        [Column("Photo")]
         public byte[] PhotoData { get; set; }
 
 
@@ -39,25 +42,28 @@ namespace OrphanageDataModel.Persons
 
         public string Story { get; set; }
 
+        [Column("DeathResone")]
         public string DeathReason { get; set; }
 
 
-        [Column("Color_Mark", TypeName = "bigint")]
+        [Column("Color_Mark")]
         public long? ColorMark { get; set; }
 
 
         [Column("IdentityCard_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        public int IdentityCardNumber { get; set; }
+        public decimal IdentityCardNumber { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
 
 
-        [Column("User_ID", TypeName = "int")]
+        [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
+        public virtual User ActingUser { get; set; }
 
 
         public string Note { get; set; }
@@ -73,7 +79,6 @@ namespace OrphanageDataModel.Persons
         public Image DeathCertificateImage { get => DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; }
 
 
-        public virtual User ActingUser { get; set; }
 
 
     }

@@ -8,15 +8,6 @@ namespace OrphanageDataModel.RegularData
     [Table("Names")]
     public class Name
     {
-        //public Name()
-        //{
-        //    Caregivers = new HashSet<Caregiver>();
-        //    Fathers = new HashSet<Father>();
-        //    Mothers = new HashSet<Mother>();
-        //    Orphans = new HashSet<Orphan>();
-        //    Guarantors = new HashSet<Guarantor>();
-        //    Users = new HashSet<User>();
-        //}
 
         [Column("ID",TypeName = "int")]
         [Key]

@@ -24,6 +24,12 @@ namespace OrphanageDataModelTest
                 var bails = dBContext.Bails.Where(tt=>tt.Id>10).FirstOrDefault();
 
                 var sups = dBContext.Guarantors.FirstOrDefault();
+
+
+                var caregiver = dBContext.Caregivers.FirstOrDefault();
+
+                var father = dBContext.Fathers.FirstOrDefault();
+
                 Assert.IsNotNull(xx.Name.First);
                 
                 GC.Collect();
