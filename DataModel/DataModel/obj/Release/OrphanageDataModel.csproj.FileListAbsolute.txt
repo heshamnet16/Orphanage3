@@ -1,0 +1,12 @@
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\OrphanageDataModel.dll.config
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\OrphanageDataModel.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\OrphanageDataModel.pdb
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\EntityFramework.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\EntityFramework.xml
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Release\OrphanageDataModel.Properties.Resources.resources
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Release\OrphanageDataModel.csproj.GenerateResource.Cache
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Release\OrphanageDataModel.csproj.CoreCompileInputs.cache
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Release\OrphanageDataModel.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Release\OrphanageDataModel.pdb

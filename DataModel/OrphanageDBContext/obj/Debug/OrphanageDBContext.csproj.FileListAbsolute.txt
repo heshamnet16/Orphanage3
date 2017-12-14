@@ -1,0 +1,14 @@
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\OrphanageDBContext.dll.config
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\OrphanageDBContext.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\OrphanageDBContext.pdb
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\EntityFramework.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\OrphanageDataModel.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\OrphanageDataModel.pdb
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\OrphanageDataModel.dll.config
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\EntityFramework.xml
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.csprojResolveAssemblyReference.cache
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.csproj.CoreCompileInputs.cache
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.dll
+C:\Users\alkham\Dropbox\Orphanage\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.pdb
