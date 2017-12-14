@@ -11,34 +11,36 @@ namespace OrphanageDataModel.Persons
     public class Caregiver
     {
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
-        [Column("Name_Id",TypeName ="int")]
+        [Column("Name_Id")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("Name")]
         public int NameId { get; set; }
+        public virtual Name Name { get; set; }
 
-
-        [Column("Address_ID", TypeName = "int")]
+        [Column("Address_ID")]
+        [ForeignKey("Address")]
         public int? AddressId { get; set; }
-
+        public virtual Address Address { get; set; }
 
         [Column("IdentityCard_ID")]
         public int? IdentityCardId { get; set; }
 
 
-        [Column("IdentityCard_Photo", TypeName = "varbinary(max)")]
+        [Column("IdentityCard_Photo")]
         public byte[] IdentityCardPhotoFaceData { get; set; }
 
 
-        [Column("IdentityCard_Photo2", TypeName = "varbinary(max)")]
+        [Column("IdentityCard_Photo2")]
         public byte[] IdentityCardPhotoBackData { get; set; }
 
         public string Jop { get; set; }
 
         public decimal? Income { get; set; }
 
-        [Column("Color_Mark",TypeName ="bigint")]
+        [Column("Color_Mark")]
         public long? ColorMark { get; set; }
 
         public byte[] FingerPrint { get; set; }
@@ -48,9 +50,11 @@ namespace OrphanageDataModel.Persons
         public DateTime RegDate { get; set; }
 
 
-        [Column("User_ID",TypeName ="int")]
+        [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
+        public virtual User ActingUser { get; set; }
 
 
         public string Note { get; set; }
@@ -64,7 +68,6 @@ namespace OrphanageDataModel.Persons
         public Image IdentityCardImageBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
 
 
-        public virtual User ActingUser { get; set; }
 
     }
 }
