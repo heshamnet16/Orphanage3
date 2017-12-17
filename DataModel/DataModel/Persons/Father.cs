@@ -1,5 +1,6 @@
 ﻿using OrphanageDataModel.RegularData;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
@@ -79,7 +80,7 @@ namespace OrphanageDataModel.Persons
         public Image DeathCertificateImage { get => DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; }
 
 
-
+        public virtual ICollection<Family> Family { get; set; }
 
     }
 }

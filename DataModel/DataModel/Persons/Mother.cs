@@ -1,5 +1,6 @@
 ﻿using OrphanageDataModel.RegularData;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
@@ -100,7 +101,7 @@ namespace OrphanageDataModel.Persons
         public Image IdentityCardBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
 
 
-
+        public virtual ICollection<Family> Family { get; set; }
 
     }
 }

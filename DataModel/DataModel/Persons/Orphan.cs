@@ -32,7 +32,9 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Education_ID", TypeName = "int")]
+        [ForeignKey("Education")]
         public int? EducationId { get; set; }
+        public virtual Study Education { get; set; }
 
 
         [Column("Health_ID", TypeName = "int")]
@@ -59,7 +61,7 @@ namespace OrphanageDataModel.Persons
 
         public int? Tallness { get; set; }
 
-        [Column("Family_ID", TypeName = "int")]
+        [Column("Family_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [ForeignKey("Family")]
         public int FamilyId { get; set; }
@@ -87,7 +89,9 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Supporter_ID", TypeName = "int")]
+        [ForeignKey("Guarantor")]
         public int? GuarantorId { get; set; }
+        public virtual Guarantor Guarantor { get; set; }
 
 
 
@@ -101,7 +105,9 @@ namespace OrphanageDataModel.Persons
 
         [Column("User_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
+        public virtual User ActingUser { get; set; }
 
 
         public string Story { get; set; }
@@ -162,10 +168,7 @@ namespace OrphanageDataModel.Persons
 
 
 
-        public virtual Study Education { get; set; }
 
-        public virtual Guarantor Guarantor { get; set; }
 
-        public virtual User ActingUser { get; set; }
     }
 }

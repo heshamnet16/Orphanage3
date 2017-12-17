@@ -3,6 +3,8 @@ using OrphanageDataModel.FinancialData;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using OrphanageDataModel.RegularData;
 
 namespace OrphanageDataModel.FinancialData
 {
@@ -70,6 +72,8 @@ namespace OrphanageDataModel.FinancialData
         public string Note { get; set; }
 
 
+        public virtual ICollection<Orphan> Orphans { get; set; }
 
+        public virtual ICollection<Family> Families { get; set; }
     }
 }

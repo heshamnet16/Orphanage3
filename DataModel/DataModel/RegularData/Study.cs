@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OrphanageDataModel.Persons;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.IO;
@@ -48,6 +50,9 @@ namespace OrphanageDataModel.RegularData
 
         [NotMapped]
         public Image CertificateImageBack { get => CertificatePhotoBack != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoBack)) : null; }
+
+
+        public virtual ICollection<Orphan> Orphans { get; set; }
 
     }
 }
