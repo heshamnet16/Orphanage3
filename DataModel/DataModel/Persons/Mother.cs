@@ -74,7 +74,7 @@ namespace OrphanageDataModel.Persons
 
         [Column("IdentityCard_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        public decimal IdentityCardNumber { get; set; }
+        public string IdentityCardNumber { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]

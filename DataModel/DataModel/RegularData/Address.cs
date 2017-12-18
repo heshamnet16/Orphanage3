@@ -9,7 +9,7 @@ namespace OrphanageDataModel.RegularData
     public class Address
     {
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]

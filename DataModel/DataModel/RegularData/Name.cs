@@ -9,7 +9,7 @@ namespace OrphanageDataModel.RegularData
     public class Name
     {
 
-        [Column("ID",TypeName = "int")]
+        [Column("ID")]
         [Key]
         public int Id { get; set; }
 

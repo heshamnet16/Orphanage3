@@ -32,11 +32,15 @@ namespace OrphanageDataModelTest
 
             var user = dBContext.Users.FirstOrDefault();
 
+            var userCaregivers = user.Caregivers.Where(carG => carG.Id< 100);
+
             var Family = dBContext.Families.FirstOrDefault();
 
             var health = dBContext.Healthes.FirstOrDefault();
 
-            var name = dBContext.Names.FirstOrDefault();
+            var name = dBContext.Names.Where(n=> 
+                        dBContext.Orphans.Count(o=>o.NameId == n.Id) == 0
+            ).ToList();
 
             var study = dBContext.Studies.FirstOrDefault();
 

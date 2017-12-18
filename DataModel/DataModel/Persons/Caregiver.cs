@@ -27,7 +27,7 @@ namespace OrphanageDataModel.Persons
         public virtual Address Address { get; set; }
 
         [Column("IdentityCard_ID")]
-        public int? IdentityCardId { get; set; }
+        public string IdentityCardId { get; set; }
 
 
         [Column("IdentityCard_Photo")]

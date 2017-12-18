@@ -11,7 +11,7 @@ namespace OrphanageDataModel.RegularData
     public class Study
     {
         [Key]
-        [Column("ID",TypeName ="int")]
+        [Column("ID")]
         public int Id { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
@@ -34,22 +34,22 @@ namespace OrphanageDataModel.RegularData
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string Reasons { get; set; }
 
-        [Column("Certificate_Photo1", TypeName = "varbinary(max)")]
+        [Column("Certificate_Photo1")]
         public byte[] CertificatePhotoFront { get; set; }
 
 
-        [Column("Certificate_Photo2", TypeName = "varbinary(max)")]
+        [Column("Certificate_Photo2")]
         public byte[] CertificatePhotoBack { get; set; }
 
         public string Note { get; set; }
 
 
         [NotMapped]
-        public Image CertificateImageFace { get => CertificatePhotoFront != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoFront)) : null; }
+        public Image CertificateImage { get => CertificatePhotoFront != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoFront)) : null; }
 
 
         [NotMapped]
-        public Image CertificateImageBack { get => CertificatePhotoBack != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoBack)) : null; }
+        public Image CertificateImage2 { get => CertificatePhotoBack != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoBack)) : null; }
 
 
         public virtual ICollection<Orphan> Orphans { get; set; }
