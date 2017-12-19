@@ -73,7 +73,7 @@ namespace OrphanageDataModel.Persons
 
         public virtual ICollection<Caregiver> Caregivers { get; set; }
 
-        public virtual ICollection<Credit> Credits { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
 
         public virtual ICollection<Family> Famlies { get; set; }
 

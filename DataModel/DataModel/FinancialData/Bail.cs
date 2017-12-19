@@ -1,10 +1,9 @@
 ﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.FinancialData;
+using OrphanageDataModel.RegularData;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
-using OrphanageDataModel.RegularData;
 
 namespace OrphanageDataModel.FinancialData
 {
@@ -31,7 +30,7 @@ namespace OrphanageDataModel.FinancialData
         [Column("Box_ID")]
         [ForeignKey("Account")]
         public int CreditID { get; set; }
-        public virtual Credit Account { get; set; }
+        public virtual Account Account { get; set; }
 
 
 

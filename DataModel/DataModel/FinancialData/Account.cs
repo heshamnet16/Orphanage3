@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OrphanageDataModel.FinancialData
 {
     [Table("Boxes")]
-    public class Credit
+    public class Account
     {
         [Key]
         [Column("ID")]

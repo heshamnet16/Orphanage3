@@ -37,7 +37,7 @@ namespace OrphanageDataModel.Persons
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [ForeignKey("Account")]
         public int CreditId { get; set; }
-        public virtual Credit Account { get; set; }
+        public virtual Account Account { get; set; }
 
 
         [Column("Color_Mark")]

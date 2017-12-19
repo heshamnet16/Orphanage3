@@ -34,7 +34,7 @@ namespace OrphanageDBContext
         public virtual DbSet<Study> Studies { get; set; }
 
         public virtual DbSet<Bail> Bails { get; set; }
-        public virtual DbSet<Credit> Credits { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
 
 
     }
