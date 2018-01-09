@@ -14,7 +14,7 @@ namespace OrphanageDBContext
     public class OrphanageDBContext : DbContext
     {
 
-        public OrphanageDBContext() :base(Settings.Default.ConnectionString)
+        public OrphanageDBContext() :base(Settings.Default.ConnectionString + ";Password=OrphansApp3")
         {
             Database.SetInitializer<OrphanageDBContext>(new CreateDatabaseIfNotExists<OrphanageDBContext>());
         }
@@ -35,7 +35,6 @@ namespace OrphanageDBContext
 
         public virtual DbSet<Bail> Bails { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
-
 
     }
 }

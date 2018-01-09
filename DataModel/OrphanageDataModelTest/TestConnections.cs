@@ -44,7 +44,7 @@ namespace OrphanageDataModelTest
 
             var study = dBContext.Studies.FirstOrDefault();
 
-            var credit = dBContext.Credits.FirstOrDefault();
+            var account = dBContext.Accounts.FirstOrDefault();
 
             Assert.IsNotNull(orphan.Name.First);
 
