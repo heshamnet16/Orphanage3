@@ -11,3 +11,16 @@ C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Debug\OrphanageDataMod
 C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Debug\OrphanageDataModel.dll
 C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Debug\OrphanageDataModel.pdb
 C:\Users\alkham\Dropbox\Orphanage\DataModel\DataModel\obj\Debug\OrphanageDataModel.csprojResolveAssemblyReference.cache
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\OrphanageDataModel.dll.config
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\OrphanageDataModel.dll
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\OrphanageDataModel.pdb
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\EntityFramework.dll
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\EntityFramework.xml
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\obj\Debug\OrphanageDataModel.csprojResolveAssemblyReference.cache
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\obj\Debug\OrphanageDataModel.Properties.Resources.resources
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\obj\Debug\OrphanageDataModel.csproj.GenerateResource.Cache
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\obj\Debug\OrphanageDataModel.csproj.CoreCompileInputs.cache
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\obj\Debug\OrphanageDataModel.dll
+F:\Repo\Orphanage3\Orphanage3\DataModel\DataModel\obj\Debug\OrphanageDataModel.pdb

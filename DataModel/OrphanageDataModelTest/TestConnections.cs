@@ -11,7 +11,7 @@ namespace OrphanageDataModelTest
         public void TestCompatibility()
         {
             OrphanageDBContext.OrphanageDBContext dBContext = new OrphanageDBContext.OrphanageDBContext();
-            for (int i = 0; i < 10000; i++)
+            for (int i = 1; i < 10000; i++)
             {
                 var xx = (from ss in dBContext.Orphans
                           where ss.Id == i
