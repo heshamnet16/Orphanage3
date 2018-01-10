@@ -46,12 +46,11 @@ namespace OrphanageDataModel.FinancialData
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 
 
         public virtual ICollection<Bail> Bails { get; set; }
-
+        public virtual ICollection<Guarantor> Guarantors { get; set; }
     }
 }

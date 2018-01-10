@@ -17,7 +17,6 @@ namespace OrphanageDataModel.Persons
 
         [Column("Name_Id")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Name")]
         public int NameId { get; set; }
         public virtual Name Name { get; set; }
 
@@ -44,7 +43,6 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Address_ID")]
-        [ForeignKey("Address")]
         public int? AddressId { get; set; }
         public virtual Address Address { get; set; }
 
@@ -83,7 +81,6 @@ namespace OrphanageDataModel.Persons
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 
@@ -101,7 +98,7 @@ namespace OrphanageDataModel.Persons
         public Image IdentityCardBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
 
 
-        public virtual ICollection<Family> Family { get; set; }
+        public virtual ICollection<Family> Families { get; set; }
 
     }
 }

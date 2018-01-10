@@ -18,7 +18,6 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Name_ID")]
-        [ForeignKey("Name")]
         public int? NameId { get; set; }
         public virtual Name Name { get; set; }
 
@@ -54,7 +53,6 @@ namespace OrphanageDataModel.Persons
         public bool CanDraw { get; set; }
 
         [Column("Address_ID")]
-        [ForeignKey("Address")]
         public int? AddressId { get; set; }
         public virtual Address Address { get; set; }
 

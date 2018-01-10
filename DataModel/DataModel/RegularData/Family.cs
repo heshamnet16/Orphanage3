@@ -20,7 +20,6 @@ namespace OrphanageDataModel.RegularData
 
         [Column("Mother_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Mother")]
         public int MotherId { get; set; }
         public virtual Mother Mother { get; set; }
 
@@ -29,14 +28,12 @@ namespace OrphanageDataModel.RegularData
 
         [Column("Father_Id")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Father")]
         public int FatherId { get; set; }
         public virtual Father Father { get; set; }
 
 
 
         [Column("Bail_ID")]
-        [ForeignKey("Bail")]
         public int? BailId { get; set; }
         public virtual Bail Bail { get; set; }
 
@@ -48,7 +45,6 @@ namespace OrphanageDataModel.RegularData
 
 
         [Column("Address_ID")]
-        [ForeignKey("PrimaryAddress")]
         public int? AddressId { get; set; }
         public virtual Address PrimaryAddress { get; set; }
 
@@ -56,7 +52,6 @@ namespace OrphanageDataModel.RegularData
 
 
         [Column("Address_ID2")]
-        [ForeignKey("AlternativeAddress")]
         public int? AlternativeAddressId { get; set; }
         public virtual Address AlternativeAddress { get; set; }
 
@@ -94,7 +89,6 @@ namespace OrphanageDataModel.RegularData
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 

@@ -18,7 +18,6 @@ namespace OrphanageDataModel.Persons
 
         [Column("Name")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Name")]
         public int NameId { get; set; }
         public virtual Name Name { get; set; }
 
@@ -32,13 +31,11 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Education_ID")]
-        [ForeignKey("Education")]
         public int? EducationId { get; set; }
         public virtual Study Education { get; set; }
 
 
         [Column("Health_ID")]
-        [ForeignKey("HealthStatus")]
         public int? HealthId { get; set; }
         public virtual Health HealthStatus { get; set; }
 
@@ -63,7 +60,6 @@ namespace OrphanageDataModel.Persons
 
         [Column("Family_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Family")]
         public int FamilyId { get; set; }
         public virtual Family Family { get; set; }
 
@@ -74,14 +70,12 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Bail_ID")]
-        [ForeignKey("Bail")]
         public int? BailId { get; set; }
         public virtual Bail Bail { get; set; }
 
 
         [Column("BondsMan_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Caregiver")]
         public int CaregiverId { get; set; }
         public virtual Caregiver Caregiver { get; set; }
 
@@ -89,7 +83,6 @@ namespace OrphanageDataModel.Persons
 
 
         [Column("Supporter_ID")]
-        [ForeignKey("Guarantor")]
         public int? GuarantorId { get; set; }
         public virtual Guarantor Guarantor { get; set; }
 
@@ -105,7 +98,6 @@ namespace OrphanageDataModel.Persons
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 

@@ -16,7 +16,6 @@ namespace OrphanageDataModel.FinancialData
 
 
         [Column("Supporter_ID")]
-        [ForeignKey("Guarantor")]
         public int? GuarantorID { get; set; }
         public virtual Guarantor Guarantor { get; set; }
 
@@ -28,8 +27,7 @@ namespace OrphanageDataModel.FinancialData
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [Column("Box_ID")]
-        [ForeignKey("Account")]
-        public int CreditID { get; set; }
+        public int AccountID { get; set; }
         public virtual Account Account { get; set; }
 
 
@@ -63,7 +61,6 @@ namespace OrphanageDataModel.FinancialData
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [Column("User_ID")]
-        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using OrphanageDBContext;
 
 namespace OrphanageDataModelTest
 {
@@ -10,7 +11,7 @@ namespace OrphanageDataModelTest
         [TestMethod]
         public void TestCompatibility()
         {
-            OrphanageDBContext.OrphanageDBContext dBContext = new OrphanageDBContext.OrphanageDBContext();
+            OrphansDBC dBContext = new OrphanageDBContext.OrphansDBC();
             var orphan = dBContext.Orphans.FirstOrDefault();
 
             var nn = (from ee in dBContext.Names
@@ -36,7 +37,7 @@ namespace OrphanageDataModelTest
 
             var Family = dBContext.Families.FirstOrDefault();
 
-            var health = dBContext.Healthes.FirstOrDefault();
+            var health = dBContext.Healthies.FirstOrDefault();
 
             var name = dBContext.Names.Where(n=> 
                         dBContext.Orphans.Count(o=>o.NameId == n.Id) == 0
@@ -47,6 +48,15 @@ namespace OrphanageDataModelTest
             var account = dBContext.Accounts.FirstOrDefault();
 
             Assert.IsNotNull(orphan.Name.First);
+            Assert.IsNotNull(bails.Account);
+            Assert.IsNotNull(sups.RegDate);
+            Assert.IsNotNull(caregiver.Name.First);
+            Assert.IsNotNull(father.Name.First);
+            Assert.IsNotNull(mother.Name.First);
+            Assert.IsNotNull(user.Name.First);
+            Assert.IsNotNull(userCaregivers);
+            Assert.IsNotNull(Family.PrimaryAddress);
+            Assert.IsNotNull(account.AccountName);
 
         }
 

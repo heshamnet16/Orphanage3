@@ -17,12 +17,10 @@ namespace OrphanageDataModel.Persons
 
         [Column("Name_Id")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("Name")]
         public int NameId { get; set; }
         public virtual Name Name { get; set; }
 
         [Column("Address_ID")]
-        [ForeignKey("Address")]
         public int? AddressId { get; set; }
         public virtual Address Address { get; set; }
 
@@ -53,7 +51,6 @@ namespace OrphanageDataModel.Persons
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 
