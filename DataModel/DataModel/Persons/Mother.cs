@@ -1,6 +1,5 @@
 ﻿using OrphanageDataModel.RegularData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
@@ -12,13 +11,12 @@ namespace OrphanageDataModel.Persons
     public class Mother
     {
         [Key]
-        [Column("ID")]
+        [Column("ID", TypeName = "int")]
         public int Id { get; set; }
 
-        [Column("Name_Id")]
+        [Column("Name_Id", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int NameId { get; set; }
-        public virtual Name Name { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
@@ -29,22 +27,22 @@ namespace OrphanageDataModel.Persons
         public bool IsDead { get; set; }
 
 
-        [Column("Dieday")]
+        [Column("Dieday", TypeName = "datetime2")]
         public DateTime? DateOfDeath { get; set; }
 
 
 
-        [Column("IdentityCard_Photo")]
+        [Column("IdentityCard_Photo", TypeName = "varbinary(max)")]
         public byte[] IdentityCardPhotoFaceData { get; set; }
 
 
-        [Column("IdentityCard_Photo2")]
+        [Column("IdentityCard_Photo2", TypeName = "varbinary(max)")]
         public byte[] IdentityCardPhotoBackData { get; set; }
 
 
-        [Column("Address_ID")]
+        [Column("Address_ID", TypeName = "int")]
         public int? AddressId { get; set; }
-        public virtual Address Address { get; set; }
+
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public bool IsMarried { get; set; }
@@ -54,7 +52,7 @@ namespace OrphanageDataModel.Persons
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [Column("IsOwnOrphans")]
+        [Column("IsOwnOrphans",TypeName ="bit")]
         public bool? HasSheOrphans { get; set; }
 
 
@@ -66,23 +64,22 @@ namespace OrphanageDataModel.Persons
         public string Story { get; set; }
 
 
-        [Column("Color_Mark")]
+        [Column("Color_Mark", TypeName = "bigint")]
         public long? ColorMark { get; set; }
 
 
         [Column("IdentityCard_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        public string IdentityCardNumber { get; set; }
+        public int IdentityCardNumber { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
 
 
-        [Column("User_ID")]
+        [Column("User_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
-        public virtual User ActingUser { get; set; }
 
 
         public string Note { get; set; }
@@ -98,7 +95,8 @@ namespace OrphanageDataModel.Persons
         public Image IdentityCardBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
 
 
-        public virtual ICollection<Family> Families { get; set; }
+        public virtual User ActingUser { get; set; }
+
 
     }
 }

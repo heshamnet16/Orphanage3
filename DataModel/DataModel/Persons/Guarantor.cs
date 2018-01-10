@@ -22,19 +22,18 @@ namespace OrphanageDataModel.Persons
 
         [Column("Name_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("Name")]
         public int NameId { get; set; }
-        public virtual Name Name { get; set; }
 
 
         [Column("Address_ID")]
+        [ForeignKey("Address")]
         public int? AddressId { get; set; }
-        public virtual Address Address { get; set; }
-
 
         [Column("Box_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        public int AccountId { get; set; }
-        public virtual Account Account { get; set; }
+        [ForeignKey("Account")]
+        public int CreditId { get; set; }
 
 
         [Column("Color_Mark")]
@@ -58,18 +57,24 @@ namespace OrphanageDataModel.Persons
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
-        public virtual User ActingUser { get; set; }
 
 
         public string Note { get; set; }
 
 
+        public virtual Address Address { get; set; }
 
         public virtual ICollection<Bail> Bails { get; set; }
 
+        public virtual Credit Account { get; set; }
+
+        public virtual Name Name { get; set; }
+
         public virtual ICollection<Orphan> Orphans { get; set; }
 
+        public virtual User ActingUser { get; set; }
 
     }
 }

@@ -1,6 +1,5 @@
 ﻿using OrphanageDataModel.RegularData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
@@ -12,34 +11,34 @@ namespace OrphanageDataModel.Persons
     public class Caregiver
     {
         [Key]
-        [Column("ID")]
+        [Column("ID", TypeName = "int")]
         public int Id { get; set; }
 
-        [Column("Name_Id")]
+        [Column("Name_Id",TypeName ="int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int NameId { get; set; }
-        public virtual Name Name { get; set; }
 
-        [Column("Address_ID")]
+
+        [Column("Address_ID", TypeName = "int")]
         public int? AddressId { get; set; }
-        public virtual Address Address { get; set; }
+
 
         [Column("IdentityCard_ID")]
-        public string IdentityCardId { get; set; }
+        public int? IdentityCardId { get; set; }
 
 
-        [Column("IdentityCard_Photo")]
+        [Column("IdentityCard_Photo", TypeName = "varbinary(max)")]
         public byte[] IdentityCardPhotoFaceData { get; set; }
 
 
-        [Column("IdentityCard_Photo2")]
+        [Column("IdentityCard_Photo2", TypeName = "varbinary(max)")]
         public byte[] IdentityCardPhotoBackData { get; set; }
 
         public string Jop { get; set; }
 
         public decimal? Income { get; set; }
 
-        [Column("Color_Mark")]
+        [Column("Color_Mark",TypeName ="bigint")]
         public long? ColorMark { get; set; }
 
         public byte[] FingerPrint { get; set; }
@@ -49,10 +48,9 @@ namespace OrphanageDataModel.Persons
         public DateTime RegDate { get; set; }
 
 
-        [Column("User_ID")]
+        [Column("User_ID",TypeName ="int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
-        public virtual User ActingUser { get; set; }
 
 
         public string Note { get; set; }
@@ -66,7 +64,7 @@ namespace OrphanageDataModel.Persons
         public Image IdentityCardImageBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
 
 
-        public virtual ICollection<Orphan> Orphans { get; set; }
+        public virtual User ActingUser { get; set; }
 
     }
 }

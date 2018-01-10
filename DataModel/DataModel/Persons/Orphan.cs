@@ -12,44 +12,42 @@ namespace OrphanageDataModel.Persons
     public class Orphan
     {
         [Key]
-        [Column("ID")]
+        [Column("ID", TypeName = "int")]
         public int Id { get; set; }
 
 
-        [Column("Name")]
+        [Column("Name", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [ForeignKey("Name")]
         public int NameId { get; set; }
-        public virtual Name Name { get; set; }
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime? Birthday { get; set; }
 
 
-        [Column("IsExcluded")]
+        [Column("IsExcluded", TypeName = "bit")]
         public bool? IsExcluded { get; set; }
 
 
-        [Column("Education_ID")]
+        [Column("Education_ID", TypeName = "int")]
         public int? EducationId { get; set; }
-        public virtual Study Education { get; set; }
 
 
-        [Column("Health_ID")]
+        [Column("Health_ID", TypeName = "int")]
         public int? HealthId { get; set; }
-        public virtual Health HealthStatus { get; set; }
 
 
-        [Column("FullPhoto")]
+        [Column("FullPhoto", TypeName = "varbinary(max)")]
         public byte[] FullPhotoData { get; set; }
 
 
-        [Column("FacePhoto")]
+        [Column("FacePhoto", TypeName = "varbinary(max)")]
         public byte[] FacePhotoData { get; set; }
 
 
         [Column("IdentityNumber")]
-        public string IdentityCardNumber { get; set; }
+        public decimal? IdentityCardNumber { get; set; }
 
 
         public byte? FootSize { get; set; }
@@ -58,37 +56,33 @@ namespace OrphanageDataModel.Persons
 
         public int? Tallness { get; set; }
 
-        [Column("Family_ID")]
+        [Column("Family_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int FamilyId { get; set; }
-        public virtual Family Family { get; set; }
 
 
-        [Column("IsBailed")]
+        [Column("IsBailed", TypeName = "bit")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public bool IsBailed { get; set; }
 
 
-        [Column("Bail_ID")]
+        [Column("Bail_ID", TypeName = "int")]
         public int? BailId { get; set; }
-        public virtual Bail Bail { get; set; }
 
 
-        [Column("BondsMan_ID")]
+        [Column("BondsMan_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int CaregiverId { get; set; }
-        public virtual Caregiver Caregiver { get; set; }
 
 
 
 
-        [Column("Supporter_ID")]
+        [Column("Supporter_ID", TypeName = "int")]
         public int? GuarantorId { get; set; }
-        public virtual Guarantor Guarantor { get; set; }
 
 
 
-        [Column("Color_Mark")]
+        [Column("Color_Mark", TypeName = "bigint")]
         public long? ColorMark { get; set; }
 
 
@@ -96,10 +90,9 @@ namespace OrphanageDataModel.Persons
         public DateTime RegDate { get; set; }
 
 
-        [Column("User_ID")]
+        [Column("User_ID", TypeName = "int")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
-        public virtual User ActingUser { get; set; }
 
 
         public string Story { get; set; }
@@ -114,11 +107,11 @@ namespace OrphanageDataModel.Persons
 
 
 
-        [Column("BirthCertificate_Photo")]
+        [Column("BirthCertificate_Photo", TypeName = "varbinary(max)")]
         public byte[] BirthCertificatePhotoData { get; set; }
 
 
-        [Column("FamilyCardPagePhoto")]
+        [Column("FamilyCardPagePhoto", TypeName = "varbinary(max)")]
         public byte[] FamilyCardPagePhotoData { get; set; }
 
 
@@ -127,7 +120,7 @@ namespace OrphanageDataModel.Persons
         public string Gender { get; set; }
 
 
-        [Column("Kaid")]
+        [Column("Kaid", TypeName = "int")]
         public int? CivilRegisterNumber { get; set; }
 
 
@@ -155,12 +148,20 @@ namespace OrphanageDataModel.Persons
 
 
 
+        public virtual Bail Bails { get; set; }
 
+        public virtual Caregiver Caregiver { get; set; }
 
+        public virtual Family Family { get; set; }
 
+        public virtual Health HealthStatus { get; set; }
 
+        public virtual Name Name { get; set; }
 
+        public virtual Study Education { get; set; }
 
+        public virtual Guarantor Guarantor { get; set; }
 
+        public virtual User ActingUser { get; set; }
     }
 }

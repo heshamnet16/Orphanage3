@@ -53,7 +53,7 @@
     <Compile Include="RegularData\Address.cs" />
     <Compile Include="FinancialData\Bail.cs" />
     <Compile Include="Persons\Caregiver.cs" />
-    <Compile Include="FinancialData\Account.cs" />
+    <Compile Include="FinancialData\Credit.cs" />
     <Compile Include="RegularData\Family.cs" />
     <Compile Include="Persons\Father.cs" />
     <Compile Include="Persons\Guarantor.cs" />

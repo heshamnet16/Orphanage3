@@ -1,7 +1,6 @@
 ﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+using OrphanageDataModel.FinancialData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,6 +15,7 @@ namespace OrphanageDataModel.FinancialData
 
 
         [Column("Supporter_ID")]
+        [ForeignKey("Guarantor")]
         public int? GuarantorID { get; set; }
         public virtual Guarantor Guarantor { get; set; }
 
@@ -27,8 +27,9 @@ namespace OrphanageDataModel.FinancialData
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [Column("Box_ID")]
-        public int AccountID { get; set; }
-        public virtual Account Account { get; set; }
+        [ForeignKey("Account")]
+        public int CreditID { get; set; }
+        public virtual Credit Account { get; set; }
 
 
 
@@ -61,6 +62,7 @@ namespace OrphanageDataModel.FinancialData
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [Column("User_ID")]
+        [ForeignKey("ActingUser")]
         public int UserId { get; set; }
         public virtual User ActingUser { get; set; }
 
@@ -68,8 +70,6 @@ namespace OrphanageDataModel.FinancialData
         public string Note { get; set; }
 
 
-        public virtual ICollection<Orphan> Orphans { get; set; }
 
-        public virtual ICollection<Family> Families { get; set; }
     }
 }

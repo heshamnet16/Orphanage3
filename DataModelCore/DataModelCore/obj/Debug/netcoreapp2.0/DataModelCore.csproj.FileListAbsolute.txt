@@ -1,9 +1,0 @@
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\bin\Debug\netcoreapp2.0\DataModelCore.deps.json
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\bin\Debug\netcoreapp2.0\DataModelCore.dll
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\obj\Debug\netcoreapp2.0\DataModelCore.csprojResolveAssemblyReference.cache
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\obj\Debug\netcoreapp2.0\DataModelCore.csproj.CoreCompileInputs.cache
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\obj\Debug\netcoreapp2.0\DataModelCore.AssemblyInfoInputs.cache
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\obj\Debug\netcoreapp2.0\DataModelCore.AssemblyInfo.cs
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\bin\Debug\netcoreapp2.0\DataModelCore.pdb
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\obj\Debug\netcoreapp2.0\DataModelCore.dll
-C:\Users\alkham\source\repos\Orphanage3\DataModelCore\DataModelCore\obj\Debug\netcoreapp2.0\DataModelCore.pdb

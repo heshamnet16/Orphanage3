@@ -1,14 +1,14 @@
-﻿using DataModelCore.Persons;
+﻿using OrphanageDataModel.Persons;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace DataModelCore.FinancialData
+namespace OrphanageDataModel.FinancialData
 {
     [Table("Boxes")]
-    public class Account
+    public class Credit
     {
         [Key]
         [Column("ID")]
@@ -55,5 +55,4 @@ namespace DataModelCore.FinancialData
         public virtual ICollection<Bail> Bails { get; set; }
 
     }
-
 }
