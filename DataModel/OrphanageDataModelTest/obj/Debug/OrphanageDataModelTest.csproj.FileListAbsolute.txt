@@ -73,3 +73,12 @@ F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDataModelTest\bin\Debug\EntityF
 F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDataModelTest\bin\Debug\EntityFramework.SqlServer.xml
 F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDataModelTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDataModelTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\de\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\de\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\OrphanageDataModelTest.dll.config
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\OrphanageDataModelTest.dll
+F:\Repo\Orphanage3\Orphanage3\Output\Tests\OrphanageDataModelTest.pdb

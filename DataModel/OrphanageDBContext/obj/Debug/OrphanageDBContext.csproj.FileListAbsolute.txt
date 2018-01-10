@@ -40,3 +40,6 @@ F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDBContext\obj\Debug\OrphanageDB
 F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.csproj.CoreCompileInputs.cache
 F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.dll
 F:\Repo\Orphanage3\Orphanage3\DataModel\OrphanageDBContext\obj\Debug\OrphanageDBContext.pdb
+F:\Repo\Orphanage3\Orphanage3\Output\OrphanageDBContext.dll.config
+F:\Repo\Orphanage3\Orphanage3\Output\OrphanageDBContext.dll
+F:\Repo\Orphanage3\Orphanage3\Output\OrphanageDBContext.pdb
