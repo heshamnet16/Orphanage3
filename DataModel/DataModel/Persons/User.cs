@@ -4,31 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace OrphanageDataModel.Persons
 {
     [Table("Users")]
     public class User
     {
-        public User()
-        {
-            Bails = new HashSet<Bail>();
-            Caregivers = new HashSet<Caregiver>();
-            Credits = new HashSet<Credit>();
-            Famlies = new HashSet<Family>();
-            Fathers = new HashSet<Father>();
-            Mothers = new HashSet<Mother>();
-            Orphans = new HashSet<Orphan>();
-            Guarantors = new HashSet<Guarantor>();
-        }
-
+ 
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
 
-        [Column("Name_ID",TypeName ="int")]
+        [Column("Name_ID")]
         public int? NameId { get; set; }
+        public virtual Name Name { get; set; }
 
 
 
@@ -61,8 +52,9 @@ namespace OrphanageDataModel.Persons
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public bool CanDraw { get; set; }
 
-        [Column("Address_ID",TypeName ="int")]
+        [Column("Address_ID")]
         public int? AddressId { get; set; }
+        public virtual Address Address { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
@@ -78,16 +70,13 @@ namespace OrphanageDataModel.Persons
 
         public virtual ICollection<Caregiver> Caregivers { get; set; }
 
-        public virtual ICollection<Credit> Credits { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
 
         public virtual ICollection<Family> Famlies { get; set; }
 
         public virtual ICollection<Father> Fathers { get; set; }
 
         public virtual ICollection<Mother> Mothers { get; set; }
-
-        public virtual Address Address { get; set; }
-        public virtual Name Name { get; set; }
 
         public virtual ICollection<Orphan> Orphans { get; set; }
 

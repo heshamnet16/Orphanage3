@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OrphanageDataModel.Persons;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 
@@ -8,33 +10,36 @@ namespace OrphanageDataModel.RegularData
     public class Health
     {
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
 
         [Column("Name")]
-        public int? SicknessName { get; set; }
+        public string SicknessName { get; set; }
 
         [Column("Medicen")]
-        public int? Medicine { get; set; }
+        public string Medicine { get; set; }
 
         public decimal? Cost { get; set; }
 
 
         [Column("SupervisorDoctor")]
-        public int? SupervisorDoctor { get; set; }
+        public string SupervisorDoctor { get; set; }
 
         public string Note { get; set; }
 
 
 
-        [Column("ReporteFile", TypeName = "varbinary(max)")]
+        [Column("ReporteFile")]
         public byte[] ReporteFileData { get; set; }
 
 
 
         [NotMapped]
         public MemoryStream ReporteFile { get => ReporteFileData != null ? new MemoryStream(this.ReporteFileData) : null; }
+
+
+        public virtual ICollection<Orphan> Orphans { get; set; }
 
     }
 }

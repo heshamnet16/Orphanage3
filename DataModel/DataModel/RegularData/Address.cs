@@ -8,18 +8,8 @@ namespace OrphanageDataModel.RegularData
     [Table("Addresses")]
     public class Address
     {
-        public Address()
-        {
-            Caregivers = new HashSet<Caregiver>();
-            Famlies = new HashSet<Family>();
-            FamliesAlternativeAddresses = new HashSet<Family>();
-            Mothers = new HashSet<Mother>();
-            Guarantors = new HashSet<Guarantor>();
-            Users = new HashSet<User>();
-        }
-
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
@@ -69,7 +59,9 @@ namespace OrphanageDataModel.RegularData
 
         public virtual ICollection<Caregiver> Caregivers { get; set; }
 
-        public virtual ICollection<Family> Famlies { get; set; }
+
+        public virtual ICollection<Family> Families { get; set; }
+
 
         public virtual ICollection<Family> FamliesAlternativeAddresses { get; set; }
 

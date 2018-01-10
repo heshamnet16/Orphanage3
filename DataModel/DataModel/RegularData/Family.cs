@@ -1,6 +1,7 @@
 ﻿using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.Persons;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
@@ -12,27 +13,29 @@ namespace OrphanageDataModel.RegularData
     public class Family
     {
         [Key]
-        [Column("ID", TypeName = "int")]
+        [Column("ID")]
         public int Id { get; set; }
 
 
 
-        [Column("Mother_ID", TypeName = "int")]
+        [Column("Mother_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int MotherId { get; set; }
+        public virtual Mother Mother { get; set; }
 
-  
 
 
-        [Column("Father_Id", TypeName = "int")]
+
+        [Column("Father_Id")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int FatherId { get; set; }
+        public virtual Father Father { get; set; }
 
 
-        
-        [Column("Bail_ID", TypeName = "int")]
+
+        [Column("Bail_ID")]
         public int? BailId { get; set; }
-
+        public virtual Bail Bail { get; set; }
 
 
 
@@ -41,18 +44,21 @@ namespace OrphanageDataModel.RegularData
 
 
 
-        [Column("Address_ID", TypeName = "int")]
+        [Column("Address_ID")]
         public int? AddressId { get; set; }
+        public virtual Address PrimaryAddress { get; set; }
 
 
 
 
-        [Column("Address_ID2", TypeName = "int")]
+        [Column("Address_ID2")]
         public int? AlternativeAddressId { get; set; }
+        public virtual Address AlternativeAddress { get; set; }
+
 
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [Column("isExcluded", TypeName = "bit")]
+        [Column("isExcluded")]
         public bool IsExcluded { get; set; }
 
         [Column("Finncial_State")]
@@ -63,7 +69,7 @@ namespace OrphanageDataModel.RegularData
         public string FamilyCardNumber { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [Column("IsRefugee", TypeName = "bit")]
+        [Column("IsRefugee")]
         public bool IsTheyRefugees { get; set; }
 
 
@@ -75,39 +81,40 @@ namespace OrphanageDataModel.RegularData
         public string ResidenceType { get; set; }
 
 
-        [Column("Color_Mark", TypeName = "bigint")]
+        [Column("Color_Mark")]
         public long? ColorMark { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
 
-        [Column("User_ID", TypeName = "int")]
+        [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
+        public virtual User ActingUser { get; set; }
 
 
         public string Note { get; set; }
 
 
-        [Column("FamilyCardPhoto", TypeName = "varbinary(max)")]
+        [Column("FamilyCardPhoto")]
         public byte[] FamilyCardPhotoFrontData { get; set; }
 
 
-        [Column("FamilyCardPhotoP2", TypeName = "varbinary(max)")]
+        [Column("FamilyCardPhotoP2")]
         public byte[] FamilyCardPhotoBackData { get; set; }
 
 
         [NotMapped]
-        public Image IdentityCardImageFace { get => FamilyCardPhotoFrontData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoFrontData)) : null; }
+        public Image FamilyCardImageFace { get => FamilyCardPhotoFrontData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoFrontData)) : null; }
 
 
         [NotMapped]
-        public Image IdentityCardImageBack { get => FamilyCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoBackData)) : null; }
+        public Image FamilyCardImageBack { get => FamilyCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoBackData)) : null; }
 
 
 
 
-        public virtual User ActingUser { get; set; }
+        public virtual ICollection<Orphan> Orphans { get; set; }
 
     }
 }
