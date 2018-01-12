@@ -154,12 +154,19 @@ namespace OrphanageDataModel.Persons
         public Image FamilyCardPagePhoto { get => FacePhotoData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPagePhotoData)) : null; }
 
 
+        [NotMapped]
+        public string FullPhotoURI { get; set; }
 
 
+        [NotMapped]
+        public string FacePhotoURI { get; set; }
+
+        [NotMapped]
+        public string BirthCertificatePhotoURI { get; set; }
 
 
-
-
+        [NotMapped]
+        public string FamilyCardPagePhotoURI { get; set; }
 
 
     }

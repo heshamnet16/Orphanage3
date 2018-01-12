@@ -65,6 +65,11 @@ namespace OrphanageDataModel.Persons
         [NotMapped]
         public Image IdentityCardImageBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
 
+        [NotMapped]
+        public string IdentityCardImageFaceURI { get; set; }
+
+        [NotMapped]
+        public string IdentityCardImageBackURI { get; set; }
 
         public virtual ICollection<Orphan> Orphans { get; set; }
 

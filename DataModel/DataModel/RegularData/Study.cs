@@ -51,6 +51,13 @@ namespace OrphanageDataModel.RegularData
         [NotMapped]
         public Image CertificateImage2 { get => CertificatePhotoBack != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoBack)) : null; }
 
+        [NotMapped]
+        public string CertificateImageURI { get; set; }
+
+
+        [NotMapped]
+        public string CertificateImage2URI { get; set; }
+
 
         public virtual ICollection<Orphan> Orphans { get; set; }
 

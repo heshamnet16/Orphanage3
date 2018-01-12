@@ -112,7 +112,13 @@ namespace OrphanageDataModel.RegularData
         public Image FamilyCardImageBack { get => FamilyCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoBackData)) : null; }
 
 
+        [NotMapped]
+        public string FamilyCardImageFaceURI { get; set; }
 
+
+        [NotMapped]
+        public string FamilyCardImageBackURI { get; set; }
+        
 
         public virtual ICollection<Orphan> Orphans { get; set; }
 

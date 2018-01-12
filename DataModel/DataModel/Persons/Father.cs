@@ -77,6 +77,13 @@ namespace OrphanageDataModel.Persons
         [NotMapped]
         public Image DeathCertificateImage { get => DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; }
 
+        [NotMapped]
+        public string PersonalPhotoURI { get; set; }
+
+
+        [NotMapped]
+        public string DeathCertificateImageURI { get; set; }
+
 
         public virtual ICollection<Family> Families { get; set; }
 

@@ -88,14 +88,20 @@ namespace OrphanageDataModel.Persons
         public string Note { get; set; }
 
 
-
-
         [NotMapped]
         public Image IdentityCardFace { get => IdentityCardPhotoFaceData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoFaceData)) : null; }
 
 
         [NotMapped]
         public Image IdentityCardBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
+
+
+        [NotMapped]
+        public string IdentityCardFaceURI { get; set; }
+
+
+        [NotMapped]
+        public string IdentityCardBackURI { get; set; }
 
 
         public virtual ICollection<Family> Families { get; set; }
