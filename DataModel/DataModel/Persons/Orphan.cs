@@ -1,4 +1,5 @@
-﻿using OrphanageDataModel.FinancialData;
+﻿using Newtonsoft.Json;
+using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.RegularData;
 using System;
 using System.ComponentModel.DataAnnotations;
