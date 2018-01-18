@@ -11,7 +11,7 @@ namespace OrphanageService
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            appBuilder.UseWebApi(Orphan.WepApiConfig.Register());
+            appBuilder.UseWebApi(WepApiConfig.Register());
         }
     }
 }

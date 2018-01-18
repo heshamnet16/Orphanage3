@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using OrphanageService.DataContext;
 using OrphanageService.DataContext.Persons;
+using OrphanageService.Services.Interfaces;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Threading.Tasks;
 using System.Linq;
-using System.Collections;
+using System.Threading.Tasks;
 
-namespace OrphanageService.Orphan
+namespace OrphanageService.Services
 {
-    public class DBService
+    public class OrphanDBService : IOrphanDBService
     {
-        public static async Task<OrphanDC> GetOrphan(int id)
+        public  async Task<OrphanDC> GetOrphan(int id)
         {
             using (var dbContext = new OrphanageDBC())
             {
@@ -24,7 +24,7 @@ namespace OrphanageService.Orphan
             }
         }
 
-        public static async Task<IEnumerable<OrphanDC>> GetOrphans(int pageSize, int pageNum)
+        public  async Task<IEnumerable<OrphanDC>> GetOrphans(int pageSize, int pageNum)
         {
             IList<OrphanDC> orphansList = new List<OrphanDC>();
             using (var dbContext = new OrphanageDBC())
@@ -42,7 +42,7 @@ namespace OrphanageService.Orphan
             return orphansList;
         }
 
-        public static async Task<byte[]> getOrphanFaceImage(int Oid)
+        public  async Task<byte[]> GetOrphanFaceImage(int Oid)
         {
             using (var dbContext = new OrphanageDBC())
             {
@@ -51,7 +51,7 @@ namespace OrphanageService.Orphan
             }
         }
 
-        public static async Task<byte[]> getOrphanBirthCertificate(int Oid)
+        public  async Task<byte[]> GetOrphanBirthCertificate(int Oid)
         {
             using (var dbContext = new OrphanageDBC())
             {
@@ -60,7 +60,7 @@ namespace OrphanageService.Orphan
             }
         }
 
-        public static async Task<byte[]> getOrphanFamilyCardPagePhoto(int Oid)
+        public  async Task<byte[]> GetOrphanFamilyCardPagePhoto(int Oid)
         {
             using (var dbContext = new OrphanageDBC())
             {
@@ -69,7 +69,7 @@ namespace OrphanageService.Orphan
             }
         }
 
-        public static async Task<byte[]> getOrphanFullPhoto(int Oid)
+        public  async Task<byte[]> GetOrphanFullPhoto(int Oid)
         {
             using (var dbContext = new OrphanageDBC())
             {
