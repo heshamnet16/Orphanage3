@@ -1,17 +1,20 @@
-namespace OrphanageDBContext
-{
-    using global::OrphanageDBContext.Properties;
-    using OrphanageDataModel.FinancialData;
-    using OrphanageDataModel.Persons;
-    using OrphanageDataModel.RegularData;
-    using System.Data.Entity;
+using OrphanageDataModel.FinancialData;
+using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageService.Properties;
+using System.Data.Entity;
 
-    public partial class OrphansDBC : DbContext
+namespace OrphanageService.DataContext
+{
+    public partial class OrphanageDBC : DbContext
     {
-        public OrphansDBC()
+        public OrphanageDBC()
             : base(Settings.Default.ConnectionString + ";Password=OrphansApp3")
         {
-            Database.SetInitializer<OrphansDBC>(new CreateDatabaseIfNotExists<OrphansDBC>());
+            Database.SetInitializer<OrphanageDBC>(new CreateDatabaseIfNotExists<OrphanageDBC>());
+            //this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
+
         }
 
         public virtual DbSet<Address> Addresses { get; set; }
@@ -23,7 +26,7 @@ namespace OrphanageDBContext
         public virtual DbSet<Health> Healthies { get; set; }
         public virtual DbSet<Mother> Mothers { get; set; }
         public virtual DbSet<Name> Names { get; set; }
-        public virtual DbSet<Orphan> Orphans { get; set; }
+        public virtual DbSet<OrphanageDataModel.Persons.Orphan> Orphans { get; set; }
         public virtual DbSet<Study> Studies { get; set; }
         public virtual DbSet<Guarantor> Guarantors { get; set; }
         public virtual DbSet<User> Users { get; set; }
