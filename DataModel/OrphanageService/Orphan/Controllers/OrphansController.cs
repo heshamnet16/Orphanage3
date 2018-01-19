@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext.Persons;
+using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace OrphanageService.Orphan.Controllers
         }
 
         [Route("{pageSize}/{pageNumber}")]
+        [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanDC>> Get(int pageSize,int pageNumber)
         {
             return await _OrphanDBService.GetOrphans(pageSize,pageNumber);

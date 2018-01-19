@@ -151,6 +151,7 @@
     <Compile Include="DataContext\RegularData\Health.cs" />
     <Compile Include="DataContext\RegularData\Name.cs" />
     <Compile Include="DataContext\RegularData\Study.cs" />
+    <Compile Include="Filters\CacheFilter.cs" />
     <Compile Include="Orphan\Controllers\MediaController.cs" />
     <Compile Include="Orphan\Controllers\OrphansController.cs" />
     <Compile Include="Services\OrphanDBService.cs" />

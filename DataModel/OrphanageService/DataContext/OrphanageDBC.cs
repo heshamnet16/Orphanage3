@@ -8,13 +8,14 @@ namespace OrphanageService.DataContext
 {
     public partial class OrphanageDBC : DbContext
     {
-        public OrphanageDBC()
+        private bool _IgnoreBinaryData;
+        public OrphanageDBC(bool IgnoreBinaryData)
             : base(Settings.Default.ConnectionString + ";Password=OrphansApp3")
         {
             Database.SetInitializer<OrphanageDBC>(new CreateDatabaseIfNotExists<OrphanageDBC>());
             this.Configuration.ProxyCreationEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
-
+            _IgnoreBinaryData = IgnoreBinaryData;
         }
 
         public virtual DbSet<Address> Addresses { get; set; }
@@ -33,6 +34,14 @@ namespace OrphanageService.DataContext
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            if(_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<OrphanageDataModel.Persons.Orphan>()
+                    .Ignore(o => o.BirthCertificatePhotoData)
+                    .Ignore(o => o.FacePhotoData)
+                    .Ignore(o => o.FamilyCardPagePhotoData)
+                    .Ignore(o => o.FullPhotoData);
+            }
             modelBuilder.Entity<Address>()
                 .HasMany(e => e.Caregivers)
                 .WithOptional(e => e.Address)
@@ -76,7 +85,12 @@ namespace OrphanageService.DataContext
                 .HasMany(e => e.Orphans)
                 .WithOptional(e => e.Bail)
                 .HasForeignKey(e => e.BailId);
-
+            if(_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<Caregiver>()
+                    .Ignore(c => c.IdentityCardPhotoBackData)
+                    .Ignore(c => c.IdentityCardPhotoFaceData);
+            }
             modelBuilder.Entity<Caregiver>()
                 .Property(e => e.Income)
                 .HasPrecision(29, 4);
@@ -103,7 +117,6 @@ namespace OrphanageService.DataContext
                 .HasForeignKey(e => e.AccountId)
                 .WillCascadeOnDelete(false);
 
-
             modelBuilder.Entity<Family>()
                 .HasMany(e => e.Orphans)
                 .WithRequired(e => e.Family)
@@ -111,12 +124,23 @@ namespace OrphanageService.DataContext
                 .WillCascadeOnDelete(false);
 
 
+            if (_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<Father>()
+                    .Ignore(f => f.DeathCertificatePhotoData)
+                    .Ignore(f => f.PhotoData);
+            }
             modelBuilder.Entity<Father>()
                 .HasMany(e => e.Families)
                 .WithRequired(e => e.Father)
                 .HasForeignKey(e => e.FatherId)
                 .WillCascadeOnDelete(false);
 
+            if(_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<Health>()
+                    .Ignore(h => h.ReporteFileData);
+            }
             modelBuilder.Entity<Health>()
                 .Property(e => e.Cost)
                 .HasPrecision(29, 4);
@@ -125,7 +149,12 @@ namespace OrphanageService.DataContext
                 .HasMany(e => e.Orphans)
                 .WithOptional(e => e.HealthStatus)
                 .HasForeignKey(e => e.HealthId);
-
+            if(_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<Mother>()
+                    .Ignore(m => m.IdentityCardPhotoBackData)
+                    .Ignore(m => m.IdentityCardPhotoFaceData);
+            }
             modelBuilder.Entity<Mother>()
                 .Property(e => e.Salary)
                 .HasPrecision(29, 4);
@@ -171,7 +200,12 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Name)
                 .HasForeignKey(e => e.NameId);
 
-
+            if(_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<Study>()
+                    .Ignore(s => s.CertificatePhotoBack)
+                    .Ignore(s => s.CertificatePhotoFront);
+            }
             modelBuilder.Entity<Study>()
                 .Property(e => e.MonthlyCost)
                 .HasPrecision(29, 4);

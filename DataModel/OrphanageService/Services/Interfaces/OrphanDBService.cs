@@ -22,5 +22,10 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetOrphanFullPhoto(int Oid);
 
+        Task<byte[]> GetOrphanCertificate(int Oid);
+
+        Task<byte[]> GetOrphanCertificate2(int Oid);
+
+        Task<byte[]> GetOrphanHealthReporte(int Oid);
     }
 }
