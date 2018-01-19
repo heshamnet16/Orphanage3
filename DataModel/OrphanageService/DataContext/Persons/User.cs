@@ -37,22 +37,5 @@ namespace OrphanageService.DataContext.Persons
 
         public string Note { get; set; }
 
-
-        public virtual ICollection<BailDC> Bails { get; set; }
-
-        public virtual ICollection<CaregiverDC> Caregivers { get; set; }
-
-        public virtual ICollection<AccountDC> Accounts { get; set; }
-
-        public virtual ICollection<FamilyDC> Famlies { get; set; }
-
-        public virtual ICollection<FatherDC> Fathers { get; set; }
-
-        public virtual ICollection<MotherDC> Mothers { get; set; }
-
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
-
-        public virtual ICollection<GuarantorDC> Guarantors { get; set; }
-
     }
 }

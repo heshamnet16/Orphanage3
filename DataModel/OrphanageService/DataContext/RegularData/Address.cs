@@ -30,17 +30,5 @@ namespace OrphanageService.DataContext.RegularData
         public string Twitter { get; set; }
 
         public string Note { get; set; }
-
-        public virtual ICollection<CaregiverDC> Caregivers { get; set; }
-
-        public virtual ICollection<FamilyDC> Families { get; set; }
-
-        public virtual ICollection<FamilyDC> FamliesAlternativeAddresses { get; set; }
-
-        public virtual ICollection<MotherDC> Mothers { get; set; }
-
-        public virtual ICollection<GuarantorDC> Guarantors { get; set; }
-
-        public virtual ICollection<UserDC> Users { get; set; }
     }
 }

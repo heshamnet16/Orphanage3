@@ -36,7 +36,6 @@ namespace OrphanageService.DataContext.Persons
 
         public string IdentityCardImageBackURI { get; set; }
 
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
 
     }
 }

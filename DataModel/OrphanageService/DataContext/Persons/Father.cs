@@ -38,7 +38,7 @@ namespace OrphanageService.DataContext.Persons
 
         public string DeathCertificateImageURI { get; set; }
 
-        public virtual ICollection<FamilyDC> Families { get; set; }
+
 
     }
 }

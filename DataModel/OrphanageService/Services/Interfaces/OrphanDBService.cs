@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext.Persons;
+using OrphanageService.DataContext.RegularData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,6 @@ namespace OrphanageService.Services.Interfaces
         Task<byte[]> GetOrphanFamilyCardPagePhoto(int Oid);
 
         Task<byte[]> GetOrphanFullPhoto(int Oid);
+
     }
 }

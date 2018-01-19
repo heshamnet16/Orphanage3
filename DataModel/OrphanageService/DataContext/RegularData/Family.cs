@@ -56,8 +56,5 @@ namespace OrphanageService.DataContext.RegularData
         public string FamilyCardImageFaceURI { get; set; }
 
         public string FamilyCardImageBackURI { get; set; }
-
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
-
     }
 }

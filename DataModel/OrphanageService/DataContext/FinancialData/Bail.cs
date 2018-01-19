@@ -38,8 +38,5 @@ namespace OrphanageService.DataContext.FinancialData
         
         public string Note { get; set; }
         
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
-
-        public virtual ICollection<FamilyDC> Families { get; set; }
     }
 }

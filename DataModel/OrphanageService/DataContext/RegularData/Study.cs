@@ -27,7 +27,5 @@ namespace OrphanageService.DataContext.RegularData
 
         public string CertificateImage2URI { get; set; }
 
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
-
     }
 }

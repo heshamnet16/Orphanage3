@@ -36,9 +36,5 @@ namespace OrphanageService.DataContext.Persons
         public virtual UserDC ActingUser { get; set; }
 
         public string Note { get; set; }
-
-        public virtual ICollection<BailDC> Bails { get; set; }
-
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace OrphanageService.DataContext
             : base(Settings.Default.ConnectionString + ";Password=OrphansApp3")
         {
             Database.SetInitializer<OrphanageDBC>(new CreateDatabaseIfNotExists<OrphanageDBC>());
-            //this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
 
         }

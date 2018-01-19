@@ -26,8 +26,6 @@ namespace OrphanageService.DataContext.FinancialData
 
         public virtual UserDC ActingUser { get; set; }
 
-        public virtual ICollection<BailDC> Bails { get; set; }
 
-        public virtual ICollection<GuarantorDC> Guarantors { get; set; }
     }
 }

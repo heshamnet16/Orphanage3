@@ -18,17 +18,5 @@ namespace OrphanageService.DataContext.RegularData
         public string EnglishFather { get; set; }
 
         public string  EnglishLast { get; set; }
-
-        public virtual ICollection<CaregiverDC> Caregivers { get; set; }
-
-        public virtual ICollection<FatherDC> Fathers { get; set; }
-
-        public virtual ICollection<MotherDC> Mothers { get; set; }
-
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
-
-        public virtual ICollection<GuarantorDC> Guarantors { get; set; }
-
-        public virtual ICollection<UserDC> Users { get; set; }
     }
 }

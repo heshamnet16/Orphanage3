@@ -19,7 +19,6 @@ namespace OrphanageService.DataContext.RegularData
 
         public string ReporteFileURI { get; set; }
 
-        public virtual ICollection<OrphanDC> Orphans { get; set; }
 
     }
 }
