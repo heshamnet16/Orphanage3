@@ -31,13 +31,17 @@ namespace OrphanageService.Services
         {
             using (var _orphanageDBC = new OrphanageDBC(true))
             {
-                var orphan  = await _orphanageDBC.Orphans
+                var orphan  = await _orphanageDBC.Orphans.AsNoTracking()
                     .Include(o=>o.Education)
-                    .Include(o=>o.Name)
+                    .Include(o => o.Name)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
                     .Include(o=>o.Bail)
-                    .Include(o=>o.Caregiver)
-                    .Include(o=>o.Family)
-                    .Include(o=>o.Guarantor)
                     .Include(o=>o.HealthStatus)
                     .FirstOrDefaultAsync(o => o.Id == id);
                 OrphanDC orphanDC = Mapper.Map<OrphanDC>(orphan);
