@@ -4,6 +4,8 @@ using OrphanageService.DataContext.Persons;
 using OrphanageService.Services.Interfaces;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +13,6 @@ namespace OrphanageService.Services
 {
     public class OrphanDBService : IOrphanDBService
     {
-        private readonly OrphanageDBC _orphanageDBC;
         #region Private Functions
         private void setOrphanUrl(ref OrphanDC orphanDC)
         {
@@ -22,44 +23,55 @@ namespace OrphanageService.Services
         }
         #endregion
 
-        public OrphanDBService(OrphanageDBC orphanageDBC)
+        public OrphanDBService()
         {
-            _orphanageDBC = orphanageDBC;
+            
         }
         public async Task<OrphanDC> GetOrphan(int id)
         {
-            using (_orphanageDBC)
+            using (var _orphanageDBC = new OrphanageDBC(true))
             {
-                var orphan  = await _orphanageDBC.Orphans
+                var orphan  = await _orphanageDBC.Orphans.AsNoTracking()
                     .Include(o=>o.Education)
-                    .Include(o=>o.Name)
+                    .Include(o => o.Name)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
                     .Include(o=>o.Bail)
-                    .Include(o=>o.Caregiver)
-                    .Include(o=>o.Family)
-                    .Include(o=>o.Guarantor)
                     .Include(o=>o.HealthStatus)
                     .FirstOrDefaultAsync(o => o.Id == id);
                 OrphanDC orphanDC = Mapper.Map<OrphanDC>(orphan);
                 setOrphanUrl(ref orphanDC);
                 return orphanDC;
             }
-        }
+        }       
 
         public  async Task<IEnumerable<OrphanDC>> GetOrphans(int pageSize, int pageNum)
         {
             IList<OrphanDC> orphansList = new List<OrphanDC>();
-            using (var _orphanageDBC = new OrphanageDBC())
+            using (var _orphanageDBC = new OrphanageDBC(true))
             {
-                var orphans = await _orphanageDBC.Orphans.OrderBy(o=>o.Id).Skip(pageSize * pageNum).Take(pageSize)
-                    .Include(o=> o.Education)
+                int totalSkiped = pageSize * pageNum;
+                int orphansCount = await _orphanageDBC.Orphans.CountAsync();
+                if(orphansCount<totalSkiped)
+                {
+                    totalSkiped = orphansCount - pageSize;
+                }
+                var orphans = await _orphanageDBC.Orphans.AsNoTracking()
+                    .OrderBy(o => o.Id).Skip(()=> totalSkiped).Take(()=> pageSize)
                     .Include(o => o.Name)
-                    .Include(o => o.Bail)
-                    .Include(o => o.Caregiver)
-                    .Include(o => o.Family)
-                    .Include(o => o.Guarantor)
-                    .Include(o => o.HealthStatus)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
                     .ToListAsync();
-
 
                 foreach (var orphan in orphans)
                 {
@@ -73,37 +85,64 @@ namespace OrphanageService.Services
 
         public  async Task<byte[]> GetOrphanFaceImage(int Oid)
         {
-            using (_orphanageDBC)
+            using (var _orphanageDBC = new OrphanageDBC(false))
             {
-                var img = await _orphanageDBC.Orphans.FirstOrDefaultAsync(o => o.Id == Oid);
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid).Select(o=> new { o.FacePhotoData }).FirstOrDefaultAsync();
                 return img.FacePhotoData;
             }
         }
 
         public  async Task<byte[]> GetOrphanBirthCertificate(int Oid)
         {
-            using (_orphanageDBC)
+            using (var _orphanageDBC = new OrphanageDBC(false))
             {
-                var img = await _orphanageDBC.Orphans.FirstOrDefaultAsync(o => o.Id == Oid);
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid).Select(o => new { o.BirthCertificatePhotoData }).FirstOrDefaultAsync();
                 return img.BirthCertificatePhotoData;
             }
         }
 
         public  async Task<byte[]> GetOrphanFamilyCardPagePhoto(int Oid)
         {
-            using (_orphanageDBC)
+            using (var _orphanageDBC = new OrphanageDBC(false))
             {
-                var img = await _orphanageDBC.Orphans.FirstOrDefaultAsync(o => o.Id == Oid);
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid).Select(o => new { o.FamilyCardPagePhotoData}).FirstOrDefaultAsync();
                 return img.FamilyCardPagePhotoData;
             }
         }
 
         public  async Task<byte[]> GetOrphanFullPhoto(int Oid)
         {
-            using (_orphanageDBC)
+            using (var _orphanageDBC = new OrphanageDBC(false))
             {
-                var img = await _orphanageDBC.Orphans.FirstOrDefaultAsync(o => o.Id == Oid);
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid).Select(o => new { o.FullPhotoData }).FirstOrDefaultAsync();
                 return img.FullPhotoData;
+            }
+        }
+
+        public async Task<byte[]> GetOrphanCertificate(int Oid)
+        {
+            using (var _orphanageDBC = new OrphanageDBC(false))
+            {
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid && o.EducationId.HasValue).Select(o => new { o.Education.CertificatePhotoFront }).FirstOrDefaultAsync();
+                return img.CertificatePhotoFront;
+            }
+        }
+
+        public async Task<byte[]> GetOrphanCertificate2(int Oid)
+        {
+            using (var _orphanageDBC = new OrphanageDBC(false))
+            {
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid && o.EducationId.HasValue).Select(o => new { o.Education.CertificatePhotoBack }).FirstOrDefaultAsync();
+                return img.CertificatePhotoBack;
+            }
+        }
+
+        public async Task<byte[]> GetOrphanHealthReporte(int Oid)
+        {
+            using (var _orphanageDBC = new OrphanageDBC(false))
+            {
+                var img = await _orphanageDBC.Orphans.Where(o => o.Id == Oid && o.HealthId.HasValue).Select(o => new { o.HealthStatus.ReporteFileData }).FirstOrDefaultAsync();
+                return img.ReporteFileData;
             }
         }
     }
