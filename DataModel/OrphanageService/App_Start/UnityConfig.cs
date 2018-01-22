@@ -1,5 +1,7 @@
 using OrphanageService.Services;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities;
+using OrphanageService.Utilities.Interfaces;
 using System;
 
 using Unity;
@@ -51,7 +53,11 @@ namespace OrphanageService
             // container.LoadConfiguration();
 
             // TODO: Register your type's mappings here.
-            container.RegisterType<IOrphanDBService, OrphanDBService>();
+            container.RegisterType<IOrphanDBService, OrphanDbService>();
+            container.RegisterType<IFatherDBService, FatherDbService>();
+            container.RegisterType<ISelfLoopBlocking, SelfLoopBlocking>();
+            container.RegisterType<IUriGenerator, UriGenerator>();
+            container.RegisterType<IHttpResponseMessageConfiguerer, HttpResponseMessageConfiguerer>();
 
         }
     }

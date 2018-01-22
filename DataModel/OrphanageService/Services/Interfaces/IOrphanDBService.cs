@@ -1,9 +1,5 @@
 ﻿using OrphanageService.DataContext.Persons;
-using OrphanageService.DataContext.RegularData;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
@@ -13,6 +9,8 @@ namespace OrphanageService.Services.Interfaces
         Task<OrphanDC> GetOrphan(int id);
 
         Task<IEnumerable<OrphanDC>> GetOrphans(int pageSize, int pageNum);
+
+        Task<int> GetOrphansCount();
 
         Task<byte[]> GetOrphanFaceImage(int Oid);
 

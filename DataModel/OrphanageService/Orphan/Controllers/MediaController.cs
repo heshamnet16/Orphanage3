@@ -11,6 +11,7 @@ using OrphanageService.Utilities;
 using OrphanageService.Services;
 using OrphanageService.Services.Interfaces;
 using System.Net.Http.Headers;
+using OrphanageService.Utilities.Interfaces;
 
 namespace OrphanageService.Orphan.Controllers
 {
@@ -18,10 +19,12 @@ namespace OrphanageService.Orphan.Controllers
     public class MediaController : ApiController
     {
         private IOrphanDBService _OrphanDBService;
+        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public MediaController(IOrphanDBService orphanDBService)
+        public MediaController(IOrphanDBService orphanDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _OrphanDBService = orphanDBService;
+            _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;
         }
 
         #region Face
@@ -29,7 +32,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanFaceImage(Oid);
-            return ImageAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
         [System.Web.Http.Route("media/face/{Oid}/{Size}")]
@@ -39,7 +42,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanFaceImage(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]));
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
         [System.Web.Http.Route("media/face/{Oid}/{Size}/{Compertion}")]
@@ -49,7 +52,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanFaceImage(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
         #region BirthCertificate
@@ -57,7 +60,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanBirthCertificate(Oid);
-            return ImageAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
         [System.Web.Http.Route("media/birth/{Oid}/{Size}")]
@@ -67,7 +70,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanBirthCertificate(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]));
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
         [System.Web.Http.Route("media/birth/{Oid}/{Size}/{Compertion}")]
@@ -77,7 +80,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanBirthCertificate(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
         #region FamilyCardPagePhoto
@@ -85,7 +88,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanFamilyCardPagePhoto(Oid);
-            return ImageAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
         [System.Web.Http.Route("media/familycard/{Oid}/{Size}")]
@@ -95,7 +98,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanFamilyCardPagePhoto(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]));
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
         [System.Web.Http.Route("media/familycard/{Oid}/{Size}/{Compertion}")]
@@ -105,7 +108,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanFamilyCardPagePhoto(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
         #region Full
@@ -113,7 +116,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanFullPhoto(Oid);
-            return ImageAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
         [System.Web.Http.Route("media/full/{Oid}/{Size}")]
@@ -123,7 +126,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanFullPhoto(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]));
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
         [System.Web.Http.Route("media/full/{Oid}/{Size}/{Compertion}")]
@@ -133,7 +136,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanFullPhoto(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
 
@@ -142,7 +145,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanCertificate(Oid);
-            return ImageAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
         [System.Web.Http.Route("media/education/{Oid}/{Size}")]
@@ -152,7 +155,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanCertificate(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]));
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
         [System.Web.Http.Route("media/education/{Oid}/{Size}/{Compertion}")]
@@ -162,7 +165,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanCertificate(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
 
@@ -171,7 +174,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanCertificate2(Oid);
-            return ImageAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
         [System.Web.Http.Route("media/education2/{Oid}/{Size}")]
@@ -181,7 +184,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanCertificate2(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]));
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
         [System.Web.Http.Route("media/education2/{Oid}/{Size}/{Compertion}")]
@@ -191,7 +194,7 @@ namespace OrphanageService.Orphan.Controllers
 
             var image = await _OrphanDBService.GetOrphanCertificate2(Oid);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
-            return ImageAsHttpResponse(thumb);
+            return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
         
@@ -200,38 +203,9 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> getOrphanHealthReport(int Oid)
         {
             var image = await _OrphanDBService.GetOrphanHealthReporte(Oid);
-            return PDFAsHttpResponse(image);
+            return _httpResponseMessageConfiguerer.PDFFileContent(image);
         }
         #endregion
 
-        private HttpResponseMessage ImageAsHttpResponse(byte[] img)
-        {
-            if(img == null)
-            {
-                HttpResponseMessage response1 = new HttpResponseMessage(HttpStatusCode.NoContent);
-                return response1;
-            }
-            MemoryStream ms = new MemoryStream(img);
-            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StreamContent(ms);
-            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
-            return response;
-        }
-
-        private HttpResponseMessage PDFAsHttpResponse(byte[] file)
-        {
-            if (file == null)
-            {
-                HttpResponseMessage response1 = new HttpResponseMessage(HttpStatusCode.NoContent);
-                return response1;
-            }
-            MemoryStream ms = new MemoryStream(file);
-            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StreamContent(ms);
-            //response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-            //response.Content.Headers.ContentDisposition.FileName = "OrphangePDF.pdf";
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
-            return response;
-        }
     }
 }

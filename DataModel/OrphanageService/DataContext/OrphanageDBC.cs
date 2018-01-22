@@ -18,19 +18,19 @@ namespace OrphanageService.DataContext
             _IgnoreBinaryData = IgnoreBinaryData;
         }
 
-        public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Bail> Bails { get; set; }
-        public virtual DbSet<Caregiver> Caregivers { get; set; }
-        public virtual DbSet<Account> Accounts{ get; set; }
-        public virtual DbSet<Family> Families { get; set; }
-        public virtual DbSet<Father> Fathers { get; set; }
-        public virtual DbSet<Health> Healthies { get; set; }
-        public virtual DbSet<Mother> Mothers { get; set; }
-        public virtual DbSet<Name> Names { get; set; }
+        public virtual DbSet<OrphanageDataModel.RegularData.Address> Addresses { get; set; }
+        public virtual DbSet<OrphanageDataModel.FinancialData.Bail> Bails { get; set; }
+        public virtual DbSet<OrphanageDataModel.Persons.Caregiver> Caregivers { get; set; }
+        public virtual DbSet<OrphanageDataModel.FinancialData.Account> Accounts{ get; set; }
+        public virtual DbSet<OrphanageDataModel.RegularData.Family> Families { get; set; }
+        public virtual DbSet<OrphanageDataModel.Persons.Father> Fathers { get; set; }
+        public virtual DbSet<OrphanageDataModel.RegularData.Health> Healthies { get; set; }
+        public virtual DbSet<OrphanageDataModel.Persons.Mother> Mothers { get; set; }
+        public virtual DbSet<OrphanageDataModel.RegularData.Name> Names { get; set; }
         public virtual DbSet<OrphanageDataModel.Persons.Orphan> Orphans { get; set; }
-        public virtual DbSet<Study> Studies { get; set; }
-        public virtual DbSet<Guarantor> Guarantors { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<OrphanageDataModel.RegularData.Study> Studies { get; set; }
+        public virtual DbSet<OrphanageDataModel.Persons.Guarantor> Guarantors { get; set; }
+        public virtual DbSet<OrphanageDataModel.Persons.User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -116,7 +116,12 @@ namespace OrphanageService.DataContext
                 .WithRequired(e => e.Account)
                 .HasForeignKey(e => e.AccountId)
                 .WillCascadeOnDelete(false);
-
+            if(_IgnoreBinaryData)
+            {
+                modelBuilder.Entity<OrphanageDataModel.RegularData.Family>()
+                    .Ignore(f => f.FamilyCardPhotoBackData)
+                    .Ignore(f => f.FamilyCardPhotoFrontData);
+            }
             modelBuilder.Entity<Family>()
                 .HasMany(e => e.Orphans)
                 .WithRequired(e => e.Family)
@@ -126,11 +131,11 @@ namespace OrphanageService.DataContext
 
             if (_IgnoreBinaryData)
             {
-                modelBuilder.Entity<Father>()
+                modelBuilder.Entity<OrphanageDataModel.Persons.Father>()
                     .Ignore(f => f.DeathCertificatePhotoData)
                     .Ignore(f => f.PhotoData);
             }
-            modelBuilder.Entity<Father>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Father>()
                 .HasMany(e => e.Families)
                 .WithRequired(e => e.Father)
                 .HasForeignKey(e => e.FatherId)

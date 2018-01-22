@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace OrphanageService
 {
@@ -11,7 +12,10 @@ namespace OrphanageService
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            appBuilder.UseWebApi(WepApiConfig.Register());
+            var httpConfiguration = WepApiConfig.Register();
+            httpConfiguration.EnsureInitialized();
+            appBuilder.UseWebApi(httpConfiguration);
+            GlobalConfiguration.Configuration.EnsureInitialized();
         }
     }
 }

@@ -21,7 +21,6 @@ namespace OrphanageService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
             return config;
         }
     }
