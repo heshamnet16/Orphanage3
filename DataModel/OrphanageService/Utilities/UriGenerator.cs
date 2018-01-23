@@ -23,9 +23,10 @@ namespace OrphanageService.Utilities
             fatherDC.DeathCertificateImageURI = "api/father/media/death/" + fatherDC.Id;
         }
 
-        public void SetMotherUris(ref MotherDC orphanDC)
+        public void SetMotherUris(ref MotherDC motherDC)
         {
-            throw new NotImplementedException();
+            motherDC.IdentityCardFaceURI = "api/mother/media/idface/" + motherDC.Id;
+            motherDC.IdentityCardBackURI = "api/mother/media/idback/" + motherDC.Id;
         }
 
         public void SetOrphanUris(ref OrphanDC orphanDC)

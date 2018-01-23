@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
 {
-    interface IMotherDbService
+    public interface IMotherDbService
     {
-        Task<MotherDC> GetMother(int Fid);
+        Task<MotherDC> GetMother(int Mid);
 
         Task<IEnumerable<MotherDC>> GetMothers(int pageSize, int pageNum);
 
-        Task<IEnumerable<OrphanDC>> GetOrphans(int Fid);
+        Task<IEnumerable<OrphanDC>> GetOrphans(int Mid);
 
         Task<int> GetMotherCount();
 
-        Task<byte[]> GetFatherPhoto(int Fid);
+        Task<byte[]> GetMotherIdPhotoFace(int Mid);
 
-        Task<byte[]> GetFatherDeathCertificate(int Fid);
+        Task<byte[]> GetMotherIdPhotoBack(int Mid);
     }
 }
