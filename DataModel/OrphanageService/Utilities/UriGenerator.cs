@@ -2,10 +2,6 @@
 using OrphanageService.DataContext.RegularData;
 using OrphanageService.Utilities.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageService.Utilities
 {

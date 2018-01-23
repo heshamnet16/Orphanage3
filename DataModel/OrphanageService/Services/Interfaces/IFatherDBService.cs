@@ -1,9 +1,6 @@
-﻿using System;
+﻿using OrphanageService.DataContext.Persons;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using OrphanageService.DataContext.Persons;
 
 namespace OrphanageService.Services.Interfaces
 {

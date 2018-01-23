@@ -1,15 +1,12 @@
-﻿using OrphanageService.DataContext.Persons;
-using OrphanageService.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using AutoMapper;
-using OrphanageDataModel.Persons;
+﻿using AutoMapper;
 using OrphanageService.DataContext;
+using OrphanageService.DataContext.Persons;
+using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrphanageService.Services
 {
@@ -26,7 +23,7 @@ namespace OrphanageService.Services
 
         public async Task<FatherDC> GetFather(int Fid)
         {
-            using (var dbContext = new OrphanageDBC(true))
+            using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var father = await dbContext.Fathers.AsNoTracking()
                     .Include(f => f.Families)
@@ -43,26 +40,26 @@ namespace OrphanageService.Services
 
         public async Task<byte[]> GetFatherDeathCertificate(int Fid)
         {
-            using (var _orphanageDBC = new OrphanageDBC(false))
+            using (var _orphanageDBC = new OrphanageDBC())
             {
-                var img = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).Select(f => new { f.DeathCertificatePhotoData }).FirstOrDefaultAsync();
-                return img.DeathCertificatePhotoData;
+                var img = await _orphanageDBC.Fathers.AsNoTracking().Where(f => f.Id == Fid).Select(f => new { f.DeathCertificatePhotoData }).FirstOrDefaultAsync();
+                return img?.DeathCertificatePhotoData;
             }
         }
 
         public async Task<byte[]> GetFatherPhoto(int Fid)
         {
-            using (var _orphanageDBC = new OrphanageDBC(false))
+            using (var _orphanageDBC = new OrphanageDBC())
             {
-                var img = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).Select(f => new { f.PhotoData }).FirstOrDefaultAsync();
-                return img.PhotoData;
+                var img = await _orphanageDBC.Fathers.AsNoTracking().Where(f => f.Id == Fid).Select(f => new { f.PhotoData }).FirstOrDefaultAsync();
+                return  img?.PhotoData;
             }
         }
 
         public async Task<IEnumerable<FatherDC>> GetFathers(int pageSize, int pageNum)
         {
             IList<FatherDC> fathersList = new List<FatherDC>();
-            using (var _orphanageDBC = new OrphanageDBC(true))
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
                 int FathersCount = await _orphanageDBC.Fathers.AsNoTracking().CountAsync();
@@ -91,18 +88,19 @@ namespace OrphanageService.Services
 
         public async Task<int> GetFathersCount()
         {
-            using (var _orphanageDBC = new OrphanageDBC(true))
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int orphansCount = await _orphanageDBC.Fathers.AsNoTracking().CountAsync();
                 return orphansCount;
             }
         }
 
-        public static void setFatherEntities(ref OrphanageDataModel.Persons.Father father, OrphanageDBC dbContext)
+        public static void setFatherEntities(ref OrphanageDataModel.Persons.Father father, DbContext dbContext)
         {
+            OrphanageDbCNoBinary dbCNoBinary = (OrphanageDbCNoBinary)dbContext;
             foreach (var fam in father.Families)
             {
-                var moth = dbContext.Mothers.
+                var moth = dbCNoBinary.Mothers.
                     Include(m => m.Name).
                     Include(m => m.Address).
                     FirstOrDefault(m => m.Id == fam.MotherId);
@@ -113,7 +111,7 @@ namespace OrphanageService.Services
         public async Task<IEnumerable<OrphanDC>> GetOrphans(int Fid)
         {
             IList<OrphanDC> returnedOrphans = new List<OrphanDC>();
-            using (var dbContext = new OrphanageDBC(true))
+            using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
                                      join fath in dbContext.Families.AsNoTracking() on orp.Family.FatherId equals fath.FatherId
