@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Unity.AspNet.WebApi;
 
 namespace OrphanageService
@@ -16,12 +11,17 @@ namespace OrphanageService
 
             config.MapHttpAttributeRoutes();
             config.DependencyResolver = new UnityDependencyResolver(UnityConfig.GetConfiguredContainer());
-            config.Routes.MapHttpRoute(
-                name: "OrphanApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "OrphanApi",
+            //    routeTemplate: "api/orphan/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
+            //config.Routes.MapHttpRoute(
+            //    name: "FatherApi",
+            //    routeTemplate: "api/father/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
             return config;
         }
     }

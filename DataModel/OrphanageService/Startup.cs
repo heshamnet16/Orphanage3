@@ -1,9 +1,4 @@
 ﻿using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageService
 {
@@ -11,7 +6,10 @@ namespace OrphanageService
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            appBuilder.UseWebApi(WepApiConfig.Register());
+            var httpConfiguration = WepApiConfig.Register();
+            httpConfiguration.EnsureInitialized();
+            appBuilder.UseWebApi(httpConfiguration);
+            
         }
     }
 }
