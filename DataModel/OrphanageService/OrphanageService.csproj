@@ -155,10 +155,14 @@
     <Compile Include="Father\Controllers\FathersController.cs" />
     <Compile Include="Father\Controllers\FMediaController.cs" />
     <Compile Include="Filters\CacheFilter.cs" />
+    <Compile Include="Mother\Controllers\MMediaController.cs" />
+    <Compile Include="Mother\Controllers\MothersController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />
     <Compile Include="Orphan\Controllers\OrphansController.cs" />
     <Compile Include="Services\FatherDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDBService.cs" />
+    <Compile Include="Services\Interfaces\IMotherDbService.cs" />
+    <Compile Include="Services\MotherDbService.cs" />
     <Compile Include="Services\OrphanDbService.cs" />
     <Compile Include="App_Start\WepApiConfig.cs" />
     <Compile Include="Program.cs" />

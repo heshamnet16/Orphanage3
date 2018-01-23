@@ -127,11 +127,11 @@ namespace OrphanageService.DataContext
                 .HasForeignKey(e => e.HealthId);
 
 
-            modelBuilder.Entity<Mother>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Mother>()
                 .Property(e => e.Salary)
                 .HasPrecision(29, 4);
 
-            modelBuilder.Entity<Mother>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Mother>()
                 .HasMany(e => e.Families)
                 .WithRequired(e => e.Mother)
                 .HasForeignKey(e => e.MotherId)

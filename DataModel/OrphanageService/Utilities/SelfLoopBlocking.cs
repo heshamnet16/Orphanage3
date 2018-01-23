@@ -34,7 +34,7 @@ namespace OrphanageService.Utilities
             throw new NotImplementedException();
         }
 
-        public void BlockMotherSelfLoop(ref Mother mother)
+        public void BlockMotherSelfLoop(ref OrphanageDataModel.Persons.Mother mother)
         {
             foreach (var fam in mother.Families)
             {
