@@ -9,19 +9,10 @@ namespace OrphanageService
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            SwaggerConfig.Register(config);
+
             config.MapHttpAttributeRoutes();
             config.DependencyResolver = new UnityDependencyResolver(UnityConfig.GetConfiguredContainer());
-            //config.Routes.MapHttpRoute(
-            //    name: "OrphanApi",
-            //    routeTemplate: "api/orphan/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
-
-            //config.Routes.MapHttpRoute(
-            //    name: "FatherApi",
-            //    routeTemplate: "api/father/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
             return config;
         }
     }
