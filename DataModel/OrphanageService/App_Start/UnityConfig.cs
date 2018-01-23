@@ -55,6 +55,7 @@ namespace OrphanageService
             // TODO: Register your type's mappings here.
             container.RegisterType<IOrphanDBService, OrphanDbService>();
             container.RegisterType<IFatherDBService, FatherDbService>();
+            container.RegisterType<IMotherDbService, MotherDbService>();
             container.RegisterType<ISelfLoopBlocking, SelfLoopBlocking>();
             container.RegisterType<IUriGenerator, UriGenerator>();
             container.RegisterType<IHttpResponseMessageConfiguerer, HttpResponseMessageConfiguerer>();
