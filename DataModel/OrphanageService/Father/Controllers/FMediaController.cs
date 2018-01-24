@@ -75,5 +75,6 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
+
     }
 }

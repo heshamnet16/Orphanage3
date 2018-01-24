@@ -136,6 +136,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\HttpAreaSelector.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="DataContext\FinancialData\Account.cs" />

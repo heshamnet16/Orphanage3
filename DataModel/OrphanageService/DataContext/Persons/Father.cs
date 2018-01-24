@@ -1,6 +1,7 @@
 ﻿using OrphanageService.DataContext.RegularData;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace OrphanageService.DataContext.Persons
 {
