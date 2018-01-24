@@ -8,11 +8,11 @@ using System.Web.Http;
 namespace OrphanageService.Orphan.Controllers
 {
     [RoutePrefix("api/orphan")]
-    public class OrphanController : ApiController
+    public class OrphansController : ApiController
     {
         private readonly IOrphanDBService _OrphanDBService;
 
-        public OrphanController(IOrphanDBService orphanDBService)
+        public OrphansController(IOrphanDBService orphanDBService)
         {
             _OrphanDBService = orphanDBService;
         }
