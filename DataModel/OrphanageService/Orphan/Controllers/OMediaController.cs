@@ -41,7 +41,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("face/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -72,7 +72,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("birth/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -103,7 +103,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("familycard/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -134,7 +134,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("full/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -166,7 +166,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("education/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -198,7 +198,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("education2/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 

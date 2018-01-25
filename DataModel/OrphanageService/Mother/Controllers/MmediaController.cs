@@ -41,7 +41,7 @@ namespace OrphanageService.Mother.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("idface/{Mid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> GetMotherIdPhotoFace(int Mid, string Size, int compertion)
+        public async Task<HttpResponseMessage> GetMotherIdPhotoFace(int Mid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -72,7 +72,7 @@ namespace OrphanageService.Mother.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("idback/{Mid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> GetMotherIdPhotoBack(int Mid, string Size, int compertion)
+        public async Task<HttpResponseMessage> GetMotherIdPhotoBack(int Mid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 

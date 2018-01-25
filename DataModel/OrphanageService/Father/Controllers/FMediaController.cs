@@ -41,7 +41,7 @@ namespace OrphanageService.Father.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("photo/{Fid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -72,7 +72,7 @@ namespace OrphanageService.Father.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("death/{Fid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid, string Size, int compertion)
+        public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 

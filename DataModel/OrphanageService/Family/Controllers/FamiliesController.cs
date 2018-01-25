@@ -1,4 +1,5 @@
-﻿using OrphanageService.DataContext.RegularData;
+﻿using OrphanageService.DataContext.Persons;
+using OrphanageService.DataContext.RegularData;
 using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using System.Collections.Generic;
@@ -39,6 +40,14 @@ namespace OrphanageService.Family.Controllers
         public async Task<int> GetFamiliesCount()
         {
             return await _FamilyDBService.GetFamiliesCount();
+        }
+
+        [HttpGet]
+        [Route("orphans/{FamId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IList<OrphanDC>> GetFamilyOrphans(int famId)
+        {
+            return await _FamilyDBService.GetOrphans(famId);
         }
     }
 }

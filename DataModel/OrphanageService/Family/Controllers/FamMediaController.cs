@@ -41,7 +41,7 @@ namespace OrphanageService.Family.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("page1/{FamId}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getFamilyCardPhotoPage1(int FamId, string Size, int compertion)
+        public async Task<HttpResponseMessage> getFamilyCardPhotoPage1(int FamId, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -73,7 +73,7 @@ namespace OrphanageService.Family.Controllers
 
         [HttpGet]
         [System.Web.Http.Route("page2/{FamId}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getFamilyCardPhotoPage2(int FamId, string Size, int compertion)
+        public async Task<HttpResponseMessage> getFamilyCardPhotoPage2(int FamId, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 

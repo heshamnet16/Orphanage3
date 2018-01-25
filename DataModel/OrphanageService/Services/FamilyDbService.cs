@@ -106,9 +106,36 @@ namespace OrphanageService.Services
             }
         }
 
-        public Task<IList<OrphanDC>> GetOrphans(int FamId)
+        public async Task<IList<OrphanDC>> GetOrphans(int FamId)
         {
-            throw new NotImplementedException();
+            IList<OrphanDC> returnedOrphans = new List<OrphanDC>();
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var orphans = await(from orp in dbContext.Orphans.AsNoTracking()
+                                    where orp.FamilyId == FamId
+                                    select orp)
+                                     .Include(o => o.Education)
+                                     .Include(o => o.Name)
+                                     .Include(o => o.Caregiver.Name)
+                                     .Include(o => o.Caregiver.Address)
+                                     .Include(o => o.Family.Father.Name)
+                                     .Include(o => o.Family.Mother.Name)
+                                     .Include(o => o.Family.PrimaryAddress)
+                                     .Include(o => o.Family.AlternativeAddress)
+                                     .Include(o => o.Guarantor.Name)
+                                     .Include(o => o.Bail)
+                                     .Include(o => o.HealthStatus)
+                              .ToListAsync();
+                foreach (var orphan in orphans)
+                {
+                    var orpToFill = orphan;
+                    _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
+                    var orphanDC = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDC>(orpToFill);
+                    _uriGenerator.SetOrphanUris(ref orphanDC);
+                    returnedOrphans.Add(orphanDC);
+                }
+            }
+            return returnedOrphans;
         }
     }
 }
