@@ -97,27 +97,27 @@ namespace OrphanageDataModel.RegularData
 
 
         [Column("FamilyCardPhoto")]
-        public byte[] FamilyCardPhotoFrontData { get; set; }
+        public byte[] FamilyCardImagePage1 { get; set; }
 
 
         [Column("FamilyCardPhotoP2")]
-        public byte[] FamilyCardPhotoBackData { get; set; }
+        public byte[] FamilyCardImagePage2 { get; set; }
 
 
         [NotMapped]
-        public Image FamilyCardImageFace { get => FamilyCardPhotoFrontData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoFrontData)) : null; }
+        public Image FamilyCardImageFace { get => FamilyCardImagePage1 != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage1)) : null; }
 
 
         [NotMapped]
-        public Image FamilyCardImageBack { get => FamilyCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.FamilyCardPhotoBackData)) : null; }
+        public Image FamilyCardImageBack { get => FamilyCardImagePage2 != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage2)) : null; }
 
 
         [NotMapped]
-        public string FamilyCardImageFaceURI { get; set; }
+        public string FamilyCardImagePage1URI { get; set; }
 
 
         [NotMapped]
-        public string FamilyCardImageBackURI { get; set; }
+        public string FamilyCardImagePage2URI { get; set; }
         
 
         public virtual ICollection<Orphan> Orphans { get; set; }

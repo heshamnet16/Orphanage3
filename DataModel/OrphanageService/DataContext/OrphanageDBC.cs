@@ -104,7 +104,7 @@ namespace OrphanageService.DataContext
                 .HasForeignKey(e => e.AccountId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Family>()
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Family>()
                 .HasMany(e => e.Orphans)
                 .WithRequired(e => e.Family)
                 .HasForeignKey(e => e.FamilyId)

@@ -10,20 +10,22 @@ namespace OrphanageService.Orphan.Controllers
     [RoutePrefix("api/orphan")]
     public class OrphansController : ApiController
     {
-        private readonly IOrphanDBService _OrphanDBService;
+        private readonly IOrphanDbService _OrphanDBService;
 
-        public OrphansController(IOrphanDBService orphanDBService)
+        public OrphansController(IOrphanDbService orphanDBService)
         {
             _OrphanDBService = orphanDBService;
         }
 
         //api/Orphan/{id}
+        [HttpGet]
         [Route("{id}")]
         public async Task<OrphanDC> Get(int id)
         {
             return await _OrphanDBService.GetOrphan(id);
         }
 
+        [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanDC>> Get(int pageSize,int pageNumber)

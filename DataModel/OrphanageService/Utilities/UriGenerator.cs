@@ -12,9 +12,10 @@ namespace OrphanageService.Utilities
             throw new NotImplementedException();
         }
 
-        public void SetFamilyUris(ref FamilyDC orphanDC)
+        public void SetFamilyUris(ref FamilyDC familyDC)
         {
-            throw new NotImplementedException();
+            familyDC.FamilyCardImagePage1URI = "api/family/media/page1/" + familyDC.Id;
+            familyDC.FamilyCardImagePage2URI = "api/family/media/page2/" + familyDC.Id;
         }
 
         public void SetFatherUris(ref FatherDC fatherDC)

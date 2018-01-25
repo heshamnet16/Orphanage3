@@ -1,5 +1,4 @@
 ﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
 using OrphanageService.Utilities.Interfaces;
 using System;
 
@@ -16,9 +15,18 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void BlockFamilySelfLoop(ref Family family)
+        public void BlockFamilySelfLoop(ref OrphanageDataModel.RegularData.Family family)
         {
-            if (!family.Bail.Equals(null)) family.Bail.Families = null;
+            if (family.Bail != null) family.Bail.Families = null;
+            if (family.Father != null && family.Father.Families != null) family.Father.Families = null;
+            if (family.Mother != null && family.Mother.Families != null) family.Mother.Families = null;
+            if(family.Orphans != null)
+            {
+                foreach(var orp in family.Orphans)
+                {
+                    orp.Family = null;
+                }
+            }
         }
 
         public void BlockFatherSelfLoop(ref OrphanageDataModel.Persons.Father father)
