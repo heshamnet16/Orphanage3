@@ -55,18 +55,28 @@ namespace OrphanageService.App_Start
             if (route == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             int firstBackslach = route.RouteTemplate.IndexOf('/');
-            int secondBackslach = route.RouteTemplate.IndexOf('/',firstBackslach+1);
-            var area = route.RouteTemplate.Substring(4, secondBackslach - firstBackslach-1);
+            int secondBackslach = route.RouteTemplate.IndexOf('/', firstBackslach + 1);
+            var area = route.RouteTemplate.Substring(4, secondBackslach - firstBackslach - 1);
             if (area == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             string controllerName = null;
-            if(route.RouteTemplate.ToLower().Contains("media"))
+            if (route.RouteTemplate.ToLower().Contains("family"))
             {
-                controllerName = area[0] + "media";
+                if (route.RouteTemplate.ToLower().Contains("media"))
+                    return _controllers.Value["Family.FamMedia"];
+                else
+                    return _controllers.Value["Family.Families"];
             }
             else
             {
-                controllerName = area + "s";
+                if (route.RouteTemplate.ToLower().Contains("media"))
+                {
+                    controllerName = area[0] + "media";
+                }
+                else
+                {
+                    controllerName = area + "s";
+                }
             }
             var key = String.Format(CultureInfo.InvariantCulture, "{0}.{1}", area, controllerName);
             HttpControllerDescriptor controllerDescriptor;

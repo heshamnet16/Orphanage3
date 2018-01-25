@@ -53,8 +53,8 @@ namespace OrphanageService.DataContext.RegularData
 
         public string Note { get; set; }
 
-        public string FamilyCardImageFaceURI { get; set; }
+        public string FamilyCardImagePage1URI { get; set; }
 
-        public string FamilyCardImageBackURI { get; set; }
+        public string FamilyCardImagePage2URI { get; set; }
     }
 }

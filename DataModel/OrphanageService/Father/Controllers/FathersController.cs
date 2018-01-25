@@ -10,20 +10,22 @@ namespace OrphanageService.Father.Controllers
     [RoutePrefix("api/father")]
     public class FathersController :ApiController
     {
-        private readonly IFatherDBService _FatherDBService;
+        private readonly IFatherDbService _FatherDBService;
 
-        public FathersController(IFatherDBService fatherDBService)
+        public FathersController(IFatherDbService fatherDBService)
         {
             _FatherDBService = fatherDBService;
         }
 
-        //api/Orphan/{id}
+        //api/father/{id}
+        [HttpGet]
         [Route("{id}")]
         public async Task<FatherDC> Get(int id)
         {
             return await _FatherDBService.GetFather(id);
         }
 
+        [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<FatherDC>> Get(int pageSize, int pageNumber)
@@ -31,6 +33,7 @@ namespace OrphanageService.Father.Controllers
             return await _FatherDBService.GetFathers(pageSize, pageNumber);
         }
 
+        [HttpGet]
         [Route("orphans/{FatherID}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanDC>> GetOrphans(int FatherID)

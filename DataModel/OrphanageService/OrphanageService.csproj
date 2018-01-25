@@ -157,6 +157,8 @@
     <Compile Include="DataContext\RegularData\Health.cs" />
     <Compile Include="DataContext\RegularData\Name.cs" />
     <Compile Include="DataContext\RegularData\Study.cs" />
+    <Compile Include="Family\Controllers\FamiliesController.cs" />
+    <Compile Include="Family\Controllers\FamMediaController.cs" />
     <Compile Include="Father\Controllers\FathersController.cs" />
     <Compile Include="Father\Controllers\FMediaController.cs" />
     <Compile Include="Filters\CacheFilter.cs" />
@@ -164,8 +166,10 @@
     <Compile Include="Mother\Controllers\MothersController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />
     <Compile Include="Orphan\Controllers\OrphansController.cs" />
+    <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
-    <Compile Include="Services\Interfaces\IFatherDBService.cs" />
+    <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
+    <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
     <Compile Include="Services\MotherDbService.cs" />
     <Compile Include="Services\OrphanDbService.cs" />
@@ -177,7 +181,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Services\Interfaces\IOrphanDBService.cs" />
+    <Compile Include="Services\Interfaces\IOrphanDbService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\HttpResponseMessageConfiguerer.cs" />
     <Compile Include="Utilities\ImageAdapter.cs" />

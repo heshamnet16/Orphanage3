@@ -10,16 +10,17 @@ namespace OrphanageService.Father.Controllers
     [RoutePrefix("api/father/media")]
     public class FMediaController : ApiController
     {
-        private IFatherDBService _FatherDBService;
+        private IFatherDbService _FatherDBService;
         private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public FMediaController(IFatherDBService fatherDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public FMediaController(IFatherDbService fatherDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _FatherDBService = fatherDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;
         }
 
         #region PersonalPhoto
+        [HttpGet]
         [System.Web.Http.Route("photo/{Fid}")]
         public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid)
         {
@@ -27,6 +28,7 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("photo/{Fid}/{Size}")]
         public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid, string Size)
         {
@@ -37,8 +39,9 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("photo/{Fid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -48,6 +51,7 @@ namespace OrphanageService.Father.Controllers
         }
         #endregion
         #region DeathCertificate
+        [HttpGet]
         [System.Web.Http.Route("death/{Fid}")]
         public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid)
         {
@@ -55,6 +59,7 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("death/{Fid}/{Size}")]
         public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid, string Size)
         {
@@ -65,8 +70,9 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("death/{Fid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid, string Size, int compertion)
+        public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 

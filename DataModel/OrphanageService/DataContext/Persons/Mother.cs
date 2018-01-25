@@ -50,6 +50,6 @@ namespace OrphanageService.DataContext.Persons
 
         public string IdentityCardBackURI { get; set; }
 
-
+        public virtual IList<FamilyDC> Families { get; set; }
     }
 }

@@ -10,16 +10,17 @@ namespace OrphanageService.Orphan.Controllers
     [RoutePrefix("api/orphan/media")]
     public class OMediaController : ApiController
     {
-        private IOrphanDBService _OrphanDBService;
+        private IOrphanDbService _OrphanDBService;
         private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public OMediaController(IOrphanDBService orphanDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public OMediaController(IOrphanDbService orphanDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _OrphanDBService = orphanDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;
         }
 
         #region Face
+        [HttpGet]
         [System.Web.Http.Route("face/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid)
         {
@@ -27,6 +28,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("face/{Oid}/{Size}")]
         public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid, string Size)
         {
@@ -37,8 +39,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("face/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanFacePhoto(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -48,6 +51,7 @@ namespace OrphanageService.Orphan.Controllers
         }
         #endregion
         #region BirthCertificate
+        [HttpGet]
         [System.Web.Http.Route("birth/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid)
         {
@@ -55,6 +59,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("birth/{Oid}/{Size}")]
         public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid, string Size)
         {
@@ -65,8 +70,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("birth/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanBirthCertificate(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -76,6 +82,7 @@ namespace OrphanageService.Orphan.Controllers
         }
         #endregion
         #region FamilyCardPagePhoto
+        [HttpGet]
         [System.Web.Http.Route("familycard/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid)
         {
@@ -83,6 +90,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("familycard/{Oid}/{Size}")]
         public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid, string Size)
         {
@@ -93,8 +101,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("familycard/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanFamilyCardPage(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -104,6 +113,7 @@ namespace OrphanageService.Orphan.Controllers
         }
         #endregion
         #region Full
+        [HttpGet]
         [System.Web.Http.Route("full/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid)
         {
@@ -111,6 +121,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("full/{Oid}/{Size}")]
         public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid, string Size)
         {
@@ -121,8 +132,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("full/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanFullPhoto(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -133,6 +145,7 @@ namespace OrphanageService.Orphan.Controllers
         #endregion
 
         #region EducationCert1
+        [HttpGet]
         [System.Web.Http.Route("education/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid)
         {
@@ -140,6 +153,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("education/{Oid}/{Size}")]
         public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid, string Size)
         {
@@ -150,8 +164,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("education/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanEducationCert(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -162,6 +177,7 @@ namespace OrphanageService.Orphan.Controllers
         #endregion
 
         #region EducationCert2
+        [HttpGet]
         [System.Web.Http.Route("education2/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid)
         {
@@ -169,6 +185,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(image);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("education2/{Oid}/{Size}")]
         public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid, string Size)
         {
@@ -179,8 +196,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpGet]
         [System.Web.Http.Route("education2/{Oid}/{Size}/{Compertion}")]
-        public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid, string Size, int compertion)
+        public async Task<HttpResponseMessage> getOrphanEducationCert2(int Oid, string Size, long compertion)
         {
             string[] sizeString = Size.Split('x');
 
@@ -189,8 +207,9 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
         #endregion
-        
+
         #region HealthReportFile
+        [HttpGet]
         [System.Web.Http.Route("healthreport/{Oid}")]
         public async Task<HttpResponseMessage> getOrphanHealthReport(int Oid)
         {

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
 {
-    public interface IOrphanDBService
+    public interface IOrphanDbService
     {
         Task<OrphanDC> GetOrphan(int id);
 

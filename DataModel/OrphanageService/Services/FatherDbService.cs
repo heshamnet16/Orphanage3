@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OrphanageService.Services
 {
-    public class FatherDbService : IFatherDBService
+    public class FatherDbService : IFatherDbService
     {
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;

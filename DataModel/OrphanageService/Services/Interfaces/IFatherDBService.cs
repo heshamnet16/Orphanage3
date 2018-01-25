@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
 {
-    public interface IFatherDBService
+    public interface IFatherDbService
     {
         Task<FatherDC> GetFather(int Fid);
 
