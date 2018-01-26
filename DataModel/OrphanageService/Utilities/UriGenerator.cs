@@ -2,14 +2,29 @@
 using OrphanageService.DataContext.RegularData;
 using OrphanageService.Utilities.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace OrphanageService.Utilities
 {
     public class UriGenerator : IUriGenerator
     {
-        public void SetCaregiverUris(ref CaregiverDC orphanDC)
+        public void SetCaregiverUris(ref CaregiverDC caregiverDC)
         {
-            throw new NotImplementedException();
+            caregiverDC.IdentityCardImageBackURI = "api/caregiver/media/idback/" + caregiverDC.Id;
+            caregiverDC.IdentityCardImageFaceURI = "api/caregiver/media/idface/" + caregiverDC.Id;
+            if(caregiverDC.Orphans != null)
+            {
+                var tempList = new List<OrphanDC>();
+                foreach(var orp in caregiverDC.Orphans)
+                {
+                    if (orp.BirthCertificatePhotoURI != null && orp.BirthCertificatePhotoURI.Length > 0)
+                        continue;
+                    var orphanDC = orp;                    
+                    SetOrphanUris(ref orphanDC);
+                    tempList.Add(orphanDC);
+                }
+                caregiverDC.Orphans = tempList;
+            }
         }
 
         public void SetFamilyUris(ref FamilyDC familyDC)
@@ -36,13 +51,17 @@ namespace OrphanageService.Utilities
             if (fatherDC == null) return;
             fatherDC.PersonalPhotoURI = "api/father/media/face/" + fatherDC.Id;
             fatherDC.DeathCertificateImageURI = "api/father/media/death/" + fatherDC.Id;
-            if(fatherDC.Families != null)
-                foreach(var fam in fatherDC.Families)
+            if (fatherDC.Families != null)
+            {
+                var tempList = new List<FamilyDC>();
+                foreach (var fam in fatherDC.Families)
                 {
                     var familyDC = fam;
                     SetFamilyUris(ref familyDC);
-                    fatherDC.Families[fatherDC.Families.IndexOf(fam)] = familyDC;
+                    tempList.Add(familyDC);
                 }
+                fatherDC.Families = tempList;
+            }
         }
 
         public void SetMotherUris(ref MotherDC motherDC)
@@ -51,12 +70,16 @@ namespace OrphanageService.Utilities
             motherDC.IdentityCardFaceURI = "api/mother/media/idface/" + motherDC.Id;
             motherDC.IdentityCardBackURI = "api/mother/media/idback/" + motherDC.Id;
             if (motherDC.Families != null)
+            {
+                var tempList = new List<FamilyDC>();
                 foreach (var fam in motherDC.Families)
                 {
                     var familyDC = fam;
                     SetFamilyUris(ref familyDC);
-                    motherDC.Families[motherDC.Families.IndexOf(fam)] = familyDC;
+                    tempList.Add(familyDC);                    
                 }
+                motherDC.Families = tempList;
+            }
         }
 
         public void SetOrphanUris(ref OrphanDC orphanDC)
@@ -69,8 +92,7 @@ namespace OrphanageService.Utilities
             if (orphanDC.Caregiver != null)
             {
                 CaregiverDC caregiverDC = orphanDC.Caregiver;
-                //TODO  #11
-                //SetCaregiverUris(ref caregiverDC);
+                SetCaregiverUris(ref caregiverDC);
                 orphanDC.Caregiver = caregiverDC;
             }
             if(orphanDC.Education !=null)

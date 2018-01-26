@@ -57,6 +57,7 @@ namespace OrphanageService
             container.RegisterType<IFatherDbService, FatherDbService>();
             container.RegisterType<IFamilyDbService, FamilyDbService>();
             container.RegisterType<IMotherDbService, MotherDbService>();
+            container.RegisterType<ICaregiverDbService, CaregiverDbService>();
             container.RegisterType<ISelfLoopBlocking, SelfLoopBlocking>();
             container.RegisterType<IUriGenerator, UriGenerator>();
             container.RegisterType<IHttpResponseMessageConfiguerer, HttpResponseMessageConfiguerer>();

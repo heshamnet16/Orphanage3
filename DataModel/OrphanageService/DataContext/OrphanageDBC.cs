@@ -78,11 +78,11 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Bail)
                 .HasForeignKey(e => e.BailId);
 
-            modelBuilder.Entity<Caregiver>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Caregiver>()
                 .Property(e => e.Income)
                 .HasPrecision(29, 4);
 
-            modelBuilder.Entity<Caregiver>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Caregiver>()
                 .HasMany(e => e.Orphans)
                 .WithRequired(e => e.Caregiver)
                 .HasForeignKey(e => e.CaregiverId)

@@ -7,7 +7,7 @@ namespace OrphanageService.Utilities
     public class SelfLoopBlocking : ISelfLoopBlocking
     {
 
-        public void BlockCaregiverSelfLoop(ref Caregiver caregiver)
+        public void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver)
         {
             foreach (var orp in caregiver.Orphans)
             {

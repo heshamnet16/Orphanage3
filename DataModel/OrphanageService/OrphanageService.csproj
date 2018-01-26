@@ -139,6 +139,8 @@
     <Compile Include="App_Start\HttpAreaSelector.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Caregiver\Controllers\CaregiversController.cs" />
+    <Compile Include="Caregiver\Controllers\CMediaController.cs" />
     <Compile Include="DataContext\FinancialData\Account.cs" />
     <Compile Include="DataContext\FinancialData\Bail.cs" />
     <Compile Include="DataContext\OrphanageDBC.cs" />
@@ -166,8 +168,10 @@
     <Compile Include="Mother\Controllers\MothersController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />
     <Compile Include="Orphan\Controllers\OrphansController.cs" />
+    <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
+    <Compile Include="Services\Interfaces\ICaregiverDbService.cs" />
     <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
