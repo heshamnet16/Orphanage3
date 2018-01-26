@@ -45,7 +45,7 @@ namespace OrphanageService.Family.Controllers
         [HttpGet]
         [Route("orphans/{FamId}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IList<OrphanDC>> GetFamilyOrphans(int famId)
+        public async Task<IEnumerable<OrphanDC>> GetFamilyOrphans(int famId)
         {
             return await _FamilyDBService.GetOrphans(famId);
         }

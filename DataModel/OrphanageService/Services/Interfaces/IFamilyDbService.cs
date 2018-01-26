@@ -11,7 +11,7 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<FamilyDC>> GetFamilies(int pageSize, int pageNum);
 
-        Task<IList<OrphanDC>> GetOrphans(int FamId);
+        Task<IEnumerable<OrphanDC>> GetOrphans(int FamId);
 
         Task<int> GetFamiliesCount();
 

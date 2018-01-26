@@ -106,7 +106,7 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IList<OrphanDC>> GetOrphans(int FamId)
+        public async Task<IEnumerable<OrphanDC>> GetOrphans(int FamId)
         {
             IList<OrphanDC> returnedOrphans = new List<OrphanDC>();
             using (var dbContext = new OrphanageDbCNoBinary())
