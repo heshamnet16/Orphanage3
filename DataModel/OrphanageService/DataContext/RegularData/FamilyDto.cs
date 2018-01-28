@@ -5,31 +5,31 @@ using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.RegularData
 {
-    public class FamilyDC
+    public class FamilyDto
     {
         public int Id { get; set; }
 
         public int MotherId { get; set; }
 
-        public virtual MotherDC Mother { get; set; }
+        public virtual MotherDto Mother { get; set; }
 
         public int FatherId { get; set; }
 
-        public virtual FatherDC Father { get; set; }
+        public virtual FatherDto Father { get; set; }
 
         public int? BailId { get; set; }
 
-        public virtual BailDC Bail { get; set; }
+        public virtual BailDto Bail { get; set; }
 
         public bool IsBailed { get; set; }
 
         public int? AddressId { get; set; }
 
-        public virtual AddressDC PrimaryAddress { get; set; }
+        public virtual AddressDto PrimaryAddress { get; set; }
 
         public int? AlternativeAddressId { get; set; }
 
-        public virtual AddressDC AlternativeAddress { get; set; }
+        public virtual AddressDto AlternativeAddress { get; set; }
 
         public bool IsExcluded { get; set; }
 
@@ -49,7 +49,7 @@ namespace OrphanageService.DataContext.RegularData
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
 
         public string Note { get; set; }
 

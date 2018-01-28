@@ -27,19 +27,19 @@ namespace OrphanageService
         {
             Mapper.Initialize((cfg) =>
             {
-                cfg.CreateMap<OrphanageDataModel.Persons.Orphan, OrphanDC>();
-                cfg.CreateMap<OrphanageDataModel.Persons.Caregiver, CaregiverDC>();
-                cfg.CreateMap<OrphanageDataModel.Persons.Father, FatherDC>();
-                cfg.CreateMap<OrphanageDataModel.Persons.Guarantor, GuarantorDC>();
-                cfg.CreateMap<OrphanageDataModel.Persons.Mother, MotherDC>();
-                cfg.CreateMap<OrphanageDataModel.Persons.User, UserDC>();
-                cfg.CreateMap<OrphanageDataModel.FinancialData.Account, AccountDC>();
-                cfg.CreateMap<OrphanageDataModel.FinancialData.Bail, BailDC>();
-                cfg.CreateMap<OrphanageDataModel.RegularData.Address, AddressDC>();
-                cfg.CreateMap<OrphanageDataModel.RegularData.Family, FamilyDC>();
-                cfg.CreateMap<OrphanageDataModel.RegularData.Health, HealthDC>();
-                cfg.CreateMap<OrphanageDataModel.RegularData.Name, NameDC>();
-                cfg.CreateMap<OrphanageDataModel.RegularData.Study, StudyDC>();
+                cfg.CreateMap<OrphanageDataModel.Persons.Orphan, OrphanDto>();
+                cfg.CreateMap<OrphanageDataModel.Persons.Caregiver, CaregiverDto>();
+                cfg.CreateMap<OrphanageDataModel.Persons.Father, FatherDto>();
+                cfg.CreateMap<OrphanageDataModel.Persons.Guarantor, GuarantorDto>();
+                cfg.CreateMap<OrphanageDataModel.Persons.Mother, MotherDto>();
+                cfg.CreateMap<OrphanageDataModel.Persons.User, UserDto>();
+                cfg.CreateMap<OrphanageDataModel.FinancialData.Account, AccountDto>();
+                cfg.CreateMap<OrphanageDataModel.FinancialData.Bail, BailDto>();
+                cfg.CreateMap<OrphanageDataModel.RegularData.Address, AddressDto>();
+                cfg.CreateMap<OrphanageDataModel.RegularData.Family, FamilyDto>();
+                cfg.CreateMap<OrphanageDataModel.RegularData.Health, HealthDto>();
+                cfg.CreateMap<OrphanageDataModel.RegularData.Name, NameDto>();
+                cfg.CreateMap<OrphanageDataModel.RegularData.Study, StudyDto>();
             });
         }
     }

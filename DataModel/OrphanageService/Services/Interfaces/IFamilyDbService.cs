@@ -7,11 +7,11 @@ namespace OrphanageService.Services.Interfaces
 {
     public interface IFamilyDbService
     {
-        Task<FamilyDC> GetFamily(int FamId);
+        Task<FamilyDto> GetFamily(int FamId);
 
-        Task<IEnumerable<FamilyDC>> GetFamilies(int pageSize, int pageNum);
+        Task<IEnumerable<FamilyDto>> GetFamilies(int pageSize, int pageNum);
 
-        Task<IEnumerable<OrphanDC>> GetOrphans(int FamId);
+        Task<IEnumerable<OrphanDto>> GetOrphans(int FamId);
 
         Task<int> GetFamiliesCount();
 

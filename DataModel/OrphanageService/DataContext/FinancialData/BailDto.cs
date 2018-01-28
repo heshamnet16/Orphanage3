@@ -1,24 +1,21 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageService.DataContext.Persons;
-using OrphanageService.DataContext.RegularData;
+﻿using OrphanageService.DataContext.Persons;
 using System;
-using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.FinancialData
 {
-    public class BailDC
+    public class BailDto
     {
         public int Id { get; set; }
 
         public int? GuarantorID { get; set; }
 
-        public virtual  GuarantorDC Guarantor { get; set; }
+        public virtual  GuarantorDto Guarantor { get; set; }
 
         public decimal Amount { get; set; }
 
         public int AccountID { get; set; }
 
-        public virtual AccountDC Account { get; set; }
+        public virtual AccountDto Account { get; set; }
         
         public bool IsFamilyBail { get; set; }
 
@@ -34,7 +31,7 @@ namespace OrphanageService.DataContext.FinancialData
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
         
         public string Note { get; set; }
         

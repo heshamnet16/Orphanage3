@@ -4,6 +4,25 @@ namespace OrphanageService.Utilities
 {
     public class SelfLoopBlocking : ISelfLoopBlocking
     {
+        public void BlockBailSelfLoop(ref OrphanageDataModel.FinancialData.Bail bail)
+        {
+            if (bail.Account != null) bail.Account.Bails = null;
+            if (bail.Families != null)
+            {
+                foreach (var fam in bail.Families)
+                {
+                    fam.Bail = null;
+                    fam.Orphans = null;
+                }
+            }
+            if (bail.Orphans != null)
+            {
+                foreach (var orp in bail.Orphans)
+                {
+                    orp.Bail = null;
+                }
+            }
+        }
 
         public void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver)
         {

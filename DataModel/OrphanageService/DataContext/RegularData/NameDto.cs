@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.RegularData
 {
-    public class NameDC
+    public class NameDto
     {
         public int Id { get; set; }
 

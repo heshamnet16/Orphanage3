@@ -5,13 +5,13 @@ using System.Runtime.Serialization;
 
 namespace OrphanageService.DataContext.Persons
 {
-    public class FatherDC
+    public class FatherDto
     {
         public int Id { get; set; }
 
         public int NameId { get; set; }
 
-        public virtual NameDC Name { get; set; }
+        public virtual NameDto Name { get; set; }
 
         public DateTime Birthday { get; set; }
 
@@ -31,7 +31,7 @@ namespace OrphanageService.DataContext.Persons
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
 
         public string Note { get; set; }
 
@@ -39,7 +39,7 @@ namespace OrphanageService.DataContext.Persons
 
         public string DeathCertificateImageURI { get; set; }
 
-        public virtual IList<FamilyDC> Families { get; set; }
+        public virtual IList<FamilyDto> Families { get; set; }
 
     }
 }

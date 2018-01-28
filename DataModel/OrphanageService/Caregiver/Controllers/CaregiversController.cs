@@ -20,7 +20,7 @@ namespace OrphanageService.Caregiver.Controllers
         //api/caregiver/{id}
         [HttpGet]
         [Route("{id}")]
-        public async Task<CaregiverDC> Get(int id)
+        public async Task<CaregiverDto> Get(int id)
         {
             return await _CaregiverDBService.GetCaregiver(id);
         }
@@ -28,7 +28,7 @@ namespace OrphanageService.Caregiver.Controllers
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<CaregiverDC>> Get(int pageSize, int pageNumber)
+        public async Task<IEnumerable<CaregiverDto>> Get(int pageSize, int pageNumber)
         {
             return await _CaregiverDBService.GetCaregivers(pageSize, pageNumber);
         }
@@ -44,7 +44,7 @@ namespace OrphanageService.Caregiver.Controllers
         [HttpGet]
         [Route("orphans/{CId}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanDC>> GetFamilyOrphans(int CId)
+        public async Task<IEnumerable<OrphanDto>> GetFamilyOrphans(int CId)
         {
             return await _CaregiverDBService.GetOrphans(CId);
         }

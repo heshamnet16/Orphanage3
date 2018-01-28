@@ -7,15 +7,15 @@ namespace OrphanageService.Services.Interfaces
 {
     public interface IGuarantorDbService
     {
-        Task<GuarantorDC> GetGuarantor(int Gid);
+        Task<GuarantorDto> GetGuarantor(int Gid);
 
-        Task<IEnumerable<GuarantorDC>> GetGuarantors(int pageSize, int pageNum);
+        Task<IEnumerable<GuarantorDto>> GetGuarantors(int pageSize, int pageNum);
 
-        Task<IEnumerable<OrphanDC>> GetOrphans(int Gid);
+        Task<IEnumerable<OrphanDto>> GetOrphans(int Gid);
 
         Task<int> GetGuarantorsCount();
 
-        Task<IEnumerable<BailDC>> GetBails(int Gid);
+        Task<IEnumerable<BailDto>> GetBails(int Gid);
 
     }
 }

@@ -64,16 +64,16 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Address)
                 .HasForeignKey(e => e.AddressId);
 
-            modelBuilder.Entity<Bail>()
+            modelBuilder.Entity<OrphanageDataModel.FinancialData.Bail>()
                 .Property(e => e.Amount)
                 .HasPrecision(29, 4);
 
-            modelBuilder.Entity<Bail>()
+            modelBuilder.Entity<OrphanageDataModel.FinancialData.Bail>()
                 .HasMany(e => e.Families)
                 .WithOptional(e => e.Bail)
                 .HasForeignKey(e => e.BailId);
 
-            modelBuilder.Entity<Bail>()
+            modelBuilder.Entity<OrphanageDataModel.FinancialData.Bail>()
                 .HasMany(e => e.Orphans)
                 .WithOptional(e => e.Bail)
                 .HasForeignKey(e => e.BailId);

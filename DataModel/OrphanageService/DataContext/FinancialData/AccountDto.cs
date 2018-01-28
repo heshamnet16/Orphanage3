@@ -1,10 +1,9 @@
 ﻿using OrphanageService.DataContext.Persons;
 using System;
-using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.FinancialData
 {
-    public class AccountDC
+    public class AccountDto
     {
         public int Id { get; set; }
 
@@ -24,7 +23,7 @@ namespace OrphanageService.DataContext.FinancialData
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
 
 
     }
