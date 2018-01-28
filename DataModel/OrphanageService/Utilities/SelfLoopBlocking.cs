@@ -1,6 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageService.Utilities.Interfaces;
-using System;
+﻿using OrphanageService.Utilities.Interfaces;
 
 namespace OrphanageService.Utilities
 {
@@ -37,9 +35,24 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void BlockGuarantorSelfLoop(ref Guarantor guarantor)
+        public void BlockGuarantorSelfLoop(ref OrphanageDataModel.Persons.Guarantor guarantor)
         {
-            throw new NotImplementedException();
+           if(guarantor.Account != null)
+            {
+                if(guarantor.Account.Guarantors != null)
+                {
+                    guarantor.Account.Guarantors = null;
+                }
+                if(guarantor.Account.Bails != null)
+                {
+                    guarantor.Account.Bails = null;
+                }
+            }
+            if (guarantor.Bails != null)
+            {
+                foreach (var bail in guarantor.Bails)
+                    bail.Guarantor = null;
+            }
         }
 
         public void BlockMotherSelfLoop(ref OrphanageDataModel.Persons.Mother mother)

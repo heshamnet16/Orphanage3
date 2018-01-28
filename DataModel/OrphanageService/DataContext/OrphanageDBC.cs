@@ -185,12 +185,12 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Education)
                 .HasForeignKey(e => e.EducationId);
 
-            modelBuilder.Entity<Guarantor>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Guarantor>()
                 .HasMany(e => e.Bails)
                 .WithOptional(e => e.Guarantor)
                 .HasForeignKey(e => e.GuarantorID);
 
-            modelBuilder.Entity<Guarantor>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.Guarantor>()
                 .HasMany(e => e.Orphans)
                 .WithOptional(e => e.Guarantor)
                 .HasForeignKey(e => e.GuarantorId);
