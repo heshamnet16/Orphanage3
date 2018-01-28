@@ -165,6 +165,7 @@
     <Compile Include="Father\Controllers\FathersController.cs" />
     <Compile Include="Father\Controllers\FMediaController.cs" />
     <Compile Include="Filters\CacheFilter.cs" />
+    <Compile Include="Guarantor\Controllers\GuarantorsController.cs" />
     <Compile Include="Mother\Controllers\MMediaController.cs" />
     <Compile Include="Mother\Controllers\MothersController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />
@@ -173,10 +174,12 @@
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
+    <Compile Include="Services\GuarantorDbService.cs" />
     <Compile Include="Services\Interfaces\IAutoCompleteDbService.cs" />
     <Compile Include="Services\Interfaces\ICaregiverDbService.cs" />
     <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
+    <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
     <Compile Include="Services\MotherDbService.cs" />
     <Compile Include="Services\OrphanDbService.cs" />

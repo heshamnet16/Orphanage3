@@ -12,7 +12,7 @@ namespace OrphanageService.DataContext.FinancialData
 
         public int? GuarantorID { get; set; }
 
-        public virtual Guarantor Guarantor { get; set; }
+        public virtual  GuarantorDC Guarantor { get; set; }
 
         public decimal Amount { get; set; }
 
