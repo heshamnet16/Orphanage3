@@ -22,7 +22,7 @@ namespace OrphanageService.Services
             _loopBlocking = loopBlocking;
             _uriGenerator = uriGenerator;
         }
-        public async Task<OrphanDC> GetOrphan(int id)
+        public async Task<OrphanDto> GetOrphan(int id)
         {
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
@@ -41,15 +41,15 @@ namespace OrphanageService.Services
                     .FirstOrDefaultAsync(o => o.Id == id);
 
                 _loopBlocking.BlockOrphanSelfLoop(ref orphan);
-                OrphanDC orphanDC = Mapper.Map<OrphanDC>(orphan);
-                _uriGenerator.SetOrphanUris(ref orphanDC);
-                return orphanDC;
+                OrphanDto orphanDto = Mapper.Map<OrphanDto>(orphan);
+                _uriGenerator.SetOrphanUris(ref orphanDto);
+                return orphanDto;
             }
         }       
 
-        public  async Task<IEnumerable<OrphanDC>> GetOrphans(int pageSize, int pageNum)
+        public  async Task<IEnumerable<OrphanDto>> GetOrphans(int pageSize, int pageNum)
         {
-            IList<OrphanDC> orphansList = new List<OrphanDC>();
+            IList<OrphanDto> orphansList = new List<OrphanDto>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -58,6 +58,7 @@ namespace OrphanageService.Services
                 {
                     totalSkiped = orphansCount - pageSize;
                 }
+                if (totalSkiped < 0) totalSkiped = 0;
                 var orphans = await _orphanageDBC.Orphans.AsNoTracking()
                     .OrderBy(o => o.Id).Skip(()=> totalSkiped).Take(()=> pageSize)
                     .Include(o => o.Name)
@@ -74,9 +75,9 @@ namespace OrphanageService.Services
                 {
                     var orphanTofill = orphan;
                     _loopBlocking.BlockOrphanSelfLoop(ref orphanTofill);
-                    OrphanDC orphanDC = Mapper.Map<OrphanDC>(orphanTofill);
-                    _uriGenerator.SetOrphanUris(ref orphanDC);
-                    orphansList.Add(orphanDC);
+                    OrphanDto orphanDto = Mapper.Map<OrphanDto>(orphanTofill);
+                    _uriGenerator.SetOrphanUris(ref orphanDto);
+                    orphansList.Add(orphanDto);
                 }
             }
             return orphansList;

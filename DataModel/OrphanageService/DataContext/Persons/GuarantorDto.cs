@@ -5,21 +5,21 @@ using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.Persons
 {
-    public class GuarantorDC
+    public class GuarantorDto
     {
         public int Id { get; set; }
 
         public int NameId { get; set; }
 
-        public virtual NameDC Name { get; set; }
+        public virtual NameDto Name { get; set; }
 
         public int? AddressId { get; set; }
 
-        public virtual AddressDC Address { get; set; }
+        public virtual AddressDto Address { get; set; }
 
         public int AccountId { get; set; }
 
-        public virtual AccountDC Account { get; set; }
+        public virtual AccountDto Account { get; set; }
 
         public long? ColorMark { get; set; }
 
@@ -33,7 +33,7 @@ namespace OrphanageService.DataContext.Persons
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
 
         public string Note { get; set; }
     }

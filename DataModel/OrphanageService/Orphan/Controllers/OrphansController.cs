@@ -20,7 +20,7 @@ namespace OrphanageService.Orphan.Controllers
         //api/Orphan/{id}
         [HttpGet]
         [Route("{id}")]
-        public async Task<OrphanDC> Get(int id)
+        public async Task<OrphanDto> Get(int id)
         {
             return await _OrphanDBService.GetOrphan(id);
         }
@@ -28,7 +28,7 @@ namespace OrphanageService.Orphan.Controllers
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanDC>> Get(int pageSize,int pageNumber)
+        public async Task<IEnumerable<OrphanDto>> Get(int pageSize,int pageNumber)
         {
             return await _OrphanDBService.GetOrphans(pageSize,pageNumber);
         }

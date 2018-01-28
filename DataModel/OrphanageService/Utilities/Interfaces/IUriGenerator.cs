@@ -5,10 +5,10 @@ namespace OrphanageService.Utilities.Interfaces
 {
     public interface IUriGenerator
     {
-        void SetOrphanUris(ref OrphanDC orphanDC);
-        void SetFatherUris(ref FatherDC fatherDC);
-        void SetMotherUris(ref MotherDC motherDC);
-        void SetFamilyUris(ref FamilyDC familyDC);
-        void SetCaregiverUris(ref CaregiverDC caregiverDC);
+        void SetOrphanUris(ref OrphanDto orphanDC);
+        void SetFatherUris(ref FatherDto fatherDC);
+        void SetMotherUris(ref MotherDto motherDC);
+        void SetFamilyUris(ref FamilyDto familyDC);
+        void SetCaregiverUris(ref CaregiverDto caregiverDC);
     }
 }

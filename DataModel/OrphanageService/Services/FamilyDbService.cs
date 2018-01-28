@@ -23,9 +23,9 @@ namespace OrphanageService.Services
             _uriGenerator = uriGenerator;
         }
 
-        public async Task<IEnumerable<FamilyDC>> GetFamilies(int pageSize, int pageNum)
+        public async Task<IEnumerable<FamilyDto>> GetFamilies(int pageSize, int pageNum)
         {
-            IList<FamilyDC> familiesList = new List<FamilyDC>();
+            IList<FamilyDto> familiesList = new List<FamilyDto>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -34,6 +34,7 @@ namespace OrphanageService.Services
                 {
                     totalSkiped = FamiliesCount - pageSize;
                 }
+                if (totalSkiped < 0) totalSkiped = 0;
                 var families = await _orphanageDBC.Families.AsNoTracking()
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(f => f.AlternativeAddress)
@@ -48,9 +49,9 @@ namespace OrphanageService.Services
                 {
                     OrphanageDataModel.RegularData.Family familyToFill = family;
                     _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
-                    FamilyDC familyDC = Mapper.Map<FamilyDC>(familyToFill);
-                    _uriGenerator.SetFamilyUris(ref familyDC);
-                    familiesList.Add(familyDC);
+                    FamilyDto familyDto = Mapper.Map<FamilyDto>(familyToFill);
+                    _uriGenerator.SetFamilyUris(ref familyDto);
+                    familiesList.Add(familyDto);
                 }
             }
             return familiesList;
@@ -65,7 +66,7 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<FamilyDC> GetFamily(int FamId)
+        public async Task<FamilyDto> GetFamily(int FamId)
         {
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
@@ -80,9 +81,9 @@ namespace OrphanageService.Services
 
                 OrphanageDataModel.RegularData.Family familyToFill = family;
                 _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
-                FamilyDC familyDC = Mapper.Map<FamilyDC>(familyToFill);
-                _uriGenerator.SetFamilyUris(ref familyDC);
-                return familyDC;
+                FamilyDto familyDto = Mapper.Map<FamilyDto>(familyToFill);
+                _uriGenerator.SetFamilyUris(ref familyDto);
+                return familyDto;
             }
         }
 
@@ -106,9 +107,9 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<OrphanDC>> GetOrphans(int FamId)
+        public async Task<IEnumerable<OrphanDto>> GetOrphans(int FamId)
         {
-            IList<OrphanDC> returnedOrphans = new List<OrphanDC>();
+            IList<OrphanDto> returnedOrphans = new List<OrphanDto>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await(from orp in dbContext.Orphans.AsNoTracking()
@@ -130,9 +131,9 @@ namespace OrphanageService.Services
                 {
                     var orpToFill = orphan;
                     _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
-                    var orphanDC = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDC>(orpToFill);
-                    _uriGenerator.SetOrphanUris(ref orphanDC);
-                    returnedOrphans.Add(orphanDC);
+                    var orphanDto = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDto>(orpToFill);
+                    _uriGenerator.SetOrphanUris(ref orphanDto);
+                    returnedOrphans.Add(orphanDto);
                 }
             }
             return returnedOrphans;

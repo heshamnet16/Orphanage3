@@ -4,13 +4,13 @@ using System;
 
 namespace OrphanageService.DataContext.Persons
 {
-    public class OrphanDC
+    public class OrphanDto
     {
         public int Id { get; set; }
 
         public int NameId { get; set; }
 
-        public virtual NameDC Name { get; set; }
+        public virtual NameDto Name { get; set; }
 
         public DateTime? Birthday { get; set; }
 
@@ -18,11 +18,11 @@ namespace OrphanageService.DataContext.Persons
 
         public int? EducationId { get; set; }
 
-        public virtual StudyDC Education { get; set; }
+        public virtual StudyDto Education { get; set; }
 
         public int? HealthId { get; set; }
 
-        public virtual HealthDC HealthStatus { get; set; }
+        public virtual HealthDto HealthStatus { get; set; }
 
         public string IdentityCardNumber { get; set; }
 
@@ -34,21 +34,21 @@ namespace OrphanageService.DataContext.Persons
 
         public int FamilyId { get; set; }
 
-        public virtual FamilyDC Family { get; set; }
+        public virtual FamilyDto Family { get; set; }
 
         public bool IsBailed { get; set; }
 
         public int? BailId { get; set; }
 
-        public virtual BailDC Bail { get; set; }
+        public virtual BailDto Bail { get; set; }
 
         public int CaregiverId { get; set; }
 
-        public virtual CaregiverDC Caregiver { get; set; }
+        public virtual CaregiverDto Caregiver { get; set; }
 
         public int? GuarantorId { get; set; }
 
-        public virtual GuarantorDC Guarantor { get; set; }
+        public virtual GuarantorDto Guarantor { get; set; }
 
         public long? ColorMark { get; set; }
 
@@ -56,7 +56,7 @@ namespace OrphanageService.DataContext.Persons
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
 
         public string Story { get; set; }
 

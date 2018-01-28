@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.Persons
 {
-    public class MotherDC
+    public class MotherDto
     {
         public int Id { get; set; }
 
         public int NameId { get; set; }
 
-        public virtual NameDC Name { get; set; }
+        public virtual NameDto Name { get; set; }
 
         public DateTime Birthday { get; set; }
 
@@ -20,7 +20,7 @@ namespace OrphanageService.DataContext.Persons
 
         public int? AddressId { get; set; }
 
-        public virtual AddressDC Address { get; set; }
+        public virtual AddressDto Address { get; set; }
 
         public bool IsMarried { get; set; }
 
@@ -42,7 +42,7 @@ namespace OrphanageService.DataContext.Persons
 
         public int UserId { get; set; }
 
-        public virtual UserDC ActingUser { get; set; }
+        public virtual UserDto ActingUser { get; set; }
 
         public string Note { get; set; }
 
@@ -50,6 +50,6 @@ namespace OrphanageService.DataContext.Persons
 
         public string IdentityCardBackURI { get; set; }
 
-        public virtual IList<FamilyDC> Families { get; set; }
+        public virtual IList<FamilyDto> Families { get; set; }
     }
 }

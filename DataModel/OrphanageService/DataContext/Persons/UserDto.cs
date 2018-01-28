@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace OrphanageService.DataContext.Persons
 {
-    public class UserDC
+    public class UserDto
     {
         public int Id { get; set; }
 
         public int? NameId { get; set; }
 
-        public virtual NameDC Name { get; set; }
+        public virtual NameDto Name { get; set; }
 
         public string UserName { get; set; }
 
@@ -29,7 +29,7 @@ namespace OrphanageService.DataContext.Persons
 
         public int? AddressId { get; set; }
 
-        public virtual AddressDC Address { get; set; }
+        public virtual AddressDto Address { get; set; }
 
         public DateTime RegDate { get; set; }
 

@@ -8,26 +8,26 @@ namespace OrphanageService.Utilities
 {
     public class UriGenerator : IUriGenerator
     {
-        public void SetCaregiverUris(ref CaregiverDC caregiverDC)
+        public void SetCaregiverUris(ref CaregiverDto caregiverDto)
         {
-            caregiverDC.IdentityCardImageBackURI = "api/caregiver/media/idback/" + caregiverDC.Id;
-            caregiverDC.IdentityCardImageFaceURI = "api/caregiver/media/idface/" + caregiverDC.Id;
-            if(caregiverDC.Orphans != null)
+            caregiverDto.IdentityCardImageBackURI = "api/caregiver/media/idback/" + caregiverDto.Id;
+            caregiverDto.IdentityCardImageFaceURI = "api/caregiver/media/idface/" + caregiverDto.Id;
+            if(caregiverDto.Orphans != null)
             {
-                var tempList = new List<OrphanDC>();
-                foreach(var orp in caregiverDC.Orphans)
+                var tempList = new List<OrphanDto>();
+                foreach(var orp in caregiverDto.Orphans)
                 {
                     if (orp.BirthCertificatePhotoURI != null && orp.BirthCertificatePhotoURI.Length > 0)
                         continue;
-                    var orphanDC = orp;                    
-                    SetOrphanUris(ref orphanDC);
-                    tempList.Add(orphanDC);
+                    var orphanDto = orp;                    
+                    SetOrphanUris(ref orphanDto);
+                    tempList.Add(orphanDto);
                 }
-                caregiverDC.Orphans = tempList;
+                caregiverDto.Orphans = tempList;
             }
         }
 
-        public void SetFamilyUris(ref FamilyDC familyDC)
+        public void SetFamilyUris(ref FamilyDto familyDC)
         {
             if (familyDC == null) return;
             familyDC.FamilyCardImagePage1URI = "api/family/media/page1/" + familyDC.Id;
@@ -46,43 +46,43 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void SetFatherUris(ref FatherDC fatherDC)
+        public void SetFatherUris(ref FatherDto fatherDto)
         {
-            if (fatherDC == null) return;
-            fatherDC.PersonalPhotoURI = "api/father/media/face/" + fatherDC.Id;
-            fatherDC.DeathCertificateImageURI = "api/father/media/death/" + fatherDC.Id;
-            if (fatherDC.Families != null)
+            if (fatherDto == null) return;
+            fatherDto.PersonalPhotoURI = "api/father/media/face/" + fatherDto.Id;
+            fatherDto.DeathCertificateImageURI = "api/father/media/death/" + fatherDto.Id;
+            if (fatherDto.Families != null)
             {
-                var tempList = new List<FamilyDC>();
-                foreach (var fam in fatherDC.Families)
+                var tempList = new List<FamilyDto>();
+                foreach (var fam in fatherDto.Families)
                 {
                     var familyDC = fam;
                     SetFamilyUris(ref familyDC);
                     tempList.Add(familyDC);
                 }
-                fatherDC.Families = tempList;
+                fatherDto.Families = tempList;
             }
         }
 
-        public void SetMotherUris(ref MotherDC motherDC)
+        public void SetMotherUris(ref MotherDto motherDto)
         {
-            if (motherDC == null) return;
-            motherDC.IdentityCardFaceURI = "api/mother/media/idface/" + motherDC.Id;
-            motherDC.IdentityCardBackURI = "api/mother/media/idback/" + motherDC.Id;
-            if (motherDC.Families != null)
+            if (motherDto == null) return;
+            motherDto.IdentityCardFaceURI = "api/mother/media/idface/" + motherDto.Id;
+            motherDto.IdentityCardBackURI = "api/mother/media/idback/" + motherDto.Id;
+            if (motherDto.Families != null)
             {
-                var tempList = new List<FamilyDC>();
-                foreach (var fam in motherDC.Families)
+                var tempList = new List<FamilyDto>();
+                foreach (var fam in motherDto.Families)
                 {
-                    var familyDC = fam;
-                    SetFamilyUris(ref familyDC);
-                    tempList.Add(familyDC);                    
+                    var familyDto = fam;
+                    SetFamilyUris(ref familyDto);
+                    tempList.Add(familyDto);                    
                 }
-                motherDC.Families = tempList;
+                motherDto.Families = tempList;
             }
         }
 
-        public void SetOrphanUris(ref OrphanDC orphanDC)
+        public void SetOrphanUris(ref OrphanDto orphanDC)
         {
             if (orphanDC == null) return;
             orphanDC.FacePhotoURI = "api/orphan/media/face/" + orphanDC.Id;
@@ -91,7 +91,7 @@ namespace OrphanageService.Utilities
             orphanDC.FullPhotoURI = "api/orphan/media/full/" + orphanDC.Id;
             if (orphanDC.Caregiver != null)
             {
-                CaregiverDC caregiverDC = orphanDC.Caregiver;
+                CaregiverDto caregiverDC = orphanDC.Caregiver;
                 SetCaregiverUris(ref caregiverDC);
                 orphanDC.Caregiver = caregiverDC;
             }

@@ -6,9 +6,9 @@ namespace OrphanageService.Services.Interfaces
 {
     public interface IOrphanDbService
     {
-        Task<OrphanDC> GetOrphan(int id);
+        Task<OrphanDto> GetOrphan(int id);
 
-        Task<IEnumerable<OrphanDC>> GetOrphans(int pageSize, int pageNum);
+        Task<IEnumerable<OrphanDto>> GetOrphans(int pageSize, int pageNum);
 
         Task<int> GetOrphansCount();
 

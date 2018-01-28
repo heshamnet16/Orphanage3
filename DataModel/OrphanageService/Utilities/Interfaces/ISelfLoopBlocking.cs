@@ -1,4 +1,6 @@
-﻿namespace OrphanageService.Utilities.Interfaces
+﻿using OrphanageDataModel.FinancialData;
+
+namespace OrphanageService.Utilities.Interfaces
 {
     public interface ISelfLoopBlocking
     {
@@ -8,5 +10,6 @@
         void BlockFamilySelfLoop(ref OrphanageDataModel.RegularData.Family family);
         void BlockGuarantorSelfLoop(ref OrphanageDataModel.Persons.Guarantor guarantor);
         void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver);
+        void BlockBailSelfLoop(ref OrphanageDataModel.FinancialData.Bail bail);
     }
 }

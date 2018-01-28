@@ -20,7 +20,7 @@ namespace OrphanageService.Mother.Controllers
         //api/mother/{id}
         [HttpGet]
         [Route("{id}")]
-        public async Task<MotherDC> Get(int id)
+        public async Task<MotherDto> Get(int id)
         {
             return await _MotherDBService.GetMother(id);
         }
@@ -28,7 +28,7 @@ namespace OrphanageService.Mother.Controllers
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<MotherDC>> Get(int pageSize, int pageNumber)
+        public async Task<IEnumerable<MotherDto>> Get(int pageSize, int pageNumber)
         {
             return await _MotherDBService.GetMothers(pageSize, pageNumber);
         }
@@ -36,7 +36,7 @@ namespace OrphanageService.Mother.Controllers
         [HttpGet]
         [Route("orphans/{MotherID}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanDC>> GetOrphans(int MotherID)
+        public async Task<IEnumerable<OrphanDto>> GetOrphans(int MotherID)
         {
             return await _MotherDBService.GetOrphans(MotherID);
         }

@@ -22,7 +22,7 @@ namespace OrphanageService.Services
             _uriGenerator = uriGenerator;
         }
 
-        public async Task<CaregiverDC> GetCaregiver(int Cid)
+        public async Task<CaregiverDto> GetCaregiver(int Cid)
         {
             using (var dbContext = new OrphanageDbCNoBinary())
             {
@@ -33,15 +33,15 @@ namespace OrphanageService.Services
                     .FirstOrDefaultAsync(c => c.Id == Cid);
 
                 _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiver);
-                CaregiverDC caregiverDC = Mapper.Map<CaregiverDC>(caregiver);
+                CaregiverDto caregiverDC = Mapper.Map<CaregiverDto>(caregiver);
                 _uriGenerator.SetCaregiverUris(ref caregiverDC);
                 return caregiverDC;
             }
         }
 
-        public async Task<IEnumerable<CaregiverDC>> GetCaregivers(int pageSize, int pageNum)
+        public async Task<IEnumerable<CaregiverDto>> GetCaregivers(int pageSize, int pageNum)
         {
-            IList<CaregiverDC> caregiversList = new List<CaregiverDC>();
+            IList<CaregiverDto> caregiversList = new List<CaregiverDto>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -61,7 +61,7 @@ namespace OrphanageService.Services
                 {
                     OrphanageDataModel.Persons.Caregiver caregiverToFill = caregiver;
                     _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiverToFill);
-                    CaregiverDC caregiverDC = Mapper.Map<CaregiverDC>(caregiverToFill);
+                    CaregiverDto caregiverDC = Mapper.Map<CaregiverDto>(caregiverToFill);
                     _uriGenerator.SetCaregiverUris(ref caregiverDC);
                     caregiversList.Add(caregiverDC);
                 }
@@ -96,9 +96,9 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<OrphanDC>> GetOrphans(int Cid)
+        public async Task<IEnumerable<OrphanDto>> GetOrphans(int Cid)
         {
-            IList<OrphanDC> returnedOrphans = new List<OrphanDC>();
+            IList<OrphanDto> returnedOrphans = new List<OrphanDto>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await(from orp in dbContext.Orphans.AsNoTracking()                                   
@@ -120,9 +120,9 @@ namespace OrphanageService.Services
                 {
                     var orpToFill = orphan;
                     _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
-                    var orphanDC = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDC>(orpToFill);
-                    _uriGenerator.SetOrphanUris(ref orphanDC);
-                    returnedOrphans.Add(orphanDC);
+                    var orphanDto = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDto>(orpToFill);
+                    _uriGenerator.SetOrphanUris(ref orphanDto);
+                    returnedOrphans.Add(orphanDto);
                 }
             }
             return returnedOrphans;

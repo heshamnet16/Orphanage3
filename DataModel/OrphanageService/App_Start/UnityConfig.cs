@@ -61,6 +61,7 @@ namespace OrphanageService
             container.RegisterType<IGuarantorDbService, GuarantorDbService>();
             container.RegisterType<ISelfLoopBlocking, SelfLoopBlocking>();
             container.RegisterType<IAutoCompleteDbService, AutoCompleteDbService>();
+            container.RegisterType<IBailDbService, BailDbService>();
             container.RegisterType<IUriGenerator, UriGenerator>();
             container.RegisterType<IHttpResponseMessageConfiguerer, HttpResponseMessageConfiguerer>();
 

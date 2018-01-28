@@ -6,11 +6,11 @@ namespace OrphanageService.Services.Interfaces
 {
     public interface ICaregiverDbService
     {
-        Task<CaregiverDC> GetCaregiver(int Cid);
+        Task<CaregiverDto> GetCaregiver(int Cid);
 
-        Task<IEnumerable<CaregiverDC>> GetCaregivers(int pageSize, int pageNum);
+        Task<IEnumerable<CaregiverDto>> GetCaregivers(int pageSize, int pageNum);
 
-        Task<IEnumerable<OrphanDC>> GetOrphans(int Cid);
+        Task<IEnumerable<OrphanDto>> GetOrphans(int Cid);
 
         Task<int> GetCaregiversCount();
 
