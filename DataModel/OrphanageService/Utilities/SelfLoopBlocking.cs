@@ -1,9 +1,22 @@
-﻿using OrphanageService.Utilities.Interfaces;
+﻿using OrphanageDataModel.FinancialData;
+using OrphanageService.Utilities.Interfaces;
 
 namespace OrphanageService.Utilities
 {
     public class SelfLoopBlocking : ISelfLoopBlocking
     {
+        public void BlockAccountSelfLoop(ref OrphanageDataModel.FinancialData.Account account)
+        {
+            if (account.Bails != null)
+                foreach (var bail in account.Bails)
+                    if (bail.Account != null) bail.Account = null;
+
+            if (account.Guarantors != null)
+                foreach (var guarantor in account.Guarantors)
+                    if (guarantor.Account != null) guarantor.Account = null;
+
+        }
+
         public void BlockBailSelfLoop(ref OrphanageDataModel.FinancialData.Bail bail)
         {
             if (bail.Account != null) bail.Account.Bails = null;
