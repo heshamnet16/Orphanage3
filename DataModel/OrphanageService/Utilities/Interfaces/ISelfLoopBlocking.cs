@@ -11,5 +11,6 @@ namespace OrphanageService.Utilities.Interfaces
         void BlockGuarantorSelfLoop(ref OrphanageDataModel.Persons.Guarantor guarantor);
         void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver);
         void BlockBailSelfLoop(ref OrphanageDataModel.FinancialData.Bail bail);
+        void BlockAccountSelfLoop(ref OrphanageDataModel.FinancialData.Account account);
     }
 }

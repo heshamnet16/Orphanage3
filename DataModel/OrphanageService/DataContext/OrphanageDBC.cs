@@ -88,17 +88,17 @@ namespace OrphanageService.DataContext
                 .HasForeignKey(e => e.CaregiverId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Account>()
+            modelBuilder.Entity<OrphanageDataModel.FinancialData.Account>()
                 .Property(e => e.Amount)
                 .HasPrecision(29, 4);
 
-            modelBuilder.Entity<Account>()
+            modelBuilder.Entity<OrphanageDataModel.FinancialData.Account>()
                 .HasMany(e => e.Bails)
                 .WithRequired(e => e.Account)
                 .HasForeignKey(e => e.AccountID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Account>()
+            modelBuilder.Entity<OrphanageDataModel.FinancialData.Account>()
                 .HasMany(e => e.Guarantors)
                 .WithRequired(e => e.Account)
                 .HasForeignKey(e => e.AccountId)
