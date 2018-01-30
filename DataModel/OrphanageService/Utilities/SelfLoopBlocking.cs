@@ -1,6 +1,7 @@
 ﻿using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.Persons;
 using OrphanageService.Utilities.Interfaces;
+using System.Collections.Generic;
 
 namespace OrphanageService.Utilities
 {
@@ -71,26 +72,33 @@ namespace OrphanageService.Utilities
                     orp.Bail = null;
                 }
             }
+            if (bail.Guarantor != null)
+            {
+                var gua = bail.Guarantor;
+                if(gua.Bails != null) gua.Bails = null;
+                BlockGuarantorSelfLoop(ref gua);
+                bail.Guarantor = gua;                
+            }
         }
 
         public void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver)
         {
             if (caregiver == null) return;
+
+            dynamic caregiverN = caregiver.Name;
+            BlockForignKeys(ref caregiverN);
+            caregiver.Name = caregiverN;
+
+            dynamic caregiverA = caregiver.Address;
+            BlockForignKeys(ref caregiverA);
+            caregiver.Address = caregiverA;
+
             if (caregiver.Orphans != null)
             {
                 foreach (var orp in caregiver.Orphans)
                 {
                     orp.Caregiver = null;
                 }
-            }
-            if (caregiver.Name != null)
-            {
-                caregiver.Name.Caregivers = null;
-            }
-
-            if (caregiver.Address != null)
-            {
-                caregiver.Address.Caregivers = null;
             }
         }
 
@@ -139,16 +147,30 @@ namespace OrphanageService.Utilities
             father.Name = fathN;
             if (father.Families != null)
             {
+                var familesList = new List<OrphanageDataModel.RegularData.Family>();
                 foreach (var fam in father.Families)
                 {
                     fam.Father = null;
+                    var famToblock = fam;
+                    BlockFamilySelfLoop(ref famToblock);
+                    familesList.Add(famToblock);
                 }
+                father.Families = familesList;
             }
         }
 
         public void BlockGuarantorSelfLoop(ref OrphanageDataModel.Persons.Guarantor guarantor)
         {
             if (guarantor == null) return;
+
+            dynamic guarantorN = guarantor.Name;
+            BlockForignKeys(ref guarantorN);
+            guarantor.Name = guarantorN;
+
+            dynamic guarantorA = guarantor.Address;
+            BlockForignKeys(ref guarantorA);
+            guarantor.Address = guarantorA;
+
 
             if (guarantor.Account != null)
             {
@@ -166,6 +188,7 @@ namespace OrphanageService.Utilities
                 foreach (var bail in guarantor.Bails)
                     bail.Guarantor = null;
             }
+
         }
 
         public void BlockMotherSelfLoop(ref OrphanageDataModel.Persons.Mother mother)
@@ -182,10 +205,15 @@ namespace OrphanageService.Utilities
 
             if (mother.Families != null)
             {
+                var familesList = new List<OrphanageDataModel.RegularData.Family>();
                 foreach (var fam in mother.Families)
                 {
                     fam.Mother = null;
+                    var famToblock = fam;
+                    BlockFamilySelfLoop(ref famToblock);
+                    familesList.Add(famToblock);
                 }
+                mother.Families = familesList;
             }
         }
 
@@ -227,6 +255,15 @@ namespace OrphanageService.Utilities
         public void BlockUserSelfLoop(ref OrphanageDataModel.Persons.User user)
         {
             if (user == null) return;
+
+            dynamic userN = user.Name;
+            BlockForignKeys(ref userN);
+            user.Name = userN;
+
+            dynamic userA = user.Address;
+            BlockForignKeys(ref userA);
+            user.Address = userA;
+
 
             if (user.Accounts != null)
                 foreach (var acc in user.Accounts)
