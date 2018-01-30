@@ -6,6 +6,37 @@ namespace OrphanageService.Utilities
 {
     public class SelfLoopBlocking : ISelfLoopBlocking
     {
+        private static void BlockForignKeys(ref dynamic obj)
+        {
+            if (obj == null) return;
+            if (obj is OrphanageDataModel.RegularData.Address address)
+            {
+                if (address.Families != null) address.Families = null;
+                if (address.Caregivers != null) address.Caregivers = null;
+                if (address.FamliesAlternativeAddresses != null) address.FamliesAlternativeAddresses = null;
+                if (address.Guarantors != null) address.Guarantors = null;
+                if (address.Mothers != null) address.Mothers = null;
+                if (address.Users != null) address.Users = null;
+            }
+            else if (obj is OrphanageDataModel.RegularData.Name name)
+            {
+                if (name.Caregivers != null) name.Caregivers = null;
+                if (name.Guarantors != null) name.Guarantors = null;
+                if (name.Mothers != null) name.Mothers = null;
+                if (name.Users != null) name.Users = null;
+                if (name.Fathers != null) name.Fathers = null;
+                if (name.Orphans != null) name.Orphans = null;
+            }
+            else if (obj is OrphanageDataModel.RegularData.Study study)
+            {
+                if (study.Orphans != null) study.Orphans = null;
+            }
+            else if (obj is OrphanageDataModel.RegularData.Health health)
+            {
+                if (health.Orphans != null) health.Orphans = null;
+            }
+        }
+
         public void BlockAccountSelfLoop(ref OrphanageDataModel.FinancialData.Account account)
         {
             if (account == null) return;
@@ -45,10 +76,21 @@ namespace OrphanageService.Utilities
         public void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver)
         {
             if (caregiver == null) return;
-
-            foreach (var orp in caregiver.Orphans)
+            if (caregiver.Orphans != null)
             {
-                orp.Caregiver = null;
+                foreach (var orp in caregiver.Orphans)
+                {
+                    orp.Caregiver = null;
+                }
+            }
+            if (caregiver.Name != null)
+            {
+                caregiver.Name.Caregivers = null;
+            }
+
+            if (caregiver.Address != null)
+            {
+                caregiver.Address.Caregivers = null;
             }
         }
 
@@ -56,12 +98,32 @@ namespace OrphanageService.Utilities
         {
             if (family == null) return;
 
+            dynamic famA = family.AlternativeAddress;
+            BlockForignKeys(ref famA);
+            family.AlternativeAddress = famA;
+
+            dynamic famA2 = family.PrimaryAddress;
+            BlockForignKeys(ref famA2);
+            family.PrimaryAddress = famA2;
+
             if (family.Bail != null) family.Bail.Families = null;
-            if (family.Father != null && family.Father.Families != null) family.Father.Families = null;
-            if (family.Mother != null && family.Mother.Families != null) family.Mother.Families = null;
-            if(family.Orphans != null)
+            if (family.Father != null)
             {
-                foreach(var orp in family.Orphans)
+                var fath = family.Father;
+                BlockFatherSelfLoop(ref fath);
+                family.Father = fath;
+                if (family.Father.Families != null) family.Father.Families = null;
+            }
+            if (family.Mother != null)
+            {
+                var moth = family.Mother;
+                BlockMotherSelfLoop(ref moth);
+                family.Mother = moth;
+                if (family.Mother.Families != null) family.Mother.Families = null;
+            }
+            if (family.Orphans != null)
+            {
+                foreach (var orp in family.Orphans)
                 {
                     orp.Family = null;
                 }
@@ -72,9 +134,15 @@ namespace OrphanageService.Utilities
         {
             if (father == null) return;
 
-            foreach (var fam in father.Families)
+            dynamic fathN = father.Name;
+            BlockForignKeys(ref fathN);
+            father.Name = fathN;
+            if (father.Families != null)
             {
-                fam.Father = null;
+                foreach (var fam in father.Families)
+                {
+                    fam.Father = null;
+                }
             }
         }
 
@@ -84,11 +152,11 @@ namespace OrphanageService.Utilities
 
             if (guarantor.Account != null)
             {
-                if(guarantor.Account.Guarantors != null)
+                if (guarantor.Account.Guarantors != null)
                 {
                     guarantor.Account.Guarantors = null;
                 }
-                if(guarantor.Account.Bails != null)
+                if (guarantor.Account.Bails != null)
                 {
                     guarantor.Account.Bails = null;
                 }
@@ -104,9 +172,20 @@ namespace OrphanageService.Utilities
         {
             if (mother == null) return;
 
-            foreach (var fam in mother.Families)
+            dynamic mothN = mother.Name;
+            BlockForignKeys(ref mothN);
+            mother.Name = mothN;
+
+            dynamic mothA = mother.Address;
+            BlockForignKeys(ref mothA);
+            mother.Address = mothA;
+
+            if (mother.Families != null)
             {
-                fam.Mother = null;
+                foreach (var fam in mother.Families)
+                {
+                    fam.Mother = null;
+                }
             }
         }
 
@@ -114,10 +193,35 @@ namespace OrphanageService.Utilities
         {
             if (orphan == null) return;
 
-            orphan.Family.Orphans = null;
-            if (orphan.Bail != null) orphan.Bail.Orphans=  null;
-            if (orphan.Family.Father != null) orphan.Family.Father.Families = null;
-            if (orphan.Family.Mother != null) orphan.Family.Mother.Families = null;
+            dynamic orpN = orphan.Name;
+            BlockForignKeys(ref orpN);
+            orphan.Name = orpN;
+
+            dynamic orpH = orphan.HealthStatus;
+            BlockForignKeys(ref orpH);
+            orphan.HealthStatus = orpH;
+
+            dynamic orpE = orphan.Education;
+            BlockForignKeys(ref orpE);
+            orphan.Education = orpE;
+
+            if (orphan.Family != null)
+            {
+                orphan.Family.Orphans = null;
+                if (orphan.Family.Father != null) orphan.Family.Father.Families = null;
+                if (orphan.Family.Mother != null) orphan.Family.Mother.Families = null;
+                var fam = orphan.Family;
+                BlockFamilySelfLoop(ref fam);
+                orphan.Family = fam;
+            }
+            if (orphan.Bail != null) orphan.Bail.Orphans = null;
+            if (orphan.Caregiver != null)
+            {
+                if (orphan.Caregiver.Orphans != null) orphan.Caregiver.Orphans = null;
+                var caregiver = orphan.Caregiver;
+                BlockCaregiverSelfLoop(ref caregiver);
+                orphan.Caregiver = caregiver;
+            }
         }
 
         public void BlockUserSelfLoop(ref OrphanageDataModel.Persons.User user)

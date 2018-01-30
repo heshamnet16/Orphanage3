@@ -1,15 +1,10 @@
-﻿using AutoMapper;
-using OrphanageService.DataContext;
-using OrphanageService.DataContext.FinancialData;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
-using OrphanageService.DataContext.Persons;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrphanageService.Services
 {
@@ -24,7 +19,7 @@ namespace OrphanageService.Services
             _uriGenerator = uriGenerator;
         }
 
-        public async Task<AccountDto> GetAccountDto(int Aid)
+        public async Task<OrphanageDataModel.FinancialData.Account> GetAccount(int Aid)
         {
             using (var dbContext = new OrphanageDbCNoBinary())
             {
@@ -34,14 +29,13 @@ namespace OrphanageService.Services
                     .FirstOrDefaultAsync(a => a.Id == Aid);
 
                 _selfLoopBlocking.BlockAccountSelfLoop(ref account);
-                AccountDto bailDto = Mapper.Map<AccountDto>(account);
-                return bailDto;
+                return account;
             }
         }
 
-        public async Task<IEnumerable<AccountDto>> GetAccounts(int pageSize, int pageNum)
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(int pageSize, int pageNum)
         {
-            IList<AccountDto> accountsList = new List<AccountDto>();
+            IList<OrphanageDataModel.FinancialData.Account> accountsList = new List<OrphanageDataModel.FinancialData.Account>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -61,16 +55,15 @@ namespace OrphanageService.Services
                 {
                     OrphanageDataModel.FinancialData.Account accountToFill = account;
                     _selfLoopBlocking.BlockAccountSelfLoop(ref accountToFill);
-                    AccountDto bailDto = Mapper.Map<AccountDto>(accountToFill);
-                    accountsList.Add(bailDto);
+                    accountsList.Add(accountToFill);
                 }
             }
             return accountsList;
         }
 
-        public async Task<IEnumerable<GuarantorDto>> GetGuarantors(int Aid)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int Aid)
         {
-            IList<GuarantorDto> returnedGuarantors = new List<GuarantorDto>();
+            IList<OrphanageDataModel.Persons.Guarantor> returnedGuarantors = new List<OrphanageDataModel.Persons.Guarantor>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var guarantors = await(from guar in dbContext.Guarantors.AsNoTracking()
@@ -85,8 +78,7 @@ namespace OrphanageService.Services
                 {
                     var guarantorToFill = guarantor;
                     _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantorToFill);
-                    var guarantorDto = Mapper.Map<OrphanageDataModel.Persons.Guarantor, GuarantorDto>(guarantorToFill);
-                    returnedGuarantors.Add(guarantorDto);
+                    returnedGuarantors.Add(guarantorToFill);
                 }
             }
             return returnedGuarantors;
@@ -101,9 +93,9 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<BailDto>> GetBails(int Aid)
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int Aid)
         {
-            IList<BailDto> returnedBails = new List<BailDto>();
+            IList<OrphanageDataModel.FinancialData.Bail> returnedBails = new List<OrphanageDataModel.FinancialData.Bail>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var bails = await(from bail in dbContext.Bails.AsNoTracking()
@@ -117,8 +109,7 @@ namespace OrphanageService.Services
                 {
                     var bailToFill = bail;
                     _selfLoopBlocking.BlockBailSelfLoop(ref bailToFill);
-                    var bailDto = Mapper.Map<OrphanageDataModel.FinancialData.Bail, BailDto>(bailToFill);
-                    returnedBails.Add(bailDto);
+                    returnedBails.Add(bailToFill);
                 }
             }
             return returnedBails;

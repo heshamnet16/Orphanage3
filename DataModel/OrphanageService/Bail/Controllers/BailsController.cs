@@ -1,7 +1,4 @@
-﻿using OrphanageService.DataContext.FinancialData;
-using OrphanageService.DataContext.Persons;
-using OrphanageService.DataContext.RegularData;
-using OrphanageService.Filters;
+﻿using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,7 +19,7 @@ namespace OrphanageService.Bail.Controllers
         //api/caregiver/{id}
         [HttpGet]
         [Route("{id}")]
-        public async Task<BailDto> Get(int id)
+        public async Task<OrphanageDataModel.FinancialData.Bail> Get(int id)
         {
             return await _bailDbService.GetBailDC(id);
         }
@@ -30,7 +27,7 @@ namespace OrphanageService.Bail.Controllers
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<BailDto>> Get(int pageSize, int pageNumber)
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> Get(int pageSize, int pageNumber)
         {
             return await _bailDbService.GetBails(pageSize, pageNumber);
         }
@@ -46,7 +43,7 @@ namespace OrphanageService.Bail.Controllers
         [HttpGet]
         [Route("orphans/{BId}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanDto>> GetOrphans(int BId)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int BId)
         {
             return await _bailDbService.GetOrphans(BId);
         }
@@ -54,7 +51,7 @@ namespace OrphanageService.Bail.Controllers
         [HttpGet]
         [Route("families/{BId}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<FamilyDto>> GetFamilies(int BId)
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int BId)
         {
             return await _bailDbService.GetFamilies(BId);
         }

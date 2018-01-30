@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using OrphanageService.DataContext;
-using OrphanageService.DataContext.FinancialData;
-using OrphanageService.DataContext.Persons;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
@@ -24,9 +21,9 @@ namespace OrphanageService.Services
         }
 
 
-        public async Task<IEnumerable<BailDto>> GetBails(int Gid)
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int Gid)
         {
-            IList<BailDto> returnedBails = new List<BailDto>();
+            IList<OrphanageDataModel.FinancialData.Bail> returnedBails = new List<OrphanageDataModel.FinancialData.Bail>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var bails = await (from bail in dbContext.Bails.AsNoTracking()
@@ -38,14 +35,13 @@ namespace OrphanageService.Services
                 {
                     var bailToFill = bail;
                     _selfLoopBlocking.BlockBailSelfLoop(ref bailToFill);
-                    var bailDto = Mapper.Map<OrphanageDataModel.FinancialData.Bail, BailDto>(bailToFill);
-                    returnedBails.Add(bailDto);
+                    returnedBails.Add(bailToFill);
                 }
             }
             return returnedBails;
         }
 
-        public async Task<GuarantorDto> GetGuarantor(int Gid)
+        public async Task<OrphanageDataModel.Persons.Guarantor> GetGuarantor(int Gid)
         {
             using (var dbContext = new OrphanageDbCNoBinary())
             {
@@ -56,14 +52,13 @@ namespace OrphanageService.Services
                     .FirstOrDefaultAsync(c => c.Id == Gid);
 
                 _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantor);
-                GuarantorDto guarantorDC = Mapper.Map<GuarantorDto>(guarantor);
-                return guarantorDC;
+                return guarantor;
             }
         }
 
-        public async Task<IEnumerable<GuarantorDto>> GetGuarantors(int pageSize, int pageNum)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int pageSize, int pageNum)
         {
-            IList<GuarantorDto> guarantorsList = new List<GuarantorDto>();
+            IList<OrphanageDataModel.Persons.Guarantor> guarantorsList = new List<OrphanageDataModel.Persons.Guarantor>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -84,8 +79,7 @@ namespace OrphanageService.Services
                 {
                     OrphanageDataModel.Persons.Guarantor guarantorToFill = guarantor;
                     _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantorToFill);
-                    GuarantorDto guarantorDto = Mapper.Map<GuarantorDto>(guarantorToFill);
-                    guarantorsList.Add(guarantorDto);
+                    guarantorsList.Add(guarantorToFill);
                 }
             }
             return guarantorsList;
@@ -100,9 +94,9 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<OrphanDto>> GetOrphans(int Gid)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Gid)
         {
-            IList<OrphanDto> returnedOrphans = new List<OrphanDto>();
+            IList<OrphanageDataModel.Persons.Orphan> returnedOrphans = new List<OrphanageDataModel.Persons.Orphan>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
@@ -139,9 +133,8 @@ gura in dbContext.Guarantors.AsNoTracking() on bail.GuarantorID equals gura.Id
                 {
                     var orpToFill = orphan;
                     _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
-                    var orphanDto = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDto>(orpToFill);
-                    _uriGenerator.SetOrphanUris(ref orphanDto);
-                    returnedOrphans.Add(orphanDto);
+                    _uriGenerator.SetOrphanUris(ref orpToFill);
+                    returnedOrphans.Add(orpToFill);
                 }
             }
             return returnedOrphans;

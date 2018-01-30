@@ -1,20 +1,17 @@
-﻿using OrphanageService.DataContext.Persons;
-using OrphanageService.DataContext.RegularData;
-using OrphanageService.Utilities.Interfaces;
-using System;
+﻿using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
 
 namespace OrphanageService.Utilities
 {
     public class UriGenerator : IUriGenerator
     {
-        public void SetCaregiverUris(ref CaregiverDto caregiverDto)
+        public void SetCaregiverUris(ref OrphanageDataModel.Persons.Caregiver caregiverDto)
         {
             caregiverDto.IdentityCardImageBackURI = "api/caregiver/media/idback/" + caregiverDto.Id;
             caregiverDto.IdentityCardImageFaceURI = "api/caregiver/media/idface/" + caregiverDto.Id;
             if(caregiverDto.Orphans != null)
             {
-                var tempList = new List<OrphanDto>();
+                var tempList = new List<OrphanageDataModel.Persons.Orphan>();
                 foreach(var orp in caregiverDto.Orphans)
                 {
                     if (orp.BirthCertificatePhotoURI != null && orp.BirthCertificatePhotoURI.Length > 0)
@@ -27,7 +24,7 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void SetFamilyUris(ref FamilyDto familyDC)
+        public void SetFamilyUris(ref OrphanageDataModel.RegularData.Family familyDC)
         {
             if (familyDC == null) return;
             familyDC.FamilyCardImagePage1URI = "api/family/media/page1/" + familyDC.Id;
@@ -46,14 +43,14 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void SetFatherUris(ref FatherDto fatherDto)
+        public void SetFatherUris(ref OrphanageDataModel.Persons.Father fatherDto)
         {
             if (fatherDto == null) return;
             fatherDto.PersonalPhotoURI = "api/father/media/face/" + fatherDto.Id;
             fatherDto.DeathCertificateImageURI = "api/father/media/death/" + fatherDto.Id;
             if (fatherDto.Families != null)
             {
-                var tempList = new List<FamilyDto>();
+                var tempList = new List<OrphanageDataModel.RegularData.Family>();
                 foreach (var fam in fatherDto.Families)
                 {
                     var familyDC = fam;
@@ -64,14 +61,14 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void SetMotherUris(ref MotherDto motherDto)
+        public void SetMotherUris(ref OrphanageDataModel.Persons.Mother motherDto)
         {
             if (motherDto == null) return;
             motherDto.IdentityCardFaceURI = "api/mother/media/idface/" + motherDto.Id;
             motherDto.IdentityCardBackURI = "api/mother/media/idback/" + motherDto.Id;
             if (motherDto.Families != null)
             {
-                var tempList = new List<FamilyDto>();
+                var tempList = new List<OrphanageDataModel.RegularData.Family>();
                 foreach (var fam in motherDto.Families)
                 {
                     var familyDto = fam;
@@ -82,7 +79,7 @@ namespace OrphanageService.Utilities
             }
         }
 
-        public void SetOrphanUris(ref OrphanDto orphanDC)
+        public void SetOrphanUris(ref OrphanageDataModel.Persons.Orphan orphanDC)
         {
             if (orphanDC == null) return;
             orphanDC.FacePhotoURI = "api/orphan/media/face/" + orphanDC.Id;
@@ -91,7 +88,7 @@ namespace OrphanageService.Utilities
             orphanDC.FullPhotoURI = "api/orphan/media/full/" + orphanDC.Id;
             if (orphanDC.Caregiver != null)
             {
-                CaregiverDto caregiverDC = orphanDC.Caregiver;
+                OrphanageDataModel.Persons.Caregiver caregiverDC = orphanDC.Caregiver;
                 SetCaregiverUris(ref caregiverDC);
                 orphanDC.Caregiver = caregiverDC;
             }

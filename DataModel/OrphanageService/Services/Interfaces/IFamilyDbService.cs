@@ -1,17 +1,15 @@
-﻿using OrphanageService.DataContext.Persons;
-using OrphanageService.DataContext.RegularData;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
 {
     public interface IFamilyDbService
     {
-        Task<FamilyDto> GetFamily(int FamId);
+        Task<OrphanageDataModel.RegularData.Family> GetFamily(int FamId);
 
-        Task<IEnumerable<FamilyDto>> GetFamilies(int pageSize, int pageNum);
+        Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int pageSize, int pageNum);
 
-        Task<IEnumerable<OrphanDto>> GetOrphans(int FamId);
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int FamId);
 
         Task<int> GetFamiliesCount();
 

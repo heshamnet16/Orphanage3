@@ -1,15 +1,10 @@
-﻿using OrphanageService.DataContext.FinancialData;
-using OrphanageService.DataContext.Persons;
-using OrphanageService.DataContext.RegularData;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Data.Entity;
 using OrphanageService.Utilities.Interfaces;
-using OrphanageService.DataContext;
-using AutoMapper;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrphanageService.Services
 {
@@ -24,7 +19,7 @@ namespace OrphanageService.Services
             _uriGenerator = uriGenerator;
         }
 
-        public async Task<BailDto> GetBailDC(int Bid)
+        public async Task<OrphanageDataModel.FinancialData.Bail> GetBailDC(int Bid)
         {
             using (var dbContext = new OrphanageDbCNoBinary())
             {
@@ -34,14 +29,13 @@ namespace OrphanageService.Services
                     .FirstOrDefaultAsync(b => b.Id == Bid);
 
                 _selfLoopBlocking.BlockBailSelfLoop(ref bail);
-                BailDto bailDto = Mapper.Map<BailDto>(bail);
-                return bailDto;
+                return bail;
             }
         }
 
-        public async Task<IEnumerable<BailDto>> GetBails(int pageSize, int pageNum)
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int pageSize, int pageNum)
         {
-            IList<BailDto> bailsList = new List<BailDto>();
+            IList<OrphanageDataModel.FinancialData.Bail> bailsList = new List<OrphanageDataModel.FinancialData.Bail>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -61,8 +55,7 @@ namespace OrphanageService.Services
                 {
                     OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
                     _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
-                    BailDto bailDto = Mapper.Map<BailDto>(bailsToFill);
-                    bailsList.Add(bailDto);
+                    bailsList.Add(bailsToFill);
                 }
             }
             return bailsList;
@@ -77,9 +70,9 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<FamilyDto>> GetFamilies(int Bid)
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int Bid)
         {
-            IList<FamilyDto> returnedFamilies = new List<FamilyDto>();
+            IList<OrphanageDataModel.RegularData.Family> returnedFamilies = new List<OrphanageDataModel.RegularData.Family>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var families = await(from orp in dbContext.Families.AsNoTracking()
@@ -97,17 +90,16 @@ namespace OrphanageService.Services
                 {
                     var famToFill = fam;
                     _selfLoopBlocking.BlockFamilySelfLoop(ref famToFill);
-                    var famDto = Mapper.Map<OrphanageDataModel.RegularData.Family, FamilyDto>(famToFill);
-                    _uriGenerator.SetFamilyUris(ref famDto);
-                    returnedFamilies.Add(famDto);
+                    _uriGenerator.SetFamilyUris(ref famToFill);
+                    returnedFamilies.Add(famToFill);
                 }
             }
             return returnedFamilies;
         }
 
-        public async Task<IEnumerable<OrphanDto>> GetOrphans(int Bid)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Bid)
         {
-            IList<OrphanDto> returnedOrphans = new List<OrphanDto>();
+            IList<OrphanageDataModel.Persons.Orphan> returnedOrphans = new List<OrphanageDataModel.Persons.Orphan>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
@@ -129,9 +121,8 @@ namespace OrphanageService.Services
                 {
                     var orpToFill = orphan;
                     _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
-                    var orphanDto = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDto>(orpToFill);
-                    _uriGenerator.SetOrphanUris(ref orphanDto);
-                    returnedOrphans.Add(orphanDto);
+                    _uriGenerator.SetOrphanUris(ref orpToFill);
+                    returnedOrphans.Add(orpToFill);
                 }
             }
             return returnedOrphans;

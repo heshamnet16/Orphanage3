@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,11 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -144,24 +143,11 @@
     <Compile Include="Bail\Controllers\BailsController.cs" />
     <Compile Include="Caregiver\Controllers\CaregiversController.cs" />
     <Compile Include="Caregiver\Controllers\CMediaController.cs" />
-    <Compile Include="DataContext\FinancialData\AccountDto.cs" />
-    <Compile Include="DataContext\FinancialData\BailDto.cs" />
     <Compile Include="DataContext\OrphanageDBC.cs" />
     <Compile Include="DataContext\OrphanageDBC.Designer.cs">
       <DependentUpon>OrphanageDBC.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContext\OrphanageDbCNoBinary.cs" />
-    <Compile Include="DataContext\Persons\CaregiverDto.cs" />
-    <Compile Include="DataContext\Persons\FatherDto.cs" />
-    <Compile Include="DataContext\Persons\GuarantorDto.cs" />
-    <Compile Include="DataContext\Persons\MotherDto.cs" />
-    <Compile Include="DataContext\Persons\OrphanDto.cs" />
-    <Compile Include="DataContext\Persons\UserDto.cs" />
-    <Compile Include="DataContext\RegularData\AddressDto.cs" />
-    <Compile Include="DataContext\RegularData\FamilyDto.cs" />
-    <Compile Include="DataContext\RegularData\HealthDto.cs" />
-    <Compile Include="DataContext\RegularData\NameDto.cs" />
-    <Compile Include="DataContext\RegularData\StudyDto.cs" />
     <Compile Include="Family\Controllers\FamiliesController.cs" />
     <Compile Include="Family\Controllers\FamMediaController.cs" />
     <Compile Include="Father\Controllers\FathersController.cs" />
