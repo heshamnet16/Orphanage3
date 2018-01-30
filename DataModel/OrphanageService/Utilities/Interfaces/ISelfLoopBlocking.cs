@@ -1,4 +1,5 @@
 ﻿using OrphanageDataModel.FinancialData;
+using OrphanageDataModel.Persons;
 
 namespace OrphanageService.Utilities.Interfaces
 {
@@ -12,5 +13,6 @@ namespace OrphanageService.Utilities.Interfaces
         void BlockCaregiverSelfLoop(ref OrphanageDataModel.Persons.Caregiver caregiver);
         void BlockBailSelfLoop(ref OrphanageDataModel.FinancialData.Bail bail);
         void BlockAccountSelfLoop(ref OrphanageDataModel.FinancialData.Account account);
+        void BlockUserSelfLoop(ref OrphanageDataModel.Persons.User user);
     }
 }

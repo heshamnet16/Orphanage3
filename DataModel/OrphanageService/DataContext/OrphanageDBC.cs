@@ -195,50 +195,50 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Guarantor)
                 .HasForeignKey(e => e.GuarantorId);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Bails)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Caregivers)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Accounts)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Famlies)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Fathers)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Mothers)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Orphans)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Guarantors)
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)

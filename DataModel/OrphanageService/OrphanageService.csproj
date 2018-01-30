@@ -187,6 +187,7 @@
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
+    <Compile Include="Services\Interfaces\IUserDbService.cs" />
     <Compile Include="Services\MotherDbService.cs" />
     <Compile Include="Services\OrphanDbService.cs" />
     <Compile Include="App_Start\WepApiConfig.cs" />
@@ -198,7 +199,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\Interfaces\IOrphanDbService.cs" />
+    <Compile Include="Services\UserDbService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="User\Controllers\UsersController.cs" />
     <Compile Include="Utilities\HttpResponseMessageConfiguerer.cs" />
     <Compile Include="Utilities\ImageAdapter.cs" />
     <Compile Include="Utilities\Interfaces\IHttpResponseMessageConfiguerer.cs" />
