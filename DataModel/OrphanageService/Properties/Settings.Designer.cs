@@ -32,5 +32,14 @@ namespace OrphanageService.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1515/")]
+        public string BaseURI {
+            get {
+                return ((string)(this["BaseURI"]));
+            }
+        }
     }
 }

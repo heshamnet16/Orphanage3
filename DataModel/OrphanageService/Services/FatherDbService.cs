@@ -1,7 +1,10 @@
 ﻿using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -49,7 +52,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 var img = await _orphanageDBC.Fathers.AsNoTracking().Where(f => f.Id == Fid).Select(f => new { f.PhotoData }).FirstOrDefaultAsync();
-                return  img?.PhotoData;
+                return img?.PhotoData;
             }
         }
 
@@ -135,6 +138,46 @@ namespace OrphanageService.Services
                 }
             }
             return returnedOrphans;
+        }
+
+        ///<inheritdoc/>
+        public async Task<bool> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDBC orphanageDBC, bool forceAdd)
+        {
+            if (father == null) throw new NullReferenceException();
+            //TODO #32 check the father data (name)
+            orphanageDBC.Fathers.Add(father);
+
+            if (await orphanageDBC.SaveChangesAsync() == 1)
+                return true;
+            else
+                return false;
+
+        }
+
+        public async Task<bool> SaveFather(OrphanageDataModel.Persons.Father father)
+        {
+            if (father == null) throw new NullReferenceException();
+            using (OrphanageDBC orphanageDc = new OrphanageDBC() )
+            {
+                orphanageDc.Configuration.AutoDetectChangesEnabled = true;
+                var fatherToReplace = await orphanageDc.Fathers.Where(f => f.Id == father.Id).FirstAsync();
+                if (fatherToReplace == null) throw new ObjectNotFoundException();
+                fatherToReplace = father;
+                await orphanageDc.SaveChangesAsync();
+            }
+            return true;
+        }
+
+        public async Task<bool> DeleteFather(int Fid)
+        {
+            if (Fid == 0) throw new NullReferenceException();
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<bool> IsExist(OrphanageDataModel.Persons.Father father)
+        {
+            if (father == null) throw new NullReferenceException();
+            throw new System.NotImplementedException();
         }
     }
 }

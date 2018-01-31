@@ -7,7 +7,7 @@ namespace OrphanageService
     {
         static void Main(string[] args)
         {
-            string baseUrl = "http://localhost:1515/";
+            string baseUrl = Properties.Settings.Default.BaseURI;
 
             WebApp.Start<Startup>(baseUrl);
 
