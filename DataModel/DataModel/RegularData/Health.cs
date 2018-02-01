@@ -38,7 +38,10 @@ namespace OrphanageDataModel.RegularData
         [NotMapped]
         public MemoryStream ReporteFile { get => ReporteFileData != null ? new MemoryStream(this.ReporteFileData) : null; }
 
+        [NotMapped]
+        public string ReporteFileURI { get; set; }
 
+        
         public virtual ICollection<Orphan> Orphans { get; set; }
 
     }

@@ -1,16 +1,15 @@
-﻿using OrphanageService.DataContext.Persons;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
 {
     public interface ICaregiverDbService
     {
-        Task<CaregiverDto> GetCaregiver(int Cid);
+        Task<OrphanageDataModel.Persons.Caregiver> GetCaregiver(int Cid);
 
-        Task<IEnumerable<CaregiverDto>> GetCaregivers(int pageSize, int pageNum);
+        Task<IEnumerable<OrphanageDataModel.Persons.Caregiver>> GetCaregivers(int pageSize, int pageNum);
 
-        Task<IEnumerable<OrphanDto>> GetOrphans(int Cid);
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Cid);
 
         Task<int> GetCaregiversCount();
 

@@ -1,9 +1,10 @@
-﻿using AutoMapper;
-using OrphanageService.DataContext;
-using OrphanageService.DataContext.Persons;
+﻿using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace OrphanageService.Services
             _uriGenerator = uriGenerator;
         }
 
-        public async Task<FatherDto> GetFather(int Fid)
+        public async Task<OrphanageDataModel.Persons.Father> GetFather(int Fid)
         {
             using (var dbContext = new OrphanageDbCNoBinary())
             {
@@ -32,9 +33,8 @@ namespace OrphanageService.Services
 
                 _selfLoopBlocking.BlockFatherSelfLoop(ref father);
                 setFatherEntities(ref father, dbContext);
-                FatherDto fatherDto = Mapper.Map<FatherDto>(father);
-                _uriGenerator.SetFatherUris(ref fatherDto);
-                return fatherDto;
+                _uriGenerator.SetFatherUris(ref father);
+                return father;
             }
         }
 
@@ -52,13 +52,13 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 var img = await _orphanageDBC.Fathers.AsNoTracking().Where(f => f.Id == Fid).Select(f => new { f.PhotoData }).FirstOrDefaultAsync();
-                return  img?.PhotoData;
+                return img?.PhotoData;
             }
         }
 
-        public async Task<IEnumerable<FatherDto>> GetFathers(int pageSize, int pageNum)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Father>> GetFathers(int pageSize, int pageNum)
         {
-            IList<FatherDto> fathersList = new List<FatherDto>();
+            IList<OrphanageDataModel.Persons.Father> fathersList = new List<OrphanageDataModel.Persons.Father>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -79,9 +79,8 @@ namespace OrphanageService.Services
                     OrphanageDataModel.Persons.Father fatherToFill = father;
                     setFatherEntities(ref fatherToFill, _orphanageDBC);
                     _selfLoopBlocking.BlockFatherSelfLoop(ref fatherToFill);
-                    FatherDto fatherDC = Mapper.Map<FatherDto>(fatherToFill);
-                    _uriGenerator.SetFatherUris(ref fatherDC);
-                    fathersList.Add(fatherDC);
+                    _uriGenerator.SetFatherUris(ref fatherToFill);
+                    fathersList.Add(fatherToFill);
                 }
             }
             return fathersList;
@@ -109,9 +108,9 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<OrphanDto>> GetOrphans(int Fid)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Fid)
         {
-            IList<OrphanDto> returnedOrphans = new List<OrphanDto>();
+            IList<OrphanageDataModel.Persons.Orphan> returnedOrphans = new List<OrphanageDataModel.Persons.Orphan>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
@@ -134,12 +133,51 @@ namespace OrphanageService.Services
                 {
                     var orpToFill = orphan;
                     _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
-                    var orphanDC = Mapper.Map<OrphanageDataModel.Persons.Orphan, OrphanDto>(orpToFill);
-                    _uriGenerator.SetOrphanUris(ref orphanDC);
-                    returnedOrphans.Add(orphanDC);
+                    _uriGenerator.SetOrphanUris(ref orpToFill);
+                    returnedOrphans.Add(orpToFill);
                 }
             }
             return returnedOrphans;
+        }
+
+        ///<inheritdoc/>
+        public async Task<bool> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDBC orphanageDBC, bool forceAdd)
+        {
+            if (father == null) throw new NullReferenceException();
+            //TODO #32 check the father data (name)
+            orphanageDBC.Fathers.Add(father);
+
+            if (await orphanageDBC.SaveChangesAsync() == 1)
+                return true;
+            else
+                return false;
+
+        }
+
+        public async Task<bool> SaveFather(OrphanageDataModel.Persons.Father father)
+        {
+            if (father == null) throw new NullReferenceException();
+            using (OrphanageDBC orphanageDc = new OrphanageDBC() )
+            {
+                orphanageDc.Configuration.AutoDetectChangesEnabled = true;
+                var fatherToReplace = await orphanageDc.Fathers.Where(f => f.Id == father.Id).FirstAsync();
+                if (fatherToReplace == null) throw new ObjectNotFoundException();
+                fatherToReplace = father;
+                await orphanageDc.SaveChangesAsync();
+            }
+            return true;
+        }
+
+        public async Task<bool> DeleteFather(int Fid)
+        {
+            if (Fid == 0) throw new NullReferenceException();
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<bool> IsExist(OrphanageDataModel.Persons.Father father)
+        {
+            if (father == null) throw new NullReferenceException();
+            throw new System.NotImplementedException();
         }
     }
 }

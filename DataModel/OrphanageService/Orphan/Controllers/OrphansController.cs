@@ -1,5 +1,4 @@
-﻿using OrphanageService.DataContext.Persons;
-using OrphanageService.Filters;
+﻿using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,7 +19,7 @@ namespace OrphanageService.Orphan.Controllers
         //api/Orphan/{id}
         [HttpGet]
         [Route("{id}")]
-        public async Task<OrphanDto> Get(int id)
+        public async Task<OrphanageDataModel.Persons.Orphan> Get(int id)
         {
             return await _OrphanDBService.GetOrphan(id);
         }
@@ -28,7 +27,7 @@ namespace OrphanageService.Orphan.Controllers
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanDto>> Get(int pageSize,int pageNumber)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> Get(int pageSize,int pageNumber)
         {
             return await _OrphanDBService.GetOrphans(pageSize,pageNumber);
         }

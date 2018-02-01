@@ -9,6 +9,8 @@ namespace OrphanageService
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             SwaggerConfig.Register(config);
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",

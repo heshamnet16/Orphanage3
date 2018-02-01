@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,11 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -144,24 +143,11 @@
     <Compile Include="Bail\Controllers\BailsController.cs" />
     <Compile Include="Caregiver\Controllers\CaregiversController.cs" />
     <Compile Include="Caregiver\Controllers\CMediaController.cs" />
-    <Compile Include="DataContext\FinancialData\AccountDto.cs" />
-    <Compile Include="DataContext\FinancialData\BailDto.cs" />
     <Compile Include="DataContext\OrphanageDBC.cs" />
     <Compile Include="DataContext\OrphanageDBC.Designer.cs">
       <DependentUpon>OrphanageDBC.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContext\OrphanageDbCNoBinary.cs" />
-    <Compile Include="DataContext\Persons\CaregiverDto.cs" />
-    <Compile Include="DataContext\Persons\FatherDto.cs" />
-    <Compile Include="DataContext\Persons\GuarantorDto.cs" />
-    <Compile Include="DataContext\Persons\MotherDto.cs" />
-    <Compile Include="DataContext\Persons\OrphanDto.cs" />
-    <Compile Include="DataContext\Persons\UserDto.cs" />
-    <Compile Include="DataContext\RegularData\AddressDto.cs" />
-    <Compile Include="DataContext\RegularData\FamilyDto.cs" />
-    <Compile Include="DataContext\RegularData\HealthDto.cs" />
-    <Compile Include="DataContext\RegularData\NameDto.cs" />
-    <Compile Include="DataContext\RegularData\StudyDto.cs" />
     <Compile Include="Family\Controllers\FamiliesController.cs" />
     <Compile Include="Family\Controllers\FamMediaController.cs" />
     <Compile Include="Father\Controllers\FathersController.cs" />
@@ -172,10 +158,16 @@
     <Compile Include="Mother\Controllers\MothersController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />
     <Compile Include="Orphan\Controllers\OrphansController.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\AccountDbService.cs" />
     <Compile Include="Services\AutoCompleteDbService.cs" />
     <Compile Include="Services\BailDbService.cs" />
     <Compile Include="Services\CaregiverDbService.cs" />
+    <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
     <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
     <Compile Include="Services\GuarantorDbService.cs" />
@@ -187,6 +179,7 @@
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
+    <Compile Include="Services\Interfaces\IRegularDataService.cs" />
     <Compile Include="Services\Interfaces\IUserDbService.cs" />
     <Compile Include="Services\MotherDbService.cs" />
     <Compile Include="Services\OrphanDbService.cs" />
@@ -224,7 +217,12 @@
       <Name>OrphanageDataModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
