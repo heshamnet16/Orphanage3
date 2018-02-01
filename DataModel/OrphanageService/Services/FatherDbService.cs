@@ -177,7 +177,10 @@ namespace OrphanageService.Services
         public async Task<bool> IsExist(OrphanageDataModel.Persons.Father father)
         {
             if (father == null) throw new NullReferenceException();
-            throw new System.NotImplementedException();
+            using (var orphangeDC = new OrphanageDbCNoBinary())
+            {
+                return await orphangeDC.Fathers.Where(f => f.Id == father.Id).AnyAsync();
+            }            
         }
     }
 }

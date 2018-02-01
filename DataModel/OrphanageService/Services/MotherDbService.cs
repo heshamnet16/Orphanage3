@@ -1,6 +1,8 @@
 ﻿using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -29,6 +31,23 @@ namespace OrphanageService.Services
                     FirstOrDefault(m => m.Id == fam.MotherId);
                 fam.Father = father;
             }
+        }
+
+        public async Task<bool> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDBC orphanageDBC, bool forceAdd)
+        {
+            if (mother == null) throw new NullReferenceException();
+            //TODO #32 check the mother data (name)
+            orphanageDBC.Mothers.Add(mother);
+
+            if (await orphanageDBC.SaveChangesAsync() == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public Task<bool> DeleteMother(int Mid)
+        {
+            throw new System.NotImplementedException();
         }
 
         public async Task<OrphanageDataModel.Persons.Mother> GetMother(int Mid)
@@ -134,6 +153,29 @@ namespace OrphanageService.Services
                 }
             }
             return returnedOrphans;
+        }
+
+        public async Task<bool> IsExist(OrphanageDataModel.Persons.Mother mother)
+        {
+            if (mother == null) throw new NullReferenceException();
+            using (var orphangeDC = new OrphanageDbCNoBinary())
+            {
+                return await orphangeDC.Mothers.Where(m => m.Id == mother.Id).AnyAsync();
+            }
+        }
+
+        public async Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother)
+        {
+            if (mother == null) throw new NullReferenceException();
+            using (OrphanageDBC orphanageDc = new OrphanageDBC())
+            {
+                orphanageDc.Configuration.AutoDetectChangesEnabled = true;
+                var motherToReplace = await orphanageDc.Mothers.Where(m => m.Id == mother.Id).FirstAsync();
+                if (motherToReplace == null) throw new ObjectNotFoundException();
+                motherToReplace = mother;
+                await orphanageDc.SaveChangesAsync();
+            }
+            return true;
         }
     }
 }
