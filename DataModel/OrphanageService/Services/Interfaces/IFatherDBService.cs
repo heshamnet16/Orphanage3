@@ -30,6 +30,10 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetFatherPhoto(int Fid);
 
+        Task SetFatherPhoto(int Fid, byte[] data);
+
         Task<byte[]> GetFatherDeathCertificate(int Fid);
+
+        Task SetFatherDeathCertificate(int Fid,byte[] data);
     }
 }

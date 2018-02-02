@@ -11,9 +11,9 @@ namespace OrphanageService.Family.Controllers
     public class FamMediaController : ApiController
     {
         private IFamilyDbService _FamilyDBService;
-        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
+        private readonly IHttpMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public FamMediaController(IFamilyDbService familyDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public FamMediaController(IFamilyDbService familyDBService, IHttpMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _FamilyDBService = familyDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;

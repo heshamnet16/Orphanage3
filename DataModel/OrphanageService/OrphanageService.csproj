@@ -197,9 +197,9 @@
     <Compile Include="Services\UserDbService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="User\Controllers\UsersController.cs" />
-    <Compile Include="Utilities\HttpResponseMessageConfiguerer.cs" />
+    <Compile Include="Utilities\HttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\ImageAdapter.cs" />
-    <Compile Include="Utilities\Interfaces\IHttpResponseMessageConfiguerer.cs" />
+    <Compile Include="Utilities\Interfaces\IHttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\Interfaces\ISelfLoopBlocking.cs" />
     <Compile Include="Utilities\Interfaces\IUriGenerator.cs" />
     <Compile Include="Utilities\SelfLoopBlocking.cs" />

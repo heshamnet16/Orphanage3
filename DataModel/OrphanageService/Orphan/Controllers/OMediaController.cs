@@ -11,9 +11,9 @@ namespace OrphanageService.Orphan.Controllers
     public class OMediaController : ApiController
     {
         private IOrphanDbService _OrphanDBService;
-        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
+        private readonly IHttpMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public OMediaController(IOrphanDbService orphanDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public OMediaController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _OrphanDBService = orphanDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;

@@ -10,9 +10,9 @@ namespace OrphanageService.User.Controllers
     public class UsersController : ApiController
     {
         private IUserDbService _userDBService;
-        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
+        private readonly IHttpMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public UsersController(IUserDbService userDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public UsersController(IUserDbService userDBService, IHttpMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _userDBService = userDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;

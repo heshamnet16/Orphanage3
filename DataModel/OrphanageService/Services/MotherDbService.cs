@@ -210,5 +210,47 @@ namespace OrphanageService.Services
             }
             return true;
         }
+
+        public async Task SetMotherIdPhotoBack(int Mid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+
+                if (mother == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (mother == null)
+                    return;
+
+                mother.IdentityCardPhotoBackData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetMotherIdPhotoFace(int Mid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+
+                if (mother == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (mother == null)
+                    return;
+
+                mother.IdentityCardPhotoFaceData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
     }
 }

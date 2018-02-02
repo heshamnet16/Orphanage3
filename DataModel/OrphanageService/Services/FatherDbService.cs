@@ -206,5 +206,45 @@ namespace OrphanageService.Services
                 return await orphangeDC.Fathers.Where(f => f.Id == Fid).AnyAsync();
             }
         }
+
+        public async Task SetFatherDeathCertificate(int Fid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var father = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
+                if (father == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (father == null)
+                    return;
+                father.DeathCertificatePhotoData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetFatherPhoto(int Fid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var father = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
+
+                if (father == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (father == null)
+                    return;
+
+                father.PhotoData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
     }
 }
