@@ -29,11 +29,11 @@ namespace OrphanageService.DataContext
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-                modelBuilder.Entity<OrphanageDataModel.Persons.Orphan>()
-                    .Ignore(o => o.BirthCertificatePhotoData)
-                    .Ignore(o => o.FacePhotoData)
-                    .Ignore(o => o.FamilyCardPagePhotoData)
-                    .Ignore(o => o.FullPhotoData);
+            modelBuilder.Entity<OrphanageDataModel.Persons.Orphan>()
+                .Ignore(o => o.BirthCertificatePhotoData)
+                .Ignore(o => o.FacePhotoData)
+                .Ignore(o => o.FamilyCardPagePhotoData)
+                .Ignore(o => o.FullPhotoData);
             modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
                 .HasMany(e => e.Caregivers)
                 .WithOptional(e => e.Address)
@@ -78,10 +78,10 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Bail)
                 .HasForeignKey(e => e.BailId);
 
-                modelBuilder.Entity<OrphanageDataModel.Persons.Caregiver>()
-                    .Ignore(c => c.IdentityCardPhotoBackData)
-                    .Ignore(c => c.IdentityCardPhotoFaceData);
-            
+            modelBuilder.Entity<OrphanageDataModel.Persons.Caregiver>()
+                .Ignore(c => c.IdentityCardPhotoBackData)
+                .Ignore(c => c.IdentityCardPhotoFaceData);
+
             modelBuilder.Entity<OrphanageDataModel.Persons.Caregiver>()
                 .Property(e => e.Income)
                 .HasPrecision(29, 4);
@@ -111,28 +111,26 @@ namespace OrphanageService.DataContext
             modelBuilder.Entity<OrphanageDataModel.RegularData.Family>()
                     .Ignore(f => f.FamilyCardImagePage1)
                     .Ignore(f => f.FamilyCardImagePage2);
-            
+
             modelBuilder.Entity<OrphanageDataModel.RegularData.Family>()
                 .HasMany(e => e.Orphans)
                 .WithRequired(e => e.Family)
                 .HasForeignKey(e => e.FamilyId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<OrphanageDataModel.Persons.Father>()
+                .Ignore(f => f.DeathCertificatePhotoData)
+                .Ignore(f => f.PhotoData);
 
-                modelBuilder.Entity<OrphanageDataModel.Persons.Father>()
-                    .Ignore(f => f.DeathCertificatePhotoData)
-                    .Ignore(f => f.PhotoData);
-            
             modelBuilder.Entity<OrphanageDataModel.Persons.Father>()
                 .HasMany(e => e.Families)
                 .WithRequired(e => e.Father)
                 .HasForeignKey(e => e.FatherId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Health>()
+                .Ignore(h => h.ReporteFileData);
 
-                modelBuilder.Entity<OrphanageDataModel.RegularData.Health>()
-                    .Ignore(h => h.ReporteFileData);
-            
             modelBuilder.Entity<OrphanageDataModel.RegularData.Health>()
                 .Property(e => e.Cost)
                 .HasPrecision(29, 4);
@@ -142,11 +140,10 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.HealthStatus)
                 .HasForeignKey(e => e.HealthId);
 
+            modelBuilder.Entity<OrphanageDataModel.Persons.Mother>()
+                .Ignore(m => m.IdentityCardPhotoBackData)
+                .Ignore(m => m.IdentityCardPhotoFaceData);
 
-                modelBuilder.Entity<OrphanageDataModel.Persons.Mother>()
-                    .Ignore(m => m.IdentityCardPhotoBackData)
-                    .Ignore(m => m.IdentityCardPhotoFaceData);
-           
             modelBuilder.Entity<OrphanageDataModel.Persons.Mother>()
                 .Property(e => e.Salary)
                 .HasPrecision(29, 4);
@@ -192,11 +189,10 @@ namespace OrphanageService.DataContext
                 .WithOptional(e => e.Name)
                 .HasForeignKey(e => e.NameId);
 
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Study>()
+                .Ignore(s => s.CertificatePhotoBack)
+                .Ignore(s => s.CertificatePhotoFront);
 
-                modelBuilder.Entity<OrphanageDataModel.RegularData.Study>()
-                    .Ignore(s => s.CertificatePhotoBack)
-                    .Ignore(s => s.CertificatePhotoFront);
-            
             modelBuilder.Entity<OrphanageDataModel.RegularData.Study>()
                 .Property(e => e.MonthlyCost)
                 .HasPrecision(29, 4);
@@ -225,7 +221,6 @@ namespace OrphanageService.DataContext
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
-
 
             modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Caregivers)
@@ -268,7 +263,6 @@ namespace OrphanageService.DataContext
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
-
         }
     }
 }

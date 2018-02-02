@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OrphanageServiceTests
+﻿namespace OrphanageServiceTests
 {
     public static class TestDataStore
     {
@@ -20,6 +14,7 @@ namespace OrphanageServiceTests
                 EnglishLast = "TestELastName"
             };
         }
+
         public static OrphanageDataModel.RegularData.Address GetAddress()
         {
             return new OrphanageDataModel.RegularData.Address()

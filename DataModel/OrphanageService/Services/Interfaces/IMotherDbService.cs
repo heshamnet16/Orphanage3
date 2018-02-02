@@ -28,8 +28,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother);
 
-        Task<bool> DeleteMother(int Mid,OrphanageDbCNoBinary orphanageDbCNoBinary);
+        Task<bool> DeleteMother(int Mid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 
-        Task<bool> IsExist(OrphanageDataModel.Persons.Mother mother);
+        Task<bool> IsExist(int Mid);
     }
 }

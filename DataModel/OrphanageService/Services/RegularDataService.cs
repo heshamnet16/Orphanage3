@@ -2,9 +2,8 @@
 using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services
@@ -19,11 +18,6 @@ namespace OrphanageService.Services
                 return address.Id;
             else
                 return -1;
-        }
-
-        public Task<int> AddFamily(OrphanageDataModel.RegularData.Family family, OrphanageDbCNoBinary orphanageDBC)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<int> AddHealth(Health health, OrphanageDbCNoBinary orphanageDBC)
@@ -54,6 +48,46 @@ namespace OrphanageService.Services
                 return study.Id;
             else
                 return -1;
+        }
+
+        public async Task<bool> SaveAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
+        {
+            var orginalAddress = await orphanageDBC.Addresses.Where(a => a.Id == address.Id).FirstOrDefaultAsync();
+            orginalAddress.Note = address.Note;
+            orginalAddress.CellPhone = address.CellPhone;
+            orginalAddress.City = address.City;
+            orginalAddress.Country = address.Country;
+            orginalAddress.Facebook = address.Facebook;
+            orginalAddress.HomePhone = address.HomePhone;
+            orginalAddress.Street = address.Street;
+            orginalAddress.Town = address.Town;
+            orginalAddress.Twitter = address.Twitter;
+            orginalAddress.WorkPhone = address.WorkPhone;
+            var ret = await orphanageDBC.SaveChangesAsync();
+            return ret > 0 ? true : false;
+        }
+
+        public async Task<bool> SaveHalth(Health health, OrphanageDbCNoBinary orphanageDBC)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> SaveName(Name name, OrphanageDbCNoBinary orphanageDBC)
+        {
+            var orginalName = await orphanageDBC.Names.Where(a => a.Id == name.Id).FirstOrDefaultAsync();
+            orginalName.First = name.First;
+            orginalName.Father = name.Father;
+            orginalName.Last = name.Last;
+            orginalName.EnglishFirst = name.EnglishFirst;
+            orginalName.EnglishFather = name.EnglishFather;
+            orginalName.EnglishLast = name.EnglishLast;
+            var ret = await orphanageDBC.SaveChangesAsync();
+            return ret > 0 ? true : false;
+        }
+
+        public async Task<bool> SaveStudy(Study study, OrphanageDbCNoBinary orphanageDBC)
+        {
+            throw new NotImplementedException();
         }
     }
 }

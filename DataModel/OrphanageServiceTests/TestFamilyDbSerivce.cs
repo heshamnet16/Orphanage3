@@ -1,13 +1,9 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Shouldly;
-using Unity;
 using OrphanageService.Services.Interfaces;
 using Shouldly;
+using System;
+using Unity;
+
 namespace OrphanageServiceTests
 {
     [TestFixture]
@@ -27,7 +23,9 @@ namespace OrphanageServiceTests
                 {
                     Birthday = new DateTime(1980, 1, 1),
                     DateOfDeath = DateTime.Now,
-                    Name = nameF, RegDate = DateTime.Now, UserId = 1,
+                    Name = nameF,
+                    RegDate = DateTime.Now,
+                    UserId = 1,
                     IdentityCardNumber = "0455468136665465"
                 },
                 Mother = new OrphanageDataModel.Persons.Mother()
@@ -37,24 +35,43 @@ namespace OrphanageServiceTests
                     Birthday = new DateTime(1980, 1, 1),
                     HasSheOrphans = true,
                     IdentityCardNumber = "652987485464",
-                    IsDead=false,
-                    IsMarried=false,
-                    RegDate=DateTime.Now,
-                    UserId=1
+                    IsDead = false,
+                    IsMarried = false,
+                    RegDate = DateTime.Now,
+                    UserId = 1
                 },
-                PrimaryAddress =addressFam,
-                UserId=1,
-                RegDate=DateTime.Now,
+                PrimaryAddress = addressFam,
+                UserId = 1,
+                RegDate = DateTime.Now,
                 FinncialStatus = "TestFinnacialStatus",
-                IsBailed =false,
-                IsExcluded=false,
-                IsTheyRefugees=false,
+                IsBailed = false,
+                IsExcluded = false,
+                IsTheyRefugees = false,
                 ResidenceStatus = "TestResidenceStatus",
-                ResidenceType = "TestResidenceType"                
+                ResidenceType = "TestResidenceType"
             };
             var famId = _familyDbService.AddFamily(fam).Result;
             famId.ShouldBeGreaterThan(0);
             _familyDbService.DeleteFamily(fam.Id).Result.ShouldBe(true);
+        }
+
+        [Test]
+        public void TestSaveFamily()
+        {
+            var family = _familyDbService.GetFamily(555).Result;
+            family.Father.Name.EnglishFather = "EFatherEnglish";
+            family.Mother.Name.EnglishFather = "EFatherEnglish";
+            if (family.PrimaryAddress != null) family.PrimaryAddress.Country = "Country";
+            if (family.AlternativeAddress != null) family.AlternativeAddress.Country = "Country";
+            family.FinncialStatus = family.FinncialStatus + "_Test";
+            var ret = _familyDbService.SaveFamily(family).Result;
+            ret.ShouldBe(true);
+            var newFamily = _familyDbService.GetFamily(555).Result;
+            newFamily.Father.Name.EnglishFather.ShouldBe("EFatherEnglish");
+            newFamily.Mother.Name.EnglishFather.ShouldBe("EFatherEnglish");
+            if (family.PrimaryAddress != null) family.PrimaryAddress.Country.ShouldBe("Country");
+            if (family.AlternativeAddress != null) family.AlternativeAddress.Country.ShouldBe("Country");
+            family.FinncialStatus.EndsWith("_Test").ShouldBe(true);
         }
     }
 }
