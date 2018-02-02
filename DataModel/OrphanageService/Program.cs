@@ -5,7 +5,7 @@ namespace OrphanageService
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             string baseUrl = Properties.Settings.Default.BaseURI;
 

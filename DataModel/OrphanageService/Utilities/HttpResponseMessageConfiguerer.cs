@@ -17,7 +17,7 @@ namespace OrphanageService.Utilities
         public HttpResponseMessage ImageContent(byte[] img)
         {
             var response = createContentMessage(img);
-            if(response.StatusCode != HttpStatusCode.NoContent)
+            if (response.StatusCode != HttpStatusCode.NoContent)
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("image/png");
             return response;
         }

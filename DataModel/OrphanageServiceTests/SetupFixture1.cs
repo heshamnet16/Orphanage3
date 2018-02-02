@@ -1,17 +1,16 @@
+﻿using CommonServiceLocator;
+using NUnit.Framework;
 using OrphanageService.Services;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
 using System;
-
 using Unity;
 
-namespace OrphanageService
+namespace OrphanageServiceTests
 {
-    /// <summary>
-    /// Specifies the Unity configuration for the main container.
-    /// </summary>
-    public static class UnityConfig
+    [SetUpFixture]
+    public class SetupFixture1
     {
         #region Unity Container
 
@@ -69,6 +68,20 @@ namespace OrphanageService
             container.RegisterType<IUriGenerator, UriGenerator>();
             container.RegisterType<IHttpResponseMessageConfiguerer, HttpResponseMessageConfiguerer>();
             container.RegisterType<IRegularDataService, RegularDataService>();
+
+        }
+
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
+        {
+            RegisterTypes(container.Value);
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            // TODO: Add code here that is run after
+            //  all tests in the assembly have been run
         }
     }
 }

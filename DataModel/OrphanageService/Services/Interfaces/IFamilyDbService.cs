@@ -17,5 +17,17 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetFamilyCardPage2(int FamId);
 
+        /// <summary>
+        /// add new family object to the database
+        /// </summary>
+        /// <param name="family">the family object</param>
+        /// <returns></returns>
+        Task<int> AddFamily(OrphanageDataModel.RegularData.Family family);
+
+        Task<bool> SaveFamily(OrphanageDataModel.RegularData.Family family);
+
+        Task<bool> DeleteFamily(int Famid);
+
+        Task<bool> IsExist(OrphanageDataModel.RegularData.Family family);
     }
 }

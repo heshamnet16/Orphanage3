@@ -13,7 +13,6 @@ namespace OrphanageDataModel.RegularData
         [Column("ID")]
         public int Id { get; set; }
 
-
         [Column("Name")]
         public string SicknessName { get; set; }
 
@@ -22,18 +21,13 @@ namespace OrphanageDataModel.RegularData
 
         public decimal? Cost { get; set; }
 
-
         [Column("SupervisorDoctor")]
         public string SupervisorDoctor { get; set; }
 
         public string Note { get; set; }
 
-
-
         [Column("ReporteFile")]
         public byte[] ReporteFileData { get; set; }
-
-
 
         [NotMapped]
         public MemoryStream ReporteFile { get => ReporteFileData != null ? new MemoryStream(this.ReporteFileData) : null; }
@@ -41,8 +35,6 @@ namespace OrphanageDataModel.RegularData
         [NotMapped]
         public string ReporteFileURI { get; set; }
 
-        
         public virtual ICollection<Orphan> Orphans { get; set; }
-
     }
 }

@@ -66,9 +66,9 @@ namespace OrphanageService.Services
             IList<OrphanageDataModel.Persons.Guarantor> returnedGuarantors = new List<OrphanageDataModel.Persons.Guarantor>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
-                var guarantors = await(from guar in dbContext.Guarantors.AsNoTracking()
-                                  where guar.AccountId == Aid
-                                  select guar)
+                var guarantors = await (from guar in dbContext.Guarantors.AsNoTracking()
+                                        where guar.AccountId == Aid
+                                        select guar)
                     .Include(g => g.Address)
                     .Include(c => c.Name)
                     .Include(g => g.Account)
@@ -98,9 +98,9 @@ namespace OrphanageService.Services
             IList<OrphanageDataModel.FinancialData.Bail> returnedBails = new List<OrphanageDataModel.FinancialData.Bail>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
-                var bails = await(from bail in dbContext.Bails.AsNoTracking()
-                                     where bail.AccountID == Aid
-                                     select bail)
+                var bails = await (from bail in dbContext.Bails.AsNoTracking()
+                                   where bail.AccountID == Aid
+                                   select bail)
                                 .Include(b => b.Account)
                                 .Include(b => b.Guarantor)
                               .ToListAsync();

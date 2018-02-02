@@ -1,14 +1,13 @@
 ﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+
 namespace OrphanageService.Services
 {
-    class AutoCompleteDbService : IAutoCompleteDbService
+    public class AutoCompleteDbService : IAutoCompleteDbService
     {
         public async Task<IEnumerable<string>> GetCities()
         {

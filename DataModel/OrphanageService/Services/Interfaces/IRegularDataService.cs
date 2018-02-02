@@ -1,22 +1,48 @@
 ﻿using OrphanageService.DataContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
 {
     public interface IRegularDataService
     {
-        Task<int> AddName(OrphanageDataModel.RegularData.Name name, OrphanageDBC orphanageDBC);
+        /// <summary>
+        /// add Name object and return the ID of the new Name otherwise return -1
+        /// </summary>
+        /// <param name="name"> the name object</param>
+        /// <param name="orphanageDBC">reference to the current data context</param>
+        /// <returns>return the ID of the new Name otherwise return -1</returns>
+        Task<int> AddName(OrphanageDataModel.RegularData.Name name, OrphanageDbCNoBinary orphanageDBC);
 
-        Task<int> AddAddress(OrphanageDataModel.RegularData.Address address, OrphanageDBC orphanageDBC);
+        /// <summary>
+        /// add address object and return the ID of the new address otherwise return -1
+        /// </summary>
+        /// <param name="address"> the address object</param>
+        /// <param name="orphanageDBC">reference to the current data context</param>
+        /// <returns>return the ID of the new address otherwise return -1</returns>
+        Task<int> AddAddress(OrphanageDataModel.RegularData.Address address, OrphanageDbCNoBinary orphanageDBC);
 
-        Task<int> AddStudy(OrphanageDataModel.RegularData.Study study, OrphanageDBC orphanageDBC);
+        /// <summary>
+        /// add study object and return the ID of the new study otherwise return -1
+        /// </summary>
+        /// <param name="study"> the study object</param>
+        /// <param name="orphanageDBC">reference to the current data context</param>
+        /// <returns>return the ID of the new study otherwise return -1</returns>
+        Task<int> AddStudy(OrphanageDataModel.RegularData.Study study, OrphanageDbCNoBinary orphanageDBC);
 
-        Task<int> AddHealth(OrphanageDataModel.RegularData.Health health, OrphanageDBC orphanageDBC);
+        /// <summary>
+        /// add health object and return the ID of the new health otherwise return -1
+        /// </summary>
+        /// <param name="health"> the health object</param>
+        /// <param name="orphanageDBC">reference to the current data context</param>
+        /// <returns>return the ID of the new health otherwise return -1</returns>
+        Task<int> AddHealth(OrphanageDataModel.RegularData.Health health, OrphanageDbCNoBinary orphanageDBC);
 
-        Task<int> AddFamily(OrphanageDataModel.RegularData.Family family, OrphanageDBC orphanageDBC);
+        /// <summary>
+        /// add family object and return the ID of the new family otherwise return -1
+        /// </summary>
+        /// <param name="family"> the family object</param>
+        /// <param name="orphanageDBC">reference to the current data context</param>
+        /// <returns>return the ID of the new family otherwise return -1</returns>
+        Task<int> AddFamily(OrphanageDataModel.RegularData.Family family, OrphanageDbCNoBinary orphanageDBC);
     }
 }

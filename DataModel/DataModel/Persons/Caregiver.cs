@@ -18,19 +18,19 @@ namespace OrphanageDataModel.Persons
         [Column("Name_Id")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int NameId { get; set; }
+
         public virtual Name Name { get; set; }
 
         [Column("Address_ID")]
         public int? AddressId { get; set; }
+
         public virtual Address Address { get; set; }
 
         [Column("IdentityCard_ID")]
         public string IdentityCardId { get; set; }
 
-
         [Column("IdentityCard_Photo")]
         public byte[] IdentityCardPhotoFaceData { get; set; }
-
 
         [Column("IdentityCard_Photo2")]
         public byte[] IdentityCardPhotoBackData { get; set; }
@@ -44,23 +44,19 @@ namespace OrphanageDataModel.Persons
 
         public byte[] FingerPrint { get; set; }
 
-
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
-
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
-        public virtual User ActingUser { get; set; }
 
+        public virtual User ActingUser { get; set; }
 
         public string Note { get; set; }
 
-
         [NotMapped]
         public Image IdentityCardImageFace { get => IdentityCardPhotoFaceData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoFaceData)) : null; }
-
 
         [NotMapped]
         public Image IdentityCardImageBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
@@ -72,6 +68,5 @@ namespace OrphanageDataModel.Persons
         public string IdentityCardImageBackURI { get; set; }
 
         public virtual ICollection<Orphan> Orphans { get; set; }
-
     }
 }

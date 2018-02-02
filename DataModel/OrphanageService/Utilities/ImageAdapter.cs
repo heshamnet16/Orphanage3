@@ -7,7 +7,7 @@ namespace OrphanageService.Utilities
 {
     public class ImageAdapter
     {
-        public static byte[] Resize(byte[] img, Size newSize,long compertion)
+        public static byte[] Resize(byte[] img, Size newSize, long compertion)
         {
             byte[] retData = null;
             try
@@ -22,7 +22,7 @@ namespace OrphanageService.Utilities
                 Image retImage = new Bitmap(image, newSize);
                 using (MemoryStream mem = new MemoryStream())
                 {
-                    retImage.Save(mem, jpgEncoder,myEncoderParameters);
+                    retImage.Save(mem, jpgEncoder, myEncoderParameters);
                     retData = mem.ToArray();
                 }
             }
@@ -35,10 +35,10 @@ namespace OrphanageService.Utilities
 
         public static byte[] Resize(byte[] img, int height, int width)
         {
-            return Resize(img, new Size(width, height),100);
+            return Resize(img, new Size(width, height), 100);
         }
 
-        public static byte[] Resize(byte[] img, int height, int width,long compertion)
+        public static byte[] Resize(byte[] img, int height, int width, long compertion)
         {
             return Resize(img, new Size(width, height), compertion);
         }

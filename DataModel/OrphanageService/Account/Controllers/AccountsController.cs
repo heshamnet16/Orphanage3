@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace OrphanageService.Account.Controllers
 {
     [RoutePrefix("api/account")]
-    public class AccountsController : ApiController 
+    public class AccountsController : ApiController
     {
         private IAccountDbService _accountDbService;
 

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
@@ -14,7 +11,7 @@ using System.Web.Http.Routing;
 
 namespace OrphanageService.App_Start
 {
-    class HttpAreaSelector : IHttpControllerSelector
+    internal class HttpAreaSelector : IHttpControllerSelector
     {
         private const string VersionKey = "version";
         private const string NamespaceKey = "namespace";
@@ -27,6 +24,7 @@ namespace OrphanageService.App_Start
             _configuration = config;
             _controllers = new Lazy<Dictionary<string, HttpControllerDescriptor>>(InitializeControllerDictionary);
         }
+
         private Dictionary<string, HttpControllerDescriptor> InitializeControllerDictionary()
         {
             var dictionary = new Dictionary<string, HttpControllerDescriptor>(StringComparer.OrdinalIgnoreCase);

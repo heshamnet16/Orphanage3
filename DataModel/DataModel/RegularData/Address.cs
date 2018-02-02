@@ -26,25 +26,23 @@ namespace OrphanageDataModel.RegularData
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string Street { get; set; }
 
-        [RegularExpression(@"\(?\d{3}\)?-?*\d{3}-?*-?\d{4}", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^(?:\(?)(\d{3})(?:[\).\s]?)(\d{3})(?:[-\.\s]?)(\d{4})(?!\d)$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         [Column("Home_Phone")]
         public string HomePhone { get; set; }
 
-
-        [RegularExpression(@"\(?\d{3}\)?-?*\d{3}-?*-?\d{4}", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^(?:\(?)(\d{3})(?:[\).\s]?)(\d{3})(?:[-\.\s]?)(\d{4})(?!\d)$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         [Column("Cell_Phone")]
         public string CellPhone { get; set; }
 
-        [RegularExpression(@"\(?\d{3}\)?-?*\d{3}-?*-?\d{4}", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^(?:\(?)(\d{3})(?:[\).\s]?)(\d{3})(?:[-\.\s]?)(\d{4})(?!\d)$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         [Column("Work_phone")]
         public string WorkPhone { get; set; }
 
-        [RegularExpression(@"\(?\d{3}\)?-?*\d{3}-?*-?\d{4}", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
-        string Fax { get; set; }
+        [RegularExpression(@"^(?:\(?)(\d{3})(?:[\).\s]?)(\d{3})(?:[-\.\s]?)(\d{4})(?!\d)$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        private string Fax { get; set; }
 
         [EmailAddress(ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
-        string Email { get; set; }
-
+        private string Email { get; set; }
 
         [RegularExpression(@"(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?",
             ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
@@ -55,13 +53,9 @@ namespace OrphanageDataModel.RegularData
 
         public string Note { get; set; }
 
-
-
         public virtual ICollection<Caregiver> Caregivers { get; set; }
 
-
         public virtual ICollection<Family> Families { get; set; }
-
 
         public virtual ICollection<Family> FamliesAlternativeAddresses { get; set; }
 

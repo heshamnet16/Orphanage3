@@ -24,7 +24,7 @@ namespace OrphanageService.Services
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var bail = await dbContext.Bails.AsNoTracking()
-                    .Include(b=>b.Account)
+                    .Include(b => b.Account)
                     .Include(b => b.Guarantor)
                     .FirstOrDefaultAsync(b => b.Id == Bid);
 
@@ -75,9 +75,9 @@ namespace OrphanageService.Services
             IList<OrphanageDataModel.RegularData.Family> returnedFamilies = new List<OrphanageDataModel.RegularData.Family>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
-                var families = await(from orp in dbContext.Families.AsNoTracking()
-                                    where orp.BailId == Bid
-                                    select orp)
+                var families = await (from orp in dbContext.Families.AsNoTracking()
+                                      where orp.BailId == Bid
+                                      select orp)
                                     .Include(f => f.AlternativeAddress)
                                     .Include(f => f.Bail)
                                     .Include(f => f.Father)
@@ -103,8 +103,8 @@ namespace OrphanageService.Services
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
-                                    where orp.BailId == Bid
-                                    select orp)
+                                     where orp.BailId == Bid
+                                     select orp)
                                      .Include(o => o.Education)
                                      .Include(o => o.Name)
                                      .Include(o => o.Caregiver.Name)

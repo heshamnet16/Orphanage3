@@ -41,5 +41,14 @@ namespace OrphanageService.Properties {
                 return ((string)(this["BaseURI"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool FatherForceAdd {
+            get {
+                return ((bool)(this["FatherForceAdd"]));
+            }
+        }
     }
 }

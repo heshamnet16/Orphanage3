@@ -8,5 +8,8 @@
     <Setting Name="BaseURI" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:1515/</Value>
     </Setting>
+    <Setting Name="FatherForceAdd" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

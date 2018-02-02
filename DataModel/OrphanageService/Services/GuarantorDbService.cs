@@ -10,7 +10,6 @@ namespace OrphanageService.Services
 {
     public class GuarantorDbService : IGuarantorDbService
     {
-
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;
 
@@ -19,7 +18,6 @@ namespace OrphanageService.Services
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
         }
-
 
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int Gid)
         {

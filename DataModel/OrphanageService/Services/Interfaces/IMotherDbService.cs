@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-
 namespace OrphanageService.Services.Interfaces
 {
     public interface IMotherDbService
@@ -25,11 +24,11 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="mother">the mother object</param>
         /// <param name="forceAdd">added even if it's exist</param>
         /// <returns></returns>
-        Task<bool> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDBC orphanageDBC, bool forceAdd);
+        Task<int> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDbCNoBinary orphanageDBC);
 
         Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother);
 
-        Task<bool> DeleteMother(int Mid);
+        Task<bool> DeleteMother(int Mid,OrphanageDbCNoBinary orphanageDbCNoBinary);
 
         Task<bool> IsExist(OrphanageDataModel.Persons.Mother mother);
     }

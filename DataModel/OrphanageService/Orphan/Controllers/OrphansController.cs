@@ -27,10 +27,9 @@ namespace OrphanageService.Orphan.Controllers
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> Get(int pageSize,int pageNumber)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> Get(int pageSize, int pageNumber)
         {
-            return await _OrphanDBService.GetOrphans(pageSize,pageNumber);
+            return await _OrphanDBService.GetOrphans(pageSize, pageNumber);
         }
-
     }
 }

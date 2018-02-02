@@ -1,5 +1,3 @@
-using OrphanageDataModel.FinancialData;
-using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;
 using OrphanageService.Properties;
 using System.Data.Entity;
@@ -11,16 +9,15 @@ namespace OrphanageService.DataContext
         public OrphanageDBC()
             : base(Settings.Default.ConnectionString + ";Password=OrphansApp3")
         {
-            Database.SetInitializer<OrphanageDBC>(new CreateDatabaseIfNotExists<OrphanageDBC>());            
+            Database.SetInitializer<OrphanageDBC>(new CreateDatabaseIfNotExists<OrphanageDBC>());
             Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;            
-
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<OrphanageDataModel.RegularData.Address> Addresses { get; set; }
         public virtual DbSet<OrphanageDataModel.FinancialData.Bail> Bails { get; set; }
         public virtual DbSet<OrphanageDataModel.Persons.Caregiver> Caregivers { get; set; }
-        public virtual DbSet<OrphanageDataModel.FinancialData.Account> Accounts{ get; set; }
+        public virtual DbSet<OrphanageDataModel.FinancialData.Account> Accounts { get; set; }
         public virtual DbSet<OrphanageDataModel.RegularData.Family> Families { get; set; }
         public virtual DbSet<OrphanageDataModel.Persons.Father> Fathers { get; set; }
         public virtual DbSet<OrphanageDataModel.RegularData.Health> Healthies { get; set; }
@@ -32,9 +29,7 @@ namespace OrphanageService.DataContext
         public virtual DbSet<OrphanageDataModel.Persons.User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {            
-
-
+        {
             modelBuilder.Entity<OrphanageDataModel.FinancialData.Bail>()
                 .Property(e => e.Amount)
                 .HasPrecision(29, 4);
@@ -81,7 +76,6 @@ namespace OrphanageService.DataContext
                 .HasForeignKey(e => e.FamilyId)
                 .WillCascadeOnDelete(false);
 
-
             modelBuilder.Entity<OrphanageDataModel.Persons.Father>()
                 .HasMany(e => e.Families)
                 .WithRequired(e => e.Father)
@@ -91,8 +85,6 @@ namespace OrphanageService.DataContext
             modelBuilder.Entity<Health>()
                 .Property(e => e.Cost)
                 .HasPrecision(29, 4);
-
-
 
             modelBuilder.Entity<OrphanageDataModel.Persons.Mother>()
                 .Property(e => e.Salary)
@@ -124,7 +116,7 @@ namespace OrphanageService.DataContext
 
             modelBuilder.Entity<Name>()
                 .HasMany(e => e.Orphans)
-                .WithRequired(e => e.Name )
+                .WithRequired(e => e.Name)
                 .HasForeignKey(e => e.NameId)
                 .WillCascadeOnDelete(false);
 
@@ -168,7 +160,6 @@ namespace OrphanageService.DataContext
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
 
-
             modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasMany(e => e.Caregivers)
                 .WithRequired(e => e.ActingUser)
@@ -210,7 +201,6 @@ namespace OrphanageService.DataContext
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
-
         }
     }
 }

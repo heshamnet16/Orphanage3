@@ -37,16 +37,13 @@ namespace OrphanageDataModel.RegularData
         [Column("Certificate_Photo1")]
         public byte[] CertificatePhotoFront { get; set; }
 
-
         [Column("Certificate_Photo2")]
         public byte[] CertificatePhotoBack { get; set; }
 
         public string Note { get; set; }
 
-
         [NotMapped]
         public Image CertificateImage { get => CertificatePhotoFront != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoFront)) : null; }
-
 
         [NotMapped]
         public Image CertificateImage2 { get => CertificatePhotoBack != null ? Image.FromStream(new MemoryStream(this.CertificatePhotoBack)) : null; }
@@ -54,12 +51,9 @@ namespace OrphanageDataModel.RegularData
         [NotMapped]
         public string CertificateImageURI { get; set; }
 
-
         [NotMapped]
         public string CertificateImage2URI { get; set; }
 
-
         public virtual ICollection<Orphan> Orphans { get; set; }
-
     }
 }

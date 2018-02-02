@@ -1,6 +1,4 @@
-﻿using OrphanageDataModel.FinancialData;
-using OrphanageDataModel.Persons;
-using OrphanageService.Utilities.Interfaces;
+﻿using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
 
 namespace OrphanageService.Utilities
@@ -49,7 +47,6 @@ namespace OrphanageService.Utilities
             if (account.Guarantors != null)
                 foreach (var guarantor in account.Guarantors)
                     if (guarantor.Account != null) guarantor.Account = null;
-
         }
 
         public void BlockBailSelfLoop(ref OrphanageDataModel.FinancialData.Bail bail)
@@ -75,9 +72,9 @@ namespace OrphanageService.Utilities
             if (bail.Guarantor != null)
             {
                 var gua = bail.Guarantor;
-                if(gua.Bails != null) gua.Bails = null;
+                if (gua.Bails != null) gua.Bails = null;
                 BlockGuarantorSelfLoop(ref gua);
-                bail.Guarantor = gua;                
+                bail.Guarantor = gua;
             }
         }
 
@@ -171,7 +168,6 @@ namespace OrphanageService.Utilities
             BlockForignKeys(ref guarantorA);
             guarantor.Address = guarantorA;
 
-
             if (guarantor.Account != null)
             {
                 if (guarantor.Account.Guarantors != null)
@@ -188,7 +184,6 @@ namespace OrphanageService.Utilities
                 foreach (var bail in guarantor.Bails)
                     bail.Guarantor = null;
             }
-
         }
 
         public void BlockMotherSelfLoop(ref OrphanageDataModel.Persons.Mother mother)
@@ -263,7 +258,6 @@ namespace OrphanageService.Utilities
             dynamic userA = user.Address;
             BlockForignKeys(ref userA);
             user.Address = userA;
-
 
             if (user.Accounts != null)
                 foreach (var acc in user.Accounts)

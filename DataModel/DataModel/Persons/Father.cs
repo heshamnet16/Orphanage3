@@ -18,61 +18,49 @@ namespace OrphanageDataModel.Persons
         [Column("Name_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int NameId { get; set; }
+
         public virtual Name Name { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime Birthday { get; set; }
 
-
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         [Column("Dieday")]
         public DateTime DateOfDeath { get; set; }
 
-
         [Column("DeathCertificate_Photo")]
         public byte[] DeathCertificatePhotoData { get; set; }
-
 
         [Column("Photo")]
         public byte[] PhotoData { get; set; }
 
-
         public string Jop { get; set; }
-
 
         public string Story { get; set; }
 
         [Column("DeathResone")]
         public string DeathReason { get; set; }
 
-
         [Column("Color_Mark")]
         public long? ColorMark { get; set; }
-
 
         [Column("IdentityCard_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public string IdentityCardNumber { get; set; }
 
-
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
-
 
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
-        public virtual User ActingUser { get; set; }
 
+        public virtual User ActingUser { get; set; }
 
         public string Note { get; set; }
 
-
-
-
         [NotMapped]
         public Image PersonalPhoto { get => PhotoData != null ? Image.FromStream(new MemoryStream(this.PhotoData)) : null; }
-
 
         [NotMapped]
         public Image DeathCertificateImage { get => DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; }
@@ -80,12 +68,9 @@ namespace OrphanageDataModel.Persons
         [NotMapped]
         public string PersonalPhotoURI { get; set; }
 
-
         [NotMapped]
         public string DeathCertificateImageURI { get; set; }
 
-
         public virtual ICollection<Family> Families { get; set; }
-
     }
 }

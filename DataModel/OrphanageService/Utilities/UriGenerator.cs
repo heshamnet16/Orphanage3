@@ -9,14 +9,14 @@ namespace OrphanageService.Utilities
         {
             caregiverDto.IdentityCardImageBackURI = "api/caregiver/media/idback/" + caregiverDto.Id;
             caregiverDto.IdentityCardImageFaceURI = "api/caregiver/media/idface/" + caregiverDto.Id;
-            if(caregiverDto.Orphans != null)
+            if (caregiverDto.Orphans != null)
             {
                 var tempList = new List<OrphanageDataModel.Persons.Orphan>();
-                foreach(var orp in caregiverDto.Orphans)
+                foreach (var orp in caregiverDto.Orphans)
                 {
                     if (orp.BirthCertificatePhotoURI != null && orp.BirthCertificatePhotoURI.Length > 0)
                         continue;
-                    var orphanDto = orp;                    
+                    var orphanDto = orp;
                     SetOrphanUris(ref orphanDto);
                     tempList.Add(orphanDto);
                 }
@@ -29,7 +29,7 @@ namespace OrphanageService.Utilities
             if (familyDC == null) return;
             familyDC.FamilyCardImagePage1URI = "api/family/media/page1/" + familyDC.Id;
             familyDC.FamilyCardImagePage2URI = "api/family/media/page2/" + familyDC.Id;
-            if(familyDC.Father != null)
+            if (familyDC.Father != null)
             {
                 var fatherDc = familyDC.Father;
                 SetFatherUris(ref fatherDc);
@@ -73,7 +73,7 @@ namespace OrphanageService.Utilities
                 {
                     var familyDto = fam;
                     SetFamilyUris(ref familyDto);
-                    tempList.Add(familyDto);                    
+                    tempList.Add(familyDto);
                 }
                 motherDto.Families = tempList;
             }
@@ -92,9 +92,9 @@ namespace OrphanageService.Utilities
                 SetCaregiverUris(ref caregiverDC);
                 orphanDC.Caregiver = caregiverDC;
             }
-            if(orphanDC.Education !=null)
+            if (orphanDC.Education != null)
             {
-                orphanDC.Education.CertificateImageURI = "api/orphan/media/education/"+ orphanDC.Id;
+                orphanDC.Education.CertificateImageURI = "api/orphan/media/education/" + orphanDC.Id;
                 orphanDC.Education.CertificateImage2URI = "api/orphan/media/education2/" + orphanDC.Id;
             }
             if (orphanDC.HealthStatus != null)
@@ -107,7 +107,6 @@ namespace OrphanageService.Utilities
                 SetFamilyUris(ref familyDC);
                 orphanDC.Family = familyDC;
             }
-
         }
     }
 }

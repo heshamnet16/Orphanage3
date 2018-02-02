@@ -179,6 +179,7 @@ namespace OrphanageService.User.Controllers
         {
             return await _userDBService.GetOrphans(Uid, pageSize, pageNum);
         }
+
         [HttpGet]
         [Route("orphans/count/{uid}")]
         public async Task<int> GetOrphansCount(int Uid)

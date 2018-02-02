@@ -1,9 +1,9 @@
-﻿using OrphanageDataModel.RegularData;
-using OrphanageDataModel.FinancialData;
+﻿using OrphanageDataModel.FinancialData;
+using OrphanageDataModel.RegularData;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
 
 namespace OrphanageDataModel.Persons
 {
@@ -23,19 +23,19 @@ namespace OrphanageDataModel.Persons
         [Column("Name_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int NameId { get; set; }
-        public virtual Name Name { get; set; }
 
+        public virtual Name Name { get; set; }
 
         [Column("Address_ID")]
         public int? AddressId { get; set; }
-        public virtual Address Address { get; set; }
 
+        public virtual Address Address { get; set; }
 
         [Column("Box_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int AccountId { get; set; }
-        public virtual Account Account { get; set; }
 
+        public virtual Account Account { get; set; }
 
         [Column("Color_Mark")]
         public long? ColorMark { get; set; }
@@ -55,21 +55,16 @@ namespace OrphanageDataModel.Persons
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public DateTime RegDate { get; set; }
 
-
         [Column("User_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
         public int UserId { get; set; }
+
         public virtual User ActingUser { get; set; }
 
-
         public string Note { get; set; }
-
-
 
         public virtual ICollection<Bail> Bails { get; set; }
 
         public virtual ICollection<Orphan> Orphans { get; set; }
-
-
     }
 }

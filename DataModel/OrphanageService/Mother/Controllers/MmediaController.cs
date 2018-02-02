@@ -20,6 +20,7 @@ namespace OrphanageService.Mother.Controllers
         }
 
         #region IdCardPhotoFront
+
         [HttpGet]
         [System.Web.Http.Route("idface/{Mid}")]
         public async Task<HttpResponseMessage> GetMotherIdPhotoFace(int Mid)
@@ -49,8 +50,11 @@ namespace OrphanageService.Mother.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion IdCardPhotoFront
+
         #region IdCardPhotoBack
+
         [HttpGet]
         [System.Web.Http.Route("idback/{Mid}")]
         public async Task<HttpResponseMessage> GetMotherIdPhotoBack(int Mid)
@@ -80,6 +84,7 @@ namespace OrphanageService.Mother.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion IdCardPhotoBack
     }
 }

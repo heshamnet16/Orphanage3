@@ -27,7 +27,7 @@ namespace OrphanageService.Services
                 var accounts = await _orphanageDBC.Accounts.AsNoTracking()
                     .Include(a => a.Bails)
                     .Include(b => b.Guarantors)
-                    .Where(b=>b.UserId==Uid)
+                    .Where(b => b.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var account in accounts)
@@ -74,7 +74,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int accountsCount = await _orphanageDBC.Accounts.AsNoTracking()
-                    .Where(a=>a.UserId==Uid)
+                    .Where(a => a.UserId == Uid)
                     .CountAsync();
                 return accountsCount;
             }
@@ -87,8 +87,8 @@ namespace OrphanageService.Services
             {
                 var bails = await _orphanageDBC.Bails.AsNoTracking()
                     .Include(b => b.Account)
-                    .Include(b => b.Guarantor)                   
-                    .Where(b=>b.UserId==Uid)
+                    .Include(b => b.Guarantor)
+                    .Where(b => b.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var bail in bails)
@@ -117,7 +117,7 @@ namespace OrphanageService.Services
                     .OrderBy(c => c.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(b => b.Account)
                     .Include(b => b.Guarantor)
-                    .Where(b=>b.UserId==Uid)
+                    .Where(b => b.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var bail in bails)
@@ -128,7 +128,6 @@ namespace OrphanageService.Services
                 }
             }
             return bailsList;
-
         }
 
         public async Task<int> GetBailsCount(int Uid)
@@ -136,7 +135,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int bailsCount = await _orphanageDBC.Bails.AsNoTracking()
-                    .Where(b=>b.UserId==Uid).CountAsync();
+                    .Where(b => b.UserId == Uid).CountAsync();
                 return bailsCount;
             }
         }
@@ -150,7 +149,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Address)
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
-                    .Where(c=>c.UserId==Uid)
+                    .Where(c => c.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var caregiver in caregivers)
@@ -217,7 +216,7 @@ namespace OrphanageService.Services
                     .Include(f => f.Mother)
                     .Include(f => f.Orphans)
                     .Include(f => f.PrimaryAddress)
-                    .Where(f=>f.UserId==Uid)
+                    .Where(f => f.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var family in families)
@@ -270,7 +269,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int familiesCount = await _orphanageDBC.Families.AsNoTracking()
-                    .Where(f=>f.UserId==Uid)
+                    .Where(f => f.UserId == Uid)
                     .CountAsync();
                 return familiesCount;
             }
@@ -284,7 +283,7 @@ namespace OrphanageService.Services
                 var fathers = await _orphanageDBC.Fathers.AsNoTracking()
                     .Include(f => f.Families)
                     .Include(f => f.Name)
-                    .Where(f=>f.UserId==Uid)
+                    .Where(f => f.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var father in fathers)
@@ -335,7 +334,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int orphansCount = await _orphanageDBC.Fathers.AsNoTracking()
-                    .Where(f=>f.UserId==Uid)
+                    .Where(f => f.UserId == Uid)
                     .CountAsync();
                 return orphansCount;
             }
@@ -350,7 +349,7 @@ namespace OrphanageService.Services
                     .Include(g => g.Address)
                     .Include(c => c.Name)
                     .Include(g => g.Account)
-                    .Where(g=>g.UserId==Uid)
+                    .Where(g => g.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var guarantor in guarantors)
@@ -398,7 +397,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int guarantorsCount = await _orphanageDBC.Guarantors.AsNoTracking()
-                    .Where(g=>g.UserId==Uid)
+                    .Where(g => g.UserId == Uid)
                     .CountAsync();
                 return guarantorsCount;
             }
@@ -412,7 +411,7 @@ namespace OrphanageService.Services
                 var mothers = await _orphanageDBC.Mothers.AsNoTracking()
                     .Include(f => f.Families)
                     .Include(f => f.Name)
-                    .Where(m=>m.UserId==Uid)
+                    .Where(m => m.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var mother in mothers)
@@ -463,7 +462,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int mothersCount = await _orphanageDBC.Mothers.AsNoTracking()
-                    .Where(m=>m.UserId==Uid)
+                    .Where(m => m.UserId == Uid)
                     .CountAsync();
                 return mothersCount;
             }
@@ -483,7 +482,7 @@ namespace OrphanageService.Services
                     .Include(o => o.Family.PrimaryAddress)
                     .Include(o => o.Family.AlternativeAddress)
                     .Include(o => o.Guarantor.Name)
-                    .Where(o=>o.UserId==Uid)
+                    .Where(o => o.UserId == Uid)
                     .ToListAsync();
 
                 foreach (var orphan in orphans)
@@ -538,7 +537,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int orphansCount = await _orphanageDBC.Orphans.AsNoTracking()
-                    .Where(o=>o.UserId==Uid)
+                    .Where(o => o.UserId == Uid)
                     .CountAsync();
                 return orphansCount;
             }

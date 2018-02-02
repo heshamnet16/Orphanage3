@@ -33,21 +33,38 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<bool> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDBC orphanageDBC, bool forceAdd)
+        public async Task<int> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDbCNoBinary orphanageDBC)
         {
             if (mother == null) throw new NullReferenceException();
             //TODO #32 check the mother data (name)
+            //TODO use forceadd in the settings
             orphanageDBC.Mothers.Add(mother);
 
             if (await orphanageDBC.SaveChangesAsync() == 1)
+                return mother.Id;
+            else
+                return -1;
+        }
+
+        public async Task<bool> DeleteMother(int Mid,OrphanageDbCNoBinary orphanageDb)
+        {
+            if (Mid == 0) throw new NullReferenceException();
+
+            var mother = await orphanageDb.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+            if (mother.Families.Count > 0)
+            {
+                //the mother has another family
+                return true;
+            }
+            var motherName = mother.Name;
+            var motherAddress = mother.Address;
+            orphanageDb.Mothers.Remove(mother);
+            orphanageDb.Names.Remove(motherName);
+            orphanageDb.Addresses.Remove(motherAddress);
+            if (await orphanageDb.SaveChangesAsync() > 1)
                 return true;
             else
                 return false;
-        }
-
-        public Task<bool> DeleteMother(int Mid)
-        {
-            throw new System.NotImplementedException();
         }
 
         public async Task<OrphanageDataModel.Persons.Mother> GetMother(int Mid)

@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace OrphanageService.Father.Controllers
 {
     [RoutePrefix("api/father")]
-    public class FathersController :ApiController
+    public class FathersController : ApiController
     {
         private readonly IFatherDbService _FatherDBService;
 

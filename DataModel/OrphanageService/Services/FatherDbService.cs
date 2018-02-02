@@ -4,7 +4,6 @@ using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -141,23 +140,23 @@ namespace OrphanageService.Services
         }
 
         ///<inheritdoc/>
-        public async Task<bool> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDBC orphanageDBC, bool forceAdd)
+        public async Task<int> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDbCNoBinary orphanageDBC)
         {
             if (father == null) throw new NullReferenceException();
             //TODO #32 check the father data (name)
+            //TODO use forceadd in the settings
             orphanageDBC.Fathers.Add(father);
 
             if (await orphanageDBC.SaveChangesAsync() == 1)
-                return true;
+                return father.Id;
             else
-                return false;
-
+                return -1;
         }
 
         public async Task<bool> SaveFather(OrphanageDataModel.Persons.Father father)
         {
             if (father == null) throw new NullReferenceException();
-            using (OrphanageDBC orphanageDc = new OrphanageDBC() )
+            using (OrphanageDBC orphanageDc = new OrphanageDBC())
             {
                 orphanageDc.Configuration.AutoDetectChangesEnabled = true;
                 var fatherToReplace = await orphanageDc.Fathers.Where(f => f.Id == father.Id).FirstAsync();
@@ -168,10 +167,22 @@ namespace OrphanageService.Services
             return true;
         }
 
-        public async Task<bool> DeleteFather(int Fid)
+        public async Task<bool> DeleteFather(int Fid,OrphanageDbCNoBinary orphanageDb)
         {
             if (Fid == 0) throw new NullReferenceException();
-            throw new System.NotImplementedException();
+            var father = await orphanageDb.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
+            if(father.Families.Count > 0)
+            {
+                //the father has another family
+                return true;
+            }
+            var fatherName = father.Name;
+            orphanageDb.Fathers.Remove(father);
+            orphanageDb.Names.Remove(fatherName);
+            if (await orphanageDb.SaveChangesAsync() > 1)
+                return true;
+            else
+                return false;
         }
 
         public async Task<bool> IsExist(OrphanageDataModel.Persons.Father father)
@@ -180,7 +191,7 @@ namespace OrphanageService.Services
             using (var orphangeDC = new OrphanageDbCNoBinary())
             {
                 return await orphangeDC.Fathers.Where(f => f.Id == father.Id).AnyAsync();
-            }            
+            }
         }
     }
 }

@@ -13,17 +13,18 @@ namespace OrphanageService.Services
         private readonly ISelfLoopBlocking _loopBlocking;
         private readonly IUriGenerator _uriGenerator;
 
-        public OrphanDbService(ISelfLoopBlocking loopBlocking,IUriGenerator uriGenerator )
+        public OrphanDbService(ISelfLoopBlocking loopBlocking, IUriGenerator uriGenerator)
         {
             _loopBlocking = loopBlocking;
             _uriGenerator = uriGenerator;
         }
+
         public async Task<OrphanageDataModel.Persons.Orphan> GetOrphan(int id)
         {
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
-                var orphan  = await _orphanageDBC.Orphans.AsNoTracking()
-                    .Include(o=>o.Education)
+                var orphan = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Education)
                     .Include(o => o.Name)
                     .Include(o => o.Caregiver.Name)
                     .Include(o => o.Caregiver.Address)
@@ -32,30 +33,30 @@ namespace OrphanageService.Services
                     .Include(o => o.Family.PrimaryAddress)
                     .Include(o => o.Family.AlternativeAddress)
                     .Include(o => o.Guarantor.Name)
-                    .Include(o=>o.Bail)
-                    .Include(o=>o.HealthStatus)
+                    .Include(o => o.Bail)
+                    .Include(o => o.HealthStatus)
                     .FirstOrDefaultAsync(o => o.Id == id);
 
                 _loopBlocking.BlockOrphanSelfLoop(ref orphan);
                 _uriGenerator.SetOrphanUris(ref orphan);
                 return orphan;
             }
-        }       
+        }
 
-        public  async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum)
         {
             IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
                 int orphansCount = await _orphanageDBC.Orphans.AsNoTracking().CountAsync();
-                if(orphansCount<totalSkiped)
+                if (orphansCount < totalSkiped)
                 {
                     totalSkiped = orphansCount - pageSize;
                 }
                 if (totalSkiped < 0) totalSkiped = 0;
                 var orphans = await _orphanageDBC.Orphans.AsNoTracking()
-                    .OrderBy(o => o.Id).Skip(()=> totalSkiped).Take(()=> pageSize)
+                    .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(o => o.Name)
                     .Include(o => o.Caregiver.Name)
                     .Include(o => o.Caregiver.Address)
@@ -85,16 +86,17 @@ namespace OrphanageService.Services
                 return orphansCount;
             }
         }
-        public  async Task<byte[]> GetOrphanFaceImage(int Oid)
+
+        public async Task<byte[]> GetOrphanFaceImage(int Oid)
         {
             using (var _orphanageDBC = new OrphanageDBC())
             {
-                var img = await _orphanageDBC.Orphans.AsNoTracking().Where(o => o.Id == Oid).Select(o=> new { o.FacePhotoData }).FirstOrDefaultAsync();
+                var img = await _orphanageDBC.Orphans.AsNoTracking().Where(o => o.Id == Oid).Select(o => new { o.FacePhotoData }).FirstOrDefaultAsync();
                 return img?.FacePhotoData;
             }
         }
 
-        public  async Task<byte[]> GetOrphanBirthCertificate(int Oid)
+        public async Task<byte[]> GetOrphanBirthCertificate(int Oid)
         {
             using (var _orphanageDBC = new OrphanageDBC())
             {
@@ -103,16 +105,16 @@ namespace OrphanageService.Services
             }
         }
 
-        public  async Task<byte[]> GetOrphanFamilyCardPagePhoto(int Oid)
+        public async Task<byte[]> GetOrphanFamilyCardPagePhoto(int Oid)
         {
             using (var _orphanageDBC = new OrphanageDBC())
             {
-                var img = await _orphanageDBC.Orphans.AsNoTracking().Where(o => o.Id == Oid).Select(o => new { o.FamilyCardPagePhotoData}).FirstOrDefaultAsync();
+                var img = await _orphanageDBC.Orphans.AsNoTracking().Where(o => o.Id == Oid).Select(o => new { o.FamilyCardPagePhotoData }).FirstOrDefaultAsync();
                 return img?.FamilyCardPagePhotoData;
             }
         }
 
-        public  async Task<byte[]> GetOrphanFullPhoto(int Oid)
+        public async Task<byte[]> GetOrphanFullPhoto(int Oid)
         {
             using (var _orphanageDBC = new OrphanageDBC())
             {

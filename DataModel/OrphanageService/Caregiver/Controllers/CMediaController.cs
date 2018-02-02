@@ -20,6 +20,7 @@ namespace OrphanageService.Caregiver.Controllers
         }
 
         #region CaregiverIdentityCardPhotoFace
+
         [HttpGet]
         [System.Web.Http.Route("idface/{CId}")]
         public async Task<HttpResponseMessage> getCaregiverIdentityCardPhotoFace(int CId)
@@ -49,9 +50,11 @@ namespace OrphanageService.Caregiver.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion CaregiverIdentityCardPhotoFace
 
         #region CaregiverIdentityCardPhotoBack
+
         [HttpGet]
         [System.Web.Http.Route("idback/{CId}")]
         public async Task<HttpResponseMessage> getCaregiverIdentityCardPhotoBack(int CId)
@@ -81,6 +84,7 @@ namespace OrphanageService.Caregiver.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion CaregiverIdentityCardPhotoBack
     }
 }

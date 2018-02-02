@@ -14,6 +14,5 @@ namespace OrphanageService.Services.Interfaces
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int Bid);
 
         Task<int> GetBailsCount();
-
     }
 }

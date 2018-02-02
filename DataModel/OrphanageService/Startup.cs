@@ -12,7 +12,6 @@ namespace OrphanageService
             httpConfiguration.Services.Replace(typeof(IHttpControllerSelector), new HttpAreaSelector(httpConfiguration));
             httpConfiguration.EnsureInitialized();
             appBuilder.UseWebApi(httpConfiguration);
-            
         }
     }
 }

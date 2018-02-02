@@ -20,6 +20,7 @@ namespace OrphanageService.Family.Controllers
         }
 
         #region FamilyCardPhotoPage1
+
         [HttpGet]
         [System.Web.Http.Route("page1/{FamId}")]
         public async Task<HttpResponseMessage> getFamilyCardPhotoPage1(int FamId)
@@ -49,9 +50,11 @@ namespace OrphanageService.Family.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion FamilyCardPhotoPage1
 
         #region FamilyCardPhotoPage2
+
         [HttpGet]
         [System.Web.Http.Route("page2/{FamId}")]
         public async Task<HttpResponseMessage> getFamilyCardPhotoPage2(int FamId)
@@ -81,6 +84,7 @@ namespace OrphanageService.Family.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion FamilyCardPhotoPage2
     }
 }

@@ -20,6 +20,7 @@ namespace OrphanageService.Father.Controllers
         }
 
         #region PersonalPhoto
+
         [HttpGet]
         [System.Web.Http.Route("photo/{Fid}")]
         public async Task<HttpResponseMessage> getFatherFacePhoto(int Fid)
@@ -49,8 +50,11 @@ namespace OrphanageService.Father.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
+
+        #endregion PersonalPhoto
+
         #region DeathCertificate
+
         [HttpGet]
         [System.Web.Http.Route("death/{Fid}")]
         public async Task<HttpResponseMessage> GetFatherDeathCertificate(int Fid)
@@ -80,7 +84,7 @@ namespace OrphanageService.Father.Controllers
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
-        #endregion
 
+        #endregion DeathCertificate
     }
 }

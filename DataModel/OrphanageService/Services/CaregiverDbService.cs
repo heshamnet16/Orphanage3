@@ -10,7 +10,6 @@ namespace OrphanageService.Services
 {
     public class CaregiverDbService : ICaregiverDbService
     {
-
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;
 
@@ -25,9 +24,9 @@ namespace OrphanageService.Services
             using (var dbContext = new OrphanageDbCNoBinary())
             {
                 var caregiver = await dbContext.Caregivers.AsNoTracking()
-                    .Include(c=>c.Address)
+                    .Include(c => c.Address)
                     .Include(c => c.Name)
-                    .Include(c=>c.Orphans)
+                    .Include(c => c.Orphans)
                     .FirstOrDefaultAsync(c => c.Id == Cid);
 
                 _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiver);
@@ -97,9 +96,9 @@ namespace OrphanageService.Services
             IList<OrphanageDataModel.Persons.Orphan> returnedOrphans = new List<OrphanageDataModel.Persons.Orphan>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
-                var orphans = await(from orp in dbContext.Orphans.AsNoTracking()                                   
-                                    where orp.CaregiverId == Cid
-                                    select orp)
+                var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
+                                     where orp.CaregiverId == Cid
+                                     select orp)
                                      .Include(o => o.Education)
                                      .Include(o => o.Name)
                                      .Include(o => o.Caregiver.Name)

@@ -8,7 +8,6 @@ namespace OrphanageDataModel.RegularData
     [Table("Names")]
     public class Name
     {
-
         [Column("ID")]
         [Key]
         public int Id { get; set; }
@@ -17,10 +16,9 @@ namespace OrphanageDataModel.RegularData
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string First { get; set; }
 
-        public string  Father { get; set; }
+        public string Father { get; set; }
 
         public string Last { get; set; }
-
 
         [Column("EName")]
         public string EnglishFirst { get; set; }
@@ -29,9 +27,7 @@ namespace OrphanageDataModel.RegularData
         public string EnglishFather { get; set; }
 
         [Column("ELast")]
-        public string  EnglishLast { get; set; }
-
-
+        public string EnglishLast { get; set; }
 
         public virtual ICollection<Caregiver> Caregivers { get; set; }
 

@@ -7,6 +7,7 @@ namespace OrphanageService.Filters
     public class CacheFilter : ActionFilterAttribute
     {
         public int TimeDuration { get; set; }
+
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
             actionExecutedContext.Response.Headers.CacheControl = new CacheControlHeaderValue

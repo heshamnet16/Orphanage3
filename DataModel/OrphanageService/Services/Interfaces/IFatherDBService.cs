@@ -20,11 +20,11 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="father">the father object</param>
         /// <param name="forceAdd">added even if it's exist</param>
         /// <returns></returns>
-        Task<bool> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDBC orphanageDBC, bool forceAdd);
+        Task<int> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDbCNoBinary orphanageDBC);
 
         Task<bool> SaveFather(OrphanageDataModel.Persons.Father father);
 
-        Task<bool> DeleteFather(int Fid);
+        Task<bool> DeleteFather(int Fid,OrphanageDbCNoBinary orphanageDbCNoBinary);
 
         Task<bool> IsExist(OrphanageDataModel.Persons.Father father);
 
