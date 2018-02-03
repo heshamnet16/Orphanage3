@@ -51,6 +51,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("face/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanFacePhoto(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanFaceImage(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion Face
 
         #region BirthCertificate
@@ -85,6 +105,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("birth/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanBirthCertificate(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanBirthCertificate(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion BirthCertificate
 
         #region FamilyCardPagePhoto
@@ -119,6 +159,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("familycard/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanFamilyCardPage(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanFamilyCardPagePhoto(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion FamilyCardPagePhoto
 
         #region Full
@@ -153,6 +213,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("full/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanFullPhoto(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanFullPhoto(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion Full
 
         #region EducationCert1
@@ -187,6 +267,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("education/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanEducationCert(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanCertificate(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion EducationCert1
 
         #region EducationCert2
@@ -221,6 +321,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("education2/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanEducationCert2(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanCertificate2(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion EducationCert2
 
         #region HealthReportFile
@@ -233,6 +353,26 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.PDFFileContent(image);
         }
 
+        [HttpPut]
+        [HttpPost]
+        [System.Web.Http.Route("healthreport/{Oid}")]
+        public async Task<HttpResponseMessage> setOrphanHealthReport(int Oid)
+        {
+            var result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+
+            if (data == null || data.Length == 0)
+                return _httpResponseMessageConfiguerer.NotAcceptable();
+
+            var Successed = await _OrphanDBService.SetOrphanHealthReporte(Oid, data);
+
+            if (Successed)
+                return result;
+            else
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
+
+        }
         #endregion HealthReportFile
     }
 }

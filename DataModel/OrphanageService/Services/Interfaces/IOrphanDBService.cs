@@ -9,6 +9,10 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid);
+
+        Task<int> GetBrothersCount(int Oid);
+
         Task<int> GetOrphansCount();
 
         Task<byte[]> GetOrphanFaceImage(int Oid);
@@ -24,5 +28,19 @@ namespace OrphanageService.Services.Interfaces
         Task<byte[]> GetOrphanCertificate2(int Oid);
 
         Task<byte[]> GetOrphanHealthReporte(int Oid);
+
+        Task<bool> SetOrphanFaceImage(int Oid, byte[] data);
+
+        Task<bool> SetOrphanBirthCertificate(int Oid, byte[] data);
+
+        Task<bool> SetOrphanFamilyCardPagePhoto(int Oid, byte[] data);
+
+        Task<bool> SetOrphanFullPhoto(int Oid, byte[] data);
+
+        Task<bool> SetOrphanCertificate(int Oid, byte[] data);
+
+        Task<bool> SetOrphanCertificate2(int Oid, byte[] data);
+
+        Task<bool> SetOrphanHealthReporte(int Oid, byte[] data);
     }
 }

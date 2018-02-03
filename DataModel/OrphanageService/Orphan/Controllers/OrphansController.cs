@@ -31,5 +31,22 @@ namespace OrphanageService.Orphan.Controllers
         {
             return await _OrphanDBService.GetOrphans(pageSize, pageNumber);
         }
+
+        [HttpGet]
+        [Route("brothers/{Oid}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid)
+        {
+            return await _OrphanDBService.GetBrothers(Oid);
+        }
+
+        [HttpGet]
+        [Route("brothers/count/{Oid}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetBrothersCount(int Oid)
+        {
+            return await _OrphanDBService.GetBrothersCount(Oid);
+        }
+
     }
 }

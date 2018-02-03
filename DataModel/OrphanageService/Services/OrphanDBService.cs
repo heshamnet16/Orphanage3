@@ -1,4 +1,5 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
@@ -147,6 +148,240 @@ namespace OrphanageService.Services
             {
                 var img = await _orphanageDBC.Orphans.AsNoTracking().Where(o => o.Id == Oid && o.HealthId.HasValue).Select(o => new { o.HealthStatus.ReporteFileData }).FirstOrDefaultAsync();
                 return img?.ReporteFileData;
+            }
+        }
+
+        public async Task<int> GetBrothersCount(int Oid)
+        {
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                IList<OrphanageDataModel.Persons.Orphan> brothers = new List<OrphanageDataModel.Persons.Orphan>();
+                var orphan = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Family)
+                    .FirstOrDefaultAsync(o => o.Id == Oid);
+
+                var brotherFM = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Family)
+                    .Where(o => o.Family.FatherId == orphan.Family.FatherId || o.Family.MotherId == orphan.Family.MotherId)
+                    .ToListAsync();
+
+                foreach (var bro in brotherFM)
+                {
+                    if (!brothers.Contains(bro) && bro.Id != orphan.Id)
+                    {
+                        brothers.Add(bro);
+                    }
+                }
+                return brothers.Count;
+            }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid)
+        {
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                IList<OrphanageDataModel.Persons.Orphan> brothers = new List<OrphanageDataModel.Persons.Orphan>();              
+                var orphan = await _orphanageDBC.Orphans.AsNoTracking()                    
+                    .Include(o => o.Family)
+                    .FirstOrDefaultAsync(o => o.Id == Oid);
+
+                var brotherFM = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Name)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
+                    .Where(o => o.Family.FatherId == orphan.Family.FatherId || o.Family.MotherId == orphan.Family.MotherId)
+                    .ToListAsync();
+
+                foreach (var bro in brotherFM)
+                {
+                    if (!brothers.Contains(bro) && bro.Id != orphan.Id)
+                    {
+                        var broToEdit = bro;
+                        _loopBlocking.BlockOrphanSelfLoop(ref broToEdit);
+                        _uriGenerator.SetOrphanUris(ref broToEdit);
+                        brothers.Add(broToEdit);
+                    }
+                }
+                return brothers;
+            }
+        }
+
+        public async Task<bool> SetOrphanFaceImage(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null)
+                    return false;
+
+                orphan.FacePhotoData = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                { return true;
+                }
+                else { return false; }
+            }
+        }
+
+        public async Task<bool> SetOrphanBirthCertificate(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null)
+                    return false;
+
+                orphan.BirthCertificatePhotoData = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+
+            }
+        }
+
+        public async Task<bool> SetOrphanFamilyCardPagePhoto(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null)
+                    return false;
+
+                orphan.FamilyCardPagePhotoData = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+
+            }
+        }
+
+        public async Task<bool> SetOrphanFullPhoto(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null)
+                    return false;
+
+                orphan.FullPhotoData = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+
+            }
+        }
+
+        public async Task<bool> SetOrphanCertificate(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Include(o=>o.Education)
+                    .Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null || orphan.Education == null)
+                    return false;
+
+                orphan.Education.CertificatePhotoFront = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+
+            }
+        }
+
+        public async Task<bool> SetOrphanCertificate2(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Include(o => o.Education)
+                    .Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null || orphan.Education == null)
+                    return false;
+
+                orphan.Education.CertificatePhotoBack = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+
+        public async Task<bool> SetOrphanHealthReporte(int Oid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans.
+                    Include(o => o.HealthStatus)
+                    .Where(o => o.Id == Oid).FirstOrDefaultAsync();
+
+                if (orphan == null || orphan.HealthStatus == null)
+                    return false;
+
+                orphan.HealthStatus.ReporteFileData = data;
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    return true;
+                }
+                else { return false; }
             }
         }
     }
