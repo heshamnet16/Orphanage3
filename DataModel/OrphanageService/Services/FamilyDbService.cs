@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System;
@@ -284,6 +285,51 @@ namespace OrphanageService.Services
                     return true;
                 else
                     return false;
+            }
+        }
+
+        public async Task SetFamilyCardPage1(int FamId, byte[] data)
+        {
+            try
+            {
+                using (var _orphanageDBC = new OrphanageDBC())
+                {
+                    _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                    _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                    _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                    var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                    if (family == null)
+                        return;
+
+                    family.FamilyCardImagePage1 = data;
+
+                    await _orphanageDBC.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ServiceException("Error in SetFamilyCardPage1 method.", ex);
+            }
+        }
+
+        public async Task SetFamilyCardPage2(int FamId, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                if (family == null)
+                    return;
+
+                family.FamilyCardImagePage2 = data;
+
+                await _orphanageDBC.SaveChangesAsync();
             }
         }
     }

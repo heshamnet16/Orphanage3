@@ -67,7 +67,7 @@ namespace OrphanageService.Mother.Controllers
             }
             else
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted"));
+                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
         }
         #endregion IdCardPhotoFront
@@ -118,7 +118,7 @@ namespace OrphanageService.Mother.Controllers
             }
             else
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted"));
+                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
         }
         #endregion IdCardPhotoBack

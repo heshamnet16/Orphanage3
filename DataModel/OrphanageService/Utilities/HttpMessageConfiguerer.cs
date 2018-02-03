@@ -59,6 +59,10 @@ namespace OrphanageService.Utilities
             return response;
         }
 
+        public HttpResponseMessage NotAcceptable()
+        {
+            return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
+        }
         private HttpResponseMessage createContentMessage(byte[] data)
         {
             if (data == null)

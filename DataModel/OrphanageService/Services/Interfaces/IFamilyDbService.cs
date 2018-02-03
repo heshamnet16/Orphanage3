@@ -17,6 +17,10 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetFamilyCardPage2(int FamId);
 
+        Task SetFamilyCardPage1(int FamId,byte[] data);
+
+        Task SetFamilyCardPage2(int FamId,byte[] data);
+
         /// <summary>
         /// add new family object to the database
         /// </summary>

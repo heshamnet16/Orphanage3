@@ -13,6 +13,8 @@ namespace OrphanageService.Utilities.Interfaces
 
         HttpResponseMessage Created();
 
+        HttpResponseMessage NotAcceptable();
+
         Task<byte[]> GetMIMIContentData(HttpRequestMessage httpRequestMessage);
     }
 }

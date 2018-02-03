@@ -1,6 +1,7 @@
 ﻿using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -51,6 +52,24 @@ namespace OrphanageService.Family.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPost]
+        [HttpPut]
+        [Route("page1/{FamId}")]
+        public async Task<HttpResponseMessage> SetFamilyCardPhotoPage1(int FamId)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+            if (data != null)
+            {
+                await _FamilyDBService.SetFamilyCardPage1(FamId, data);
+                return result;
+            }
+            else
+            {
+                throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
+            }
+
+        }
         #endregion FamilyCardPhotoPage1
 
         #region FamilyCardPhotoPage2
@@ -83,6 +102,25 @@ namespace OrphanageService.Family.Controllers
             var image = await _FamilyDBService.GetFamilyCardPage2(FamId);
             var thumb = ImageAdapter.Resize(image, int.Parse(sizeString[0]), int.Parse(sizeString[1]), compertion);
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
+        }
+
+        [HttpPost]
+        [HttpPut]
+        [Route("page2/{FamId}")]
+        public async Task<HttpResponseMessage> SetFamilyCardPhotoPage2(int FamId)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+            if (data != null)
+            {
+                await _FamilyDBService.SetFamilyCardPage2(FamId, data);
+                return result;
+            }
+            else
+            {
+                throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
+            }
+
         }
 
         #endregion FamilyCardPhotoPage2

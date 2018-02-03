@@ -169,6 +169,7 @@
     <Compile Include="Services\BailDbService.cs" />
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
+    <Compile Include="Services\Exceptions\ServiceException.cs" />
     <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
     <Compile Include="Services\GuarantorDbService.cs" />

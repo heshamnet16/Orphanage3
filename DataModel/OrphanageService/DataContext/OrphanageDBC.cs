@@ -30,6 +30,35 @@ namespace OrphanageService.DataContext
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
+    .HasMany(e => e.Caregivers)
+    .WithOptional(e => e.Address)
+    .HasForeignKey(e => e.AddressId);
+
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
+                .HasMany(e => e.Families)
+                .WithOptional(e => e.PrimaryAddress)
+                .HasForeignKey(e => e.AddressId);
+
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
+                .HasMany(e => e.FamliesAlternativeAddresses)
+                .WithOptional(e => e.AlternativeAddress)
+                .HasForeignKey(e => e.AlternativeAddressId);
+
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
+                .HasMany(e => e.Mothers)
+                .WithOptional(e => e.Address)
+                .HasForeignKey(e => e.AddressId);
+
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
+                .HasMany(e => e.Guarantors)
+                .WithOptional(e => e.Address)
+                .HasForeignKey(e => e.AddressId);
+
+            modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
+                .HasMany(e => e.Users)
+                .WithOptional(e => e.Address)
+                .HasForeignKey(e => e.AddressId);
             modelBuilder.Entity<OrphanageDataModel.FinancialData.Bail>()
                 .Property(e => e.Amount)
                 .HasPrecision(29, 4);
