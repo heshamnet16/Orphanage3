@@ -14,11 +14,13 @@ namespace OrphanageService.Services
     {
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;
+        private readonly IRegularDataService _regularDataService;
 
-        public MotherDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator)
+        public MotherDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator, IRegularDataService regularDataService)
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
+            _regularDataService = regularDataService;
         }
 
         public static void setMotherEntities(ref OrphanageDataModel.Persons.Mother mother, DbContext dbContext)
@@ -46,7 +48,7 @@ namespace OrphanageService.Services
                 return -1;
         }
 
-        public async Task<bool> DeleteMother(int Mid,OrphanageDbCNoBinary orphanageDb)
+        public async Task<bool> DeleteMother(int Mid, OrphanageDbCNoBinary orphanageDb)
         {
             if (Mid == 0) throw new NullReferenceException();
 
@@ -172,27 +174,83 @@ namespace OrphanageService.Services
             return returnedOrphans;
         }
 
-        public async Task<bool> IsExist(OrphanageDataModel.Persons.Mother mother)
+        public async Task<bool> IsExist(int Mid)
         {
-            if (mother == null) throw new NullReferenceException();
+            if (Mid <= 0) throw new NullReferenceException();
             using (var orphangeDC = new OrphanageDbCNoBinary())
             {
-                return await orphangeDC.Mothers.Where(m => m.Id == mother.Id).AnyAsync();
+                return await orphangeDC.Mothers.Where(m => m.Id == Mid).AnyAsync();
             }
         }
 
         public async Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother)
         {
             if (mother == null) throw new NullReferenceException();
-            using (OrphanageDBC orphanageDc = new OrphanageDBC())
+            using (OrphanageDbCNoBinary orphanageDc = new OrphanageDbCNoBinary())
             {
                 orphanageDc.Configuration.AutoDetectChangesEnabled = true;
                 var motherToReplace = await orphanageDc.Mothers.Where(m => m.Id == mother.Id).FirstAsync();
                 if (motherToReplace == null) throw new ObjectNotFoundException();
-                motherToReplace = mother;
+                await _regularDataService.SaveAddress(mother.Address, orphanageDc);
+                await _regularDataService.SaveName(mother.Name, orphanageDc);
+                motherToReplace.AddressId = mother.AddressId;
+                motherToReplace.Birthday = mother.Birthday;
+                motherToReplace.ColorMark = mother.ColorMark;
+                motherToReplace.DateOfDeath = mother.DateOfDeath;
+                motherToReplace.HasSheOrphans = mother.HasSheOrphans;
+                motherToReplace.HusbandName = mother.HusbandName;
+                motherToReplace.IsDead = mother.IsDead;
+                motherToReplace.IsMarried = mother.IsMarried;
+                motherToReplace.Jop = mother.Jop;
+                motherToReplace.NameId = mother.NameId;
+                motherToReplace.Note = mother.Note;
+                motherToReplace.Salary = mother.Salary;
+                motherToReplace.Story = mother.Story;
                 await orphanageDc.SaveChangesAsync();
             }
             return true;
+        }
+
+        public async Task SetMotherIdPhotoBack(int Mid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+
+                if (mother == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (mother == null)
+                    return;
+
+                mother.IdentityCardPhotoBackData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetMotherIdPhotoFace(int Mid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+
+                if (mother == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (mother == null)
+                    return;
+
+                mother.IdentityCardPhotoFaceData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
         }
     }
 }

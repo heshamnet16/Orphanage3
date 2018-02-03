@@ -50,6 +50,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -166,6 +169,7 @@
     <Compile Include="Services\BailDbService.cs" />
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
+    <Compile Include="Services\Exceptions\ServiceException.cs" />
     <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
     <Compile Include="Services\GuarantorDbService.cs" />
@@ -194,9 +198,9 @@
     <Compile Include="Services\UserDbService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="User\Controllers\UsersController.cs" />
-    <Compile Include="Utilities\HttpResponseMessageConfiguerer.cs" />
+    <Compile Include="Utilities\HttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\ImageAdapter.cs" />
-    <Compile Include="Utilities\Interfaces\IHttpResponseMessageConfiguerer.cs" />
+    <Compile Include="Utilities\Interfaces\IHttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\Interfaces\ISelfLoopBlocking.cs" />
     <Compile Include="Utilities\Interfaces\IUriGenerator.cs" />
     <Compile Include="Utilities\SelfLoopBlocking.cs" />

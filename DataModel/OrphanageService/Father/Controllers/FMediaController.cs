@@ -1,6 +1,9 @@
 ﻿using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
+using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -11,9 +14,9 @@ namespace OrphanageService.Father.Controllers
     public class FMediaController : ApiController
     {
         private IFatherDbService _FatherDBService;
-        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
+        private readonly IHttpMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public FMediaController(IFatherDbService fatherDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public FMediaController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _FatherDBService = fatherDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;
@@ -51,6 +54,24 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPost]
+        [HttpPut]
+        [Route("photo/{Fid}")]
+        public async Task<HttpResponseMessage> SetFatherFacePhoto(int Fid)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+            if (data != null)
+            {
+                await _FatherDBService.SetFatherPhoto(Fid, data);
+                return result;
+            }
+            else
+            {
+                throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
+            }
+
+        }
         #endregion PersonalPhoto
 
         #region DeathCertificate
@@ -85,6 +106,24 @@ namespace OrphanageService.Father.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPost]
+        [HttpPut]
+        [Route("death/{Fid}")]
+        public async Task<HttpResponseMessage> SetFatherDeathCertificate(int Fid)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+            if (data != null)
+            {
+                await _FatherDBService.SetFatherDeathCertificate(Fid, data);
+                return result;
+            }
+            else
+            {
+                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            }
+
+        }
         #endregion DeathCertificate
     }
 }

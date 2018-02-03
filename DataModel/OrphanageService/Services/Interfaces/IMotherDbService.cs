@@ -18,6 +18,10 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetMotherIdPhotoBack(int Mid);
 
+        Task SetMotherIdPhotoFace(int Mid,byte[] data);
+
+        Task SetMotherIdPhotoBack(int Mid,byte[] data);
+
         /// <summary>
         /// add new mother object to the database
         /// </summary>
@@ -28,8 +32,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother);
 
-        Task<bool> DeleteMother(int Mid,OrphanageDbCNoBinary orphanageDbCNoBinary);
+        Task<bool> DeleteMother(int Mid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 
-        Task<bool> IsExist(OrphanageDataModel.Persons.Mother mother);
+        Task<bool> IsExist(int Mid);
     }
 }

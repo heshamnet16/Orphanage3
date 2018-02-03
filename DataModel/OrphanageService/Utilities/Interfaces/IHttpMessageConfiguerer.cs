@@ -1,8 +1,9 @@
 ﻿using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace OrphanageService.Utilities.Interfaces
 {
-    public interface IHttpResponseMessageConfiguerer
+    public interface IHttpMessageConfiguerer
     {
         HttpResponseMessage NoContent();
 
@@ -11,5 +12,9 @@ namespace OrphanageService.Utilities.Interfaces
         HttpResponseMessage PDFFileContent(byte[] pdfFile);
 
         HttpResponseMessage Created();
+
+        HttpResponseMessage NotAcceptable();
+
+        Task<byte[]> GetMIMIContentData(HttpRequestMessage httpRequestMessage);
     }
 }

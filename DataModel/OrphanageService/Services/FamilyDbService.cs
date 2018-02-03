@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System;
@@ -49,7 +50,7 @@ namespace OrphanageService.Services
                     {
                         taskAlterAddress = _regularDataService.AddAddress(addressAlter, orphanageDbc);
                     }
-                    if(family.Orphans != null && family.Orphans.Count >0)
+                    if (family.Orphans != null && family.Orphans.Count > 0)
                     {
                         //TODO #18 add oprhans
                     }
@@ -108,12 +109,12 @@ namespace OrphanageService.Services
                 var familyA = famToDelete.PrimaryAddress;
                 var familyAA = famToDelete.AlternativeAddress;
                 var orphans = famToDelete.Orphans;
-                if(orphans != null && orphans.Count > 0)
+                if (orphans != null && orphans.Count > 0)
                 {
                     //TODO #18 Delete orphan
                 }
                 orphanageDbc.Families.Remove(famToDelete);
-                allIsOK= await orphanageDbc.SaveChangesAsync() > 0 ? true : false;
+                allIsOK = await orphanageDbc.SaveChangesAsync() > 0 ? true : false;
                 allIsOK = await _fatherDbService.DeleteFather(fatherID, orphanageDbc);
                 allIsOK = await _motherDbService.DeleteMother(motherID, orphanageDbc);
                 orphanageDbc.Addresses.Remove(familyA);
@@ -148,7 +149,10 @@ namespace OrphanageService.Services
                     .Include(f => f.AlternativeAddress)
                     .Include(f => f.Bail)
                     .Include(f => f.Father)
+                    .Include(f => f.Father.Name)
                     .Include(f => f.Mother)
+                    .Include(f => f.Mother.Name)
+                    .Include(f => f.Mother.Address)
                     .Include(f => f.Orphans)
                     .Include(f => f.PrimaryAddress)
                     .ToListAsync();
@@ -181,7 +185,10 @@ namespace OrphanageService.Services
                     .Include(f => f.AlternativeAddress)
                     .Include(f => f.Bail)
                     .Include(f => f.Father)
+                    .Include(f => f.Father.Name)
                     .Include(f => f.Mother)
+                    .Include(f => f.Mother.Name)
+                    .Include(f => f.Mother.Address)
                     .Include(f => f.Orphans)
                     .Include(f => f.PrimaryAddress)
                     .FirstOrDefaultAsync(f => f.Id == FamId);
@@ -249,9 +256,81 @@ namespace OrphanageService.Services
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> SaveFamily(OrphanageDataModel.RegularData.Family family)
+        public async Task<bool> SaveFamily(OrphanageDataModel.RegularData.Family family)
         {
-            throw new System.NotImplementedException();
+            using (var orphanageDbc = new OrphanageDbCNoBinary())
+            {
+                orphanageDbc.Configuration.LazyLoadingEnabled = true;
+                orphanageDbc.Configuration.ProxyCreationEnabled = true;
+                orphanageDbc.Configuration.AutoDetectChangesEnabled = true;
+                var savedFamily = await orphanageDbc.Families.Where(fam => fam.Id == family.Id).FirstOrDefaultAsync();
+                savedFamily.AddressId = family.AddressId;
+                savedFamily.AlternativeAddressId = family.AlternativeAddressId;
+                await _regularDataService.SaveAddress(family.PrimaryAddress, orphanageDbc);
+                savedFamily.FatherId = family.FatherId;
+                await _fatherDbService.SaveFather(family.Father);
+                savedFamily.MotherId = family.MotherId;
+                await _motherDbService.SaveMother(family.Mother);
+                savedFamily.BailId = family.BailId;
+                savedFamily.ColorMark = family.ColorMark;
+                savedFamily.FinncialStatus = family.FinncialStatus;
+                savedFamily.IsBailed = family.IsBailed;
+                savedFamily.IsExcluded = family.IsExcluded;
+                savedFamily.IsTheyRefugees = family.IsTheyRefugees;
+                savedFamily.Note = family.Note;
+                savedFamily.ResidenceStatus = family.ResidenceStatus;
+                savedFamily.ResidenceType = family.ResidenceType;
+                var ret = await orphanageDbc.SaveChangesAsync();
+                if (ret > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public async Task SetFamilyCardPage1(int FamId, byte[] data)
+        {
+            try
+            {
+                using (var _orphanageDBC = new OrphanageDBC())
+                {
+                    _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                    _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                    _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                    var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                    if (family == null)
+                        return;
+
+                    family.FamilyCardImagePage1 = data;
+
+                    await _orphanageDBC.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ServiceException("Error in SetFamilyCardPage1 method.", ex);
+            }
+        }
+
+        public async Task SetFamilyCardPage2(int FamId, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                if (family == null)
+                    return;
+
+                family.FamilyCardImagePage2 = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
         }
     }
 }

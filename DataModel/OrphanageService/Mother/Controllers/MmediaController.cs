@@ -1,6 +1,8 @@
 ﻿using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -11,9 +13,9 @@ namespace OrphanageService.Mother.Controllers
     public class MMediaController : ApiController
     {
         private IMotherDbService _MotherDBService;
-        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
+        private readonly IHttpMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public MMediaController(IMotherDbService motherDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public MMediaController(IMotherDbService motherDBService, IHttpMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _MotherDBService = motherDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;
@@ -51,6 +53,23 @@ namespace OrphanageService.Mother.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPost]
+        [HttpPut]
+        [System.Web.Http.Route("idface/{Mid}")]
+        public async Task<HttpResponseMessage> SetMotherIdPhotoFace(int Mid)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+            if (data != null)
+            {
+                await _MotherDBService.SetMotherIdPhotoFace(Mid, data);
+                return result;
+            }
+            else
+            {
+                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            }
+        }
         #endregion IdCardPhotoFront
 
         #region IdCardPhotoBack
@@ -85,6 +104,23 @@ namespace OrphanageService.Mother.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [HttpPost]
+        [HttpPut]
+        [System.Web.Http.Route("idback/{Mid}")]
+        public async Task<HttpResponseMessage> SetMotherIdPhotoBack(int Mid)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
+            if (data != null)
+            {
+                await _MotherDBService.SetMotherIdPhotoBack(Mid, data);
+                return result;
+            }
+            else
+            {
+                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            }
+        }
         #endregion IdCardPhotoBack
     }
 }

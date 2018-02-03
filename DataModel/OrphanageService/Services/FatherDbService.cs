@@ -14,11 +14,13 @@ namespace OrphanageService.Services
     {
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;
+        private readonly IRegularDataService _regularDataService;
 
-        public FatherDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator)
+        public FatherDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator, IRegularDataService regularDataService)
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
+            _regularDataService = regularDataService;
         }
 
         public async Task<OrphanageDataModel.Persons.Father> GetFather(int Fid)
@@ -156,22 +158,33 @@ namespace OrphanageService.Services
         public async Task<bool> SaveFather(OrphanageDataModel.Persons.Father father)
         {
             if (father == null) throw new NullReferenceException();
-            using (OrphanageDBC orphanageDc = new OrphanageDBC())
+            using (OrphanageDbCNoBinary orphanageDc = new OrphanageDbCNoBinary())
             {
                 orphanageDc.Configuration.AutoDetectChangesEnabled = true;
+                orphanageDc.Configuration.LazyLoadingEnabled = true;
+                orphanageDc.Configuration.ProxyCreationEnabled = true;
                 var fatherToReplace = await orphanageDc.Fathers.Where(f => f.Id == father.Id).FirstAsync();
                 if (fatherToReplace == null) throw new ObjectNotFoundException();
-                fatherToReplace = father;
+                await _regularDataService.SaveName(father.Name, orphanageDc);
+                fatherToReplace.Birthday = father.Birthday;
+                fatherToReplace.ColorMark = father.ColorMark;
+                fatherToReplace.DateOfDeath = father.DateOfDeath;
+                fatherToReplace.DeathReason = father.DeathReason;
+                fatherToReplace.IdentityCardNumber = father.IdentityCardNumber;
+                fatherToReplace.Jop = father.Jop;
+                fatherToReplace.NameId = father.NameId;
+                fatherToReplace.Note = father.Note;
+                fatherToReplace.Story = father.Story;
                 await orphanageDc.SaveChangesAsync();
             }
             return true;
         }
 
-        public async Task<bool> DeleteFather(int Fid,OrphanageDbCNoBinary orphanageDb)
+        public async Task<bool> DeleteFather(int Fid, OrphanageDbCNoBinary orphanageDb)
         {
             if (Fid == 0) throw new NullReferenceException();
             var father = await orphanageDb.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
-            if(father.Families.Count > 0)
+            if (father.Families.Count > 0)
             {
                 //the father has another family
                 return true;
@@ -185,12 +198,52 @@ namespace OrphanageService.Services
                 return false;
         }
 
-        public async Task<bool> IsExist(OrphanageDataModel.Persons.Father father)
+        public async Task<bool> IsExist(int Fid)
         {
-            if (father == null) throw new NullReferenceException();
+            if (Fid >= 0) throw new NullReferenceException();
             using (var orphangeDC = new OrphanageDbCNoBinary())
             {
-                return await orphangeDC.Fathers.Where(f => f.Id == father.Id).AnyAsync();
+                return await orphangeDC.Fathers.Where(f => f.Id == Fid).AnyAsync();
+            }
+        }
+
+        public async Task SetFatherDeathCertificate(int Fid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var father = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
+                if (father == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (father == null)
+                    return;
+                father.DeathCertificatePhotoData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetFatherPhoto(int Fid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var father = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
+
+                if (father == null)
+                    System.Threading.Thread.Sleep(5000);
+                if (father == null)
+                    return;
+
+                father.PhotoData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
             }
         }
     }

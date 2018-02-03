@@ -24,12 +24,16 @@ namespace OrphanageService.Services.Interfaces
 
         Task<bool> SaveFather(OrphanageDataModel.Persons.Father father);
 
-        Task<bool> DeleteFather(int Fid,OrphanageDbCNoBinary orphanageDbCNoBinary);
+        Task<bool> DeleteFather(int Fid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 
-        Task<bool> IsExist(OrphanageDataModel.Persons.Father father);
+        Task<bool> IsExist(int Fid);
 
         Task<byte[]> GetFatherPhoto(int Fid);
 
+        Task SetFatherPhoto(int Fid, byte[] data);
+
         Task<byte[]> GetFatherDeathCertificate(int Fid);
+
+        Task SetFatherDeathCertificate(int Fid,byte[] data);
     }
 }

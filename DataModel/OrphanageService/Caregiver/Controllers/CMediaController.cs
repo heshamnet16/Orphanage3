@@ -11,9 +11,9 @@ namespace OrphanageService.Caregiver.Controllers
     public class CMediaController : ApiController
     {
         private ICaregiverDbService _CaregiverDBService;
-        private readonly IHttpResponseMessageConfiguerer _httpResponseMessageConfiguerer;
+        private readonly IHttpMessageConfiguerer _httpResponseMessageConfiguerer;
 
-        public CMediaController(ICaregiverDbService caregiverDBService, IHttpResponseMessageConfiguerer httpResponseMessageConfiguerer)
+        public CMediaController(ICaregiverDbService caregiverDBService, IHttpMessageConfiguerer httpResponseMessageConfiguerer)
         {
             _CaregiverDBService = caregiverDBService;
             _httpResponseMessageConfiguerer = httpResponseMessageConfiguerer;

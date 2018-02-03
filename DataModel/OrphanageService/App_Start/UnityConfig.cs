@@ -67,7 +67,7 @@ namespace OrphanageService
             container.RegisterType<IAutoCompleteDbService, AutoCompleteDbService>();
             container.RegisterType<IBailDbService, BailDbService>();
             container.RegisterType<IUriGenerator, UriGenerator>();
-            container.RegisterType<IHttpResponseMessageConfiguerer, HttpResponseMessageConfiguerer>();
+            container.RegisterType<IHttpMessageConfiguerer, HttpMessageConfiguerer>();
             container.RegisterType<IRegularDataService, RegularDataService>();
         }
     }
