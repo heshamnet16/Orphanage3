@@ -58,7 +58,7 @@ namespace OrphanageService.App_Start
             if (area == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             string controllerName = null;
-            if (route.RouteTemplate.ToLower().Contains("family"))
+            if (route.RouteTemplate.ToLower().Contains("family") && !route.RouteTemplate.ToLower().Contains("familycard"))
             {
                 if (route.RouteTemplate.ToLower().Contains("media"))
                     return _controllers.Value["Family.FamMedia"];
