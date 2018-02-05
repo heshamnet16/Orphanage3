@@ -5,13 +5,17 @@ namespace OrphanageService.Utilities.Interfaces
 {
     public interface IHttpMessageConfiguerer
     {
+        HttpResponseMessage OK();
+
         HttpResponseMessage NoContent();
 
         HttpResponseMessage ImageContent(byte[] img);
 
         HttpResponseMessage PDFFileContent(byte[] pdfFile);
 
-        HttpResponseMessage Created();
+        Task<HttpResponseMessage> Created(int Id);
+
+        HttpResponseMessage NothingChanged();
 
         HttpResponseMessage NotAcceptable();
 

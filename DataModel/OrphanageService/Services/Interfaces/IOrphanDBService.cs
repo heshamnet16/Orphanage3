@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OrphanageService.DataContext;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
@@ -14,6 +15,27 @@ namespace OrphanageService.Services.Interfaces
         Task<int> GetBrothersCount(int Oid);
 
         Task<int> GetOrphansCount();
+
+        /// <summary>
+        /// add new orphan object to the database
+        /// </summary>
+        /// <param name="orphan">the orphan object</param>
+        /// <returns></returns>
+        Task<int> AddOrphan(OrphanageDataModel.Persons.Orphan orphan, OrphanageDbCNoBinary orphanageDBC);
+
+        /// <summary>
+        /// add new orphan object to the database
+        /// </summary>
+        /// <param name="orphan">the orphan object</param>
+        /// <param name="orphanageDBC">the database context></param>
+        /// <returns></returns>
+        Task<int> AddOrphan(OrphanageDataModel.Persons.Orphan orphan);
+
+        Task<bool> SaveOrphan(OrphanageDataModel.Persons.Orphan orphan);
+
+        Task<bool> DeleteOrphan(int Oid);
+
+        Task<bool> DeleteOrphan(int Oid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 
         Task<byte[]> GetOrphanFaceImage(int Oid);
 

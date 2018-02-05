@@ -1,19 +1,23 @@
 ﻿using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-
+using Newtonsoft.Json;
 namespace OrphanageService.Orphan.Controllers
 {
     [RoutePrefix("api/orphan")]
     public class OrphansController : ApiController
     {
         private readonly IOrphanDbService _OrphanDBService;
+        private readonly IHttpMessageConfiguerer _httpMessageConfigurere;
 
-        public OrphansController(IOrphanDbService orphanDBService)
+        public OrphansController(IOrphanDbService orphanDBService,IHttpMessageConfiguerer httpMessageConfigurere)
         {
             _OrphanDBService = orphanDBService;
+            _httpMessageConfigurere = httpMessageConfigurere;
         }
 
         //api/Orphan/{id}
@@ -48,5 +52,51 @@ namespace OrphanageService.Orphan.Controllers
             return await _OrphanDBService.GetBrothersCount(Oid);
         }
 
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> Post(object orphan)
+        {
+            var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
+            var ret = await _OrphanDBService.AddOrphan(orp);
+            if(ret >0)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Created,ret);
+            }
+            else
+            {
+                return _httpMessageConfigurere.OK();
+            }
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> Put(object orphan)
+        {
+            var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
+            var ret = await _OrphanDBService.SaveOrphan(orp);
+            if (ret)
+            {
+                return _httpMessageConfigurere.OK();
+            }
+            else
+            {
+                return _httpMessageConfigurere.NothingChanged();
+            }
+        }
+
+        [HttpDelete]
+        [Route("{Oid}")]
+        public async Task<HttpResponseMessage> Delete(int Oid)
+        {
+            var ret = await _OrphanDBService.DeleteOrphan(Oid);
+            if (ret)
+            {
+                return _httpMessageConfigurere.OK();
+            }
+            else
+            {
+                return _httpMessageConfigurere.NothingChanged();
+            }
+        }
     }
 }

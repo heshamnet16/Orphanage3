@@ -155,17 +155,18 @@ namespace OrphanageService.Services
                 return -1;
         }
 
-        public async Task<bool> SaveFather(OrphanageDataModel.Persons.Father father)
+        public async Task<int> SaveFather(OrphanageDataModel.Persons.Father father)
         {
             if (father == null) throw new NullReferenceException();
             using (OrphanageDbCNoBinary orphanageDc = new OrphanageDbCNoBinary())
             {
+                int ret = 0;
                 orphanageDc.Configuration.AutoDetectChangesEnabled = true;
                 orphanageDc.Configuration.LazyLoadingEnabled = true;
                 orphanageDc.Configuration.ProxyCreationEnabled = true;
                 var fatherToReplace = await orphanageDc.Fathers.Where(f => f.Id == father.Id).FirstAsync();
                 if (fatherToReplace == null) throw new ObjectNotFoundException();
-                await _regularDataService.SaveName(father.Name, orphanageDc);
+                ret += await _regularDataService.SaveName(father.Name, orphanageDc);
                 fatherToReplace.Birthday = father.Birthday;
                 fatherToReplace.ColorMark = father.ColorMark;
                 fatherToReplace.DateOfDeath = father.DateOfDeath;
@@ -175,9 +176,9 @@ namespace OrphanageService.Services
                 fatherToReplace.NameId = father.NameId;
                 fatherToReplace.Note = father.Note;
                 fatherToReplace.Story = father.Story;
-                await orphanageDc.SaveChangesAsync();
+                ret += await orphanageDc.SaveChangesAsync();
+                return ret;
             }
-            return true;
         }
 
         public async Task<bool> DeleteFather(int Fid, OrphanageDbCNoBinary orphanageDb)

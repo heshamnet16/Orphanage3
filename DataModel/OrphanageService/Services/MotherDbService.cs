@@ -76,6 +76,7 @@ namespace OrphanageService.Services
                 var mother = await dbContext.Mothers.AsNoTracking()
                     .Include(m => m.Families)
                     .Include(m => m.Name)
+                    .Include(m=>m.Address)
                     .FirstOrDefaultAsync(m => m.Id == Mid);
 
                 _selfLoopBlocking.BlockMotherSelfLoop(ref mother);
@@ -128,6 +129,7 @@ namespace OrphanageService.Services
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(f => f.Families)
                     .Include(f => f.Name)
+                    .Include(m=>m.Address)
                     .ToListAsync();
 
                 foreach (var mother in mothers)
@@ -157,6 +159,7 @@ namespace OrphanageService.Services
                                      .Include(o => o.Caregiver.Address)
                                      .Include(o => o.Family.Father.Name)
                                      .Include(o => o.Family.Mother.Name)
+                                     .Include(o => o.Family.Mother.Address)
                                      .Include(o => o.Family.PrimaryAddress)
                                      .Include(o => o.Family.AlternativeAddress)
                                      .Include(o => o.Guarantor.Name)
@@ -183,17 +186,33 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother)
+        public async Task<int> SaveMother(OrphanageDataModel.Persons.Mother mother)
         {
             if (mother == null) throw new NullReferenceException();
             using (OrphanageDbCNoBinary orphanageDc = new OrphanageDbCNoBinary())
             {
+                int ret = 0;
                 orphanageDc.Configuration.AutoDetectChangesEnabled = true;
-                var motherToReplace = await orphanageDc.Mothers.Where(m => m.Id == mother.Id).FirstAsync();
+                var motherToReplace = await orphanageDc.Mothers.Include(m=>m.Address).Where(m => m.Id == mother.Id).FirstAsync();
                 if (motherToReplace == null) throw new ObjectNotFoundException();
-                await _regularDataService.SaveAddress(mother.Address, orphanageDc);
-                await _regularDataService.SaveName(mother.Name, orphanageDc);
-                motherToReplace.AddressId = mother.AddressId;
+                if (mother.Address != null)
+                    if (motherToReplace.Address != null)
+                        ret += await _regularDataService.SaveAddress(mother.Address, orphanageDc);
+                    else
+                    {
+                        var addressId = await _regularDataService.AddAddress(mother.Address, orphanageDc);
+                        motherToReplace.AddressId = addressId;
+                        ret++;
+                    }
+                else
+                    if (motherToReplace.Address !=null)
+                {
+                    int alAdd = motherToReplace.AddressId.Value;
+                    motherToReplace.AddressId = null;
+                    await orphanageDc.SaveChangesAsync();
+                    await _regularDataService.DeleteAddress(alAdd, orphanageDc);
+                }
+                ret += await _regularDataService.SaveName(mother.Name, orphanageDc);
                 motherToReplace.Birthday = mother.Birthday;
                 motherToReplace.ColorMark = mother.ColorMark;
                 motherToReplace.DateOfDeath = mother.DateOfDeath;
@@ -206,9 +225,9 @@ namespace OrphanageService.Services
                 motherToReplace.Note = mother.Note;
                 motherToReplace.Salary = mother.Salary;
                 motherToReplace.Story = mother.Story;
-                await orphanageDc.SaveChangesAsync();
+                ret += await orphanageDc.SaveChangesAsync();
+                return ret;
             }
-            return true;
         }
 
         public async Task SetMotherIdPhotoBack(int Mid, byte[] data)

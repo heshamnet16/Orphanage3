@@ -1,6 +1,8 @@
 ﻿using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,10 +12,12 @@ namespace OrphanageService.Mother.Controllers
     public class MothersController : ApiController
     {
         private readonly IMotherDbService _MotherDBService;
+        private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public MothersController(IMotherDbService fatherDBService)
+        public MothersController(IMotherDbService motherDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
-            _MotherDBService = fatherDBService;
+            _MotherDBService = motherDBService;
+            _httpMessageConfiguerer = httpMessageConfiguerer;
         }
 
         //api/mother/{id}
@@ -22,6 +26,21 @@ namespace OrphanageService.Mother.Controllers
         public async Task<OrphanageDataModel.Persons.Mother> Get(int id)
         {
             return await _MotherDBService.GetMother(id);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> Put(OrphanageDataModel.Persons.Mother mother)
+        {
+            var ret = await _MotherDBService.SaveMother(mother);
+            if (ret > 0)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
         }
 
         [HttpGet]

@@ -54,6 +54,8 @@ namespace OrphanageService.App_Start
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             int firstBackslach = route.RouteTemplate.IndexOf('/');
             int secondBackslach = route.RouteTemplate.IndexOf('/', firstBackslach + 1);
+            // for the pattern api/family
+            if (secondBackslach == -1) secondBackslach = route.RouteTemplate.Length;
             var area = route.RouteTemplate.Substring(4, secondBackslach - firstBackslach - 1);
             if (area == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
