@@ -17,15 +17,17 @@ namespace OrphanageService.Services
         private readonly IRegularDataService _regularDataService;
         private readonly IFatherDbService _fatherDbService;
         private readonly IMotherDbService _motherDbService;
+        private readonly IOrphanDbService _orphanDbService;
 
         public FamilyDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator, IRegularDataService regularDataService, IFatherDbService fatherDbService
-            , IMotherDbService motherDbService)
+            , IMotherDbService motherDbService, IOrphanDbService orphanDbService)
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
             _regularDataService = regularDataService;
             _fatherDbService = fatherDbService;
             _motherDbService = motherDbService;
+            _orphanDbService = orphanDbService;
         }
 
         public async Task<int> AddFamily(OrphanageDataModel.RegularData.Family family)
@@ -46,16 +48,16 @@ namespace OrphanageService.Services
                     var mother = family.Mother;
                     var taskPrimAddress = _regularDataService.AddAddress(addressPrim, orphanageDbc);
                     Task<int> taskAlterAddress = null;
+                    family.AddressId = await taskPrimAddress;
+                    family.PrimaryAddress = addressPrim;
                     if (family.AlternativeAddress != null)
                     {
                         taskAlterAddress = _regularDataService.AddAddress(addressAlter, orphanageDbc);
                     }
                     if (family.Orphans != null && family.Orphans.Count > 0)
                     {
-                        //TODO #18 add oprhans
+                        family.Orphans = null;
                     }
-                    family.AddressId = await taskPrimAddress;
-                    family.PrimaryAddress = addressPrim;
                     if (taskAlterAddress != null)
                     {
                         family.AlternativeAddressId = await taskAlterAddress;
@@ -104,6 +106,9 @@ namespace OrphanageService.Services
                 orphanageDbc.Configuration.ProxyCreationEnabled = true;
                 var dbT = orphanageDbc.Database.BeginTransaction();
                 var famToDelete = await orphanageDbc.Families.Where(fam => fam.Id == Famid).FirstOrDefaultAsync();
+
+                if (famToDelete == null) throw new NullReferenceException();
+
                 var fatherID = famToDelete.FatherId;
                 var motherID = famToDelete.MotherId;
                 var familyA = famToDelete.PrimaryAddress;
@@ -111,11 +116,29 @@ namespace OrphanageService.Services
                 var orphans = famToDelete.Orphans;
                 if (orphans != null && orphans.Count > 0)
                 {
-                    //TODO #18 Delete orphan
+                    foreach (var orp in orphans)
+                    {
+                       allIsOK = await _orphanDbService.DeleteOrphan(orp.Id, orphanageDbc);
+                       if(!allIsOK)
+                        {
+                            dbT.Rollback();
+                            return false;
+                        }
+                    }
                 }
                 orphanageDbc.Families.Remove(famToDelete);
                 allIsOK = await orphanageDbc.SaveChangesAsync() > 0 ? true : false;
+                if (!allIsOK)
+                {
+                    dbT.Rollback();
+                    return false;
+                }
                 allIsOK = await _fatherDbService.DeleteFather(fatherID, orphanageDbc);
+                if (!allIsOK)
+                {
+                    dbT.Rollback();
+                    return false;
+                }
                 allIsOK = await _motherDbService.DeleteMother(motherID, orphanageDbc);
                 orphanageDbc.Addresses.Remove(familyA);
                 if (familyAA != null) orphanageDbc.Addresses.Remove(familyAA);
@@ -260,17 +283,63 @@ namespace OrphanageService.Services
         {
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
+                int ret = 0;
                 orphanageDbc.Configuration.LazyLoadingEnabled = true;
                 orphanageDbc.Configuration.ProxyCreationEnabled = true;
                 orphanageDbc.Configuration.AutoDetectChangesEnabled = true;
-                var savedFamily = await orphanageDbc.Families.Where(fam => fam.Id == family.Id).FirstOrDefaultAsync();
-                savedFamily.AddressId = family.AddressId;
-                savedFamily.AlternativeAddressId = family.AlternativeAddressId;
-                await _regularDataService.SaveAddress(family.PrimaryAddress, orphanageDbc);
+                var savedFamily = await orphanageDbc.Families.
+                    Include(f => f.AlternativeAddress).
+                    Include(f => f.PrimaryAddress)
+                    .Where(fam => fam.Id == family.Id).FirstOrDefaultAsync();
+                if (family.AlternativeAddress != null)
+                {
+                    if (savedFamily.AlternativeAddress == null)
+                    {
+                        var addressID = await _regularDataService.AddAddress(family.AlternativeAddress, orphanageDbc);
+                        savedFamily.AlternativeAddressId = addressID;
+                    }
+                    else
+                    {
+                        ret += await _regularDataService.SaveAddress(family.AlternativeAddress, orphanageDbc);
+                    }
+                }
+                else
+                {
+                    if (savedFamily.AlternativeAddress != null)
+                    {
+                        int alAdd = savedFamily.AlternativeAddressId.Value;
+                        savedFamily.AlternativeAddressId = null;
+                        await orphanageDbc.SaveChangesAsync();
+                        await _regularDataService.DeleteAddress(alAdd,orphanageDbc);
+                    }
+                }
+                if (family.PrimaryAddress != null)
+                {
+                    if (savedFamily.PrimaryAddress == null)
+                    {
+                        var addressID = await _regularDataService.AddAddress(family.PrimaryAddress, orphanageDbc);
+                        savedFamily.AddressId = addressID;
+                        ret++;
+                    }
+                    else
+                    {
+                        ret += await _regularDataService.SaveAddress(family.PrimaryAddress, orphanageDbc);
+                    }
+                }
+                else
+                {
+                    if (savedFamily.PrimaryAddress != null)
+                    {
+                        int Add = savedFamily.AddressId.Value;
+                        savedFamily.AddressId = null;
+                        await orphanageDbc.SaveChangesAsync();
+                        await _regularDataService.DeleteAddress(Add, orphanageDbc);
+                    }
+                }
                 savedFamily.FatherId = family.FatherId;
-                await _fatherDbService.SaveFather(family.Father);
+                ret += await _fatherDbService.SaveFather(family.Father);
                 savedFamily.MotherId = family.MotherId;
-                await _motherDbService.SaveMother(family.Mother);
+                ret += await _motherDbService.SaveMother(family.Mother);
                 savedFamily.BailId = family.BailId;
                 savedFamily.ColorMark = family.ColorMark;
                 savedFamily.FinncialStatus = family.FinncialStatus;
@@ -280,7 +349,7 @@ namespace OrphanageService.Services
                 savedFamily.Note = family.Note;
                 savedFamily.ResidenceStatus = family.ResidenceStatus;
                 savedFamily.ResidenceType = family.ResidenceType;
-                var ret = await orphanageDbc.SaveChangesAsync();
+                ret += await orphanageDbc.SaveChangesAsync();
                 if (ret > 0)
                     return true;
                 else

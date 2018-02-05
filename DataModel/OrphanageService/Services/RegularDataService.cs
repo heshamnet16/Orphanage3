@@ -50,7 +50,49 @@ namespace OrphanageService.Services
                 return -1;
         }
 
-        public async Task<bool> SaveAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
+        public async Task<bool> DeleteAddress(int addressId, OrphanageDbCNoBinary orphanageDBC)
+        {
+            var addressTodelete = await orphanageDBC.Addresses.FirstOrDefaultAsync(a => a.Id == addressId);
+            orphanageDBC.Addresses.Remove(addressTodelete);
+            return await orphanageDBC.SaveChangesAsync() > 0 ? true : false;
+        }
+
+        public async Task<bool> DeleteHealth(int healthId, OrphanageDbCNoBinary orphanageDBC)
+        {
+            var healthTodelete = await orphanageDBC.Healthies.FirstOrDefaultAsync(a => a.Id == healthId);
+            if (healthTodelete.Orphans==null || healthTodelete.Orphans.Count == 0)
+            {
+                orphanageDBC.Healthies.Remove(healthTodelete);
+                return await orphanageDBC.SaveChangesAsync() > 0 ? true : false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteName(int nameId, OrphanageDbCNoBinary orphanageDBC)
+        {
+            var nameTodelete = await orphanageDBC.Names.FirstOrDefaultAsync(a => a.Id == nameId);
+            orphanageDBC.Names.Remove(nameTodelete);
+            return await orphanageDBC.SaveChangesAsync() > 0 ? true : false;
+        }
+
+        public async Task<bool> DeleteStudy(int studyId, OrphanageDbCNoBinary orphanageDBC)
+        {
+            var studyTodelete = await orphanageDBC.Studies.FirstOrDefaultAsync(a => a.Id == studyId);
+            if (studyTodelete.Orphans == null || studyTodelete.Orphans.Count == 0)
+            {
+                orphanageDBC.Studies.Remove(studyTodelete);
+                return await orphanageDBC.SaveChangesAsync() > 0 ? true : false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<int> SaveAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
         {
             var orginalAddress = await orphanageDBC.Addresses.Where(a => a.Id == address.Id).FirstOrDefaultAsync();
             orginalAddress.Note = address.Note;
@@ -64,15 +106,20 @@ namespace OrphanageService.Services
             orginalAddress.Twitter = address.Twitter;
             orginalAddress.WorkPhone = address.WorkPhone;
             var ret = await orphanageDBC.SaveChangesAsync();
-            return ret > 0 ? true : false;
+            return ret;
         }
 
-        public async Task<bool> SaveHalth(Health health, OrphanageDbCNoBinary orphanageDBC)
+        public async Task<int> SaveHealth(Health health, OrphanageDbCNoBinary orphanageDBC)
         {
-            throw new NotImplementedException();
+            var  orginalHealth = await orphanageDBC.Healthies.FirstOrDefaultAsync(a => a.Id == health.Id);
+            orginalHealth.Medicine = health.Medicine;
+            orginalHealth.Note = health.Note;
+            orginalHealth.SicknessName = health.SicknessName;
+            orginalHealth.SupervisorDoctor = health.SupervisorDoctor;
+            return await orphanageDBC.SaveChangesAsync() ;
         }
 
-        public async Task<bool> SaveName(Name name, OrphanageDbCNoBinary orphanageDBC)
+        public async Task<int> SaveName(Name name, OrphanageDbCNoBinary orphanageDBC)
         {
             var orginalName = await orphanageDBC.Names.Where(a => a.Id == name.Id).FirstOrDefaultAsync();
             orginalName.First = name.First;
@@ -82,12 +129,21 @@ namespace OrphanageService.Services
             orginalName.EnglishFather = name.EnglishFather;
             orginalName.EnglishLast = name.EnglishLast;
             var ret = await orphanageDBC.SaveChangesAsync();
-            return ret > 0 ? true : false;
+            return ret ;
         }
 
-        public async Task<bool> SaveStudy(Study study, OrphanageDbCNoBinary orphanageDBC)
+        public async Task<int> SaveStudy(Study study, OrphanageDbCNoBinary orphanageDBC)
         {
-            throw new NotImplementedException();
+            var orginalStudy = await orphanageDBC.Studies.FirstOrDefaultAsync(a => a.Id == study.Id);
+            orginalStudy.Collage = study.Collage;
+            orginalStudy.DegreesRate = study.DegreesRate;
+            orginalStudy.MonthlyCost = study.MonthlyCost;
+            orginalStudy.Note = study.Note;
+            orginalStudy.Reasons = study.Reasons;
+            orginalStudy.School = study.School;
+            orginalStudy.Stage = study.Stage;
+            orginalStudy.Univercity = study.Univercity;
+            return await orphanageDBC.SaveChangesAsync();
         }
     }
 }

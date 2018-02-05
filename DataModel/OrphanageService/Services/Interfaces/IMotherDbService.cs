@@ -30,7 +30,7 @@ namespace OrphanageService.Services.Interfaces
         /// <returns></returns>
         Task<int> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDbCNoBinary orphanageDBC);
 
-        Task<bool> SaveMother(OrphanageDataModel.Persons.Mother mother);
+        Task<int> SaveMother(OrphanageDataModel.Persons.Mother mother);
 
         Task<bool> DeleteMother(int Mid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 

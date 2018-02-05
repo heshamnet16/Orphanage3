@@ -21,17 +21,17 @@ namespace OrphanageDataModel.RegularData
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string School { get; set; }
 
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        //[MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string Univercity { get; set; }
 
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        //[MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string Collage { get; set; }
 
         public decimal? MonthlyCost { get; set; }
 
         public decimal? DegreesRate { get; set; }
 
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        //[MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
         public string Reasons { get; set; }
 
         [Column("Certificate_Photo1")]

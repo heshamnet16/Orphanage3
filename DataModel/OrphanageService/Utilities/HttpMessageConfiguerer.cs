@@ -10,9 +10,20 @@ namespace OrphanageService.Utilities
 {
     public class HttpMessageConfiguerer : IHttpMessageConfiguerer
     {
-        public HttpResponseMessage Created()
+        public async Task<HttpResponseMessage> Created(int Id)
         {
-            throw new NotImplementedException();
+            var respMessage =  new HttpResponseMessage(HttpStatusCode.Created);
+            using (MemoryStream mem = new MemoryStream())
+            {
+                using (StreamWriter streamWriter = new StreamWriter(mem))
+                {
+                    await streamWriter.WriteAsync(Id.ToString());
+                    respMessage.Content = new StreamContent(mem);
+                    respMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    return respMessage;
+                }
+            }
+            
         }
 
         public async Task<byte[]> GetMIMIContentData(HttpRequestMessage httpRequestMessage)
@@ -74,6 +85,16 @@ namespace OrphanageService.Utilities
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StreamContent(ms);
             return response;
+        }
+
+        public HttpResponseMessage NothingChanged()
+        {
+            return new HttpResponseMessage(HttpStatusCode.NotModified);
+        }
+
+        public HttpResponseMessage OK()
+        {
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }
