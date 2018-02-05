@@ -26,7 +26,7 @@ namespace OrphanageService.Utilities
                     retData = mem.ToArray();
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 return null;
             }

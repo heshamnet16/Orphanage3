@@ -52,7 +52,11 @@ namespace OrphanageService.Services
         {
             if (Mid == 0) throw new NullReferenceException();
 
-            var mother = await orphanageDb.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+            var mother = await orphanageDb.Mothers.Where(m => m.Id == Mid)
+                .Include(m => m.Name)
+                .Include(m => m.Address)
+                .Include(m=>m.Families)
+                .FirstOrDefaultAsync();
             if (mother.Families.Count > 0)
             {
                 //the mother has another family
@@ -78,6 +82,8 @@ namespace OrphanageService.Services
                     .Include(m => m.Name)
                     .Include(m=>m.Address)
                     .FirstOrDefaultAsync(m => m.Id == Mid);
+
+                if (mother == null) return null;
 
                 _selfLoopBlocking.BlockMotherSelfLoop(ref mother);
                 setMotherEntities(ref mother, dbContext);
@@ -241,8 +247,6 @@ namespace OrphanageService.Services
                 var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
 
                 if (mother == null)
-                    System.Threading.Thread.Sleep(5000);
-                if (mother == null)
                     return;
 
                 mother.IdentityCardPhotoBackData = data;
@@ -261,8 +265,6 @@ namespace OrphanageService.Services
 
                 var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
 
-                if (mother == null)
-                    System.Threading.Thread.Sleep(5000);
                 if (mother == null)
                     return;
 

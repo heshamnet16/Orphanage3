@@ -25,7 +25,12 @@ namespace OrphanageService.Orphan.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.Persons.Orphan> Get(int id)
         {
-            return await _OrphanDBService.GetOrphan(id);
+            var ret =  await _OrphanDBService.GetOrphan(id);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+
         }
 
         [HttpGet]

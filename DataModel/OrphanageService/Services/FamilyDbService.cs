@@ -216,6 +216,8 @@ namespace OrphanageService.Services
                     .Include(f => f.PrimaryAddress)
                     .FirstOrDefaultAsync(f => f.Id == FamId);
 
+                if (family == null) return null;
+
                 OrphanageDataModel.RegularData.Family familyToFill = family;
                 _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
                 _uriGenerator.SetFamilyUris(ref familyToFill);

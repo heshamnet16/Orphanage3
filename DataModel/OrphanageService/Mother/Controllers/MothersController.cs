@@ -25,7 +25,12 @@ namespace OrphanageService.Mother.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.Persons.Mother> Get(int id)
         {
-            return await _MotherDBService.GetMother(id);
+            var ret =  await _MotherDBService.GetMother(id);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+
         }
 
         [HttpPut]

@@ -21,7 +21,11 @@ namespace OrphanageService.Account.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.FinancialData.Account> Get(int id)
         {
-            return await _accountDbService.GetAccount(id);
+            var ret = await _accountDbService.GetAccount(id);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
         }
 
         [HttpGet]

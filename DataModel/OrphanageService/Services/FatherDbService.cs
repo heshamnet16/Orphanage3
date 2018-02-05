@@ -32,6 +32,7 @@ namespace OrphanageService.Services
                     .Include(f => f.Name)
                     .FirstOrDefaultAsync(f => f.Id == Fid);
 
+                if (father == null) return null;
                 _selfLoopBlocking.BlockFatherSelfLoop(ref father);
                 setFatherEntities(ref father, dbContext);
                 _uriGenerator.SetFatherUris(ref father);
@@ -184,7 +185,10 @@ namespace OrphanageService.Services
         public async Task<bool> DeleteFather(int Fid, OrphanageDbCNoBinary orphanageDb)
         {
             if (Fid == 0) throw new NullReferenceException();
-            var father = await orphanageDb.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
+            var father = await orphanageDb.Fathers.Where(f => f.Id == Fid)
+                .Include(f => f.Name)
+                .Include(f=>f.Families)
+                .FirstOrDefaultAsync();
             if (father.Families.Count > 0)
             {
                 //the father has another family
@@ -217,8 +221,7 @@ namespace OrphanageService.Services
                 _orphanageDBC.Configuration.ProxyCreationEnabled = true;
 
                 var father = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
-                if (father == null)
-                    System.Threading.Thread.Sleep(5000);
+
                 if (father == null)
                     return;
                 father.DeathCertificatePhotoData = data;
@@ -237,8 +240,6 @@ namespace OrphanageService.Services
 
                 var father = await _orphanageDBC.Fathers.Where(f => f.Id == Fid).FirstOrDefaultAsync();
 
-                if (father == null)
-                    System.Threading.Thread.Sleep(5000);
                 if (father == null)
                     return;
 

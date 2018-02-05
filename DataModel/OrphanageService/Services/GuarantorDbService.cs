@@ -48,7 +48,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Name)
                     .Include(g => g.Account)
                     .FirstOrDefaultAsync(c => c.Id == Gid);
-
+                if (guarantor == null) return null;
                 _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantor);
                 return guarantor;
             }

@@ -27,7 +27,7 @@ namespace OrphanageService.Services
                     .Include(a => a.Bails)
                     .Include(b => b.Guarantors)
                     .FirstOrDefaultAsync(a => a.Id == Aid);
-
+                if (account == null) return null;
                 _selfLoopBlocking.BlockAccountSelfLoop(ref account);
                 return account;
             }

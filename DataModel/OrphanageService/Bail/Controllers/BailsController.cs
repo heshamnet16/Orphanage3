@@ -21,7 +21,11 @@ namespace OrphanageService.Bail.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.FinancialData.Bail> Get(int id)
         {
-            return await _bailDbService.GetBailDC(id);
+            var ret = await _bailDbService.GetBailDC(id);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
         }
 
         [HttpGet]
