@@ -1,6 +1,9 @@
-﻿using OrphanageService.Filters;
+﻿using Newtonsoft.Json;
+using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,10 +13,12 @@ namespace OrphanageService.Caregiver.Controllers
     public class CaregiversController : ApiController
     {
         private readonly ICaregiverDbService _CaregiverDBService;
+        private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public CaregiversController(ICaregiverDbService caregiverDBService)
+        public CaregiversController(ICaregiverDbService caregiverDBService,IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _CaregiverDBService = caregiverDBService;
+            _httpMessageConfiguerer = httpMessageConfiguerer;
         }
 
         //api/caregiver/{id}
@@ -21,7 +26,11 @@ namespace OrphanageService.Caregiver.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.Persons.Caregiver> Get(int id)
         {
-            return await _CaregiverDBService.GetCaregiver(id);
+            var ret  =  await _CaregiverDBService.GetCaregiver(id);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
         }
 
         [HttpGet]
@@ -46,6 +55,53 @@ namespace OrphanageService.Caregiver.Controllers
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetFamilyOrphans(int CId)
         {
             return await _CaregiverDBService.GetOrphans(CId);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> Put(object caregiver)
+        {
+            var caregiverEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(caregiver.ToString());
+            var ret = await _CaregiverDBService.SaveCaregiver(caregiverEntity);
+            if (ret)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> Post(object caregiver)
+        {
+            var caregiverEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(caregiver.ToString());
+            var ret = await _CaregiverDBService.AddCaregiver(caregiverEntity);
+            if (ret > 0)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpDelete]
+        [Route("{CID}")]
+        public async Task<HttpResponseMessage> Delete(int CID)
+        {
+            var ret = await _CaregiverDBService.DeleteCaregiver(CID);
+            if (ret)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
         }
     }
 }

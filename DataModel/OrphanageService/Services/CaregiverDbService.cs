@@ -1,6 +1,9 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,11 +15,96 @@ namespace OrphanageService.Services
     {
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;
+        private readonly IRegularDataService _regularDataService;
 
-        public CaregiverDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator)
+        public CaregiverDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator, IRegularDataService regularDataService)
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
+            _regularDataService = regularDataService;
+        }
+
+        public async Task<int> AddCaregiver(OrphanageDataModel.Persons.Caregiver caregiver)
+        {
+            if (caregiver == null) throw new NullReferenceException();
+            if (caregiver.Name == null) throw new NullReferenceException();
+            using (var orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                using (var Dbt = orphanageDBC.Database.BeginTransaction())
+                {
+                    //TODO #32 check the caregiver data (name)                 
+                    //TODO use forceadd in the settings
+                    var nameId = await _regularDataService.AddName(caregiver.Name, orphanageDBC);
+                    if(nameId == -1)
+                    {
+                        Dbt.Rollback();
+                        return -1;
+                    }
+                    caregiver.NameId = nameId;
+                    if(caregiver.Address != null)
+                    {
+                        var addressId =await _regularDataService.AddAddress(caregiver.Address, orphanageDBC);
+                        if(addressId == -1)
+                        {
+                            Dbt.Rollback();
+                            return -1;
+                        }
+                        caregiver.AddressId = addressId;
+                    }
+                    if(caregiver.Orphans !=null || caregiver.Orphans.Count > 0) caregiver.Orphans = null;
+                    orphanageDBC.Caregivers.Add(caregiver);
+                    var ret = await orphanageDBC.SaveChangesAsync();
+                    if ( ret >= 1)
+                    {
+                        Dbt.Commit();
+                        return caregiver.Id;
+                    }
+                    else
+                    {
+                        Dbt.Rollback();
+                        return -1;
+                    }
+                }
+            }
+        }
+
+        public async Task<bool> DeleteCaregiver(int Cid)
+        {
+            if (Cid <= 0) throw new NullReferenceException();
+            using (var orphanageDb = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDb.Database.BeginTransaction())
+                {
+                    var caregiver = await orphanageDb.Caregivers.Where(c => c.Id == Cid)
+                        .Include(c => c.Name)
+                        .Include(c => c.Address)
+                        .Include(c=>c.Orphans)
+                        .FirstOrDefaultAsync();
+
+                    if (caregiver == null) throw new ObjectNotFoundException();
+                    if (caregiver.Orphans.Count > 0)
+                    {
+                        //the caregiver has another orphans
+                        return true;
+                    }
+                    var caregiverName = caregiver.Name;
+                    var caregiverAddress = caregiver.Address;
+                    orphanageDb.Caregivers.Remove(caregiver);
+                    await orphanageDb.SaveChangesAsync();
+                    orphanageDb.Names.Remove(caregiverName);
+                    orphanageDb.Addresses.Remove(caregiverAddress);
+                    if (await orphanageDb.SaveChangesAsync() > 1)
+                    {
+                        dbT.Commit();
+                        return true;
+                    }
+                    else
+                    {
+                        dbT.Rollback();
+                        return false;
+                    }
+                }
+            }
         }
 
         public async Task<OrphanageDataModel.Persons.Caregiver> GetCaregiver(int Cid)
@@ -28,7 +116,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
                     .FirstOrDefaultAsync(c => c.Id == Cid);
-
+                if (caregiver == null) throw new ObjectNotFoundException(); 
                 _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiver);
                 _uriGenerator.SetCaregiverUris(ref caregiver);
                 return caregiver;
@@ -120,6 +208,93 @@ namespace OrphanageService.Services
                 }
             }
             return returnedOrphans;
+        }
+
+        public async Task<bool> SaveCaregiver(OrphanageDataModel.Persons.Caregiver caregiver)
+        {
+            if (caregiver == null) throw new NullReferenceException();
+            using (OrphanageDbCNoBinary orphanageDc = new OrphanageDbCNoBinary())
+            {
+                int ret = 0;
+                orphanageDc.Configuration.LazyLoadingEnabled = true;
+                orphanageDc.Configuration.ProxyCreationEnabled = true;
+                orphanageDc.Configuration.AutoDetectChangesEnabled = true;
+
+                var orginalCaregiver = await orphanageDc.Caregivers.
+                    Include(m => m.Address).
+                    Include(c=>c.Name).
+                    FirstOrDefaultAsync(m => m.Id == caregiver.Id);
+
+                if (orginalCaregiver == null) throw new ObjectNotFoundException();
+
+                if (caregiver.Address != null)
+                    if (orginalCaregiver.Address != null)
+                        //edit existing caregiver address
+                        ret += await _regularDataService.SaveAddress(caregiver.Address, orphanageDc);
+                    else
+                    {
+                        //create new address for the caregiver
+                        var addressId = await _regularDataService.AddAddress(caregiver.Address, orphanageDc);
+                        orginalCaregiver.AddressId = addressId;
+                        ret++;
+                    }
+                else
+                    if (orginalCaregiver.Address != null)
+                {
+                    //delete existing caregiver address
+                    int alAdd = orginalCaregiver.AddressId.Value;
+                    orginalCaregiver.AddressId = null;
+                    await orphanageDc.SaveChangesAsync();
+                    await _regularDataService.DeleteAddress(alAdd, orphanageDc);
+                }
+
+                ret += await _regularDataService.SaveName(caregiver.Name, orphanageDc);
+                orginalCaregiver.IdentityCardId = caregiver.IdentityCardId;
+                orginalCaregiver.ColorMark = caregiver.ColorMark;
+                orginalCaregiver.Income = caregiver.Income;
+                orginalCaregiver.Jop = caregiver.Jop;
+                orginalCaregiver.Note = caregiver.Note;
+                ret += await orphanageDc.SaveChangesAsync();
+                return ret >0 ? true : false ;
+            }
+        }
+
+        public async Task SetIdentityCardBack(int Cid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var caregiver = await _orphanageDBC.Caregivers.FirstOrDefaultAsync(m => m.Id == Cid);
+
+                if (caregiver == null)
+                    throw new ObjectNotFoundException(); 
+
+                caregiver.IdentityCardPhotoBackData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetIdentityCardFace(int Cid, byte[] data)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var caregiver = await _orphanageDBC.Caregivers.FirstOrDefaultAsync(m => m.Id == Cid);
+
+                if (caregiver == null)
+                    throw new ObjectNotFoundException(); 
+
+                caregiver.IdentityCardPhotoFaceData = data;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
         }
     }
 }

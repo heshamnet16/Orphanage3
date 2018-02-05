@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
@@ -38,6 +39,8 @@ namespace OrphanageService.Services
                     .Include(o => o.Bail)
                     .Include(o => o.HealthStatus)
                     .FirstOrDefaultAsync(o => o.Id == id);
+
+                if (orphan == null) throw new ObjectNotFoundException();
 
                 _loopBlocking.BlockOrphanSelfLoop(ref orphan);
                 _uriGenerator.SetOrphanUris(ref orphan);
@@ -224,7 +227,7 @@ namespace OrphanageService.Services
                     Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null)
-                    return false;
+                    throw new ObjectNotFoundException();
 
                 orphan.FacePhotoData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -248,7 +251,7 @@ namespace OrphanageService.Services
                     Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null)
-                    return false;
+                   throw new ObjectNotFoundException();
 
                 orphan.BirthCertificatePhotoData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -272,7 +275,7 @@ namespace OrphanageService.Services
                     Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null)
-                    return false;
+                    throw new ObjectNotFoundException();
 
                 orphan.FamilyCardPagePhotoData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -296,7 +299,7 @@ namespace OrphanageService.Services
                     Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null)
-                    return false;
+                    throw new ObjectNotFoundException();
 
                 orphan.FullPhotoData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -321,7 +324,7 @@ namespace OrphanageService.Services
                     .Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null || orphan.Education == null)
-                    return false;
+                    throw new ObjectNotFoundException();
 
                 orphan.Education.CertificatePhotoFront = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -346,7 +349,7 @@ namespace OrphanageService.Services
                     .Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null || orphan.Education == null)
-                    return false;
+                    throw new ObjectNotFoundException();
 
                 orphan.Education.CertificatePhotoBack = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -371,7 +374,7 @@ namespace OrphanageService.Services
                     .Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null || orphan.HealthStatus == null)
-                    return false;
+                    throw new ObjectNotFoundException();
 
                 orphan.HealthStatus.ReporteFileData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -427,7 +430,7 @@ namespace OrphanageService.Services
                     .Include(o => o.Name)
                     .Include(o => o.HealthStatus)
                     .FirstOrDefaultAsync(o => o.Id == orphan.Id);
-
+                if (orginalOrphan == null) throw new ObjectNotFoundException();
                 orginalOrphan.IdentityCardNumber = orphan.IdentityCardNumber;
                 orginalOrphan.BailId = orphan.BailId;
                 orginalOrphan.Birthday = orphan.Birthday;
@@ -506,7 +509,7 @@ namespace OrphanageService.Services
                     Include(o => o.Name).FirstOrDefaultAsync(o => o.Id == Oid);
 
             if (orphanTodelete == null)
-                return false;
+                throw new ObjectNotFoundException();
             if (orphanTodelete.Education != null)
             {
                 var eduId = orphanTodelete.EducationId.Value;
@@ -585,7 +588,7 @@ namespace OrphanageService.Services
                         Include(o => o.Name).FirstOrDefaultAsync(o => o.Id == Oid);
 
                     if (orphanTodelete == null)
-                        return false;
+                        throw new ObjectNotFoundException();
                     if (orphanTodelete.Education != null)
                     {
                         var eduId = orphanTodelete.EducationId.Value;

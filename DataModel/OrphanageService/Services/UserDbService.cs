@@ -552,6 +552,7 @@ namespace OrphanageService.Services
                     .Include(u => u.Address)
                     .FirstOrDefaultAsync(o => o.Id == Uid);
 
+                if (user == null) return null;
                 _selfLoopBlocking.BlockUserSelfLoop(ref user);
                 return user;
             }

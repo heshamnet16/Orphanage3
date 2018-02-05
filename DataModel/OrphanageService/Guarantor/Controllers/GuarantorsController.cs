@@ -21,7 +21,11 @@ namespace OrphanageService.Guarantor.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.Persons.Guarantor> Get(int id)
         {
-            return await _GuarantorDBService.GetGuarantor(id);
+            var ret = await _GuarantorDBService.GetGuarantor(id);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
         }
 
         [HttpGet]
