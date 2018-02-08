@@ -85,7 +85,7 @@ namespace OrphanageService.Services
                     if (caregiver.Orphans.Count > 0)
                     {
                         //the caregiver has another orphans
-                        return true;
+                        throw new HasForeignKeyException(typeof(OrphanageDataModel.Persons.Caregiver), typeof(OrphanageDataModel.Persons.Orphan));
                     }
                     var caregiverName = caregiver.Name;
                     var caregiverAddress = caregiver.Address;

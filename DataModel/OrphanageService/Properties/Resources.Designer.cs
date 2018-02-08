@@ -61,6 +61,15 @@ namespace OrphanageService.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لايمكن حذف السجل المطلوب لأنه مرتبط بسجلات أخرى ähnelt.
+        /// </summary>
+        public static string Error_ForeignKey {
+            get {
+                return ResourceManager.GetString("Error_ForeignKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عذرا! غير موجود ضمن قاعدة البيانات ähnelt.
         /// </summary>
         public static string Error_NotFound {

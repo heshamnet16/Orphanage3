@@ -14,5 +14,11 @@ namespace OrphanageService.Services.Interfaces
         Task<int> GetGuarantorsCount();
 
         Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int Gid);
+
+        Task<bool> SaveGuarantor(OrphanageDataModel.Persons.Guarantor guarantor);
+
+        Task<int> AddGuarantor(OrphanageDataModel.Persons.Guarantor  guarantor);
+
+        Task<bool> DeleteGuarantor(int Gid);
     }
 }
