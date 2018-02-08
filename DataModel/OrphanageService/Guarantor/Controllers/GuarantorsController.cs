@@ -1,6 +1,9 @@
-﻿using OrphanageService.Filters;
+﻿using Newtonsoft.Json;
+using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,10 +13,12 @@ namespace OrphanageService.Guarantor.Controllers
     public class GuarantorsController : ApiController
     {
         private readonly IGuarantorDbService _GuarantorDBService;
+        private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public GuarantorsController(IGuarantorDbService guarantorDBService)
+        public GuarantorsController(IGuarantorDbService guarantorDBService,IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _GuarantorDBService = guarantorDBService;
+            _httpMessageConfiguerer = httpMessageConfiguerer;
         }
 
         //api/guarantor/{id}
@@ -58,6 +63,53 @@ namespace OrphanageService.Guarantor.Controllers
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int GId)
         {
             return await _GuarantorDBService.GetBails(GId);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> Put(object guarantor)
+        {
+            var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
+            var ret = await _GuarantorDBService.SaveGuarantor(guarantorEntity);
+            if (ret)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> Post(object guarantor)
+        {
+            var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
+            var ret = await _GuarantorDBService.AddGuarantor(guarantorEntity);
+            if (ret > 0)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpDelete]
+        [Route("{GID}")]
+        public async Task<HttpResponseMessage> Delete(int GID)
+        {
+            var ret = await _GuarantorDBService.DeleteGuarantor(GID);
+            if (ret)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
         }
     }
 }

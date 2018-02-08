@@ -8,10 +8,6 @@ namespace OrphanageService.Services.Exceptions
 {
     public class ServiceException : Exception
     {
-        public ServiceException() : base(Properties.Resources.Error_NotFound)
-        {
-        }
-
         public ServiceException(string message) : base(message)
         {
         }
