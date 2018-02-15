@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageService.DataContext;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -32,29 +31,29 @@ namespace OrphanageService.Services
             {
                 using (var Dbt = orphanageDBC.Database.BeginTransaction())
                 {
-                    //TODO #32 check the caregiver data (name)                 
+                    //TODO #32 check the caregiver data (name)
                     //TODO use forceadd in the settings
                     var nameId = await _regularDataService.AddName(caregiver.Name, orphanageDBC);
-                    if(nameId == -1)
+                    if (nameId == -1)
                     {
                         Dbt.Rollback();
                         return -1;
                     }
                     caregiver.NameId = nameId;
-                    if(caregiver.Address != null)
+                    if (caregiver.Address != null)
                     {
-                        var addressId =await _regularDataService.AddAddress(caregiver.Address, orphanageDBC);
-                        if(addressId == -1)
+                        var addressId = await _regularDataService.AddAddress(caregiver.Address, orphanageDBC);
+                        if (addressId == -1)
                         {
                             Dbt.Rollback();
                             return -1;
                         }
                         caregiver.AddressId = addressId;
                     }
-                    if(caregiver.Orphans !=null || caregiver.Orphans.Count > 0) caregiver.Orphans = null;
+                    if (caregiver.Orphans != null || caregiver.Orphans.Count > 0) caregiver.Orphans = null;
                     orphanageDBC.Caregivers.Add(caregiver);
                     var ret = await orphanageDBC.SaveChangesAsync();
-                    if ( ret >= 1)
+                    if (ret >= 1)
                     {
                         Dbt.Commit();
                         return caregiver.Id;
@@ -78,7 +77,7 @@ namespace OrphanageService.Services
                     var caregiver = await orphanageDb.Caregivers.Where(c => c.Id == Cid)
                         .Include(c => c.Name)
                         .Include(c => c.Address)
-                        .Include(c=>c.Orphans)
+                        .Include(c => c.Orphans)
                         .FirstOrDefaultAsync();
 
                     if (caregiver == null) throw new ObjectNotFoundException();
@@ -116,7 +115,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
                     .FirstOrDefaultAsync(c => c.Id == Cid);
-                if (caregiver == null) throw new ObjectNotFoundException(); 
+                if (caregiver == null) throw new ObjectNotFoundException();
                 _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiver);
                 _uriGenerator.SetCaregiverUris(ref caregiver);
                 return caregiver;
@@ -222,7 +221,7 @@ namespace OrphanageService.Services
 
                 var orginalCaregiver = await orphanageDc.Caregivers.
                     Include(m => m.Address).
-                    Include(c=>c.Name).
+                    Include(c => c.Name).
                     FirstOrDefaultAsync(m => m.Id == caregiver.Id);
 
                 if (orginalCaregiver == null) throw new ObjectNotFoundException();
@@ -255,7 +254,7 @@ namespace OrphanageService.Services
                 orginalCaregiver.Jop = caregiver.Jop;
                 orginalCaregiver.Note = caregiver.Note;
                 ret += await orphanageDc.SaveChangesAsync();
-                return ret >0 ? true : false ;
+                return ret > 0 ? true : false;
             }
         }
 
@@ -270,7 +269,7 @@ namespace OrphanageService.Services
                 var caregiver = await _orphanageDBC.Caregivers.FirstOrDefaultAsync(m => m.Id == Cid);
 
                 if (caregiver == null)
-                    throw new ObjectNotFoundException(); 
+                    throw new ObjectNotFoundException();
 
                 caregiver.IdentityCardPhotoBackData = data;
 
@@ -289,7 +288,7 @@ namespace OrphanageService.Services
                 var caregiver = await _orphanageDBC.Caregivers.FirstOrDefaultAsync(m => m.Id == Cid);
 
                 if (caregiver == null)
-                    throw new ObjectNotFoundException(); 
+                    throw new ObjectNotFoundException();
 
                 caregiver.IdentityCardPhotoFaceData = data;
 

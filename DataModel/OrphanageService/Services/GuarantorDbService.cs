@@ -32,7 +32,7 @@ namespace OrphanageService.Services
             {
                 using (var Dbt = orphanageDBC.Database.BeginTransaction())
                 {
-                    //TODO #32 check the guarantor data (name)                 
+                    //TODO #32 check the guarantor data (name)
                     //TODO use forceadd in the settings
                     var nameId = await _regularDataService.AddName(guarantor.Name, orphanageDBC);
                     if (nameId == -1)
@@ -70,7 +70,7 @@ namespace OrphanageService.Services
                     var guarantor = await orphanageDb.Guarantors.Where(c => c.Id == Gid)
                         .Include(c => c.Name)
                         .Include(c => c.Address)
-                        .Include(c=>c.Bails)
+                        .Include(c => c.Bails)
                         .Include(c => c.Orphans)
                         .FirstOrDefaultAsync();
 
@@ -82,16 +82,16 @@ namespace OrphanageService.Services
                     }
                     if (guarantor.Bails != null && guarantor.Bails.Count > 0)
                     {
-                        // the guarantor has bails foreign keys 
+                        // the guarantor has bails foreign keys
                         throw new HasForeignKeyException(typeof(OrphanageDataModel.Persons.Guarantor), typeof(OrphanageDataModel.FinancialData.Bail));
                     }
                     var guarantorName = guarantor.Name;
                     var guarantorAdderss = guarantor.Address;
                     orphanageDb.Guarantors.Remove(guarantor);
                     ret += await orphanageDb.SaveChangesAsync();
-                    ret += await _regularDataService.DeleteName(guarantorName.Id,orphanageDb) ? 1 : 0;
-                    if(guarantorAdderss != null)
-                        ret += await _regularDataService.DeleteAddress(guarantorAdderss.Id, orphanageDb) ? 1 : 0 ;
+                    ret += await _regularDataService.DeleteName(guarantorName.Id, orphanageDb) ? 1 : 0;
+                    if (guarantorAdderss != null)
+                        ret += await _regularDataService.DeleteAddress(guarantorAdderss.Id, orphanageDb) ? 1 : 0;
                     if (ret > 0)
                     {
                         dbT.Commit();
@@ -251,13 +251,13 @@ namespace OrphanageService.Services
                     }
                 else
                     if (orginalGuarantor.Address != null)
-                    {
-                        //delete existing caregiver address
-                        int alAdd = orginalGuarantor.AddressId.Value;
-                        orginalGuarantor.AddressId = null;
-                        await orphanageDc.SaveChangesAsync();
-                        await _regularDataService.DeleteAddress(alAdd, orphanageDc);
-                    }
+                {
+                    //delete existing caregiver address
+                    int alAdd = orginalGuarantor.AddressId.Value;
+                    orginalGuarantor.AddressId = null;
+                    await orphanageDc.SaveChangesAsync();
+                    await _regularDataService.DeleteAddress(alAdd, orphanageDc);
+                }
                 ret += await _regularDataService.SaveName(guarantor.Name, orphanageDc);
                 orginalGuarantor.AccountId = guarantor.AccountId;
                 orginalGuarantor.ColorMark = guarantor.ColorMark;

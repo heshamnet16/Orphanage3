@@ -14,7 +14,7 @@ namespace OrphanageService.Family.Controllers
         private readonly IFamilyDbService _FamilyDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public FamiliesController(IFamilyDbService familyDBService,IHttpMessageConfiguerer httpMessageConfiguerer)
+        public FamiliesController(IFamilyDbService familyDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _FamilyDBService = familyDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
@@ -25,12 +25,11 @@ namespace OrphanageService.Family.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.RegularData.Family> Get(int id)
         {
-            var ret =  await _FamilyDBService.GetFamily(id);
+            var ret = await _FamilyDBService.GetFamily(id);
             if (ret == null)
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else
                 return ret;
-
         }
 
         [HttpPut]
@@ -77,6 +76,7 @@ namespace OrphanageService.Family.Controllers
                 return _httpMessageConfiguerer.NothingChanged();
             }
         }
+
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]

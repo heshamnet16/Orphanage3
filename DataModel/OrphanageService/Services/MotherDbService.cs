@@ -55,7 +55,7 @@ namespace OrphanageService.Services
             var mother = await orphanageDb.Mothers.Where(m => m.Id == Mid)
                 .Include(m => m.Name)
                 .Include(m => m.Address)
-                .Include(m=>m.Families)
+                .Include(m => m.Families)
                 .FirstOrDefaultAsync();
             if (mother.Families.Count > 0)
             {
@@ -80,7 +80,7 @@ namespace OrphanageService.Services
                 var mother = await dbContext.Mothers.AsNoTracking()
                     .Include(m => m.Families)
                     .Include(m => m.Name)
-                    .Include(m=>m.Address)
+                    .Include(m => m.Address)
                     .FirstOrDefaultAsync(m => m.Id == Mid);
 
                 if (mother == null) return null;
@@ -135,7 +135,7 @@ namespace OrphanageService.Services
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(f => f.Families)
                     .Include(f => f.Name)
-                    .Include(m=>m.Address)
+                    .Include(m => m.Address)
                     .ToListAsync();
 
                 foreach (var mother in mothers)
@@ -199,7 +199,7 @@ namespace OrphanageService.Services
             {
                 int ret = 0;
                 orphanageDc.Configuration.AutoDetectChangesEnabled = true;
-                var motherToReplace = await orphanageDc.Mothers.Include(m=>m.Address).Where(m => m.Id == mother.Id).FirstAsync();
+                var motherToReplace = await orphanageDc.Mothers.Include(m => m.Address).Where(m => m.Id == mother.Id).FirstAsync();
                 if (motherToReplace == null) throw new ObjectNotFoundException();
                 if (mother.Address != null)
                     if (motherToReplace.Address != null)
@@ -211,7 +211,7 @@ namespace OrphanageService.Services
                         ret++;
                     }
                 else
-                    if (motherToReplace.Address !=null)
+                    if (motherToReplace.Address != null)
                 {
                     int alAdd = motherToReplace.AddressId.Value;
                     motherToReplace.AddressId = null;

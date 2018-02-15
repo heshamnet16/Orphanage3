@@ -12,7 +12,7 @@ namespace OrphanageService.Utilities
     {
         public async Task<HttpResponseMessage> Created(int Id)
         {
-            var respMessage =  new HttpResponseMessage(HttpStatusCode.Created);
+            var respMessage = new HttpResponseMessage(HttpStatusCode.Created);
             using (MemoryStream mem = new MemoryStream())
             {
                 using (StreamWriter streamWriter = new StreamWriter(mem))
@@ -23,7 +23,6 @@ namespace OrphanageService.Utilities
                     return respMessage;
                 }
             }
-            
         }
 
         public async Task<byte[]> GetMIMIContentData(HttpRequestMessage httpRequestMessage)
@@ -31,14 +30,14 @@ namespace OrphanageService.Utilities
             if (httpRequestMessage.Content.IsMimeMultipartContent())
             {
                 var provider = await httpRequestMessage.Content.ReadAsMultipartAsync(new MultipartMemoryStreamProvider());
-                
-                    foreach (HttpContent content in provider.Contents)
-                    {
-                        Stream stream = await content.ReadAsStreamAsync();
-                        MemoryStream mem = new MemoryStream();
-                        await stream.CopyToAsync(mem);
-                        return mem.ToArray();
-                    }
+
+                foreach (HttpContent content in provider.Contents)
+                {
+                    Stream stream = await content.ReadAsStreamAsync();
+                    MemoryStream mem = new MemoryStream();
+                    await stream.CopyToAsync(mem);
+                    return mem.ToArray();
+                }
             }
             else
             {
@@ -74,6 +73,7 @@ namespace OrphanageService.Utilities
         {
             return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
         }
+
         private HttpResponseMessage createContentMessage(byte[] data)
         {
             if (data == null)

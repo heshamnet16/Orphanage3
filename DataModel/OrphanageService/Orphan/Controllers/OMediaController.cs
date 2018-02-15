@@ -69,8 +69,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion Face
 
         #region BirthCertificate
@@ -123,8 +123,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion BirthCertificate
 
         #region FamilyCardPagePhoto
@@ -177,8 +177,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion FamilyCardPagePhoto
 
         #region Full
@@ -231,8 +231,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion Full
 
         #region EducationCert1
@@ -285,8 +285,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion EducationCert1
 
         #region EducationCert2
@@ -339,8 +339,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion EducationCert2
 
         #region HealthReportFile
@@ -371,8 +371,8 @@ namespace OrphanageService.Orphan.Controllers
                 return result;
             else
                 return new HttpResponseMessage(System.Net.HttpStatusCode.NotModified);
-
         }
+
         #endregion HealthReportFile
     }
 }

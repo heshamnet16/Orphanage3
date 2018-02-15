@@ -1,7 +1,7 @@
 ﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
-using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,8 +10,26 @@ namespace OrphanageService.Services
 {
     public class RegularDataService : IRegularDataService
     {
+        private readonly ICheckerService _checkerService;
+
+        public RegularDataService(ICheckerService checkerService)
+        {
+            _checkerService = checkerService;
+        }
+
         public async Task<int> AddAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
         {
+            if (!Properties.Settings.Default.ForceAdd)
+            {
+                if (Properties.Settings.Default.CheckContactData)
+                {
+                    var ret = await _checkerService.IsContactDataExist(address, orphanageDBC);
+                    if (ret != null)
+                    {
+                        throw new DuplicatedObjectException(address.GetType(), ret.ObjectType, ret.Id);
+                    }
+                }
+            }
             orphanageDBC.Addresses.Add(address);
             await orphanageDBC.SaveChangesAsync();
             if (address.Id > 0)
@@ -32,6 +50,17 @@ namespace OrphanageService.Services
 
         public async Task<int> AddName(Name name, OrphanageDbCNoBinary orphanageDBC)
         {
+            if (!Properties.Settings.Default.ForceAdd)
+            {
+                if (Properties.Settings.Default.CheckName)
+                {
+                    var ret = await _checkerService.IsNameExist(name, orphanageDBC);
+                    if (ret != null)
+                    {
+                        throw new DuplicatedObjectException(name.GetType(), ret.ObjectType, ret.Id);
+                    }
+                }
+            }
             orphanageDBC.Names.Add(name);
             await orphanageDBC.SaveChangesAsync();
             if (name.Id > 0)
@@ -60,7 +89,7 @@ namespace OrphanageService.Services
         public async Task<bool> DeleteHealth(int healthId, OrphanageDbCNoBinary orphanageDBC)
         {
             var healthTodelete = await orphanageDBC.Healthies.FirstOrDefaultAsync(a => a.Id == healthId);
-            if (healthTodelete.Orphans==null || healthTodelete.Orphans.Count == 0)
+            if (healthTodelete.Orphans == null || healthTodelete.Orphans.Count == 0)
             {
                 orphanageDBC.Healthies.Remove(healthTodelete);
                 return await orphanageDBC.SaveChangesAsync() > 0 ? true : false;
@@ -111,12 +140,12 @@ namespace OrphanageService.Services
 
         public async Task<int> SaveHealth(Health health, OrphanageDbCNoBinary orphanageDBC)
         {
-            var  orginalHealth = await orphanageDBC.Healthies.FirstOrDefaultAsync(a => a.Id == health.Id);
+            var orginalHealth = await orphanageDBC.Healthies.FirstOrDefaultAsync(a => a.Id == health.Id);
             orginalHealth.Medicine = health.Medicine;
             orginalHealth.Note = health.Note;
             orginalHealth.SicknessName = health.SicknessName;
             orginalHealth.SupervisorDoctor = health.SupervisorDoctor;
-            return await orphanageDBC.SaveChangesAsync() ;
+            return await orphanageDBC.SaveChangesAsync();
         }
 
         public async Task<int> SaveName(Name name, OrphanageDbCNoBinary orphanageDBC)
@@ -129,7 +158,7 @@ namespace OrphanageService.Services
             orginalName.EnglishFather = name.EnglishFather;
             orginalName.EnglishLast = name.EnglishLast;
             var ret = await orphanageDBC.SaveChangesAsync();
-            return ret ;
+            return ret;
         }
 
         public async Task<int> SaveStudy(Study study, OrphanageDbCNoBinary orphanageDBC)

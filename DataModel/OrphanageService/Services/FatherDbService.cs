@@ -187,7 +187,7 @@ namespace OrphanageService.Services
             if (Fid == 0) throw new NullReferenceException();
             var father = await orphanageDb.Fathers.Where(f => f.Id == Fid)
                 .Include(f => f.Name)
-                .Include(f=>f.Families)
+                .Include(f => f.Families)
                 .FirstOrDefaultAsync();
             if (father.Families.Count > 0)
             {

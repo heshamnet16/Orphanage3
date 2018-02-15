@@ -168,6 +168,9 @@
     <Compile Include="Services\AutoCompleteDbService.cs" />
     <Compile Include="Services\BailDbService.cs" />
     <Compile Include="Services\CaregiverDbService.cs" />
+    <Compile Include="Services\CheckerService.cs" />
+    <Compile Include="Services\DataModel\CheckerResultData.cs" />
+    <Compile Include="Services\Exceptions\DuplicatedObjectException.cs" />
     <Compile Include="Services\Exceptions\HasForeignKeyException.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
     <Compile Include="Services\Exceptions\ServiceException.cs" />
@@ -178,6 +181,7 @@
     <Compile Include="Services\Interfaces\IAutoCompleteDbService.cs" />
     <Compile Include="Services\Interfaces\IBailDbService.cs" />
     <Compile Include="Services\Interfaces\ICaregiverDbService.cs" />
+    <Compile Include="Services\Interfaces\ICheckerService.cs" />
     <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />
@@ -203,8 +207,10 @@
     <Compile Include="Utilities\ImageAdapter.cs" />
     <Compile Include="Utilities\Interfaces\IHttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\Interfaces\ISelfLoopBlocking.cs" />
+    <Compile Include="Utilities\Interfaces\IStringsFixer.cs" />
     <Compile Include="Utilities\Interfaces\IUriGenerator.cs" />
     <Compile Include="Utilities\SelfLoopBlocking.cs" />
+    <Compile Include="Utilities\StringsFixer.cs" />
     <Compile Include="Utilities\UriGenerator.cs" />
   </ItemGroup>
   <ItemGroup>

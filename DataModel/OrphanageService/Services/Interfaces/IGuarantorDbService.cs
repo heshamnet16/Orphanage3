@@ -17,7 +17,7 @@ namespace OrphanageService.Services.Interfaces
 
         Task<bool> SaveGuarantor(OrphanageDataModel.Persons.Guarantor guarantor);
 
-        Task<int> AddGuarantor(OrphanageDataModel.Persons.Guarantor  guarantor);
+        Task<int> AddGuarantor(OrphanageDataModel.Persons.Guarantor guarantor);
 
         Task<bool> DeleteGuarantor(int Gid);
     }

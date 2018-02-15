@@ -251,7 +251,7 @@ namespace OrphanageService.Services
                     Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null)
-                   throw new ObjectNotFoundException();
+                    throw new ObjectNotFoundException();
 
                 orphan.BirthCertificatePhotoData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -468,7 +468,7 @@ namespace OrphanageService.Services
                         int eduId = orginalOrphan.EducationId.Value;
                         orginalOrphan.EducationId = null;
                         await orphanageDbc.SaveChangesAsync();
-                        await _regularDataService.DeleteStudy(eduId,orphanageDbc);
+                        await _regularDataService.DeleteStudy(eduId, orphanageDbc);
                     }
                 }
                 if (orphan.HealthStatus != null)

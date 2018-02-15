@@ -18,9 +18,9 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetMotherIdPhotoBack(int Mid);
 
-        Task SetMotherIdPhotoFace(int Mid,byte[] data);
+        Task SetMotherIdPhotoFace(int Mid, byte[] data);
 
-        Task SetMotherIdPhotoBack(int Mid,byte[] data);
+        Task SetMotherIdPhotoBack(int Mid, byte[] data);
 
         /// <summary>
         /// add new mother object to the database

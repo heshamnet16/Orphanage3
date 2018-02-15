@@ -63,6 +63,8 @@ namespace OrphanageServiceTests
             container.RegisterType<IUriGenerator, UriGenerator>();
             container.RegisterType<IHttpMessageConfiguerer, HttpMessageConfiguerer>();
             container.RegisterType<IRegularDataService, RegularDataService>();
+            container.RegisterType<IStringsFixer, StringsFixer>();
+            container.RegisterType<ICheckerService, CheckerService>();
         }
 
         [OneTimeSetUp]

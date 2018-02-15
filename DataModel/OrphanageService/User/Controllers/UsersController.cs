@@ -23,12 +23,11 @@ namespace OrphanageService.User.Controllers
         [Route("accounts/{uid}")]
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(int Uid)
         {
-            var ret =  await _userDBService.GetAccounts(Uid);
+            var ret = await _userDBService.GetAccounts(Uid);
             if (ret == null)
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else
                 return ret;
-
         }
 
         [HttpGet]

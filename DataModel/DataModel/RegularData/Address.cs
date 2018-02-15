@@ -39,10 +39,10 @@ namespace OrphanageDataModel.RegularData
         public string WorkPhone { get; set; }
 
         [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
-        private string Fax { get; set; }
+        public string Fax { get; set; }
 
         [EmailAddress(ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
-        private string Email { get; set; }
+        public string Email { get; set; }
 
         [RegularExpression(@"(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?",
             ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]

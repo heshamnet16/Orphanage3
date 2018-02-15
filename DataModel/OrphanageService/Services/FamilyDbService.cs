@@ -118,8 +118,8 @@ namespace OrphanageService.Services
                 {
                     foreach (var orp in orphans)
                     {
-                       allIsOK = await _orphanDbService.DeleteOrphan(orp.Id, orphanageDbc);
-                       if(!allIsOK)
+                        allIsOK = await _orphanDbService.DeleteOrphan(orp.Id, orphanageDbc);
+                        if (!allIsOK)
                         {
                             dbT.Rollback();
                             return false;
@@ -312,7 +312,7 @@ namespace OrphanageService.Services
                         int alAdd = savedFamily.AlternativeAddressId.Value;
                         savedFamily.AlternativeAddressId = null;
                         await orphanageDbc.SaveChangesAsync();
-                        await _regularDataService.DeleteAddress(alAdd,orphanageDbc);
+                        await _regularDataService.DeleteAddress(alAdd, orphanageDbc);
                     }
                 }
                 if (family.PrimaryAddress != null)
