@@ -19,17 +19,17 @@ namespace OrphanageService.Services
 
         public async Task<int> AddAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
         {
-            if (!Properties.Settings.Default.ForceAdd)
-            {
-                if (Properties.Settings.Default.CheckContactData)
-                {
-                    var ret = await _checkerService.IsContactDataExist(address, orphanageDBC);
-                    if (ret != null)
-                    {
-                        throw new DuplicatedObjectException(address.GetType(), ret.ObjectType, ret.Id);
-                    }
-                }
-            }
+            //if (!Properties.Settings.Default.ForceAdd)
+            //{
+            //    if (Properties.Settings.Default.CheckContactData)
+            //    {
+            //        var ret = await _checkerService.IsContactDataExist(address, orphanageDBC);
+            //        if (ret != null)
+            //        {
+            //            throw new DuplicatedObjectException(address.GetType(), ret.ObjectType, ret.Id);
+            //        }
+            //    }
+            //}
             orphanageDBC.Addresses.Add(address);
             await orphanageDBC.SaveChangesAsync();
             if (address.Id > 0)
@@ -50,17 +50,17 @@ namespace OrphanageService.Services
 
         public async Task<int> AddName(Name name, OrphanageDbCNoBinary orphanageDBC)
         {
-            if (!Properties.Settings.Default.ForceAdd)
-            {
-                if (Properties.Settings.Default.CheckName)
-                {
-                    var ret = await _checkerService.IsNameExist(name, orphanageDBC);
-                    if (ret != null)
-                    {
-                        throw new DuplicatedObjectException(name.GetType(), ret.ObjectType, ret.Id);
-                    }
-                }
-            }
+            //if (!Properties.Settings.Default.ForceAdd)
+            //{
+            //    if (Properties.Settings.Default.CheckName)
+            //    {
+            //        var ret = await _checkerService.IsNameExist(name, orphanageDBC);
+            //        if (ret != null)
+            //        {
+            //            throw new DuplicatedObjectException(name.GetType(), ret.ObjectType, ret.Id);
+            //        }
+            //    }
+            //}
             orphanageDBC.Names.Add(name);
             await orphanageDBC.SaveChangesAsync();
             if (name.Id > 0)

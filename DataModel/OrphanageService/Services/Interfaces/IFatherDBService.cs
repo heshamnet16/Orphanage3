@@ -34,5 +34,13 @@ namespace OrphanageService.Services.Interfaces
         Task<byte[]> GetFatherDeathCertificate(int Fid);
 
         Task SetFatherDeathCertificate(int Fid, byte[] data);
+
+        /// <summary>
+        /// get Fathers with the same name object
+        /// </summary>
+        /// <param name="motherObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.Persons.Father> GetFathersByName(OrphanageDataModel.RegularData.Name nameObject, OrphanageDbCNoBinary orphanageDbCNo);
     }
 }

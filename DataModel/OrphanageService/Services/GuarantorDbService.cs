@@ -1,4 +1,6 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -32,8 +34,25 @@ namespace OrphanageService.Services
             {
                 using (var Dbt = orphanageDBC.Database.BeginTransaction())
                 {
-                    //TODO #32 check the guarantor data (name)
-                    //TODO use forceadd in the settings
+                    if (!Properties.Settings.Default.ForceAdd)
+                    {
+                        if (Properties.Settings.Default.CheckName)
+                        {
+                            var retguarantors = GetGuarantorByName(guarantor.Name, orphanageDBC).FirstOrDefault();
+                            if (retguarantors != null)
+                            {
+                                throw new DuplicatedObjectException(guarantor.GetType(), retguarantors.GetType(), retguarantors.Id);
+                            }
+                        }
+                        if (Properties.Settings.Default.CheckContactData)
+                        {
+                            var retguarantors = GetGuarantorByAddress(guarantor.Address, orphanageDBC).FirstOrDefault();
+                            if (retguarantors != null)
+                            {
+                                throw new DuplicatedObjectException(guarantor.GetType(), retguarantors.GetType(), retguarantors.Id);
+                            }
+                        }
+                    }
                     var nameId = await _regularDataService.AddName(guarantor.Name, orphanageDBC);
                     if (nameId == -1)
                     {
@@ -138,6 +157,41 @@ namespace OrphanageService.Services
                 if (guarantor == null) return null;
                 _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantor);
                 return guarantor;
+            }
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Guarantor> GetGuarantorByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (addressObject == null) throw new NullReferenceException();
+
+            var guarantors = orphanageDbCNo.Guarantors
+            .Include(m => m.Address)
+            .ToArray();
+
+            var Foundedguarantors = guarantors.Where(n => n.Address.Equals(addressObject));
+
+            foreach (var guarantor in Foundedguarantors)
+            {
+                yield return guarantor;
+            }
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Guarantor> GetGuarantorByName(Name nameObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (nameObject == null) throw new NullReferenceException();
+
+            var guarantors = orphanageDbCNo.Guarantors
+            .Include(m => m.Name)
+            .ToArray();
+
+            var Foundedguarantors = guarantors.Where(n =>
+            n.Name.Equals(nameObject));
+
+            if (Foundedguarantors == null) yield return null;
+
+            foreach (var guarantor in Foundedguarantors)
+            {
+                yield return guarantor;
             }
         }
 

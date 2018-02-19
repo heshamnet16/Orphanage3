@@ -64,5 +64,14 @@ namespace OrphanageService.Services.Interfaces
         Task<bool> SetOrphanCertificate2(int Oid, byte[] data);
 
         Task<bool> SetOrphanHealthReporte(int Oid, byte[] data);
+
+        /// <summary>
+        /// get orphans with the same name object
+        /// </summary>
+        /// <param name="motherObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.Persons.Orphan> GetOrphansByName(OrphanageDataModel.RegularData.Name nameObject, OrphanageDbCNoBinary orphanageDbCNo);
+
     }
 }

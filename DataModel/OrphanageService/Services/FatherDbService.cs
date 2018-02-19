@@ -1,4 +1,6 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -146,8 +148,19 @@ namespace OrphanageService.Services
         public async Task<int> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDbCNoBinary orphanageDBC)
         {
             if (father == null) throw new NullReferenceException();
-            //TODO #32 check the father data (name)
-            //TODO use forceadd in the settings
+            if (father.Name == null) throw new NullReferenceException();        
+
+            if (!Properties.Settings.Default.ForceAdd)
+            {
+                if (Properties.Settings.Default.CheckName)
+                {
+                    var ret = GetFathersByName(father.Name, orphanageDBC).FirstOrDefault();
+                    if (ret != null)
+                    {
+                        throw new DuplicatedObjectException(father.GetType(), ret.GetType(), ret.Id);
+                    }
+                }
+            }
             orphanageDBC.Fathers.Add(father);
 
             if (await orphanageDBC.SaveChangesAsync() == 1)
@@ -246,6 +259,22 @@ namespace OrphanageService.Services
                 father.PhotoData = data;
 
                 await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Father> GetFathersByName(Name nameObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (nameObject == null) throw new NullReferenceException();
+
+            var fathers = orphanageDbCNo.Fathers
+                        .Include(m => m.Name)
+                        .ToArray();
+
+            var Foundedfathers = fathers.Where(n => n.Name.Equals(nameObject));
+
+            foreach (var father in Foundedfathers)
+            {
+                yield return father;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.RegularData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -34,11 +35,31 @@ namespace OrphanageService.Services
         {
             if (family == null) throw new NullReferenceException();
             if (family.PrimaryAddress == null) throw new NullReferenceException();
-            //TODO #32 check family data
+
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
                 using (var DbT = orphanageDbc.Database.BeginTransaction())
                 {
+                    if (!Properties.Settings.Default.ForceAdd)
+                    {
+                        if (Properties.Settings.Default.CheckContactData)
+                        {
+                            var ret = GetFamiliesByAddress(family.PrimaryAddress, orphanageDbc).FirstOrDefault();
+                            if (ret != null)
+                            {
+                                throw new DuplicatedObjectException(family.GetType(), ret.GetType(), ret.Id);
+                            }
+                            if (family.AlternativeAddress != null)
+                            {
+                                ret = GetFamiliesByAddress(family.AlternativeAddress, orphanageDbc).FirstOrDefault();
+                                if (ret != null)
+                                {
+                                    throw new DuplicatedObjectException(family.GetType(), ret.GetType(), ret.Id);
+                                }
+                            }
+                        }
+                    }
+
                     var addressPrim = family.PrimaryAddress;
                     var addressAlter = family.AlternativeAddress;
                     var fatherName = family.Father.Name;
@@ -189,6 +210,30 @@ namespace OrphanageService.Services
                 }
             }
             return familiesList;
+        }
+
+        public IEnumerable<OrphanageDataModel.RegularData.Family> GetFamiliesByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (addressObject == null) throw new NullReferenceException();
+
+            var families = orphanageDbCNo.Families
+            .Include(m => m.PrimaryAddress)
+            .Include(f=>f.AlternativeAddress)
+            .ToArray();
+
+            var Foundedfamilies = families.Where(n => 
+            n.PrimaryAddress.Equals(addressObject) 
+            ||
+            (
+            (n.AlternativeAddress !=null) && n.AlternativeAddress.Equals(addressObject)
+            ));
+
+            if (Foundedfamilies == null) yield return null;
+
+            foreach (var family in Foundedfamilies)
+            {
+                yield return family;
+            }
         }
 
         public async Task<int> GetFamiliesCount()

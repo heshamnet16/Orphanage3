@@ -1,4 +1,6 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -31,8 +33,25 @@ namespace OrphanageService.Services
             {
                 using (var Dbt = orphanageDBC.Database.BeginTransaction())
                 {
-                    //TODO #32 check the caregiver data (name)
-                    //TODO use forceadd in the settings
+                    if (!Properties.Settings.Default.ForceAdd)
+                    {
+                        if (Properties.Settings.Default.CheckName)
+                        {
+                            var retCaregivers = GetCaregiversByName(caregiver.Name, orphanageDBC).FirstOrDefault();
+                            if (retCaregivers != null)
+                            {
+                                throw new DuplicatedObjectException(caregiver.GetType(), retCaregivers.GetType(), retCaregivers.Id);
+                            }
+                        }
+                        if (Properties.Settings.Default.CheckContactData)
+                        {
+                            var retCaregivers = GetCaregiversByAddress(caregiver.Address, orphanageDBC).FirstOrDefault();
+                            if (retCaregivers != null)
+                            {
+                                throw new DuplicatedObjectException(caregiver.GetType(), retCaregivers.GetType(), retCaregivers.Id);
+                            }
+                        }
+                    }
                     var nameId = await _regularDataService.AddName(caregiver.Name, orphanageDBC);
                     if (nameId == -1)
                     {
@@ -149,6 +168,41 @@ namespace OrphanageService.Services
                 }
             }
             return caregiversList;
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Caregiver> GetCaregiversByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (addressObject == null) throw new NullReferenceException();
+
+            var caregivers = orphanageDbCNo.Caregivers
+            .Include(m => m.Address)
+            .ToArray();
+
+            var FoundedCaregivers = caregivers.Where(n => n.Address.Equals(addressObject));
+
+            foreach (var caregiver in FoundedCaregivers)
+            {
+                yield return caregiver;
+            }
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Caregiver> GetCaregiversByName(Name nameObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (nameObject == null) throw new NullReferenceException();
+
+            var caregivers = orphanageDbCNo.Caregivers
+            .Include(m => m.Name)            
+            .ToArray();
+
+            var FoundedCaregivers = caregivers.Where(n =>
+            n.Name.Equals(nameObject));
+
+            if (FoundedCaregivers == null) yield return null;
+
+            foreach (var caregiver in FoundedCaregivers)
+            {
+                yield return caregiver;
+            }
         }
 
         public async Task<int> GetCaregiversCount()

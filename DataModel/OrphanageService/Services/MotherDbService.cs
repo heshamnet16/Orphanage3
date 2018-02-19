@@ -1,4 +1,6 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -38,8 +40,28 @@ namespace OrphanageService.Services
         public async Task<int> AddMother(OrphanageDataModel.Persons.Mother mother, OrphanageDbCNoBinary orphanageDBC)
         {
             if (mother == null) throw new NullReferenceException();
-            //TODO #32 check the mother data (name)
-            //TODO use forceadd in the settings
+            if (mother.Name == null) throw new NullReferenceException();
+            if (mother.Address == null) throw new NullReferenceException();
+
+            if (!Properties.Settings.Default.ForceAdd)
+            {
+                if (Properties.Settings.Default.CheckName)
+                {
+                    var ret = GetMothersByName(mother.Name, orphanageDBC).FirstOrDefault();
+                    if (ret != null)
+                    {
+                        throw new DuplicatedObjectException(mother.GetType(), ret.GetType(), ret.Id);
+                    }
+                }
+                if (Properties.Settings.Default.CheckContactData)
+                {
+                    var ret = GetMothersByAddress(mother.Address, orphanageDBC).FirstOrDefault();
+                    if (ret != null)
+                    {
+                        throw new DuplicatedObjectException(mother.GetType(), ret.GetType(), ret.Id);
+                    }
+                }
+            }
             orphanageDBC.Mothers.Add(mother);
 
             if (await orphanageDBC.SaveChangesAsync() == 1)
@@ -148,6 +170,38 @@ namespace OrphanageService.Services
                 }
             }
             return mothersList;
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Mother> GetMothersByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (addressObject == null) throw new NullReferenceException();
+
+            var mothers = orphanageDbCNo.Mothers
+            .Include(m => m.Address)
+            .ToArray();
+
+            var Foundedmothers = mothers.Where(n => n.Address.Equals(addressObject));
+
+            foreach (var mother in Foundedmothers)
+            {
+                yield return mother;
+            }
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Mother> GetMothersByName(Name nameObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (nameObject == null) throw new NullReferenceException();
+
+            var mothers = orphanageDbCNo.Mothers
+                        .Include(m => m.Name)
+                        .ToArray();
+
+            var Foundedmothers = mothers.Where(n =>n.Name.Equals(nameObject));
+
+            foreach (var mother in Foundedmothers)
+            {
+                yield return mother;
+            }
         }
 
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Mid)

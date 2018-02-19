@@ -40,5 +40,16 @@ namespace OrphanageDataModel.RegularData
         public virtual ICollection<Guarantor> Guarantors { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
+
+        public bool Equals(Name second)
+        {
+            return (StringWithoutPunc(First)== StringWithoutPunc(second.First)) && (StringWithoutPunc(Father) == StringWithoutPunc(second.Father))
+                && (StringWithoutPunc(Last) == StringWithoutPunc(second.Last));
+        }
+        private string StringWithoutPunc(string str)
+        {
+            if (str == null || str.Length == 0) return string.Empty;
+            return str.Replace("أ", "ا").Replace("إ", "ا").Replace("آ", "ا").Replace("لآ", "لا").Replace("لإ", "لا");
+        }
     }
 }
