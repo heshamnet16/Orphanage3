@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext;
+using OrphanageService.Services.DataModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,9 +19,9 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetMotherIdPhotoBack(int Mid);
 
-        Task SetMotherIdPhotoFace(int Mid,byte[] data);
+        Task SetMotherIdPhotoFace(int Mid, byte[] data);
 
-        Task SetMotherIdPhotoBack(int Mid,byte[] data);
+        Task SetMotherIdPhotoBack(int Mid, byte[] data);
 
         /// <summary>
         /// add new mother object to the database
@@ -35,5 +36,21 @@ namespace OrphanageService.Services.Interfaces
         Task<bool> DeleteMother(int Mid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 
         Task<bool> IsExist(int Mid);
+
+        /// <summary>
+        /// get mothers with the same name object
+        /// </summary>
+        /// <param name="motherObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.Persons.Mother> GetMothersByName(OrphanageDataModel.RegularData.Name nameObject, OrphanageDbCNoBinary orphanageDbCNo);
+
+        /// <summary>
+        /// get mothers with the same address object
+        /// </summary>
+        /// <param name="motherObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.Persons.Mother> GetMothersByAddress(OrphanageDataModel.RegularData.Address addressObject, OrphanageDbCNoBinary orphanageDbCNo);
     }
 }

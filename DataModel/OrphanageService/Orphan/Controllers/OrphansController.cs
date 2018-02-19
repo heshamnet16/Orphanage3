@@ -1,11 +1,12 @@
-﻿using OrphanageService.Filters;
+﻿using Newtonsoft.Json;
+using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Newtonsoft.Json;
+
 namespace OrphanageService.Orphan.Controllers
 {
     [RoutePrefix("api/orphan")]
@@ -14,7 +15,7 @@ namespace OrphanageService.Orphan.Controllers
         private readonly IOrphanDbService _OrphanDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfigurere;
 
-        public OrphansController(IOrphanDbService orphanDBService,IHttpMessageConfiguerer httpMessageConfigurere)
+        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere)
         {
             _OrphanDBService = orphanDBService;
             _httpMessageConfigurere = httpMessageConfigurere;
@@ -25,12 +26,11 @@ namespace OrphanageService.Orphan.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.Persons.Orphan> Get(int id)
         {
-            var ret =  await _OrphanDBService.GetOrphan(id);
+            var ret = await _OrphanDBService.GetOrphan(id);
             if (ret == null)
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else
                 return ret;
-
         }
 
         [HttpGet]
@@ -63,9 +63,9 @@ namespace OrphanageService.Orphan.Controllers
         {
             var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
             var ret = await _OrphanDBService.AddOrphan(orp);
-            if(ret >0)
+            if (ret > 0)
             {
-                return Request.CreateResponse(System.Net.HttpStatusCode.Created,ret);
+                return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
             }
             else
             {

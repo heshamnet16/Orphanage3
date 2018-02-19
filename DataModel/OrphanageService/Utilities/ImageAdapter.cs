@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
@@ -26,7 +25,7 @@ namespace OrphanageService.Utilities
                     retData = mem.ToArray();
                 }
             }
-            catch 
+            catch
             {
                 return null;
             }

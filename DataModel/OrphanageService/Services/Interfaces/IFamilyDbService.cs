@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OrphanageService.DataContext;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
@@ -17,9 +18,9 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetFamilyCardPage2(int FamId);
 
-        Task SetFamilyCardPage1(int FamId,byte[] data);
+        Task SetFamilyCardPage1(int FamId, byte[] data);
 
-        Task SetFamilyCardPage2(int FamId,byte[] data);
+        Task SetFamilyCardPage2(int FamId, byte[] data);
 
         /// <summary>
         /// add new family object to the database
@@ -33,5 +34,14 @@ namespace OrphanageService.Services.Interfaces
         Task<bool> DeleteFamily(int Famid);
 
         Task<bool> IsExist(OrphanageDataModel.RegularData.Family family);
+
+        /// <summary>
+        /// get families with the same address object
+        /// </summary>
+        /// <param name="motherObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.RegularData.Family> GetFamiliesByAddress(OrphanageDataModel.RegularData.Address addressObject, OrphanageDbCNoBinary orphanageDbCNo);
+
     }
 }

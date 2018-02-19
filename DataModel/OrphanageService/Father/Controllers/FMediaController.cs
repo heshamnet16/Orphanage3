@@ -1,8 +1,6 @@
 ﻿using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
-using System.Drawing;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -70,8 +68,8 @@ namespace OrphanageService.Father.Controllers
             {
                 throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
             }
-
         }
+
         #endregion PersonalPhoto
 
         #region DeathCertificate
@@ -122,8 +120,8 @@ namespace OrphanageService.Father.Controllers
             {
                 throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
-
         }
+
         #endregion DeathCertificate
     }
 }

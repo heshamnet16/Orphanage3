@@ -15,7 +15,7 @@ namespace OrphanageService.Guarantor.Controllers
         private readonly IGuarantorDbService _GuarantorDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public GuarantorsController(IGuarantorDbService guarantorDBService,IHttpMessageConfiguerer httpMessageConfiguerer)
+        public GuarantorsController(IGuarantorDbService guarantorDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _GuarantorDBService = guarantorDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;

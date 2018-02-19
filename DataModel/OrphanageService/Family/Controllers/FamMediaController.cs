@@ -68,8 +68,8 @@ namespace OrphanageService.Family.Controllers
             {
                 throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
             }
-
         }
+
         #endregion FamilyCardPhotoPage1
 
         #region FamilyCardPhotoPage2
@@ -120,7 +120,6 @@ namespace OrphanageService.Family.Controllers
             {
                 throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
             }
-
         }
 
         #endregion FamilyCardPhotoPage2

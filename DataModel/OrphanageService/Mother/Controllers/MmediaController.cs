@@ -1,7 +1,6 @@
 ﻿using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -70,6 +69,7 @@ namespace OrphanageService.Mother.Controllers
                 throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
         }
+
         #endregion IdCardPhotoFront
 
         #region IdCardPhotoBack
@@ -121,6 +121,7 @@ namespace OrphanageService.Mother.Controllers
                 throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
         }
+
         #endregion IdCardPhotoBack
     }
 }

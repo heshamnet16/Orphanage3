@@ -1,7 +1,10 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -251,7 +254,7 @@ namespace OrphanageService.Services
                     Where(o => o.Id == Oid).FirstOrDefaultAsync();
 
                 if (orphan == null)
-                   throw new ObjectNotFoundException();
+                    throw new ObjectNotFoundException();
 
                 orphan.BirthCertificatePhotoData = data;
                 var ret = await _orphanageDBC.SaveChangesAsync();
@@ -393,6 +396,17 @@ namespace OrphanageService.Services
             if (orphan.CaregiverId <= 0) return -1;
             if (orphan.Name == null) return -1;
 
+            if (!Properties.Settings.Default.ForceAdd)
+            {
+                if (Properties.Settings.Default.CheckName)
+                {
+                    var ret = GetOrphansByName(orphan.Name, orphanageDBC).FirstOrDefault();
+                    if (ret != null)
+                    {
+                        throw new DuplicatedObjectException(orphan.GetType(), ret.GetType(), ret.Id);
+                    }
+                }
+            }
             orphan.NameId = await _regularDataService.AddName(orphan.Name, orphanageDBC);
             if (orphan.Education != null)
             {
@@ -468,7 +482,7 @@ namespace OrphanageService.Services
                         int eduId = orginalOrphan.EducationId.Value;
                         orginalOrphan.EducationId = null;
                         await orphanageDbc.SaveChangesAsync();
-                        await _regularDataService.DeleteStudy(eduId,orphanageDbc);
+                        await _regularDataService.DeleteStudy(eduId, orphanageDbc);
                     }
                 }
                 if (orphan.HealthStatus != null)
@@ -552,6 +566,17 @@ namespace OrphanageService.Services
             {
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
                 {
+                    if (!Properties.Settings.Default.ForceAdd)
+                    {
+                        if (Properties.Settings.Default.CheckName)
+                        {
+                            var ret = GetOrphansByName(orphan.Name, orphanageDbc).FirstOrDefault();
+                            if (ret != null)
+                            {
+                                throw new DuplicatedObjectException(orphan.GetType(), ret.GetType(), ret.Id);
+                            }
+                        }
+                    }
                     orphan.NameId = await _regularDataService.AddName(orphan.Name, orphanageDbc);
                     if (orphan.Education != null)
                     {
@@ -624,6 +649,25 @@ namespace OrphanageService.Services
                         return false;
                     }
                 }
+            }
+        }
+
+        public IEnumerable<OrphanageDataModel.Persons.Orphan> GetOrphansByName(Name nameObject, OrphanageDbCNoBinary orphanageDbCNo)
+        {
+            if (nameObject == null) throw new NullReferenceException();
+
+            var orphans = orphanageDbCNo.Orphans
+            .Include(m => m.Name)
+            .ToArray();
+
+            var Foundedorphans = orphans.Where(n =>
+            n.Name.Equals(nameObject));
+
+            if (Foundedorphans == null) yield return null;
+
+            foreach (var family in Foundedorphans)
+            {
+                yield return family;
             }
         }
     }

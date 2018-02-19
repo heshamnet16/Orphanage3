@@ -15,7 +15,7 @@ namespace OrphanageService.Caregiver.Controllers
         private readonly ICaregiverDbService _CaregiverDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public CaregiversController(ICaregiverDbService caregiverDBService,IHttpMessageConfiguerer httpMessageConfiguerer)
+        public CaregiversController(ICaregiverDbService caregiverDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _CaregiverDBService = caregiverDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
@@ -26,7 +26,7 @@ namespace OrphanageService.Caregiver.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.Persons.Caregiver> Get(int id)
         {
-            var ret  =  await _CaregiverDBService.GetCaregiver(id);
+            var ret = await _CaregiverDBService.GetCaregiver(id);
             if (ret == null)
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else

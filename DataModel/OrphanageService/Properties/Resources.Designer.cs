@@ -61,6 +61,15 @@ namespace OrphanageService.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die موجود سجل مطابق ضمن قاعدة البيانات ähnelt.
+        /// </summary>
+        public static string Error_DuplicatedObject {
+            get {
+                return ResourceManager.GetString("Error_DuplicatedObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die لايمكن حذف السجل المطلوب لأنه مرتبط بسجلات أخرى ähnelt.
         /// </summary>
         public static string Error_ForeignKey {

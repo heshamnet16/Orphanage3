@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Exceptions
 {
@@ -20,13 +16,14 @@ namespace OrphanageService.Services.Exceptions
         {
         }
 
-        public HasForeignKeyException(Type mainClass, Type subClass) : base(Properties.Resources.Error_ForeignKey,createException(mainClass,subClass))
-        {            
+        public HasForeignKeyException(Type mainClass, Type subClass) : base(Properties.Resources.Error_ForeignKey, createException(mainClass, subClass))
+        {
         }
+
         private static Exception createException(Type mainClass, Type subClass)
         {
             string msg = $"{mainClass.FullName} has a foreign key on {subClass.FullName} please delete this relation first";
-            return  new Exception(msg);
+            return new Exception(msg);
         }
     }
 }

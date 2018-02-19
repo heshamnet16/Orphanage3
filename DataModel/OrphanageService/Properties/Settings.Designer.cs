@@ -45,9 +45,27 @@ namespace OrphanageService.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool FatherForceAdd {
+        public bool ForceAdd {
             get {
-                return ((bool)(this["FatherForceAdd"]));
+                return ((bool)(this["ForceAdd"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CheckName {
+            get {
+                return ((bool)(this["CheckName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CheckContactData {
+            get {
+                return ((bool)(this["CheckContactData"]));
             }
         }
     }

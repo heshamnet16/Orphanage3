@@ -30,15 +30,14 @@ namespace OrphanageService.Father.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else
                 return ret;
-
         }
 
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.Persons.Father father)
-        {            
-            var ret =  await _FatherDBService.SaveFather(father);
-            if(ret > 0)
+        {
+            var ret = await _FatherDBService.SaveFather(father);
+            if (ret > 0)
             {
                 return _httpMessageConfiguerer.OK();
             }
@@ -63,7 +62,5 @@ namespace OrphanageService.Father.Controllers
         {
             return await _FatherDBService.GetOrphans(FatherID);
         }
-
-
     }
 }

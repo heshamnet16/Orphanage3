@@ -69,6 +69,7 @@ namespace OrphanageService.Caregiver.Controllers
                 throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
         }
+
         #endregion CaregiverIdentityCardPhotoFace
 
         #region CaregiverIdentityCardPhotoBack
@@ -120,6 +121,7 @@ namespace OrphanageService.Caregiver.Controllers
                 throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
             }
         }
+
         #endregion CaregiverIdentityCardPhotoBack
     }
 }

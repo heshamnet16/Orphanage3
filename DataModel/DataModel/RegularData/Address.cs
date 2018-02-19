@@ -39,10 +39,10 @@ namespace OrphanageDataModel.RegularData
         public string WorkPhone { get; set; }
 
         [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
-        private string Fax { get; set; }
+        public string Fax { get; set; }
 
         [EmailAddress(ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
-        private string Email { get; set; }
+        public string Email { get; set; }
 
         [RegularExpression(@"(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?",
             ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
@@ -64,5 +64,57 @@ namespace OrphanageDataModel.RegularData
         public virtual ICollection<Guarantor> Guarantors { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
+
+        public bool Equals(Address second)
+        {
+            if (second == null) return false;
+            if (CellPhone != null && CellPhone.Length > 0)
+            {
+                if (StringWithoutPunc(CellPhone) == StringWithoutPunc(second.CellPhone))
+                    return true;
+            }
+            else if (Fax != null && Fax.Length > 0)
+            {
+                if (StringWithoutPunc(Fax) == StringWithoutPunc(second.Fax))
+                    return true;
+            }
+            else if (HomePhone != null && HomePhone.Length > 0)
+            {
+                if (StringWithoutPunc(HomePhone) == StringWithoutPunc(second.HomePhone))
+                    return true;
+            }
+            else if (WorkPhone != null && WorkPhone.Length > 0)
+            {
+                if (StringWithoutPunc(WorkPhone) == StringWithoutPunc(second.WorkPhone))
+                    return true;
+            }
+            else if (Email != null && Email.Length > 0)
+            {
+                if (Email == second.Email)
+                    return true;
+            }
+            else if (Facebook != null && Facebook.Length > 0)
+            {
+                if (Facebook == second.Facebook)
+                    return true;
+            }
+            else if (Twitter != null && Twitter.Length > 0)
+            {
+                if (Twitter == second.Twitter)
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            return false;
+        }
+        private  string StringWithoutPunc(string str)
+        {
+            if (str == null || str.Length == 0) return string.Empty;
+            return str.Replace(" ", "").Replace("-", "").Replace(",", "").Replace("(", "").Replace(")", "")
+                .Replace("[", "").Replace("]", "").Replace("_", "").Replace("\\", "").Replace("/", "");
+        }
     }
 }

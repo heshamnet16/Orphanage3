@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OrphanageService.DataContext;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
@@ -26,5 +27,22 @@ namespace OrphanageService.Services.Interfaces
         Task SetIdentityCardFace(int Cid, byte[] data);
 
         Task SetIdentityCardBack(int Cid, byte[] data);
+
+        /// <summary>
+        /// get caregivers with the same name object
+        /// </summary>
+        /// <param name="nameObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.Persons.Caregiver> GetCaregiversByName(OrphanageDataModel.RegularData.Name nameObject, OrphanageDbCNoBinary orphanageDbCNo);
+
+        /// <summary>
+        /// get caregivers with the same address object
+        /// </summary>
+        /// <param name="addressObject"></param>
+        /// <param name="orphanageDbCNo"></param>
+        /// <returns></returns>
+        IEnumerable<OrphanageDataModel.Persons.Caregiver> GetCaregiversByAddress(OrphanageDataModel.RegularData.Address addressObject, OrphanageDbCNoBinary orphanageDbCNo);
+
     }
 }

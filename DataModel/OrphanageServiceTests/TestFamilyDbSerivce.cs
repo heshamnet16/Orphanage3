@@ -15,6 +15,7 @@ namespace OrphanageServiceTests
         public void TestAddFamily()
         {
             OrphanageDataModel.RegularData.Name nameF = TestDataStore.GetName(), nameM = TestDataStore.GetName();
+            nameM.Last = "asdasd";
 
             OrphanageDataModel.RegularData.Address addressM = TestDataStore.GetAddress(), addressFam = TestDataStore.GetAddress();
             OrphanageDataModel.RegularData.Family fam = new OrphanageDataModel.RegularData.Family()
