@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;

@@ -218,14 +218,14 @@ namespace OrphanageService.Services
 
             var families = orphanageDbCNo.Families
             .Include(m => m.PrimaryAddress)
-            .Include(f=>f.AlternativeAddress)
+            .Include(f => f.AlternativeAddress)
             .ToArray();
 
-            var Foundedfamilies = families.Where(n => 
-            n.PrimaryAddress.Equals(addressObject) 
+            var Foundedfamilies = families.Where(n =>
+            n.PrimaryAddress.Equals(addressObject)
             ||
             (
-            (n.AlternativeAddress !=null) && n.AlternativeAddress.Equals(addressObject)
+            (n.AlternativeAddress != null) && n.AlternativeAddress.Equals(addressObject)
             ));
 
             if (Foundedfamilies == null) yield return null;

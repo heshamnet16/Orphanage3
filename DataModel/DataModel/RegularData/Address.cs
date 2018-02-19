@@ -110,7 +110,8 @@ namespace OrphanageDataModel.RegularData
 
             return false;
         }
-        private  string StringWithoutPunc(string str)
+
+        private string StringWithoutPunc(string str)
         {
             if (str == null || str.Length == 0) return string.Empty;
             return str.Replace(" ", "").Replace("-", "").Replace(",", "").Replace("(", "").Replace(")", "")

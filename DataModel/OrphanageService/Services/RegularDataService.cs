@@ -1,6 +1,5 @@
 ﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
-using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using System.Data.Entity;
 using System.Linq;

@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -191,7 +190,7 @@ namespace OrphanageService.Services
             if (nameObject == null) throw new NullReferenceException();
 
             var caregivers = orphanageDbCNo.Caregivers
-            .Include(m => m.Name)            
+            .Include(m => m.Name)
             .ToArray();
 
             var FoundedCaregivers = caregivers.Where(n =>

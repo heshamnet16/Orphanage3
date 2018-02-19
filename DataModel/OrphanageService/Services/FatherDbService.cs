@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -148,7 +147,7 @@ namespace OrphanageService.Services
         public async Task<int> AddFather(OrphanageDataModel.Persons.Father father, OrphanageDbCNoBinary orphanageDBC)
         {
             if (father == null) throw new NullReferenceException();
-            if (father.Name == null) throw new NullReferenceException();        
+            if (father.Name == null) throw new NullReferenceException();
 
             if (!Properties.Settings.Default.ForceAdd)
             {

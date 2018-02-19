@@ -43,9 +43,10 @@ namespace OrphanageDataModel.RegularData
 
         public bool Equals(Name second)
         {
-            return (StringWithoutPunc(First)== StringWithoutPunc(second.First)) && (StringWithoutPunc(Father) == StringWithoutPunc(second.Father))
+            return (StringWithoutPunc(First) == StringWithoutPunc(second.First)) && (StringWithoutPunc(Father) == StringWithoutPunc(second.Father))
                 && (StringWithoutPunc(Last) == StringWithoutPunc(second.Last));
         }
+
         private string StringWithoutPunc(string str)
         {
             if (str == null || str.Length == 0) return string.Empty;

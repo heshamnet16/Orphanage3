@@ -1,6 +1,5 @@
 ﻿using OrphanageService.DataContext;
 using OrphanageService.Services.DataModel;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
@@ -38,7 +37,5 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="orphanageDbCNo"></param>
         /// <returns></returns>
         Task<CheckerResultData<OrphanageDataModel.RegularData.Family>> IsFamilyCardNumberExist(string cardNumber, OrphanageDbCNoBinary orphanageDbCNo);
-
-
     }
 }

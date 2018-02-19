@@ -1,10 +1,8 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.DataModel;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -103,7 +101,7 @@ namespace OrphanageService.Services
                 .Include(a => a.Mothers)
                 .Include(a => a.Users)
                 .ToListAsync();
-            var cellPhone = addresses.Where(a =>a.CellPhone != null &&
+            var cellPhone = addresses.Where(a => a.CellPhone != null &&
                     _stringsFixer.FixPhoneNumber(a.CellPhone) == _stringsFixer.FixPhoneNumber(address.CellPhone)).FirstOrDefault();
 
             var facebook = addresses.Where(a => a.Facebook != null && a.Facebook == address.Facebook).FirstOrDefault();
@@ -112,7 +110,7 @@ namespace OrphanageService.Services
 
             var twitter = addresses.Where(a => a.Twitter != null && a.Twitter == address.Twitter).FirstOrDefault();
 
-            var workPhone= addresses.Where(a => a.WorkPhone != null && _stringsFixer.FixPhoneNumber(a.WorkPhone) == _stringsFixer.FixPhoneNumber(address.WorkPhone)).FirstOrDefault();
+            var workPhone = addresses.Where(a => a.WorkPhone != null && _stringsFixer.FixPhoneNumber(a.WorkPhone) == _stringsFixer.FixPhoneNumber(address.WorkPhone)).FirstOrDefault();
 
             var fax = addresses.Where(a => a.Fax != null && _stringsFixer.FixPhoneNumber(a.Fax) == _stringsFixer.FixPhoneNumber(address.Fax)).FirstOrDefault();
 
@@ -171,7 +169,7 @@ namespace OrphanageService.Services
         public async Task<CheckerResultData> IsIdentityNumberExist(string IdNumber, OrphanageDbCNoBinary orphanageDbCNo)
         {
             var mothers = await orphanageDbCNo.Mothers.ToListAsync();
-            var mother = mothers.Where (m => m.IdentityCardNumber != null && _stringsFixer.FixIdentityCardNumber(m.IdentityCardNumber) == _stringsFixer.FixIdentityCardNumber(IdNumber)).FirstOrDefault();
+            var mother = mothers.Where(m => m.IdentityCardNumber != null && _stringsFixer.FixIdentityCardNumber(m.IdentityCardNumber) == _stringsFixer.FixIdentityCardNumber(IdNumber)).FirstOrDefault();
             var fathers = await orphanageDbCNo.Fathers.ToListAsync();
             var father = fathers.Where(m => _stringsFixer.FixIdentityCardNumber(m.IdentityCardNumber) == _stringsFixer.FixIdentityCardNumber(IdNumber)).FirstOrDefault();
             var orphans = await orphanageDbCNo.Orphans.ToListAsync();
@@ -291,6 +289,5 @@ namespace OrphanageService.Services
                 return null;
             }
         }
-
     }
 }

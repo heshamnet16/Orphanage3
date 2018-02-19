@@ -1,15 +1,10 @@
 ﻿using NUnit.Framework;
 using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
-using OrphanageService.Services.DataModel;
 using OrphanageService.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity;
 using Shouldly;
+using Unity;
+
 namespace OrphanageServiceTests
 {
     [TestFixture]
@@ -26,8 +21,8 @@ namespace OrphanageServiceTests
                 {
                     CellPhone = "(0933)068-734"
                 };
-                var ret = _CheckerService.IsContactDataExist(address,orphanageDbc).Result;
-                ret.ShouldNotBeNull();                
+                var ret = _CheckerService.IsContactDataExist(address, orphanageDbc).Result;
+                ret.ShouldNotBeNull();
             }
         }
 
@@ -36,10 +31,9 @@ namespace OrphanageServiceTests
         {
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
-
                 var ret = _CheckerService.IsFamilyCardNumberExist("1498906", orphanageDbc).Result;
                 ret.ShouldNotBeNull();
-            }            
+            }
         }
 
         [Test]
@@ -47,7 +41,6 @@ namespace OrphanageServiceTests
         {
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
-
                 var ret = _CheckerService.IsIdentityNumberExist("4180025340", orphanageDbc).Result;
                 ret.ShouldNotBeNull();
             }

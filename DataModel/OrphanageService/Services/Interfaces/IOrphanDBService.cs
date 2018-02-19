@@ -72,6 +72,5 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="orphanageDbCNo"></param>
         /// <returns></returns>
         IEnumerable<OrphanageDataModel.Persons.Orphan> GetOrphansByName(OrphanageDataModel.RegularData.Name nameObject, OrphanageDbCNoBinary orphanageDbCNo);
-
     }
 }

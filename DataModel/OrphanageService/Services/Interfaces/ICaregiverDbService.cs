@@ -43,6 +43,5 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="orphanageDbCNo"></param>
         /// <returns></returns>
         IEnumerable<OrphanageDataModel.Persons.Caregiver> GetCaregiversByAddress(OrphanageDataModel.RegularData.Address addressObject, OrphanageDbCNoBinary orphanageDbCNo);
-
     }
 }

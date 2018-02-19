@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -196,7 +195,7 @@ namespace OrphanageService.Services
                         .Include(m => m.Name)
                         .ToArray();
 
-            var Foundedmothers = mothers.Where(n =>n.Name.Equals(nameObject));
+            var Foundedmothers = mothers.Where(n => n.Name.Equals(nameObject));
 
             foreach (var mother in Foundedmothers)
             {

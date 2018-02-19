@@ -37,6 +37,5 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="orphanageDbCNo"></param>
         /// <returns></returns>
         IEnumerable<OrphanageDataModel.Persons.Guarantor> GetGuarantorByAddress(OrphanageDataModel.RegularData.Address addressObject, OrphanageDbCNoBinary orphanageDbCNo);
-
     }
 }
