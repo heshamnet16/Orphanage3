@@ -1,4 +1,5 @@
 ﻿using OrphanageService.DataContext;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services.Interfaces
@@ -100,5 +101,29 @@ namespace OrphanageService.Services.Interfaces
         /// <param name="orphanageDBC">reference to the current data context</param>
         /// <returns>return true when success otherwise false</returns>
         Task<bool> DeleteHealth(int healthId, OrphanageDbCNoBinary orphanageDBC);
+
+        /// <summary>
+        /// search for the independent addresses entities and delete them
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<OrphanageDataModel.RegularData.Address>> CleanAddresses();
+
+        /// <summary>
+        /// search for the independent names entities and delete them
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<OrphanageDataModel.RegularData.Name>> CleanNames();
+
+        /// <summary>
+        /// search for the independent healths entities and delete them
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<OrphanageDataModel.RegularData.Health>> CleanHealthies();
+
+        /// <summary>
+        /// search for the independent studies entities and delete them
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<OrphanageDataModel.RegularData.Study>> CleanStudies();
     }
 }

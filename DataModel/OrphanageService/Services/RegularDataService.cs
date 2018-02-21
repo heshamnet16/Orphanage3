@@ -1,6 +1,7 @@
 ﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,17 +19,6 @@ namespace OrphanageService.Services
 
         public async Task<int> AddAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
         {
-            //if (!Properties.Settings.Default.ForceAdd)
-            //{
-            //    if (Properties.Settings.Default.CheckContactData)
-            //    {
-            //        var ret = await _checkerService.IsContactDataExist(address, orphanageDBC);
-            //        if (ret != null)
-            //        {
-            //            throw new DuplicatedObjectException(address.GetType(), ret.ObjectType, ret.Id);
-            //        }
-            //    }
-            //}
             orphanageDBC.Addresses.Add(address);
             await orphanageDBC.SaveChangesAsync();
             if (address.Id > 0)
@@ -49,17 +39,7 @@ namespace OrphanageService.Services
 
         public async Task<int> AddName(Name name, OrphanageDbCNoBinary orphanageDBC)
         {
-            //if (!Properties.Settings.Default.ForceAdd)
-            //{
-            //    if (Properties.Settings.Default.CheckName)
-            //    {
-            //        var ret = await _checkerService.IsNameExist(name, orphanageDBC);
-            //        if (ret != null)
-            //        {
-            //            throw new DuplicatedObjectException(name.GetType(), ret.ObjectType, ret.Id);
-            //        }
-            //    }
-            //}
+
             orphanageDBC.Names.Add(name);
             await orphanageDBC.SaveChangesAsync();
             if (name.Id > 0)
@@ -76,6 +56,112 @@ namespace OrphanageService.Services
                 return study.Id;
             else
                 return -1;
+        }
+
+        public async Task<IEnumerable<Address>> CleanAddresses()
+        {
+            using (var orphanageDbc = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDbc.Database.BeginTransaction())
+                {
+                    var addresses = await (from add in orphanageDbc.Addresses
+                                    where (add.Caregivers == null || add.Caregivers.Count <= 0) &&
+                                          (add.Families == null || add.Families.Count <= 0) &&
+                                          (add.FamliesAlternativeAddresses == null || add.FamliesAlternativeAddresses.Count <= 0) &&
+                                          (add.Guarantors == null || add.Guarantors.Count <= 0) &&
+                                          (add.Mothers == null || add.Mothers.Count <= 0) &&
+                                          (add.Users == null || add.Users.Count <= 0)
+                                    select add).ToListAsync();
+
+                    if (addresses == null || addresses.Count <= 0)
+                        return null;
+
+                    foreach(var add in addresses)
+                    {
+                        orphanageDbc.Addresses.Remove(add);
+                    }
+                    await orphanageDbc.SaveChangesAsync();
+                    dbT.Commit();
+                    return addresses;
+                }
+            }
+        }
+
+        public async Task<IEnumerable<Health>> CleanHealthies()
+        {
+            using (var orphanageDbc = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDbc.Database.BeginTransaction())
+                {
+                    var healths = await(from health in orphanageDbc.Healthies
+                                          where (health.Orphans == null || health.Orphans.Count <= 0)
+                                          select health).ToListAsync();
+
+                    if (healths == null || healths.Count <= 0)
+                        return null;
+
+                    foreach (var health in healths)
+                    {
+                        orphanageDbc.Healthies.Remove(health);
+                    }
+                    await orphanageDbc.SaveChangesAsync();
+                    dbT.Commit();
+                    return healths;
+                }
+            }
+        }
+
+        public async Task<IEnumerable<Name>> CleanNames()
+        {
+            using (var orphanageDbc = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDbc.Database.BeginTransaction())
+                {
+                    var names = await(from name in orphanageDbc.Names
+                                          where (name.Caregivers == null || name.Caregivers.Count <= 0) &&
+                                                (name.Fathers == null || name.Fathers.Count <= 0) &&
+                                                (name.Orphans == null || name.Orphans.Count <= 0) &&
+                                                (name.Guarantors == null || name.Guarantors.Count <= 0) &&
+                                                (name.Mothers == null || name.Mothers.Count <= 0) &&
+                                                (name.Users == null || name.Users.Count <= 0)
+                                          select name).ToListAsync();
+
+                    if (names == null || names.Count <= 0)
+                        return null;
+
+                    foreach (var name in names)
+                    {
+                        orphanageDbc.Names.Remove(name);
+                    }
+                    await orphanageDbc.SaveChangesAsync();
+                    dbT.Commit();
+                    return names;
+                }
+            }
+        }
+
+        public async Task<IEnumerable<Study>> CleanStudies()
+        {
+            using (var orphanageDbc = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDbc.Database.BeginTransaction())
+                {
+                    var studies = await(from name in orphanageDbc.Studies
+                                      where (name.Orphans == null || name.Orphans.Count <= 0)
+                                      select name).ToListAsync();
+
+                    if (studies == null || studies.Count <= 0)
+                        return null;
+
+                    foreach (var study in studies)
+                    {
+                        orphanageDbc.Studies.Remove(study);
+                    }
+                    await orphanageDbc.SaveChangesAsync();
+                    dbT.Commit();
+                    return studies;
+                }
+            }
         }
 
         public async Task<bool> DeleteAddress(int addressId, OrphanageDbCNoBinary orphanageDBC)
