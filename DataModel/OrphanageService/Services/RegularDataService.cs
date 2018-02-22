@@ -64,14 +64,15 @@ namespace OrphanageService.Services
             {
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
                 {
-                    var addresses = await (from add in orphanageDbc.Addresses
-                                    where (add.Caregivers == null || add.Caregivers.Count <= 0) &&
-                                          (add.Families == null || add.Families.Count <= 0) &&
-                                          (add.FamliesAlternativeAddresses == null || add.FamliesAlternativeAddresses.Count <= 0) &&
-                                          (add.Guarantors == null || add.Guarantors.Count <= 0) &&
-                                          (add.Mothers == null || add.Mothers.Count <= 0) &&
-                                          (add.Users == null || add.Users.Count <= 0)
-                                    select add).ToListAsync();
+                    orphanageDbc.Configuration.LazyLoadingEnabled = true;
+                    orphanageDbc.Configuration.ProxyCreationEnabled = true;
+                    var addresses = await orphanageDbc.Addresses.Where(add => 
+                                          ( add.Caregivers.Count() == 0 ) &&
+                                          (add.Families.Count() == 0) &&
+                                          (add.FamliesAlternativeAddresses.Count() == 0) &&
+                                          (add.Guarantors.Count() == 0) &&
+                                          (add.Mothers.Count() == 0) &&
+                                          (add.Users.Count() == 0)).ToListAsync();
 
                     if (addresses == null || addresses.Count <= 0)
                         return null;
@@ -93,8 +94,11 @@ namespace OrphanageService.Services
             {
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
                 {
+                    orphanageDbc.Configuration.LazyLoadingEnabled = true;
+                    orphanageDbc.Configuration.ProxyCreationEnabled = true;
+
                     var healths = await(from health in orphanageDbc.Healthies
-                                          where (health.Orphans == null || health.Orphans.Count <= 0)
+                                          where (health.Orphans.Count() <= 0)
                                           select health).ToListAsync();
 
                     if (healths == null || healths.Count <= 0)
@@ -115,15 +119,17 @@ namespace OrphanageService.Services
         {
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
+                orphanageDbc.Configuration.LazyLoadingEnabled = true;
+                orphanageDbc.Configuration.ProxyCreationEnabled = true;
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
                 {
                     var names = await(from name in orphanageDbc.Names
-                                          where (name.Caregivers == null || name.Caregivers.Count <= 0) &&
-                                                (name.Fathers == null || name.Fathers.Count <= 0) &&
-                                                (name.Orphans == null || name.Orphans.Count <= 0) &&
-                                                (name.Guarantors == null || name.Guarantors.Count <= 0) &&
-                                                (name.Mothers == null || name.Mothers.Count <= 0) &&
-                                                (name.Users == null || name.Users.Count <= 0)
+                                          where (name.Caregivers.Count() <= 0) &&
+                                                (name.Fathers.Count() <= 0) &&
+                                                (name.Orphans.Count() <= 0) &&
+                                                (name.Guarantors.Count() <= 0) &&
+                                                (name.Mothers.Count() <= 0) &&
+                                                (name.Users.Count() <= 0)
                                           select name).ToListAsync();
 
                     if (names == null || names.Count <= 0)
@@ -144,10 +150,12 @@ namespace OrphanageService.Services
         {
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
+                orphanageDbc.Configuration.LazyLoadingEnabled = true;
+                orphanageDbc.Configuration.ProxyCreationEnabled = true;
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
                 {
                     var studies = await(from name in orphanageDbc.Studies
-                                      where (name.Orphans == null || name.Orphans.Count <= 0)
+                                      where (name.Orphans.Count() <= 0)
                                       select name).ToListAsync();
 
                     if (studies == null || studies.Count <= 0)

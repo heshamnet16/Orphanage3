@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace OrphanageService.Database.Controllers
+namespace OrphanageService.DataBank.Controllers
 {
-    [RoutePrefix("api/database")]
-    public class DataBankController : ApiController
+    [RoutePrefix("api/databank")]
+    public class DataBanksController : ApiController
     {
         private readonly IRegularDataService _regularDataService;
 
-        public DataBankController (IRegularDataService regularDataService)
+        public DataBanksController (IRegularDataService regularDataService)
         {
             _regularDataService = regularDataService;
         }
