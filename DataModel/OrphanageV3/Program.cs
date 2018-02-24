@@ -14,7 +14,7 @@ namespace OrphanageV3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new RadForm1());
+            Application.Run(new Views.Orphan.OrphansView());
         }
     }
 }

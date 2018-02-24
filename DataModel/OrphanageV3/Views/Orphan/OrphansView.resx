@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,84 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Age" xml:space="preserve">
-    <value>العمر</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Baild" xml:space="preserve">
-    <value>مكفول</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Birthday" xml:space="preserve">
-    <value>تاريخ الميلاد</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="BirthPlace" xml:space="preserve">
-    <value>مكان الولادة</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Color" xml:space="preserve">
-    <value>اللون</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Excluded" xml:space="preserve">
-    <value>مستبعد</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="FatherName" xml:space="preserve">
-    <value>اسم الأب</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="FootSize" xml:space="preserve">
-    <value>قياس القدم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Gender" xml:space="preserve">
-    <value>الجنس</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="GrandfatherName" xml:space="preserve">
-    <value>اسم الجد</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="ID" xml:space="preserve">
-    <value>الرقم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="MotherName" xml:space="preserve">
-    <value>اسم الأم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="OrphanFullName" xml:space="preserve">
-    <value>اسم اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="OrphanIDNumber" xml:space="preserve">
-    <value>رقم هوية اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="OrphanLastName" xml:space="preserve">
-    <value>كنية اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="OrphanViewTitle" xml:space="preserve">
-    <value>ايتام</value>
-    <comment>OrphanView</comment>
-  </data>
-  <data name="RegisterDate" xml:space="preserve">
-    <value>تاريخ التسجيل</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Story" xml:space="preserve">
-    <value>قصة اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Tallness" xml:space="preserve">
-    <value>طول اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
-  <data name="Weight" xml:space="preserve">
-    <value>وزن اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
-  </data>
 </root>
