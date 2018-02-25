@@ -70,15 +70,6 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die مكفول ähnelt.
-        /// </summary>
-        internal static string Baild {
-            get {
-                return ResourceManager.GetString("Baild", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ الميلاد ähnelt.
         /// </summary>
         internal static string Birthday {
@@ -97,11 +88,65 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسم أب المعيل ähnelt.
+        /// </summary>
+        internal static string CaregiverFatherName {
+            get {
+                return ResourceManager.GetString("CaregiverFatherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسم المعيل ähnelt.
+        /// </summary>
+        internal static string CaregiverFirstName {
+            get {
+                return ResourceManager.GetString("CaregiverFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم المعيل ähnelt.
+        /// </summary>
+        internal static string CaregiverID {
+            get {
+                return ResourceManager.GetString("CaregiverID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم هوية المعيل ähnelt.
+        /// </summary>
+        internal static string CaregiverIdentityNumber {
+            get {
+                return ResourceManager.GetString("CaregiverIdentityNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كنية المعيل ähnelt.
+        /// </summary>
+        internal static string CaregiverLastName {
+            get {
+                return ResourceManager.GetString("CaregiverLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اللون ähnelt.
         /// </summary>
         internal static string Color {
             get {
                 return ResourceManager.GetString("Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الصلة بالمعيل ähnelt.
+        /// </summary>
+        internal static string ConsanguinityToCaregiver {
+            get {
+                return ResourceManager.GetString("ConsanguinityToCaregiver", resourceCulture);
             }
         }
         
@@ -115,11 +160,101 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die علامة لونية للعائلة ähnelt.
+        /// </summary>
+        internal static string FamilyColor {
+            get {
+                return ResourceManager.GetString("FamilyColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم العائلة ähnelt.
+        /// </summary>
+        internal static string FamilyID {
+            get {
+                return ResourceManager.GetString("FamilyID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العائلة مستبعدة ähnelt.
+        /// </summary>
+        internal static string FamilyIsExcluded {
+            get {
+                return ResourceManager.GetString("FamilyIsExcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عمر الأب ähnelt.
+        /// </summary>
+        internal static string FatherAge {
+            get {
+                return ResourceManager.GetString("FatherAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ ميلاد الأب ähnelt.
+        /// </summary>
+        internal static string FatherBirthday {
+            get {
+                return ResourceManager.GetString("FatherBirthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ وفاة الأب ähnelt.
+        /// </summary>
+        internal static string FatherDeathDate {
+            get {
+                return ResourceManager.GetString("FatherDeathDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم الأب ähnelt.
+        /// </summary>
+        internal static string FatherID {
+            get {
+                return ResourceManager.GetString("FatherID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم هوية الأب ähnelt.
+        /// </summary>
+        internal static string FatherIdentityNumber {
+            get {
+                return ResourceManager.GetString("FatherIdentityNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كنية الأب ähnelt.
+        /// </summary>
+        internal static string FatherLastName {
+            get {
+                return ResourceManager.GetString("FatherLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اسم الأب ähnelt.
         /// </summary>
         internal static string FatherName {
             get {
                 return ResourceManager.GetString("FatherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الاسم الأول ähnelt.
+        /// </summary>
+        internal static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
         
@@ -144,9 +279,18 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اسم الجد ähnelt.
         /// </summary>
-        internal static string GrandfatherName {
+        internal static string GrandFatherName {
             get {
-                return ResourceManager.GetString("GrandfatherName", resourceCulture);
+                return ResourceManager.GetString("GrandFatherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم الكفيل ähnelt.
+        /// </summary>
+        internal static string GuarantorID {
+            get {
+                return ResourceManager.GetString("GuarantorID", resourceCulture);
             }
         }
         
@@ -160,11 +304,155 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم الهوية ähnelt.
+        /// </summary>
+        internal static string IdentityNumber {
+            get {
+                return ResourceManager.GetString("IdentityNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مكفول ähnelt.
+        /// </summary>
+        internal static string IsBailed {
+            get {
+                return ResourceManager.GetString("IsBailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مستبعد ähnelt.
+        /// </summary>
+        internal static string IsExcluded {
+            get {
+                return ResourceManager.GetString("IsExcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مريض ähnelt.
+        /// </summary>
+        internal static string IsSick {
+            get {
+                return ResourceManager.GetString("IsSick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الكنية ähnelt.
+        /// </summary>
+        internal static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عمر الأم ähnelt.
+        /// </summary>
+        internal static string MotherAge {
+            get {
+                return ResourceManager.GetString("MotherAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ ميلاد الأم ähnelt.
+        /// </summary>
+        internal static string MotherBirthday {
+            get {
+                return ResourceManager.GetString("MotherBirthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ وفاة الأم ähnelt.
+        /// </summary>
+        internal static string MotherDeathDate {
+            get {
+                return ResourceManager.GetString("MotherDeathDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم الأم ähnelt.
+        /// </summary>
+        internal static string MotherID {
+            get {
+                return ResourceManager.GetString("MotherID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم هوية الأم ähnelt.
+        /// </summary>
+        internal static string MotherIdentityNumber {
+            get {
+                return ResourceManager.GetString("MotherIdentityNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كنية الأم ähnelt.
+        /// </summary>
+        internal static string MotherLastName {
+            get {
+                return ResourceManager.GetString("MotherLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اسم الأم ähnelt.
         /// </summary>
         internal static string MotherName {
             get {
                 return ResourceManager.GetString("MotherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عمر اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanAge {
+            get {
+                return ResourceManager.GetString("OrphanAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ الميلاد اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanBirthday {
+            get {
+                return ResourceManager.GetString("OrphanBirthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مكان ولادة اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanBirthplace {
+            get {
+                return ResourceManager.GetString("OrphanBirthplace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die علامة لونية لليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanColor {
+            get {
+                return ResourceManager.GetString("OrphanColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صلة اليتيم بالمعيل ähnelt.
+        /// </summary>
+        internal static string OrphanConsanguinityToCaregiver {
+            get {
+                return ResourceManager.GetString("OrphanConsanguinityToCaregiver", resourceCulture);
             }
         }
         
@@ -178,11 +466,65 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die جنس اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanGender {
+            get {
+                return ResourceManager.GetString("OrphanGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanID {
+            get {
+                return ResourceManager.GetString("OrphanID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم هوية اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanIdentityNumber {
+            get {
+                return ResourceManager.GetString("OrphanIdentityNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die رقم هوية اليتيم ähnelt.
         /// </summary>
         internal static string OrphanIDNumber {
             get {
                 return ResourceManager.GetString("OrphanIDNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اليتم مكفول ähnelt.
+        /// </summary>
+        internal static string OrphanIsBailed {
+            get {
+                return ResourceManager.GetString("OrphanIsBailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اليتيم مستبعد ähnelt.
+        /// </summary>
+        internal static string OrphanIsExcluded {
+            get {
+                return ResourceManager.GetString("OrphanIsExcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اليتيم مريض ähnelt.
+        /// </summary>
+        internal static string OrphanIsSick {
+            get {
+                return ResourceManager.GetString("OrphanIsSick", resourceCulture);
             }
         }
         
@@ -196,11 +538,38 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die قصة اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanStory {
+            get {
+                return ResourceManager.GetString("OrphanStory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die طول اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanTallness {
+            get {
+                return ResourceManager.GetString("OrphanTallness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ايتام ähnelt.
         /// </summary>
         internal static string OrphanViewTitle {
             get {
                 return ResourceManager.GetString("OrphanViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die وزن اليتيم ähnelt.
+        /// </summary>
+        internal static string OrphanWeight {
+            get {
+                return ResourceManager.GetString("OrphanWeight", resourceCulture);
             }
         }
         
@@ -214,29 +583,20 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die قصة اليتيم ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسباب التخلف عن الدراسة ähnelt.
         /// </summary>
-        internal static string Story {
+        internal static string StudyReasons {
             get {
-                return ResourceManager.GetString("Story", resourceCulture);
+                return ResourceManager.GetString("StudyReasons", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die طول اليتيم ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die المرحلة الدراسية ähnelt.
         /// </summary>
-        internal static string Tallness {
+        internal static string StudyStage {
             get {
-                return ResourceManager.GetString("Tallness", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die وزن اليتيم ähnelt.
-        /// </summary>
-        internal static string Weight {
-            get {
-                return ResourceManager.GetString("Weight", resourceCulture);
+                return ResourceManager.GetString("StudyStage", resourceCulture);
             }
         }
     }

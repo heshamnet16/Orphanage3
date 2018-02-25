@@ -119,63 +119,48 @@
   </resheader>
   <data name="Age" xml:space="preserve">
     <value>العمر</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
-  <data name="Baild" xml:space="preserve">
-    <value>مكفول</value>
-    <comment>OrphanView.gridOrphans</comment>
+  <data name="OrphanIsBailed" xml:space="preserve">
+    <value>اليتم مكفول</value>
   </data>
-  <data name="Birthday" xml:space="preserve">
-    <value>تاريخ الميلاد</value>
-    <comment>OrphanView.gridOrphans</comment>
+  <data name="OrphanBirthplace" xml:space="preserve">
+    <value>مكان ولادة اليتيم</value>
   </data>
   <data name="BirthPlace" xml:space="preserve">
     <value>مكان الولادة</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="Color" xml:space="preserve">
     <value>اللون</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="Excluded" xml:space="preserve">
     <value>مستبعد</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="FatherName" xml:space="preserve">
     <value>اسم الأب</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="FootSize" xml:space="preserve">
     <value>قياس القدم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>الجنس</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
-  <data name="GrandfatherName" xml:space="preserve">
+  <data name="GrandFatherName" xml:space="preserve">
     <value>اسم الجد</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="ID" xml:space="preserve">
     <value>الرقم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="MotherName" xml:space="preserve">
     <value>اسم الأم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="OrphanFirstName" xml:space="preserve">
     <value>اسم اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="OrphanIDNumber" xml:space="preserve">
     <value>رقم هوية اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="OrphanLastName" xml:space="preserve">
     <value>كنية اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
   <data name="OrphanViewTitle" xml:space="preserve">
     <value>ايتام</value>
@@ -183,18 +168,134 @@
   </data>
   <data name="RegisterDate" xml:space="preserve">
     <value>تاريخ التسجيل</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
-  <data name="Story" xml:space="preserve">
+  <data name="OrphanStory" xml:space="preserve">
     <value>قصة اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
-  <data name="Tallness" xml:space="preserve">
+  <data name="OrphanTallness" xml:space="preserve">
     <value>طول اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
   </data>
-  <data name="Weight" xml:space="preserve">
+  <data name="OrphanWeight" xml:space="preserve">
     <value>وزن اليتيم</value>
-    <comment>OrphanView.gridOrphans</comment>
+  </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="CaregiverFatherName" xml:space="preserve">
+    <value>اسم أب المعيل</value>
+  </data>
+  <data name="CaregiverFirstName" xml:space="preserve">
+    <value>اسم المعيل</value>
+  </data>
+  <data name="CaregiverID" xml:space="preserve">
+    <value>رقم المعيل</value>
+  </data>
+  <data name="CaregiverIdentityNumber" xml:space="preserve">
+    <value>رقم هوية المعيل</value>
+  </data>
+  <data name="CaregiverLastName" xml:space="preserve">
+    <value>كنية المعيل</value>
+  </data>
+  <data name="ConsanguinityToCaregiver" xml:space="preserve">
+    <value>الصلة بالمعيل</value>
+  </data>
+  <data name="FamilyColor" xml:space="preserve">
+    <value>علامة لونية للعائلة</value>
+  </data>
+  <data name="FamilyID" xml:space="preserve">
+    <value>رقم العائلة</value>
+  </data>
+  <data name="FamilyIsExcluded" xml:space="preserve">
+    <value>العائلة مستبعدة</value>
+  </data>
+  <data name="FatherAge" xml:space="preserve">
+    <value>عمر الأب</value>
+  </data>
+  <data name="FatherBirthday" xml:space="preserve">
+    <value>تاريخ ميلاد الأب</value>
+  </data>
+  <data name="FatherDeathDate" xml:space="preserve">
+    <value>تاريخ وفاة الأب</value>
+  </data>
+  <data name="FatherID" xml:space="preserve">
+    <value>رقم الأب</value>
+  </data>
+  <data name="FatherIdentityNumber" xml:space="preserve">
+    <value>رقم هوية الأب</value>
+  </data>
+  <data name="FatherLastName" xml:space="preserve">
+    <value>كنية الأب</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="GuarantorID" xml:space="preserve">
+    <value>رقم الكفيل</value>
+  </data>
+  <data name="IdentityNumber" xml:space="preserve">
+    <value>رقم الهوية</value>
+  </data>
+  <data name="IsBailed" xml:space="preserve">
+    <value>مكفول</value>
+  </data>
+  <data name="IsExcluded" xml:space="preserve">
+    <value>مستبعد</value>
+  </data>
+  <data name="IsSick" xml:space="preserve">
+    <value>مريض</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>الكنية</value>
+  </data>
+  <data name="MotherAge" xml:space="preserve">
+    <value>عمر الأم</value>
+  </data>
+  <data name="MotherBirthday" xml:space="preserve">
+    <value>تاريخ ميلاد الأم</value>
+  </data>
+  <data name="MotherDeathDate" xml:space="preserve">
+    <value>تاريخ وفاة الأم</value>
+  </data>
+  <data name="MotherID" xml:space="preserve">
+    <value>رقم الأم</value>
+  </data>
+  <data name="MotherIdentityNumber" xml:space="preserve">
+    <value>رقم هوية الأم</value>
+  </data>
+  <data name="MotherLastName" xml:space="preserve">
+    <value>كنية الأم</value>
+  </data>
+  <data name="OrphanAge" xml:space="preserve">
+    <value>عمر اليتيم</value>
+  </data>
+  <data name="OrphanBirthday" xml:space="preserve">
+    <value>تاريخ الميلاد اليتيم</value>
+  </data>
+  <data name="OrphanColor" xml:space="preserve">
+    <value>علامة لونية لليتيم</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiver" xml:space="preserve">
+    <value>صلة اليتيم بالمعيل</value>
+  </data>
+  <data name="OrphanGender" xml:space="preserve">
+    <value>جنس اليتيم</value>
+  </data>
+  <data name="OrphanID" xml:space="preserve">
+    <value>رقم اليتيم</value>
+  </data>
+  <data name="OrphanIdentityNumber" xml:space="preserve">
+    <value>رقم هوية اليتيم</value>
+  </data>
+  <data name="OrphanIsExcluded" xml:space="preserve">
+    <value>اليتيم مستبعد</value>
+  </data>
+  <data name="OrphanIsSick" xml:space="preserve">
+    <value>اليتيم مريض</value>
+  </data>
+  <data name="StudyReasons" xml:space="preserve">
+    <value>اسباب التخلف عن الدراسة</value>
+  </data>
+  <data name="StudyStage" xml:space="preserve">
+    <value>المرحلة الدراسية</value>
   </data>
 </root>

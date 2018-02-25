@@ -16,5 +16,10 @@ namespace OrphanageV3.Views.Orphan
             InitializeComponent();
             this.Text = Properties.Resources.OrphanViewTitle;
         }
+
+        private void OrphansView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

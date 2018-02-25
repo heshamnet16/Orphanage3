@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn colOrphanFulName = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colFatherName = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colGrandfatherName = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colOrphanLastName = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colMotherName = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewDateTimeColumn colOrphanBirthday = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colOrphanGender = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colOrphanBirthplace = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colOrphanAge = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn colIsBailed = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colOrphanID = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn colIsExcluded = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colColorMark = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDateTimeColumn colRegDate = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colOrphanWeight = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colOrphanTallness = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colOrphanIdentityNumber = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn colFootSize = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn colOrphanStory = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn1 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn2 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn3 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn2 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn4 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn5 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn6 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn7 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -101,18 +101,18 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn45 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.radSplitContainer1 = new Telerik.WinControls.UI.RadSplitContainer();
             this.splitPanel1 = new Telerik.WinControls.UI.SplitPanel();
             this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gridOrphans = new Telerik.WinControls.UI.RadGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).BeginInit();
             this.radSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel2)).BeginInit();
             this.splitPanel2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrphans)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrphans.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -123,28 +123,14 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.40216F));
             this.tableLayoutPanel1.Controls.Add(this.radSplitContainer1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(95, 52);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(145, 69);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 309F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(741, 392);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.gridOrphans, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.09179F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.90821F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(477, 272);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // radSplitContainer1
             // 
@@ -155,7 +141,7 @@
             // 
             // 
             // 
-            this.radSplitContainer1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.radSplitContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.radSplitContainer1.Size = new System.Drawing.Size(669, 272);
             this.radSplitContainer1.TabIndex = 0;
             this.radSplitContainer1.TabStop = false;
@@ -168,7 +154,7 @@
             // 
             // 
             // 
-            this.splitPanel1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.splitPanel1.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.splitPanel1.Size = new System.Drawing.Size(188, 272);
             this.splitPanel1.SizeInfo.AutoSizeScale = new System.Drawing.SizeF(-0.2172932F, 0F);
             this.splitPanel1.SizeInfo.SplitterCorrection = new System.Drawing.Size(-144, 0);
@@ -184,13 +170,27 @@
             // 
             // 
             // 
-            this.splitPanel2.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.splitPanel2.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.splitPanel2.Size = new System.Drawing.Size(477, 272);
             this.splitPanel2.SizeInfo.AutoSizeScale = new System.Drawing.SizeF(0.2172933F, 0F);
             this.splitPanel2.SizeInfo.SplitterCorrection = new System.Drawing.Size(144, 0);
             this.splitPanel2.TabIndex = 1;
             this.splitPanel2.TabStop = false;
             this.splitPanel2.Text = "splitPanel2";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.gridOrphans, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.09179F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.90821F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(477, 272);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // gridOrphans
             // 
@@ -210,116 +210,116 @@
             // 
             this.gridOrphans.MasterTemplate.AllowAddNewRow = false;
             this.gridOrphans.MasterTemplate.AllowEditRow = false;
-            colOrphanFulName.FieldName = "colOrphanFulName";
-            colOrphanFulName.HeaderText = Properties.Resources.OrphanFirstName;
-            colOrphanFulName.IsAutoGenerated = true;
-            colOrphanFulName.Name = "colOrphanFulName";
-            colOrphanFulName.Width = 42;
-            colFatherName.FieldName = "colFatherName";
-            colFatherName.HeaderText = Properties.Resources.FatherName;
-            colFatherName.IsAutoGenerated = true;
-            colFatherName.Name = "colFatherName";
-            colFatherName.Width = 42;
-            colGrandfatherName.FieldName = "colGrandfatherName";
-            colGrandfatherName.HeaderText = Properties.Resources.GrandfatherName;
-            colGrandfatherName.IsAutoGenerated = true;
-            colGrandfatherName.Name = "colGrandfatherName";
-            colGrandfatherName.Width = 40;
-            colOrphanLastName.FieldName = "colOrphanLastName";
-            colOrphanLastName.HeaderText = Properties.Resources.OrphanLastName;
-            colOrphanLastName.IsAutoGenerated = true;
-            colOrphanLastName.Name = "colOrphanLastName";
-            colOrphanLastName.Width = 43;
-            colMotherName.FieldName = "colMotherName";
-            colMotherName.HeaderText = Properties.Resources.MotherName;
-            colMotherName.IsAutoGenerated = true;
-            colMotherName.Name = "colMotherName";
-            colMotherName.Width = 37;
-            colOrphanBirthday.FieldName = "colOrphanBirthday";
-            colOrphanBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            colOrphanBirthday.HeaderText = Properties.Resources.Birthday;
-            colOrphanBirthday.IsAutoGenerated = true;
-            colOrphanBirthday.Name = "colOrphanBirthday";
-            colOrphanBirthday.Width = 54;
-            colOrphanGender.FieldName = "colOrphanGender";
-            colOrphanGender.HeaderText = Properties.Resources.Gender;
-            colOrphanGender.IsAutoGenerated = true;
-            colOrphanGender.Name = "colOrphanGender";
-            colOrphanGender.Width = 32;
-            colOrphanBirthplace.FieldName = "colOrphanBirthplace";
-            colOrphanBirthplace.HeaderText = Properties.Resources.BirthPlace;
-            colOrphanBirthplace.IsAutoGenerated = true;
-            colOrphanBirthplace.Name = "colOrphanBirthplace";
-            colOrphanBirthplace.Width = 52;
-            colOrphanAge.DataType = typeof(int);
-            colOrphanAge.FieldName = "colOrphanAge";
-            colOrphanAge.HeaderText = Properties.Resources.Age;
-            colOrphanAge.IsAutoGenerated = true;
-            colOrphanAge.Name = "colOrphanAge";
-            colOrphanAge.Width = 28;
-            colIsBailed.FieldName = "colIsBailed";
-            colIsBailed.HeaderText = Properties.Resources.Baild;
-            colIsBailed.IsVisible = false;
-            colIsBailed.Name = "colIsBailed";
-            colOrphanID.DataType = typeof(int);
-            colOrphanID.FieldName = "colOrphanID";
-            colOrphanID.HeaderText = Properties.Resources.ID;
-            colOrphanID.IsAutoGenerated = true;
-            colOrphanID.IsVisible = false;
-            colOrphanID.Name = "colOrphanID";
-            colOrphanID.VisibleInColumnChooser = false;
-            colOrphanID.Width = 26;
-            colIsExcluded.FieldName = "colIsExcluded";
-            colIsExcluded.HeaderText = Properties.Resources.Excluded;
-            colIsExcluded.IsAutoGenerated = true;
-            colIsExcluded.IsVisible = false;
-            colIsExcluded.Name = "colIsExcluded";
-            colIsExcluded.VisibleInColumnChooser = false;
-            colIsExcluded.Width = 38;
-            colColorMark.DataType = typeof(long);
-            colColorMark.FieldName = "colColorMark";
-            colColorMark.HeaderText = Properties.Resources.Color;
-            colColorMark.IsAutoGenerated = true;
-            colColorMark.Name = "colColorMark";
-            colRegDate.FieldName = "colRegDate";
-            colRegDate.HeaderText = Properties.Resources.RegisterDate;
-            colRegDate.IsAutoGenerated = true;
-            colRegDate.IsVisible = false;
-            colRegDate.Name = "colRegDate";
-            colRegDate.Width = 60;
-            colOrphanWeight.DataType = typeof(byte);
-            colOrphanWeight.FieldName = "colOrphanWeight";
-            colOrphanWeight.HeaderText = "";
-            colOrphanWeight.IsAutoGenerated = true;
-            colOrphanWeight.IsVisible = false;
-            colOrphanWeight.Name = "colOrphanWeight";
-            colOrphanWeight.Width = 45;
-            colOrphanTallness.DataType = typeof(byte);
-            colOrphanTallness.FieldName = "colOrphanTallness";
-            colOrphanTallness.HeaderText = Properties.Resources.Tallness;
-            colOrphanTallness.IsAutoGenerated = true;
-            colOrphanTallness.IsVisible = false;
-            colOrphanTallness.Name = "colOrphanTallness";
-            colOrphanTallness.Width = 46;
-            colOrphanIdentityNumber.FieldName = "colOrphanIdentityNumber";
-            colOrphanIdentityNumber.HeaderText = Properties.Resources.OrphanIDNumber;
-            colOrphanIdentityNumber.IsAutoGenerated = true;
-            colOrphanIdentityNumber.IsVisible = false;
-            colOrphanIdentityNumber.Name = "colOrphanIdentityNumber";
-            colOrphanIdentityNumber.Width = 61;
-            colFootSize.DataType = typeof(byte);
-            colFootSize.FieldName = "colFootSize";
-            colFootSize.HeaderText = Properties.Resources.FootSize;
-            colFootSize.IsAutoGenerated = true;
-            colFootSize.IsVisible = false;
-            colFootSize.Name = "colFootSize";
-            colFootSize.Width = 45;
-            colOrphanStory.FieldName = "colOrphanStory";
-            colOrphanStory.HeaderText = Properties.Resources.Story;
-            colOrphanStory.IsAutoGenerated = true;
-            colOrphanStory.IsVisible = false;
-            colOrphanStory.Name = "colOrphanStory";
-            colOrphanStory.Width = 46;
+            gridViewTextBoxColumn1.FieldName = "colOrphanFulName";
+            gridViewTextBoxColumn1.HeaderText = global::OrphanageV3.Properties.Resources.OrphanFirstName;
+            gridViewTextBoxColumn1.IsAutoGenerated = true;
+            gridViewTextBoxColumn1.Name = "colOrphanFulName";
+            gridViewTextBoxColumn1.Width = 42;
+            gridViewTextBoxColumn2.FieldName = "colFatherName";
+            gridViewTextBoxColumn2.HeaderText = global::OrphanageV3.Properties.Resources.FatherName;
+            gridViewTextBoxColumn2.IsAutoGenerated = true;
+            gridViewTextBoxColumn2.Name = "colFatherName";
+            gridViewTextBoxColumn2.Width = 42;
+            gridViewTextBoxColumn3.FieldName = "colGrandfatherName";
+            gridViewTextBoxColumn3.HeaderText = global::OrphanageV3.Properties.Resources.GrandFatherName;
+            gridViewTextBoxColumn3.IsAutoGenerated = true;
+            gridViewTextBoxColumn3.Name = "colGrandfatherName";
+            gridViewTextBoxColumn3.Width = 40;
+            gridViewTextBoxColumn4.FieldName = "colOrphanLastName";
+            gridViewTextBoxColumn4.HeaderText = global::OrphanageV3.Properties.Resources.OrphanLastName;
+            gridViewTextBoxColumn4.IsAutoGenerated = true;
+            gridViewTextBoxColumn4.Name = "colOrphanLastName";
+            gridViewTextBoxColumn4.Width = 43;
+            gridViewTextBoxColumn5.FieldName = "colMotherName";
+            gridViewTextBoxColumn5.HeaderText = global::OrphanageV3.Properties.Resources.MotherName;
+            gridViewTextBoxColumn5.IsAutoGenerated = true;
+            gridViewTextBoxColumn5.Name = "colMotherName";
+            gridViewTextBoxColumn5.Width = 37;
+            gridViewDateTimeColumn1.FieldName = "colOrphanBirthday";
+            gridViewDateTimeColumn1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            gridViewDateTimeColumn1.HeaderText = global::OrphanageV3.Properties.Resources.OrphanBirthplace;
+            gridViewDateTimeColumn1.IsAutoGenerated = true;
+            gridViewDateTimeColumn1.Name = "colOrphanBirthday";
+            gridViewDateTimeColumn1.Width = 54;
+            gridViewTextBoxColumn6.FieldName = "colOrphanGender";
+            gridViewTextBoxColumn6.HeaderText = global::OrphanageV3.Properties.Resources.Gender;
+            gridViewTextBoxColumn6.IsAutoGenerated = true;
+            gridViewTextBoxColumn6.Name = "colOrphanGender";
+            gridViewTextBoxColumn6.Width = 32;
+            gridViewTextBoxColumn7.FieldName = "colOrphanBirthplace";
+            gridViewTextBoxColumn7.HeaderText = global::OrphanageV3.Properties.Resources.BirthPlace;
+            gridViewTextBoxColumn7.IsAutoGenerated = true;
+            gridViewTextBoxColumn7.Name = "colOrphanBirthplace";
+            gridViewTextBoxColumn7.Width = 52;
+            gridViewDecimalColumn1.DataType = typeof(int);
+            gridViewDecimalColumn1.FieldName = "colOrphanAge";
+            gridViewDecimalColumn1.HeaderText = global::OrphanageV3.Properties.Resources.Age;
+            gridViewDecimalColumn1.IsAutoGenerated = true;
+            gridViewDecimalColumn1.Name = "colOrphanAge";
+            gridViewDecimalColumn1.Width = 28;
+            gridViewCheckBoxColumn1.FieldName = "colIsBailed";
+            gridViewCheckBoxColumn1.HeaderText = global::OrphanageV3.Properties.Resources.OrphanIsBailed;
+            gridViewCheckBoxColumn1.IsVisible = false;
+            gridViewCheckBoxColumn1.Name = "colIsBailed";
+            gridViewDecimalColumn2.DataType = typeof(int);
+            gridViewDecimalColumn2.FieldName = "colOrphanID";
+            gridViewDecimalColumn2.HeaderText = global::OrphanageV3.Properties.Resources.ID;
+            gridViewDecimalColumn2.IsAutoGenerated = true;
+            gridViewDecimalColumn2.IsVisible = false;
+            gridViewDecimalColumn2.Name = "colOrphanID";
+            gridViewDecimalColumn2.VisibleInColumnChooser = false;
+            gridViewDecimalColumn2.Width = 26;
+            gridViewCheckBoxColumn2.FieldName = "colIsExcluded";
+            gridViewCheckBoxColumn2.HeaderText = global::OrphanageV3.Properties.Resources.Excluded;
+            gridViewCheckBoxColumn2.IsAutoGenerated = true;
+            gridViewCheckBoxColumn2.IsVisible = false;
+            gridViewCheckBoxColumn2.Name = "colIsExcluded";
+            gridViewCheckBoxColumn2.VisibleInColumnChooser = false;
+            gridViewCheckBoxColumn2.Width = 38;
+            gridViewDecimalColumn3.DataType = typeof(long);
+            gridViewDecimalColumn3.FieldName = "colColorMark";
+            gridViewDecimalColumn3.HeaderText = global::OrphanageV3.Properties.Resources.Color;
+            gridViewDecimalColumn3.IsAutoGenerated = true;
+            gridViewDecimalColumn3.Name = "colColorMark";
+            gridViewDateTimeColumn2.FieldName = "colRegDate";
+            gridViewDateTimeColumn2.HeaderText = global::OrphanageV3.Properties.Resources.RegisterDate;
+            gridViewDateTimeColumn2.IsAutoGenerated = true;
+            gridViewDateTimeColumn2.IsVisible = false;
+            gridViewDateTimeColumn2.Name = "colRegDate";
+            gridViewDateTimeColumn2.Width = 60;
+            gridViewDecimalColumn4.DataType = typeof(byte);
+            gridViewDecimalColumn4.FieldName = "colOrphanWeight";
+            gridViewDecimalColumn4.HeaderText = "";
+            gridViewDecimalColumn4.IsAutoGenerated = true;
+            gridViewDecimalColumn4.IsVisible = false;
+            gridViewDecimalColumn4.Name = "colOrphanWeight";
+            gridViewDecimalColumn4.Width = 45;
+            gridViewDecimalColumn5.DataType = typeof(byte);
+            gridViewDecimalColumn5.FieldName = "colOrphanTallness";
+            gridViewDecimalColumn5.HeaderText = global::OrphanageV3.Properties.Resources.OrphanTallness;
+            gridViewDecimalColumn5.IsAutoGenerated = true;
+            gridViewDecimalColumn5.IsVisible = false;
+            gridViewDecimalColumn5.Name = "colOrphanTallness";
+            gridViewDecimalColumn5.Width = 46;
+            gridViewDecimalColumn6.FieldName = "colOrphanIdentityNumber";
+            gridViewDecimalColumn6.HeaderText = global::OrphanageV3.Properties.Resources.OrphanIDNumber;
+            gridViewDecimalColumn6.IsAutoGenerated = true;
+            gridViewDecimalColumn6.IsVisible = false;
+            gridViewDecimalColumn6.Name = "colOrphanIdentityNumber";
+            gridViewDecimalColumn6.Width = 61;
+            gridViewDecimalColumn7.DataType = typeof(byte);
+            gridViewDecimalColumn7.FieldName = "colFootSize";
+            gridViewDecimalColumn7.HeaderText = global::OrphanageV3.Properties.Resources.FootSize;
+            gridViewDecimalColumn7.IsAutoGenerated = true;
+            gridViewDecimalColumn7.IsVisible = false;
+            gridViewDecimalColumn7.Name = "colFootSize";
+            gridViewDecimalColumn7.Width = 45;
+            gridViewTextBoxColumn8.FieldName = "colOrphanStory";
+            gridViewTextBoxColumn8.HeaderText = global::OrphanageV3.Properties.Resources.OrphanStory;
+            gridViewTextBoxColumn8.IsAutoGenerated = true;
+            gridViewTextBoxColumn8.IsVisible = false;
+            gridViewTextBoxColumn8.Name = "colOrphanStory";
+            gridViewTextBoxColumn8.Width = 46;
             gridViewTextBoxColumn9.FieldName = "Stage";
             gridViewTextBoxColumn9.HeaderText = "المرحلة الدراسية";
             gridViewTextBoxColumn9.IsAutoGenerated = true;
@@ -626,25 +626,25 @@
             gridViewTextBoxColumn45.Name = "BondELast";
             gridViewTextBoxColumn45.Width = 57;
             this.gridOrphans.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            colOrphanFulName,
-            colFatherName,
-            colGrandfatherName,
-            colOrphanLastName,
-            colMotherName,
-            colOrphanBirthday,
-            colOrphanGender,
-            colOrphanBirthplace,
-            colOrphanAge,
-            colIsBailed,
-            colOrphanID,
-            colIsExcluded,
-            colColorMark,
-            colRegDate,
-            colOrphanWeight,
-            colOrphanTallness,
-            colOrphanIdentityNumber,
-            colFootSize,
-            colOrphanStory,
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewDateTimeColumn1,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewDecimalColumn1,
+            gridViewCheckBoxColumn1,
+            gridViewDecimalColumn2,
+            gridViewCheckBoxColumn2,
+            gridViewDecimalColumn3,
+            gridViewDateTimeColumn2,
+            gridViewDecimalColumn4,
+            gridViewDecimalColumn5,
+            gridViewDecimalColumn6,
+            gridViewDecimalColumn7,
+            gridViewTextBoxColumn8,
             gridViewTextBoxColumn9,
             gridViewTextBoxColumn10,
             gridViewTextBoxColumn11,
@@ -723,13 +723,14 @@
             this.RootElement.ApplyShapeToControl = true;
             this.ShowInTaskbar = false;
             this.Text = "";
+            this.Load += new System.EventHandler(this.OrphansView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).EndInit();
             this.radSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel2)).EndInit();
             this.splitPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridOrphans.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrphans)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
