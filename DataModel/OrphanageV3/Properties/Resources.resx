@@ -298,4 +298,10 @@
   <data name="StudyStage" xml:space="preserve">
     <value>المرحلة الدراسية</value>
   </data>
+  <data name="GirdViewGroupPanelElementText" xml:space="preserve">
+    <value>اسحب الاعمدة هنا</value>
+  </data>
+  <data name="GridViewGroupByText" xml:space="preserve">
+    <value>تجميع بواسطة :</value>
+  </data>
 </root>

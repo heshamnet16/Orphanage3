@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,17 +10,22 @@ namespace OrphanageV3.Services
 {
     public class TranslateService : ITranslateService
     {
-        public void Translate(ref Type source)
+        public TranslateService()
         {
-            throw new NotImplementedException();
         }
 
         public string Translate(string source)
         {
+            if (source == null) return null;
             Properties.Resources resources = new Properties.Resources();
             Type resourcesType = resources.GetType();
-            var propInfo = resourcesType.GetProperty(source);
-            return propInfo.GetValue(resources).ToString();
+            var props = resourcesType.GetProperties();
+            foreach (var prop in props)
+            {
+                if (prop.Name.ToLower() == source.ToLower())
+                    return prop.GetValue(resources).ToString();
+            }
+            return null;
         }
     }
 }

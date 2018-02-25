@@ -8,7 +8,6 @@ namespace OrphanageV3.Services.Interfaces
 {
     public interface ITranslateService
     {
-        void Translate(ref Type source);
         string Translate(string source);
     }
 }
