@@ -58,6 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
+    <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
     <Compile Include="Views\Orphan\OrphansView.cs">
       <SubType>Form</SubType>
     </Compile>

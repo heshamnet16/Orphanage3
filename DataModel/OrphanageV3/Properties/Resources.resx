@@ -165,7 +165,7 @@
     <value>اسم الأم</value>
     <comment>OrphanView.gridOrphans</comment>
   </data>
-  <data name="OrphanFullName" xml:space="preserve">
+  <data name="OrphanFirstName" xml:space="preserve">
     <value>اسم اليتيم</value>
     <comment>OrphanView.gridOrphans</comment>
   </data>

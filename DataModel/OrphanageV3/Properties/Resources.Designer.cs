@@ -171,9 +171,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اسم اليتيم ähnelt.
         /// </summary>
-        internal static string OrphanFullName {
+        internal static string OrphanFirstName {
             get {
-                return ResourceManager.GetString("OrphanFullName", resourceCulture);
+                return ResourceManager.GetString("OrphanFirstName", resourceCulture);
             }
         }
         
