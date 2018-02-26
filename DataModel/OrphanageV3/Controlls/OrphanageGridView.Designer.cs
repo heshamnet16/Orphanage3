@@ -43,20 +43,45 @@
             // 
             // radGridView
             // 
+            this.radGridView.BackColor = System.Drawing.SystemColors.Control;
+            this.radGridView.CausesValidation = false;
+            this.radGridView.ColumnChooserSortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
+            this.radGridView.Cursor = System.Windows.Forms.Cursors.Default;
             this.radGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radGridView.EnableCustomDrawing = true;
+            this.radGridView.EnableGestures = false;
+            this.radGridView.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.radGridView.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.radGridView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.radGridView.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
             this.radGridView.MasterTemplate.AllowAddNewRow = false;
+            this.radGridView.MasterTemplate.AllowColumnHeaderContextMenu = false;
+            this.radGridView.MasterTemplate.AllowDeleteRow = false;
+            this.radGridView.MasterTemplate.AllowEditRow = false;
+            this.radGridView.MasterTemplate.AllowRowHeaderContextMenu = false;
+            this.radGridView.MasterTemplate.AllowRowReorder = true;
+            this.radGridView.MasterTemplate.EnableFiltering = true;
             this.radGridView.MasterTemplate.EnablePaging = true;
+            this.radGridView.MasterTemplate.MultiSelect = true;
+            this.radGridView.MasterTemplate.PageSize = 30;
+            this.radGridView.MasterTemplate.ShowFilterCellOperatorText = false;
             this.radGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.radGridView.Name = "radGridView";
+            this.radGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radGridView.ShowCellErrors = false;
+            this.radGridView.ShowNoDataText = false;
+            this.radGridView.ShowRowErrors = false;
             this.radGridView.Size = new System.Drawing.Size(1034, 546);
             this.radGridView.TabIndex = 0;
             this.radGridView.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.radGridView_CreateCell);
             this.radGridView.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.radGridView_RowFormatting);
+            this.radGridView.PageChanged += new System.EventHandler<System.EventArgs>(this.radGridView_PageChanged);
             this.radGridView.DataBindingComplete += new Telerik.WinControls.UI.GridViewBindingCompleteEventHandler(this.radGridView_DataBindingComplete);
+            this.radGridView.GroupByChanged += new Telerik.WinControls.UI.GridViewCollectionChangedEventHandler(this.radGridView_GroupByChanged);
+            this.radGridView.BindingContextChanged += new System.EventHandler(this.radGridView_BindingContextChanged);
             // 
             // LayoutControl
             // 

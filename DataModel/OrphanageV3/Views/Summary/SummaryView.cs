@@ -34,8 +34,8 @@ namespace OrphanageV3.Views.Summary
         private void SummaryView_Click(object sender, EventArgs e)
         {
             var orphansCount = _apiClient.OrphansController_GetOrphansCountAsync().Result;
-            if (i * 2500 > orphansCount) i = 0;
-            var orphansTask = _apiClient.OrphansController_GetAllAsync(2500, i++);
+            if (i * 25000 > orphansCount) i = 0;
+            var orphansTask = _apiClient.OrphansController_GetAllAsync(25000, i++);
             gridOrphans.GridView.DataSource = orphansTask.Result;
         }
 
@@ -57,6 +57,11 @@ namespace OrphanageV3.Views.Summary
         private void gridOrphans_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e)
         {
 
+        }
+
+        private void gridOrphans_BindingContextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

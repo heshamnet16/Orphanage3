@@ -19,6 +19,7 @@ namespace OrphanageV3.Controlls
     {
         private readonly ITranslateService _translateService;
         private string _ColorColumnName = "Color";
+        private bool IsButtonsRotated = false;
         public Telerik.WinControls.UI.RadGridView GridView
         {
             get
@@ -32,8 +33,8 @@ namespace OrphanageV3.Controlls
         {
             InitializeComponent();
             _translateService = new TranslateService();
-            radGridView.MasterTemplate.AllowAddNewRow = false;
-            radGridView.MasterTemplate.AutoGenerateColumns = true;
+            TranslateGroupTools();
+            TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
         }
 
         private void radGridView_CreateCell(object sender, Telerik.WinControls.UI.GridViewCreateCellEventArgs e)
@@ -43,7 +44,6 @@ namespace OrphanageV3.Controlls
                 var cell = new GridFilterCellElement((GridViewDataColumn)e.Column, e.Row);
                 cell.FilterButton.Enabled = false;
                 e.CellElement = cell;
-                e.CellType = cell.GetType();
             }
             if (e.CellType.FullName.Contains("FilterCheckBoxCellElement"))
             {
@@ -53,7 +53,6 @@ namespace OrphanageV3.Controlls
                 cell.FilterButton.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
                 cell.FilterButton.Size = new Size(1, 1);
                 e.CellElement = cell;
-                e.CellType = cell.GetType();
             }
         }
 
@@ -62,22 +61,48 @@ namespace OrphanageV3.Controlls
             radGridView.TableElement.GridViewElement.GroupPanelElement.Text = Properties.Resources.GirdViewGroupPanelElementText;
             foreach (var elm in radGridView.TableElement.GridViewElement.GroupPanelElement.Children)
             {
-                foreach (var elm1 in elm.Children)
-                {
-                    foreach (var elm2 in elm1.Children)
+                if (elm is LightVisualElement)
+                    if (((LightVisualElement)elm).Text == "Group by:")
                     {
-                        if (elm2 is LightVisualElement)
+                        ((LightVisualElement)elm).Text = Properties.Resources.GridViewGroupByText;
+                        break;
+                    }
+            }
+        }
+        private void TranslatePagingPanel(RadElementCollection elementCollection)
+        {
+            foreach (var ele in elementCollection)
+            {
+                try
+                {
+                    if (ele.Children != null && ele.Children.Count > 0)
+                    {
+                        TranslatePagingPanel(ele.Children);
+                    }
+                    else
+                        ele.RightToLeft = false;
+                    if (ele is CommandBarLabel)
+                    {
+                        if (((CommandBarLabel)ele).Text.ToLower() == "page")
+                            ((CommandBarLabel)ele).Text = Properties.Resources.Page;
+                        if (((CommandBarLabel)ele).Text.ToLower() == "of")
+                            ((CommandBarLabel)ele).Text = Properties.Resources.of;
+                    }
+                    if (ele is CommandBarButton)
+                    {
+                        var btn = (CommandBarButton)ele;
+                        var arrowImg = btn.Image;
+                        if (arrowImg != null && !IsButtonsRotated)
                         {
-                            LightVisualElement Xobj = (LightVisualElement)elm2;
-                            if (Xobj.Text == "Group by:")
-                            {
-                                Xobj.Text = Properties.Resources.GridViewGroupByText;
-                                break;
-                            }
+                            arrowImg.RotateFlip(RotateFlipType.Rotate180FlipY);
                         }
                     }
                 }
+                catch
+                {
+                }
             }
+            IsButtonsRotated = true;
         }
         private void TranslateColumnsNames()
         {
@@ -88,12 +113,16 @@ namespace OrphanageV3.Controlls
                 if (translatedText != null)
                 {
                     col.HeaderText = translatedText;
+                    col.VisibleInColumnChooser = true;
                 }
                 else
                 {
                     col.IsVisible = false;
+                    col.VisibleInColumnChooser = false;
                 }
             }
+            radGridView.ColumnChooser.Text = "الأعمدة";
+            radGridView.ColumnChooser.ColumnChooserControl.ColumnChooserElement.Text = "اسحب الأعمدة من و إلى الشبكة";
         }
         private void changeColumnsDateTimeFormat()
         {
@@ -112,6 +141,7 @@ namespace OrphanageV3.Controlls
             TranslateColumnsNames();
             TranslateGroupTools();
             changeColumnsDateTimeFormat();
+            TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
         }
 
         private void radGridView_RowFormatting(object sender, RowFormattingEventArgs e)
@@ -143,6 +173,22 @@ namespace OrphanageV3.Controlls
                     }
                 }
             }
+        }
+
+        private void radGridView_GroupByChanged(object sender, GridViewCollectionChangedEventArgs e)
+        {
+            TranslateGroupTools();
+            TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
+        }
+        private void radGridView_PageChanged(object sender, EventArgs e)
+        {
+            TranslateGroupTools();
+            TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
+        }
+
+        private void radGridView_BindingContextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

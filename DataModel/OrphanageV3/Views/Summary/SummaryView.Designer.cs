@@ -126,6 +126,7 @@
             this.gridOrphans.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gridOrphans.Size = new System.Drawing.Size(637, 377);
             this.gridOrphans.TabIndex = 0;
+            this.gridOrphans.BindingContextChanged += new System.EventHandler(this.gridOrphans_BindingContextChanged);
             // 
             // SummaryView
             // 

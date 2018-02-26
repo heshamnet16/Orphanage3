@@ -304,4 +304,10 @@
   <data name="GridViewGroupByText" xml:space="preserve">
     <value>تجميع بواسطة :</value>
   </data>
+  <data name="of" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>صفحة</value>
+  </data>
 </root>

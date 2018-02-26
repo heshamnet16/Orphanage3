@@ -430,6 +430,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die من ähnelt.
+        /// </summary>
+        public static string of {
+            get {
+                return ResourceManager.GetString("of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عمر اليتيم ähnelt.
         /// </summary>
         public static string OrphanAge {
@@ -588,6 +597,15 @@ namespace OrphanageV3.Properties {
         public static string OrphanWeight {
             get {
                 return ResourceManager.GetString("OrphanWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صفحة ähnelt.
+        /// </summary>
+        public static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
             }
         }
         
