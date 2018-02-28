@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>OrphanageV3.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
@@ -98,7 +101,10 @@
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\ApiClient.cs" />
+    <Compile Include="Services\ApiClientPhotos.cs" />
+    <Compile Include="Services\Interfaces\IMapperService.cs" />
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
+    <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\TranslateService.cs" />
     <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
@@ -139,7 +145,6 @@
       <DependentUpon>SummaryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\OrphanageV3.ViewModel.Orphan.OrphansViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,5 +1,10 @@
-﻿using System;
-
+﻿using OrphanageV3.Services;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using Unity;
 namespace OrphanageV3.ViewModel.Orphan
 {
     public class OrphanModel
@@ -29,15 +34,15 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public bool IsExcluded { get; set; }
 
-        public decimal Color { get; set; }
+        public decimal ColorMark { get; set; }
 
-        public DateTime RegisteryDate { get; set; }
+        public DateTime RegDate { get; set; }
 
         public int Weight { get; set; }
 
         public int Tallness { get; set; }
 
-        public string IdentityNumber { get; set; }
+        public string IdentityCardNumber { get; set; }
 
         public int FootSize { get; set; }
 
@@ -54,7 +59,13 @@ namespace OrphanageV3.ViewModel.Orphan
         public string CaregiverLastName { get; set; }
         public string CaregiverFirstName { get; set; }
 
-        public string OrphanConsanguinityToCaregiver { get; set; }
+        public string ConsanguinityToCaregiver { get; set; }
 
+        public string FacePhotoURI { get; set; }
+
+        public Image Photo
+        {
+            get; set;
+        }
     }
 }

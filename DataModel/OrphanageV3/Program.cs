@@ -1,7 +1,10 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Unity;
 
@@ -19,7 +22,7 @@ namespace OrphanageV3
             Factory = BuildContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Summary.SummaryView());
+            Application.Run(new Views.Orphan.OrphansView());
         }
 
         public static IUnityContainer BuildContainer()
@@ -27,6 +30,7 @@ namespace OrphanageV3
             var currentContainer = new UnityContainer();
             currentContainer.RegisterSingleton<IApiClient, ApiClient>();
             currentContainer.RegisterSingleton<ITranslateService,TranslateService>();
+            currentContainer.RegisterSingleton<IMapperService, MapperService>();
             return currentContainer;
         }
     }

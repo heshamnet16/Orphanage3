@@ -66,7 +66,6 @@
             this.radGridView.MasterTemplate.EnableFiltering = true;
             this.radGridView.MasterTemplate.EnablePaging = true;
             this.radGridView.MasterTemplate.MultiSelect = true;
-            this.radGridView.MasterTemplate.PageSize = 30;
             this.radGridView.MasterTemplate.ShowFilterCellOperatorText = false;
             this.radGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.radGridView.Name = "radGridView";

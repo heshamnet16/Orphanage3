@@ -18,7 +18,7 @@ namespace OrphanageV3.Controlls
     public partial class OrphanageGridView : UserControl
     {
         private readonly ITranslateService _translateService;
-        private string _ColorColumnName = "Color";
+        private string _ColorColumnName = "ColorMark";
         private bool IsButtonsRotated = false;
         public Telerik.WinControls.UI.RadGridView GridView
         {
@@ -121,8 +121,8 @@ namespace OrphanageV3.Controlls
                     col.VisibleInColumnChooser = false;
                 }
             }
-            radGridView.ColumnChooser.Text = "الأعمدة";
-            radGridView.ColumnChooser.ColumnChooserControl.ColumnChooserElement.Text = "اسحب الأعمدة من و إلى الشبكة";
+            radGridView.ColumnChooser.Text = Properties.Resources.Columns;
+            radGridView.ColumnChooser.ColumnChooserControl.ColumnChooserElement.Text = Properties.Resources.DragAndDropColumnHere;
         }
         private void changeColumnsDateTimeFormat()
         {
@@ -149,13 +149,14 @@ namespace OrphanageV3.Controlls
             if (radGridView.Columns.Contains(_ColorColumnName))
             {
                 var row = e.RowElement.RowInfo;
+
+                e.RowElement.DrawFill = true;
                 if (row.Cells[_ColorColumnName].Value != null)
                 {
-                    var colorDecimal = (int)row.Cells[_ColorColumnName].Value;
-                    var ColorMark = Color.FromArgb(colorDecimal);
-                    if (ColorMark != Color.Black)
+                    var colorDecimal = row.Cells[_ColorColumnName].Value;
+                    var ColorMark = Color.FromArgb(int.Parse(colorDecimal.ToString()));
+                    if (ColorMark != Color.White && ColorMark != Color.Black && int.Parse(colorDecimal.ToString()) != 0)
                     {
-                        e.RowElement.DrawFill = true;
                         if (Properties.Settings.Default.UseBackgroundColor)
                         {
                             e.RowElement.GradientStyle = GradientStyles.Solid;
@@ -170,6 +171,11 @@ namespace OrphanageV3.Controlls
                             e.RowElement.ForeColor = ColorMark;
                             e.RowElement.BackColor = Color.White;
                         }
+                    }
+                    else
+                    {
+                        e.RowElement.ForeColor = Color.Black;
+                        e.RowElement.BackColor = Color.White;
                     }
                 }
             }

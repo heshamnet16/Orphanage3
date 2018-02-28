@@ -166,7 +166,7 @@
     <value>ايتام</value>
     <comment>OrphanView</comment>
   </data>
-  <data name="RegisterDate" xml:space="preserve">
+  <data name="RegDate" xml:space="preserve">
     <value>تاريخ التسجيل</value>
   </data>
   <data name="OrphanStory" xml:space="preserve">
@@ -232,7 +232,7 @@
   <data name="GuarantorID" xml:space="preserve">
     <value>رقم الكفيل</value>
   </data>
-  <data name="IdentityNumber" xml:space="preserve">
+  <data name="IdentityCardNumber" xml:space="preserve">
     <value>رقم الهوية</value>
   </data>
   <data name="IsBailed" xml:space="preserve">
@@ -309,5 +309,14 @@
   </data>
   <data name="Page" xml:space="preserve">
     <value>صفحة</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>صورة</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>الأعمدة</value>
+  </data>
+  <data name="DragAndDropColumnHere" xml:space="preserve">
+    <value>اسحب الأعمدة من و إلى الشبكة</value>
   </data>
 </root>

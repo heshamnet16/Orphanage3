@@ -64,6 +64,7 @@ namespace OrphanageService.Services
                 if (totalSkiped < 0) totalSkiped = 0;
                 var orphans = await _orphanageDBC.Orphans.AsNoTracking()
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
+                    .Include(o => o.Education)
                     .Include(o => o.Name)
                     .Include(o => o.Caregiver.Name)
                     .Include(o => o.Caregiver.Address)
@@ -72,6 +73,8 @@ namespace OrphanageService.Services
                     .Include(o => o.Family.PrimaryAddress)
                     .Include(o => o.Family.AlternativeAddress)
                     .Include(o => o.Guarantor.Name)
+                    .Include(o => o.Bail)
+                    .Include(o => o.HealthStatus)
                     .ToListAsync();
 
                 foreach (var orphan in orphans)

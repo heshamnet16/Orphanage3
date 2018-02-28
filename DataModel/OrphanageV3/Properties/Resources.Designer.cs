@@ -142,11 +142,29 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الأعمدة ähnelt.
+        /// </summary>
+        public static string Columns {
+            get {
+                return ResourceManager.GetString("Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الصلة بالمعيل ähnelt.
         /// </summary>
         public static string ConsanguinityToCaregiver {
             get {
                 return ResourceManager.GetString("ConsanguinityToCaregiver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسحب الأعمدة من و إلى الشبكة ähnelt.
+        /// </summary>
+        public static string DragAndDropColumnHere {
+            get {
+                return ResourceManager.GetString("DragAndDropColumnHere", resourceCulture);
             }
         }
         
@@ -324,9 +342,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die رقم الهوية ähnelt.
         /// </summary>
-        public static string IdentityNumber {
+        public static string IdentityCardNumber {
             get {
-                return ResourceManager.GetString("IdentityNumber", resourceCulture);
+                return ResourceManager.GetString("IdentityCardNumber", resourceCulture);
             }
         }
         
@@ -610,11 +628,20 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صورة ähnelt.
+        /// </summary>
+        public static string Photo {
+            get {
+                return ResourceManager.GetString("Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ التسجيل ähnelt.
         /// </summary>
-        public static string RegisterDate {
+        public static string RegDate {
             get {
-                return ResourceManager.GetString("RegisterDate", resourceCulture);
+                return ResourceManager.GetString("RegDate", resourceCulture);
             }
         }
         
