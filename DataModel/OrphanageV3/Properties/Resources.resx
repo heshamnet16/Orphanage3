@@ -132,9 +132,6 @@
   <data name="Color" xml:space="preserve">
     <value>اللون</value>
   </data>
-  <data name="Excluded" xml:space="preserve">
-    <value>مستبعد</value>
-  </data>
   <data name="FatherName" xml:space="preserve">
     <value>اسم الأب</value>
   </data>
@@ -150,7 +147,7 @@
   <data name="ID" xml:space="preserve">
     <value>الرقم</value>
   </data>
-  <data name="MotherName" xml:space="preserve">
+  <data name="MotherFirstName" xml:space="preserve">
     <value>اسم الأم</value>
   </data>
   <data name="OrphanFirstName" xml:space="preserve">
@@ -292,7 +289,7 @@
   <data name="OrphanIsSick" xml:space="preserve">
     <value>اليتيم مريض</value>
   </data>
-  <data name="StudyReasons" xml:space="preserve">
+  <data name="StudyNonStudyingReasons" xml:space="preserve">
     <value>اسباب التخلف عن الدراسة</value>
   </data>
   <data name="StudyStage" xml:space="preserve">
@@ -371,13 +368,145 @@
   <data name="Exclude" xml:space="preserve">
     <value>استبعاد</value>
   </data>
-  <data name="String" xml:space="preserve">
-    <value>retObject</value>
-  </data>
   <data name="UnExclude" xml:space="preserve">
     <value>الغاء الاستبعاد</value>
   </data>
   <data name="Detele" xml:space="preserve">
     <value>حذف</value>
+  </data>
+  <data name="CaregiverFullName" xml:space="preserve">
+    <value>اسم المعيل الكامل</value>
+  </data>
+  <data name="FatherFatherName" xml:space="preserve">
+    <value>اسم الجد</value>
+  </data>
+  <data name="FatherFullName" xml:space="preserve">
+    <value>اسم الاب الكامل</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="MotherFatherName" xml:space="preserve">
+    <value>اسم اب الأم</value>
+  </data>
+  <data name="MotherFullName" xml:space="preserve">
+    <value>اسم الأم الكامل</value>
+  </data>
+  <data name="Story" xml:space="preserve">
+    <value>القصة</value>
+  </data>
+  <data name="Tallness" xml:space="preserve">
+    <value>الطول</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>الوزن</value>
+  </data>
+  <data name="BooleanFalse" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="BooleanTrue" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="MotherIsDead" xml:space="preserve">
+    <value>الأم متوفية</value>
+  </data>
+  <data name="AndString" xml:space="preserve">
+    <value>و</value>
+  </data>
+  <data name="BrothersCountString" xml:space="preserve">
+    <value>عدد الأخوة</value>
+  </data>
+  <data name="DaysAccusativeString" xml:space="preserve">
+    <value>يوماً</value>
+  </data>
+  <data name="DaysString" xml:space="preserve">
+    <value>أيام</value>
+  </data>
+  <data name="DayString" xml:space="preserve">
+    <value>يوم</value>
+  </data>
+  <data name="FemalesString" xml:space="preserve">
+    <value>الإناث</value>
+  </data>
+  <data name="LessThanDayString" xml:space="preserve">
+    <value>أقل من يوم</value>
+  </data>
+  <data name="LessThanMonthString" xml:space="preserve">
+    <value>أقل من شهر</value>
+  </data>
+  <data name="LessThanYearString" xml:space="preserve">
+    <value>اقل من سنة</value>
+  </data>
+  <data name="MalesString" xml:space="preserve">
+    <value>الذكور</value>
+  </data>
+  <data name="MonthesAccusativeString" xml:space="preserve">
+    <value>شهراً</value>
+  </data>
+  <data name="MonthesString" xml:space="preserve">
+    <value>أشهر</value>
+  </data>
+  <data name="MonthString" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="MotherHusbandName" xml:space="preserve">
+    <value>اسم زوج الأم</value>
+  </data>
+  <data name="MotherIsMarried" xml:space="preserve">
+    <value>الأم متزوجة</value>
+  </data>
+  <data name="TowDaysString" xml:space="preserve">
+    <value>يومان</value>
+  </data>
+  <data name="TowMonthesString" xml:space="preserve">
+    <value>شهران</value>
+  </data>
+  <data name="TowYearsString" xml:space="preserve">
+    <value>سنتين</value>
+  </data>
+  <data name="YearsString" xml:space="preserve">
+    <value>سنوات</value>
+  </data>
+  <data name="YearString" xml:space="preserve">
+    <value>سنة</value>
+  </data>
+  <data name="BailAmount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="BailIsEnded" xml:space="preserve">
+    <value>كفالة منتهية</value>
+  </data>
+  <data name="BailIsFamily" xml:space="preserve">
+    <value>كفالة عائلية</value>
+  </data>
+  <data name="BailIsMonthly" xml:space="preserve">
+    <value>كفالة شهرية</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>الكلفة</value>
+  </data>
+  <data name="GuarantorName" xml:space="preserve">
+    <value>اسم الكفيل</value>
+  </data>
+  <data name="HealthMedicen" xml:space="preserve">
+    <value>الأدوية</value>
+  </data>
+  <data name="HealthSicknessName" xml:space="preserve">
+    <value>اسم المرض</value>
+  </data>
+  <data name="IsStudying" xml:space="preserve">
+    <value>يدرس</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>السبب</value>
+  </data>
+  <data name="StudyAvaregeGrade" xml:space="preserve">
+    <value>معدل الدرجات</value>
+  </data>
+  <data name="StudyNonStudyKeyword" xml:space="preserve">
+    <value>متخلف</value>
+  </data>
+  <data name="StudySchoolName" xml:space="preserve">
+    <value>اسم المدرسة</value>
   </data>
 </root>

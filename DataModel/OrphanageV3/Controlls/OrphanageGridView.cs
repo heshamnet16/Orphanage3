@@ -220,5 +220,11 @@ namespace OrphanageV3.Controlls
             radGridView.ColumnChooser.Show(ParentForm);
         }
 
+        private void radGridView_LayoutLoaded(object sender, LayoutLoadedEventArgs e)
+        {
+            TranslateGroupTools();
+            TranslateColumnsChooser();
+            TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
+        }
     }
 }

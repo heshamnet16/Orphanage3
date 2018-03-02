@@ -31,9 +31,6 @@ namespace OrphanageV3.Views.Orphan
             _orphansViewModel.PhotoLoadedEvent += OrphansViewModel_PhotoLoadedEvent;
             orphanageGridView1.GridView.PageChanging += GridView_PageChanging;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
-            orphanageGridView1.GridView.TableElement.RowHeight = 80;
-            orphanageGridView1.GridView.AllowAutoSizeColumns = true;
-            orphanageGridView1.GridView.PageSize = 10;
             orphanageGridView1.HideShowColumnName = "IsExcluded";
             // set RadGridHelper
             _radGridHelper.GridView = orphanageGridView1.GridView;
@@ -41,11 +38,11 @@ namespace OrphanageV3.Views.Orphan
 
         private void GridView_SelectionChanged(object sender, EventArgs e)
         {
-            UpdateOrphanPicture();
-            UpdateControls();
+            UpdateOrphanPictureAndDetails();
+            UpdateControls();            
         }
 
-        private void UpdateOrphanPicture()
+        private void UpdateOrphanPictureAndDetails()
         {
             if (upadteImageDetailsThread != null && upadteImageDetailsThread.IsAlive)
                 upadteImageDetailsThread.Abort();
@@ -54,8 +51,10 @@ namespace OrphanageV3.Views.Orphan
                 if (orphanageGridView1.GridView.SelectedRows.Count == 1)
                 {
                     var id = (int)_radGridHelper.GetValueBySelectedRow("ID");
-                    picPhoto.Image = await _orphansViewModel.GetOrphanFacePhoto(id);
-
+                    var photoTask = _orphansViewModel.GetOrphanFacePhoto(id);
+                    picPhoto.Image = await photoTask;
+                    BeginInvoke( new MethodInvoker( async () => { txtDetails.Text = await _orphansViewModel.GetOrphanSummary(id); }));
+                    
                 }
             }));
             upadteImageDetailsThread.Priority = ThreadPriority.Highest;
@@ -133,7 +132,15 @@ namespace OrphanageV3.Views.Orphan
 
         private void OrphansView_Load(object sender, EventArgs e)
         {
+            //load saved layout 
+            if (System.IO.File.Exists(Properties.Settings.Default.OrphanLayoutFilePath))
+                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.OrphanLayoutFilePath);
+            //load orphans data
             _orphansViewModel.LoadData();
+            //set default grid values
+            orphanageGridView1.GridView.TableElement.RowHeight = 80;
+            orphanageGridView1.GridView.AllowAutoSizeColumns = true;
+            orphanageGridView1.GridView.PageSize = 10;
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
@@ -167,6 +174,11 @@ namespace OrphanageV3.Views.Orphan
         private void btnColumn_Click(object sender, EventArgs e)
         {
             orphanageGridView1.ShowColumnsChooser();
+        }
+
+        private void OrphansView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.OrphanLayoutFilePath);
         }
     }
 }

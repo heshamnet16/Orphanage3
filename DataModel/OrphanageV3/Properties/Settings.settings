@@ -11,5 +11,14 @@
     <Setting Name="ShowHiddenRows" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="UseFatherName" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AddressSeparator" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">-</Value>
+    </Setting>
+    <Setting Name="OrphanLayoutFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Orphan.layout</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

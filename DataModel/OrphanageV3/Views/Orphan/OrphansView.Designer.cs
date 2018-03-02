@@ -54,8 +54,8 @@
             this.splitPanel4 = new Telerik.WinControls.UI.SplitPanel();
             this.txtDetails = new Telerik.WinControls.UI.RadTextBox();
             this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
-            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
+            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).BeginInit();
@@ -428,7 +428,6 @@
             this.txtDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDetails.Size = new System.Drawing.Size(266, 245);
             this.txtDetails.TabIndex = 0;
-            this.txtDetails.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // splitPanel2
             // 
@@ -446,11 +445,6 @@
             this.splitPanel2.TabStop = false;
             this.splitPanel2.Text = "splitPanel2";
             // 
-            // radColorDialog
-            // 
-            this.radColorDialog.AnyColor = true;
-            this.radColorDialog.FullOpen = true;
-            // 
             // orphanageGridView1
             // 
             this.orphanageGridView1.ColorColumnName = "ColorMark";
@@ -461,6 +455,11 @@
             this.orphanageGridView1.ShowHiddenRows = true;
             this.orphanageGridView1.Size = new System.Drawing.Size(1057, 493);
             this.orphanageGridView1.TabIndex = 0;
+            // 
+            // radColorDialog
+            // 
+            this.radColorDialog.AnyColor = true;
+            this.radColorDialog.FullOpen = true;
             // 
             // OrphansView
             // 
@@ -476,6 +475,7 @@
             this.RootElement.ApplyShapeToControl = true;
             this.ShowInTaskbar = false;
             this.Text = "";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrphansView_FormClosing);
             this.Load += new System.EventHandler(this.OrphansView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).EndInit();

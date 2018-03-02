@@ -26,6 +26,7 @@ namespace OrphanageService.Services
                 var bail = await dbContext.Bails.AsNoTracking()
                     .Include(b => b.Account)
                     .Include(b => b.Guarantor)
+                    .Include(b => b.Guarantor.Name)
                     .FirstOrDefaultAsync(b => b.Id == Bid);
 
                 if (bail == null) return null;
@@ -50,6 +51,7 @@ namespace OrphanageService.Services
                     .OrderBy(c => c.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(b => b.Account)
                     .Include(b => b.Guarantor)
+                    .Include(b => b.Guarantor.Name)
                     .ToListAsync();
 
                 foreach (var bail in bails)

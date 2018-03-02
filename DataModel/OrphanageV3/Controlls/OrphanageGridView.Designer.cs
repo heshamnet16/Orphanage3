@@ -80,6 +80,7 @@
             this.radGridView.PageChanged += new System.EventHandler<System.EventArgs>(this.radGridView_PageChanged);
             this.radGridView.DataBindingComplete += new Telerik.WinControls.UI.GridViewBindingCompleteEventHandler(this.radGridView_DataBindingComplete);
             this.radGridView.GroupByChanged += new Telerik.WinControls.UI.GridViewCollectionChangedEventHandler(this.radGridView_GroupByChanged);
+            this.radGridView.LayoutLoaded += new Telerik.WinControls.UI.LayoutLoadedEventHandler(this.radGridView_LayoutLoaded);
             this.radGridView.BindingContextChanged += new System.EventHandler(this.radGridView_BindingContextChanged);
             // 
             // LayoutControl

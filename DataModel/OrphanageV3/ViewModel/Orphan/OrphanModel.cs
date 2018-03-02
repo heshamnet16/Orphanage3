@@ -13,14 +13,18 @@ namespace OrphanageV3.ViewModel.Orphan
         public int FatherID { get; set; }
         public int MotherID { get; set; }
 
+        public string FullName { get; set; }
+
         public string FirstName { get; set; }
         public string FatherName { get; set; }
         public string LastName { get; set; }
         public string GrandFatherName { get; set; }
+        public string FatherFullName { get; set; }
 
         public string MotherFatherName { get; set; }
         public string MotherLastName { get; set; }
         public string MotherFirstName { get; set; }
+        public string MotherFullName { get; set; }
 
         public DateTime Birthday { get; set; }
 
@@ -58,6 +62,7 @@ namespace OrphanageV3.ViewModel.Orphan
         public string CaregiverFatherName { get; set; }
         public string CaregiverLastName { get; set; }
         public string CaregiverFirstName { get; set; }
+        public string CaregiverFullName { get; set; }
 
         public string ConsanguinityToCaregiver { get; set; }
 

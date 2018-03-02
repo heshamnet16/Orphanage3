@@ -34,6 +34,7 @@ namespace OrphanageV3
             currentContainer.RegisterSingleton<ITranslateService,TranslateService>();
             currentContainer.RegisterSingleton<IMapperService, MapperService>();
             currentContainer.RegisterSingleton<IRadGridHelper, RadGridHelper>();
+            currentContainer.RegisterSingleton<IDataFormatterService, DataFormatterService>();
             return currentContainer;
         }
     }
