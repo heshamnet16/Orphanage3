@@ -9,5 +9,6 @@ namespace OrphanageV3.Services.Interfaces
     public interface ITranslateService
     {
         string Translate(string source);
+        bool IsBoy(string arabicGender);
     }
 }

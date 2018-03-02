@@ -14,19 +14,22 @@ namespace OrphanageV3.ViewModel.Orphan
     {
         private readonly IApiClient _apiClient;
         private readonly IMapperService _mapperService;
+        private readonly ITranslateService _translateService;
+
         public delegate void OrphansChnagedDelegate();
-        public delegate void OrphanChnagedDelegate(int Oid,Image newPhoto);
+        public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
         public event OrphansChnagedDelegate OrphansChangedEvent;
         public event OrphanChnagedDelegate PhotoLoadedEvent;
         public IEnumerable<OrphanModel> Orphans { get; set; }
-
+        private IEnumerable<OrphanageV3.Services.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
         private int PhotoCompressRatio = 70;
 
-        public OrphansViewModel(IApiClient apiClient,IMapperService mapperService)
+        public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
+            _translateService = translateService;
         }
         public void LoadData()
         {
@@ -37,6 +40,7 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             var Ocounts = await _apiClient.OrphansController_GetOrphansCountAsync();
             var ReturnedOrphans = await _apiClient.OrphansController_GetAllAsync(Ocounts, 0);
+            _SourceOrphans = ReturnedOrphans;
             Orphans = _mapperService.MapToOrphanModel(ReturnedOrphans);
             OrphansChangedEvent?.Invoke();
             //get first page orphan ids
@@ -46,32 +50,70 @@ namespace OrphanageV3.ViewModel.Orphan
         }
 
         public async Task LoadImages(IList<int> lst)
-        {            
+        {
             foreach (var id in lst)
             {
-                    try
+                try
+                {
+                    var orp = Orphans.FirstOrDefault(o => o.ID == id);
+                    var img = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
+                    if (img == null)
                     {
-                        var orp = Orphans.FirstOrDefault(o => o.ID == id);
-                        orp.Photo = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize , PhotoCompressRatio);
-                        PhotoLoadedEvent?.Invoke(orp.ID, orp.Photo);
+                        img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoy, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirl, PhotoSize);
                     }
-                    catch  {    }
+                    PhotoLoadedEvent?.Invoke(orp.ID, img);
+                }
+                catch { }
             }
         }
 
         public async Task<Image> GetOrphanFacePhoto(int id)
-        {            
+        {
             try
             {
-                string url = Orphans.FirstOrDefault(o => o.ID == id)?.FacePhotoURI;
+                var orp = Orphans.FirstOrDefault(o => o.ID == id);
+                if (orp == null) return null;
+                string url = orp.FacePhotoURI;
                 if (url != null)
                 {
                     var img = await _apiClient.GetImage(url);
+                    if (img == null)
+                    {
+                        img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoy : Properties.Resources.UnknownGirl;
+                    }
                     return img;
                 }
                 return null;
             }
             catch { return null; }
+        }
+
+        public async Task<bool> DeleteOrphan(int Oid)
+        {
+            try
+            {
+                await _apiClient.OrphansController_DeleteAsync(Oid);
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> ExcludeOrphan(int Oid)
+        {
+            try
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                orphan.IsExcluded = true;
+                await _apiClient.OrphansController_PutAsync(orphan);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

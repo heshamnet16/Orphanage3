@@ -110,6 +110,8 @@
     <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
+    <Compile Include="Views\Helper\Interfaces\IRadGridHelper.cs" />
+    <Compile Include="Views\Helper\RadGridHelper.cs" />
     <Compile Include="Views\Orphan\OrphansView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +162,52 @@
   </ItemGroup>
   <ItemGroup>
     <!--sirinie -->
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unhide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ColorPicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siblings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Parents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mother.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Father.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Columns.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UnknownBoy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UnknownGirl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UnknownMale.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

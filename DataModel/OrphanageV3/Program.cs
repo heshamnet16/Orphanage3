@@ -1,5 +1,7 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.Views.Helper;
+using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Drawing;
 using System.IO;
@@ -31,6 +33,7 @@ namespace OrphanageV3
             currentContainer.RegisterSingleton<IApiClient, ApiClient>();
             currentContainer.RegisterSingleton<ITranslateService,TranslateService>();
             currentContainer.RegisterSingleton<IMapperService, MapperService>();
+            currentContainer.RegisterSingleton<IRadGridHelper, RadGridHelper>();
             return currentContainer;
         }
     }

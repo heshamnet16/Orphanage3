@@ -609,6 +609,9 @@ namespace OrphanageService.Services
             {
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
                 {
+                    bool deleteEducation = false;
+                    bool deleteHealth = false;
+                    int? healthId = null, eduId = null;
                     var orphanTodelete = await orphanageDbc.Orphans.
                         Include(o => o.Education).
                         Include(o => o.HealthStatus).
@@ -618,30 +621,37 @@ namespace OrphanageService.Services
                         throw new ObjectNotFoundException();
                     if (orphanTodelete.Education != null)
                     {
-                        var eduId = orphanTodelete.EducationId.Value;
+                        deleteEducation = true;
+                        eduId = orphanTodelete.EducationId.Value;
                         orphanTodelete.EducationId = null;
-                        await orphanageDbc.SaveChangesAsync();
-                        if (!await _regularDataService.DeleteStudy(eduId, orphanageDbc))
-                        {
-                            dbT.Rollback();
-                            return false;
-                        }
                     }
                     if (orphanTodelete.HealthStatus != null)
                     {
-                        var healthId = orphanTodelete.HealthId.Value;
+                        deleteHealth = true;
+                        healthId = orphanTodelete.HealthId.Value;
                         orphanTodelete.HealthId = null;
-                        await orphanageDbc.SaveChangesAsync();
-                        if (!await _regularDataService.DeleteHealth(healthId, orphanageDbc))
-                        {
-                            dbT.Rollback();
-                            return false;
-                        }
                     }
+
                     orphanageDbc.Orphans.Remove(orphanTodelete);
 
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
+                        if(deleteEducation)
+                        {
+                            if (!await _regularDataService.DeleteStudy(eduId.Value, orphanageDbc))
+                            {
+                                dbT.Rollback();
+                                return false;
+                            }
+                        }
+                        if(deleteHealth)
+                        {
+                            if (!await _regularDataService.DeleteHealth(healthId.Value, orphanageDbc))
+                            {
+                                dbT.Rollback();
+                                return false;
+                            }
+                        }
                         dbT.Commit();
                         return true;
                     }

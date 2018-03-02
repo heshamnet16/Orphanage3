@@ -14,6 +14,14 @@ namespace OrphanageV3.Services
         {
         }
 
+        public bool IsBoy(string arabicGender)
+        {
+            if (arabicGender.Contains("ذ"))
+                return true;
+            else
+                return false;
+        }
+
         public string Translate(string source)
         {
             if (source == null) return null;
@@ -27,5 +35,6 @@ namespace OrphanageV3.Services
             }
             return null;
         }
+        
     }
 }

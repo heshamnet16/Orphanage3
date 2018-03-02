@@ -11,12 +11,15 @@ using Unity;
 using System.Linq;
 using System.Threading;
 using Telerik.WinControls.UI;
+using OrphanageV3.Views.Helper;
+using OrphanageV3.Views.Helper.Interfaces;
 
 namespace OrphanageV3.Views.Orphan
 {
     public partial class OrphansView : Telerik.WinControls.UI.RadForm
     {
         private OrphansViewModel orphansViewModel = Program.Factory.Resolve<OrphansViewModel>();
+        private IRadGridHelper radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private object lockObj = new object();
         private Thread upadteImageDetailsThread;
         private IList<Thread> PagingThreads = new List<Thread>();
@@ -41,13 +44,7 @@ namespace OrphanageV3.Views.Orphan
             {
                 if (orphanageGridView1.GridView.SelectedRows.Count == 1)
                 {
-                    GridViewRowInfo row = null;
-                    int id = 0;
-                    lock (lockObj)
-                    {
-                        row = orphanageGridView1.GridView.SelectedRows[0];
-                        id = int.Parse(row.Cells["ID"].Value.ToString());
-                    }
+                    var id = getIdBySelectedRow();
                     picPhoto.Image = await orphansViewModel.GetOrphanFacePhoto(id);
 
                 }
@@ -59,8 +56,6 @@ namespace OrphanageV3.Views.Orphan
 
         private void GridView_PageChanging(object sender, PageChangingEventArgs e)
         {
-            //if (t!=null && t.IsAlive)
-            //    t.Abort();
             var t = new Thread(new ThreadStart( () =>
             {
                 IList<int> idsList = new List<int>();
@@ -77,7 +72,15 @@ namespace OrphanageV3.Views.Orphan
                     }
                 }
                 if (idsList.Count > 0)
-                   orphansViewModel.LoadImages(idsList).Wait();
+                    try
+                    {
+                        orphansViewModel.LoadImages(idsList).Wait();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040)
+                            throw ex;
+                    }
             }));
             t.Priority = ThreadPriority.Normal;
             t.IsBackground = true;
@@ -86,7 +89,10 @@ namespace OrphanageV3.Views.Orphan
             {
                 if (th.IsAlive)
                 {
-                    th.Priority = ThreadPriority.Lowest;
+                    //TODO abort or low priority
+                    //th.Priority = ThreadPriority.Lowest;
+                    t.Interrupt();
+                    th.Abort();
                 }
             }
             if (PagingThreads.Count(th => th.IsAlive) == 0)
@@ -117,6 +123,40 @@ namespace OrphanageV3.Views.Orphan
             {
                 return orphanageGridView1.GridView.Rows.FirstOrDefault(r => (int)r.Cells["ID"].Value == id);
             }
+        }
+
+        private int getIdBySelectedRow ()
+        {
+            GridViewRowInfo row = null;
+            int id = 0;
+            lock (lockObj)
+            {
+                row = orphanageGridView1.GridView.SelectedRows[0];
+                id = int.Parse(row.Cells["ID"].Value.ToString());
+            }
+            return id;
+        }
+
+        private void HideRowById(int Oid)
+        {
+            var row  = getRowById(Oid);
+            row.IsVisible = false;
+            orphanageGridView1.GridView.GridNavigator.SelectNextRow(1);
+        }
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            var id = getIdBySelectedRow();
+            var ret = await orphansViewModel.DeleteOrphan(id);
+            if (ret)
+                HideRowById(id);
+        }
+
+        private async void btnExclud_Click(object sender, EventArgs e)
+        {
+            var id = getIdBySelectedRow();
+            var ret = await orphansViewModel.ExcludeOrphan(id);
+            if (ret)
+                HideRowById(id);
         }
     }
 }
