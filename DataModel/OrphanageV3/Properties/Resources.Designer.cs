@@ -63,9 +63,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Add {
+        public static System.Drawing.Bitmap AddPic {
             get {
-                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                object obj = ResourceManager.GetObject("AddPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -82,9 +82,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Bail {
+        public static System.Drawing.Bitmap BailPic {
             get {
-                object obj = ResourceManager.GetObject("Bail", resourceCulture);
+                object obj = ResourceManager.GetObject("BailPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -164,9 +164,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ColorPicker {
+        public static System.Drawing.Bitmap ColorPickerPic {
             get {
-                object obj = ResourceManager.GetObject("ColorPicker", resourceCulture);
+                object obj = ResourceManager.GetObject("ColorPickerPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Columns1 {
+        public static System.Drawing.Bitmap ColumnsPic {
             get {
-                object obj = ResourceManager.GetObject("Columns1", resourceCulture);
+                object obj = ResourceManager.GetObject("ColumnsPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -202,10 +202,19 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap delete {
+        public static System.Drawing.Bitmap DeletePic {
             get {
-                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                object obj = ResourceManager.GetObject("DeletePic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حذف ähnelt.
+        /// </summary>
+        public static string Detele {
+            get {
+                return ResourceManager.GetString("Detele", resourceCulture);
             }
         }
         
@@ -221,10 +230,19 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Edit {
+        public static System.Drawing.Bitmap EditPic {
             get {
-                object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                object obj = ResourceManager.GetObject("EditPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die استبعاد ähnelt.
+        /// </summary>
+        public static string Exclude {
+            get {
+                return ResourceManager.GetString("Exclude", resourceCulture);
             }
         }
         
@@ -261,16 +279,6 @@ namespace OrphanageV3.Properties {
         public static string FamilyIsExcluded {
             get {
                 return ResourceManager.GetString("FamilyIsExcluded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Father {
-            get {
-                object obj = ResourceManager.GetObject("Father", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -334,6 +342,16 @@ namespace OrphanageV3.Properties {
         public static string FatherName {
             get {
                 return ResourceManager.GetString("FatherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FatherPic {
+            get {
+                object obj = ResourceManager.GetObject("FatherPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -403,9 +421,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Hide {
+        public static System.Drawing.Bitmap HidePic {
             get {
-                object obj = ResourceManager.GetObject("Hide", resourceCulture);
+                object obj = ResourceManager.GetObject("HidePic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -461,16 +479,6 @@ namespace OrphanageV3.Properties {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Mother {
-            get {
-                object obj = ResourceManager.GetObject("Mother", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -534,6 +542,16 @@ namespace OrphanageV3.Properties {
         public static string MotherName {
             get {
                 return ResourceManager.GetString("MotherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MotherPic {
+            get {
+                object obj = ResourceManager.GetObject("MotherPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -720,9 +738,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Parents {
+        public static System.Drawing.Bitmap ParentsPic {
             get {
-                object obj = ResourceManager.GetObject("Parents", resourceCulture);
+                object obj = ResourceManager.GetObject("ParentsPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -739,9 +757,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap refresh {
+        public static System.Drawing.Bitmap RefreshPic {
             get {
-                object obj = ResourceManager.GetObject("refresh", resourceCulture);
+                object obj = ResourceManager.GetObject("RefreshPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -758,10 +776,19 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap siblings {
+        public static System.Drawing.Bitmap SiblingsPic {
             get {
-                object obj = ResourceManager.GetObject("siblings", resourceCulture);
+                object obj = ResourceManager.GetObject("SiblingsPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die retObject ähnelt.
+        /// </summary>
+        public static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
             }
         }
         
@@ -784,11 +811,20 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الغاء الاستبعاد ähnelt.
+        /// </summary>
+        public static string UnExclude {
+            get {
+                return ResourceManager.GetString("UnExclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Unhide {
+        public static System.Drawing.Bitmap UnhidePic {
             get {
-                object obj = ResourceManager.GetObject("Unhide", resourceCulture);
+                object obj = ResourceManager.GetObject("UnhidePic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -796,9 +832,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap UnknownBoy {
+        public static System.Drawing.Bitmap UnknownBoyPic {
             get {
-                object obj = ResourceManager.GetObject("UnknownBoy", resourceCulture);
+                object obj = ResourceManager.GetObject("UnknownBoyPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -806,9 +842,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap UnknownGirl {
+        public static System.Drawing.Bitmap UnknownGirlPic {
             get {
-                object obj = ResourceManager.GetObject("UnknownGirl", resourceCulture);
+                object obj = ResourceManager.GetObject("UnknownGirlPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -816,9 +852,9 @@ namespace OrphanageV3.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap UnknownMale {
+        public static System.Drawing.Bitmap UnknownMalePic {
             get {
-                object obj = ResourceManager.GetObject("UnknownMale", resourceCulture);
+                object obj = ResourceManager.GetObject("UnknownMalePic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

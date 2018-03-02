@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,8 +41,12 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             var Ocounts = await _apiClient.OrphansController_GetOrphansCountAsync();
             var ReturnedOrphans = await _apiClient.OrphansController_GetAllAsync(Ocounts, 0);
-            _SourceOrphans = ReturnedOrphans;
-            Orphans = _mapperService.MapToOrphanModel(ReturnedOrphans);
+            //delete excluded orphans
+            if (Properties.Settings.Default.ShowHiddenRows)
+                _SourceOrphans = ReturnedOrphans;
+            else
+                _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
+            Orphans = _mapperService.MapToOrphanModel(_SourceOrphans);
             OrphansChangedEvent?.Invoke();
             //get first page orphan ids
             var ids = Orphans.Take(30).Select(op => op.ID).ToList();
@@ -59,7 +64,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     var img = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
                     if (img == null)
                     {
-                        img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoy, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirl, PhotoSize);
+                        img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoyPic, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirlPic, PhotoSize);
                     }
                     PhotoLoadedEvent?.Invoke(orp.ID, img);
                 }
@@ -79,7 +84,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     var img = await _apiClient.GetImage(url);
                     if (img == null)
                     {
-                        img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoy : Properties.Resources.UnknownGirl;
+                        img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
                     }
                     return img;
                 }
@@ -110,9 +115,33 @@ namespace OrphanageV3.ViewModel.Orphan
                 await _apiClient.OrphansController_PutAsync(orphan);
                 return true;
             }
-            catch
+            catch(ApiClientException apiEx)
             {
+                if (apiEx.StatusCode == "304")
+                    return true;
                 return false;
+            }
+        }
+
+        public async Task<long?> SetColor(int Oid , long? colorValue)
+        {
+            long? returnedColor = null;
+            try
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                returnedColor = orphan.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    orphan.ColorMark = colorValue;
+                else
+                    orphan.ColorMark = null;
+                await _apiClient.OrphansController_PutAsync(orphan);
+                return orphan.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                if (apiEx.StatusCode == "304")
+                    return returnedColor;
+                return null;
             }
         }
     }

@@ -320,52 +320,64 @@
     <value>اسحب الأعمدة من و إلى الشبكة</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AddPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="BailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ColorPicker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ColorPickerPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ColorPicker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Columns1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ColumnsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Columns.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="DeletePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="EditPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Father" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="FatherPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Father.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="HidePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Mother" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="MotherPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Parents" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ParentsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Parents.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="RefreshPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="siblings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="SiblingsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\siblings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Unhide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnhidePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Unhide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UnknownBoy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnknownBoyPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownBoy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UnknownGirl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnknownGirlPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownGirl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UnknownMale" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnknownMalePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownMale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exclude" xml:space="preserve">
+    <value>استبعاد</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>retObject</value>
+  </data>
+  <data name="UnExclude" xml:space="preserve">
+    <value>الغاء الاستبعاد</value>
+  </data>
+  <data name="Detele" xml:space="preserve">
+    <value>حذف</value>
   </data>
 </root>

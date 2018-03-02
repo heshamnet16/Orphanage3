@@ -19,6 +19,8 @@ namespace OrphanageV3.Controlls
     {
         private readonly ITranslateService _translateService;
         private string _ColorColumnName = "ColorMark";
+        private string _HideShowColumnName = "IsEcluded";
+        private bool _ShowHiddenRows = Properties.Settings.Default.ShowHiddenRows;
         private bool IsButtonsRotated = false;
         public Telerik.WinControls.UI.RadGridView GridView
         {
@@ -27,7 +29,10 @@ namespace OrphanageV3.Controlls
                 return this.radGridView;
             }
         }
-        public string ColorColumnName => _ColorColumnName;
+
+        public string ColorColumnName { get => _ColorColumnName; set { _ColorColumnName = value; } }
+        public string HideShowColumnName { get => _HideShowColumnName; set { _HideShowColumnName = value; } }
+        public bool ShowHiddenRows { get => _ShowHiddenRows; set { _ShowHiddenRows = value; } }
 
         public OrphanageGridView()
         {
@@ -121,6 +126,10 @@ namespace OrphanageV3.Controlls
                     col.VisibleInColumnChooser = false;
                 }
             }
+            TranslateColumnsChooser();
+        }
+        private void TranslateColumnsChooser()
+        {
             radGridView.ColumnChooser.Text = Properties.Resources.Columns;
             radGridView.ColumnChooser.ColumnChooserControl.ColumnChooserElement.Text = Properties.Resources.DragAndDropColumnHere;
         }
@@ -137,7 +146,6 @@ namespace OrphanageV3.Controlls
         }
         private void radGridView_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e)
         {
-
             TranslateColumnsNames();
             TranslateGroupTools();
             changeColumnsDateTimeFormat();
@@ -146,24 +154,25 @@ namespace OrphanageV3.Controlls
 
         private void radGridView_RowFormatting(object sender, RowFormattingEventArgs e)
         {
+            var row = e.RowElement.RowInfo;
+
             if (radGridView.Columns.Contains(_ColorColumnName))
             {
-                var row = e.RowElement.RowInfo;
-
                 e.RowElement.DrawFill = true;
                 if (row.Cells[_ColorColumnName].Value != null)
                 {
                     var colorDecimal = row.Cells[_ColorColumnName].Value;
                     var ColorMark = Color.FromArgb(int.Parse(colorDecimal.ToString()));
-                    if (ColorMark != Color.White && ColorMark != Color.Black && int.Parse(colorDecimal.ToString()) != 0)
+                    e.RowElement.GradientStyle = GradientStyles.Gel;
+                    //e.RowElement.GradientPercentage
+                    e.RowElement.BackColor2 = Color.White;
+                    e.RowElement.BackColor3 = Color.White;
+                    e.RowElement.BackColor4 = Color.White;
+                    if (ColorMark.ToArgb() != Color.White.ToArgb() && ColorMark.ToArgb() != Color.Black.ToArgb() && int.Parse(colorDecimal.ToString()) != 0)
                     {
                         if (Properties.Settings.Default.UseBackgroundColor)
                         {
-                            e.RowElement.GradientStyle = GradientStyles.Solid;
                             e.RowElement.BackColor = ColorMark;
-                            e.RowElement.BackColor2 = ColorMark;
-                            e.RowElement.BackColor3 = ColorMark;
-                            e.RowElement.BackColor4 = ColorMark;
                             e.RowElement.ForeColor = Color.Black;
                         }
                         else
@@ -177,6 +186,14 @@ namespace OrphanageV3.Controlls
                         e.RowElement.ForeColor = Color.Black;
                         e.RowElement.BackColor = Color.White;
                     }
+                }
+            }
+            if (radGridView.Columns.Contains(_HideShowColumnName))
+            {
+                if (!_ShowHiddenRows)
+                {
+                    var isHidden = (bool)row.Cells[_HideShowColumnName].Value;
+                    if (isHidden) row.IsVisible = true;
                 }
             }
         }
@@ -194,7 +211,14 @@ namespace OrphanageV3.Controlls
 
         private void radGridView_BindingContextChanged(object sender, EventArgs e)
         {
-            
+
         }
+
+        public void ShowColumnsChooser()
+        {
+            TranslateColumnsChooser();
+            radGridView.ColumnChooser.Show(ParentForm);
+        }
+
     }
 }

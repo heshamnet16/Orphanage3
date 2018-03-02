@@ -1,9 +1,11 @@
 ﻿using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telerik.WinControls;
 using Telerik.WinControls.UI;
 namespace OrphanageV3.Views.Helper
 {
@@ -29,11 +31,14 @@ namespace OrphanageV3.Views.Helper
         public object GetValueBySelectedRow(string ColumnName)
         {
             GridViewRowInfo row = null;
-            int id = 0;
+            object id = null;
             lock (LockObject)
             {
-                row = GridView.SelectedRows[0];
-                id = int.Parse(row.Cells[ColumnName].Value.ToString());
+                if (GridView.SelectedRows != null && GridView.SelectedRows.Count > 0)
+                {
+                    row = GridView.SelectedRows[0];
+                    id = row.Cells[ColumnName].Value;
+                }
             }
             return id;
         }
@@ -55,6 +60,15 @@ namespace OrphanageV3.Views.Helper
             {
                 row.IsVisible = true;
                 GridView.GridNavigator.SelectRow(row);
+            }
+        }
+
+        public void UpdateRowColor(string ColorColumnName, long? ColorValue, string ColumnName, object SearchValue)
+        {
+            var row = GetRowByColumnName(ColumnName, SearchValue);
+            lock (LockObject)
+            {
+                row.Cells[ColorColumnName].Value = ColorValue;
             }
         }
     }

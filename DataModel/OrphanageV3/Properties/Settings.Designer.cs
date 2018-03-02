@@ -40,5 +40,14 @@ namespace OrphanageV3.Properties {
                 return ((bool)(this["UseBackgroundColor"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowHiddenRows {
+            get {
+                return ((bool)(this["ShowHiddenRows"]));
+            }
+        }
     }
 }

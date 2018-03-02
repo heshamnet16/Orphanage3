@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,7 @@ namespace OrphanageV3.Views.Helper.Interfaces
         void HideRow(string ColumnName,object SearchValue);
 
         void ShowRow(string ColumnName, object SearchValue);
+
+        void UpdateRowColor(string ColorColumnName, long? ColorValue, string ColumnName, object SearchValue);
     }
 }

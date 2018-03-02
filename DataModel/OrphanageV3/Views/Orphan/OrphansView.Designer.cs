@@ -54,6 +54,7 @@
             this.splitPanel4 = new Telerik.WinControls.UI.SplitPanel();
             this.txtDetails = new Telerik.WinControls.UI.RadTextBox();
             this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
+            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).BeginInit();
@@ -161,7 +162,7 @@
             this.btnDelete.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnDelete.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnDelete.DisplayName = "CommandBarButton1";
-            this.btnDelete.Image = global::OrphanageV3.Properties.Resources.delete;
+            this.btnDelete.Image = global::OrphanageV3.Properties.Resources.DeletePic;
             this.btnDelete.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Padding = new System.Windows.Forms.Padding(0);
@@ -180,7 +181,7 @@
             this.btnEdit.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnEdit.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnEdit.DisplayName = "CommandBarButton2";
-            this.btnEdit.Image = global::OrphanageV3.Properties.Resources.Edit;
+            this.btnEdit.Image = global::OrphanageV3.Properties.Resources.EditPic;
             this.btnEdit.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(0);
@@ -213,7 +214,6 @@
             this.btnExclud.StretchHorizontally = false;
             this.btnExclud.Text = "";
             this.btnExclud.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnExclud.ToolTipText = "استبعاد";
             this.btnExclud.Click += new System.EventHandler(this.btnExclud_Click);
             // 
             // btnSetColor
@@ -222,20 +222,21 @@
             this.btnSetColor.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnSetColor.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnSetColor.DisplayName = "CommandBarButton2";
-            this.btnSetColor.Image = global::OrphanageV3.Properties.Resources.ColorPicker;
+            this.btnSetColor.Image = global::OrphanageV3.Properties.Resources.ColorPickerPic;
             this.btnSetColor.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSetColor.Name = "btnSetColor";
             this.btnSetColor.StretchHorizontally = false;
             this.btnSetColor.Text = "";
             this.btnSetColor.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnSetColor.ToolTipText = "تعيين لون";
+            this.btnSetColor.Click += new System.EventHandler(this.btnSetColor_Click);
             // 
             // BtnBail
             // 
             this.BtnBail.AutoSize = false;
             this.BtnBail.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.BtnBail.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.BtnBail.Image = global::OrphanageV3.Properties.Resources.Bail;
+            this.BtnBail.Image = global::OrphanageV3.Properties.Resources.BailPic;
             this.BtnBail.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBail.Name = "BtnBail";
             this.BtnBail.Text = "";
@@ -256,7 +257,7 @@
             this.btnShowSiblings.AutoSize = false;
             this.btnShowSiblings.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnShowSiblings.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnShowSiblings.Image = global::OrphanageV3.Properties.Resources.siblings;
+            this.btnShowSiblings.Image = global::OrphanageV3.Properties.Resources.SiblingsPic;
             this.btnShowSiblings.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnShowSiblings.Name = "btnShowSiblings";
             this.btnShowSiblings.Padding = new System.Windows.Forms.Padding(0);
@@ -272,7 +273,7 @@
             this.btnShowFamilies.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnShowFamilies.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowFamilies.DisplayName = "CommandBarButton2";
-            this.btnShowFamilies.Image = global::OrphanageV3.Properties.Resources.Parents;
+            this.btnShowFamilies.Image = global::OrphanageV3.Properties.Resources.ParentsPic;
             this.btnShowFamilies.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnShowFamilies.Name = "btnShowFamilies";
             this.btnShowFamilies.Text = "";
@@ -284,7 +285,7 @@
             this.btnShowMothers.AutoSize = false;
             this.btnShowMothers.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnShowMothers.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnShowMothers.Image = global::OrphanageV3.Properties.Resources.Mother;
+            this.btnShowMothers.Image = global::OrphanageV3.Properties.Resources.MotherPic;
             this.btnShowMothers.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnShowMothers.Name = "btnShowMothers";
             this.btnShowMothers.StretchHorizontally = false;
@@ -320,7 +321,7 @@
             this.btnColumn.AutoSize = false;
             this.btnColumn.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnColumn.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnColumn.Image = global::OrphanageV3.Properties.Resources.Columns1;
+            this.btnColumn.Image = global::OrphanageV3.Properties.Resources.ColumnsPic;
             this.btnColumn.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnColumn.Name = "btnColumn";
             this.btnColumn.StretchHorizontally = false;
@@ -328,6 +329,7 @@
             this.btnColumn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnColumn.TextWrap = false;
             this.btnColumn.ToolTipText = "الأعمدة";
+            this.btnColumn.Click += new System.EventHandler(this.btnColumn_Click);
             // 
             // radSplitContainer1
             // 
@@ -444,11 +446,19 @@
             this.splitPanel2.TabStop = false;
             this.splitPanel2.Text = "splitPanel2";
             // 
+            // radColorDialog
+            // 
+            this.radColorDialog.AnyColor = true;
+            this.radColorDialog.FullOpen = true;
+            // 
             // orphanageGridView1
             // 
+            this.orphanageGridView1.ColorColumnName = "ColorMark";
             this.orphanageGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orphanageGridView1.HideShowColumnName = "IsEcluded";
             this.orphanageGridView1.Location = new System.Drawing.Point(0, 0);
             this.orphanageGridView1.Name = "orphanageGridView1";
+            this.orphanageGridView1.ShowHiddenRows = true;
             this.orphanageGridView1.Size = new System.Drawing.Size(1057, 493);
             this.orphanageGridView1.TabIndex = 0;
             // 
@@ -516,5 +526,6 @@
         internal Telerik.WinControls.UI.CommandBarButton btnShowFathers;
         internal Telerik.WinControls.UI.CommandBarSeparator btnSep3;
         internal Telerik.WinControls.UI.CommandBarButton btnColumn;
+        private System.Windows.Forms.ColorDialog radColorDialog;
     }
 }
