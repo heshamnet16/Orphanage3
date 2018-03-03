@@ -56,6 +56,14 @@ namespace OrphanageService.Mother.Controllers
         }
 
         [HttpGet]
+        [Route("count")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetMotherCount()
+        {
+            return await _MotherDBService.GetMotherCount();
+        }
+
+        [HttpGet]
         [Route("orphans/{MotherID}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int MotherID)

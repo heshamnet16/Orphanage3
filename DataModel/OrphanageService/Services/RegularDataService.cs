@@ -202,7 +202,7 @@ namespace OrphanageService.Services
 
         public async Task<bool> DeleteStudy(int studyId, OrphanageDbCNoBinary orphanageDBC)
         {
-            var studyTodelete = await orphanageDBC.Studies.FirstOrDefaultAsync(a => a.Id == studyId);
+            var studyTodelete = await orphanageDBC.Studies.Include(s=>s.Orphans).FirstOrDefaultAsync(a => a.Id == studyId);
             if (studyTodelete.Orphans == null || studyTodelete.Orphans.Count == 0)
             {
                 orphanageDBC.Studies.Remove(studyTodelete);
