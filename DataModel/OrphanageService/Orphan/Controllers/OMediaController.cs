@@ -61,8 +61,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            //if (data == null || data.Length == 0)
+            //    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanFaceImage(Oid, data);
 
@@ -115,8 +115,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            //if (data == null || data.Length == 0)
+            //    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanBirthCertificate(Oid, data);
 
@@ -169,8 +169,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            //if (data == null || data.Length == 0)
+            //    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanFamilyCardPagePhoto(Oid, data);
 
@@ -223,8 +223,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            //if (data == null || data.Length == 0)
+            //    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanFullPhoto(Oid, data);
 
@@ -277,8 +277,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            ////if (data == null || data.Length == 0)
+            ////    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanCertificate(Oid, data);
 
@@ -331,8 +331,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            //if (data == null || data.Length == 0)
+            //    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanCertificate2(Oid, data);
 
@@ -363,8 +363,8 @@ namespace OrphanageService.Orphan.Controllers
 
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
 
-            if (data == null || data.Length == 0)
-                return _httpResponseMessageConfiguerer.NotAcceptable();
+            //if (data == null || data.Length == 0)
+            //    return _httpResponseMessageConfiguerer.NotAcceptable();
 
             var Successed = await _OrphanDBService.SetOrphanHealthReporte(Oid, data);
 

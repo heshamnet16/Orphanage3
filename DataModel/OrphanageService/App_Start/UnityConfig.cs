@@ -66,6 +66,7 @@ namespace OrphanageService
             container.RegisterType<IRegularDataService, RegularDataService>();
             container.RegisterType<IStringsFixer, StringsFixer>();
             container.RegisterType<ICheckerService, CheckerService>();
+            container.RegisterType<IExceptionHandlerService, ExceptionHandlerService>();
         }
     }
 }

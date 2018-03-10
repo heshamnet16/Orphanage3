@@ -59,15 +59,15 @@ namespace OrphanageService.Caregiver.Controllers
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
-            if (data != null)
-            {
+            //if (data != null)
+            //{
                 await _CaregiverDBService.SetIdentityCardFace(Cid, data);
                 return result;
-            }
-            else
-            {
-                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
-            }
+            //}
+            //else
+            //{
+            //    throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            //}
         }
 
         #endregion CaregiverIdentityCardPhotoFace
@@ -111,15 +111,15 @@ namespace OrphanageService.Caregiver.Controllers
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
-            if (data != null)
-            {
+            //if (data != null)
+            //{
                 await _CaregiverDBService.SetIdentityCardBack(Cid, data);
                 return result;
-            }
-            else
-            {
-                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
-            }
+            //}
+            //else
+            //{
+            //    throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            //}
         }
 
         #endregion CaregiverIdentityCardPhotoBack

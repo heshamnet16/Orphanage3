@@ -204,12 +204,12 @@ namespace OrphanageV3.ViewModel.Orphan
 
             if(orp.EducationId.HasValue && orp.Education != null)
             {
-                if (orp.Education.Stage.Contains(Properties.Resources.StudyNonStudyKeyword))
+                if (orp.Education.Stage.Contains(Properties.Resources.EducationNonStudyKeyword))
                 {
                     if (orp.Education.Reasons != null && orp.Education.Reasons.Length > 0)
                     {
                         stringBuilder.AppendLine(Properties.Resources.IsStudying + ": " + Properties.Resources.BooleanFalse);
-                        stringBuilder.AppendLine(Properties.Resources.StudyNonStudyingReasons + ": " + orp.Education.Reasons);
+                        stringBuilder.AppendLine(Properties.Resources.EducationNonStudyingReasons + ": " + orp.Education.Reasons);
                     }
                 }
                 else
@@ -217,15 +217,15 @@ namespace OrphanageV3.ViewModel.Orphan
                     stringBuilder.AppendLine(Properties.Resources.IsStudying + ": " + Properties.Resources.BooleanTrue);
                     if (orp.Education.Stage != null && orp.Education.Stage.Length > 0)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.StudyStage + ": " + orp.Education.Stage);
+                        stringBuilder.AppendLine(Properties.Resources.EducationStage + ": " + orp.Education.Stage);
                     }
                     if (orp.Education.DegreesRate.HasValue)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.StudyAvaregeGrade + ": " + orp.Education.DegreesRate.Value + "%");
+                        stringBuilder.AppendLine(Properties.Resources.EducationAvaregeGrade + ": " + orp.Education.DegreesRate.Value + "%");
                     }
                     if (orp.Education.School != null && orp.Education.School.Length > 0)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.StudySchoolName + ": " + orp.Education.School);
+                        stringBuilder.AppendLine(Properties.Resources.EducationSchoolName + ": " + orp.Education.School);
                     }
                 }                
             }

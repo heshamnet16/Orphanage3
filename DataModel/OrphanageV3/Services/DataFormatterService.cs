@@ -9,6 +9,15 @@ namespace OrphanageV3.Services
 {
     public class DataFormatterService : IDataFormatterService
     {
+        public IList<string> EnglishNameStrings { get; set; }
+
+        private readonly IApiClient _apiClient;
+
+        public DataFormatterService(IApiClient apiClient)
+        {
+            _apiClient = apiClient;
+        }
+
         public string GetAddressString(Address address)
         {
             string ret = string.Empty;

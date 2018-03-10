@@ -17,13 +17,13 @@ namespace OrphanageDataModel.RegularData
         public int Id { get; set; }
 
         [Column("Mother_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int MotherId { get; set; }
 
         public virtual Mother Mother { get; set; }
 
         [Column("Father_Id")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int FatherId { get; set; }
 
         public virtual Father Father { get; set; }
@@ -33,7 +33,7 @@ namespace OrphanageDataModel.RegularData
 
         public virtual Bail Bail { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public bool IsBailed { get; set; }
 
         [Column("Address_ID")]
@@ -46,7 +46,7 @@ namespace OrphanageDataModel.RegularData
 
         public virtual Address AlternativeAddress { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("isExcluded")]
         public bool IsExcluded { get; set; }
 
@@ -56,7 +56,7 @@ namespace OrphanageDataModel.RegularData
         [Column("FamilyCard_Num")]
         public string FamilyCardNumber { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("IsRefugee")]
         public bool IsTheyRefugees { get; set; }
 
@@ -69,11 +69,11 @@ namespace OrphanageDataModel.RegularData
         [Column("Color_Mark")]
         public long? ColorMark { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime RegDate { get; set; }
 
         [Column("User_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int UserId { get; set; }
 
         public virtual User ActingUser { get; set; }

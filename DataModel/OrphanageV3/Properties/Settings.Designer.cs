@@ -76,5 +76,14 @@ namespace OrphanageV3.Properties {
                 return ((string)(this["OrphanLayoutFilePath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1515/")]
+        public string OrphanageServiceURL {
+            get {
+                return ((string)(this["OrphanageServiceURL"]));
+            }
+        }
     }
 }

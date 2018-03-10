@@ -238,6 +238,7 @@ namespace OrphanageService.Services
             orginalHealth.Note = health.Note;
             orginalHealth.SicknessName = health.SicknessName;
             orginalHealth.SupervisorDoctor = health.SupervisorDoctor;
+            orginalHealth.Cost = health.Cost;
             return await orphanageDBC.SaveChangesAsync();
         }
 

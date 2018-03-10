@@ -17,12 +17,12 @@ namespace OrphanageDataModel.Persons
         public int Id { get; set; }
 
         [Column("Name")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int NameId { get; set; }
 
         public virtual Name Name { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime? Birthday { get; set; }
 
         [Column("IsExcluded")]
@@ -45,6 +45,7 @@ namespace OrphanageDataModel.Persons
         public byte[] FacePhotoData { get; set; }
 
         [Column("IdentityNumber")]
+        [MinLength(13, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string IdentityCardNumber { get; set; }
 
         public byte? FootSize { get; set; }
@@ -54,13 +55,13 @@ namespace OrphanageDataModel.Persons
         public int? Tallness { get; set; }
 
         [Column("Family_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int FamilyId { get; set; }
 
         public virtual Family Family { get; set; }
 
         [Column("IsBailed")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public bool IsBailed { get; set; }
 
         [Column("Bail_ID")]
@@ -69,7 +70,7 @@ namespace OrphanageDataModel.Persons
         public virtual Bail Bail { get; set; }
 
         [Column("BondsMan_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int CaregiverId { get; set; }
 
         public virtual Caregiver Caregiver { get; set; }
@@ -82,11 +83,11 @@ namespace OrphanageDataModel.Persons
         [Column("Color_Mark")]
         public long? ColorMark { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime RegDate { get; set; }
 
         [Column("User_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int UserId { get; set; }
 
         public virtual User ActingUser { get; set; }
@@ -96,7 +97,7 @@ namespace OrphanageDataModel.Persons
         public byte[] FingerPrint { get; set; }
 
         [Column("BondsManRel")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string ConsanguinityToCaregiver { get; set; }
 
         [Column("BirthCertificate_Photo")]
@@ -106,7 +107,7 @@ namespace OrphanageDataModel.Persons
         public byte[] FamilyCardPagePhotoData { get; set; }
 
         [Column("Gender")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Gender { get; set; }
 
         [Column("Kaid")]
