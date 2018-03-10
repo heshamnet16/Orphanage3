@@ -3,6 +3,7 @@ using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -14,11 +15,13 @@ namespace OrphanageService.Guarantor.Controllers
     {
         private readonly IGuarantorDbService _GuarantorDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
+        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public GuarantorsController(IGuarantorDbService guarantorDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
+        public GuarantorsController(IGuarantorDbService guarantorDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
         {
             _GuarantorDBService = guarantorDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
+            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/guarantor/{id}
@@ -70,7 +73,15 @@ namespace OrphanageService.Guarantor.Controllers
         public async Task<HttpResponseMessage> Put(object guarantor)
         {
             var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
-            var ret = await _GuarantorDBService.SaveGuarantor(guarantorEntity);
+            var ret = false;
+            try
+            {
+                ret = await _GuarantorDBService.SaveGuarantor(guarantorEntity);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -86,7 +97,15 @@ namespace OrphanageService.Guarantor.Controllers
         public async Task<HttpResponseMessage> Post(object guarantor)
         {
             var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
-            var ret = await _GuarantorDBService.AddGuarantor(guarantorEntity);
+            var ret = 0;
+            try
+            {
+                ret = await _GuarantorDBService.AddGuarantor(guarantorEntity);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret > 0)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);

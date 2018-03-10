@@ -3,6 +3,7 @@ using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -14,11 +15,13 @@ namespace OrphanageService.Caregiver.Controllers
     {
         private readonly ICaregiverDbService _CaregiverDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
+        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public CaregiversController(ICaregiverDbService caregiverDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
+        public CaregiversController(ICaregiverDbService caregiverDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
         {
             _CaregiverDBService = caregiverDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
+            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/caregiver/{id}
@@ -62,7 +65,15 @@ namespace OrphanageService.Caregiver.Controllers
         public async Task<HttpResponseMessage> Put(object caregiver)
         {
             var caregiverEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(caregiver.ToString());
-            var ret = await _CaregiverDBService.SaveCaregiver(caregiverEntity);
+            var ret = false;
+            try
+            {
+                ret = await _CaregiverDBService.SaveCaregiver(caregiverEntity);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -78,7 +89,15 @@ namespace OrphanageService.Caregiver.Controllers
         public async Task<HttpResponseMessage> Post(object caregiver)
         {
             var caregiverEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(caregiver.ToString());
-            var ret = await _CaregiverDBService.AddCaregiver(caregiverEntity);
+            var ret = 0;
+            try
+            {
+                ret = await _CaregiverDBService.AddCaregiver(caregiverEntity);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret > 0)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);

@@ -2,6 +2,7 @@
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -13,11 +14,13 @@ namespace OrphanageService.Family.Controllers
     {
         private readonly IFamilyDbService _FamilyDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
+        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public FamiliesController(IFamilyDbService familyDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
+        public FamiliesController(IFamilyDbService familyDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
         {
             _FamilyDBService = familyDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
+            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/family/{id}
@@ -36,7 +39,15 @@ namespace OrphanageService.Family.Controllers
         [Route("")]
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.RegularData.Family family)
         {
-            var ret = await _FamilyDBService.SaveFamily(family);
+            var ret = false;
+            try
+            {
+                ret = await _FamilyDBService.SaveFamily(family);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -51,7 +62,15 @@ namespace OrphanageService.Family.Controllers
         [Route("")]
         public async Task<HttpResponseMessage> Post(OrphanageDataModel.RegularData.Family family)
         {
-            var ret = await _FamilyDBService.AddFamily(family);
+            var ret = 0;
+            try
+            {
+                ret = await _FamilyDBService.AddFamily(family);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret > 0)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);

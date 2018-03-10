@@ -30,7 +30,7 @@ namespace OrphanageV3
             var orp = _ApiClient.getOrphan(15).Result;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Orphan.OrphanEditView(orp));
+            Application.Run(new Views.Orphan.OrphansView());
         }
 
         public static IUnityContainer BuildContainer()
