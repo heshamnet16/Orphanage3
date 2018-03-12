@@ -22,7 +22,6 @@ namespace OrphanageV3.ViewModel.Orphan
         public delegate void OrphansChnagedDelegate();
         public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
         public event OrphansChnagedDelegate OrphansChangedEvent;
-        public event OrphanChnagedDelegate PhotoLoadedEvent;
         public ObservableCollection<OrphanModel> Orphans { get; set; }
         private IList<OrphanageV3.Services.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
@@ -69,7 +68,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     {
                         img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoyPic, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirlPic, PhotoSize);
                     }
-                    PhotoLoadedEvent?.Invoke(orp.ID, img);
+                    UpdateOrphanPhoto(orp.ID, img);
                 }
                 catch { }
             }
@@ -263,7 +262,34 @@ namespace OrphanageV3.ViewModel.Orphan
             int orpIndex = _SourceOrphans.IndexOf(_SourceOrphans.FirstOrDefault(o => o.Id == Oid));
             _SourceOrphans[orpIndex] = orp;
             int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
-            Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);            
+            Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);
+            UpdateOrphanPhoto(Oid);
+        }
+
+        public void UpdateOrphanPhoto(int Oid , Image img)
+        {
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            Orphans[orpMIndex].Photo = img;
+        }
+
+        public async Task UpdateOrphanPhoto(int Oid)
+        {
+            var orp = Orphans.FirstOrDefault(o => o.ID == Oid);
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            Image img = null;
+            try
+            {
+               img =  await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
+            }
+            catch
+            {
+                img = null;
+            }
+            if (img == null)
+            {
+                img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
+            }
+            Orphans[orpMIndex].Photo = img;
         }
     }
 }

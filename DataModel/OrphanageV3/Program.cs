@@ -26,9 +26,6 @@ namespace OrphanageV3
         static void Main()
         {
             Factory = BuildContainer();
-
-            ViewModel.Orphan.OrphanViewModel _ApiClient = Program.Factory.Resolve<ViewModel.Orphan.OrphanViewModel>();
-            var orp = _ApiClient.getOrphan(15).Result;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Views.Orphan.OrphansView());

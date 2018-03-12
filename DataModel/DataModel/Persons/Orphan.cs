@@ -44,9 +44,26 @@ namespace OrphanageDataModel.Persons
         [Column("FacePhoto")]
         public byte[] FacePhotoData { get; set; }
 
+        private string _IdentityCardNumber;
+        //4180034569
         [Column("IdentityNumber")]
-        [MinLength(13, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
-        public string IdentityCardNumber { get; set; }
+        [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MaxLength(11, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        public string IdentityCardNumber
+        {
+            get { return _IdentityCardNumber; }
+            set
+            {
+                if (value != null && value.Length == 10)
+                {
+                    _IdentityCardNumber ="0" + value;
+                }
+                else
+                {
+                    _IdentityCardNumber = value;
+                }
+            }
+        }
 
         public byte? FootSize { get; set; }
 

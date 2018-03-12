@@ -44,13 +44,13 @@ namespace OrphanageV3.Controlls
 
         private void radGridView_CreateCell(object sender, Telerik.WinControls.UI.GridViewCreateCellEventArgs e)
         {
-            if (e.CellType.FullName.Contains("FilterCellElement"))
+            if (e.CellType != null &&  e.CellType.FullName.Contains("FilterCellElement"))
             {
                 var cell = new GridFilterCellElement((GridViewDataColumn)e.Column, e.Row);
                 cell.FilterButton.Enabled = false;
                 e.CellElement = cell;
             }
-            if (e.CellType.FullName.Contains("FilterCheckBoxCellElement"))
+            if (e.CellType != null && e.CellType.FullName.Contains("FilterCheckBoxCellElement"))
             {
                 var cell = new GridFilterCheckBoxCellElement((GridViewDataColumn)e.Column, e.Row);
                 cell.FilterButton.Enabled = false;

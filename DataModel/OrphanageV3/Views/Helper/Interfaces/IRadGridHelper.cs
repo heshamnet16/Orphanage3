@@ -21,5 +21,13 @@ namespace OrphanageV3.Views.Helper.Interfaces
         void ShowRow(string ColumnName, object SearchValue);
 
         void UpdateRowColor(string ColorColumnName, long? ColorValue, string ColumnName, object SearchValue);
+
+        void UpadteCellData(string IdColumnName,int IdValue, string ColumnName, object value);
+
+        IEnumerable<int> GetCurrentRows(string IdColumnName);
+
+        void InvalidateCurrentRows();
+
+        void InvalidateRow(string IdColumnName, int IdValue);
     }
 }

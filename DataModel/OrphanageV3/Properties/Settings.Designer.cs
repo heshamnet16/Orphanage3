@@ -43,7 +43,7 @@ namespace OrphanageV3.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ShowHiddenRows {
             get {
                 return ((bool)(this["ShowHiddenRows"]));
@@ -83,6 +83,15 @@ namespace OrphanageV3.Properties {
         public string OrphanageServiceURL {
             get {
                 return ((string)(this["OrphanageServiceURL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int DefaultPageSize {
+            get {
+                return ((int)(this["DefaultPageSize"]));
             }
         }
     }

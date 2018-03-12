@@ -28,20 +28,74 @@ namespace OrphanageV3.Views.Orphan
             InitializeComponent();
             this.Text = Properties.Resources.OrphanViewTitle;
             _orphansViewModel.OrphansChangedEvent += OrphansViewModel_OrphansChangedEvent;
-            _orphansViewModel.PhotoLoadedEvent += OrphansViewModel_PhotoLoadedEvent;
-            orphanageGridView1.GridView.PageChanging += GridView_PageChanging;
+            orphanageGridView1.GridView.PageChanged += GridView_PageChanged;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
+            orphanageGridView1.GridView.GroupExpanded += GridView_GroupExpanded;
             orphanageGridView1.HideShowColumnName = "IsExcluded";
             // set RadGridHelper
             _radGridHelper.GridView = orphanageGridView1.GridView;
         }
 
+        private void GridView_GroupExpanded(object sender, GroupExpandedEventArgs e)
+        {
+            CloseOtherThreads();
+            var ids = e.DataGroup.Where(r => r.Cells["ID"].Value != null).Select(c=>(int)c.Cells["ID"].Value).ToList();
+            StartThumbnailsThread(ids);
+
+        }
+
+
         private void GridView_SelectionChanged(object sender, EventArgs e)
         {
             UpdateOrphanPictureAndDetails();
-            UpdateControls();            
+            UpdateControls();
         }
 
+        private void StartThumbnailsThread(IList<int> idsListFromGrid)
+        {
+            var t = new Thread(new ParameterizedThreadStart((IdsList) =>
+            {
+                IList<int> idsList = (IList<int>)IdsList;
+                if (idsList.Count > 0)
+                    try
+                    {
+                        foreach (var id in idsList)
+                        {
+                            _orphansViewModel.UpdateOrphanPhoto(id).Wait();
+                            this.Invoke(new MethodInvoker(() =>
+                            {
+                                _radGridHelper.InvalidateRow("ID", id);
+                            }));
+                        }
+                        //_orphansViewModel.LoadImages(idsList).Wait();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040)
+                            throw ex;
+                    }
+            }));
+            t.Priority = ThreadPriority.Normal;
+            t.IsBackground = true;
+            t.Start(idsListFromGrid);
+            PagingThreads.Add(t);
+        }
+        private void CloseOtherThreads()
+        {
+            foreach (Thread th in PagingThreads)
+            {
+                if (th.IsAlive)
+                {
+                    //TODO abort or low priority
+                    //th.Priority = ThreadPriority.Lowest;
+                    th.Interrupt();
+                    th.Abort();
+                }
+            }
+
+            if (PagingThreads.Count(th => th.IsAlive) == 0)
+                PagingThreads.Clear();
+        }
         private void UpdateOrphanPictureAndDetails()
         {
             if (upadteImageDetailsThread != null && upadteImageDetailsThread.IsAlive)
@@ -53,8 +107,8 @@ namespace OrphanageV3.Views.Orphan
                     var id = (int)_radGridHelper.GetValueBySelectedRow("ID");
                     var photoTask = _orphansViewModel.GetOrphanFacePhoto(id);
                     picPhoto.Image = await photoTask;
-                    BeginInvoke( new MethodInvoker( async () => { txtDetails.Text = await _orphansViewModel.GetOrphanSummary(id); }));
-                    
+                    BeginInvoke(new MethodInvoker(async () => { txtDetails.Text = await _orphansViewModel.GetOrphanSummary(id); }));
+
                 }
             }));
             upadteImageDetailsThread.Priority = ThreadPriority.Highest;
@@ -72,56 +126,18 @@ namespace OrphanageV3.Views.Orphan
                 btnExclud.ToolTipText = isExcluded ? Properties.Resources.UnExclude : Properties.Resources.Exclude;
             }
         }
-        private void GridView_PageChanging(object sender, PageChangingEventArgs e)
+        private void GridView_PageChanged(object sender, EventArgs e)
         {
-            var t = new Thread(new ThreadStart( () =>
-            {
-                IList<int> idsList = new List<int>();
-                lock (lockObj)
-                {
-                    var RowsToSkip = (e.NewPageIndex) * orphanageGridView1.GridView.PageSize;
-                    var rows = orphanageGridView1.GridView.Rows.Skip(RowsToSkip).Take(orphanageGridView1.GridView.PageSize);
-                    foreach (var row in rows)
-                    {
-                        if (row.Cells["Photo"].Value == null)
-                        {
-                            row.Cells["Photo"].Value = Properties.Resources.loading;
-                            idsList.Add((int)row.Cells["ID"].Value);
-                        }
-                    }
-                }
-                if (idsList.Count > 0)
-                    try
-                    {
-                        _orphansViewModel.LoadImages(idsList).Wait();
-                    }
-                    catch (Exception ex)
-                    {
-                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040)
-                            throw ex;
-                    }
-            }));
-            t.Priority = ThreadPriority.Normal;
-            t.IsBackground = true;
-            t.Start();
-            foreach(Thread th in PagingThreads)
-            {
-                if (th.IsAlive)
-                {
-                    //TODO abort or low priority
-                    //th.Priority = ThreadPriority.Lowest;
-                    th.Interrupt();
-                    th.Abort();
-                }
-            }
-            if (PagingThreads.Count(th => th.IsAlive) == 0)
-                PagingThreads.Clear();
-            PagingThreads.Add(t);
+            CloseOtherThreads();
+            IList<int> idsListFromGrid = _radGridHelper.GetCurrentRows("ID").ToList();
+            StartThumbnailsThread(idsListFromGrid);
+
         }
-        private void OrphansViewModel_PhotoLoadedEvent(int Oid,Image img)
+        private void OrphansViewModel_PhotoLoadedEvent(int Oid, Image img)
         {
-            var row = _radGridHelper.GetRowByColumnName("ID", Oid);
-            row.Cells["Photo"].Value = img;
+            //var row = _radGridHelper.GetRowByColumnName("ID", Oid);
+            //row.Cells["Photo"].Value = img;
+            _orphansViewModel.UpdateOrphanPhoto(Oid, img);
         }
 
         private void OrphansViewModel_OrphansChangedEvent()
@@ -142,7 +158,7 @@ namespace OrphanageV3.Views.Orphan
             //set default grid values
             orphanageGridView1.GridView.TableElement.RowHeight = 80;
             orphanageGridView1.GridView.AllowAutoSizeColumns = true;
-            orphanageGridView1.GridView.PageSize = 10;
+            orphanageGridView1.GridView.PageSize = Properties.Settings.Default.DefaultPageSize;
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
@@ -155,7 +171,7 @@ namespace OrphanageV3.Views.Orphan
 
         private async void btnExclud_Click(object sender, EventArgs e)
         {
-            var id =(int) _radGridHelper.GetValueBySelectedRow("ID");
+            var id = (int)_radGridHelper.GetValueBySelectedRow("ID");
             var ret = await _orphansViewModel.ExcludeOrphan(id);
             if (ret)
                 _radGridHelper.HideRow("ID", id);
@@ -168,8 +184,8 @@ namespace OrphanageV3.Views.Orphan
             if (dialogResult == DialogResult.OK)
             {
 
-              _radGridHelper.UpdateRowColor("ColorMark", await _orphansViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "ID", id);
-                
+                _radGridHelper.UpdateRowColor("ColorMark", await _orphansViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "ID", id);
+
             }
         }
 

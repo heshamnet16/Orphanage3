@@ -26,8 +26,25 @@ namespace OrphanageDataModel.Persons
 
         public virtual Address Address { get; set; }
 
+        private string _IdentityCardNumber;
         [Column("IdentityCard_ID")]
-        public string IdentityCardId { get; set; }
+        [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MaxLength(11, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        public string IdentityCardId
+        {
+            get { return _IdentityCardNumber; }
+            set
+            {
+                if (value != null && value.Length == 10)
+                {
+                    _IdentityCardNumber = "0" + value;
+                }
+                else
+                {
+                    _IdentityCardNumber = value;
+                }
+            }
+        }
 
         [Column("IdentityCard_Photo")]
         public byte[] IdentityCardPhotoFaceData { get; set; }
