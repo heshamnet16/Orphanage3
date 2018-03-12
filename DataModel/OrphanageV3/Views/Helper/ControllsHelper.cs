@@ -27,6 +27,7 @@ namespace OrphanageV3.Views.Helper
                 nameForm.English_First = name.EnglishFirst;
                 nameForm.English_Last = name.EnglishLast;
                 nameForm.English_Middle = name.EnglishFather;
+                nameForm.Id = name.Id.Value;
             }
         }
         public Name GetNameFromForm(NameForm.NameForm nameForm)
@@ -40,6 +41,7 @@ namespace OrphanageV3.Views.Helper
                 name.EnglishFirst = nameForm.English_First;
                 name.EnglishLast = nameForm.English_Last;
                 name.EnglishFather = nameForm.English_Middle;
+                name.Id = nameForm.Id;
                 return name;
             }
             else

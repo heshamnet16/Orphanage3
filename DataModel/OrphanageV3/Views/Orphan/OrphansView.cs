@@ -85,6 +85,7 @@ namespace OrphanageV3.Views.Orphan
                     {
                         if (row.Cells["Photo"].Value == null)
                         {
+                            row.Cells["Photo"].Value = Properties.Resources.loading;
                             idsList.Add((int)row.Cells["ID"].Value);
                         }
                     }
@@ -109,7 +110,7 @@ namespace OrphanageV3.Views.Orphan
                 {
                     //TODO abort or low priority
                     //th.Priority = ThreadPriority.Lowest;
-                    t.Interrupt();
+                    th.Interrupt();
                     th.Abort();
                 }
             }
@@ -121,12 +122,13 @@ namespace OrphanageV3.Views.Orphan
         {
             var row = _radGridHelper.GetRowByColumnName("ID", Oid);
             row.Cells["Photo"].Value = img;
-            
         }
 
         private void OrphansViewModel_OrphansChangedEvent()
         {
             orphanageGridView1.GridView.DataSource = _orphansViewModel.Orphans;
+            var PicColumn = orphanageGridView1.GridView.Columns["Photo"];
+            PicColumn.ImageLayout = ImageLayout.Stretch;
             orphanageGridView1.GridView.Columns["Photo"].Width = 80;
         }
 
@@ -179,6 +181,13 @@ namespace OrphanageV3.Views.Orphan
         private void OrphansView_FormClosing(object sender, FormClosingEventArgs e)
         {
             orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.OrphanLayoutFilePath);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int id = (int)_radGridHelper.GetValueBySelectedRow("ID");
+            OrphanEditView orphanEditView = new OrphanEditView(id);
+            orphanEditView.ShowDialog();
         }
     }
 }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrphanEditView));
             Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem4 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem5 = new Telerik.WinControls.UI.RadListDataItem();
@@ -45,11 +46,11 @@
             Telerik.WinControls.UI.RadListDataItem radListDataItem14 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem15 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem16 = new Telerik.WinControls.UI.RadListDataItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrphanEditView));
             this.RadPageView1 = new Telerik.WinControls.UI.RadPageView();
             this.pgeBasic = new Telerik.WinControls.UI.RadPageViewPage();
             this.nameForm1 = new NameForm.NameForm();
             this.cmbOGender = new Telerik.WinControls.UI.RadDropDownList();
+            this.orphanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numOkaid = new Telerik.WinControls.UI.RadSpinEditor();
             this.numOIdNum = new Telerik.WinControls.UI.RadSpinEditor();
             this.txtOBirthPlace = new Telerik.WinControls.UI.RadTextBox();
@@ -57,7 +58,9 @@
             this.lblCivilRegisterNumber = new Telerik.WinControls.UI.RadLabel();
             this.lblBirthPlace = new Telerik.WinControls.UI.RadLabel();
             this.grpFullPhoto = new Telerik.WinControls.UI.RadGroupBox();
+            this.PicBody = new PictureSelector.PictureSelector();
             this.grpFacePhoto = new Telerik.WinControls.UI.RadGroupBox();
+            this.picFace = new PictureSelector.PictureSelector();
             this.lblName = new Telerik.WinControls.UI.RadLabel();
             this.lblBirthday = new Telerik.WinControls.UI.RadLabel();
             this.txtOBondsManRelation = new Telerik.WinControls.UI.RadTextBox();
@@ -68,7 +71,9 @@
             this.pgeOthers = new Telerik.WinControls.UI.RadPageViewPage();
             this.txtOAge = new Telerik.WinControls.UI.RadTextBox();
             this.grpBirthCertificatePhoto = new Telerik.WinControls.UI.RadGroupBox();
+            this.picObirthCertificate = new PictureSelector.PictureSelector();
             this.grpFamilyCardPhoto = new Telerik.WinControls.UI.RadGroupBox();
+            this.picOFamilyCardPhoto = new PictureSelector.PictureSelector();
             this.txtOStory = new Telerik.WinControls.UI.RadTextBox();
             this.numOFootSize = new Telerik.WinControls.UI.RadSpinEditor();
             this.lblStory = new Telerik.WinControls.UI.RadLabel();
@@ -83,7 +88,9 @@
             this.pgeEducation = new Telerik.WinControls.UI.RadPageViewPage();
             this.lblGradRate = new Telerik.WinControls.UI.RadLabel();
             this.grpEducationCertificate2 = new Telerik.WinControls.UI.RadGroupBox();
+            this.PicSstudyCerti = new PictureSelector.PictureSelector();
             this.grpEducationCertificate1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.picSStarter = new PictureSelector.PictureSelector();
             this.numSDegreesRate = new Telerik.WinControls.UI.RadSpinEditor();
             this.numSMonthlyCost = new Telerik.WinControls.UI.RadSpinEditor();
             this.txtSNote = new Telerik.WinControls.UI.RadTextBox();
@@ -100,6 +107,7 @@
             this.RadLabel26 = new Telerik.WinControls.UI.RadLabel();
             this.pgeHealth = new Telerik.WinControls.UI.RadPageViewPage();
             this.grpHPicReporte = new Telerik.WinControls.UI.RadGroupBox();
+            this.picHFace = new PictureSelector.PictureSelector();
             this.numHCost = new Telerik.WinControls.UI.RadSpinEditor();
             this.txtHMedicen = new Telerik.WinControls.UI.RadAutoCompleteBox();
             this.txtHNote = new Telerik.WinControls.UI.RadTextBox();
@@ -115,18 +123,11 @@
             this.btnBondsMan = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
-            this.orphanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PicBody = new PictureSelector.PictureSelector();
-            this.picFace = new PictureSelector.PictureSelector();
-            this.picObirthCertificate = new PictureSelector.PictureSelector();
-            this.picOFamilyCardPhoto = new PictureSelector.PictureSelector();
-            this.PicSstudyCerti = new PictureSelector.PictureSelector();
-            this.picSStarter = new PictureSelector.PictureSelector();
-            this.picHFace = new PictureSelector.PictureSelector();
             ((System.ComponentModel.ISupportInitialize)(this.RadPageView1)).BeginInit();
             this.RadPageView1.SuspendLayout();
             this.pgeBasic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOGender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOkaid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOIdNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOBirthPlace)).BeginInit();
@@ -199,7 +200,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBondsMan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,7 +211,7 @@
             this.RadPageView1.Controls.Add(this.pgeHealth);
             this.RadPageView1.Location = new System.Drawing.Point(-1, 0);
             this.RadPageView1.Name = "RadPageView1";
-            this.RadPageView1.SelectedPage = this.pgeHealth;
+            this.RadPageView1.SelectedPage = this.pgeBasic;
             this.RadPageView1.Size = new System.Drawing.Size(504, 393);
             this.RadPageView1.TabIndex = 19;
             ((Telerik.WinControls.UI.RadPageViewStripElement)(this.RadPageView1.GetChildAt(0))).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
@@ -241,10 +241,10 @@
             this.pgeBasic.Controls.Add(this.txtOName);
             this.pgeBasic.Controls.Add(this.dteOBirthday);
             this.pgeBasic.Description = null;
-            this.pgeBasic.ItemSize = new System.Drawing.SizeF(119F, 24F);
-            this.pgeBasic.Location = new System.Drawing.Point(10, 33);
+            this.pgeBasic.ItemSize = new System.Drawing.SizeF(119F, 28F);
+            this.pgeBasic.Location = new System.Drawing.Point(10, 37);
             this.pgeBasic.Name = "pgeBasic";
-            this.pgeBasic.Size = new System.Drawing.Size(483, 349);
+            this.pgeBasic.Size = new System.Drawing.Size(483, 345);
             this.pgeBasic.Text = "بيانات اساسية";
             this.pgeBasic.Title = "بيانات اساسية";
             this.pgeBasic.Click += new System.EventHandler(this.pgeBasic_Click);
@@ -289,6 +289,11 @@
             this.cmbOGender.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
             this.cmbOGender.TabIndex = 4;
             this.cmbOGender.Text = "انثى";
+            // 
+            // orphanBindingSource
+            // 
+            this.orphanBindingSource.AllowNew = false;
+            this.orphanBindingSource.DataSource = typeof(OrphanageV3.Services.Orphan);
             // 
             // numOkaid
             // 
@@ -415,6 +420,17 @@
             this.grpFullPhoto.Text = "صورة كاملة";
             this.grpFullPhoto.ThemeName = "ControlDefault";
             // 
+            // PicBody
+            // 
+            this.PicBody.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicBody.BackgroundImage")));
+            this.PicBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicBody.Location = new System.Drawing.Point(2, 18);
+            this.PicBody.Name = "PicBody";
+            this.PicBody.Photo = null;
+            this.PicBody.Size = new System.Drawing.Size(153, 126);
+            this.PicBody.TabIndex = 5;
+            // 
             // grpFacePhoto
             // 
             this.grpFacePhoto.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
@@ -428,6 +444,17 @@
             this.grpFacePhoto.TabIndex = 1;
             this.grpFacePhoto.Text = "صورة الوجه";
             this.grpFacePhoto.ThemeName = "ControlDefault";
+            // 
+            // picFace
+            // 
+            this.picFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFace.BackgroundImage")));
+            this.picFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picFace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picFace.Location = new System.Drawing.Point(2, 18);
+            this.picFace.Name = "picFace";
+            this.picFace.Photo = null;
+            this.picFace.Size = new System.Drawing.Size(153, 126);
+            this.picFace.TabIndex = 5;
             // 
             // lblName
             // 
@@ -540,7 +567,7 @@
             this.pgeOthers.Controls.Add(this.lblAge);
             this.pgeOthers.Controls.Add(this.lblTallness);
             this.pgeOthers.Controls.Add(this.lblWeight);
-            this.pgeOthers.ItemSize = new System.Drawing.SizeF(106F, 24F);
+            this.pgeOthers.ItemSize = new System.Drawing.SizeF(106F, 28F);
             this.pgeOthers.Location = new System.Drawing.Point(10, 33);
             this.pgeOthers.Name = "pgeOthers";
             this.pgeOthers.Size = new System.Drawing.Size(483, 349);
@@ -570,6 +597,16 @@
             this.grpBirthCertificatePhoto.Text = "صورة شهادة الولادة";
             this.grpBirthCertificatePhoto.ThemeName = "ControlDefault";
             // 
+            // picObirthCertificate
+            // 
+            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picObirthCertificate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picObirthCertificate.Location = new System.Drawing.Point(2, 18);
+            this.picObirthCertificate.Name = "picObirthCertificate";
+            this.picObirthCertificate.Photo = null;
+            this.picObirthCertificate.Size = new System.Drawing.Size(153, 126);
+            this.picObirthCertificate.TabIndex = 0;
+            // 
             // grpFamilyCardPhoto
             // 
             this.grpFamilyCardPhoto.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
@@ -584,6 +621,16 @@
             this.grpFamilyCardPhoto.TabStop = false;
             this.grpFamilyCardPhoto.Text = "صورة دفتر العائلة";
             this.grpFamilyCardPhoto.ThemeName = "ControlDefault";
+            // 
+            // picOFamilyCardPhoto
+            // 
+            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picOFamilyCardPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picOFamilyCardPhoto.Location = new System.Drawing.Point(2, 18);
+            this.picOFamilyCardPhoto.Name = "picOFamilyCardPhoto";
+            this.picOFamilyCardPhoto.Photo = null;
+            this.picOFamilyCardPhoto.Size = new System.Drawing.Size(153, 126);
+            this.picOFamilyCardPhoto.TabIndex = 5;
             // 
             // txtOStory
             // 
@@ -729,7 +776,7 @@
             this.pgeEducation.Controls.Add(this.lblStudyStage);
             this.pgeEducation.Controls.Add(this.lblIsStudying);
             this.pgeEducation.Controls.Add(this.RadLabel26);
-            this.pgeEducation.ItemSize = new System.Drawing.SizeF(116F, 24F);
+            this.pgeEducation.ItemSize = new System.Drawing.SizeF(116F, 28F);
             this.pgeEducation.Location = new System.Drawing.Point(10, 33);
             this.pgeEducation.Name = "pgeEducation";
             this.pgeEducation.Size = new System.Drawing.Size(483, 349);
@@ -763,6 +810,16 @@
             this.grpEducationCertificate2.Text = "شهادة دراسية";
             this.grpEducationCertificate2.ThemeName = "ControlDefault";
             // 
+            // PicSstudyCerti
+            // 
+            this.PicSstudyCerti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PicSstudyCerti.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicSstudyCerti.Location = new System.Drawing.Point(2, 18);
+            this.PicSstudyCerti.Name = "PicSstudyCerti";
+            this.PicSstudyCerti.Photo = null;
+            this.PicSstudyCerti.Size = new System.Drawing.Size(149, 97);
+            this.PicSstudyCerti.TabIndex = 5;
+            // 
             // grpEducationCertificate1
             // 
             this.grpEducationCertificate1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
@@ -778,6 +835,16 @@
             this.grpEducationCertificate1.TabStop = false;
             this.grpEducationCertificate1.Text = "المرحلة الأبتدائية";
             this.grpEducationCertificate1.ThemeName = "ControlDefault";
+            // 
+            // picSStarter
+            // 
+            this.picSStarter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picSStarter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picSStarter.Location = new System.Drawing.Point(2, 18);
+            this.picSStarter.Name = "picSStarter";
+            this.picSStarter.Photo = null;
+            this.picSStarter.Size = new System.Drawing.Size(149, 97);
+            this.picSStarter.TabIndex = 5;
             // 
             // numSDegreesRate
             // 
@@ -966,10 +1033,10 @@
             this.pgeHealth.Controls.Add(this.lblMedicen);
             this.pgeHealth.Controls.Add(this.lblIsSick);
             this.pgeHealth.Controls.Add(this.lblSicknessName);
-            this.pgeHealth.ItemSize = new System.Drawing.SizeF(112F, 24F);
-            this.pgeHealth.Location = new System.Drawing.Point(10, 33);
+            this.pgeHealth.ItemSize = new System.Drawing.SizeF(112F, 28F);
+            this.pgeHealth.Location = new System.Drawing.Point(10, 37);
             this.pgeHealth.Name = "pgeHealth";
-            this.pgeHealth.Size = new System.Drawing.Size(483, 349);
+            this.pgeHealth.Size = new System.Drawing.Size(483, 345);
             this.pgeHealth.Text = "بيانات صحية";
             this.pgeHealth.ToolTipText = "بيانات صحية";
             // 
@@ -988,6 +1055,16 @@
             this.grpHPicReporte.TabStop = false;
             this.grpHPicReporte.Text = "صورة التقريرالطبي";
             this.grpHPicReporte.ThemeName = "ControlDefault";
+            // 
+            // picHFace
+            // 
+            this.picHFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHFace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picHFace.Location = new System.Drawing.Point(2, 18);
+            this.picHFace.Name = "picHFace";
+            this.picHFace.Photo = null;
+            this.picHFace.Size = new System.Drawing.Size(228, 259);
+            this.picHFace.TabIndex = 5;
             // 
             // numHCost
             // 
@@ -1172,6 +1249,7 @@
             this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "الغاء";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -1181,84 +1259,6 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "حفظ";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // orphanBindingSource
-            // 
-            this.orphanBindingSource.AllowNew = false;
-            this.orphanBindingSource.DataSource = typeof(OrphanageV3.Services.Orphan);
-            // 
-            // PicBody
-            // 
-            this.PicBody.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicBody.BackgroundImage")));
-            this.PicBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicBody.Location = new System.Drawing.Point(2, 18);
-            this.PicBody.Name = "PicBody";
-            this.PicBody.Photo = null;
-            this.PicBody.Size = new System.Drawing.Size(153, 126);
-            this.PicBody.TabIndex = 5;
-            // 
-            // picFace
-            // 
-            this.picFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFace.BackgroundImage")));
-            this.picFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picFace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picFace.Location = new System.Drawing.Point(2, 18);
-            this.picFace.Name = "picFace";
-            this.picFace.Photo = null;
-            this.picFace.Size = new System.Drawing.Size(153, 126);
-            this.picFace.TabIndex = 5;
-            // 
-            // picObirthCertificate
-            // 
-            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picObirthCertificate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picObirthCertificate.Location = new System.Drawing.Point(2, 18);
-            this.picObirthCertificate.Name = "picObirthCertificate";
-            this.picObirthCertificate.Photo = null;
-            this.picObirthCertificate.Size = new System.Drawing.Size(153, 126);
-            this.picObirthCertificate.TabIndex = 0;
-            // 
-            // picOFamilyCardPhoto
-            // 
-            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picOFamilyCardPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picOFamilyCardPhoto.Location = new System.Drawing.Point(2, 18);
-            this.picOFamilyCardPhoto.Name = "picOFamilyCardPhoto";
-            this.picOFamilyCardPhoto.Photo = null;
-            this.picOFamilyCardPhoto.Size = new System.Drawing.Size(153, 126);
-            this.picOFamilyCardPhoto.TabIndex = 5;
-            // 
-            // PicSstudyCerti
-            // 
-            this.PicSstudyCerti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PicSstudyCerti.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicSstudyCerti.Location = new System.Drawing.Point(2, 18);
-            this.PicSstudyCerti.Name = "PicSstudyCerti";
-            this.PicSstudyCerti.Photo = null;
-            this.PicSstudyCerti.Size = new System.Drawing.Size(149, 97);
-            this.PicSstudyCerti.TabIndex = 5;
-            // 
-            // picSStarter
-            // 
-            this.picSStarter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picSStarter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picSStarter.Location = new System.Drawing.Point(2, 18);
-            this.picSStarter.Name = "picSStarter";
-            this.picSStarter.Photo = null;
-            this.picSStarter.Size = new System.Drawing.Size(149, 97);
-            this.picSStarter.TabIndex = 5;
-            // 
-            // picHFace
-            // 
-            this.picHFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHFace.BackgroundImage")));
-            this.picHFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picHFace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHFace.Location = new System.Drawing.Point(2, 18);
-            this.picHFace.Name = "picHFace";
-            this.picHFace.Photo = null;
-            this.picHFace.Size = new System.Drawing.Size(228, 259);
-            this.picHFace.TabIndex = 5;
             // 
             // OrphanEditView
             // 
@@ -1287,6 +1287,7 @@
             this.pgeBasic.ResumeLayout(false);
             this.pgeBasic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOGender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOkaid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOIdNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOBirthPlace)).EndInit();
@@ -1362,7 +1363,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBondsMan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

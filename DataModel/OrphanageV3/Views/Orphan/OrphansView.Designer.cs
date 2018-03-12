@@ -190,6 +190,7 @@
             this.btnEdit.Text = "";
             this.btnEdit.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnEdit.ToolTipText = "تعديل";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // mnuSep1
             // 

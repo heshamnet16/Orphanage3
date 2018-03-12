@@ -1,5 +1,6 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
@@ -43,6 +44,7 @@ namespace OrphanageV3
             currentContainer.RegisterSingleton<IDataFormatterService, DataFormatterService>();
             currentContainer.RegisterSingleton<IControllsHelper, ControllsHelper>();
             currentContainer.RegisterSingleton<IAutoCompleteService, AutoCompleteService>();
+            currentContainer.RegisterSingleton<OrphansViewModel>();
             return currentContainer;
         }
     }

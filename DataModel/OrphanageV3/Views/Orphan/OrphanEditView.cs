@@ -30,7 +30,9 @@ namespace OrphanageV3.Views.Orphan
 
         private Services.Orphan _CurrentOrphan = null;
 
-        private bool IsLoaded = false;
+        private bool _CertificatePhotoChanged = false;
+        private bool _CertificatePhoto2Changed = false;
+        private bool _HealthPhotoChanged = false;
 
         public OrphanEditView(Services.Orphan orphan)
         {
@@ -40,6 +42,19 @@ namespace OrphanageV3.Views.Orphan
             _CurrentOrphan = orphan;
         }
 
+        public OrphanEditView(int orphanId)
+        {
+            InitializeComponent();
+            _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
+            SetLablesString();
+            loadOrphan(orphanId);
+        }
+        private async void loadOrphan(int Oid)
+        {
+            _CurrentOrphan = await _orphanViewModel.getOrphan(Oid);
+            SetValues();
+
+        }
         private void _AutoCompleteServic_DataLoaded(object sender, EventArgs e)
         {
             //fired when string is loaded
@@ -135,6 +150,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void SetValues()
         {
+            if (_CurrentOrphan == null) return;
             orphanBindingSource.DataSource = _CurrentOrphan;
             RadPageView1.SelectedPage = pgeBasic;
             _ControllsHelper.SetNameForm(ref nameForm1, _CurrentOrphan.Name);
@@ -150,8 +166,7 @@ namespace OrphanageV3.Views.Orphan
             RadPageView1.SelectedPage = pgeHealth;
             if (_CurrentOrphan.HealthId.HasValue)
             {
-                chkHIsSick.Checked = true;
-                chkHIsSick_ToggleStateChanged(null, new Telerik.WinControls.UI.StateChangedEventArgs(Telerik.WinControls.Enumerations.ToggleState.On));
+                EnabledDisHealthControls(true);
                 txtHDoctorName.Text = _CurrentOrphan.HealthStatus.SupervisorDoctor;
                 if (_CurrentOrphan.HealthStatus.Medicine != null)
                 {
@@ -172,22 +187,19 @@ namespace OrphanageV3.Views.Orphan
             }
             else
             {
-                chkHIsSick.Checked = false;
-                chkHIsSick_ToggleStateChanged(null, new Telerik.WinControls.UI.StateChangedEventArgs(Telerik.WinControls.Enumerations.ToggleState.Off));
-            }            
+                EnabledDisHealthControls(false);
+            }
             //Education 
             RadPageView1.SelectedPage = pgeEducation;
             if (_CurrentOrphan.EducationId.HasValue)
             {
-                if(_CurrentOrphan.Education.Stage.Contains(Properties.Resources.EducationNonStudyKeyword))
+                if (_CurrentOrphan.Education.Stage.Contains(Properties.Resources.EducationNonStudyKeyword))
                 {
-                    chkSisStudy.Checked = false;
-                    chkSisStudy_ToggleStateChanged(null, new Telerik.WinControls.UI.StateChangedEventArgs(Telerik.WinControls.Enumerations.ToggleState.Off));
+                    EnabledDisEducationControls(false);
                 }
                 else
                 {
-                    chkSisStudy.Checked = true;
-                    chkSisStudy_ToggleStateChanged(null, new Telerik.WinControls.UI.StateChangedEventArgs(Telerik.WinControls.Enumerations.ToggleState.On));
+                    EnabledDisEducationControls(true);
                     txtSNote.Text = _CurrentOrphan.Education.Note;
                     txtSschoolNAme.Text = _CurrentOrphan.Education.School;
                     if (_CurrentOrphan.Education.DegreesRate.HasValue)
@@ -202,10 +214,13 @@ namespace OrphanageV3.Views.Orphan
             }
             else
             {
-                chkSisStudy.Checked = false;
-                chkSisStudy_ToggleStateChanged(null, new Telerik.WinControls.UI.StateChangedEventArgs(Telerik.WinControls.Enumerations.ToggleState.Off));
+                EnabledDisEducationControls(false);
             }
             RadPageView1.SelectedPage = pgeBasic;
+
+            _CertificatePhotoChanged = false;
+            _CertificatePhoto2Changed = false;
+            _HealthPhotoChanged = false;
         }
 
         private Health fillHealth(Health health)
@@ -251,6 +266,7 @@ namespace OrphanageV3.Views.Orphan
             }
 
             health.ReporteFileData = picHFace.PhotoAsBytes;
+            health.ReporteFileURI = "api/orphan/media/healthreport/" + _CurrentOrphan.Id;
             health.SupervisorDoctor = txtHDoctorName.Text;
             health.Note = txtHNote.Text;
             return health;
@@ -258,7 +274,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void SaveHealth()
         {
-            if (!IsLoaded) return;
+            //if (!IsLoaded) return;
             if (!_CurrentOrphan.HealthId.HasValue)
             {
                 if (chkHIsSick.Checked)
@@ -285,7 +301,9 @@ namespace OrphanageV3.Views.Orphan
         {
             study.Note = txtSNote.Text;
             study.CertificatePhotoFront = picSStarter.PhotoAsBytes;
+            study.CertificateImageURI = "api/orphan/media/education/" + _CurrentOrphan.Id;
             study.CertificatePhotoBack = PicSstudyCerti.PhotoAsBytes;
+            study.CertificateImage2 = "api/orphan/media/education2/" + _CurrentOrphan.Id;
             if ((numSDegreesRate.Value > 0))
             {
                 study.DegreesRate = (double)numSDegreesRate.Value;
@@ -312,9 +330,9 @@ namespace OrphanageV3.Views.Orphan
 
         private void SaveStudy()
         {
-            if (!IsLoaded) return;
             if (_CurrentOrphan.Education == null)
             {
+                // add new education record
                 if (chkSisStudy.Checked)
                 {
                     // create new study record
@@ -356,58 +374,58 @@ namespace OrphanageV3.Views.Orphan
                 }
             }
         }
+
+        private void EnabledDisHealthControls(bool value)
+        {
+            picHFace.Enabled = value;
+            txtHNote.Enabled = value;
+            txtHDoctorName.Enabled = value;
+            txtHMedicen.Enabled = value;
+            txtHSicknessName.Enabled = value;
+            numHCost.Enabled = value;
+            grpHPicReporte.Enabled = value;
+            chkHIsSick.ToggleStateChanged -= chkHIsSick_ToggleStateChanged;
+            chkHIsSick.ToggleState = value ? Telerik.WinControls.Enumerations.ToggleState.On : Telerik.WinControls.Enumerations.ToggleState.Off;
+            chkHIsSick.ToggleStateChanged += chkHIsSick_ToggleStateChanged;
+        }
         private void chkHIsSick_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
-                picHFace.Enabled = true;
-                txtHNote.Enabled = true;
-                txtHDoctorName.Enabled = true;
-                txtHMedicen.Enabled = true;
-                txtHSicknessName.Enabled = true;
-                numHCost.Enabled = true;
-                grpHPicReporte.Enabled = true;
+                EnabledDisHealthControls(true);
             }
             else
             {
-                grpHPicReporte.Enabled = false;
-                picHFace.Enabled = false;
-                txtHNote.Enabled = false;
-                txtHDoctorName.Enabled = false;
-                txtHMedicen.Enabled = false;
-                txtHSicknessName.Enabled = false;
-                numHCost.Enabled = false;
+                EnabledDisHealthControls(false);
             }
             SaveHealth();
         }
 
+        private void EnabledDisEducationControls(bool value)
+        {
+            txtSNote.Enabled = value;
+            txtSschoolNAme.Enabled = value;
+            txtSStudyStage.Enabled = value;
+            numSDegreesRate.Enabled = value;
+            numSMonthlyCost.Enabled = value;
+            picSStarter.Enabled = value;
+            PicSstudyCerti.Enabled = value;
+            grpEducationCertificate1.Enabled = value;
+            grpEducationCertificate2.Enabled = value;
+            txtSStudyStage.Text = value ? "" : Properties.Resources.EducationStageDefaultString;
+            chkSisStudy.ToggleStateChanged -= chkSisStudy_ToggleStateChanged;
+            chkSisStudy.ToggleState = value ? Telerik.WinControls.Enumerations.ToggleState.On : Telerik.WinControls.Enumerations.ToggleState.Off;
+            chkSisStudy.ToggleStateChanged += chkSisStudy_ToggleStateChanged;
+        }
         private void chkSisStudy_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
-                txtSNote.Enabled = true;
-                txtSschoolNAme.Enabled = true;
-                txtSStudyStage.Enabled = true;
-                numSDegreesRate.Enabled = true;
-                numSMonthlyCost.Enabled = true;
-                picSStarter.Enabled = true;
-                PicSstudyCerti.Enabled = true;
-                grpEducationCertificate1.Enabled = true;
-                grpEducationCertificate2.Enabled = true;
-                txtSStudyStage.Text = "";
+                EnabledDisEducationControls(true);
             }
             else
             {
-                grpEducationCertificate1.Enabled = false;
-                grpEducationCertificate2.Enabled = false;
-                txtSNote.Enabled = false;
-                txtSschoolNAme.Enabled = false;
-                txtSStudyStage.Enabled = false;
-                numSDegreesRate.Enabled = false;
-                numSMonthlyCost.Enabled = false;
-                picSStarter.Enabled = false;
-                PicSstudyCerti.Enabled = false;
-                txtSStudyStage.Text = Properties.Resources.EducationStageDefaultString;
+                EnabledDisEducationControls(false);
             }
             SaveStudy();
         }
@@ -420,6 +438,8 @@ namespace OrphanageV3.Views.Orphan
         private void pgeBasic_Click(object sender, EventArgs e)
         {
             nameForm1.HideMe();
+            _CurrentOrphan.Name = _ControllsHelper.GetNameFromForm(nameForm1);
+            txtOName.Text = _DataFormatterService.GetFullNameString(_CurrentOrphan.Name);
         }
 
         private void OrphanEditView_Load(object sender, EventArgs e)
@@ -432,16 +452,16 @@ namespace OrphanageV3.Views.Orphan
             picOFamilyCardPhoto.PhotoChanged += PhotoChanged;
             picSStarter.PhotoChanged += PhotoChanged;
             PicSstudyCerti.PhotoChanged += PhotoChanged;
-            IsLoaded = true;
         }
 
-        private void PhotoChanged(object sender, EventArgs e)
+        private async void PhotoChanged(object sender, EventArgs e)
         {
             if (sender is PictureSelector.PictureSelector)
             {
                 string url = null;
                 Image img = null;
                 var picSelector = (PictureSelector.PictureSelector)sender;
+                picSelector.ShowLoadingGif();
                 if (picSelector.Name == "picFace")
                 {
                     url = _CurrentOrphan.FacePhotoURI;
@@ -454,8 +474,7 @@ namespace OrphanageV3.Views.Orphan
                 }
                 if (picSelector.Name == "picHFace")
                 {
-                    url = _CurrentOrphan.HealthStatus.ReporteFileURI;
-                    img = picHFace.Photo;
+                    _HealthPhotoChanged = true;
                 }
                 if (picSelector.Name == "picObirthCertificate")
                 {
@@ -469,17 +488,16 @@ namespace OrphanageV3.Views.Orphan
                 }
                 if (picSelector.Name == "picSStarter")
                 {
-                    url = _CurrentOrphan.Education.CertificateImageURI;
-                    img = picSStarter.Photo;
+                    _CertificatePhotoChanged = true;
                 }
                 if (picSelector.Name == "PicSstudyCerti")
                 {
-                    url = _CurrentOrphan.Education.CertificateImage2URI;
-                    img = PicSstudyCerti.Photo;
+                    _CertificatePhoto2Changed = true;
                 }
                 if (url != null)
                 {
-                    _orphanViewModel.UploadImage(url, img);
+                    await _orphanViewModel.SaveImage(url, img);
+                    picSelector.HideLoadingGif();
                 }
             }
         }
@@ -487,8 +505,27 @@ namespace OrphanageV3.Views.Orphan
         private async void btnSave_Click(object sender, EventArgs e)
         {
             SaveHealth();
-            SaveStudy();
-           await _orphanViewModel.Save(_CurrentOrphan);
+            SaveStudy();            
+            await _orphanViewModel.Save(_CurrentOrphan);
+
+            //var savedOrphan = await _orphanViewModel.getOrphan(_CurrentOrphan.Id.Value);
+
+            if (_CurrentOrphan.HealthStatus != null && _HealthPhotoChanged)
+                await _orphanViewModel.SaveImage(_CurrentOrphan.HealthStatus.ReporteFileURI, picHFace.Photo);
+
+            if (_CurrentOrphan.Education != null)
+            {
+                if (_CertificatePhotoChanged)
+                    await _orphanViewModel.SaveImage(_CurrentOrphan.Education.CertificateImageURI, picSStarter.Photo);
+                if (_CertificatePhoto2Changed)
+                    await _orphanViewModel.SaveImage(_CurrentOrphan.Education.CertificateImage2URI, PicSstudyCerti.Photo);
+            }
+
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

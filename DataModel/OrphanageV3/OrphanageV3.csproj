@@ -57,7 +57,7 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PictureSelector, Version=1.0.6642.29840, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="PictureSelector, Version=1.0.6642.34291, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>I:\Programming\Orphanage\PictureSelector\WindowsControlLibrary1\bin\Release\PictureSelector.dll</HintPath>
     </Reference>
@@ -242,6 +242,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UnknownMale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

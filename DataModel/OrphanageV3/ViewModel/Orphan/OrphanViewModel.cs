@@ -5,11 +5,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Unity;
 namespace OrphanageV3.ViewModel.Orphan
 {
     public class OrphanViewModel
     {
+       private OrphansViewModel _orphansViewModel = Program.Factory.Resolve<OrphansViewModel>();
+
         private readonly IApiClient _apiClient;
         private Size _ImageSize = new Size(153, 126);
 
@@ -25,7 +27,19 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             try
             {
-                var ret = await _apiClient.OrphansController_PutAsync(orphan);
+                orphan.BirthCertificatePhotoData = null;
+                orphan.FacePhotoData = null;
+                orphan.FamilyCardPagePhotoData = null;
+                orphan.FullPhotoData = null;
+                if(orphan.Education != null)
+                {
+                    orphan.Education.CertificatePhotoBack = null;
+                    orphan.Education.CertificatePhotoFront = null;
+                }
+                if (orphan.HealthStatus != null)
+                    orphan.HealthStatus.ReporteFileData = null;
+                await _apiClient.OrphansController_PutAsync(orphan);
+                _orphansViewModel.UpdateOrphan(orphan.Id.Value);
                 return true;
             }
             catch(ApiClientException apiException)
@@ -33,6 +47,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 if(apiException.StatusCode != "304")
                 {
                     //TODO Status Message not changed
+                    //TODO Bad request error
                     return false;
                 }
                 return true;
@@ -95,7 +110,8 @@ namespace OrphanageV3.ViewModel.Orphan
             CurrentOrphan = returnedOrphan;
             return returnedOrphan;
         }
-        public async Task<bool> SaveBodyImage (string url ,Image image )
+
+        public async Task<bool> SaveImage (string url ,Image image )
         {
             var ret = await _apiClient.SetImage(url, image);
             return ret;

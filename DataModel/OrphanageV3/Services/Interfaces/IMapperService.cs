@@ -10,5 +10,6 @@ namespace OrphanageV3.Services.Interfaces
     public interface IMapperService
     {
         IEnumerable<OrphanModel> MapToOrphanModel(IEnumerable<Orphan> orphanList);
+        OrphanModel MapToOrphanModel(Orphan orphan);
     }
 }

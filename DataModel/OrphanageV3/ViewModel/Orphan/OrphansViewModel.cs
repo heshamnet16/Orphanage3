@@ -2,6 +2,7 @@
 using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -22,8 +23,8 @@ namespace OrphanageV3.ViewModel.Orphan
         public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
         public event OrphansChnagedDelegate OrphansChangedEvent;
         public event OrphanChnagedDelegate PhotoLoadedEvent;
-        public IEnumerable<OrphanModel> Orphans { get; set; }
-        private IEnumerable<OrphanageV3.Services.Orphan> _SourceOrphans;
+        public ObservableCollection<OrphanModel> Orphans { get; set; }
+        private IList<OrphanageV3.Services.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
         private int PhotoCompressRatio = 70;
 
@@ -48,7 +49,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 _SourceOrphans = ReturnedOrphans;
             else
                 _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
-            Orphans = _mapperService.MapToOrphanModel(_SourceOrphans);
+            Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
             OrphansChangedEvent?.Invoke();
             //get first page orphan ids
             var ids = Orphans.Take(30).Select(op => op.ID).ToList();
@@ -254,6 +255,15 @@ namespace OrphanageV3.ViewModel.Orphan
                 stringBuilder.AppendLine(Properties.Resources.IsSick + ": " + Properties.Resources.BooleanFalse);
             }
             return stringBuilder.ToString();
+        }
+
+        public async void UpdateOrphan(int Oid)
+        {
+            var orp = await _apiClient.OrphansController_GetAsync(Oid);
+            int orpIndex = _SourceOrphans.IndexOf(_SourceOrphans.FirstOrDefault(o => o.Id == Oid));
+            _SourceOrphans[orpIndex] = orp;
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);            
         }
     }
 }
