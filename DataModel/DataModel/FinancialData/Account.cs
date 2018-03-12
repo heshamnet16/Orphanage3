@@ -14,32 +14,32 @@ namespace OrphanageDataModel.FinancialData
         public int Id { get; set; }
 
         [Column("Name")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string AccountName { get; set; }
 
         [Column("Cur_Name")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Currency { get; set; }
 
         [Column("Cur_Short")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string CurrencyShortcut { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("AMount")]
         public decimal Amount { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("Is_Positive")]
         public bool CanNotBeNegative { get; set; }
 
         public string Note { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime RegDate { get; set; }
 
         [Column("User_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int UserId { get; set; }
 
         public virtual User ActingUser { get; set; }

@@ -171,6 +171,7 @@
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\CheckerService.cs" />
     <Compile Include="Services\DataModel\CheckerResultData.cs" />
+    <Compile Include="Services\ExceptionHandlerService.cs" />
     <Compile Include="Services\Exceptions\DuplicatedObjectException.cs" />
     <Compile Include="Services\Exceptions\HasForeignKeyException.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Services\Interfaces\IBailDbService.cs" />
     <Compile Include="Services\Interfaces\ICaregiverDbService.cs" />
     <Compile Include="Services\Interfaces\ICheckerService.cs" />
+    <Compile Include="Services\Interfaces\IExceptionHandlerService.cs" />
     <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />

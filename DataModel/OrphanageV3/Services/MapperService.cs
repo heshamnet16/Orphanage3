@@ -61,6 +61,7 @@ namespace OrphanageV3.Services
                     retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orp.Caregiver?.Name);
                     retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orp.Family?.Father?.Name);
                     retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orp.Family?.Mother?.Name);
+                    retOrp.Photo = Properties.Resources.loading;
                     //TODO extend IsBailed to family bails 
                 }
                 catch
@@ -70,5 +71,25 @@ namespace OrphanageV3.Services
                 yield return retOrp;
             }
         }
+        public OrphanModel MapToOrphanModel(Orphan orphan)
+        {
+                OrphanModel retOrp = null;
+                try
+                {
+                    retOrp = _mapper.Map<OrphanModel>(orphan);
+                    retOrp.IsSick = orphan.HealthStatus != null ? true : false;
+                    retOrp.FullName = _dataFormatterService.GetFullNameString(orphan.Name);
+                    retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orphan.Caregiver?.Name);
+                    retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Father?.Name);
+                    retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Mother?.Name);
+                    //TODO extend IsBailed to family bails 
+                }
+                catch
+                {
+                    retOrp = null;
+                }
+            return retOrp;
+            }
+        
     }
 }

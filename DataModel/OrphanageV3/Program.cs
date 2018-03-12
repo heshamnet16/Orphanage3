@@ -1,5 +1,6 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
@@ -9,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
+using Unity.Registration;
 
 namespace OrphanageV3
 {
@@ -30,11 +34,14 @@ namespace OrphanageV3
         public static IUnityContainer BuildContainer()
         {
             var currentContainer = new UnityContainer();
-            currentContainer.RegisterSingleton<IApiClient, ApiClient>();
-            currentContainer.RegisterSingleton<ITranslateService,TranslateService>();
+            currentContainer.RegisterType<IApiClient, ApiClient>(new ContainerControlledLifetimeManager(), new InjectionConstructor(new object[] { true}));
+            currentContainer.RegisterSingleton<ITranslateService, TranslateService>();
             currentContainer.RegisterSingleton<IMapperService, MapperService>();
             currentContainer.RegisterSingleton<IRadGridHelper, RadGridHelper>();
             currentContainer.RegisterSingleton<IDataFormatterService, DataFormatterService>();
+            currentContainer.RegisterSingleton<IControllsHelper, ControllsHelper>();
+            currentContainer.RegisterSingleton<IAutoCompleteService, AutoCompleteService>();
+            currentContainer.RegisterSingleton<OrphansViewModel>();
             return currentContainer;
         }
     }

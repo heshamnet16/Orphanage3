@@ -59,15 +59,15 @@ namespace OrphanageService.Family.Controllers
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
-            if (data != null)
-            {
+            //if (data != null)
+            //{
                 await _FamilyDBService.SetFamilyCardPage1(FamId, data);
                 return result;
-            }
-            else
-            {
-                throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
-            }
+            //}
+            //else
+            //{
+            //    throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
+            //}
         }
 
         #endregion FamilyCardPhotoPage1
@@ -111,15 +111,15 @@ namespace OrphanageService.Family.Controllers
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
-            if (data != null)
-            {
+            //if (data != null)
+            //{
                 await _FamilyDBService.SetFamilyCardPage2(FamId, data);
                 return result;
-            }
-            else
-            {
-                throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
-            }
+            //}
+            //else
+            //{
+            //    throw new HttpResponseException(_httpResponseMessageConfiguerer.NotAcceptable());
+            //}
         }
 
         #endregion FamilyCardPhotoPage2

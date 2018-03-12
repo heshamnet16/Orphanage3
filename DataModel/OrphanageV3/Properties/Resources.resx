@@ -289,10 +289,10 @@
   <data name="OrphanIsSick" xml:space="preserve">
     <value>اليتيم مريض</value>
   </data>
-  <data name="StudyNonStudyingReasons" xml:space="preserve">
+  <data name="EducationNonStudyingReasons" xml:space="preserve">
     <value>اسباب التخلف عن الدراسة</value>
   </data>
-  <data name="StudyStage" xml:space="preserve">
+  <data name="EducationStage" xml:space="preserve">
     <value>المرحلة الدراسية</value>
   </data>
   <data name="GirdViewGroupPanelElementText" xml:space="preserve">
@@ -500,13 +500,157 @@
   <data name="Reason" xml:space="preserve">
     <value>السبب</value>
   </data>
-  <data name="StudyAvaregeGrade" xml:space="preserve">
+  <data name="EducationAvaregeGrade" xml:space="preserve">
     <value>معدل الدرجات</value>
   </data>
-  <data name="StudyNonStudyKeyword" xml:space="preserve">
+  <data name="EducationNonStudyKeyword" xml:space="preserve">
     <value>متخلف</value>
   </data>
-  <data name="StudySchoolName" xml:space="preserve">
+  <data name="EducationSchoolName" xml:space="preserve">
     <value>اسم المدرسة</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>بيانات اساسية</value>
+  </data>
+  <data name="BirthCertificatePhoto" xml:space="preserve">
+    <value>صورة شهادة الولادة</value>
+  </data>
+  <data name="BodyPhoto" xml:space="preserve">
+    <value>صورة كاملة</value>
+  </data>
+  <data name="CivilRegisterNumber" xml:space="preserve">
+    <value>رقم القيد</value>
+  </data>
+  <data name="EducationCertificateImage1" xml:space="preserve">
+    <value>شهادة دراسية</value>
+  </data>
+  <data name="EducationCertificateImage2" xml:space="preserve">
+    <value>شهادة دراسية</value>
+  </data>
+  <data name="EducationData" xml:space="preserve">
+    <value>بيانات دراسية</value>
+  </data>
+  <data name="EducationMonthlyCost" xml:space="preserve">
+    <value>الكلفة الشهرية</value>
+  </data>
+  <data name="FacePhoto" xml:space="preserve">
+    <value>صورة الوجه</value>
+  </data>
+  <data name="FamilyCardPhoto" xml:space="preserve">
+    <value>صورة دفتر العائلة</value>
+  </data>
+  <data name="FemaleString" xml:space="preserve">
+    <value>انثى</value>
+  </data>
+  <data name="HealthData" xml:space="preserve">
+    <value>بيانات طبية</value>
+  </data>
+  <data name="HealthDoctor" xml:space="preserve">
+    <value>الطبيب المشرف</value>
+  </data>
+  <data name="HealthReportFilePhoto" xml:space="preserve">
+    <value>صورة التقرير الطبي</value>
+  </data>
+  <data name="MaleString" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="OrphanEditViewTitle" xml:space="preserve">
+    <value>يتيم</value>
+  </data>
+  <data name="OtherData" xml:space="preserve">
+    <value>بينات أخرى</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="Centimeter" xml:space="preserve">
+    <value>سم</value>
+  </data>
+  <data name="ChangeCaregiverText" xml:space="preserve">
+    <value>تغير المعيل</value>
+  </data>
+  <data name="EducationReasonNullText" xml:space="preserve">
+    <value>أدخل سبب التخلف عن الدراسة</value>
+  </data>
+  <data name="EducationSchoolNameNullText" xml:space="preserve">
+    <value>أدخل اسم المدرسة</value>
+  </data>
+  <data name="EducationStageDefaultString" xml:space="preserve">
+    <value>متخلف عن الدراسة</value>
+  </data>
+  <data name="EducationStageNullString" xml:space="preserve">
+    <value>أدخل المرحلة الدراسية</value>
+  </data>
+  <data name="HealthDoctorNullText" xml:space="preserve">
+    <value>أدخل اسم الطبيب المشرف</value>
+  </data>
+  <data name="HealthMedicenNullText" xml:space="preserve">
+    <value>المرض أسم أدخل</value>
+  </data>
+  <data name="HealthSicknessNameNullText" xml:space="preserve">
+    <value>المرض أسم أدخل</value>
+  </data>
+  <data name="Kilogramm" xml:space="preserve">
+    <value>كغ</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple1" xml:space="preserve">
+    <value>خاله</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple10" xml:space="preserve">
+    <value>امها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple11" xml:space="preserve">
+    <value>عمته</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple12" xml:space="preserve">
+    <value>عمتها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple13" xml:space="preserve">
+    <value>خالته</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple14" xml:space="preserve">
+    <value>خالتها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple15" xml:space="preserve">
+    <value>لايوجد صلة قرابة</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple16" xml:space="preserve">
+    <value>قريبه</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple17" xml:space="preserve">
+    <value>قريبته</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple2" xml:space="preserve">
+    <value>خالها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple3" xml:space="preserve">
+    <value>عمه</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple4" xml:space="preserve">
+    <value>عمها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple5" xml:space="preserve">
+    <value>جده</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple6" xml:space="preserve">
+    <value>جدها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple7" xml:space="preserve">
+    <value>جدته</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple8" xml:space="preserve">
+    <value>جدتها</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple9" xml:space="preserve">
+    <value>امه</value>
+  </data>
+  <data name="SaveText" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

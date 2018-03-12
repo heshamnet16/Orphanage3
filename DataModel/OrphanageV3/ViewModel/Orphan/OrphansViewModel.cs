@@ -2,6 +2,7 @@
 using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -21,9 +22,8 @@ namespace OrphanageV3.ViewModel.Orphan
         public delegate void OrphansChnagedDelegate();
         public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
         public event OrphansChnagedDelegate OrphansChangedEvent;
-        public event OrphanChnagedDelegate PhotoLoadedEvent;
-        public IEnumerable<OrphanModel> Orphans { get; set; }
-        private IEnumerable<OrphanageV3.Services.Orphan> _SourceOrphans;
+        public ObservableCollection<OrphanModel> Orphans { get; set; }
+        private IList<OrphanageV3.Services.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
         private int PhotoCompressRatio = 70;
 
@@ -48,7 +48,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 _SourceOrphans = ReturnedOrphans;
             else
                 _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
-            Orphans = _mapperService.MapToOrphanModel(_SourceOrphans);
+            Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
             OrphansChangedEvent?.Invoke();
             //get first page orphan ids
             var ids = Orphans.Take(30).Select(op => op.ID).ToList();
@@ -68,7 +68,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     {
                         img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoyPic, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirlPic, PhotoSize);
                     }
-                    PhotoLoadedEvent?.Invoke(orp.ID, img);
+                    UpdateOrphanPhoto(orp.ID, img);
                 }
                 catch { }
             }
@@ -204,12 +204,12 @@ namespace OrphanageV3.ViewModel.Orphan
 
             if(orp.EducationId.HasValue && orp.Education != null)
             {
-                if (orp.Education.Stage.Contains(Properties.Resources.StudyNonStudyKeyword))
+                if (orp.Education.Stage.Contains(Properties.Resources.EducationNonStudyKeyword))
                 {
                     if (orp.Education.Reasons != null && orp.Education.Reasons.Length > 0)
                     {
                         stringBuilder.AppendLine(Properties.Resources.IsStudying + ": " + Properties.Resources.BooleanFalse);
-                        stringBuilder.AppendLine(Properties.Resources.StudyNonStudyingReasons + ": " + orp.Education.Reasons);
+                        stringBuilder.AppendLine(Properties.Resources.EducationNonStudyingReasons + ": " + orp.Education.Reasons);
                     }
                 }
                 else
@@ -217,15 +217,15 @@ namespace OrphanageV3.ViewModel.Orphan
                     stringBuilder.AppendLine(Properties.Resources.IsStudying + ": " + Properties.Resources.BooleanTrue);
                     if (orp.Education.Stage != null && orp.Education.Stage.Length > 0)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.StudyStage + ": " + orp.Education.Stage);
+                        stringBuilder.AppendLine(Properties.Resources.EducationStage + ": " + orp.Education.Stage);
                     }
                     if (orp.Education.DegreesRate.HasValue)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.StudyAvaregeGrade + ": " + orp.Education.DegreesRate.Value + "%");
+                        stringBuilder.AppendLine(Properties.Resources.EducationAvaregeGrade + ": " + orp.Education.DegreesRate.Value + "%");
                     }
                     if (orp.Education.School != null && orp.Education.School.Length > 0)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.StudySchoolName + ": " + orp.Education.School);
+                        stringBuilder.AppendLine(Properties.Resources.EducationSchoolName + ": " + orp.Education.School);
                     }
                 }                
             }
@@ -254,6 +254,42 @@ namespace OrphanageV3.ViewModel.Orphan
                 stringBuilder.AppendLine(Properties.Resources.IsSick + ": " + Properties.Resources.BooleanFalse);
             }
             return stringBuilder.ToString();
+        }
+
+        public async void UpdateOrphan(int Oid)
+        {
+            var orp = await _apiClient.OrphansController_GetAsync(Oid);
+            int orpIndex = _SourceOrphans.IndexOf(_SourceOrphans.FirstOrDefault(o => o.Id == Oid));
+            _SourceOrphans[orpIndex] = orp;
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);
+            UpdateOrphanPhoto(Oid);
+        }
+
+        public void UpdateOrphanPhoto(int Oid , Image img)
+        {
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            Orphans[orpMIndex].Photo = img;
+        }
+
+        public async Task UpdateOrphanPhoto(int Oid)
+        {
+            var orp = Orphans.FirstOrDefault(o => o.ID == Oid);
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            Image img = null;
+            try
+            {
+               img =  await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
+            }
+            catch
+            {
+                img = null;
+            }
+            if (img == null)
+            {
+                img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
+            }
+            Orphans[orpMIndex].Photo = img;
         }
     }
 }

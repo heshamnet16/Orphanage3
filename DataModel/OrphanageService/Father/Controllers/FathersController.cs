@@ -2,6 +2,7 @@
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -13,11 +14,13 @@ namespace OrphanageService.Father.Controllers
     {
         private readonly IFatherDbService _FatherDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
+        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public FathersController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
+        public FathersController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpMessageConfiguerer,IExceptionHandlerService exceptionHandlerService)
         {
             _FatherDBService = fatherDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
+            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/father/{id}
@@ -36,7 +39,14 @@ namespace OrphanageService.Father.Controllers
         [Route("")]
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.Persons.Father father)
         {
-            var ret = await _FatherDBService.SaveFather(father);
+            var ret = 0;
+            try { 
+            ret =await _FatherDBService.SaveFather(father);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret > 0)
             {
                 return _httpMessageConfiguerer.OK();

@@ -2,7 +2,9 @@
 using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -14,11 +16,13 @@ namespace OrphanageService.Orphan.Controllers
     {
         private readonly IOrphanDbService _OrphanDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfigurere;
+        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere)
+        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere,IExceptionHandlerService exceptionHandlerService)
         {
             _OrphanDBService = orphanDBService;
             _httpMessageConfigurere = httpMessageConfigurere;
+            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/Orphan/{id}
@@ -70,7 +74,15 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> Post(object orphan)
         {
             var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
-            var ret = await _OrphanDBService.AddOrphan(orp);
+            var ret = 0;
+            try
+            {
+                ret = await _OrphanDBService.AddOrphan(orp);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret > 0)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
@@ -86,7 +98,15 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> Put(object orphan)
         {
             var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
-            var ret = await _OrphanDBService.SaveOrphan(orp);
+            var ret = false;
+            try
+            {
+                ret = await _OrphanDBService.SaveOrphan(orp);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                return _exceptionHandlerService.HandleValidationException(excp);
+            }
             if (ret)
             {
                 return _httpMessageConfigurere.OK();

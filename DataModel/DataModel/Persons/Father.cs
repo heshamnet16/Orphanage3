@@ -16,15 +16,15 @@ namespace OrphanageDataModel.Persons
         public int Id { get; set; }
 
         [Column("Name_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int NameId { get; set; }
 
         public virtual Name Name { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime Birthday { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("Dieday")]
         public DateTime DateOfDeath { get; set; }
 
@@ -44,15 +44,33 @@ namespace OrphanageDataModel.Persons
         [Column("Color_Mark")]
         public long? ColorMark { get; set; }
 
-        [Column("IdentityCard_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        public string IdentityCardNumber { get; set; }
+        private string _IdentityCardNumber;
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Column("IdentityCard_ID")]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MaxLength(11, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        public string IdentityCardNumber
+        {
+            get { return _IdentityCardNumber; }
+            set
+            {
+                if (value != null && value.Length == 10)
+                {
+                    _IdentityCardNumber = "0" + value;
+                }
+                else
+                {
+                    _IdentityCardNumber = value;
+                }
+            }
+        }
+
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime RegDate { get; set; }
 
         [Column("User_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int UserId { get; set; }
 
         public virtual User ActingUser { get; set; }

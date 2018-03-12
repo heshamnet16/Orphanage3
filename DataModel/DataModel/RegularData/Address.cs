@@ -12,43 +12,43 @@ namespace OrphanageDataModel.RegularData
         [Column("ID")]
         public int Id { get; set; }
 
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Country { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string City { get; set; }
 
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Town { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
-        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Street { get; set; }
 
-        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("Home_Phone")]
         public string HomePhone { get; set; }
 
-        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("Cell_Phone")]
         public string CellPhone { get; set; }
 
-        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         [Column("Work_phone")]
         public string WorkPhone { get; set; }
 
-        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Fax { get; set; }
 
-        [EmailAddress(ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [EmailAddress(ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Email { get; set; }
 
         [RegularExpression(@"(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?",
-            ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+            ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Facebook { get; set; }
 
-        [RegularExpression(@"http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(string))]
+        [RegularExpression(@"http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)", ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string Twitter { get; set; }
 
         public string Note { get; set; }

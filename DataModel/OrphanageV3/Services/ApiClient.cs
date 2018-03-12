@@ -1584,17 +1584,17 @@ namespace OrphanageV3.Services
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "http://localhost:1515";
-        
+
         public ApiClient()
         {
-    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings();
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
-    	}
-    
+        }
+
         public string BaseUrl 
         {
             get { return _baseUrl; }

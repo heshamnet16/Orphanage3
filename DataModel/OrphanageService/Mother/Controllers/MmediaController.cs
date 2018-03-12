@@ -59,15 +59,15 @@ namespace OrphanageService.Mother.Controllers
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
-            if (data != null)
-            {
+            ////if (data != null)
+            ////{
                 await _MotherDBService.SetMotherIdPhotoFace(Mid, data);
                 return result;
-            }
-            else
-            {
-                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
-            }
+            //}
+            //else
+            //{
+            //    throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            //}
         }
 
         #endregion IdCardPhotoFront
@@ -111,15 +111,15 @@ namespace OrphanageService.Mother.Controllers
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
-            if (data != null)
-            {
+            //if (data != null)
+            //{
                 await _MotherDBService.SetMotherIdPhotoBack(Mid, data);
                 return result;
-            }
-            else
-            {
-                throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
-            }
+            //}
+            //else
+            //{
+            //    throw new HttpResponseException(Request.CreateResponse(_httpResponseMessageConfiguerer.NotAcceptable()));
+            //}
         }
 
         #endregion IdCardPhotoBack

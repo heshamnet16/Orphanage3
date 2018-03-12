@@ -16,7 +16,7 @@ namespace OrphanageDataModel.Persons
         public int Id { get; set; }
 
         [Column("Name_Id")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int NameId { get; set; }
 
         public virtual Name Name { get; set; }
@@ -26,8 +26,25 @@ namespace OrphanageDataModel.Persons
 
         public virtual Address Address { get; set; }
 
+        private string _IdentityCardNumber;
         [Column("IdentityCard_ID")]
-        public string IdentityCardId { get; set; }
+        [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [MaxLength(11, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        public string IdentityCardId
+        {
+            get { return _IdentityCardNumber; }
+            set
+            {
+                if (value != null && value.Length == 10)
+                {
+                    _IdentityCardNumber = "0" + value;
+                }
+                else
+                {
+                    _IdentityCardNumber = value;
+                }
+            }
+        }
 
         [Column("IdentityCard_Photo")]
         public byte[] IdentityCardPhotoFaceData { get; set; }
@@ -44,11 +61,11 @@ namespace OrphanageDataModel.Persons
 
         public byte[] FingerPrint { get; set; }
 
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public DateTime RegDate { get; set; }
 
         [Column("User_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(string))]
+        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public int UserId { get; set; }
 
         public virtual User ActingUser { get; set; }

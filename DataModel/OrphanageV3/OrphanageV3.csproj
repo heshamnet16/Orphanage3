@@ -36,6 +36,9 @@
     <StartupObject>OrphanageV3.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AddressForm">
+      <HintPath>I:\Programming\Orphanage\AddressForm\AddressForm\bin\Release\AddressForm.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -45,8 +48,18 @@
     <Reference Include="Itenso.TimePeriod, Version=2.1.1.0, Culture=neutral, PublicKeyToken=8cb6db75b4e81486, processorArchitecture=MSIL">
       <HintPath>..\packages\TimePeriodLibrary.NET.2.1.1\lib\net46\Itenso.TimePeriod.dll</HintPath>
     </Reference>
+    <Reference Include="LangChanger">
+      <HintPath>I:\Programming\Orphanage\AddressForm\AddressForm\bin\Release\LangChanger.dll</HintPath>
+    </Reference>
+    <Reference Include="NameForm">
+      <HintPath>I:\Programming\Orphanage\NameForm\NameForm\bin\Release\NameForm.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PictureSelector, Version=1.0.6642.34291, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>I:\Programming\Orphanage\PictureSelector\WindowsControlLibrary1\bin\Release\PictureSelector.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -103,9 +116,12 @@
     <Compile Include="Controlls\OrphanageGridView.Designer.cs">
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Services\ApiClientPhotos.cs" />
+    <Compile Include="Services\AutoCompleteService.cs" />
     <Compile Include="Services\DataFormatterService.cs" />
+    <Compile Include="Services\Interfaces\IAutoCompleteService.cs" />
     <Compile Include="Services\Interfaces\IDataFormatterService.cs" />
     <Compile Include="Services\Interfaces\IMapperService.cs" />
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
@@ -113,10 +129,19 @@
     <Compile Include="Services\TranslateService.cs" />
     <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
+    <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
+    <Compile Include="Views\Helper\ControllsHelper.cs" />
+    <Compile Include="Views\Helper\Interfaces\IControllsHelper.cs" />
     <Compile Include="Views\Helper\Interfaces\IRadGridHelper.cs" />
     <Compile Include="Views\Helper\RadGridHelper.cs" />
+    <Compile Include="Views\Orphan\OrphanEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Orphan\OrphanEditView.Designer.cs">
+      <DependentUpon>OrphanEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Orphan\OrphansView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +158,9 @@
     </Compile>
     <EmbeddedResource Include="Controlls\OrphanageGridView.resx">
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Orphan\OrphanEditView.resx">
+      <DependentUpon>OrphanEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Orphan\OrphansView.resx">
       <DependentUpon>OrphansView.cs</DependentUpon>
@@ -152,6 +180,7 @@
       <DependentUpon>SummaryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageV3.Services.Orphan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -213,6 +242,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UnknownMale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
