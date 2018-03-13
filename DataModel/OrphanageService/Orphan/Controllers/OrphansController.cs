@@ -81,7 +81,7 @@ namespace OrphanageService.Orphan.Controllers
             }
             catch (DbEntityValidationException excp)
             {
-                return _exceptionHandlerService.HandleValidationException(excp);
+               throw _exceptionHandlerService.HandleValidationException(excp);
             }
             if (ret > 0)
             {
@@ -105,7 +105,7 @@ namespace OrphanageService.Orphan.Controllers
             }
             catch (DbEntityValidationException excp)
             {
-                return _exceptionHandlerService.HandleValidationException(excp);
+                throw _exceptionHandlerService.HandleValidationException(excp);
             }
             if (ret)
             {

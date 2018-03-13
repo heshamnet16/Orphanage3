@@ -4,36 +4,35 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace OrphanageService.Services
 {
     public class ExceptionHandlerService : IExceptionHandlerService
     {
-        public HttpResponseMessage HandleValidationException(DbEntityValidationException dbEntityValidation)
+        public HttpResponseException HandleValidationException(DbEntityValidationException dbEntityValidation)
         {
+
             string message = string.Empty;
             foreach (var msg in dbEntityValidation.EntityValidationErrors)
             {
                 foreach (var err in msg.ValidationErrors)
                 {
-                    message += err.ErrorMessage + "\\\\\\" + err.PropertyName + "\n";
+                    message += err.ErrorMessage + ":" + err.PropertyName + ";";
                 }
             }
-            var resp = new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
-            using (MemoryStream mem = new MemoryStream())
-            {
-                using (StreamWriter streamWriter = new StreamWriter(mem))
+                //resp.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var response = new HttpResponseMessage(HttpStatusCode.BadRequest)
                 {
-                    streamWriter.Write(message);
-                    resp.Content = new StreamContent(mem);
-                    resp.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                    return resp;
-                }
-            }
+                    ReasonPhrase = message
+                };
+                response.Content = new StringContent(message);
+                return new HttpResponseException(response);
         }
     }
 }

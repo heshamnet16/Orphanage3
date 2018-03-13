@@ -47,7 +47,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 if(apiException.StatusCode != "304")
                 {
                     //TODO Status Message not changed
-                    //TODO Bad request error
+                    //TODO Bad request error handling
                     return false;
                 }
                 return true;
