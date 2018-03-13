@@ -85,7 +85,7 @@ namespace OrphanageV3.Views.Helper
             }
         }
 
-        public void UpadteCellData(string IdColumnName, int IdValue, string ColumnName, object value)
+        public void UpadteCellData(string IdColumnName, int IdValue, string ColumnName, ref object value)
         {
             var row = GetRowByColumnName(IdColumnName, IdValue);
             lock (LockObject)

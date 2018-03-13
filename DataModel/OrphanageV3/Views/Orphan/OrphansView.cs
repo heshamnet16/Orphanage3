@@ -23,6 +23,7 @@ namespace OrphanageV3.Views.Orphan
         private object lockObj = new object();
         private Thread upadteImageDetailsThread;
         private IList<Thread> PagingThreads = new List<Thread>();
+        private static object _loading = Properties.Resources.loading;
         public OrphansView()
         {
             InitializeComponent();
@@ -53,6 +54,10 @@ namespace OrphanageV3.Views.Orphan
 
         private void StartThumbnailsThread(IList<int> idsListFromGrid)
         {
+            foreach(var id in idsListFromGrid)
+            {
+                _radGridHelper.UpadteCellData("ID", id, "Photo", ref _loading);
+            }
             var t = new Thread(new ParameterizedThreadStart((IdsList) =>
             {
                 IList<int> idsList = (IList<int>)IdsList;
@@ -106,13 +111,12 @@ namespace OrphanageV3.Views.Orphan
                 {
                     var id = (int)_radGridHelper.GetValueBySelectedRow("ID");
                     var photoTask = _orphansViewModel.GetOrphanFacePhoto(id);
+                    var OrphanSummaryTask = _orphansViewModel.GetOrphanSummary(id);
+                    BeginInvoke(new MethodInvoker(async () => { txtDetails.Text = await OrphanSummaryTask; }));
                     picPhoto.Image = await photoTask;
-                    BeginInvoke(new MethodInvoker(async () => { txtDetails.Text = await _orphansViewModel.GetOrphanSummary(id); }));
-
                 }
             }));
             upadteImageDetailsThread.Priority = ThreadPriority.Highest;
-            upadteImageDetailsThread.IsBackground = true;
             upadteImageDetailsThread.Start();
         }
         private void UpdateControls()

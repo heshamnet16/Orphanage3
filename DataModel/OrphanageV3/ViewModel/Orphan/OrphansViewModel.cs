@@ -83,7 +83,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 string url = orp.FacePhotoURI;
                 if (url != null)
                 {
-                    var img = await _apiClient.GetImage(url);
+                    var img = await _apiClient.GetImage(url,new Size(300,300),80);
                     if (img == null)
                     {
                         img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
@@ -263,7 +263,7 @@ namespace OrphanageV3.ViewModel.Orphan
             _SourceOrphans[orpIndex] = orp;
             int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
             Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);
-            UpdateOrphanPhoto(Oid);
+            await UpdateOrphanPhoto(Oid);
         }
 
         public void UpdateOrphanPhoto(int Oid , Image img)

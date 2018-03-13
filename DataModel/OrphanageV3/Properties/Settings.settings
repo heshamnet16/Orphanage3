@@ -21,7 +21,7 @@
       <Value Profile="(Default)">Orphan.layout</Value>
     </Setting>
     <Setting Name="OrphanageServiceURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://localhost:1515/</Value>
+      <Value Profile="(Default)">http://192.168.56.101:1515/</Value>
     </Setting>
     <Setting Name="DefaultPageSize" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">20</Value>

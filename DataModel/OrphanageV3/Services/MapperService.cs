@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,7 @@ namespace OrphanageV3.Services
                     retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orp.Caregiver?.Name);
                     retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orp.Family?.Father?.Name);
                     retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orp.Family?.Mother?.Name);
-                    retOrp.Photo = Properties.Resources.loading;
+                    //retOrp.Photo = Properties.Resources.preload;
                     //TODO extend IsBailed to family bails 
                 }
                 catch

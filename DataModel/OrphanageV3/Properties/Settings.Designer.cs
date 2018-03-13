@@ -79,7 +79,7 @@ namespace OrphanageV3.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1515/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.56.101:1515/")]
         public string OrphanageServiceURL {
             get {
                 return ((string)(this["OrphanageServiceURL"]));

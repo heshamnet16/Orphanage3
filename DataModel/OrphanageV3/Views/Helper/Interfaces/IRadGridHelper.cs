@@ -22,7 +22,7 @@ namespace OrphanageV3.Views.Helper.Interfaces
 
         void UpdateRowColor(string ColorColumnName, long? ColorValue, string ColumnName, object SearchValue);
 
-        void UpadteCellData(string IdColumnName,int IdValue, string ColumnName, object value);
+        void UpadteCellData(string IdColumnName,int IdValue, string ColumnName, ref object value);
 
         IEnumerable<int> GetCurrentRows(string IdColumnName);
 
