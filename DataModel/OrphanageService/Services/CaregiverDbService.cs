@@ -132,6 +132,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Address)
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
+                    .Include(c => c.ActingUser.Name)
                     .FirstOrDefaultAsync(c => c.Id == Cid);
                 if (caregiver == null) throw new ObjectNotFoundException();
                 _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiver);
@@ -156,6 +157,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Address)
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
+                    .Include(c=>c.ActingUser.Name)
                     .ToListAsync();
 
                 foreach (var caregiver in caregivers)

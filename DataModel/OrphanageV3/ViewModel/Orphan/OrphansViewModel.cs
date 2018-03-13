@@ -51,7 +51,11 @@ namespace OrphanageV3.ViewModel.Orphan
             Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
             OrphansChangedEvent?.Invoke();
             //get first page orphan ids
-            var ids = Orphans.Take(30).Select(op => op.ID).ToList();
+            var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
+
+            //set Loading image 
+            foreach (var orp in Orphans)
+                orp.Photo = Properties.Resources.loading;
             //Start Image thread after data loading
             await LoadImages(ids);
         }
@@ -62,13 +66,13 @@ namespace OrphanageV3.ViewModel.Orphan
             {
                 try
                 {
-                    var orp = Orphans.FirstOrDefault(o => o.ID == id);
+                    var orp = Orphans.FirstOrDefault(o => o.Id == id);
                     var img = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
                     if (img == null)
                     {
                         img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoyPic, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirlPic, PhotoSize);
                     }
-                    UpdateOrphanPhoto(orp.ID, img);
+                    UpdateOrphanPhoto(orp.Id, img);
                 }
                 catch { }
             }
@@ -78,7 +82,7 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             try
             {
-                var orp = Orphans.FirstOrDefault(o => o.ID == id);
+                var orp = Orphans.FirstOrDefault(o => o.Id == id);
                 if (orp == null) return null;
                 string url = orp.FacePhotoURI;
                 if (url != null)
@@ -261,21 +265,21 @@ namespace OrphanageV3.ViewModel.Orphan
             var orp = await _apiClient.OrphansController_GetAsync(Oid);
             int orpIndex = _SourceOrphans.IndexOf(_SourceOrphans.FirstOrDefault(o => o.Id == Oid));
             _SourceOrphans[orpIndex] = orp;
-            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
             Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);
             await UpdateOrphanPhoto(Oid);
         }
 
         public void UpdateOrphanPhoto(int Oid , Image img)
         {
-            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
             Orphans[orpMIndex].Photo = img;
         }
 
         public async Task UpdateOrphanPhoto(int Oid)
         {
-            var orp = Orphans.FirstOrDefault(o => o.ID == Oid);
-            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            var orp = Orphans.FirstOrDefault(o => o.Id == Oid);
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
             Image img = null;
             try
             {

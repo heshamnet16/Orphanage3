@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Orphan;
 using Unity;
 namespace OrphanageV3.Services
@@ -39,31 +40,37 @@ namespace OrphanageV3.Services
                 .ForMember(dest => dest.Story, sour => sour.MapFrom(prop => prop.Story))
                 .ForMember(dest => dest.StudyReasons, sour => sour.MapFrom(prop => prop.Education.Reasons))
                 .ForMember(dest => dest.StudyStage, sour => sour.MapFrom(prop => prop.Education.Stage));
+
+                cfg.CreateMap<Caregiver, CaregiverModel>()
+                .ForMember(dest => dest.FirstName, sour => sour.MapFrom(prop => prop.Name.First))
+                .ForMember(dest => dest.FatherName, sour => sour.MapFrom(prop => prop.Name.Father))
+                .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
+                .ForMember(dest => dest.CellPhone, sour => sour.MapFrom(prop => prop.Address.CellPhone))
+                .ForMember(dest => dest.WorkPhone, sour => sour.MapFrom(prop => prop.Address.WorkPhone))
+                .ForMember(dest => dest.HomePhone, sour => sour.MapFrom(prop => prop.Address.HomePhone))
+                .ForMember(dest => dest.IdentityCardNumber, sour => sour.MapFrom(prop => prop.IdentityCardId))
+                .ForMember(dest => dest.ColorMark, sour => sour.MapFrom(prop => prop.ColorMark))
+                .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
+                .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
             });
 
             _mapper = mapperConfiguration.CreateMapper();
         }
 
-        public MapperService(IDataFormatterService dataFormatterService) {
+        public MapperService(IDataFormatterService dataFormatterService)
+        {
             _dataFormatterService = dataFormatterService;
         }
 
         public IEnumerable<OrphanModel> MapToOrphanModel(IEnumerable<Orphan> orphanList)
         {
-            foreach(var orp in orphanList)
+            foreach (var orp in orphanList)
             {
 
                 OrphanModel retOrp = null;
                 try
                 {
-                    retOrp = _mapper.Map<OrphanModel>(orp);
-                    retOrp.IsSick = orp.HealthStatus != null ? true : false;
-                    retOrp.FullName = _dataFormatterService.GetFullNameString(orp.Name);
-                    retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orp.Caregiver?.Name);
-                    retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orp.Family?.Father?.Name);
-                    retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orp.Family?.Mother?.Name);
-                    //retOrp.Photo = Properties.Resources.preload;
-                    //TODO extend IsBailed to family bails 
+                    retOrp = MapToOrphanModel(orp);
                 }
                 catch
                 {
@@ -74,23 +81,52 @@ namespace OrphanageV3.Services
         }
         public OrphanModel MapToOrphanModel(Orphan orphan)
         {
-                OrphanModel retOrp = null;
-                try
-                {
-                    retOrp = _mapper.Map<OrphanModel>(orphan);
-                    retOrp.IsSick = orphan.HealthStatus != null ? true : false;
-                    retOrp.FullName = _dataFormatterService.GetFullNameString(orphan.Name);
-                    retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orphan.Caregiver?.Name);
-                    retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Father?.Name);
-                    retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Mother?.Name);
-                    //TODO extend IsBailed to family bails 
-                }
-                catch
-                {
-                    retOrp = null;
-                }
-            return retOrp;
+            OrphanModel retOrp = null;
+            try
+            {
+                retOrp = _mapper.Map<OrphanModel>(orphan);
+                retOrp.IsSick = orphan.HealthStatus != null ? true : false;
+                retOrp.FullName = _dataFormatterService.GetFullNameString(orphan.Name);
+                retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orphan.Caregiver?.Name);
+                retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Father?.Name);
+                retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Mother?.Name);
+                //TODO extend IsBailed to family bails 
             }
-        
+            catch
+            {
+                retOrp = null;
+            }
+            return retOrp;
+        }
+
+        public IEnumerable<CaregiverModel> MapToCaregiverModel(IEnumerable<Caregiver> caregiverist)
+        {
+            foreach (var caregiver in caregiverist)
+            {
+
+                CaregiverModel retCaregiver = MapToCaregiverModel(caregiver);
+                yield return retCaregiver;
+            }
+        }
+        public CaregiverModel MapToCaregiverModel(Caregiver caregiver)
+        {
+            CaregiverModel retCaregiver = null;
+            try
+            {
+                retCaregiver = _mapper.Map<CaregiverModel>(caregiver);
+                retCaregiver.FullName = _dataFormatterService.GetFullNameString(caregiver.Name);
+                retCaregiver.FullAddress = _dataFormatterService.GetAddressString(caregiver.Address);
+                if (caregiver.Orphans != null && caregiver.Orphans.Count > 0)
+                    retCaregiver.OrphansCount = caregiver.Orphans.Count;
+                else
+                    retCaregiver.OrphansCount = 0;
+            }
+            catch
+            {
+                retCaregiver = null;
+            }
+            return retCaregiver;
+        }
+
     }
 }

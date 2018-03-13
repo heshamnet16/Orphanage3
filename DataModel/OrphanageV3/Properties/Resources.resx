@@ -362,7 +362,7 @@
   <data name="UnknownGirlPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownGirl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UnknownMalePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnknownPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownMale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exclude" xml:space="preserve">
@@ -655,5 +655,35 @@
   </data>
   <data name="preload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preload.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChildrenPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Children.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>الدخل</value>
+  </data>
+  <data name="Jop" xml:space="preserve">
+    <value>العمل</value>
+  </data>
+  <data name="OrphansCount" xml:space="preserve">
+    <value>عدد الايتام</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="CellPhone" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="FullAddress" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="HomePhone" xml:space="preserve">
+    <value>هاتف المنزل</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="WorkPhone" xml:space="preserve">
+    <value>هاتف العمل</value>
   </data>
 </root>

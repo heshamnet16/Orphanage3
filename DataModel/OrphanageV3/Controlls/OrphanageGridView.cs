@@ -19,9 +19,11 @@ namespace OrphanageV3.Controlls
     {
         private readonly ITranslateService _translateService;
         private string _ColorColumnName = "ColorMark";
+        private string _IdColumnName = "Id";
         private string _HideShowColumnName = "IsEcluded";
         private bool _ShowHiddenRows = Properties.Settings.Default.ShowHiddenRows;
         private bool IsButtonsRotated = false;
+        private bool _AddSelectColumn = true;
         public Telerik.WinControls.UI.RadGridView GridView
         {
             get
@@ -33,7 +35,28 @@ namespace OrphanageV3.Controlls
         public string ColorColumnName { get => _ColorColumnName; set { _ColorColumnName = value; } }
         public string HideShowColumnName { get => _HideShowColumnName; set { _HideShowColumnName = value; } }
         public bool ShowHiddenRows { get => _ShowHiddenRows; set { _ShowHiddenRows = value; } }
+        public bool AddSelectColumn { get => _AddSelectColumn; set { _AddSelectColumn = value; } }
 
+        public IList<GridViewRowInfo> SelectedRows {
+            get
+            {
+                return radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+            }
+        }
+
+        public string IdColumnName { get => _IdColumnName; set { _IdColumnName = value; } }
+
+        public IList<int> SelectedIds
+        {
+            get
+            {
+                var selRows =  SelectedRows;
+                if (radGridView.Columns.Contains(IdColumnName))
+                    return selRows.Where(r => r.Cells[IdColumnName].Value != null).Select(r => (int)r.Cells[IdColumnName].Value).ToList();
+                else
+                    return null;
+            }
+        }
         public OrphanageGridView()
         {
             InitializeComponent();
@@ -44,7 +67,7 @@ namespace OrphanageV3.Controlls
 
         private void radGridView_CreateCell(object sender, Telerik.WinControls.UI.GridViewCreateCellEventArgs e)
         {
-            if (e.CellType != null &&  e.CellType.FullName.Contains("FilterCellElement"))
+            if (e.CellType != null && e.CellType.FullName.Contains("FilterCellElement"))
             {
                 var cell = new GridFilterCellElement((GridViewDataColumn)e.Column, e.Row);
                 cell.FilterButton.Enabled = false;
@@ -150,8 +173,19 @@ namespace OrphanageV3.Controlls
             TranslateGroupTools();
             changeColumnsDateTimeFormat();
             TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
+            AddSelectColumnMethod();
         }
 
+        private void AddSelectColumnMethod()
+        {
+            if (_AddSelectColumn)
+            {
+                var col = new GridViewCheckBoxColumn();
+                col.Name = "Select";
+                col.HeaderText = Properties.Resources.Select;
+                radGridView.Columns.Insert(0, col);
+            }
+        }
         private void radGridView_RowFormatting(object sender, RowFormattingEventArgs e)
         {
             var row = e.RowElement.RowInfo;
@@ -186,6 +220,11 @@ namespace OrphanageV3.Controlls
                         e.RowElement.ForeColor = Color.Black;
                         e.RowElement.BackColor = Color.White;
                     }
+                }
+                else
+                {
+                    e.RowElement.ForeColor = Color.Black;
+                    e.RowElement.BackColor = Color.White;
                 }
             }
             if (radGridView.Columns.Contains(_HideShowColumnName))
@@ -225,6 +264,27 @@ namespace OrphanageV3.Controlls
             TranslateGroupTools();
             TranslateColumnsChooser();
             TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
+        }
+
+        private void radGridView_CellClick(object sender, GridViewCellEventArgs e)
+        {
+            if (e.Row.GetType().FullName.Contains("Filter"))
+                return;
+            if (e.Column != null && e.Column.Name == "Select")
+            {
+                bool val = false;
+                try
+                {
+                    if (e.Value == null)
+                        val = false;
+                    else
+                        val = bool.Parse(e.Value.ToString());
+                }
+                catch { return; }
+
+                e.Row.IsSelected = !val;
+                e.Row.Cells[e.ColumnIndex].Value = !val;
+            }
         }
     }
 }
