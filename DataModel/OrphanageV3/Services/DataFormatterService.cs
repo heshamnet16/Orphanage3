@@ -1,4 +1,5 @@
-﻿using OrphanageV3.Services.Interfaces;
+﻿using OrphanageDataModel.RegularData;
+using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace OrphanageV3.Services
                     ret = address.City;
             if (address.Town != null && address.Town.Length > 0)
                 if (ret.Length > 0)
-                    ret = address.Town + sep + address.Town;
+                    ret = ret + sep + address.Town;
                 else
                     ret = address.Town;
             if (address.Street != null && address.Street.Length > 0)

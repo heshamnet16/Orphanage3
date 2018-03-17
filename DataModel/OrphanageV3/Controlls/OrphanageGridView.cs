@@ -40,7 +40,11 @@ namespace OrphanageV3.Controlls
         public IList<GridViewRowInfo> SelectedRows {
             get
             {
-                return radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                var selectedRows = radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                if (selectedRows == null || selectedRows.Count == 0)
+                    return radGridView.SelectedRows.ToList();
+                else
+                    return radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
             }
         }
 
@@ -178,7 +182,7 @@ namespace OrphanageV3.Controlls
 
         private void AddSelectColumnMethod()
         {
-            if (_AddSelectColumn)
+            if (_AddSelectColumn && !radGridView.Columns.Contains("Select"))
             {
                 var col = new GridViewCheckBoxColumn();
                 col.Name = "Select";

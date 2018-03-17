@@ -23,7 +23,7 @@ namespace OrphanageDataModel.Persons
         public virtual Name Name { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
-        public DateTime? Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [Column("IsExcluded")]
         public bool? IsExcluded { get; set; }
@@ -62,6 +62,9 @@ namespace OrphanageDataModel.Persons
                 {
                     _IdentityCardNumber = value;
                 }
+                if (value != null && value.Length == 0)
+                    _IdentityCardNumber = null;
+
             }
         }
 

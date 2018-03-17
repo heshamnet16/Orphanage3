@@ -206,6 +206,7 @@
     <Compile Include="Services\UserDbService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="User\Controllers\UsersController.cs" />
+    <Compile Include="Utilities\AddressExtention.cs" />
     <Compile Include="Utilities\HttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\ImageAdapter.cs" />
     <Compile Include="Utilities\Interfaces\IHttpMessageConfiguerer.cs" />

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CaregiversView));
             this.radColorDialog = new System.Windows.Forms.ColorDialog();
-            this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
             this.btnColumn = new Telerik.WinControls.UI.CommandBarButton();
             this.btnSep3 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnShowFathers = new Telerik.WinControls.UI.CommandBarButton();
@@ -46,6 +45,7 @@
             this.CommandBarRowElement3 = new Telerik.WinControls.UI.CommandBarRowElement();
             this.radCmdBar = new Telerik.WinControls.UI.RadCommandBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -55,18 +55,6 @@
             // 
             this.radColorDialog.AnyColor = true;
             this.radColorDialog.FullOpen = true;
-            // 
-            // orphanageGridView1
-            // 
-            this.orphanageGridView1.ColorColumnName = "ColorMark";
-            this.orphanageGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orphanageGridView1.HideShowColumnName = "IsEcluded";
-            this.orphanageGridView1.Location = new System.Drawing.Point(3, 48);
-            this.orphanageGridView1.Name = "orphanageGridView1";
-            this.orphanageGridView1.ShowHiddenRows = true;
-            this.orphanageGridView1.Size = new System.Drawing.Size(1123, 451);
-            this.orphanageGridView1.TabIndex = 0;
-            this.orphanageGridView1.Load += new System.EventHandler(this.orphanageGridView1_Load);
             // 
             // btnColumn
             // 
@@ -83,6 +71,7 @@
             this.btnColumn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnColumn.TextWrap = false;
             this.btnColumn.ToolTipText = "الأعمدة";
+            this.btnColumn.Click += new System.EventHandler(this.btnColumn_Click);
             // 
             // btnSep3
             // 
@@ -167,6 +156,7 @@
             this.btnEdit.Text = "";
             this.btnEdit.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnEdit.ToolTipText = "تعديل";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -183,6 +173,7 @@
             this.btnDelete.Text = "";
             this.btnDelete.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnDelete.ToolTipText = "حذف";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // CommandBarStripElement1
             // 
@@ -237,6 +228,7 @@
             this.btnShowOrphans.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnShowOrphans.Name = "btnShowOrphans";
             this.btnShowOrphans.Text = "";
+            this.btnShowOrphans.Click += new System.EventHandler(this.btnShowOrphans_Click);
             // 
             // btnShowFamilies
             // 
@@ -286,6 +278,20 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1129, 535);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // orphanageGridView1
+            // 
+            this.orphanageGridView1.AddSelectColumn = true;
+            this.orphanageGridView1.ColorColumnName = "ColorMark";
+            this.orphanageGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orphanageGridView1.HideShowColumnName = "IsEcluded";
+            this.orphanageGridView1.IdColumnName = "Id";
+            this.orphanageGridView1.Location = new System.Drawing.Point(3, 48);
+            this.orphanageGridView1.Name = "orphanageGridView1";
+            this.orphanageGridView1.ShowHiddenRows = true;
+            this.orphanageGridView1.Size = new System.Drawing.Size(1123, 451);
+            this.orphanageGridView1.TabIndex = 0;
+            this.orphanageGridView1.Load += new System.EventHandler(this.orphanageGridView1_Load);
+            // 
             // CaregiversView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +305,8 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaregiversView_FormClosing);
+            this.Load += new System.EventHandler(this.CaregiversView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

@@ -1,4 +1,6 @@
-﻿namespace OrphanageV3.Views.Orphan
+﻿using OrphanageV3.Controlls;
+
+namespace OrphanageV3.Views.Orphan
 {
     partial class OrphanEditView
     {
@@ -48,12 +50,9 @@
             Telerik.WinControls.UI.RadListDataItem radListDataItem16 = new Telerik.WinControls.UI.RadListDataItem();
             this.RadPageView1 = new Telerik.WinControls.UI.RadPageView();
             this.pgeBasic = new Telerik.WinControls.UI.RadPageViewPage();
-            this.nameForm1 = new NameForm.NameForm();
+            this.txtOPlaceOfBirth = new Telerik.WinControls.UI.RadTextBox();
             this.cmbOGender = new Telerik.WinControls.UI.RadDropDownList();
-            this.orphanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numOkaid = new Telerik.WinControls.UI.RadSpinEditor();
-            this.numOIdNum = new Telerik.WinControls.UI.RadSpinEditor();
-            this.txtOBirthPlace = new Telerik.WinControls.UI.RadTextBox();
             this.lblGender = new Telerik.WinControls.UI.RadLabel();
             this.lblCivilRegisterNumber = new Telerik.WinControls.UI.RadLabel();
             this.lblBirthPlace = new Telerik.WinControls.UI.RadLabel();
@@ -63,7 +62,7 @@
             this.picFace = new PictureSelector.PictureSelector();
             this.lblName = new Telerik.WinControls.UI.RadLabel();
             this.lblBirthday = new Telerik.WinControls.UI.RadLabel();
-            this.txtOBondsManRelation = new Telerik.WinControls.UI.RadTextBox();
+            this.txtOConsanguinityToCaregiver = new Telerik.WinControls.UI.RadTextBox();
             this.lblIdentityNumber = new Telerik.WinControls.UI.RadLabel();
             this.lblConsanguinityToCaregiver = new Telerik.WinControls.UI.RadLabel();
             this.txtOName = new Telerik.WinControls.UI.RadTextBox();
@@ -123,14 +122,16 @@
             this.btnBondsMan = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
+            this.OrphanerrorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtOIdentityCardNumber = new Telerik.WinControls.UI.RadTextBox();
+            this.orphanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameForm1 = new OrphanageV3.Controlls.NameForm();
             ((System.ComponentModel.ISupportInitialize)(this.RadPageView1)).BeginInit();
             this.RadPageView1.SuspendLayout();
             this.pgeBasic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOPlaceOfBirth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOGender)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOkaid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numOIdNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOBirthPlace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblGender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblCivilRegisterNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBirthPlace)).BeginInit();
@@ -140,7 +141,7 @@
             this.grpFacePhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBirthday)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOBondsManRelation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOConsanguinityToCaregiver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdentityNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblConsanguinityToCaregiver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOName)).BeginInit();
@@ -200,6 +201,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBondsMan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrphanerrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOIdentityCardNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,10 +228,9 @@
             // pgeBasic
             // 
             this.pgeBasic.Controls.Add(this.nameForm1);
+            this.pgeBasic.Controls.Add(this.txtOPlaceOfBirth);
             this.pgeBasic.Controls.Add(this.cmbOGender);
             this.pgeBasic.Controls.Add(this.numOkaid);
-            this.pgeBasic.Controls.Add(this.numOIdNum);
-            this.pgeBasic.Controls.Add(this.txtOBirthPlace);
             this.pgeBasic.Controls.Add(this.lblGender);
             this.pgeBasic.Controls.Add(this.lblCivilRegisterNumber);
             this.pgeBasic.Controls.Add(this.lblBirthPlace);
@@ -235,47 +238,33 @@
             this.pgeBasic.Controls.Add(this.grpFacePhoto);
             this.pgeBasic.Controls.Add(this.lblName);
             this.pgeBasic.Controls.Add(this.lblBirthday);
-            this.pgeBasic.Controls.Add(this.txtOBondsManRelation);
+            this.pgeBasic.Controls.Add(this.txtOIdentityCardNumber);
+            this.pgeBasic.Controls.Add(this.txtOConsanguinityToCaregiver);
             this.pgeBasic.Controls.Add(this.lblIdentityNumber);
             this.pgeBasic.Controls.Add(this.lblConsanguinityToCaregiver);
             this.pgeBasic.Controls.Add(this.txtOName);
             this.pgeBasic.Controls.Add(this.dteOBirthday);
             this.pgeBasic.Description = null;
-            this.pgeBasic.ItemSize = new System.Drawing.SizeF(119F, 28F);
-            this.pgeBasic.Location = new System.Drawing.Point(10, 37);
+            this.pgeBasic.ItemSize = new System.Drawing.SizeF(119F, 24F);
+            this.pgeBasic.Location = new System.Drawing.Point(10, 33);
             this.pgeBasic.Name = "pgeBasic";
-            this.pgeBasic.Size = new System.Drawing.Size(483, 345);
+            this.pgeBasic.Size = new System.Drawing.Size(483, 349);
             this.pgeBasic.Text = "بيانات اساسية";
             this.pgeBasic.Title = "بيانات اساسية";
             this.pgeBasic.Click += new System.EventHandler(this.pgeBasic_Click);
             // 
-            // nameForm1
+            // txtOPlaceOfBirth
             // 
-            this.nameForm1.English_First = null;
-            this.nameForm1.English_Last = null;
-            this.nameForm1.English_Middle = null;
-            this.nameForm1.Father_Name_ReadOnly = false;
-            this.nameForm1.First = "";
-            this.nameForm1.FocusWhenShow = false;
-            this.nameForm1.HideOnEnter = false;
-            this.nameForm1.Last = "";
-            this.nameForm1.Last_Name_ReadOnly = false;
-            this.nameForm1.Location = new System.Drawing.Point(124, 24);
-            this.nameForm1.Middle = "";
-            this.nameForm1.MoveFactor = 12;
-            this.nameForm1.MoveType = NameForm.NameForm._MoveType.UpToDown;
-            this.nameForm1.Name = "nameForm1";
-            this.nameForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.nameForm1.ShowMovement = false;
-            this.nameForm1.Size = new System.Drawing.Size(345, 185);
-            this.nameForm1.TabIndex = 29;
-            this.nameForm1.Visible = false;
-            this.nameForm1.Leave += new System.EventHandler(this.pgeBasic_Click);
+            this.txtOPlaceOfBirth.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "PlaceOfBirth", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtOPlaceOfBirth.Location = new System.Drawing.Point(220, 108);
+            this.txtOPlaceOfBirth.Name = "txtOPlaceOfBirth";
+            this.txtOPlaceOfBirth.Size = new System.Drawing.Size(171, 20);
+            this.txtOPlaceOfBirth.TabIndex = 30;
             // 
             // cmbOGender
             // 
-            this.cmbOGender.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "Gender", true));
-            this.cmbOGender.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.orphanBindingSource, "Gender", true));
+            this.cmbOGender.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.orphanBindingSource, "Gender", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cmbOGender.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "Gender", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cmbOGender.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             radListDataItem1.Selected = true;
             radListDataItem1.Text = "انثى";
@@ -290,14 +279,9 @@
             this.cmbOGender.TabIndex = 4;
             this.cmbOGender.Text = "انثى";
             // 
-            // orphanBindingSource
-            // 
-            this.orphanBindingSource.AllowNew = false;
-            this.orphanBindingSource.DataSource = typeof(OrphanageV3.Services.Orphan);
-            // 
             // numOkaid
             // 
-            this.numOkaid.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "CivilRegisterNumber", true));
+            this.numOkaid.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "CivilRegisterNumber", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numOkaid.Location = new System.Drawing.Point(220, 193);
             this.numOkaid.Maximum = new decimal(new int[] {
             2051065139,
@@ -313,63 +297,6 @@
             0,
             0,
             0});
-            // 
-            // numOIdNum
-            // 
-            this.numOIdNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numOIdNum.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "IdentityCardNumber", true));
-            this.numOIdNum.Location = new System.Drawing.Point(219, 235);
-            this.numOIdNum.Maximum = new decimal(new int[] {
-            -727379969,
-            232,
-            0,
-            0});
-            this.numOIdNum.Name = "numOIdNum";
-            this.numOIdNum.Size = new System.Drawing.Size(176, 20);
-            this.numOIdNum.TabIndex = 6;
-            this.numOIdNum.TabStop = false;
-            this.numOIdNum.Click += new System.EventHandler(this.pgeBasic_Click);
-            // 
-            // txtOBirthPlace
-            // 
-            this.txtOBirthPlace.AutoCompleteCustomSource.AddRange(new string[] {
-            "حمص",
-            "تلبيسة",
-            "الفرحانية الشرقية",
-            "الشماس",
-            "الغوطة",
-            "المخيم",
-            "عكرمة",
-            "الزهراء",
-            "باب السباع",
-            "باب هود",
-            "الفرحانية الغربية",
-            "الرمادي",
-            "السعن",
-            "الهاشمية",
-            "المكرمية",
-            "هبوب الريح",
-            "تيرمعلة",
-            "الغنطو",
-            "جبورين",
-            "غرناطة",
-            "الرستن",
-            "البياضة",
-            "ديربعلبة",
-            "عزالدين",
-            "المشرفة",
-            "الغاصبية",
-            "العامرية",
-            "عين النسر",
-            "الزعفرانة"});
-            this.txtOBirthPlace.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtOBirthPlace.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtOBirthPlace.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "PlaceOfBirth", true));
-            this.txtOBirthPlace.Location = new System.Drawing.Point(220, 106);
-            this.txtOBirthPlace.Name = "txtOBirthPlace";
-            this.txtOBirthPlace.Size = new System.Drawing.Size(175, 20);
-            this.txtOBirthPlace.TabIndex = 3;
             // 
             // lblGender
             // 
@@ -476,9 +403,9 @@
             this.lblBirthday.Text = "تاريخ الولادة :";
             this.lblBirthday.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtOBondsManRelation
+            // txtOConsanguinityToCaregiver
             // 
-            this.txtOBondsManRelation.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtOConsanguinityToCaregiver.AutoCompleteCustomSource.AddRange(new string[] {
             "أمه",
             "أمها",
             "عمه",
@@ -496,14 +423,14 @@
             "قريبه",
             "قريبها",
             "لايوجد صلة قرابة"});
-            this.txtOBondsManRelation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtOBondsManRelation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtOBondsManRelation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "ConsanguinityToCaregiver", true));
-            this.txtOBondsManRelation.Location = new System.Drawing.Point(220, 277);
-            this.txtOBondsManRelation.Name = "txtOBondsManRelation";
-            this.txtOBondsManRelation.Size = new System.Drawing.Size(175, 20);
-            this.txtOBondsManRelation.TabIndex = 7;
-            this.txtOBondsManRelation.Click += new System.EventHandler(this.pgeBasic_Click);
+            this.txtOConsanguinityToCaregiver.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtOConsanguinityToCaregiver.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtOConsanguinityToCaregiver.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "ConsanguinityToCaregiver", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtOConsanguinityToCaregiver.Location = new System.Drawing.Point(220, 277);
+            this.txtOConsanguinityToCaregiver.Name = "txtOConsanguinityToCaregiver";
+            this.txtOConsanguinityToCaregiver.Size = new System.Drawing.Size(175, 20);
+            this.txtOConsanguinityToCaregiver.TabIndex = 7;
+            this.txtOConsanguinityToCaregiver.Click += new System.EventHandler(this.pgeBasic_Click);
             // 
             // lblIdentityNumber
             // 
@@ -539,8 +466,8 @@
             // 
             // dteOBirthday
             // 
-            this.dteOBirthday.DataBindings.Add(new System.Windows.Forms.Binding("NullableValue", this.orphanBindingSource, "Birthday", true));
-            this.dteOBirthday.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "Birthday", true));
+            this.dteOBirthday.DataBindings.Add(new System.Windows.Forms.Binding("NullableValue", this.orphanBindingSource, "Birthday", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.dteOBirthday.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "Birthday", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dteOBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dteOBirthday.Location = new System.Drawing.Point(220, 66);
             this.dteOBirthday.Name = "dteOBirthday";
@@ -567,10 +494,10 @@
             this.pgeOthers.Controls.Add(this.lblAge);
             this.pgeOthers.Controls.Add(this.lblTallness);
             this.pgeOthers.Controls.Add(this.lblWeight);
-            this.pgeOthers.ItemSize = new System.Drawing.SizeF(106F, 28F);
-            this.pgeOthers.Location = new System.Drawing.Point(10, 33);
+            this.pgeOthers.ItemSize = new System.Drawing.SizeF(106F, 24F);
+            this.pgeOthers.Location = new System.Drawing.Point(10, 37);
             this.pgeOthers.Name = "pgeOthers";
-            this.pgeOthers.Size = new System.Drawing.Size(483, 349);
+            this.pgeOthers.Size = new System.Drawing.Size(483, 345);
             this.pgeOthers.Text = "بيانات أخرى";
             this.pgeOthers.ToolTipText = "بيانات أخرى";
             // 
@@ -637,7 +564,7 @@
             this.txtOStory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtOStory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtOStory.AutoSize = false;
-            this.txtOStory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "Story", true));
+            this.txtOStory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "Story", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtOStory.Location = new System.Drawing.Point(231, 215);
             this.txtOStory.Multiline = true;
             this.txtOStory.Name = "txtOStory";
@@ -646,7 +573,7 @@
             // 
             // numOFootSize
             // 
-            this.numOFootSize.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "FootSize", true));
+            this.numOFootSize.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "FootSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numOFootSize.Location = new System.Drawing.Point(231, 117);
             this.numOFootSize.Maximum = new decimal(new int[] {
             60,
@@ -670,7 +597,7 @@
             // 
             // numOTall
             // 
-            this.numOTall.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "Tallness", true));
+            this.numOTall.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "Tallness", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numOTall.Location = new System.Drawing.Point(231, 67);
             this.numOTall.Maximum = new decimal(new int[] {
             120,
@@ -684,7 +611,7 @@
             // 
             // numOWeight
             // 
-            this.numOWeight.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "Weight", true));
+            this.numOWeight.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orphanBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numOWeight.Location = new System.Drawing.Point(231, 17);
             this.numOWeight.Maximum = new decimal(new int[] {
             150,
@@ -776,10 +703,10 @@
             this.pgeEducation.Controls.Add(this.lblStudyStage);
             this.pgeEducation.Controls.Add(this.lblIsStudying);
             this.pgeEducation.Controls.Add(this.RadLabel26);
-            this.pgeEducation.ItemSize = new System.Drawing.SizeF(116F, 28F);
-            this.pgeEducation.Location = new System.Drawing.Point(10, 33);
+            this.pgeEducation.ItemSize = new System.Drawing.SizeF(116F, 24F);
+            this.pgeEducation.Location = new System.Drawing.Point(10, 37);
             this.pgeEducation.Name = "pgeEducation";
-            this.pgeEducation.Size = new System.Drawing.Size(483, 349);
+            this.pgeEducation.Size = new System.Drawing.Size(483, 345);
             this.pgeEducation.Text = "بيانات دراسية";
             this.pgeEducation.ToolTipText = "بيانات دراسية";
             // 
@@ -1033,7 +960,7 @@
             this.pgeHealth.Controls.Add(this.lblMedicen);
             this.pgeHealth.Controls.Add(this.lblIsSick);
             this.pgeHealth.Controls.Add(this.lblSicknessName);
-            this.pgeHealth.ItemSize = new System.Drawing.SizeF(112F, 28F);
+            this.pgeHealth.ItemSize = new System.Drawing.SizeF(112F, 24F);
             this.pgeHealth.Location = new System.Drawing.Point(10, 37);
             this.pgeHealth.Name = "pgeHealth";
             this.pgeHealth.Size = new System.Drawing.Size(483, 345);
@@ -1260,6 +1187,65 @@
             this.btnSave.Text = "حفظ";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // OrphanerrorProvider1
+            // 
+            this.OrphanerrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.OrphanerrorProvider1.ContainerControl = this;
+            // 
+            // txtOIdentityCardNumber
+            // 
+            this.txtOIdentityCardNumber.AutoCompleteCustomSource.AddRange(new string[] {
+            "أمه",
+            "أمها",
+            "عمه",
+            "عمها",
+            "خاله",
+            "خالها",
+            "جده",
+            "جدها",
+            "جدته",
+            "جدتها",
+            "خالته",
+            "خالتها",
+            "عمته",
+            "عمتها",
+            "قريبه",
+            "قريبها",
+            "لايوجد صلة قرابة"});
+            this.txtOIdentityCardNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtOIdentityCardNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtOIdentityCardNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "IdentityCardNumber", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtOIdentityCardNumber.Location = new System.Drawing.Point(220, 233);
+            this.txtOIdentityCardNumber.Name = "txtOIdentityCardNumber";
+            this.txtOIdentityCardNumber.Size = new System.Drawing.Size(175, 20);
+            this.txtOIdentityCardNumber.TabIndex = 7;
+            this.txtOIdentityCardNumber.Click += new System.EventHandler(this.pgeBasic_Click);
+            // 
+            // orphanBindingSource
+            // 
+            this.orphanBindingSource.AllowNew = false;
+            this.orphanBindingSource.DataSource = typeof(OrphanageDataModel.Persons.Orphan);
+            // 
+            // nameForm1
+            // 
+            this.nameForm1.AutoCompleteService = null;
+            this.nameForm1.DataFormatterService = null;
+            this.nameForm1.EntityValidator = null;
+            this.nameForm1.FocusWhenShow = false;
+            this.nameForm1.HideOnEnter = false;
+            this.nameForm1.Id = -1;
+            this.nameForm1.Location = new System.Drawing.Point(124, 24);
+            this.nameForm1.MoveFactor = 12;
+            this.nameForm1.MoveType = OrphanageV3.Controlls.NameForm._MoveType.UpToDown;
+            this.nameForm1.Name = "nameForm1";
+            this.nameForm1.NameDataSource = typeof(OrphanageDataModel.RegularData.Name);
+            this.nameForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.nameForm1.ShowMovement = false;
+            this.nameForm1.Size = new System.Drawing.Size(345, 185);
+            this.nameForm1.TabIndex = 29;
+            this.nameForm1.Visible = false;
+            this.nameForm1.Leave += new System.EventHandler(this.pgeBasic_Click);
+            // 
             // OrphanEditView
             // 
             this.AcceptButton = this.btnSave;
@@ -1286,11 +1272,9 @@
             this.RadPageView1.ResumeLayout(false);
             this.pgeBasic.ResumeLayout(false);
             this.pgeBasic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOPlaceOfBirth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbOGender)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOkaid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numOIdNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOBirthPlace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblGender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblCivilRegisterNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBirthPlace)).EndInit();
@@ -1300,7 +1284,7 @@
             this.grpFacePhoto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lblName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBirthday)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOBondsManRelation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOConsanguinityToCaregiver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdentityNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblConsanguinityToCaregiver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOName)).EndInit();
@@ -1363,6 +1347,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBondsMan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrphanerrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOIdentityCardNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orphanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -1374,8 +1361,6 @@
         internal Telerik.WinControls.UI.RadPageViewPage pgeBasic;
         internal Telerik.WinControls.UI.RadDropDownList cmbOGender;
         internal Telerik.WinControls.UI.RadSpinEditor numOkaid;
-        internal Telerik.WinControls.UI.RadSpinEditor numOIdNum;
-        internal Telerik.WinControls.UI.RadTextBox txtOBirthPlace;
         internal Telerik.WinControls.UI.RadLabel lblGender;
         internal Telerik.WinControls.UI.RadLabel lblCivilRegisterNumber;
         internal Telerik.WinControls.UI.RadLabel lblBirthPlace;
@@ -1385,7 +1370,7 @@
         internal PictureSelector.PictureSelector picFace;
         internal Telerik.WinControls.UI.RadLabel lblName;
         internal Telerik.WinControls.UI.RadLabel lblBirthday;
-        internal Telerik.WinControls.UI.RadTextBox txtOBondsManRelation;
+        internal Telerik.WinControls.UI.RadTextBox txtOConsanguinityToCaregiver;
         internal Telerik.WinControls.UI.RadLabel lblIdentityNumber;
         internal Telerik.WinControls.UI.RadLabel lblConsanguinityToCaregiver;
         internal Telerik.WinControls.UI.RadTextBox txtOName;
@@ -1444,8 +1429,11 @@
         internal Telerik.WinControls.UI.RadButton btnBondsMan;
         internal Telerik.WinControls.UI.RadButton btnCancel;
         internal Telerik.WinControls.UI.RadButton btnSave;
-        private NameForm.NameForm nameForm1;
+        private NameForm nameForm1;
         private System.Windows.Forms.BindingSource orphanBindingSource;
         private PictureSelector.PictureSelector picObirthCertificate;
+        private System.Windows.Forms.ErrorProvider OrphanerrorProvider1;
+        private Telerik.WinControls.UI.RadTextBox txtOPlaceOfBirth;
+        internal Telerik.WinControls.UI.RadTextBox txtOIdentityCardNumber;
     }
 }

@@ -36,14 +36,17 @@
     <StartupObject>OrphanageV3.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AddressForm">
-      <HintPath>I:\Programming\Orphanage\AddressForm\AddressForm\bin\Release\AddressForm.dll</HintPath>
-    </Reference>
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.6.1\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Itenso.TimePeriod, Version=2.1.1.0, Culture=neutral, PublicKeyToken=8cb6db75b4e81486, processorArchitecture=MSIL">
       <HintPath>..\packages\TimePeriodLibrary.NET.2.1.1\lib\net46\Itenso.TimePeriod.dll</HintPath>
@@ -51,11 +54,11 @@
     <Reference Include="LangChanger">
       <HintPath>I:\Programming\Orphanage\AddressForm\AddressForm\bin\Release\LangChanger.dll</HintPath>
     </Reference>
-    <Reference Include="NameForm">
-      <HintPath>I:\Programming\Orphanage\NameForm\NameForm\bin\Release\NameForm.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OrphanageDataModel">
+      <HintPath>..\..\Output\OrphanageDataModel.dll</HintPath>
     </Reference>
     <Reference Include="PictureSelector, Version=1.0.6642.34291, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -110,6 +113,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlls\AddressForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\AddressForm.Designer.cs">
+      <DependentUpon>AddressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controlls\NameForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\NameForm.Designer.cs">
+      <DependentUpon>NameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controlls\OrphanageGridView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +142,7 @@
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
     <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\TranslateService.cs" />
+    <Compile Include="ViewModel\Caregiver\CaregiverEditViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiversViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
@@ -134,14 +150,20 @@
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
+    <Compile Include="Views\Caregiver\CaregiverEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Caregiver\CaregiverEditView.Designer.cs">
+      <DependentUpon>CaregiverEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Caregiver\CaregiversView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Caregiver\CaregiversView.Designer.cs">
       <DependentUpon>CaregiversView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Helper\ControllsHelper.cs" />
-    <Compile Include="Views\Helper\Interfaces\IControllsHelper.cs" />
+    <Compile Include="Views\Helper\EntityValidator.cs" />
+    <Compile Include="Views\Helper\Interfaces\IEntityValidator.cs" />
     <Compile Include="Views\Helper\Interfaces\IRadGridHelper.cs" />
     <Compile Include="Views\Helper\RadGridHelper.cs" />
     <Compile Include="Views\Orphan\OrphanEditView.cs">
@@ -164,8 +186,17 @@
     <Compile Include="Views\Summary\SummaryView.Designer.cs">
       <DependentUpon>SummaryView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controlls\AddressForm.resx">
+      <DependentUpon>AddressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlls\NameForm.resx">
+      <DependentUpon>NameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controlls\OrphanageGridView.resx">
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Caregiver\CaregiverEditView.resx">
+      <DependentUpon>CaregiverEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Caregiver\CaregiversView.resx">
       <DependentUpon>CaregiversView.cs</DependentUpon>
@@ -191,6 +222,9 @@
       <DependentUpon>SummaryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Address.datasource" />
+    <None Include="Properties\DataSources\OrphanageV3.Services.Caregiver.datasource" />
+    <None Include="Properties\DataSources\OrphanageV3.Services.Name.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Orphan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>

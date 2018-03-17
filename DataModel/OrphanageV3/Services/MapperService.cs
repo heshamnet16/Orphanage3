@@ -21,7 +21,7 @@ namespace OrphanageV3.Services
             var mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMissingTypeMaps = true;
-                cfg.CreateMap<Orphan, OrphanModel>()
+                cfg.CreateMap<OrphanageDataModel.Persons.Orphan, OrphanModel>()
                 .ForMember(dest => dest.FirstName, sour => sour.MapFrom(prop => prop.Name.First))
                 .ForMember(dest => dest.FatherName, sour => sour.MapFrom(prop => prop.Name.Father))
                 .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
@@ -41,7 +41,7 @@ namespace OrphanageV3.Services
                 .ForMember(dest => dest.StudyReasons, sour => sour.MapFrom(prop => prop.Education.Reasons))
                 .ForMember(dest => dest.StudyStage, sour => sour.MapFrom(prop => prop.Education.Stage));
 
-                cfg.CreateMap<Caregiver, CaregiverModel>()
+                cfg.CreateMap<OrphanageDataModel.Persons.Caregiver, CaregiverModel>()
                 .ForMember(dest => dest.FirstName, sour => sour.MapFrom(prop => prop.Name.First))
                 .ForMember(dest => dest.FatherName, sour => sour.MapFrom(prop => prop.Name.Father))
                 .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
@@ -62,7 +62,7 @@ namespace OrphanageV3.Services
             _dataFormatterService = dataFormatterService;
         }
 
-        public IEnumerable<OrphanModel> MapToOrphanModel(IEnumerable<Orphan> orphanList)
+        public IEnumerable<OrphanModel> MapToOrphanModel(IEnumerable<OrphanageDataModel.Persons.Orphan> orphanList)
         {
             foreach (var orp in orphanList)
             {
@@ -79,7 +79,7 @@ namespace OrphanageV3.Services
                 yield return retOrp;
             }
         }
-        public OrphanModel MapToOrphanModel(Orphan orphan)
+        public OrphanModel MapToOrphanModel(OrphanageDataModel.Persons.Orphan orphan)
         {
             OrphanModel retOrp = null;
             try
@@ -99,7 +99,7 @@ namespace OrphanageV3.Services
             return retOrp;
         }
 
-        public IEnumerable<CaregiverModel> MapToCaregiverModel(IEnumerable<Caregiver> caregiverist)
+        public IEnumerable<CaregiverModel> MapToCaregiverModel(IEnumerable<OrphanageDataModel.Persons.Caregiver> caregiverist)
         {
             foreach (var caregiver in caregiverist)
             {
@@ -108,7 +108,7 @@ namespace OrphanageV3.Services
                 yield return retCaregiver;
             }
         }
-        public CaregiverModel MapToCaregiverModel(Caregiver caregiver)
+        public CaregiverModel MapToCaregiverModel(OrphanageDataModel.Persons.Caregiver caregiver)
         {
             CaregiverModel retCaregiver = null;
             try

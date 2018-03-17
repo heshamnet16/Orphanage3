@@ -19,6 +19,11 @@ namespace OrphanageV3.Services.Interfaces
         IList<string> BirthPlaces { get; set; }
         IList<string> OrphanStories { get; set; }
 
+        IList<string> Countries { get; set; }
+        IList<string> Cities { get; set; }
+        IList<string> Towns { get; set; }
+        IList<string> Streets { get; set; }
+
         void LoadData();
 
         event EventHandler DataLoaded ;

@@ -8,6 +8,8 @@ namespace OrphanageService.Services.Interfaces
     {
         Task<OrphanageDataModel.Persons.Orphan> GetOrphan(int id);
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(IList<int> ids);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum);
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid);

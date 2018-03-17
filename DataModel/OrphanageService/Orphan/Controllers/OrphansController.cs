@@ -38,6 +38,16 @@ namespace OrphanageService.Orphan.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async  Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetByIds([FromUri] IList<int> OrphanIds)
+        {
+            var ret = await _OrphanDBService.GetOrphans(OrphanIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+        [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> Get(int pageSize, int pageNumber)

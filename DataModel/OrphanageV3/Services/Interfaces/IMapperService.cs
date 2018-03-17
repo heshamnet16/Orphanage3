@@ -1,4 +1,5 @@
-﻿using OrphanageV3.ViewModel.Caregiver;
+﻿using OrphanageDataModel.Persons;
+using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Orphan;
 using System;
 using System.Collections.Generic;

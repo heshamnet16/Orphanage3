@@ -14,20 +14,25 @@ namespace OrphanageV3.Services
         public event EventHandler DataLoaded;
 
         public IList<string> EnglishNameStrings { get; set; }
-        public IList<string> ArabicNameStrings { get; set ; }
-        public IList<string> SicknessNames { get ; set ; }
-        public IList<string> DoctorsNames { get ; set; }
-        public IList<string> MedicenNames { get ; set; }
-        public IList<string> EducationReasons { get ; set ; }
+        public IList<string> ArabicNameStrings { get; set; }
+        public IList<string> SicknessNames { get; set; }
+        public IList<string> DoctorsNames { get; set; }
+        public IList<string> MedicenNames { get; set; }
+        public IList<string> EducationReasons { get; set; }
         public IList<string> EducationSchools { get; set; }
-        public IList<string> EducationStages { get ; set ; }
-        public IList<string> BirthPlaces { get ; set ; }
-        public IList<string> OrphanStories { get ; set; }
+        public IList<string> EducationStages { get; set; }
+        public IList<string> BirthPlaces { get; set; }
+        public IList<string> OrphanStories { get; set; }
+        public IList<string> Cities { get; set; }
+        public IList<string> Towns { get; set; }
+        public IList<string> Streets { get; set; }
+        public IList<string> Countries { get ; set ; }
 
         private bool EducationLoaded = false;
         private bool HealthLoaded = false;
         private bool NamesLoaded = false;
         private bool OrphanDataLoaded = false;
+        private bool AddressLoaded = false;
 
         public AutoCompleteService(IApiClient apiClient)
         {
@@ -42,23 +47,37 @@ namespace OrphanageV3.Services
             EducationStages = new List<string>();
             BirthPlaces = new List<string>();
             OrphanStories = new List<string>();
+            Cities = new List<string>();
+            Towns = new List<string>();
+            Streets = new List<string>();
+            Countries = new List<string>();
+
             GetAutoCompleteStrings();
         }
-        
+
         private async void GetAutoCompleteStrings()
         {
             var engFirstNamesTask = _apiClient.AutoCompletesController_GetEnglishFirstNamesAsync();
             var engFatherNamesTask = _apiClient.AutoCompletesController_GetEnglishFatherNamesAsync();
             var engLastNamesTask = _apiClient.AutoCompletesController_GetEnglishLastNamesAsync();
+
             var ArabicFirstNamesTask = _apiClient.AutoCompletesController_GetFirstNamesAsync();
             var ArabicFatherNamesTask = _apiClient.AutoCompletesController_GetFatherNamesAsync();
             var ArabicLastNamesTask = _apiClient.AutoCompletesController_GetLastNamesAsync();
-            var SicknessNamesTask = _apiClient.AutoCompletesController_GetSicknessNamesAsync();
+
             var BirthPlacesTask = _apiClient.AutoCompletesController_GetOrphansPlacesOfBirthAsync();
+
+            var SicknessNamesTask = _apiClient.AutoCompletesController_GetSicknessNamesAsync();
             var MedicensNamesTask = _apiClient.AutoCompletesController_GetMedicensAsync();
+
             var EducationReasonsTask = _apiClient.AutoCompletesController_GetEducationReasonsAsync();
             var EducationSchoolsTask = _apiClient.AutoCompletesController_GetEducationSchoolsAsync();
             var EducationStagesTask = _apiClient.AutoCompletesController_GetEducationStagesAsync();
+
+            var CitiesTask = _apiClient.AutoCompletesController_GetCitiesAsync();
+            var TownsTask = _apiClient.AutoCompletesController_GetTownsAsync();
+            var StreetsTask = _apiClient.AutoCompletesController_GetStreetsAsync();
+            var CountriesTask = _apiClient.AutoCompletesController_GetCountriesAsync();
 
             var engFirstList = await engFirstNamesTask;
             foreach (var firstN in engFirstList)
@@ -118,7 +137,7 @@ namespace OrphanageV3.Services
                 }
             }
 
-            HealthLoaded = true; 
+            HealthLoaded = true;
 
             var EducationReasonsList = await EducationReasonsTask;
             foreach (var reason in EducationReasonsList)
@@ -142,12 +161,34 @@ namespace OrphanageV3.Services
                     BirthPlaces.Add(birthplace);
             OrphanDataLoaded = true;
 
+            var countriesList = await CountriesTask;
+            foreach (var country in countriesList)
+                if (!Countries.Contains(country) && country != null && country.Length > 0)
+                    Countries.Add(country);
+
+            var citiesList = await CitiesTask;
+            foreach (var city in citiesList)
+                if (!Cities.Contains(city) && city != null && city.Length > 0)
+                    Cities.Add(city);
+
+            var townsList = await TownsTask;
+            foreach (var town in townsList)
+                if (!Towns.Contains(town) && town != null && town.Length > 0)
+                    Towns.Add(town);
+
+            var streetsList = await StreetsTask;
+            foreach (var street in streetsList)
+                if (!Streets.Contains(street) && street != null && street.Length > 0)
+                    Streets.Add(street);
+
+            AddressLoaded = true;
+
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
         public void LoadData()
         {
-            if (NamesLoaded && EducationLoaded && OrphanDataLoaded && HealthLoaded)
+            if (NamesLoaded && EducationLoaded && OrphanDataLoaded && HealthLoaded && AddressLoaded)
                 DataLoaded?.Invoke(this, new EventArgs());
             else
                 GetAutoCompleteStrings();

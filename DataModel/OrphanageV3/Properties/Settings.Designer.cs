@@ -94,5 +94,17 @@ namespace OrphanageV3.Properties {
                 return ((int)(this["DefaultPageSize"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Caregiver.layout")]
+        public string CaregiverLayoutFilePath {
+            get {
+                return ((string)(this["CaregiverLayoutFilePath"]));
+            }
+            set {
+                this["CaregiverLayoutFilePath"] = value;
+            }
+        }
     }
 }
