@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-
+using OrphanageService.Utilities;
 namespace OrphanageService.Services
 {
     public class RegularDataService : IRegularDataService
@@ -19,7 +19,7 @@ namespace OrphanageService.Services
 
         public async Task<int> AddAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
         {
-            orphanageDBC.Addresses.Add(address);
+            orphanageDBC.Addresses.Add(address.Clean());
             await orphanageDBC.SaveChangesAsync();
             if (address.Id > 0)
                 return address.Id;
@@ -217,16 +217,19 @@ namespace OrphanageService.Services
         public async Task<int> SaveAddress(Address address, OrphanageDbCNoBinary orphanageDBC)
         {
             var orginalAddress = await orphanageDBC.Addresses.Where(a => a.Id == address.Id).FirstOrDefaultAsync();
-            orginalAddress.Note = address.Note;
-            orginalAddress.CellPhone = address.CellPhone;
-            orginalAddress.City = address.City;
-            orginalAddress.Country = address.Country;
-            orginalAddress.Facebook = address.Facebook;
-            orginalAddress.HomePhone = address.HomePhone;
-            orginalAddress.Street = address.Street;
-            orginalAddress.Town = address.Town;
-            orginalAddress.Twitter = address.Twitter;
-            orginalAddress.WorkPhone = address.WorkPhone;
+            var cleanAddress = address.Clean();
+            orginalAddress.Note = cleanAddress.Note;
+            orginalAddress.CellPhone = cleanAddress.CellPhone;
+            orginalAddress.City = cleanAddress.City;
+            orginalAddress.Country = cleanAddress.Country;
+            orginalAddress.Facebook = cleanAddress.Facebook;
+            orginalAddress.HomePhone = cleanAddress.HomePhone;
+            orginalAddress.Street = cleanAddress.Street;
+            orginalAddress.Town = cleanAddress.Town;
+            orginalAddress.Twitter = cleanAddress.Twitter;
+            orginalAddress.WorkPhone = cleanAddress.WorkPhone;
+            orginalAddress.Fax = cleanAddress.Fax;
+            orginalAddress.Email = cleanAddress.Email;
             var ret = await orphanageDBC.SaveChangesAsync();
             return ret;
         }

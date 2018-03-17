@@ -1,4 +1,5 @@
-﻿using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -681,6 +682,44 @@ namespace OrphanageService.Services
             {
                 yield return family;
             }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(IList<int> ids)
+        {
+            IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
+            try
+            {
+                using (var _orphanageDBC = new OrphanageDbCNoBinary())
+                {
+                    var orphans = await _orphanageDBC.Orphans.AsNoTracking()
+                        .Where(o => ids.Contains(o.Id))
+                        .Include(o => o.Education)
+                        .Include(o => o.Name)
+                        .Include(o => o.Caregiver.Name)
+                        .Include(o => o.Caregiver.Address)
+                        .Include(o => o.Family.Father.Name)
+                        .Include(o => o.Family.Mother.Name)
+                        .Include(o => o.Family.PrimaryAddress)
+                        .Include(o => o.Family.AlternativeAddress)
+                        .Include(o => o.Guarantor.Name)
+                        .Include(o => o.Bail)
+                        .Include(o => o.HealthStatus)
+                        .ToListAsync();
+
+                    foreach (var orphan in orphans)
+                    {
+                        var orphanTofill = orphan;
+                        _loopBlocking.BlockOrphanSelfLoop(ref orphanTofill);
+                        _uriGenerator.SetOrphanUris(ref orphanTofill);
+                        orphansList.Add(orphanTofill);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return orphansList;
         }
     }
 }

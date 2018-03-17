@@ -12,7 +12,7 @@ namespace OrphanageV3.ViewModel.Orphan
         //private Image _Photo = null;
         //private IApiClient _apiClient = Program.Factory.Resolve<IApiClient>();
 
-        public int ID { get; set; }
+        public int Id { get; set; }
         public int FatherID { get; set; }
         public int MotherID { get; set; }
 

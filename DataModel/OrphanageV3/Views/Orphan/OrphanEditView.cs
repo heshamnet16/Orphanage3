@@ -13,6 +13,7 @@ using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageV3.Services.Interfaces;
 using System.Linq;
 using OrphanageV3.Services;
+using OrphanageDataModel.RegularData;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -20,27 +21,21 @@ namespace OrphanageV3.Views.Orphan
     {
         private OrphanViewModel _orphanViewModel = Program.Factory.Resolve<OrphanViewModel>();
 
-        private IControllsHelper _ControllsHelper = Program.Factory.Resolve<IControllsHelper>();
-
         private IDataFormatterService _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
 
         private IAutoCompleteService _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
 
         private ITranslateService _TranslateService = Program.Factory.Resolve<ITranslateService>();
 
-        private Services.Orphan _CurrentOrphan = null;
+        private IEntityValidator _OrphanEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+
+        private IEntityValidator _NameEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+
+        private OrphanageDataModel.Persons.Orphan _CurrentOrphan = null;
 
         private bool _CertificatePhotoChanged = false;
         private bool _CertificatePhoto2Changed = false;
         private bool _HealthPhotoChanged = false;
-
-        public OrphanEditView(Services.Orphan orphan)
-        {
-            InitializeComponent();
-            _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
-            SetLablesString();
-            _CurrentOrphan = orphan;
-        }
 
         public OrphanEditView(int orphanId)
         {
@@ -48,12 +43,17 @@ namespace OrphanageV3.Views.Orphan
             _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
             SetLablesString();
             loadOrphan(orphanId);
+            nameForm1.AutoCompleteService = _AutoCompleteServic;
+            nameForm1.DataFormatterService = _DataFormatterService;
+            nameForm1.EntityValidator = _NameEntityValidator;
         }
         private async void loadOrphan(int Oid)
         {
             _CurrentOrphan = await _orphanViewModel.getOrphan(Oid);
             SetValues();
-
+            nameForm1.NameDataSource = _CurrentOrphan.Name;
+            _OrphanEntityValidator.controlCollection = Controls;
+            _OrphanEntityValidator.DataEntity = orphanBindingSource.DataSource;
         }
         private void _AutoCompleteServic_DataLoaded(object sender, EventArgs e)
         {
@@ -61,16 +61,13 @@ namespace OrphanageV3.Views.Orphan
             AutoCompleteStringCollection autoCompleteStringCollection = new AutoCompleteStringCollection();
             var stringArray = _AutoCompleteServic.EnglishNameStrings.ToArray();
 
-            this.Invoke(new MethodInvoker(() => { nameForm1.English_First_TextBox.AutoCompleteCustomSource.AddRange(stringArray); }));
-            this.Invoke(new MethodInvoker(() => { nameForm1.English_Father_TextBox.AutoCompleteCustomSource.AddRange(stringArray); }));
-            this.Invoke(new MethodInvoker(() => { nameForm1.English_Last_TextBox.AutoCompleteCustomSource.AddRange(stringArray); }));
-            this.Invoke(new MethodInvoker(() => { txtHSicknessName.AutoCompleteItems.AddRange(_AutoCompleteServic.SicknessNames.ToArray()); }));
-            this.Invoke(new MethodInvoker(() => { txtHMedicen.AutoCompleteItems.AddRange(_AutoCompleteServic.MedicenNames.ToArray()); }));
-            this.Invoke(new MethodInvoker(() => { txtSReason.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationReasons.ToArray()); }));
-            this.Invoke(new MethodInvoker(() => { txtSStudyStage.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationStages.ToArray()); }));
-            this.Invoke(new MethodInvoker(() => { txtSschoolNAme.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationSchools.ToArray()); }));
-            this.Invoke(new MethodInvoker(() => { txtOBirthPlace.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.BirthPlaces.ToArray()); }));
-            this.Invoke(new MethodInvoker(() => { txtOStory.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.OrphanStories.ToArray()); }));
+           txtHSicknessName.AutoCompleteItems.AddRange(_AutoCompleteServic.SicknessNames.ToArray());
+           txtHMedicen.AutoCompleteItems.AddRange(_AutoCompleteServic.MedicenNames.ToArray()); 
+            txtSReason.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationReasons.ToArray()); 
+            txtSStudyStage.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationStages.ToArray());
+            txtSschoolNAme.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationSchools.ToArray()); 
+            txtOPlaceOfBirth.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.BirthPlaces.ToArray()); 
+            txtOStory.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.OrphanStories.ToArray()); 
 
         }
 
@@ -113,24 +110,24 @@ namespace OrphanageV3.Views.Orphan
             cmbOGender.Items.Clear();
             cmbOGender.Items.Add(Properties.Resources.FemaleString);
             cmbOGender.Items.Add(Properties.Resources.MaleString);
-            txtOBondsManRelation.AutoCompleteCustomSource.Clear();
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple1);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple2);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple3);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple4);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple5);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple6);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple7);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple8);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple9);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple10);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple11);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple12);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple13);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple14);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple15);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple16);
-            txtOBondsManRelation.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple17);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Clear();
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple1);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple2);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple3);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple4);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple5);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple6);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple7);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple8);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple9);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple10);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple11);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple12);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple13);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple14);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple15);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple16);
+            txtOConsanguinityToCaregiver.AutoCompleteCustomSource.Add(Properties.Resources.OrphanConsanguinityToCaregiverSimple17);
             pgeBasic.Text = Properties.Resources.BasicData;
             pgeEducation.Text = Properties.Resources.EducationData;
             pgeHealth.Text = Properties.Resources.HealthData;
@@ -153,7 +150,6 @@ namespace OrphanageV3.Views.Orphan
             if (_CurrentOrphan == null) return;
             orphanBindingSource.DataSource = _CurrentOrphan;
             RadPageView1.SelectedPage = pgeBasic;
-            _ControllsHelper.SetNameForm(ref nameForm1, _CurrentOrphan.Name);
             txtOName.Text = _DataFormatterService.GetFullNameString(_CurrentOrphan.Name);
             var ageString = _TranslateService.DateToString(_CurrentOrphan.Birthday);
             txtOAge.Text = ageString;
@@ -229,7 +225,7 @@ namespace OrphanageV3.Views.Orphan
 
             if ((numHCost.Value > 0))
             {
-                health.Cost = (double)numHCost.Value;
+                health.Cost = numHCost.Value;
             }
 
             string Medic = "";
@@ -303,10 +299,10 @@ namespace OrphanageV3.Views.Orphan
             study.CertificatePhotoFront = picSStarter.PhotoAsBytes;
             study.CertificateImageURI = "api/orphan/media/education/" + _CurrentOrphan.Id;
             study.CertificatePhotoBack = PicSstudyCerti.PhotoAsBytes;
-            study.CertificateImage2 = "api/orphan/media/education2/" + _CurrentOrphan.Id;
+            study.CertificateImage2URI = "api/orphan/media/education2/" + _CurrentOrphan.Id;
             if ((numSDegreesRate.Value > 0))
             {
-                study.DegreesRate = (double)numSDegreesRate.Value;
+                study.DegreesRate = numSDegreesRate.Value;
             }
             else
             {
@@ -315,7 +311,7 @@ namespace OrphanageV3.Views.Orphan
 
             if ((numSMonthlyCost.Value > 0))
             {
-                study.MonthlyCost = (double)numSMonthlyCost.Value;
+                study.MonthlyCost = numSMonthlyCost.Value;
             }
             else
             {
@@ -438,7 +434,7 @@ namespace OrphanageV3.Views.Orphan
         private void pgeBasic_Click(object sender, EventArgs e)
         {
             nameForm1.HideMe();
-            _CurrentOrphan.Name = _ControllsHelper.GetNameFromForm(nameForm1);
+            //_CurrentOrphan.Name = _ControllsHelper.GetNameFromForm(nameForm1);
             txtOName.Text = _DataFormatterService.GetFullNameString(_CurrentOrphan.Name);
         }
 
@@ -505,25 +501,39 @@ namespace OrphanageV3.Views.Orphan
         private async void btnSave_Click(object sender, EventArgs e)
         {
             SaveHealth();
-            SaveStudy();            
-            await _orphanViewModel.Save(_CurrentOrphan);
-
-            //var savedOrphan = await _orphanViewModel.getOrphan(_CurrentOrphan.Id.Value);
-
-            if (_CurrentOrphan.HealthStatus != null && _HealthPhotoChanged)
-                await _orphanViewModel.SaveImage(_CurrentOrphan.HealthStatus.ReporteFileURI, picHFace.Photo);
-
-            if (_CurrentOrphan.Education != null)
+            SaveStudy();
+            _CurrentOrphan.Name = (Name)nameForm1.NameDataSource;
+            if (_OrphanEntityValidator.IsValid())
             {
-                if (_CertificatePhotoChanged)
-                    await _orphanViewModel.SaveImage(_CurrentOrphan.Education.CertificateImageURI, picSStarter.Photo);
-                if (_CertificatePhoto2Changed)
-                    await _orphanViewModel.SaveImage(_CurrentOrphan.Education.CertificateImage2URI, PicSstudyCerti.Photo);
+                await _orphanViewModel.Save(_CurrentOrphan);
+
+                //var savedOrphan = await _orphanViewModel.getOrphan(_CurrentOrphan.Id.Value);
+
+                if (_CurrentOrphan.HealthStatus != null && _HealthPhotoChanged)
+                    await _orphanViewModel.SaveImage(_CurrentOrphan.HealthStatus.ReporteFileURI, picHFace.Photo);
+
+                if (_CurrentOrphan.Education != null)
+                {
+                    if (_CertificatePhotoChanged)
+                        await _orphanViewModel.SaveImage(_CurrentOrphan.Education.CertificateImageURI, picSStarter.Photo);
+                    if (_CertificatePhoto2Changed)
+                        await _orphanViewModel.SaveImage(_CurrentOrphan.Education.CertificateImage2URI, PicSstudyCerti.Photo);
+                }
+
+                this.Close();
             }
-
-            this.Close();
+            else
+            {
+                ValidateAndShowErrors();
+            }
         }
+        private void ValidateAndShowErrors()
+        {
+            _OrphanEntityValidator.controlCollection = Controls;
+            _OrphanEntityValidator.DataEntity = orphanBindingSource.DataSource;
+            _OrphanEntityValidator.SetErrorProvider(OrphanerrorProvider1);
 
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

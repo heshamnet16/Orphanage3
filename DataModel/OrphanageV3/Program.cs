@@ -1,5 +1,7 @@
-﻿using OrphanageV3.Services;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
@@ -37,11 +39,12 @@ namespace OrphanageV3
             currentContainer.RegisterType<IApiClient, ApiClient>(new ContainerControlledLifetimeManager(), new InjectionConstructor(new object[] { true}));
             currentContainer.RegisterSingleton<ITranslateService, TranslateService>();
             currentContainer.RegisterSingleton<IMapperService, MapperService>();
-            currentContainer.RegisterSingleton<IRadGridHelper, RadGridHelper>();
+            currentContainer.RegisterType<IRadGridHelper, RadGridHelper>();
             currentContainer.RegisterSingleton<IDataFormatterService, DataFormatterService>();
-            currentContainer.RegisterSingleton<IControllsHelper, ControllsHelper>();
             currentContainer.RegisterSingleton<IAutoCompleteService, AutoCompleteService>();
-            currentContainer.RegisterSingleton<OrphansViewModel>();
+            currentContainer.RegisterType<IEntityValidator, EntityValidator>();            
+            currentContainer.RegisterType<OrphansViewModel>();
+            currentContainer.RegisterType<CaregiversViewModel>();
             return currentContainer;
         }
     }

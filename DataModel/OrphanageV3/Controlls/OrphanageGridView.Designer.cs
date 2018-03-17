@@ -78,6 +78,7 @@
             this.radGridView.CreateCell += new Telerik.WinControls.UI.GridViewCreateCellEventHandler(this.radGridView_CreateCell);
             this.radGridView.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.radGridView_RowFormatting);
             this.radGridView.PageChanged += new System.EventHandler<System.EventArgs>(this.radGridView_PageChanged);
+            this.radGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.radGridView_CellClick);
             this.radGridView.DataBindingComplete += new Telerik.WinControls.UI.GridViewBindingCompleteEventHandler(this.radGridView_DataBindingComplete);
             this.radGridView.GroupByChanged += new Telerik.WinControls.UI.GridViewCollectionChangedEventHandler(this.radGridView_GroupByChanged);
             this.radGridView.LayoutLoaded += new Telerik.WinControls.UI.LayoutLoadedEventHandler(this.radGridView_LayoutLoaded);
@@ -94,11 +95,11 @@
             // 
             // orphansViewModelBindingSource
             // 
-            this.orphansViewModelBindingSource.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphansViewModel);
+            this.orphansViewModelBindingSource.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphanModel);
             // 
             // orphansViewModelBindingSource1
             // 
-            this.orphansViewModelBindingSource1.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphansViewModel);
+            this.orphansViewModelBindingSource1.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphanModel);
             // 
             // OrphanageGridView
             // 

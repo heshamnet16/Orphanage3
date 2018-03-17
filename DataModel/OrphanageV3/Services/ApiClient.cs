@@ -4,6 +4,10 @@
 // </auto-generated>
 //----------------------
 
+using OrphanageDataModel.FinancialData;
+using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+
 namespace OrphanageV3.Services
 {
     #pragma warning disable // Disable all warnings
@@ -994,21 +998,21 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto2Async(int oid, string size);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto2Async(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto3Async(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1039,21 +1043,21 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate2Async(int oid, string size);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate2Async(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate3Async(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1084,21 +1088,21 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage2Async(int oid, string size);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage2Async(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage3Async(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1129,21 +1133,21 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto2Async(int oid, string size);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto2Async(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto3Async(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1174,30 +1178,30 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, string size);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert3Async(int oid, string size, long compertion);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>OK</returns>
-        /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>OK</returns>
-        /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert22Async(int oid);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert22Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1219,21 +1223,21 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert23Async(int oid, string size);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert23Async(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert24Async(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert24Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1279,6 +1283,15 @@ namespace OrphanageV3.Services
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1584,17 +1597,17 @@ namespace OrphanageV3.Services
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "http://localhost:1515";
-
+        
         public ApiClient()
         {
-            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
+    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings();
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
-        }
-
+    	}
+    
         public string BaseUrl 
         {
             get { return _baseUrl; }
@@ -10247,15 +10260,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto2Async(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanFacePhoto2Async(oid, size, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanFacePhotoSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto2Async(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -10330,15 +10343,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto3Async(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanFacePhoto3Async(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhoto3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -10658,15 +10671,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate2Async(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanBirthCertificate2Async(oid, size, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanBirthCertificateSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate2Async(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -10741,15 +10754,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate3Async(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanBirthCertificate3Async(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificate3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -11069,15 +11082,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage2Async(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanFamilyCardPage2Async(oid, size, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanFamilyCardPageSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage2Async(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -11152,15 +11165,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage3Async(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanFamilyCardPage3Async(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPage3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -11480,15 +11493,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto2Async(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanFullPhoto2Async(oid, size, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanFullPhotoSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto2Async(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -11563,15 +11576,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto3Async(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanFullPhoto3Async(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhoto3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -11891,15 +11904,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanEducationCert2Async(oid, size, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanEducationCertSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -11974,15 +11987,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert3Async(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanEducationCert3Async(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanEducationCertSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert3Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -12061,15 +12074,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert22Async(int oid)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid)
         {
-            return OMediaController_getOrphanEducationCert22Async(oid, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanEducationCert2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert22Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -12302,15 +12315,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert23Async(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanEducationCert23Async(oid, size, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanEducationCert2SizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert23Async(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -12385,15 +12398,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert24Async(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanEducationCert24Async(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert24Async(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -12812,6 +12825,86 @@ namespace OrphanageV3.Services
             urlBuilder_.Append(BaseUrl).Append("/api/orphan/{pageSize}/{pageNumber}");
             urlBuilder_.Replace("{pageSize}", System.Uri.EscapeDataString(System.Convert.ToString(pageSize, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{pageNumber}", System.Uri.EscapeDataString(System.Convert.ToString(pageNumber, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<Orphan>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<Orphan>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.ObjectModel.ObservableCollection<Orphan>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds)
+        {
+            return OrphansController_GetByIdsAsync(orphanIds, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
+        {
+            if (orphanIds == null)
+                throw new System.ArgumentNullException("orphanIds");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/orphan/byIds?");
+            foreach (var item_ in orphanIds) { urlBuilder_.Append("OrphanIds=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            urlBuilder_.Length--;
     
             var client_ = new System.Net.Http.HttpClient();
             try
@@ -15550,4588 +15643,4588 @@ namespace OrphanageV3.Services
     
     
 
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Account : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private string _accountName;
-        private string _currency;
-        private string _currencyShortcut;
-        private double _amount;
-        private bool _canNotBeNegative;
-        private string _note;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private System.Collections.ObjectModel.ObservableCollection<Bail> _bails;
-        private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Account : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private string _accountName;
+    //    private string _currency;
+    //    private string _currencyShortcut;
+    //    private double _amount;
+    //    private bool _canNotBeNegative;
+    //    private string _note;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private System.Collections.ObjectModel.ObservableCollection<Bail> _bails;
+    //    private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AccountName", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string AccountName
-        {
-            get { return _accountName; }
-            set 
-            {
-                if (_accountName != value)
-                {
-                    _accountName = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AccountName", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string AccountName
+    //    {
+    //        get { return _accountName; }
+    //        set 
+    //        {
+    //            if (_accountName != value)
+    //            {
+    //                _accountName = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Currency", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Currency
-        {
-            get { return _currency; }
-            set 
-            {
-                if (_currency != value)
-                {
-                    _currency = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Currency", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string Currency
+    //    {
+    //        get { return _currency; }
+    //        set 
+    //        {
+    //            if (_currency != value)
+    //            {
+    //                _currency = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CurrencyShortcut", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string CurrencyShortcut
-        {
-            get { return _currencyShortcut; }
-            set 
-            {
-                if (_currencyShortcut != value)
-                {
-                    _currencyShortcut = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CurrencyShortcut", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string CurrencyShortcut
+    //    {
+    //        get { return _currencyShortcut; }
+    //        set 
+    //        {
+    //            if (_currencyShortcut != value)
+    //            {
+    //                _currencyShortcut = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount
-        {
-            get { return _amount; }
-            set 
-            {
-                if (_amount != value)
-                {
-                    _amount = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Amount", Required = Newtonsoft.Json.Required.Always)]
+    //    public double Amount
+    //    {
+    //        get { return _amount; }
+    //        set 
+    //        {
+    //            if (_amount != value)
+    //            {
+    //                _amount = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CanNotBeNegative", Required = Newtonsoft.Json.Required.Always)]
-        public bool CanNotBeNegative
-        {
-            get { return _canNotBeNegative; }
-            set 
-            {
-                if (_canNotBeNegative != value)
-                {
-                    _canNotBeNegative = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CanNotBeNegative", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool CanNotBeNegative
+    //    {
+    //        get { return _canNotBeNegative; }
+    //        set 
+    //        {
+    //            if (_canNotBeNegative != value)
+    //            {
+    //                _canNotBeNegative = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Bails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Bail> Bails
-        {
-            get { return _bails; }
-            set 
-            {
-                if (_bails != value)
-                {
-                    _bails = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Bails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Bail> Bails
+    //    {
+    //        get { return _bails; }
+    //        set 
+    //        {
+    //            if (_bails != value)
+    //            {
+    //                _bails = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
-        {
-            get { return _guarantors; }
-            set 
-            {
-                if (_guarantors != value)
-                {
-                    _guarantors = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
+    //    {
+    //        get { return _guarantors; }
+    //        set 
+    //        {
+    //            if (_guarantors != value)
+    //            {
+    //                _guarantors = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Account FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Account>(data);
-        }
+    //    public static Account FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Account>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class User : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int? _nameId;
-        private Name _name;
-        private string _userName;
-        private string _password;
-        private bool _canDelete;
-        private bool _canRead;
-        private bool _canAdd;
-        private bool _canDeposit;
-        private bool _canDraw;
-        private int? _addressId;
-        private Address _address;
-        private System.DateTime _regDate;
-        private bool _isAdmin;
-        private string _note;
-        private System.Collections.ObjectModel.ObservableCollection<Bail> _bails;
-        private System.Collections.ObjectModel.ObservableCollection<Caregiver> _caregivers;
-        private System.Collections.ObjectModel.ObservableCollection<Account> _accounts;
-        private System.Collections.ObjectModel.ObservableCollection<Family> _famlies;
-        private System.Collections.ObjectModel.ObservableCollection<Father> _fathers;
-        private System.Collections.ObjectModel.ObservableCollection<Mother> _mothers;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
-        private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class User : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int? _nameId;
+    //    private Name _name;
+    //    private string _userName;
+    //    private string _password;
+    //    private bool _canDelete;
+    //    private bool _canRead;
+    //    private bool _canAdd;
+    //    private bool _canDeposit;
+    //    private bool _canDraw;
+    //    private int? _addressId;
+    //    private Address _address;
+    //    private System.DateTime _regDate;
+    //    private bool _isAdmin;
+    //    private string _note;
+    //    private System.Collections.ObjectModel.ObservableCollection<Bail> _bails;
+    //    private System.Collections.ObjectModel.ObservableCollection<Caregiver> _caregivers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Account> _accounts;
+    //    private System.Collections.ObjectModel.ObservableCollection<Family> _famlies;
+    //    private System.Collections.ObjectModel.ObservableCollection<Father> _fathers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Mother> _mothers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //    private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? NameId
-        {
-            get { return _nameId; }
-            set 
-            {
-                if (_nameId != value)
-                {
-                    _nameId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? NameId
+    //    {
+    //        get { return _nameId; }
+    //        set 
+    //        {
+    //            if (_nameId != value)
+    //            {
+    //                _nameId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Name Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (_name != value)
-                {
-                    _name = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Name Name
+    //    {
+    //        get { return _name; }
+    //        set 
+    //        {
+    //            if (_name != value)
+    //            {
+    //                _name = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserName", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string UserName
-        {
-            get { return _userName; }
-            set 
-            {
-                if (_userName != value)
-                {
-                    _userName = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserName", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string UserName
+    //    {
+    //        get { return _userName; }
+    //        set 
+    //        {
+    //            if (_userName != value)
+    //            {
+    //                _userName = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Password", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Password
-        {
-            get { return _password; }
-            set 
-            {
-                if (_password != value)
-                {
-                    _password = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Password", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string Password
+    //    {
+    //        get { return _password; }
+    //        set 
+    //        {
+    //            if (_password != value)
+    //            {
+    //                _password = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CanDelete", Required = Newtonsoft.Json.Required.Always)]
-        public bool CanDelete
-        {
-            get { return _canDelete; }
-            set 
-            {
-                if (_canDelete != value)
-                {
-                    _canDelete = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CanDelete", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool CanDelete
+    //    {
+    //        get { return _canDelete; }
+    //        set 
+    //        {
+    //            if (_canDelete != value)
+    //            {
+    //                _canDelete = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CanRead", Required = Newtonsoft.Json.Required.Always)]
-        public bool CanRead
-        {
-            get { return _canRead; }
-            set 
-            {
-                if (_canRead != value)
-                {
-                    _canRead = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CanRead", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool CanRead
+    //    {
+    //        get { return _canRead; }
+    //        set 
+    //        {
+    //            if (_canRead != value)
+    //            {
+    //                _canRead = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CanAdd", Required = Newtonsoft.Json.Required.Always)]
-        public bool CanAdd
-        {
-            get { return _canAdd; }
-            set 
-            {
-                if (_canAdd != value)
-                {
-                    _canAdd = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CanAdd", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool CanAdd
+    //    {
+    //        get { return _canAdd; }
+    //        set 
+    //        {
+    //            if (_canAdd != value)
+    //            {
+    //                _canAdd = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CanDeposit", Required = Newtonsoft.Json.Required.Always)]
-        public bool CanDeposit
-        {
-            get { return _canDeposit; }
-            set 
-            {
-                if (_canDeposit != value)
-                {
-                    _canDeposit = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CanDeposit", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool CanDeposit
+    //    {
+    //        get { return _canDeposit; }
+    //        set 
+    //        {
+    //            if (_canDeposit != value)
+    //            {
+    //                _canDeposit = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CanDraw", Required = Newtonsoft.Json.Required.Always)]
-        public bool CanDraw
-        {
-            get { return _canDraw; }
-            set 
-            {
-                if (_canDraw != value)
-                {
-                    _canDraw = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CanDraw", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool CanDraw
+    //    {
+    //        get { return _canDraw; }
+    //        set 
+    //        {
+    //            if (_canDraw != value)
+    //            {
+    //                _canDraw = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AddressId
-        {
-            get { return _addressId; }
-            set 
-            {
-                if (_addressId != value)
-                {
-                    _addressId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? AddressId
+    //    {
+    //        get { return _addressId; }
+    //        set 
+    //        {
+    //            if (_addressId != value)
+    //            {
+    //                _addressId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Address Address
-        {
-            get { return _address; }
-            set 
-            {
-                if (_address != value)
-                {
-                    _address = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Address Address
+    //    {
+    //        get { return _address; }
+    //        set 
+    //        {
+    //            if (_address != value)
+    //            {
+    //                _address = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsAdmin", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsAdmin
-        {
-            get { return _isAdmin; }
-            set 
-            {
-                if (_isAdmin != value)
-                {
-                    _isAdmin = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsAdmin", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsAdmin
+    //    {
+    //        get { return _isAdmin; }
+    //        set 
+    //        {
+    //            if (_isAdmin != value)
+    //            {
+    //                _isAdmin = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Bails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Bail> Bails
-        {
-            get { return _bails; }
-            set 
-            {
-                if (_bails != value)
-                {
-                    _bails = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Bails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Bail> Bails
+    //    {
+    //        get { return _bails; }
+    //        set 
+    //        {
+    //            if (_bails != value)
+    //            {
+    //                _bails = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Caregivers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Caregiver> Caregivers
-        {
-            get { return _caregivers; }
-            set 
-            {
-                if (_caregivers != value)
-                {
-                    _caregivers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Caregivers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Caregiver> Caregivers
+    //    {
+    //        get { return _caregivers; }
+    //        set 
+    //        {
+    //            if (_caregivers != value)
+    //            {
+    //                _caregivers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Accounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Account> Accounts
-        {
-            get { return _accounts; }
-            set 
-            {
-                if (_accounts != value)
-                {
-                    _accounts = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Accounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Account> Accounts
+    //    {
+    //        get { return _accounts; }
+    //        set 
+    //        {
+    //            if (_accounts != value)
+    //            {
+    //                _accounts = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Famlies", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Family> Famlies
-        {
-            get { return _famlies; }
-            set 
-            {
-                if (_famlies != value)
-                {
-                    _famlies = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Famlies", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Family> Famlies
+    //    {
+    //        get { return _famlies; }
+    //        set 
+    //        {
+    //            if (_famlies != value)
+    //            {
+    //                _famlies = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Fathers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Father> Fathers
-        {
-            get { return _fathers; }
-            set 
-            {
-                if (_fathers != value)
-                {
-                    _fathers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Fathers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Father> Fathers
+    //    {
+    //        get { return _fathers; }
+    //        set 
+    //        {
+    //            if (_fathers != value)
+    //            {
+    //                _fathers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Mothers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Mother> Mothers
-        {
-            get { return _mothers; }
-            set 
-            {
-                if (_mothers != value)
-                {
-                    _mothers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Mothers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Mother> Mothers
+    //    {
+    //        get { return _mothers; }
+    //        set 
+    //        {
+    //            if (_mothers != value)
+    //            {
+    //                _mothers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
-        {
-            get { return _guarantors; }
-            set 
-            {
-                if (_guarantors != value)
-                {
-                    _guarantors = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
+    //    {
+    //        get { return _guarantors; }
+    //        set 
+    //        {
+    //            if (_guarantors != value)
+    //            {
+    //                _guarantors = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static User FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
-        }
+    //    public static User FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Bail : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int? _guarantorID;
-        private Guarantor _guarantor;
-        private double _amount;
-        private int _accountID;
-        private Account _account;
-        private bool _isFamilyBail;
-        private System.DateTime? _startDate;
-        private System.DateTime? _endDate;
-        private bool _isExpired;
-        private bool _isMonthlyBail;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _note;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
-        private System.Collections.ObjectModel.ObservableCollection<Family> _families;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Bail : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int? _guarantorID;
+    //    private Guarantor _guarantor;
+    //    private double _amount;
+    //    private int _accountID;
+    //    private Account _account;
+    //    private bool _isFamilyBail;
+    //    private System.DateTime? _startDate;
+    //    private System.DateTime? _endDate;
+    //    private bool _isExpired;
+    //    private bool _isMonthlyBail;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _note;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //    private System.Collections.ObjectModel.ObservableCollection<Family> _families;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("GuarantorID", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? GuarantorID
-        {
-            get { return _guarantorID; }
-            set 
-            {
-                if (_guarantorID != value)
-                {
-                    _guarantorID = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("GuarantorID", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? GuarantorID
+    //    {
+    //        get { return _guarantorID; }
+    //        set 
+    //        {
+    //            if (_guarantorID != value)
+    //            {
+    //                _guarantorID = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Guarantor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Guarantor Guarantor
-        {
-            get { return _guarantor; }
-            set 
-            {
-                if (_guarantor != value)
-                {
-                    _guarantor = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Guarantor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Guarantor Guarantor
+    //    {
+    //        get { return _guarantor; }
+    //        set 
+    //        {
+    //            if (_guarantor != value)
+    //            {
+    //                _guarantor = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount
-        {
-            get { return _amount; }
-            set 
-            {
-                if (_amount != value)
-                {
-                    _amount = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Amount", Required = Newtonsoft.Json.Required.Always)]
+    //    public double Amount
+    //    {
+    //        get { return _amount; }
+    //        set 
+    //        {
+    //            if (_amount != value)
+    //            {
+    //                _amount = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AccountID", Required = Newtonsoft.Json.Required.Always)]
-        public int AccountID
-        {
-            get { return _accountID; }
-            set 
-            {
-                if (_accountID != value)
-                {
-                    _accountID = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AccountID", Required = Newtonsoft.Json.Required.Always)]
+    //    public int AccountID
+    //    {
+    //        get { return _accountID; }
+    //        set 
+    //        {
+    //            if (_accountID != value)
+    //            {
+    //                _accountID = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Account Account
-        {
-            get { return _account; }
-            set 
-            {
-                if (_account != value)
-                {
-                    _account = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Account Account
+    //    {
+    //        get { return _account; }
+    //        set 
+    //        {
+    //            if (_account != value)
+    //            {
+    //                _account = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsFamilyBail", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsFamilyBail
-        {
-            get { return _isFamilyBail; }
-            set 
-            {
-                if (_isFamilyBail != value)
-                {
-                    _isFamilyBail = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsFamilyBail", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsFamilyBail
+    //    {
+    //        get { return _isFamilyBail; }
+    //        set 
+    //        {
+    //            if (_isFamilyBail != value)
+    //            {
+    //                _isFamilyBail = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("StartDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? StartDate
-        {
-            get { return _startDate; }
-            set 
-            {
-                if (_startDate != value)
-                {
-                    _startDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("StartDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.DateTime? StartDate
+    //    {
+    //        get { return _startDate; }
+    //        set 
+    //        {
+    //            if (_startDate != value)
+    //            {
+    //                _startDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("EndDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? EndDate
-        {
-            get { return _endDate; }
-            set 
-            {
-                if (_endDate != value)
-                {
-                    _endDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("EndDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.DateTime? EndDate
+    //    {
+    //        get { return _endDate; }
+    //        set 
+    //        {
+    //            if (_endDate != value)
+    //            {
+    //                _endDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsExpired", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsExpired
-        {
-            get { return _isExpired; }
-            set 
-            {
-                if (_isExpired != value)
-                {
-                    _isExpired = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsExpired", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsExpired
+    //    {
+    //        get { return _isExpired; }
+    //        set 
+    //        {
+    //            if (_isExpired != value)
+    //            {
+    //                _isExpired = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsMonthlyBail", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsMonthlyBail
-        {
-            get { return _isMonthlyBail; }
-            set 
-            {
-                if (_isMonthlyBail != value)
-                {
-                    _isMonthlyBail = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsMonthlyBail", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsMonthlyBail
+    //    {
+    //        get { return _isMonthlyBail; }
+    //        set 
+    //        {
+    //            if (_isMonthlyBail != value)
+    //            {
+    //                _isMonthlyBail = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Family> Families
-        {
-            get { return _families; }
-            set 
-            {
-                if (_families != value)
-                {
-                    _families = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Family> Families
+    //    {
+    //        get { return _families; }
+    //        set 
+    //        {
+    //            if (_families != value)
+    //            {
+    //                _families = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Bail FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Bail>(data);
-        }
+    //    public static Bail FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Bail>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Guarantor : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int _nameId;
-        private Name _name;
-        private int? _addressId;
-        private Address _address;
-        private int _accountId;
-        private Account _account;
-        private long? _colorMark;
-        private bool _isSupportingTheWholeFamily;
-        private bool _isPayingMonthly;
-        private bool _isStillPaying;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _note;
-        private System.Collections.ObjectModel.ObservableCollection<Bail> _bails;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Guarantor : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int _nameId;
+    //    private Name _name;
+    //    private int? _addressId;
+    //    private Address _address;
+    //    private int _accountId;
+    //    private Account _account;
+    //    private long? _colorMark;
+    //    private bool _isSupportingTheWholeFamily;
+    //    private bool _isPayingMonthly;
+    //    private bool _isStillPaying;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _note;
+    //    private System.Collections.ObjectModel.ObservableCollection<Bail> _bails;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
-        public int NameId
-        {
-            get { return _nameId; }
-            set 
-            {
-                if (_nameId != value)
-                {
-                    _nameId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int NameId
+    //    {
+    //        get { return _nameId; }
+    //        set 
+    //        {
+    //            if (_nameId != value)
+    //            {
+    //                _nameId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Name Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (_name != value)
-                {
-                    _name = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Name Name
+    //    {
+    //        get { return _name; }
+    //        set 
+    //        {
+    //            if (_name != value)
+    //            {
+    //                _name = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AddressId
-        {
-            get { return _addressId; }
-            set 
-            {
-                if (_addressId != value)
-                {
-                    _addressId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? AddressId
+    //    {
+    //        get { return _addressId; }
+    //        set 
+    //        {
+    //            if (_addressId != value)
+    //            {
+    //                _addressId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Address Address
-        {
-            get { return _address; }
-            set 
-            {
-                if (_address != value)
-                {
-                    _address = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Address Address
+    //    {
+    //        get { return _address; }
+    //        set 
+    //        {
+    //            if (_address != value)
+    //            {
+    //                _address = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AccountId", Required = Newtonsoft.Json.Required.Always)]
-        public int AccountId
-        {
-            get { return _accountId; }
-            set 
-            {
-                if (_accountId != value)
-                {
-                    _accountId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AccountId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int AccountId
+    //    {
+    //        get { return _accountId; }
+    //        set 
+    //        {
+    //            if (_accountId != value)
+    //            {
+    //                _accountId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Account Account
-        {
-            get { return _account; }
-            set 
-            {
-                if (_account != value)
-                {
-                    _account = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Account Account
+    //    {
+    //        get { return _account; }
+    //        set 
+    //        {
+    //            if (_account != value)
+    //            {
+    //                _account = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ColorMark
-        {
-            get { return _colorMark; }
-            set 
-            {
-                if (_colorMark != value)
-                {
-                    _colorMark = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public long? ColorMark
+    //    {
+    //        get { return _colorMark; }
+    //        set 
+    //        {
+    //            if (_colorMark != value)
+    //            {
+    //                _colorMark = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsSupportingTheWholeFamily", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsSupportingTheWholeFamily
-        {
-            get { return _isSupportingTheWholeFamily; }
-            set 
-            {
-                if (_isSupportingTheWholeFamily != value)
-                {
-                    _isSupportingTheWholeFamily = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsSupportingTheWholeFamily", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsSupportingTheWholeFamily
+    //    {
+    //        get { return _isSupportingTheWholeFamily; }
+    //        set 
+    //        {
+    //            if (_isSupportingTheWholeFamily != value)
+    //            {
+    //                _isSupportingTheWholeFamily = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsPayingMonthly", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsPayingMonthly
-        {
-            get { return _isPayingMonthly; }
-            set 
-            {
-                if (_isPayingMonthly != value)
-                {
-                    _isPayingMonthly = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsPayingMonthly", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsPayingMonthly
+    //    {
+    //        get { return _isPayingMonthly; }
+    //        set 
+    //        {
+    //            if (_isPayingMonthly != value)
+    //            {
+    //                _isPayingMonthly = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsStillPaying", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsStillPaying
-        {
-            get { return _isStillPaying; }
-            set 
-            {
-                if (_isStillPaying != value)
-                {
-                    _isStillPaying = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsStillPaying", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsStillPaying
+    //    {
+    //        get { return _isStillPaying; }
+    //        set 
+    //        {
+    //            if (_isStillPaying != value)
+    //            {
+    //                _isStillPaying = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Bails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Bail> Bails
-        {
-            get { return _bails; }
-            set 
-            {
-                if (_bails != value)
-                {
-                    _bails = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Bails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Bail> Bails
+    //    {
+    //        get { return _bails; }
+    //        set 
+    //        {
+    //            if (_bails != value)
+    //            {
+    //                _bails = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Guarantor FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Guarantor>(data);
-        }
+    //    public static Guarantor FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Guarantor>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Name : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private string _first;
-        private string _father;
-        private string _last;
-        private string _englishFirst;
-        private string _englishFather;
-        private string _englishLast;
-        private System.Collections.ObjectModel.ObservableCollection<Caregiver> _caregivers;
-        private System.Collections.ObjectModel.ObservableCollection<Father> _fathers;
-        private System.Collections.ObjectModel.ObservableCollection<Mother> _mothers;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
-        private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
-        private System.Collections.ObjectModel.ObservableCollection<User> _users;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Name : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private string _first;
+    //    private string _father;
+    //    private string _last;
+    //    private string _englishFirst;
+    //    private string _englishFather;
+    //    private string _englishLast;
+    //    private System.Collections.ObjectModel.ObservableCollection<Caregiver> _caregivers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Father> _fathers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Mother> _mothers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //    private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
+    //    private System.Collections.ObjectModel.ObservableCollection<User> _users;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("First", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string First
-        {
-            get { return _first; }
-            set 
-            {
-                if (_first != value)
-                {
-                    _first = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("First", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string First
+    //    {
+    //        get { return _first; }
+    //        set 
+    //        {
+    //            if (_first != value)
+    //            {
+    //                _first = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Father", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Father
-        {
-            get { return _father; }
-            set 
-            {
-                if (_father != value)
-                {
-                    _father = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Father", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Father
+    //    {
+    //        get { return _father; }
+    //        set 
+    //        {
+    //            if (_father != value)
+    //            {
+    //                _father = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Last", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Last
-        {
-            get { return _last; }
-            set 
-            {
-                if (_last != value)
-                {
-                    _last = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Last", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Last
+    //    {
+    //        get { return _last; }
+    //        set 
+    //        {
+    //            if (_last != value)
+    //            {
+    //                _last = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("EnglishFirst", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EnglishFirst
-        {
-            get { return _englishFirst; }
-            set 
-            {
-                if (_englishFirst != value)
-                {
-                    _englishFirst = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("EnglishFirst", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string EnglishFirst
+    //    {
+    //        get { return _englishFirst; }
+    //        set 
+    //        {
+    //            if (_englishFirst != value)
+    //            {
+    //                _englishFirst = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("EnglishFather", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EnglishFather
-        {
-            get { return _englishFather; }
-            set 
-            {
-                if (_englishFather != value)
-                {
-                    _englishFather = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("EnglishFather", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string EnglishFather
+    //    {
+    //        get { return _englishFather; }
+    //        set 
+    //        {
+    //            if (_englishFather != value)
+    //            {
+    //                _englishFather = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("EnglishLast", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EnglishLast
-        {
-            get { return _englishLast; }
-            set 
-            {
-                if (_englishLast != value)
-                {
-                    _englishLast = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("EnglishLast", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string EnglishLast
+    //    {
+    //        get { return _englishLast; }
+    //        set 
+    //        {
+    //            if (_englishLast != value)
+    //            {
+    //                _englishLast = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Caregivers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Caregiver> Caregivers
-        {
-            get { return _caregivers; }
-            set 
-            {
-                if (_caregivers != value)
-                {
-                    _caregivers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Caregivers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Caregiver> Caregivers
+    //    {
+    //        get { return _caregivers; }
+    //        set 
+    //        {
+    //            if (_caregivers != value)
+    //            {
+    //                _caregivers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Fathers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Father> Fathers
-        {
-            get { return _fathers; }
-            set 
-            {
-                if (_fathers != value)
-                {
-                    _fathers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Fathers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Father> Fathers
+    //    {
+    //        get { return _fathers; }
+    //        set 
+    //        {
+    //            if (_fathers != value)
+    //            {
+    //                _fathers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Mothers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Mother> Mothers
-        {
-            get { return _mothers; }
-            set 
-            {
-                if (_mothers != value)
-                {
-                    _mothers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Mothers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Mother> Mothers
+    //    {
+    //        get { return _mothers; }
+    //        set 
+    //        {
+    //            if (_mothers != value)
+    //            {
+    //                _mothers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
-        {
-            get { return _guarantors; }
-            set 
-            {
-                if (_guarantors != value)
-                {
-                    _guarantors = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
+    //    {
+    //        get { return _guarantors; }
+    //        set 
+    //        {
+    //            if (_guarantors != value)
+    //            {
+    //                _guarantors = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Users", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<User> Users
-        {
-            get { return _users; }
-            set 
-            {
-                if (_users != value)
-                {
-                    _users = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Users", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<User> Users
+    //    {
+    //        get { return _users; }
+    //        set 
+    //        {
+    //            if (_users != value)
+    //            {
+    //                _users = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Name FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Name>(data);
-        }
+    //    public static Name FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Name>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Address : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private string _country;
-        private string _city;
-        private string _town;
-        private string _street;
-        private string _homePhone;
-        private string _cellPhone;
-        private string _workPhone;
-        private string _fax;
-        private string _email;
-        private string _facebook;
-        private string _twitter;
-        private string _note;
-        private System.Collections.ObjectModel.ObservableCollection<Caregiver> _caregivers;
-        private System.Collections.ObjectModel.ObservableCollection<Family> _families;
-        private System.Collections.ObjectModel.ObservableCollection<Family> _famliesAlternativeAddresses;
-        private System.Collections.ObjectModel.ObservableCollection<Mother> _mothers;
-        private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
-        private System.Collections.ObjectModel.ObservableCollection<User> _users;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Address : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private string _country;
+    //    private string _city;
+    //    private string _town;
+    //    private string _street;
+    //    private string _homePhone;
+    //    private string _cellPhone;
+    //    private string _workPhone;
+    //    private string _fax;
+    //    private string _email;
+    //    private string _facebook;
+    //    private string _twitter;
+    //    private string _note;
+    //    private System.Collections.ObjectModel.ObservableCollection<Caregiver> _caregivers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Family> _families;
+    //    private System.Collections.ObjectModel.ObservableCollection<Family> _famliesAlternativeAddresses;
+    //    private System.Collections.ObjectModel.ObservableCollection<Mother> _mothers;
+    //    private System.Collections.ObjectModel.ObservableCollection<Guarantor> _guarantors;
+    //    private System.Collections.ObjectModel.ObservableCollection<User> _users;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Country
-        {
-            get { return _country; }
-            set 
-            {
-                if (_country != value)
-                {
-                    _country = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Country
+    //    {
+    //        get { return _country; }
+    //        set 
+    //        {
+    //            if (_country != value)
+    //            {
+    //                _country = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("City", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string City
-        {
-            get { return _city; }
-            set 
-            {
-                if (_city != value)
-                {
-                    _city = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("City", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string City
+    //    {
+    //        get { return _city; }
+    //        set 
+    //        {
+    //            if (_city != value)
+    //            {
+    //                _city = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Town", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Town
-        {
-            get { return _town; }
-            set 
-            {
-                if (_town != value)
-                {
-                    _town = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Town", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Town
+    //    {
+    //        get { return _town; }
+    //        set 
+    //        {
+    //            if (_town != value)
+    //            {
+    //                _town = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Street", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Street
-        {
-            get { return _street; }
-            set 
-            {
-                if (_street != value)
-                {
-                    _street = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Street", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string Street
+    //    {
+    //        get { return _street; }
+    //        set 
+    //        {
+    //            if (_street != value)
+    //            {
+    //                _street = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("HomePhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
-        public string HomePhone
-        {
-            get { return _homePhone; }
-            set 
-            {
-                if (_homePhone != value)
-                {
-                    _homePhone = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("HomePhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
+    //    public string HomePhone
+    //    {
+    //        get { return _homePhone; }
+    //        set 
+    //        {
+    //            if (_homePhone != value)
+    //            {
+    //                _homePhone = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CellPhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
-        public string CellPhone
-        {
-            get { return _cellPhone; }
-            set 
-            {
-                if (_cellPhone != value)
-                {
-                    _cellPhone = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CellPhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
+    //    public string CellPhone
+    //    {
+    //        get { return _cellPhone; }
+    //        set 
+    //        {
+    //            if (_cellPhone != value)
+    //            {
+    //                _cellPhone = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("WorkPhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
-        public string WorkPhone
-        {
-            get { return _workPhone; }
-            set 
-            {
-                if (_workPhone != value)
-                {
-                    _workPhone = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("WorkPhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
+    //    public string WorkPhone
+    //    {
+    //        get { return _workPhone; }
+    //        set 
+    //        {
+    //            if (_workPhone != value)
+    //            {
+    //                _workPhone = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Fax", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
-        public string Fax
-        {
-            get { return _fax; }
-            set 
-            {
-                if (_fax != value)
-                {
-                    _fax = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Fax", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    [System.ComponentModel.DataAnnotations.RegularExpression(@"^([(]?\d{3}[)]?[- ]?\d{4}[- ]?\d{3})|([(]?\d{4}[)]?[- ]?\d{3}[- ]?\d{3})$")]
+    //    public string Fax
+    //    {
+    //        get { return _fax; }
+    //        set 
+    //        {
+    //            if (_fax != value)
+    //            {
+    //                _fax = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email
-        {
-            get { return _email; }
-            set 
-            {
-                if (_email != value)
-                {
-                    _email = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Email
+    //    {
+    //        get { return _email; }
+    //        set 
+    //        {
+    //            if (_email != value)
+    //            {
+    //                _email = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Facebook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.RegularExpression(@"(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?")]
-        public string Facebook
-        {
-            get { return _facebook; }
-            set 
-            {
-                if (_facebook != value)
-                {
-                    _facebook = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Facebook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    [System.ComponentModel.DataAnnotations.RegularExpression(@"(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?")]
+    //    public string Facebook
+    //    {
+    //        get { return _facebook; }
+    //        set 
+    //        {
+    //            if (_facebook != value)
+    //            {
+    //                _facebook = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Twitter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.RegularExpression(@"http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)")]
-        public string Twitter
-        {
-            get { return _twitter; }
-            set 
-            {
-                if (_twitter != value)
-                {
-                    _twitter = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Twitter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    [System.ComponentModel.DataAnnotations.RegularExpression(@"http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)")]
+    //    public string Twitter
+    //    {
+    //        get { return _twitter; }
+    //        set 
+    //        {
+    //            if (_twitter != value)
+    //            {
+    //                _twitter = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Caregivers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Caregiver> Caregivers
-        {
-            get { return _caregivers; }
-            set 
-            {
-                if (_caregivers != value)
-                {
-                    _caregivers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Caregivers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Caregiver> Caregivers
+    //    {
+    //        get { return _caregivers; }
+    //        set 
+    //        {
+    //            if (_caregivers != value)
+    //            {
+    //                _caregivers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Family> Families
-        {
-            get { return _families; }
-            set 
-            {
-                if (_families != value)
-                {
-                    _families = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Family> Families
+    //    {
+    //        get { return _families; }
+    //        set 
+    //        {
+    //            if (_families != value)
+    //            {
+    //                _families = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamliesAlternativeAddresses", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Family> FamliesAlternativeAddresses
-        {
-            get { return _famliesAlternativeAddresses; }
-            set 
-            {
-                if (_famliesAlternativeAddresses != value)
-                {
-                    _famliesAlternativeAddresses = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamliesAlternativeAddresses", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Family> FamliesAlternativeAddresses
+    //    {
+    //        get { return _famliesAlternativeAddresses; }
+    //        set 
+    //        {
+    //            if (_famliesAlternativeAddresses != value)
+    //            {
+    //                _famliesAlternativeAddresses = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Mothers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Mother> Mothers
-        {
-            get { return _mothers; }
-            set 
-            {
-                if (_mothers != value)
-                {
-                    _mothers = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Mothers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Mother> Mothers
+    //    {
+    //        get { return _mothers; }
+    //        set 
+    //        {
+    //            if (_mothers != value)
+    //            {
+    //                _mothers = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
-        {
-            get { return _guarantors; }
-            set 
-            {
-                if (_guarantors != value)
-                {
-                    _guarantors = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Guarantors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Guarantor> Guarantors
+    //    {
+    //        get { return _guarantors; }
+    //        set 
+    //        {
+    //            if (_guarantors != value)
+    //            {
+    //                _guarantors = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Users", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<User> Users
-        {
-            get { return _users; }
-            set 
-            {
-                if (_users != value)
-                {
-                    _users = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Users", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<User> Users
+    //    {
+    //        get { return _users; }
+    //        set 
+    //        {
+    //            if (_users != value)
+    //            {
+    //                _users = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Address FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Address>(data);
-        }
+    //    public static Address FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Address>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Caregiver : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int _nameId;
-        private Name _name;
-        private int? _addressId;
-        private Address _address;
-        private string _identityCardId;
-        private byte[] _identityCardPhotoFaceData;
-        private byte[] _identityCardPhotoBackData;
-        private string _jop;
-        private double? _income;
-        private long? _colorMark;
-        private byte[] _fingerPrint;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _note;
-        private string _identityCardImageFace;
-        private string _identityCardImageBack;
-        private string _identityCardImageFaceURI;
-        private string _identityCardImageBackURI;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Caregiver : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int _nameId;
+    //    private Name _name;
+    //    private int? _addressId;
+    //    private Address _address;
+    //    private string _identityCardId;
+    //    private byte[] _identityCardPhotoFaceData;
+    //    private byte[] _identityCardPhotoBackData;
+    //    private string _jop;
+    //    private double? _income;
+    //    private long? _colorMark;
+    //    private byte[] _fingerPrint;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _note;
+    //    private string _identityCardImageFace;
+    //    private string _identityCardImageBack;
+    //    private string _identityCardImageFaceURI;
+    //    private string _identityCardImageBackURI;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
-        public int NameId
-        {
-            get { return _nameId; }
-            set 
-            {
-                if (_nameId != value)
-                {
-                    _nameId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int NameId
+    //    {
+    //        get { return _nameId; }
+    //        set 
+    //        {
+    //            if (_nameId != value)
+    //            {
+    //                _nameId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Name Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (_name != value)
-                {
-                    _name = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Name Name
+    //    {
+    //        get { return _name; }
+    //        set 
+    //        {
+    //            if (_name != value)
+    //            {
+    //                _name = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AddressId
-        {
-            get { return _addressId; }
-            set 
-            {
-                if (_addressId != value)
-                {
-                    _addressId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? AddressId
+    //    {
+    //        get { return _addressId; }
+    //        set 
+    //        {
+    //            if (_addressId != value)
+    //            {
+    //                _addressId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Address Address
-        {
-            get { return _address; }
-            set 
-            {
-                if (_address != value)
-                {
-                    _address = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Address Address
+    //    {
+    //        get { return _address; }
+    //        set 
+    //        {
+    //            if (_address != value)
+    //            {
+    //                _address = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardId
-        {
-            get { return _identityCardId; }
-            set 
-            {
-                if (_identityCardId != value)
-                {
-                    _identityCardId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardId
+    //    {
+    //        get { return _identityCardId; }
+    //        set 
+    //        {
+    //            if (_identityCardId != value)
+    //            {
+    //                _identityCardId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardPhotoFaceData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] IdentityCardPhotoFaceData
-        {
-            get { return _identityCardPhotoFaceData; }
-            set 
-            {
-                if (_identityCardPhotoFaceData != value)
-                {
-                    _identityCardPhotoFaceData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardPhotoFaceData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] IdentityCardPhotoFaceData
+    //    {
+    //        get { return _identityCardPhotoFaceData; }
+    //        set 
+    //        {
+    //            if (_identityCardPhotoFaceData != value)
+    //            {
+    //                _identityCardPhotoFaceData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardPhotoBackData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] IdentityCardPhotoBackData
-        {
-            get { return _identityCardPhotoBackData; }
-            set 
-            {
-                if (_identityCardPhotoBackData != value)
-                {
-                    _identityCardPhotoBackData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardPhotoBackData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] IdentityCardPhotoBackData
+    //    {
+    //        get { return _identityCardPhotoBackData; }
+    //        set 
+    //        {
+    //            if (_identityCardPhotoBackData != value)
+    //            {
+    //                _identityCardPhotoBackData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Jop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Jop
-        {
-            get { return _jop; }
-            set 
-            {
-                if (_jop != value)
-                {
-                    _jop = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Jop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Jop
+    //    {
+    //        get { return _jop; }
+    //        set 
+    //        {
+    //            if (_jop != value)
+    //            {
+    //                _jop = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Income", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Income
-        {
-            get { return _income; }
-            set 
-            {
-                if (_income != value)
-                {
-                    _income = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Income", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public double? Income
+    //    {
+    //        get { return _income; }
+    //        set 
+    //        {
+    //            if (_income != value)
+    //            {
+    //                _income = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ColorMark
-        {
-            get { return _colorMark; }
-            set 
-            {
-                if (_colorMark != value)
-                {
-                    _colorMark = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public long? ColorMark
+    //    {
+    //        get { return _colorMark; }
+    //        set 
+    //        {
+    //            if (_colorMark != value)
+    //            {
+    //                _colorMark = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FingerPrint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FingerPrint
-        {
-            get { return _fingerPrint; }
-            set 
-            {
-                if (_fingerPrint != value)
-                {
-                    _fingerPrint = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FingerPrint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FingerPrint
+    //    {
+    //        get { return _fingerPrint; }
+    //        set 
+    //        {
+    //            if (_fingerPrint != value)
+    //            {
+    //                _fingerPrint = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardImageFace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardImageFace
-        {
-            get { return _identityCardImageFace; }
-            set 
-            {
-                if (_identityCardImageFace != value)
-                {
-                    _identityCardImageFace = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardImageFace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardImageFace
+    //    {
+    //        get { return _identityCardImageFace; }
+    //        set 
+    //        {
+    //            if (_identityCardImageFace != value)
+    //            {
+    //                _identityCardImageFace = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardImageBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardImageBack
-        {
-            get { return _identityCardImageBack; }
-            set 
-            {
-                if (_identityCardImageBack != value)
-                {
-                    _identityCardImageBack = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardImageBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardImageBack
+    //    {
+    //        get { return _identityCardImageBack; }
+    //        set 
+    //        {
+    //            if (_identityCardImageBack != value)
+    //            {
+    //                _identityCardImageBack = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardImageFaceURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardImageFaceURI
-        {
-            get { return _identityCardImageFaceURI; }
-            set 
-            {
-                if (_identityCardImageFaceURI != value)
-                {
-                    _identityCardImageFaceURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardImageFaceURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardImageFaceURI
+    //    {
+    //        get { return _identityCardImageFaceURI; }
+    //        set 
+    //        {
+    //            if (_identityCardImageFaceURI != value)
+    //            {
+    //                _identityCardImageFaceURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardImageBackURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardImageBackURI
-        {
-            get { return _identityCardImageBackURI; }
-            set 
-            {
-                if (_identityCardImageBackURI != value)
-                {
-                    _identityCardImageBackURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardImageBackURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardImageBackURI
+    //    {
+    //        get { return _identityCardImageBackURI; }
+    //        set 
+    //        {
+    //            if (_identityCardImageBackURI != value)
+    //            {
+    //                _identityCardImageBackURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Caregiver FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Caregiver>(data);
-        }
+    //    public static Caregiver FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Caregiver>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Family : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int _motherId;
-        private Mother _mother;
-        private int _fatherId;
-        private Father _father;
-        private int? _bailId;
-        private Bail _bail;
-        private bool _isBailed;
-        private int? _addressId;
-        private Address _primaryAddress;
-        private int? _alternativeAddressId;
-        private Address _alternativeAddress;
-        private bool _isExcluded;
-        private string _finncialStatus;
-        private string _familyCardNumber;
-        private bool _isTheyRefugees;
-        private string _residenceStatus;
-        private string _residenceType;
-        private long? _colorMark;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _note;
-        private byte[] _familyCardImagePage1;
-        private byte[] _familyCardImagePage2;
-        private string _familyCardImageFace;
-        private string _familyCardImageBack;
-        private string _familyCardImagePage1URI;
-        private string _familyCardImagePage2URI;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Family : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int _motherId;
+    //    private Mother _mother;
+    //    private int _fatherId;
+    //    private Father _father;
+    //    private int? _bailId;
+    //    private Bail _bail;
+    //    private bool _isBailed;
+    //    private int? _addressId;
+    //    private Address _primaryAddress;
+    //    private int? _alternativeAddressId;
+    //    private Address _alternativeAddress;
+    //    private bool _isExcluded;
+    //    private string _finncialStatus;
+    //    private string _familyCardNumber;
+    //    private bool _isTheyRefugees;
+    //    private string _residenceStatus;
+    //    private string _residenceType;
+    //    private long? _colorMark;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _note;
+    //    private byte[] _familyCardImagePage1;
+    //    private byte[] _familyCardImagePage2;
+    //    private string _familyCardImageFace;
+    //    private string _familyCardImageBack;
+    //    private string _familyCardImagePage1URI;
+    //    private string _familyCardImagePage2URI;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("MotherId", Required = Newtonsoft.Json.Required.Always)]
-        public int MotherId
-        {
-            get { return _motherId; }
-            set 
-            {
-                if (_motherId != value)
-                {
-                    _motherId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("MotherId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int MotherId
+    //    {
+    //        get { return _motherId; }
+    //        set 
+    //        {
+    //            if (_motherId != value)
+    //            {
+    //                _motherId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Mother", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Mother Mother
-        {
-            get { return _mother; }
-            set 
-            {
-                if (_mother != value)
-                {
-                    _mother = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Mother", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Mother Mother
+    //    {
+    //        get { return _mother; }
+    //        set 
+    //        {
+    //            if (_mother != value)
+    //            {
+    //                _mother = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FatherId", Required = Newtonsoft.Json.Required.Always)]
-        public int FatherId
-        {
-            get { return _fatherId; }
-            set 
-            {
-                if (_fatherId != value)
-                {
-                    _fatherId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FatherId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int FatherId
+    //    {
+    //        get { return _fatherId; }
+    //        set 
+    //        {
+    //            if (_fatherId != value)
+    //            {
+    //                _fatherId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Father", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Father Father
-        {
-            get { return _father; }
-            set 
-            {
-                if (_father != value)
-                {
-                    _father = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Father", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Father Father
+    //    {
+    //        get { return _father; }
+    //        set 
+    //        {
+    //            if (_father != value)
+    //            {
+    //                _father = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("BailId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? BailId
-        {
-            get { return _bailId; }
-            set 
-            {
-                if (_bailId != value)
-                {
-                    _bailId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("BailId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? BailId
+    //    {
+    //        get { return _bailId; }
+    //        set 
+    //        {
+    //            if (_bailId != value)
+    //            {
+    //                _bailId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Bail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Bail Bail
-        {
-            get { return _bail; }
-            set 
-            {
-                if (_bail != value)
-                {
-                    _bail = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Bail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Bail Bail
+    //    {
+    //        get { return _bail; }
+    //        set 
+    //        {
+    //            if (_bail != value)
+    //            {
+    //                _bail = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsBailed", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsBailed
-        {
-            get { return _isBailed; }
-            set 
-            {
-                if (_isBailed != value)
-                {
-                    _isBailed = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsBailed", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsBailed
+    //    {
+    //        get { return _isBailed; }
+    //        set 
+    //        {
+    //            if (_isBailed != value)
+    //            {
+    //                _isBailed = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AddressId
-        {
-            get { return _addressId; }
-            set 
-            {
-                if (_addressId != value)
-                {
-                    _addressId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? AddressId
+    //    {
+    //        get { return _addressId; }
+    //        set 
+    //        {
+    //            if (_addressId != value)
+    //            {
+    //                _addressId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("PrimaryAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Address PrimaryAddress
-        {
-            get { return _primaryAddress; }
-            set 
-            {
-                if (_primaryAddress != value)
-                {
-                    _primaryAddress = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("PrimaryAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Address PrimaryAddress
+    //    {
+    //        get { return _primaryAddress; }
+    //        set 
+    //        {
+    //            if (_primaryAddress != value)
+    //            {
+    //                _primaryAddress = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AlternativeAddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AlternativeAddressId
-        {
-            get { return _alternativeAddressId; }
-            set 
-            {
-                if (_alternativeAddressId != value)
-                {
-                    _alternativeAddressId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AlternativeAddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? AlternativeAddressId
+    //    {
+    //        get { return _alternativeAddressId; }
+    //        set 
+    //        {
+    //            if (_alternativeAddressId != value)
+    //            {
+    //                _alternativeAddressId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AlternativeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Address AlternativeAddress
-        {
-            get { return _alternativeAddress; }
-            set 
-            {
-                if (_alternativeAddress != value)
-                {
-                    _alternativeAddress = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AlternativeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Address AlternativeAddress
+    //    {
+    //        get { return _alternativeAddress; }
+    //        set 
+    //        {
+    //            if (_alternativeAddress != value)
+    //            {
+    //                _alternativeAddress = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsExcluded", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsExcluded
-        {
-            get { return _isExcluded; }
-            set 
-            {
-                if (_isExcluded != value)
-                {
-                    _isExcluded = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsExcluded", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsExcluded
+    //    {
+    //        get { return _isExcluded; }
+    //        set 
+    //        {
+    //            if (_isExcluded != value)
+    //            {
+    //                _isExcluded = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FinncialStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FinncialStatus
-        {
-            get { return _finncialStatus; }
-            set 
-            {
-                if (_finncialStatus != value)
-                {
-                    _finncialStatus = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FinncialStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FinncialStatus
+    //    {
+    //        get { return _finncialStatus; }
+    //        set 
+    //        {
+    //            if (_finncialStatus != value)
+    //            {
+    //                _finncialStatus = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardNumber
-        {
-            get { return _familyCardNumber; }
-            set 
-            {
-                if (_familyCardNumber != value)
-                {
-                    _familyCardNumber = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardNumber
+    //    {
+    //        get { return _familyCardNumber; }
+    //        set 
+    //        {
+    //            if (_familyCardNumber != value)
+    //            {
+    //                _familyCardNumber = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsTheyRefugees", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsTheyRefugees
-        {
-            get { return _isTheyRefugees; }
-            set 
-            {
-                if (_isTheyRefugees != value)
-                {
-                    _isTheyRefugees = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsTheyRefugees", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsTheyRefugees
+    //    {
+    //        get { return _isTheyRefugees; }
+    //        set 
+    //        {
+    //            if (_isTheyRefugees != value)
+    //            {
+    //                _isTheyRefugees = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ResidenceStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ResidenceStatus
-        {
-            get { return _residenceStatus; }
-            set 
-            {
-                if (_residenceStatus != value)
-                {
-                    _residenceStatus = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ResidenceStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string ResidenceStatus
+    //    {
+    //        get { return _residenceStatus; }
+    //        set 
+    //        {
+    //            if (_residenceStatus != value)
+    //            {
+    //                _residenceStatus = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ResidenceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ResidenceType
-        {
-            get { return _residenceType; }
-            set 
-            {
-                if (_residenceType != value)
-                {
-                    _residenceType = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ResidenceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string ResidenceType
+    //    {
+    //        get { return _residenceType; }
+    //        set 
+    //        {
+    //            if (_residenceType != value)
+    //            {
+    //                _residenceType = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ColorMark
-        {
-            get { return _colorMark; }
-            set 
-            {
-                if (_colorMark != value)
-                {
-                    _colorMark = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public long? ColorMark
+    //    {
+    //        get { return _colorMark; }
+    //        set 
+    //        {
+    //            if (_colorMark != value)
+    //            {
+    //                _colorMark = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardImagePage1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FamilyCardImagePage1
-        {
-            get { return _familyCardImagePage1; }
-            set 
-            {
-                if (_familyCardImagePage1 != value)
-                {
-                    _familyCardImagePage1 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardImagePage1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FamilyCardImagePage1
+    //    {
+    //        get { return _familyCardImagePage1; }
+    //        set 
+    //        {
+    //            if (_familyCardImagePage1 != value)
+    //            {
+    //                _familyCardImagePage1 = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardImagePage2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FamilyCardImagePage2
-        {
-            get { return _familyCardImagePage2; }
-            set 
-            {
-                if (_familyCardImagePage2 != value)
-                {
-                    _familyCardImagePage2 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardImagePage2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FamilyCardImagePage2
+    //    {
+    //        get { return _familyCardImagePage2; }
+    //        set 
+    //        {
+    //            if (_familyCardImagePage2 != value)
+    //            {
+    //                _familyCardImagePage2 = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardImageFace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardImageFace
-        {
-            get { return _familyCardImageFace; }
-            set 
-            {
-                if (_familyCardImageFace != value)
-                {
-                    _familyCardImageFace = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardImageFace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardImageFace
+    //    {
+    //        get { return _familyCardImageFace; }
+    //        set 
+    //        {
+    //            if (_familyCardImageFace != value)
+    //            {
+    //                _familyCardImageFace = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardImageBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardImageBack
-        {
-            get { return _familyCardImageBack; }
-            set 
-            {
-                if (_familyCardImageBack != value)
-                {
-                    _familyCardImageBack = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardImageBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardImageBack
+    //    {
+    //        get { return _familyCardImageBack; }
+    //        set 
+    //        {
+    //            if (_familyCardImageBack != value)
+    //            {
+    //                _familyCardImageBack = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardImagePage1URI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardImagePage1URI
-        {
-            get { return _familyCardImagePage1URI; }
-            set 
-            {
-                if (_familyCardImagePage1URI != value)
-                {
-                    _familyCardImagePage1URI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardImagePage1URI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardImagePage1URI
+    //    {
+    //        get { return _familyCardImagePage1URI; }
+    //        set 
+    //        {
+    //            if (_familyCardImagePage1URI != value)
+    //            {
+    //                _familyCardImagePage1URI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardImagePage2URI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardImagePage2URI
-        {
-            get { return _familyCardImagePage2URI; }
-            set 
-            {
-                if (_familyCardImagePage2URI != value)
-                {
-                    _familyCardImagePage2URI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardImagePage2URI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardImagePage2URI
+    //    {
+    //        get { return _familyCardImagePage2URI; }
+    //        set 
+    //        {
+    //            if (_familyCardImagePage2URI != value)
+    //            {
+    //                _familyCardImagePage2URI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Family FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Family>(data);
-        }
+    //    public static Family FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Family>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Father : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int _nameId;
-        private Name _name;
-        private System.DateTime _birthday;
-        private System.DateTime _dateOfDeath;
-        private byte[] _deathCertificatePhotoData;
-        private byte[] _photoData;
-        private string _jop;
-        private string _story;
-        private string _deathReason;
-        private long? _colorMark;
-        private string _identityCardNumber;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _note;
-        private string _personalPhoto;
-        private string _deathCertificateImage;
-        private string _personalPhotoURI;
-        private string _deathCertificateImageURI;
-        private System.Collections.ObjectModel.ObservableCollection<Family> _families;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Father : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int _nameId;
+    //    private Name _name;
+    //    private System.DateTime _birthday;
+    //    private System.DateTime _dateOfDeath;
+    //    private byte[] _deathCertificatePhotoData;
+    //    private byte[] _photoData;
+    //    private string _jop;
+    //    private string _story;
+    //    private string _deathReason;
+    //    private long? _colorMark;
+    //    private string _identityCardNumber;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _note;
+    //    private string _personalPhoto;
+    //    private string _deathCertificateImage;
+    //    private string _personalPhotoURI;
+    //    private string _deathCertificateImageURI;
+    //    private System.Collections.ObjectModel.ObservableCollection<Family> _families;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
-        public int NameId
-        {
-            get { return _nameId; }
-            set 
-            {
-                if (_nameId != value)
-                {
-                    _nameId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int NameId
+    //    {
+    //        get { return _nameId; }
+    //        set 
+    //        {
+    //            if (_nameId != value)
+    //            {
+    //                _nameId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Name Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (_name != value)
-                {
-                    _name = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Name Name
+    //    {
+    //        get { return _name; }
+    //        set 
+    //        {
+    //            if (_name != value)
+    //            {
+    //                _name = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Birthday", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime Birthday
-        {
-            get { return _birthday; }
-            set 
-            {
-                if (_birthday != value)
-                {
-                    _birthday = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Birthday", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime Birthday
+    //    {
+    //        get { return _birthday; }
+    //        set 
+    //        {
+    //            if (_birthday != value)
+    //            {
+    //                _birthday = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DateOfDeath", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime DateOfDeath
-        {
-            get { return _dateOfDeath; }
-            set 
-            {
-                if (_dateOfDeath != value)
-                {
-                    _dateOfDeath = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DateOfDeath", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime DateOfDeath
+    //    {
+    //        get { return _dateOfDeath; }
+    //        set 
+    //        {
+    //            if (_dateOfDeath != value)
+    //            {
+    //                _dateOfDeath = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DeathCertificatePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] DeathCertificatePhotoData
-        {
-            get { return _deathCertificatePhotoData; }
-            set 
-            {
-                if (_deathCertificatePhotoData != value)
-                {
-                    _deathCertificatePhotoData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DeathCertificatePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] DeathCertificatePhotoData
+    //    {
+    //        get { return _deathCertificatePhotoData; }
+    //        set 
+    //        {
+    //            if (_deathCertificatePhotoData != value)
+    //            {
+    //                _deathCertificatePhotoData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("PhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] PhotoData
-        {
-            get { return _photoData; }
-            set 
-            {
-                if (_photoData != value)
-                {
-                    _photoData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("PhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] PhotoData
+    //    {
+    //        get { return _photoData; }
+    //        set 
+    //        {
+    //            if (_photoData != value)
+    //            {
+    //                _photoData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Jop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Jop
-        {
-            get { return _jop; }
-            set 
-            {
-                if (_jop != value)
-                {
-                    _jop = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Jop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Jop
+    //    {
+    //        get { return _jop; }
+    //        set 
+    //        {
+    //            if (_jop != value)
+    //            {
+    //                _jop = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Story", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Story
-        {
-            get { return _story; }
-            set 
-            {
-                if (_story != value)
-                {
-                    _story = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Story", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Story
+    //    {
+    //        get { return _story; }
+    //        set 
+    //        {
+    //            if (_story != value)
+    //            {
+    //                _story = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DeathReason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DeathReason
-        {
-            get { return _deathReason; }
-            set 
-            {
-                if (_deathReason != value)
-                {
-                    _deathReason = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DeathReason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string DeathReason
+    //    {
+    //        get { return _deathReason; }
+    //        set 
+    //        {
+    //            if (_deathReason != value)
+    //            {
+    //                _deathReason = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ColorMark
-        {
-            get { return _colorMark; }
-            set 
-            {
-                if (_colorMark != value)
-                {
-                    _colorMark = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public long? ColorMark
+    //    {
+    //        get { return _colorMark; }
+    //        set 
+    //        {
+    //            if (_colorMark != value)
+    //            {
+    //                _colorMark = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardNumber", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string IdentityCardNumber
-        {
-            get { return _identityCardNumber; }
-            set 
-            {
-                if (_identityCardNumber != value)
-                {
-                    _identityCardNumber = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardNumber", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string IdentityCardNumber
+    //    {
+    //        get { return _identityCardNumber; }
+    //        set 
+    //        {
+    //            if (_identityCardNumber != value)
+    //            {
+    //                _identityCardNumber = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("PersonalPhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PersonalPhoto
-        {
-            get { return _personalPhoto; }
-            set 
-            {
-                if (_personalPhoto != value)
-                {
-                    _personalPhoto = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("PersonalPhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string PersonalPhoto
+    //    {
+    //        get { return _personalPhoto; }
+    //        set 
+    //        {
+    //            if (_personalPhoto != value)
+    //            {
+    //                _personalPhoto = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DeathCertificateImage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DeathCertificateImage
-        {
-            get { return _deathCertificateImage; }
-            set 
-            {
-                if (_deathCertificateImage != value)
-                {
-                    _deathCertificateImage = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DeathCertificateImage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string DeathCertificateImage
+    //    {
+    //        get { return _deathCertificateImage; }
+    //        set 
+    //        {
+    //            if (_deathCertificateImage != value)
+    //            {
+    //                _deathCertificateImage = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("PersonalPhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PersonalPhotoURI
-        {
-            get { return _personalPhotoURI; }
-            set 
-            {
-                if (_personalPhotoURI != value)
-                {
-                    _personalPhotoURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("PersonalPhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string PersonalPhotoURI
+    //    {
+    //        get { return _personalPhotoURI; }
+    //        set 
+    //        {
+    //            if (_personalPhotoURI != value)
+    //            {
+    //                _personalPhotoURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DeathCertificateImageURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DeathCertificateImageURI
-        {
-            get { return _deathCertificateImageURI; }
-            set 
-            {
-                if (_deathCertificateImageURI != value)
-                {
-                    _deathCertificateImageURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DeathCertificateImageURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string DeathCertificateImageURI
+    //    {
+    //        get { return _deathCertificateImageURI; }
+    //        set 
+    //        {
+    //            if (_deathCertificateImageURI != value)
+    //            {
+    //                _deathCertificateImageURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Family> Families
-        {
-            get { return _families; }
-            set 
-            {
-                if (_families != value)
-                {
-                    _families = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Family> Families
+    //    {
+    //        get { return _families; }
+    //        set 
+    //        {
+    //            if (_families != value)
+    //            {
+    //                _families = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Father FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Father>(data);
-        }
+    //    public static Father FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Father>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Mother : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int _nameId;
-        private Name _name;
-        private System.DateTime _birthday;
-        private bool _isDead;
-        private System.DateTime? _dateOfDeath;
-        private byte[] _identityCardPhotoFaceData;
-        private byte[] _identityCardPhotoBackData;
-        private int? _addressId;
-        private Address _address;
-        private bool _isMarried;
-        private string _husbandName;
-        private bool _hasSheOrphans;
-        private string _jop;
-        private double? _salary;
-        private string _story;
-        private long? _colorMark;
-        private string _identityCardNumber;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _note;
-        private string _identityCardFace;
-        private string _identityCardBack;
-        private string _identityCardFaceURI;
-        private string _identityCardBackURI;
-        private System.Collections.ObjectModel.ObservableCollection<Family> _families;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Mother : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int _nameId;
+    //    private Name _name;
+    //    private System.DateTime _birthday;
+    //    private bool _isDead;
+    //    private System.DateTime? _dateOfDeath;
+    //    private byte[] _identityCardPhotoFaceData;
+    //    private byte[] _identityCardPhotoBackData;
+    //    private int? _addressId;
+    //    private Address _address;
+    //    private bool _isMarried;
+    //    private string _husbandName;
+    //    private bool _hasSheOrphans;
+    //    private string _jop;
+    //    private double? _salary;
+    //    private string _story;
+    //    private long? _colorMark;
+    //    private string _identityCardNumber;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _note;
+    //    private string _identityCardFace;
+    //    private string _identityCardBack;
+    //    private string _identityCardFaceURI;
+    //    private string _identityCardBackURI;
+    //    private System.Collections.ObjectModel.ObservableCollection<Family> _families;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
-        public int NameId
-        {
-            get { return _nameId; }
-            set 
-            {
-                if (_nameId != value)
-                {
-                    _nameId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int NameId
+    //    {
+    //        get { return _nameId; }
+    //        set 
+    //        {
+    //            if (_nameId != value)
+    //            {
+    //                _nameId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Name Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (_name != value)
-                {
-                    _name = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Name Name
+    //    {
+    //        get { return _name; }
+    //        set 
+    //        {
+    //            if (_name != value)
+    //            {
+    //                _name = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Birthday", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime Birthday
-        {
-            get { return _birthday; }
-            set 
-            {
-                if (_birthday != value)
-                {
-                    _birthday = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Birthday", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime Birthday
+    //    {
+    //        get { return _birthday; }
+    //        set 
+    //        {
+    //            if (_birthday != value)
+    //            {
+    //                _birthday = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsDead", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsDead
-        {
-            get { return _isDead; }
-            set 
-            {
-                if (_isDead != value)
-                {
-                    _isDead = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsDead", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsDead
+    //    {
+    //        get { return _isDead; }
+    //        set 
+    //        {
+    //            if (_isDead != value)
+    //            {
+    //                _isDead = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DateOfDeath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? DateOfDeath
-        {
-            get { return _dateOfDeath; }
-            set 
-            {
-                if (_dateOfDeath != value)
-                {
-                    _dateOfDeath = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DateOfDeath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.DateTime? DateOfDeath
+    //    {
+    //        get { return _dateOfDeath; }
+    //        set 
+    //        {
+    //            if (_dateOfDeath != value)
+    //            {
+    //                _dateOfDeath = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardPhotoFaceData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] IdentityCardPhotoFaceData
-        {
-            get { return _identityCardPhotoFaceData; }
-            set 
-            {
-                if (_identityCardPhotoFaceData != value)
-                {
-                    _identityCardPhotoFaceData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardPhotoFaceData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] IdentityCardPhotoFaceData
+    //    {
+    //        get { return _identityCardPhotoFaceData; }
+    //        set 
+    //        {
+    //            if (_identityCardPhotoFaceData != value)
+    //            {
+    //                _identityCardPhotoFaceData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardPhotoBackData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] IdentityCardPhotoBackData
-        {
-            get { return _identityCardPhotoBackData; }
-            set 
-            {
-                if (_identityCardPhotoBackData != value)
-                {
-                    _identityCardPhotoBackData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardPhotoBackData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] IdentityCardPhotoBackData
+    //    {
+    //        get { return _identityCardPhotoBackData; }
+    //        set 
+    //        {
+    //            if (_identityCardPhotoBackData != value)
+    //            {
+    //                _identityCardPhotoBackData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AddressId
-        {
-            get { return _addressId; }
-            set 
-            {
-                if (_addressId != value)
-                {
-                    _addressId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("AddressId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? AddressId
+    //    {
+    //        get { return _addressId; }
+    //        set 
+    //        {
+    //            if (_addressId != value)
+    //            {
+    //                _addressId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Address Address
-        {
-            get { return _address; }
-            set 
-            {
-                if (_address != value)
-                {
-                    _address = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Address Address
+    //    {
+    //        get { return _address; }
+    //        set 
+    //        {
+    //            if (_address != value)
+    //            {
+    //                _address = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsMarried", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsMarried
-        {
-            get { return _isMarried; }
-            set 
-            {
-                if (_isMarried != value)
-                {
-                    _isMarried = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsMarried", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsMarried
+    //    {
+    //        get { return _isMarried; }
+    //        set 
+    //        {
+    //            if (_isMarried != value)
+    //            {
+    //                _isMarried = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("HusbandName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string HusbandName
-        {
-            get { return _husbandName; }
-            set 
-            {
-                if (_husbandName != value)
-                {
-                    _husbandName = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("HusbandName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string HusbandName
+    //    {
+    //        get { return _husbandName; }
+    //        set 
+    //        {
+    //            if (_husbandName != value)
+    //            {
+    //                _husbandName = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("HasSheOrphans", Required = Newtonsoft.Json.Required.Always)]
-        public bool HasSheOrphans
-        {
-            get { return _hasSheOrphans; }
-            set 
-            {
-                if (_hasSheOrphans != value)
-                {
-                    _hasSheOrphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("HasSheOrphans", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool HasSheOrphans
+    //    {
+    //        get { return _hasSheOrphans; }
+    //        set 
+    //        {
+    //            if (_hasSheOrphans != value)
+    //            {
+    //                _hasSheOrphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Jop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Jop
-        {
-            get { return _jop; }
-            set 
-            {
-                if (_jop != value)
-                {
-                    _jop = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Jop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Jop
+    //    {
+    //        get { return _jop; }
+    //        set 
+    //        {
+    //            if (_jop != value)
+    //            {
+    //                _jop = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Salary", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Salary
-        {
-            get { return _salary; }
-            set 
-            {
-                if (_salary != value)
-                {
-                    _salary = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Salary", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public double? Salary
+    //    {
+    //        get { return _salary; }
+    //        set 
+    //        {
+    //            if (_salary != value)
+    //            {
+    //                _salary = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Story", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Story
-        {
-            get { return _story; }
-            set 
-            {
-                if (_story != value)
-                {
-                    _story = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Story", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Story
+    //    {
+    //        get { return _story; }
+    //        set 
+    //        {
+    //            if (_story != value)
+    //            {
+    //                _story = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ColorMark
-        {
-            get { return _colorMark; }
-            set 
-            {
-                if (_colorMark != value)
-                {
-                    _colorMark = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public long? ColorMark
+    //    {
+    //        get { return _colorMark; }
+    //        set 
+    //        {
+    //            if (_colorMark != value)
+    //            {
+    //                _colorMark = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardNumber", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string IdentityCardNumber
-        {
-            get { return _identityCardNumber; }
-            set 
-            {
-                if (_identityCardNumber != value)
-                {
-                    _identityCardNumber = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardNumber", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string IdentityCardNumber
+    //    {
+    //        get { return _identityCardNumber; }
+    //        set 
+    //        {
+    //            if (_identityCardNumber != value)
+    //            {
+    //                _identityCardNumber = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardFace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardFace
-        {
-            get { return _identityCardFace; }
-            set 
-            {
-                if (_identityCardFace != value)
-                {
-                    _identityCardFace = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardFace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardFace
+    //    {
+    //        get { return _identityCardFace; }
+    //        set 
+    //        {
+    //            if (_identityCardFace != value)
+    //            {
+    //                _identityCardFace = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardBack
-        {
-            get { return _identityCardBack; }
-            set 
-            {
-                if (_identityCardBack != value)
-                {
-                    _identityCardBack = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardBack
+    //    {
+    //        get { return _identityCardBack; }
+    //        set 
+    //        {
+    //            if (_identityCardBack != value)
+    //            {
+    //                _identityCardBack = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardFaceURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardFaceURI
-        {
-            get { return _identityCardFaceURI; }
-            set 
-            {
-                if (_identityCardFaceURI != value)
-                {
-                    _identityCardFaceURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardFaceURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardFaceURI
+    //    {
+    //        get { return _identityCardFaceURI; }
+    //        set 
+    //        {
+    //            if (_identityCardFaceURI != value)
+    //            {
+    //                _identityCardFaceURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardBackURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardBackURI
-        {
-            get { return _identityCardBackURI; }
-            set 
-            {
-                if (_identityCardBackURI != value)
-                {
-                    _identityCardBackURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardBackURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardBackURI
+    //    {
+    //        get { return _identityCardBackURI; }
+    //        set 
+    //        {
+    //            if (_identityCardBackURI != value)
+    //            {
+    //                _identityCardBackURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Family> Families
-        {
-            get { return _families; }
-            set 
-            {
-                if (_families != value)
-                {
-                    _families = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Families", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Family> Families
+    //    {
+    //        get { return _families; }
+    //        set 
+    //        {
+    //            if (_families != value)
+    //            {
+    //                _families = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Mother FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Mother>(data);
-        }
+    //    public static Mother FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Mother>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Orphan : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private int _nameId;
-        private Name _name;
-        private System.DateTime _birthday;
-        private bool? _isExcluded;
-        private int? _educationId;
-        private Study _education;
-        private int? _healthId;
-        private Health _healthStatus;
-        private byte[] _fullPhotoData;
-        private byte[] _facePhotoData;
-        private string _identityCardNumber;
-        private int? _footSize;
-        private int? _weight;
-        private int? _tallness;
-        private int _familyId;
-        private Family _family;
-        private bool _isBailed;
-        private int? _bailId;
-        private Bail _bail;
-        private int _caregiverId;
-        private Caregiver _caregiver;
-        private int? _guarantorId;
-        private Guarantor _guarantor;
-        private long? _colorMark;
-        private System.DateTime _regDate;
-        private int _userId;
-        private User _actingUser;
-        private string _story;
-        private byte[] _fingerPrint;
-        private string _consanguinityToCaregiver;
-        private byte[] _birthCertificatePhotoData;
-        private byte[] _familyCardPagePhotoData;
-        private string _gender;
-        private int? _civilRegisterNumber;
-        private string _placeOfBirth;
-        private int? _age;
-        private string _fullPhoto;
-        private string _facePhoto;
-        private string _birthCertificatePhoto;
-        private string _familyCardPagePhoto;
-        private string _fullPhotoURI;
-        private string _facePhotoURI;
-        private string _birthCertificatePhotoURI;
-        private string _familyCardPagePhotoURI;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Orphan : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private int _nameId;
+    //    private Name _name;
+    //    private System.DateTime _birthday;
+    //    private bool? _isExcluded;
+    //    private int? _educationId;
+    //    private Study _education;
+    //    private int? _healthId;
+    //    private Health _healthStatus;
+    //    private byte[] _fullPhotoData;
+    //    private byte[] _facePhotoData;
+    //    private string _identityCardNumber;
+    //    private int? _footSize;
+    //    private int? _weight;
+    //    private int? _tallness;
+    //    private int _familyId;
+    //    private Family _family;
+    //    private bool _isBailed;
+    //    private int? _bailId;
+    //    private Bail _bail;
+    //    private int _caregiverId;
+    //    private Caregiver _caregiver;
+    //    private int? _guarantorId;
+    //    private Guarantor _guarantor;
+    //    private long? _colorMark;
+    //    private System.DateTime _regDate;
+    //    private int _userId;
+    //    private User _actingUser;
+    //    private string _story;
+    //    private byte[] _fingerPrint;
+    //    private string _consanguinityToCaregiver;
+    //    private byte[] _birthCertificatePhotoData;
+    //    private byte[] _familyCardPagePhotoData;
+    //    private string _gender;
+    //    private int? _civilRegisterNumber;
+    //    private string _placeOfBirth;
+    //    private int? _age;
+    //    private string _fullPhoto;
+    //    private string _facePhoto;
+    //    private string _birthCertificatePhoto;
+    //    private string _familyCardPagePhoto;
+    //    private string _fullPhotoURI;
+    //    private string _facePhotoURI;
+    //    private string _birthCertificatePhotoURI;
+    //    private string _familyCardPagePhotoURI;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
-        public int NameId
-        {
-            get { return _nameId; }
-            set 
-            {
-                if (_nameId != value)
-                {
-                    _nameId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("NameId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int NameId
+    //    {
+    //        get { return _nameId; }
+    //        set 
+    //        {
+    //            if (_nameId != value)
+    //            {
+    //                _nameId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Name Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (_name != value)
-                {
-                    _name = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Name Name
+    //    {
+    //        get { return _name; }
+    //        set 
+    //        {
+    //            if (_name != value)
+    //            {
+    //                _name = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Birthday", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime Birthday
-        {
-            get { return _birthday; }
-            set 
-            {
-                if (_birthday != value)
-                {
-                    _birthday = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Birthday", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime Birthday
+    //    {
+    //        get { return _birthday; }
+    //        set 
+    //        {
+    //            if (_birthday != value)
+    //            {
+    //                _birthday = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsExcluded", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsExcluded
-        {
-            get { return _isExcluded; }
-            set 
-            {
-                if (_isExcluded != value)
-                {
-                    _isExcluded = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsExcluded", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public bool? IsExcluded
+    //    {
+    //        get { return _isExcluded; }
+    //        set 
+    //        {
+    //            if (_isExcluded != value)
+    //            {
+    //                _isExcluded = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("EducationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? EducationId
-        {
-            get { return _educationId; }
-            set 
-            {
-                if (_educationId != value)
-                {
-                    _educationId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("EducationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? EducationId
+    //    {
+    //        get { return _educationId; }
+    //        set 
+    //        {
+    //            if (_educationId != value)
+    //            {
+    //                _educationId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Education", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Study Education
-        {
-            get { return _education; }
-            set 
-            {
-                if (_education != value)
-                {
-                    _education = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Education", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Study Education
+    //    {
+    //        get { return _education; }
+    //        set 
+    //        {
+    //            if (_education != value)
+    //            {
+    //                _education = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("HealthId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? HealthId
-        {
-            get { return _healthId; }
-            set 
-            {
-                if (_healthId != value)
-                {
-                    _healthId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("HealthId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? HealthId
+    //    {
+    //        get { return _healthId; }
+    //        set 
+    //        {
+    //            if (_healthId != value)
+    //            {
+    //                _healthId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("HealthStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Health HealthStatus
-        {
-            get { return _healthStatus; }
-            set 
-            {
-                if (_healthStatus != value)
-                {
-                    _healthStatus = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("HealthStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Health HealthStatus
+    //    {
+    //        get { return _healthStatus; }
+    //        set 
+    //        {
+    //            if (_healthStatus != value)
+    //            {
+    //                _healthStatus = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FullPhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FullPhotoData
-        {
-            get { return _fullPhotoData; }
-            set 
-            {
-                if (_fullPhotoData != value)
-                {
-                    _fullPhotoData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FullPhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FullPhotoData
+    //    {
+    //        get { return _fullPhotoData; }
+    //        set 
+    //        {
+    //            if (_fullPhotoData != value)
+    //            {
+    //                _fullPhotoData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FacePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FacePhotoData
-        {
-            get { return _facePhotoData; }
-            set 
-            {
-                if (_facePhotoData != value)
-                {
-                    _facePhotoData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FacePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FacePhotoData
+    //    {
+    //        get { return _facePhotoData; }
+    //        set 
+    //        {
+    //            if (_facePhotoData != value)
+    //            {
+    //                _facePhotoData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IdentityCardNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IdentityCardNumber
-        {
-            get { return _identityCardNumber; }
-            set 
-            {
-                if (_identityCardNumber != value)
-                {
-                    _identityCardNumber = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IdentityCardNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string IdentityCardNumber
+    //    {
+    //        get { return _identityCardNumber; }
+    //        set 
+    //        {
+    //            if (_identityCardNumber != value)
+    //            {
+    //                _identityCardNumber = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FootSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? FootSize
-        {
-            get { return _footSize; }
-            set 
-            {
-                if (_footSize != value)
-                {
-                    _footSize = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FootSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? FootSize
+    //    {
+    //        get { return _footSize; }
+    //        set 
+    //        {
+    //            if (_footSize != value)
+    //            {
+    //                _footSize = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Weight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Weight
-        {
-            get { return _weight; }
-            set 
-            {
-                if (_weight != value)
-                {
-                    _weight = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Weight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Weight
+    //    {
+    //        get { return _weight; }
+    //        set 
+    //        {
+    //            if (_weight != value)
+    //            {
+    //                _weight = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Tallness", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Tallness
-        {
-            get { return _tallness; }
-            set 
-            {
-                if (_tallness != value)
-                {
-                    _tallness = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Tallness", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Tallness
+    //    {
+    //        get { return _tallness; }
+    //        set 
+    //        {
+    //            if (_tallness != value)
+    //            {
+    //                _tallness = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyId", Required = Newtonsoft.Json.Required.Always)]
-        public int FamilyId
-        {
-            get { return _familyId; }
-            set 
-            {
-                if (_familyId != value)
-                {
-                    _familyId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int FamilyId
+    //    {
+    //        get { return _familyId; }
+    //        set 
+    //        {
+    //            if (_familyId != value)
+    //            {
+    //                _familyId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Family", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Family Family
-        {
-            get { return _family; }
-            set 
-            {
-                if (_family != value)
-                {
-                    _family = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Family", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Family Family
+    //    {
+    //        get { return _family; }
+    //        set 
+    //        {
+    //            if (_family != value)
+    //            {
+    //                _family = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("IsBailed", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsBailed
-        {
-            get { return _isBailed; }
-            set 
-            {
-                if (_isBailed != value)
-                {
-                    _isBailed = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("IsBailed", Required = Newtonsoft.Json.Required.Always)]
+    //    public bool IsBailed
+    //    {
+    //        get { return _isBailed; }
+    //        set 
+    //        {
+    //            if (_isBailed != value)
+    //            {
+    //                _isBailed = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("BailId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? BailId
-        {
-            get { return _bailId; }
-            set 
-            {
-                if (_bailId != value)
-                {
-                    _bailId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("BailId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? BailId
+    //    {
+    //        get { return _bailId; }
+    //        set 
+    //        {
+    //            if (_bailId != value)
+    //            {
+    //                _bailId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Bail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Bail Bail
-        {
-            get { return _bail; }
-            set 
-            {
-                if (_bail != value)
-                {
-                    _bail = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Bail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Bail Bail
+    //    {
+    //        get { return _bail; }
+    //        set 
+    //        {
+    //            if (_bail != value)
+    //            {
+    //                _bail = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CaregiverId", Required = Newtonsoft.Json.Required.Always)]
-        public int CaregiverId
-        {
-            get { return _caregiverId; }
-            set 
-            {
-                if (_caregiverId != value)
-                {
-                    _caregiverId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CaregiverId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int CaregiverId
+    //    {
+    //        get { return _caregiverId; }
+    //        set 
+    //        {
+    //            if (_caregiverId != value)
+    //            {
+    //                _caregiverId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Caregiver", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Caregiver Caregiver
-        {
-            get { return _caregiver; }
-            set 
-            {
-                if (_caregiver != value)
-                {
-                    _caregiver = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Caregiver", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Caregiver Caregiver
+    //    {
+    //        get { return _caregiver; }
+    //        set 
+    //        {
+    //            if (_caregiver != value)
+    //            {
+    //                _caregiver = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("GuarantorId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? GuarantorId
-        {
-            get { return _guarantorId; }
-            set 
-            {
-                if (_guarantorId != value)
-                {
-                    _guarantorId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("GuarantorId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? GuarantorId
+    //    {
+    //        get { return _guarantorId; }
+    //        set 
+    //        {
+    //            if (_guarantorId != value)
+    //            {
+    //                _guarantorId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Guarantor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Guarantor Guarantor
-        {
-            get { return _guarantor; }
-            set 
-            {
-                if (_guarantor != value)
-                {
-                    _guarantor = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Guarantor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public Guarantor Guarantor
+    //    {
+    //        get { return _guarantor; }
+    //        set 
+    //        {
+    //            if (_guarantor != value)
+    //            {
+    //                _guarantor = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ColorMark
-        {
-            get { return _colorMark; }
-            set 
-            {
-                if (_colorMark != value)
-                {
-                    _colorMark = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ColorMark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public long? ColorMark
+    //    {
+    //        get { return _colorMark; }
+    //        set 
+    //        {
+    //            if (_colorMark != value)
+    //            {
+    //                _colorMark = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime RegDate
-        {
-            get { return _regDate; }
-            set 
-            {
-                if (_regDate != value)
-                {
-                    _regDate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("RegDate", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public System.DateTime RegDate
+    //    {
+    //        get { return _regDate; }
+    //        set 
+    //        {
+    //            if (_regDate != value)
+    //            {
+    //                _regDate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
-        public int UserId
-        {
-            get { return _userId; }
-            set 
-            {
-                if (_userId != value)
-                {
-                    _userId = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Always)]
+    //    public int UserId
+    //    {
+    //        get { return _userId; }
+    //        set 
+    //        {
+    //            if (_userId != value)
+    //            {
+    //                _userId = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ActingUser
-        {
-            get { return _actingUser; }
-            set 
-            {
-                if (_actingUser != value)
-                {
-                    _actingUser = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ActingUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public User ActingUser
+    //    {
+    //        get { return _actingUser; }
+    //        set 
+    //        {
+    //            if (_actingUser != value)
+    //            {
+    //                _actingUser = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Story", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Story
-        {
-            get { return _story; }
-            set 
-            {
-                if (_story != value)
-                {
-                    _story = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Story", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Story
+    //    {
+    //        get { return _story; }
+    //        set 
+    //        {
+    //            if (_story != value)
+    //            {
+    //                _story = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FingerPrint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FingerPrint
-        {
-            get { return _fingerPrint; }
-            set 
-            {
-                if (_fingerPrint != value)
-                {
-                    _fingerPrint = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FingerPrint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FingerPrint
+    //    {
+    //        get { return _fingerPrint; }
+    //        set 
+    //        {
+    //            if (_fingerPrint != value)
+    //            {
+    //                _fingerPrint = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ConsanguinityToCaregiver", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string ConsanguinityToCaregiver
-        {
-            get { return _consanguinityToCaregiver; }
-            set 
-            {
-                if (_consanguinityToCaregiver != value)
-                {
-                    _consanguinityToCaregiver = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ConsanguinityToCaregiver", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string ConsanguinityToCaregiver
+    //    {
+    //        get { return _consanguinityToCaregiver; }
+    //        set 
+    //        {
+    //            if (_consanguinityToCaregiver != value)
+    //            {
+    //                _consanguinityToCaregiver = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("BirthCertificatePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] BirthCertificatePhotoData
-        {
-            get { return _birthCertificatePhotoData; }
-            set 
-            {
-                if (_birthCertificatePhotoData != value)
-                {
-                    _birthCertificatePhotoData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("BirthCertificatePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] BirthCertificatePhotoData
+    //    {
+    //        get { return _birthCertificatePhotoData; }
+    //        set 
+    //        {
+    //            if (_birthCertificatePhotoData != value)
+    //            {
+    //                _birthCertificatePhotoData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardPagePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] FamilyCardPagePhotoData
-        {
-            get { return _familyCardPagePhotoData; }
-            set 
-            {
-                if (_familyCardPagePhotoData != value)
-                {
-                    _familyCardPagePhotoData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardPagePhotoData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] FamilyCardPagePhotoData
+    //    {
+    //        get { return _familyCardPagePhotoData; }
+    //        set 
+    //        {
+    //            if (_familyCardPagePhotoData != value)
+    //            {
+    //                _familyCardPagePhotoData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Gender", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Gender
-        {
-            get { return _gender; }
-            set 
-            {
-                if (_gender != value)
-                {
-                    _gender = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Gender", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string Gender
+    //    {
+    //        get { return _gender; }
+    //        set 
+    //        {
+    //            if (_gender != value)
+    //            {
+    //                _gender = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CivilRegisterNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CivilRegisterNumber
-        {
-            get { return _civilRegisterNumber; }
-            set 
-            {
-                if (_civilRegisterNumber != value)
-                {
-                    _civilRegisterNumber = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CivilRegisterNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? CivilRegisterNumber
+    //    {
+    //        get { return _civilRegisterNumber; }
+    //        set 
+    //        {
+    //            if (_civilRegisterNumber != value)
+    //            {
+    //                _civilRegisterNumber = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("PlaceOfBirth", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PlaceOfBirth
-        {
-            get { return _placeOfBirth; }
-            set 
-            {
-                if (_placeOfBirth != value)
-                {
-                    _placeOfBirth = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("PlaceOfBirth", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string PlaceOfBirth
+    //    {
+    //        get { return _placeOfBirth; }
+    //        set 
+    //        {
+    //            if (_placeOfBirth != value)
+    //            {
+    //                _placeOfBirth = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Age", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Age
-        {
-            get { return _age; }
-            set 
-            {
-                if (_age != value)
-                {
-                    _age = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Age", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Age
+    //    {
+    //        get { return _age; }
+    //        set 
+    //        {
+    //            if (_age != value)
+    //            {
+    //                _age = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FullPhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FullPhoto
-        {
-            get { return _fullPhoto; }
-            set 
-            {
-                if (_fullPhoto != value)
-                {
-                    _fullPhoto = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FullPhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FullPhoto
+    //    {
+    //        get { return _fullPhoto; }
+    //        set 
+    //        {
+    //            if (_fullPhoto != value)
+    //            {
+    //                _fullPhoto = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FacePhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FacePhoto
-        {
-            get { return _facePhoto; }
-            set 
-            {
-                if (_facePhoto != value)
-                {
-                    _facePhoto = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FacePhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FacePhoto
+    //    {
+    //        get { return _facePhoto; }
+    //        set 
+    //        {
+    //            if (_facePhoto != value)
+    //            {
+    //                _facePhoto = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("BirthCertificatePhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BirthCertificatePhoto
-        {
-            get { return _birthCertificatePhoto; }
-            set 
-            {
-                if (_birthCertificatePhoto != value)
-                {
-                    _birthCertificatePhoto = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("BirthCertificatePhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string BirthCertificatePhoto
+    //    {
+    //        get { return _birthCertificatePhoto; }
+    //        set 
+    //        {
+    //            if (_birthCertificatePhoto != value)
+    //            {
+    //                _birthCertificatePhoto = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardPagePhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardPagePhoto
-        {
-            get { return _familyCardPagePhoto; }
-            set 
-            {
-                if (_familyCardPagePhoto != value)
-                {
-                    _familyCardPagePhoto = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardPagePhoto", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardPagePhoto
+    //    {
+    //        get { return _familyCardPagePhoto; }
+    //        set 
+    //        {
+    //            if (_familyCardPagePhoto != value)
+    //            {
+    //                _familyCardPagePhoto = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FullPhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FullPhotoURI
-        {
-            get { return _fullPhotoURI; }
-            set 
-            {
-                if (_fullPhotoURI != value)
-                {
-                    _fullPhotoURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FullPhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FullPhotoURI
+    //    {
+    //        get { return _fullPhotoURI; }
+    //        set 
+    //        {
+    //            if (_fullPhotoURI != value)
+    //            {
+    //                _fullPhotoURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FacePhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FacePhotoURI
-        {
-            get { return _facePhotoURI; }
-            set 
-            {
-                if (_facePhotoURI != value)
-                {
-                    _facePhotoURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FacePhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FacePhotoURI
+    //    {
+    //        get { return _facePhotoURI; }
+    //        set 
+    //        {
+    //            if (_facePhotoURI != value)
+    //            {
+    //                _facePhotoURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("BirthCertificatePhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BirthCertificatePhotoURI
-        {
-            get { return _birthCertificatePhotoURI; }
-            set 
-            {
-                if (_birthCertificatePhotoURI != value)
-                {
-                    _birthCertificatePhotoURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("BirthCertificatePhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string BirthCertificatePhotoURI
+    //    {
+    //        get { return _birthCertificatePhotoURI; }
+    //        set 
+    //        {
+    //            if (_birthCertificatePhotoURI != value)
+    //            {
+    //                _birthCertificatePhotoURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("FamilyCardPagePhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FamilyCardPagePhotoURI
-        {
-            get { return _familyCardPagePhotoURI; }
-            set 
-            {
-                if (_familyCardPagePhotoURI != value)
-                {
-                    _familyCardPagePhotoURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("FamilyCardPagePhotoURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string FamilyCardPagePhotoURI
+    //    {
+    //        get { return _familyCardPagePhotoURI; }
+    //        set 
+    //        {
+    //            if (_familyCardPagePhotoURI != value)
+    //            {
+    //                _familyCardPagePhotoURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Orphan FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Orphan>(data);
-        }
+    //    public static Orphan FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Orphan>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Study : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private string _stage;
-        private string _school;
-        private string _univercity;
-        private string _collage;
-        private double? _monthlyCost;
-        private double? _degreesRate;
-        private string _reasons;
-        private byte[] _certificatePhotoFront;
-        private byte[] _certificatePhotoBack;
-        private string _note;
-        private string _certificateImage;
-        private string _certificateImage2;
-        private string _certificateImageURI;
-        private string _certificateImage2URI;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Study : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private string _stage;
+    //    private string _school;
+    //    private string _univercity;
+    //    private string _collage;
+    //    private double? _monthlyCost;
+    //    private double? _degreesRate;
+    //    private string _reasons;
+    //    private byte[] _certificatePhotoFront;
+    //    private byte[] _certificatePhotoBack;
+    //    private string _note;
+    //    private string _certificateImage;
+    //    private string _certificateImage2;
+    //    private string _certificateImageURI;
+    //    private string _certificateImage2URI;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Stage", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Stage
-        {
-            get { return _stage; }
-            set 
-            {
-                if (_stage != value)
-                {
-                    _stage = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Stage", Required = Newtonsoft.Json.Required.Always)]
+    //    [System.ComponentModel.DataAnnotations.Required]
+    //    public string Stage
+    //    {
+    //        get { return _stage; }
+    //        set 
+    //        {
+    //            if (_stage != value)
+    //            {
+    //                _stage = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("School", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string School
-        {
-            get { return _school; }
-            set 
-            {
-                if (_school != value)
-                {
-                    _school = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("School", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string School
+    //    {
+    //        get { return _school; }
+    //        set 
+    //        {
+    //            if (_school != value)
+    //            {
+    //                _school = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Univercity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Univercity
-        {
-            get { return _univercity; }
-            set 
-            {
-                if (_univercity != value)
-                {
-                    _univercity = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Univercity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Univercity
+    //    {
+    //        get { return _univercity; }
+    //        set 
+    //        {
+    //            if (_univercity != value)
+    //            {
+    //                _univercity = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Collage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Collage
-        {
-            get { return _collage; }
-            set 
-            {
-                if (_collage != value)
-                {
-                    _collage = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Collage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Collage
+    //    {
+    //        get { return _collage; }
+    //        set 
+    //        {
+    //            if (_collage != value)
+    //            {
+    //                _collage = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("MonthlyCost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? MonthlyCost
-        {
-            get { return _monthlyCost; }
-            set 
-            {
-                if (_monthlyCost != value)
-                {
-                    _monthlyCost = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("MonthlyCost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public double? MonthlyCost
+    //    {
+    //        get { return _monthlyCost; }
+    //        set 
+    //        {
+    //            if (_monthlyCost != value)
+    //            {
+    //                _monthlyCost = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("DegreesRate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? DegreesRate
-        {
-            get { return _degreesRate; }
-            set 
-            {
-                if (_degreesRate != value)
-                {
-                    _degreesRate = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("DegreesRate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public double? DegreesRate
+    //    {
+    //        get { return _degreesRate; }
+    //        set 
+    //        {
+    //            if (_degreesRate != value)
+    //            {
+    //                _degreesRate = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Reasons", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Reasons
-        {
-            get { return _reasons; }
-            set 
-            {
-                if (_reasons != value)
-                {
-                    _reasons = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Reasons", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Reasons
+    //    {
+    //        get { return _reasons; }
+    //        set 
+    //        {
+    //            if (_reasons != value)
+    //            {
+    //                _reasons = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CertificatePhotoFront", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] CertificatePhotoFront
-        {
-            get { return _certificatePhotoFront; }
-            set 
-            {
-                if (_certificatePhotoFront != value)
-                {
-                    _certificatePhotoFront = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CertificatePhotoFront", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] CertificatePhotoFront
+    //    {
+    //        get { return _certificatePhotoFront; }
+    //        set 
+    //        {
+    //            if (_certificatePhotoFront != value)
+    //            {
+    //                _certificatePhotoFront = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CertificatePhotoBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] CertificatePhotoBack
-        {
-            get { return _certificatePhotoBack; }
-            set 
-            {
-                if (_certificatePhotoBack != value)
-                {
-                    _certificatePhotoBack = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CertificatePhotoBack", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] CertificatePhotoBack
+    //    {
+    //        get { return _certificatePhotoBack; }
+    //        set 
+    //        {
+    //            if (_certificatePhotoBack != value)
+    //            {
+    //                _certificatePhotoBack = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CertificateImage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CertificateImage
-        {
-            get { return _certificateImage; }
-            set 
-            {
-                if (_certificateImage != value)
-                {
-                    _certificateImage = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CertificateImage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string CertificateImage
+    //    {
+    //        get { return _certificateImage; }
+    //        set 
+    //        {
+    //            if (_certificateImage != value)
+    //            {
+    //                _certificateImage = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CertificateImage2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CertificateImage2
-        {
-            get { return _certificateImage2; }
-            set 
-            {
-                if (_certificateImage2 != value)
-                {
-                    _certificateImage2 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CertificateImage2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string CertificateImage2
+    //    {
+    //        get { return _certificateImage2; }
+    //        set 
+    //        {
+    //            if (_certificateImage2 != value)
+    //            {
+    //                _certificateImage2 = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CertificateImageURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CertificateImageURI
-        {
-            get { return _certificateImageURI; }
-            set 
-            {
-                if (_certificateImageURI != value)
-                {
-                    _certificateImageURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CertificateImageURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string CertificateImageURI
+    //    {
+    //        get { return _certificateImageURI; }
+    //        set 
+    //        {
+    //            if (_certificateImageURI != value)
+    //            {
+    //                _certificateImageURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("CertificateImage2URI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CertificateImage2URI
-        {
-            get { return _certificateImage2URI; }
-            set 
-            {
-                if (_certificateImage2URI != value)
-                {
-                    _certificateImage2URI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("CertificateImage2URI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string CertificateImage2URI
+    //    {
+    //        get { return _certificateImage2URI; }
+    //        set 
+    //        {
+    //            if (_certificateImage2URI != value)
+    //            {
+    //                _certificateImage2URI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Study FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Study>(data);
-        }
+    //    public static Study FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Study>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Health : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _id;
-        private string _sicknessName;
-        private string _medicine;
-        private double? _cost;
-        private string _supervisorDoctor;
-        private string _note;
-        private byte[] _reporteFileData;
-        private MemoryStream _reporteFile;
-        private string _reporteFileURI;
-        private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class Health : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private int? _id;
+    //    private string _sicknessName;
+    //    private string _medicine;
+    //    private double? _cost;
+    //    private string _supervisorDoctor;
+    //    private string _note;
+    //    private byte[] _reporteFileData;
+    //    private MemoryStream _reporteFile;
+    //    private string _reporteFileURI;
+    //    private System.Collections.ObjectModel.ObservableCollection<Orphan> _orphans;
     
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Id
-        {
-            get { return _id; }
-            set 
-            {
-                if (_id != value)
-                {
-                    _id = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? Id
+    //    {
+    //        get { return _id; }
+    //        set 
+    //        {
+    //            if (_id != value)
+    //            {
+    //                _id = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("SicknessName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SicknessName
-        {
-            get { return _sicknessName; }
-            set 
-            {
-                if (_sicknessName != value)
-                {
-                    _sicknessName = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("SicknessName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string SicknessName
+    //    {
+    //        get { return _sicknessName; }
+    //        set 
+    //        {
+    //            if (_sicknessName != value)
+    //            {
+    //                _sicknessName = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Medicine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Medicine
-        {
-            get { return _medicine; }
-            set 
-            {
-                if (_medicine != value)
-                {
-                    _medicine = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Medicine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Medicine
+    //    {
+    //        get { return _medicine; }
+    //        set 
+    //        {
+    //            if (_medicine != value)
+    //            {
+    //                _medicine = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Cost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Cost
-        {
-            get { return _cost; }
-            set 
-            {
-                if (_cost != value)
-                {
-                    _cost = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Cost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public double? Cost
+    //    {
+    //        get { return _cost; }
+    //        set 
+    //        {
+    //            if (_cost != value)
+    //            {
+    //                _cost = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("SupervisorDoctor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SupervisorDoctor
-        {
-            get { return _supervisorDoctor; }
-            set 
-            {
-                if (_supervisorDoctor != value)
-                {
-                    _supervisorDoctor = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("SupervisorDoctor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string SupervisorDoctor
+    //    {
+    //        get { return _supervisorDoctor; }
+    //        set 
+    //        {
+    //            if (_supervisorDoctor != value)
+    //            {
+    //                _supervisorDoctor = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Note
-        {
-            get { return _note; }
-            set 
-            {
-                if (_note != value)
-                {
-                    _note = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Note", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string Note
+    //    {
+    //        get { return _note; }
+    //        set 
+    //        {
+    //            if (_note != value)
+    //            {
+    //                _note = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ReporteFileData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] ReporteFileData
-        {
-            get { return _reporteFileData; }
-            set 
-            {
-                if (_reporteFileData != value)
-                {
-                    _reporteFileData = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ReporteFileData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] ReporteFileData
+    //    {
+    //        get { return _reporteFileData; }
+    //        set 
+    //        {
+    //            if (_reporteFileData != value)
+    //            {
+    //                _reporteFileData = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ReporteFile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MemoryStream ReporteFile
-        {
-            get { return _reporteFile; }
-            set 
-            {
-                if (_reporteFile != value)
-                {
-                    _reporteFile = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ReporteFile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public MemoryStream ReporteFile
+    //    {
+    //        get { return _reporteFile; }
+    //        set 
+    //        {
+    //            if (_reporteFile != value)
+    //            {
+    //                _reporteFile = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("ReporteFileURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ReporteFileURI
-        {
-            get { return _reporteFileURI; }
-            set 
-            {
-                if (_reporteFileURI != value)
-                {
-                    _reporteFileURI = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("ReporteFileURI", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public string ReporteFileURI
+    //    {
+    //        get { return _reporteFileURI; }
+    //        set 
+    //        {
+    //            if (_reporteFileURI != value)
+    //            {
+    //                _reporteFileURI = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
-        {
-            get { return _orphans; }
-            set 
-            {
-                if (_orphans != value)
-                {
-                    _orphans = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("Orphans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public System.Collections.ObjectModel.ObservableCollection<Orphan> Orphans
+    //    {
+    //        get { return _orphans; }
+    //        set 
+    //        {
+    //            if (_orphans != value)
+    //            {
+    //                _orphans = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static Health FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Health>(data);
-        }
+    //    public static Health FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<Health>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class MemoryStream : System.ComponentModel.INotifyPropertyChanged
-    {
-        private byte[] __buffer;
-        private int? __origin;
-        private int? __position;
-        private int? __length;
-        private int? __capacity;
-        private bool? __expandable;
-        private bool? __writable;
-        private bool? __exposable;
-        private bool? __isOpen;
-        private object ___identity;
+    //[System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    //public partial class MemoryStream : System.ComponentModel.INotifyPropertyChanged
+    //{
+    //    private byte[] __buffer;
+    //    private int? __origin;
+    //    private int? __position;
+    //    private int? __length;
+    //    private int? __capacity;
+    //    private bool? __expandable;
+    //    private bool? __writable;
+    //    private bool? __exposable;
+    //    private bool? __isOpen;
+    //    private object ___identity;
     
-        [Newtonsoft.Json.JsonProperty("_buffer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public byte[] _buffer
-        {
-            get { return __buffer; }
-            set 
-            {
-                if (__buffer != value)
-                {
-                    __buffer = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_buffer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public byte[] _buffer
+    //    {
+    //        get { return __buffer; }
+    //        set 
+    //        {
+    //            if (__buffer != value)
+    //            {
+    //                __buffer = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_origin", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? _origin
-        {
-            get { return __origin; }
-            set 
-            {
-                if (__origin != value)
-                {
-                    __origin = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_origin", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? _origin
+    //    {
+    //        get { return __origin; }
+    //        set 
+    //        {
+    //            if (__origin != value)
+    //            {
+    //                __origin = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_position", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? _position
-        {
-            get { return __position; }
-            set 
-            {
-                if (__position != value)
-                {
-                    __position = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_position", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? _position
+    //    {
+    //        get { return __position; }
+    //        set 
+    //        {
+    //            if (__position != value)
+    //            {
+    //                __position = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_length", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? _length
-        {
-            get { return __length; }
-            set 
-            {
-                if (__length != value)
-                {
-                    __length = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_length", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? _length
+    //    {
+    //        get { return __length; }
+    //        set 
+    //        {
+    //            if (__length != value)
+    //            {
+    //                __length = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_capacity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? _capacity
-        {
-            get { return __capacity; }
-            set 
-            {
-                if (__capacity != value)
-                {
-                    __capacity = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_capacity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public int? _capacity
+    //    {
+    //        get { return __capacity; }
+    //        set 
+    //        {
+    //            if (__capacity != value)
+    //            {
+    //                __capacity = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_expandable", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? _expandable
-        {
-            get { return __expandable; }
-            set 
-            {
-                if (__expandable != value)
-                {
-                    __expandable = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_expandable", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public bool? _expandable
+    //    {
+    //        get { return __expandable; }
+    //        set 
+    //        {
+    //            if (__expandable != value)
+    //            {
+    //                __expandable = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_writable", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? _writable
-        {
-            get { return __writable; }
-            set 
-            {
-                if (__writable != value)
-                {
-                    __writable = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_writable", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public bool? _writable
+    //    {
+    //        get { return __writable; }
+    //        set 
+    //        {
+    //            if (__writable != value)
+    //            {
+    //                __writable = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_exposable", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? _exposable
-        {
-            get { return __exposable; }
-            set 
-            {
-                if (__exposable != value)
-                {
-                    __exposable = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_exposable", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public bool? _exposable
+    //    {
+    //        get { return __exposable; }
+    //        set 
+    //        {
+    //            if (__exposable != value)
+    //            {
+    //                __exposable = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("_isOpen", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? _isOpen
-        {
-            get { return __isOpen; }
-            set 
-            {
-                if (__isOpen != value)
-                {
-                    __isOpen = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("_isOpen", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public bool? _isOpen
+    //    {
+    //        get { return __isOpen; }
+    //        set 
+    //        {
+    //            if (__isOpen != value)
+    //            {
+    //                __isOpen = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        [Newtonsoft.Json.JsonProperty("__identity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object __identity
-        {
-            get { return ___identity; }
-            set 
-            {
-                if (___identity != value)
-                {
-                    ___identity = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
+    //    [Newtonsoft.Json.JsonProperty("__identity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    //    public object __identity
+    //    {
+    //        get { return ___identity; }
+    //        set 
+    //        {
+    //            if (___identity != value)
+    //            {
+    //                ___identity = value; 
+    //                RaisePropertyChanged();
+    //            }
+    //        }
+    //    }
     
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    //    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
+    //    public string ToJson() 
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+    //    }
         
-        public static MemoryStream FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MemoryStream>(data);
-        }
+    //    public static MemoryStream FromJson(string data)
+    //    {
+    //        return Newtonsoft.Json.JsonConvert.DeserializeObject<MemoryStream>(data);
+    //    }
     
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    }
+    //    protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+    //    {
+    //        var handler = PropertyChanged;
+    //        if (handler != null) 
+    //            handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.8.2.0")]
     public class ApiClientException : System.Exception

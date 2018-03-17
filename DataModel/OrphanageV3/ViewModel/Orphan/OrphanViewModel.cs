@@ -15,7 +15,7 @@ namespace OrphanageV3.ViewModel.Orphan
         private readonly IApiClient _apiClient;
         private Size _ImageSize = new Size(153, 126);
 
-        public Services.Orphan CurrentOrphan { get; private set; }
+        public OrphanageDataModel.Persons.Orphan CurrentOrphan { get; private set; }
 
         public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
@@ -23,7 +23,7 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             _apiClient = apiClient;
         }
-        public async Task<bool> Save(Services.Orphan orphan)
+        public async Task<bool> Save(OrphanageDataModel.Persons.Orphan orphan)
         {
             try
             {
@@ -39,7 +39,6 @@ namespace OrphanageV3.ViewModel.Orphan
                 if (orphan.HealthStatus != null)
                     orphan.HealthStatus.ReporteFileData = null;
                 await _apiClient.OrphansController_PutAsync(orphan);
-                _orphansViewModel.UpdateOrphan(orphan.Id.Value);
                 return true;
             }
             catch(ApiClientException apiException)
@@ -54,7 +53,7 @@ namespace OrphanageV3.ViewModel.Orphan
             }
         }
 
-        public async Task<Services.Orphan> getOrphan (int Oid)
+        public async Task<OrphanageDataModel.Persons.Orphan> getOrphan (int Oid)
         {            
             var returnedOrphan =  await _apiClient.OrphansController_GetAsync(Oid);
             var facePhotoTask = _apiClient.GetImageData(returnedOrphan.FacePhotoURI,_ImageSize,50);
@@ -119,11 +118,6 @@ namespace OrphanageV3.ViewModel.Orphan
         public async Task<bool> Save()
         {
            return  await Save(CurrentOrphan);
-        }
-
-        public async void UploadImage(string url,Image img)
-        {
-            await _apiClient.SetImage(url, img);
         }
     }
 }

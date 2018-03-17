@@ -26,5 +26,8 @@
     <Setting Name="DefaultPageSize" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">20</Value>
     </Setting>
+    <Setting Name="CaregiverLayoutFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Caregiver.layout</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

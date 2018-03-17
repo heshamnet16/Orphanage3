@@ -362,7 +362,7 @@
   <data name="UnknownGirlPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownGirl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UnknownMalePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnknownPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UnknownMale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exclude" xml:space="preserve">
@@ -655,5 +655,116 @@
   </data>
   <data name="preload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preload.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChildrenPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Children.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>الدخل</value>
+  </data>
+  <data name="Jop" xml:space="preserve">
+    <value>العمل</value>
+  </data>
+  <data name="OrphansCount" xml:space="preserve">
+    <value>عدد الايتام</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="CellPhone" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="ErrorMessageCannotDelete" xml:space="preserve">
+    <value>لايمكن حذف السجل</value>
+  </data>
+  <data name="HomePhone" xml:space="preserve">
+    <value>هاتف المنزل</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="WorkPhone" xml:space="preserve">
+    <value>هاتف العمل</value>
+  </data>
+  <data name="Caregivers" xml:space="preserve">
+    <value>المعيلين</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="ShowBails" xml:space="preserve">
+    <value>عرض الكفالات</value>
+  </data>
+  <data name="ShowCaregivers" xml:space="preserve">
+    <value>عرض المعيلين</value>
+  </data>
+  <data name="ShowFamilies" xml:space="preserve">
+    <value>عرض العائلات</value>
+  </data>
+  <data name="ShowFathers" xml:space="preserve">
+    <value>عرض الأباء</value>
+  </data>
+  <data name="ShowGuarantors" xml:space="preserve">
+    <value>عرض الكفلاء</value>
+  </data>
+  <data name="ShowMothers" xml:space="preserve">
+    <value>عرض الأمهات</value>
+  </data>
+  <data name="ShowOrphans" xml:space="preserve">
+    <value>عرض الأيتام</value>
+  </data>
+  <data name="BackPhoto" xml:space="preserve">
+    <value>صورة خلفية</value>
+  </data>
+  <data name="FrontPhoto" xml:space="preserve">
+    <value>صورة أمامية</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>الأيميل</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>فيسبوك</value>
+  </data>
+  <data name="FaxNumber" xml:space="preserve">
+    <value>رقم الفاكس</value>
+  </data>
+  <data name="Internet" xml:space="preserve">
+    <value>الإنترنت</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="PhoneNumbers" xml:space="preserve">
+    <value>ارقام الهواتف</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>المحافظة</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>الشارع</value>
+  </data>
+  <data name="Town" xml:space="preserve">
+    <value>البلدة</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>تويتر</value>
+  </data>
+  <data name="FatherNameE" xml:space="preserve">
+    <value>Father Name</value>
+  </data>
+  <data name="FirstNameE" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastNameE" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
   </data>
 </root>

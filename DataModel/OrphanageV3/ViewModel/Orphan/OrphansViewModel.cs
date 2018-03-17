@@ -1,4 +1,5 @@
-﻿using OrphanageV3.Services;
+﻿using OrphanageDataModel.FinancialData;
+using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace OrphanageV3.ViewModel.Orphan
         public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
         public event OrphansChnagedDelegate OrphansChangedEvent;
         public ObservableCollection<OrphanModel> Orphans { get; set; }
-        private IList<OrphanageV3.Services.Orphan> _SourceOrphans;
+        private IList<OrphanageDataModel.Persons.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
         private int PhotoCompressRatio = 70;
 
@@ -39,6 +40,25 @@ namespace OrphanageV3.ViewModel.Orphan
             GetOrphans();
         }
 
+        public async void LoadData(IList<int> orphansList)
+        {
+            var ReturnedOrphans = await _apiClient.OrphansController_GetByIdsAsync(orphansList);
+            //delete excluded orphans
+            if (Properties.Settings.Default.ShowHiddenRows)
+                _SourceOrphans = ReturnedOrphans;
+            else
+                _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
+            Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
+            OrphansChangedEvent?.Invoke();
+            //get first page orphan ids
+            var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
+
+            //set Loading image 
+            foreach (var orp in Orphans)
+                orp.Photo = Properties.Resources.loading;
+            //Start Image thread after data loading
+            await LoadImages(ids);
+        }
         private async void GetOrphans()
         {
             var Ocounts = await _apiClient.OrphansController_GetOrphansCountAsync();
@@ -51,7 +71,11 @@ namespace OrphanageV3.ViewModel.Orphan
             Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
             OrphansChangedEvent?.Invoke();
             //get first page orphan ids
-            var ids = Orphans.Take(30).Select(op => op.ID).ToList();
+            var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
+
+            //set Loading image 
+            foreach (var orp in Orphans)
+                orp.Photo = Properties.Resources.loading;
             //Start Image thread after data loading
             await LoadImages(ids);
         }
@@ -62,13 +86,13 @@ namespace OrphanageV3.ViewModel.Orphan
             {
                 try
                 {
-                    var orp = Orphans.FirstOrDefault(o => o.ID == id);
+                    var orp = Orphans.FirstOrDefault(o => o.Id == id);
                     var img = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
                     if (img == null)
                     {
                         img = _translateService.IsBoy(orp.Gender) ? new Bitmap(Properties.Resources.UnknownBoyPic, PhotoSize) : new Bitmap(Properties.Resources.UnknownGirlPic, PhotoSize);
                     }
-                    UpdateOrphanPhoto(orp.ID, img);
+                    UpdateOrphanPhoto(orp.Id, img);
                 }
                 catch { }
             }
@@ -78,12 +102,12 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             try
             {
-                var orp = Orphans.FirstOrDefault(o => o.ID == id);
+                var orp = Orphans.FirstOrDefault(o => o.Id == id);
                 if (orp == null) return null;
                 string url = orp.FacePhotoURI;
                 if (url != null)
                 {
-                    var img = await _apiClient.GetImage(url,new Size(300,300),80);
+                    var img = await _apiClient.GetImage(url, new Size(300, 300), 80);
                     if (img == null)
                     {
                         img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
@@ -97,15 +121,17 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> DeleteOrphan(int Oid)
         {
-            try
+            await _apiClient.OrphansController_DeleteAsync(Oid);
+            return true;
+        }
+
+        public async Task<bool> DeleteOrphan(List<int> orphanIds)
+        {
+            foreach (var orphanId in orphanIds)
             {
-                await _apiClient.OrphansController_DeleteAsync(Oid);
-                return true;
+                await DeleteOrphan(orphanId);
             }
-            catch
-            {
-                return false;
-            }
+            return true;
         }
 
         public async Task<bool> ExcludeOrphan(int Oid)
@@ -155,7 +181,7 @@ namespace OrphanageV3.ViewModel.Orphan
             var brothersTask = _apiClient.OrphansController_GetBrothersAsync(Oid);
             Task<Bail> bailTask = null;
             Task<Bail> FamilyBailTask = null;
-            if (orp.IsBailed )
+            if (orp.IsBailed)
                 bailTask = _apiClient.BailsController_GetAsync(orp.BailId.Value);
             if (orp.Family.IsBailed)
                 FamilyBailTask = _apiClient.BailsController_GetAsync(orp.Family.BailId.Value);
@@ -176,7 +202,7 @@ namespace OrphanageV3.ViewModel.Orphan
             int girls = brothers.Count(o => !_translateService.IsBoy(o.Gender));
             stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": " + boys + " " + Properties.Resources.MalesString + ", " + girls + " " + Properties.Resources.FemalesString);
 
-            if (bailTask != null || FamilyBailTask !=null)
+            if (bailTask != null || FamilyBailTask != null)
             {
                 stringBuilder.AppendLine(Properties.Resources.IsBailed + ": " + Properties.Resources.BooleanTrue);
                 Bail orpBail = null;
@@ -184,7 +210,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 {
                     orpBail = await bailTask;
                 }
-                if(FamilyBailTask != null)
+                if (FamilyBailTask != null)
                 {
                     orpBail = await FamilyBailTask;
                 }
@@ -202,13 +228,13 @@ namespace OrphanageV3.ViewModel.Orphan
                 stringBuilder.AppendLine(Properties.Resources.IsBailed + ": " + Properties.Resources.BooleanFalse);
             }
 
-            if(orp.EducationId.HasValue && orp.Education != null)
+            if (orp.EducationId.HasValue && orp.Education != null)
             {
                 if (orp.Education.Stage.Contains(Properties.Resources.EducationNonStudyKeyword))
                 {
+                    stringBuilder.AppendLine(Properties.Resources.IsStudying + ": " + Properties.Resources.BooleanFalse);
                     if (orp.Education.Reasons != null && orp.Education.Reasons.Length > 0)
                     {
-                        stringBuilder.AppendLine(Properties.Resources.IsStudying + ": " + Properties.Resources.BooleanFalse);
                         stringBuilder.AppendLine(Properties.Resources.EducationNonStudyingReasons + ": " + orp.Education.Reasons);
                     }
                 }
@@ -227,7 +253,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     {
                         stringBuilder.AppendLine(Properties.Resources.EducationSchoolName + ": " + orp.Education.School);
                     }
-                }                
+                }
             }
             else
             {
@@ -236,7 +262,7 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orp.HealthId.HasValue && orp.HealthStatus != null)
             {
                 stringBuilder.AppendLine(Properties.Resources.IsSick + ": " + Properties.Resources.BooleanTrue);
-                if(orp.HealthStatus.SicknessName != null && orp.HealthStatus.SicknessName.Length >0)
+                if (orp.HealthStatus.SicknessName != null && orp.HealthStatus.SicknessName.Length > 0)
                 {
                     stringBuilder.AppendLine(Properties.Resources.HealthSicknessName + ": " + orp.HealthStatus.SicknessName);
                 }
@@ -261,25 +287,25 @@ namespace OrphanageV3.ViewModel.Orphan
             var orp = await _apiClient.OrphansController_GetAsync(Oid);
             int orpIndex = _SourceOrphans.IndexOf(_SourceOrphans.FirstOrDefault(o => o.Id == Oid));
             _SourceOrphans[orpIndex] = orp;
-            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
             Orphans[orpMIndex] = _mapperService.MapToOrphanModel(orp);
             await UpdateOrphanPhoto(Oid);
         }
 
-        public void UpdateOrphanPhoto(int Oid , Image img)
+        public void UpdateOrphanPhoto(int Oid, Image img)
         {
-            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
             Orphans[orpMIndex].Photo = img;
         }
 
         public async Task UpdateOrphanPhoto(int Oid)
         {
-            var orp = Orphans.FirstOrDefault(o => o.ID == Oid);
-            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.ID == Oid));
+            var orp = Orphans.FirstOrDefault(o => o.Id == Oid);
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
             Image img = null;
             try
             {
-               img =  await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
+                img = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
             }
             catch
             {

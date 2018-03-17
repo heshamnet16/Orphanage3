@@ -2,6 +2,7 @@
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -132,10 +133,13 @@ namespace OrphanageService.Services
                     .Include(c => c.Address)
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
+                    .Include(c => c.ActingUser.Name)
                     .FirstOrDefaultAsync(c => c.Id == Cid);
+
                 if (caregiver == null) throw new ObjectNotFoundException();
                 _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiver);
                 _uriGenerator.SetCaregiverUris(ref caregiver);
+                caregiver.Address = caregiver.Address.Clean();
                 return caregiver;
             }
         }
@@ -156,6 +160,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Address)
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
+                    .Include(c=>c.ActingUser.Name)
                     .ToListAsync();
 
                 foreach (var caregiver in caregivers)
@@ -163,6 +168,7 @@ namespace OrphanageService.Services
                     OrphanageDataModel.Persons.Caregiver caregiverToFill = caregiver;
                     _selfLoopBlocking.BlockCaregiverSelfLoop(ref caregiverToFill);
                     _uriGenerator.SetCaregiverUris(ref caregiverToFill);
+                    caregiverToFill.Address = caregiverToFill.Address.Clean();
                     caregiversList.Add(caregiverToFill);
                 }
             }
@@ -181,6 +187,7 @@ namespace OrphanageService.Services
 
             foreach (var caregiver in FoundedCaregivers)
             {
+                caregiver.Address = caregiver.Address.Clean();
                 yield return caregiver;
             }
         }
@@ -191,6 +198,7 @@ namespace OrphanageService.Services
 
             var caregivers = orphanageDbCNo.Caregivers
             .Include(m => m.Name)
+            .Include(m => m.Address)
             .ToArray();
 
             var FoundedCaregivers = caregivers.Where(n =>
@@ -200,6 +208,7 @@ namespace OrphanageService.Services
 
             foreach (var caregiver in FoundedCaregivers)
             {
+                caregiver.Address = caregiver.Address.Clean();
                 yield return caregiver;
             }
         }
