@@ -37,7 +37,7 @@ namespace OrphanageV3.Views.Caregiver
             btnShowFamilies.ToolTipText = Properties.Resources.ShowFamilies;
             btnShowFathers.ToolTipText = Properties.Resources.ShowFathers;
             btnShowMothers.ToolTipText = Properties.Resources.ShowMothers;
-            btnShowOrphans.ToolTipText = Properties.Resources.ShowMothers;
+            btnShowOrphans.ToolTipText = Properties.Resources.ShowOrphans;
         }
         private void GridView_SelectionChanged(object sender, EventArgs e)
         {

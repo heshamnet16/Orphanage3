@@ -20,39 +20,39 @@ namespace OrphanageV3.Views.Caregiver
     {
         private OrphanageDataModel.Persons.Caregiver _Caregiver = null;
 
-        private CaregiverEditViewModel _caregiverEditViewModel ;
+        private CaregiverEditViewModel _caregiverEditViewModel;
 
-        private IAutoCompleteService _AutoCompleteServic ;
+        private IAutoCompleteService _AutoCompleteServic;
 
-        private IDataFormatterService _DataFormatterService ;
+        private IDataFormatterService _DataFormatterService;
 
-        private IEntityValidator _AddressEntityValidator ;
+        private IEntityValidator _AddressEntityValidator;
 
-        private IEntityValidator _NameEntityValidator ;
+        private IEntityValidator _NameEntityValidator;
 
         private IEntityValidator _CaregiverEntityValidator;
 
         public CaregiverEditView(int CaregiverId)
         {
             InitializeComponent();
-        _caregiverEditViewModel = Program.Factory.Resolve<CaregiverEditViewModel>();
+            _caregiverEditViewModel = Program.Factory.Resolve<CaregiverEditViewModel>();
 
-        _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
+            _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
 
-        _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
+            _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
 
-        _AddressEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+            _AddressEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-        _NameEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+            _NameEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-        _CaregiverEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+            _CaregiverEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-        _caregiverEditViewModel.ImagesSize = picIDFront.Size;
+            _caregiverEditViewModel.ImagesSize = picIDFront.Size;
             NameForm1.AutoCompleteService = addressForm1.AutoCompleteService = _AutoCompleteServic;
-            NameForm1.DataFormatterService =  addressForm1.DataFormatterService = _DataFormatterService;
+            NameForm1.DataFormatterService = addressForm1.DataFormatterService = _DataFormatterService;
             addressForm1.EntityValidator = _AddressEntityValidator;
             NameForm1.EntityValidator = _NameEntityValidator;
-            LoadCaregiver(CaregiverId);            
+            LoadCaregiver(CaregiverId);
         }
 
 
@@ -84,7 +84,7 @@ namespace OrphanageV3.Views.Caregiver
             PicIDBack.SetImageByBytes(_Caregiver.IdentityCardPhotoBackData);
             txtName.Text = NameForm1.FullName;
             txtAddress.Text = addressForm1.FullAddress;
-            clrColor.Value = _Caregiver.ColorMark.HasValue ? Color.FromArgb((int)_Caregiver.ColorMark.Value) : Color.Black;                 
+            clrColor.Value = _Caregiver.ColorMark.HasValue ? Color.FromArgb((int)_Caregiver.ColorMark.Value) : Color.Black;
         }
 
         private void TranslateControls()
