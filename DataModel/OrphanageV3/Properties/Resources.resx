@@ -767,4 +767,25 @@
   <data name="Name" xml:space="preserve">
     <value>الاسم</value>
   </data>
+  <data name="DateOfDeath" xml:space="preserve">
+    <value>تاريخ الوفاة</value>
+  </data>
+  <data name="HasSheOrphans" xml:space="preserve">
+    <value>ترعى أيتام</value>
+  </data>
+  <data name="HusbandName" xml:space="preserve">
+    <value>اسم الزوج</value>
+  </data>
+  <data name="IsDead" xml:space="preserve">
+    <value>متوفى</value>
+  </data>
+  <data name="IsMarried" xml:space="preserve">
+    <value>متزوجة</value>
+  </data>
+  <data name="Mothers" xml:space="preserve">
+    <value>الأمهات</value>
+  </data>
+  <data name="FullAddress" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
 </root>

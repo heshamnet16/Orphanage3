@@ -10,7 +10,11 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Mother>> GetMothers(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Mother>> GetMothers(IList<int> motherIds);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Mid);
+
+        Task<int> GetOrphansCount(int Mid);
 
         Task<int> GetMotherCount();
 

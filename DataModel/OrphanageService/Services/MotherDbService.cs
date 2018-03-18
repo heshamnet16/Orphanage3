@@ -171,6 +171,29 @@ namespace OrphanageService.Services
             return mothersList;
         }
 
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Mother>> GetMothers(IList<int> motherIds)
+        {
+            IList<OrphanageDataModel.Persons.Mother> mothersList = new List<OrphanageDataModel.Persons.Mother>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var mothers = await _orphanageDBC.Mothers.AsNoTracking()
+                    .Where(m=> motherIds.Contains(m.Id))
+                    .Include(f => f.Families)
+                    .Include(f => f.Name)
+                    .Include(m => m.Address)
+                    .ToListAsync();
+
+                foreach (var mother in mothers)
+                {
+                    OrphanageDataModel.Persons.Mother motherToFill = mother;
+                    setMotherEntities(ref motherToFill, _orphanageDBC);
+                    _selfLoopBlocking.BlockMotherSelfLoop(ref motherToFill);
+                    _uriGenerator.SetMotherUris(ref motherToFill);
+                    mothersList.Add(motherToFill);
+                }
+            }
+            return mothersList;
+        }
         public IEnumerable<OrphanageDataModel.Persons.Mother> GetMothersByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
         {
             if (addressObject == null) throw new NullReferenceException();
@@ -234,6 +257,19 @@ namespace OrphanageService.Services
                 }
             }
             return returnedOrphans;
+        }
+
+        public async Task<int> GetOrphansCount(int Mid)
+        {
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
+                                     join fam in dbContext.Families.AsNoTracking() on orp.Family.MotherId equals fam.MotherId
+                                     where fam.MotherId == Mid
+                                     select orp)
+                              .CountAsync();
+                return orphans;
+            }
         }
 
         public async Task<bool> IsExist(int Mid)

@@ -687,9 +687,8 @@ namespace OrphanageService.Services
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(IList<int> ids)
         {
             IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
-            try
-            {
-                using (var _orphanageDBC = new OrphanageDbCNoBinary())
+
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
                 {
                     var orphans = await _orphanageDBC.Orphans.AsNoTracking()
                         .Where(o => ids.Contains(o.Id))
@@ -714,11 +713,7 @@ namespace OrphanageService.Services
                         orphansList.Add(orphanTofill);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
 
-            }
             return orphansList;
         }
     }

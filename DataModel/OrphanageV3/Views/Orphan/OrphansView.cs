@@ -47,10 +47,23 @@ namespace OrphanageV3.Views.Orphan
             orphanageGridView1.GridView.PageChanged += GridView_PageChanged;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
             orphanageGridView1.GridView.GroupExpanded += GridView_GroupExpanded;
+            orphanageGridView1.GridView.SortChanged += GridView_SortChanged;
             orphanageGridView1.HideShowColumnName = "IsExcluded";
             // set RadGridHelper
             _radGridHelper.GridView = orphanageGridView1.GridView;
         }
+
+        private void GridView_SortChanged(object sender, GridViewCollectionChangedEventArgs e)
+        {
+            if (e.GridViewTemplate.ChildRows != null)
+            {
+                CloseOtherThreads();
+                var ids = e.GridViewTemplate.ChildRows.Where(r => r.Cells["Id"].Value != null).Select(c => (int)c.Cells["Id"].Value).ToList();
+                StartThumbnailsThread(ids);
+            }
+        }
+
+
         private void GridView_GroupExpanded(object sender, GroupExpandedEventArgs e)
         {
             CloseOtherThreads();
