@@ -21,15 +21,15 @@ namespace OrphanageV3.Views.Orphan
     {
         private OrphanViewModel _orphanViewModel = Program.Factory.Resolve<OrphanViewModel>();
 
-        private IDataFormatterService _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
-
         private IAutoCompleteService _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
 
         private ITranslateService _TranslateService = Program.Factory.Resolve<ITranslateService>();
 
         private IEntityValidator _OrphanEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-        private IEntityValidator _NameEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+        private IEntityValidator _HealthEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+
+        private IEntityValidator _EducationEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
         private OrphanageDataModel.Persons.Orphan _CurrentOrphan = null;
 
@@ -43,17 +43,19 @@ namespace OrphanageV3.Views.Orphan
             _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
             SetLablesString();
             loadOrphan(orphanId);
-            nameForm1.AutoCompleteService = _AutoCompleteServic;
-            nameForm1.DataFormatterService = _DataFormatterService;
-            nameForm1.EntityValidator = _NameEntityValidator;
         }
         private async void loadOrphan(int Oid)
         {
             _CurrentOrphan = await _orphanViewModel.getOrphan(Oid);
             SetValues();
             nameForm1.NameDataSource = _CurrentOrphan.Name;
+            txtOName.Text = nameForm1.FullName;
             _OrphanEntityValidator.controlCollection = Controls;
-            _OrphanEntityValidator.DataEntity = orphanBindingSource.DataSource;
+            _OrphanEntityValidator.DataEntity = _CurrentOrphan;
+            _HealthEntityValidator.controlCollection = pgeHealth.Controls;
+            _HealthEntityValidator.DataEntity = _CurrentOrphan.HealthStatus;
+            _EducationEntityValidator.controlCollection = pgeEducation.Controls;
+            _EducationEntityValidator.DataEntity = _CurrentOrphan.Education;
         }
         private void _AutoCompleteServic_DataLoaded(object sender, EventArgs e)
         {
@@ -61,13 +63,13 @@ namespace OrphanageV3.Views.Orphan
             AutoCompleteStringCollection autoCompleteStringCollection = new AutoCompleteStringCollection();
             var stringArray = _AutoCompleteServic.EnglishNameStrings.ToArray();
 
-           txtHSicknessName.AutoCompleteItems.AddRange(_AutoCompleteServic.SicknessNames.ToArray());
-           txtHMedicen.AutoCompleteItems.AddRange(_AutoCompleteServic.MedicenNames.ToArray()); 
-            txtSReason.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationReasons.ToArray()); 
+            txtHSicknessName.AutoCompleteItems.AddRange(_AutoCompleteServic.SicknessNames.ToArray());
+            txtHMedicen.AutoCompleteItems.AddRange(_AutoCompleteServic.MedicenNames.ToArray());
+            txtSReason.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationReasons.ToArray());
             txtSStudyStage.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationStages.ToArray());
-            txtSschoolNAme.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationSchools.ToArray()); 
-            txtOPlaceOfBirth.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.BirthPlaces.ToArray()); 
-            txtOStory.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.OrphanStories.ToArray()); 
+            txtSschoolNAme.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationSchools.ToArray());
+            txtOPlaceOfBirth.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.BirthPlaces.ToArray());
+            txtOStory.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.OrphanStories.ToArray());
 
         }
 
@@ -150,7 +152,6 @@ namespace OrphanageV3.Views.Orphan
             if (_CurrentOrphan == null) return;
             orphanBindingSource.DataSource = _CurrentOrphan;
             RadPageView1.SelectedPage = pgeBasic;
-            txtOName.Text = _DataFormatterService.GetFullNameString(_CurrentOrphan.Name);
             var ageString = _TranslateService.DateToString(_CurrentOrphan.Birthday);
             txtOAge.Text = ageString;
             PicBody.SetImageByBytes(_CurrentOrphan.FullPhotoData);
@@ -434,8 +435,7 @@ namespace OrphanageV3.Views.Orphan
         private void pgeBasic_Click(object sender, EventArgs e)
         {
             nameForm1.HideMe();
-            //_CurrentOrphan.Name = _ControllsHelper.GetNameFromForm(nameForm1);
-            txtOName.Text = _DataFormatterService.GetFullNameString(_CurrentOrphan.Name);
+            txtOName.Text = nameForm1.FullName;
         }
 
         private void OrphanEditView_Load(object sender, EventArgs e)
@@ -503,11 +503,9 @@ namespace OrphanageV3.Views.Orphan
             SaveHealth();
             SaveStudy();
             _CurrentOrphan.Name = (Name)nameForm1.NameDataSource;
-            if (_OrphanEntityValidator.IsValid())
+            if (_OrphanEntityValidator.IsValid() && _EducationEntityValidator.IsValid() && _HealthEntityValidator.IsValid())
             {
                 await _orphanViewModel.Save(_CurrentOrphan);
-
-                //var savedOrphan = await _orphanViewModel.getOrphan(_CurrentOrphan.Id.Value);
 
                 if (_CurrentOrphan.HealthStatus != null && _HealthPhotoChanged)
                     await _orphanViewModel.SaveImage(_CurrentOrphan.HealthStatus.ReporteFileURI, picHFace.Photo);
@@ -532,6 +530,12 @@ namespace OrphanageV3.Views.Orphan
             _OrphanEntityValidator.controlCollection = Controls;
             _OrphanEntityValidator.DataEntity = orphanBindingSource.DataSource;
             _OrphanEntityValidator.SetErrorProvider(OrphanerrorProvider1);
+            _HealthEntityValidator.controlCollection = pgeHealth.Controls;
+            _HealthEntityValidator.DataEntity = _CurrentOrphan.HealthStatus;
+            _HealthEntityValidator.SetErrorProvider(OrphanerrorProvider1);
+            _EducationEntityValidator.controlCollection = pgeEducation.Controls;
+            _EducationEntityValidator.DataEntity = _CurrentOrphan.Education;
+            _EducationEntityValidator.SetErrorProvider(OrphanerrorProvider1);
 
         }
         private void btnCancel_Click(object sender, EventArgs e)

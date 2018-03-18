@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using OrphanageV3.Services.Interfaces;
+using Unity;
 
 using OrphanageV3.Views.Helper.Interfaces;
 
@@ -19,8 +20,6 @@ namespace OrphanageV3.Controlls
         private IAutoCompleteService _AutoCompleteServic /*= Program.Factory.Resolve<IAutoCompleteService>()*/;
         private IDataFormatterService _DataFormatterService  /*= Program.Factory.Resolve<IDataFormatterService>()*/;
         private IEntityValidator _entityValidator;
-
-        public IEntityValidator EntityValidator { get => _entityValidator; set { _entityValidator = value; } }
 
         public object NameDataSource
         {
@@ -52,14 +51,16 @@ namespace OrphanageV3.Controlls
 
         public string FullName
         {
-            get { if (_DataFormatterService != null) return _DataFormatterService.GetFullNameString((OrphanageDataModel.RegularData.Name)NameDataSource); else return null; }
+            get
+            {
+                if (_DataFormatterService != null && NameDataSource != null && NameDataSource is OrphanageDataModel.RegularData.Name)
+                    return _DataFormatterService.GetFullNameString((OrphanageDataModel.RegularData.Name)NameDataSource);
+                else
+                    return null;
+            }
         }
 
         public bool FocusWhenShow { get; set; } = true;
-
-        public IAutoCompleteService AutoCompleteService { get => _AutoCompleteServic; set { _AutoCompleteServic = value; } }
-
-        public IDataFormatterService DataFormatterService { get => _DataFormatterService; set { _DataFormatterService = value; } }
 
         public int Id
         {
@@ -144,9 +145,30 @@ namespace OrphanageV3.Controlls
         public NameForm()
         {
             InitializeComponent();
-            _entityValidator = null;
-            _DataFormatterService = null;
-            _AutoCompleteServic = null;
+            try
+            {
+                _entityValidator = Program.Factory.Resolve<IEntityValidator>();
+            }
+            catch
+            {
+                _entityValidator = null;
+            }
+            try
+            {
+                _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
+            }
+            catch
+            {
+                _DataFormatterService = null;
+            }
+            try
+            {
+                _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
+            }
+            catch
+            {
+                _AutoCompleteServic = null;
+            }
         }
 
         private void txtFatherNameF_Enter(object sender, System.EventArgs e)

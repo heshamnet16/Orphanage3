@@ -57,7 +57,7 @@
             this.grpInternet = new Telerik.WinControls.UI.RadGroupBox();
             this.grpAddress = new Telerik.WinControls.UI.RadGroupBox();
             this.txtCountry = new Telerik.WinControls.UI.RadTextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.addressErrorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblWorkPhone)).BeginInit();
@@ -89,7 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpAddress)).BeginInit();
             this.grpAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtWorkPhone
@@ -511,12 +511,12 @@
             this.txtCountry.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCountry_KeyUp);
             this.txtCountry.Leave += new System.EventHandler(this.txtCountry_Leave);
             // 
-            // errorProvider1
+            // addressErrorProvider1
             // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.DataSource = this.addressBindingSource;
-            this.errorProvider1.RightToLeft = true;
+            this.addressErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.addressErrorProvider1.ContainerControl = this;
+            this.addressErrorProvider1.DataSource = this.addressBindingSource;
+            this.addressErrorProvider1.RightToLeft = true;
             // 
             // AddressForm
             // 
@@ -563,7 +563,7 @@
             this.grpAddress.ResumeLayout(false);
             this.grpAddress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -598,6 +598,6 @@
         internal Telerik.WinControls.UI.RadGroupBox grpAddress;
         internal Telerik.WinControls.UI.RadTextBox txtCountry;
         private System.Windows.Forms.BindingSource addressBindingSource;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider addressErrorProvider1;
     }
 }

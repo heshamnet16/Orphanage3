@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OrphanageDataModel.RegularData;
 using System.ComponentModel.DataAnnotations;
 using OrphanageV3.Extensions;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.Views.Helper.Interfaces;
+using Unity;
 
 namespace OrphanageV3.Controlls
 {
@@ -23,14 +23,12 @@ namespace OrphanageV3.Controlls
         private IDataFormatterService _DataFormatterService  /*= Program.Factory.Resolve<IDataFormatterService>()*/;
         private IEntityValidator _entityValidator;
 
-        public IEntityValidator EntityValidator { get => _entityValidator; set { _entityValidator = value; } }
         public object AddressDataSource
         {
             get => addressBindingSource.DataSource;
             set
             {
                 addressBindingSource.DataSource = value;
-                this.Id = ((Address)value).Id;
             }
         }
         public enum _MoveType
@@ -58,9 +56,7 @@ namespace OrphanageV3.Controlls
 
         private _MoveType _Mtype = _MoveType.UpToDown;
 
-        public IAutoCompleteService AutoCompleteService { get => _AutoCompleteServic; set { _AutoCompleteServic = value; } }
 
-        public IDataFormatterService DataFormatterService { get => _DataFormatterService; set { _DataFormatterService = value; } }
 
         public int MoveFactor
         {
@@ -86,7 +82,35 @@ namespace OrphanageV3.Controlls
             }
         }
 
-        public int Id { get; set; }
+
+        public int Id
+        {
+            get
+            {
+                if (addressBindingSource != null)
+                {
+                    try
+                    {
+                        return ((OrphanageDataModel.RegularData.Address)addressBindingSource.DataSource).Id;
+                    }
+                    catch { return -1; }
+                }
+                else
+                    return -1;
+            }
+            set
+            {
+                if (addressBindingSource != null)
+                {
+                    try
+                    {
+                        ((OrphanageDataModel.RegularData.Address)addressBindingSource.DataSource).Id = value;
+                    }
+                    catch { }
+                }
+            }
+        }
+
 
         private bool _HideOnEnter = false;
 
@@ -104,7 +128,16 @@ namespace OrphanageV3.Controlls
 
         public string FullAddress
         {
-            get { return _DataFormatterService.GetAddressString((Address)AddressDataSource); }
+            get
+            {
+                if (_DataFormatterService != null && addressBindingSource.DataSource != null && addressBindingSource.DataSource is OrphanageDataModel.RegularData.Address)
+                {
+                    var addObject = (OrphanageDataModel.RegularData.Address)addressBindingSource.DataSource;
+                    return _DataFormatterService.GetAddressString(addObject);
+                }
+                else
+                    return null;
+            }
         }
 
         private bool isSHown = false;
@@ -121,9 +154,30 @@ namespace OrphanageV3.Controlls
         {
             InitializeComponent();
             TranslateControls();
-            _entityValidator = null;
-            _DataFormatterService = null;
-            _AutoCompleteServic = null;
+            try
+            {
+                _entityValidator = Program.Factory.Resolve<IEntityValidator>();
+            }
+            catch
+            {
+                _entityValidator = null;
+            }
+            try
+            {
+                _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
+            }
+            catch
+            {
+                _DataFormatterService = null;
+            }
+            try
+            {
+                _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
+            }
+            catch
+            {
+                _AutoCompleteServic = null;
+            }
         }
 
         private void _AutoCompleteServic_DataLoaded(object sender, EventArgs e)
@@ -185,12 +239,12 @@ namespace OrphanageV3.Controlls
 
         private void ValidateAndShowError()
         {
-            errorProvider1.Clear();
+            addressErrorProvider1.Clear();
             if (_entityValidator != null)
             {
                 _entityValidator.controlCollection = Controls;
                 _entityValidator.DataEntity = this.AddressDataSource;
-                _entityValidator.SetErrorProvider(errorProvider1);
+                _entityValidator.SetErrorProvider(addressErrorProvider1);
             }
         }
 
@@ -379,6 +433,7 @@ namespace OrphanageV3.Controlls
             this.wi = this.Width;
             this.tp = this.Top;
             this.lef = this.Left;
+
             if (_AutoCompleteServic != null)
             {
                 _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;

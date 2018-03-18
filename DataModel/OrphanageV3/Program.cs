@@ -30,7 +30,7 @@ namespace OrphanageV3
             Factory = BuildContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Caregiver.CaregiversView());
+            Application.Run(new Views.Orphan.OrphansView());
         }
 
         public static IUnityContainer BuildContainer()

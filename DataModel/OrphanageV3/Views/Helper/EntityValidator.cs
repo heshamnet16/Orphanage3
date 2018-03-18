@@ -61,7 +61,7 @@ namespace OrphanageV3.Views.Helper
         }
         public bool IsValid()
         {
-            if (_DataEntity == null || controlCollection == null) return false;
+            if (_DataEntity == null || controlCollection == null) return true;
             ValidationContext validationContext = new ValidationContext(_DataEntity, null, null);
             var results = new List<ValidationResult>();
             bool ret = true;
