@@ -260,7 +260,7 @@ namespace OrphanageV3.Controlls
         public void ShowColumnsChooser()
         {
             TranslateColumnsChooser();
-            radGridView.ColumnChooser.Show(ParentForm);
+            radGridView.ColumnChooser.Show();
         }
 
         private void radGridView_LayoutLoaded(object sender, LayoutLoadedEventArgs e)

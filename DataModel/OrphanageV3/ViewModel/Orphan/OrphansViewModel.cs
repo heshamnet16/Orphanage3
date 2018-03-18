@@ -26,7 +26,7 @@ namespace OrphanageV3.ViewModel.Orphan
         public ObservableCollection<OrphanModel> Orphans { get; set; }
         private IList<OrphanageDataModel.Persons.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
-        private int PhotoCompressRatio = 70;
+        private int PhotoCompressRatio = 40;
 
         public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService, IDataFormatterService dataFormatterService)
         {
@@ -70,14 +70,6 @@ namespace OrphanageV3.ViewModel.Orphan
                 _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
             Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
             OrphansChangedEvent?.Invoke();
-            //get first page orphan ids
-            var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
-
-            //set Loading image 
-            foreach (var orp in Orphans)
-                orp.Photo = Properties.Resources.loading;
-            //Start Image thread after data loading
-            await LoadImages(ids);
         }
 
         public async Task LoadImages(IList<int> lst)

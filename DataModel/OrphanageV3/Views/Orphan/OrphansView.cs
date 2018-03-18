@@ -29,21 +29,19 @@ namespace OrphanageV3.Views.Orphan
         public OrphansView()
         {
             InitializeComponent();
-            this.Text = Properties.Resources.OrphanViewTitle;
-            _orphansViewModel.OrphansChangedEvent += OrphansViewModel_OrphansChangedEvent;
-            orphanageGridView1.GridView.PageChanged += GridView_PageChanged;
-            orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
-            orphanageGridView1.GridView.GroupExpanded += GridView_GroupExpanded;
-            orphanageGridView1.HideShowColumnName = "IsExcluded";
-            // set RadGridHelper
-            _radGridHelper.GridView = orphanageGridView1.GridView;
-
+            SetObjectsDefaultsAndEvents();
             _orphansIds = null;
         }
 
         public OrphansView(IList<int> OrphansIds)
         {
             InitializeComponent();
+            SetObjectsDefaultsAndEvents();
+            _orphansIds = OrphansIds;
+        }
+
+        private void SetObjectsDefaultsAndEvents()
+        {
             this.Text = Properties.Resources.OrphanViewTitle;
             _orphansViewModel.OrphansChangedEvent += OrphansViewModel_OrphansChangedEvent;
             orphanageGridView1.GridView.PageChanged += GridView_PageChanged;
@@ -52,7 +50,6 @@ namespace OrphanageV3.Views.Orphan
             orphanageGridView1.HideShowColumnName = "IsExcluded";
             // set RadGridHelper
             _radGridHelper.GridView = orphanageGridView1.GridView;
-            _orphansIds = OrphansIds;
         }
         private void GridView_GroupExpanded(object sender, GroupExpandedEventArgs e)
         {
@@ -161,6 +158,11 @@ namespace OrphanageV3.Views.Orphan
             var PicColumn = orphanageGridView1.GridView.Columns["Photo"];
             PicColumn.ImageLayout = ImageLayout.Stretch;
             orphanageGridView1.GridView.Columns["Photo"].Width = 80;
+            Thread tt = new Thread(new ThreadStart(() => {
+                System.Threading.Thread.Sleep(1000);
+                GridView_PageChanged(null, null);
+            }));
+            tt.Start();
         }
 
         private void OrphansView_Load(object sender, EventArgs e)
