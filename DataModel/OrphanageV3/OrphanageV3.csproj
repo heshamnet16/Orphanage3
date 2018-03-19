@@ -243,6 +243,7 @@
       <DependentUpon>SummaryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.Persons.Mother.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Address.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Name.datasource" />

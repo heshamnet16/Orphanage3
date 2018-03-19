@@ -42,8 +42,8 @@
             this.btnSep3 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnColumn = new Telerik.WinControls.UI.CommandBarButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
+            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -58,7 +58,6 @@
             this.CommandBarRowElement3});
             this.radCmdBar.Size = new System.Drawing.Size(854, 38);
             this.radCmdBar.TabIndex = 3;
-            this.radCmdBar.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // CommandBarRowElement3
             // 
@@ -128,6 +127,7 @@
             this.btnEdit.Text = "";
             this.btnEdit.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnEdit.ToolTipText = "تعديل";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // mnuSep1
             // 
@@ -242,11 +242,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 468);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // radColorDialog
-            // 
-            this.radColorDialog.AnyColor = true;
-            this.radColorDialog.FullOpen = true;
-            // 
             // orphanageGridView1
             // 
             this.orphanageGridView1.AddSelectColumn = true;
@@ -259,6 +254,11 @@
             this.orphanageGridView1.ShowHiddenRows = true;
             this.orphanageGridView1.Size = new System.Drawing.Size(854, 384);
             this.orphanageGridView1.TabIndex = 0;
+            // 
+            // radColorDialog
+            // 
+            this.radColorDialog.AnyColor = true;
+            this.radColorDialog.FullOpen = true;
             // 
             // MothersView
             // 

@@ -40,7 +40,7 @@ namespace OrphanageV3.ViewModel.Orphan
             GetOrphans();
         }
 
-        public async void LoadData(IList<int> orphansList)
+        public async void LoadData(IEnumerable<int> orphansList)
         {
             var ReturnedOrphans = await _apiClient.OrphansController_GetByIdsAsync(orphansList);
             //delete excluded orphans
@@ -308,6 +308,37 @@ namespace OrphanageV3.ViewModel.Orphan
                 img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
             }
             Orphans[orpMIndex].Photo = img;
+        }
+
+        public async Task<IEnumerable<int>> GetBrothers(int Oid)
+        {
+            var orphans = await _apiClient.OrphansController_GetBrothersAsync(Oid);
+            return orphans.Select(o => o.Id).ToArray();
+        }
+
+        public int GetMother(int Oid)
+        {
+            var orphan = _SourceOrphans.FirstOrDefault(o=>o.Id==Oid);
+            if (orphan != null)
+            {
+                return orphan.Family.MotherId;
+            }
+            else
+                return -1;
+        }
+
+        public IEnumerable<int> GetMothers(IEnumerable<int> Oids)
+        {
+            foreach (var Oid in Oids)
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                if (orphan != null)
+                {
+                    yield return orphan.Family.MotherId;
+                }
+                else
+                    yield return -1;
+            }
         }
     }
 }

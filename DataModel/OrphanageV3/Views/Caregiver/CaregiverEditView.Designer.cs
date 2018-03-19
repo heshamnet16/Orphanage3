@@ -117,7 +117,7 @@
             this.grpIdentityCard.Size = new System.Drawing.Size(457, 153);
             this.grpIdentityCard.TabIndex = 55;
             this.grpIdentityCard.Text = "بطاقة شخصية";
-            this.grpIdentityCard.Click += new System.EventHandler(this.grpIdentityCard_Click);
+            this.grpIdentityCard.Click += new System.EventHandler(this.HideNameAddressForms);
             // 
             // caregiverBindingSource
             // 
@@ -193,7 +193,7 @@
             this.grpData.Size = new System.Drawing.Size(457, 187);
             this.grpData.TabIndex = 56;
             this.grpData.Text = "بيانات";
-            this.grpData.Click += new System.EventHandler(this.grpIdentityCard_Click);
+            this.grpData.Click += new System.EventHandler(this.HideNameAddressForms);
             // 
             // clrColor
             // 
@@ -222,7 +222,7 @@
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(188, 91);
             this.txtNote.TabIndex = 4;
-            this.txtNote.Click += new System.EventHandler(this.grpIdentityCard_Click);
+            this.txtNote.Click += new System.EventHandler(this.HideNameAddressForms);
             // 
             // txtAddress
             // 
@@ -291,7 +291,7 @@
             this.lblName.TabIndex = 8;
             this.lblName.Text = "الاسم :";
             this.lblName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.lblName.Click += new System.EventHandler(this.grpIdentityCard_Click);
+            this.lblName.Click += new System.EventHandler(this.HideNameAddressForms);
             // 
             // lblJob
             // 
@@ -301,7 +301,7 @@
             this.lblJob.TabIndex = 8;
             this.lblJob.Text = "العمل :";
             this.lblJob.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.lblJob.Click += new System.EventHandler(this.grpIdentityCard_Click);
+            this.lblJob.Click += new System.EventHandler(this.HideNameAddressForms);
             // 
             // lblNotes
             // 
@@ -402,7 +402,7 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "CaregiverEditView";
             this.Load += new System.EventHandler(this.CaregiverEditView_Load);
-            this.Click += new System.EventHandler(this.grpIdentityCard_Click);
+            this.Click += new System.EventHandler(this.HideNameAddressForms);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpIdentityCard)).EndInit();

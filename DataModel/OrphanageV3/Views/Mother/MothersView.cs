@@ -15,7 +15,7 @@ namespace OrphanageV3.Views.Mother
     {
         private MothersViewModel _mothersViewModel = Program.Factory.Resolve<MothersViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
-        private IList<int> _MothersIdsList;
+        private IEnumerable<int> _MothersIdsList;
 
         public MothersView()
         {
@@ -25,7 +25,7 @@ namespace OrphanageV3.Views.Mother
             TranslateControls();
         }
 
-        public MothersView(IList<int> MothersIdsList)
+        public MothersView(IEnumerable<int> MothersIdsList)
         {
             InitializeComponent();
             _MothersIdsList = MothersIdsList;
@@ -115,9 +115,11 @@ namespace OrphanageV3.Views.Mother
         {
             var objId = _radGridHelper.GetValueBySelectedRow("Id");
             if (objId != null)
-            {//MotherEditView motherEditView = new MotherEditView(id);
-             //motherEditView.ShowDialog();
-             //_caregiversViewModel.Update(id);
+            {
+                int id = (int)objId;
+                MotherEditView motherEditView = new MotherEditView(id);
+                motherEditView.ShowDialog();
+                _mothersViewModel.Update(id);
             }
         }
 

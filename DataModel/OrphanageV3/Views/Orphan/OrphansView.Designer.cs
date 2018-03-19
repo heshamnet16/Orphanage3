@@ -267,6 +267,7 @@
             this.btnShowSiblings.Text = "";
             this.btnShowSiblings.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowSiblings.ToolTipText = "عرض الأخوة";
+            this.btnShowSiblings.Click += new System.EventHandler(this.btnShowSiblings_Click);
             // 
             // btnShowFamilies
             // 
@@ -293,6 +294,7 @@
             this.btnShowMothers.Text = "";
             this.btnShowMothers.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowMothers.ToolTipText = "عرض الأمهات!";
+            this.btnShowMothers.Click += new System.EventHandler(this.btnShowMothers_Click);
             // 
             // btnShowFathers
             // 
@@ -448,9 +450,11 @@
             // 
             // orphanageGridView1
             // 
+            this.orphanageGridView1.AddSelectColumn = true;
             this.orphanageGridView1.ColorColumnName = "ColorMark";
             this.orphanageGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orphanageGridView1.HideShowColumnName = "IsEcluded";
+            this.orphanageGridView1.IdColumnName = "Id";
             this.orphanageGridView1.Location = new System.Drawing.Point(0, 0);
             this.orphanageGridView1.Name = "orphanageGridView1";
             this.orphanageGridView1.ShowHiddenRows = true;

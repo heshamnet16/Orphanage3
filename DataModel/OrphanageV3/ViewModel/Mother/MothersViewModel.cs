@@ -44,7 +44,7 @@ namespace OrphanageV3.ViewModel.Mother
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
-        public async void LoadMothers(IList<int> motherIdsList)
+        public async void LoadMothers(IEnumerable<int> motherIdsList)
         {
             var ReturnedMothers = await _apiClient.MothersController_GetByIdsAsync(motherIdsList);
 

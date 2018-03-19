@@ -13,6 +13,7 @@ using System.Threading;
 using Telerik.WinControls.UI;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Mother;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -25,7 +26,9 @@ namespace OrphanageV3.Views.Orphan
         private IList<Thread> PagingThreads = new List<Thread>();
         private static object _loading = Properties.Resources.loading;
 
-        private IList<int> _orphansIds;
+        private IEnumerable<int> _orphansIds;
+        private IEnumerable<int> brothersIds;
+
         public OrphansView()
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace OrphanageV3.Views.Orphan
             _orphansIds = null;
         }
 
-        public OrphansView(IList<int> OrphansIds)
+        public OrphansView(IEnumerable<int> OrphansIds)
         {
             InitializeComponent();
             SetObjectsDefaultsAndEvents();
@@ -251,6 +254,24 @@ namespace OrphanageV3.Views.Orphan
             OrphanEditView orphanEditView = new OrphanEditView(id);
             orphanEditView.ShowDialog();
             _orphansViewModel.UpdateOrphan(id);
+        }
+
+        private async void btnShowSiblings_Click(object sender, EventArgs e)
+        {
+            foreach (var id in orphanageGridView1.SelectedIds)
+            {
+                var brothersIds = await _orphansViewModel.GetBrothers(id);
+                OrphansView orphansView = new OrphansView(brothersIds);
+                orphansView.Show();
+            }
+        }
+
+        private void btnShowMothers_Click(object sender, EventArgs e)
+        {
+                var mothersIds = _orphansViewModel.GetMothers(orphanageGridView1.SelectedIds);
+                MothersView mothersView = new MothersView(mothersIds);
+                mothersView.Show();
+            
         }
     }
 }
