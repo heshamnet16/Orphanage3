@@ -75,11 +75,30 @@ namespace OrphanageService.Mother.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Mother>> GetByIds([FromUri] IList<int> motherIds)
+        {
+            var ret = await _MotherDBService.GetMothers(motherIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
         [Route("orphans/{MotherID}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int MotherID)
         {
             return await _MotherDBService.GetOrphans(MotherID);
+        }
+
+        [HttpGet]
+        [Route("orphans/count/{MotherID}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetOrphansCount(int MotherID)
+        {
+            return await _MotherDBService.GetOrphansCount(MotherID);
         }
     }
 }

@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using OrphanageDataModel.Persons;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using Unity;
 namespace OrphanageV3.Services
@@ -15,7 +17,7 @@ namespace OrphanageV3.Services
     {
         private static readonly IMapper _mapper;
         private readonly IDataFormatterService _dataFormatterService;
-
+        private readonly IApiClient _ApiClient;
         static MapperService()
         {
             var mapperConfiguration = new MapperConfiguration(cfg =>
@@ -52,14 +54,25 @@ namespace OrphanageV3.Services
                 .ForMember(dest => dest.ColorMark, sour => sour.MapFrom(prop => prop.ColorMark))
                 .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
                 .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+                cfg.CreateMap<OrphanageDataModel.Persons.Mother, MotherModel>()
+                    .ForMember(dest => dest.FirstName, sour => sour.MapFrom(prop => prop.Name.First))
+                    .ForMember(dest => dest.FatherName, sour => sour.MapFrom(prop => prop.Name.Father))
+                    .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
+                    .ForMember(dest => dest.CellPhone, sour => sour.MapFrom(prop => prop.Address.CellPhone))
+                    .ForMember(dest => dest.WorkPhone, sour => sour.MapFrom(prop => prop.Address.WorkPhone))
+                    .ForMember(dest => dest.HomePhone, sour => sour.MapFrom(prop => prop.Address.HomePhone))
+                    .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
+                    .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
             });
 
             _mapper = mapperConfiguration.CreateMapper();
         }
 
-        public MapperService(IDataFormatterService dataFormatterService)
+        public MapperService(IDataFormatterService dataFormatterService, IApiClient apiClient)
         {
             _dataFormatterService = dataFormatterService;
+            _ApiClient = apiClient;
         }
 
         public IEnumerable<OrphanModel> MapToOrphanModel(IEnumerable<OrphanageDataModel.Persons.Orphan> orphanList)
@@ -103,7 +116,6 @@ namespace OrphanageV3.Services
         {
             foreach (var caregiver in caregiverist)
             {
-
                 CaregiverModel retCaregiver = MapToCaregiverModel(caregiver);
                 yield return retCaregiver;
             }
@@ -128,5 +140,30 @@ namespace OrphanageV3.Services
             return retCaregiver;
         }
 
+        public IEnumerable<MotherModel> MapToMotherModel(IEnumerable<Mother> mothersList)
+        {
+            foreach (var mother in mothersList)
+            {
+                MotherModel retMother = MapToMotherModel(mother);
+                yield return retMother;
+            }
+        }
+
+        public MotherModel MapToMotherModel(Mother mother)
+        {
+            MotherModel retMother = null;
+            try
+            {
+                retMother = _mapper.Map<MotherModel>(mother);
+                retMother.FullName = _dataFormatterService.GetFullNameString(mother.Name);
+                retMother.FullAddress = _dataFormatterService.GetAddressString(mother.Address);
+                retMother.OrphansCount = -1;
+            }
+            catch
+            {
+                retMother = null;
+            }
+            return retMother;
+        }
     }
 }

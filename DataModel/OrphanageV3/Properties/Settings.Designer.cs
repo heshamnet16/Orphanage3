@@ -106,5 +106,17 @@ namespace OrphanageV3.Properties {
                 this["CaregiverLayoutFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Mother.layout")]
+        public string MotherLayoutFilePath {
+            get {
+                return ((string)(this["MotherLayoutFilePath"]));
+            }
+            set {
+                this["MotherLayoutFilePath"] = value;
+            }
+        }
     }
 }

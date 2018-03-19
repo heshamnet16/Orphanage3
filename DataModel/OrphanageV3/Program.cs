@@ -2,6 +2,7 @@
 using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
@@ -30,7 +31,7 @@ namespace OrphanageV3
             Factory = BuildContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Orphan.OrphansView());
+            Application.Run(new Views.Mother.MothersView());
         }
 
         public static IUnityContainer BuildContainer()
@@ -45,6 +46,7 @@ namespace OrphanageV3
             currentContainer.RegisterType<IEntityValidator, EntityValidator>();            
             currentContainer.RegisterType<OrphansViewModel>();
             currentContainer.RegisterType<CaregiversViewModel>();
+            currentContainer.RegisterType<MothersViewModel>();
             return currentContainer;
         }
     }

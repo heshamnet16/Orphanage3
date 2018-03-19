@@ -29,5 +29,8 @@
     <Setting Name="CaregiverLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Caregiver.layout</Value>
     </Setting>
+    <Setting Name="MotherLayoutFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mother.layout</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

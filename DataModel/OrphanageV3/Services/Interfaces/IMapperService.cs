@@ -1,5 +1,6 @@
 ﻿using OrphanageDataModel.Persons;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,8 @@ namespace OrphanageV3.Services.Interfaces
 
         IEnumerable<CaregiverModel> MapToCaregiverModel(IEnumerable<Caregiver> caregiverist);
         CaregiverModel MapToCaregiverModel(Caregiver caregiver);
+
+        IEnumerable<MotherModel> MapToMotherModel(IEnumerable<Mother> mothersList);
+        MotherModel MapToMotherModel(Mother mother);
     }
 }

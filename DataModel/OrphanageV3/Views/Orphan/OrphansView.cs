@@ -13,6 +13,7 @@ using System.Threading;
 using Telerik.WinControls.UI;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Mother;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -25,7 +26,9 @@ namespace OrphanageV3.Views.Orphan
         private IList<Thread> PagingThreads = new List<Thread>();
         private static object _loading = Properties.Resources.loading;
 
-        private IList<int> _orphansIds;
+        private IEnumerable<int> _orphansIds;
+        private IEnumerable<int> brothersIds;
+
         public OrphansView()
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace OrphanageV3.Views.Orphan
             _orphansIds = null;
         }
 
-        public OrphansView(IList<int> OrphansIds)
+        public OrphansView(IEnumerable<int> OrphansIds)
         {
             InitializeComponent();
             SetObjectsDefaultsAndEvents();
@@ -47,10 +50,23 @@ namespace OrphanageV3.Views.Orphan
             orphanageGridView1.GridView.PageChanged += GridView_PageChanged;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
             orphanageGridView1.GridView.GroupExpanded += GridView_GroupExpanded;
+            orphanageGridView1.GridView.SortChanged += GridView_SortChanged;
             orphanageGridView1.HideShowColumnName = "IsExcluded";
             // set RadGridHelper
             _radGridHelper.GridView = orphanageGridView1.GridView;
         }
+
+        private void GridView_SortChanged(object sender, GridViewCollectionChangedEventArgs e)
+        {
+            if (e.GridViewTemplate.ChildRows != null)
+            {
+                CloseOtherThreads();
+                var ids = e.GridViewTemplate.ChildRows.Where(r => r.Cells["Id"].Value != null).Select(c => (int)c.Cells["Id"].Value).ToList();
+                StartThumbnailsThread(ids);
+            }
+        }
+
+
         private void GridView_GroupExpanded(object sender, GroupExpandedEventArgs e)
         {
             CloseOtherThreads();
@@ -238,6 +254,24 @@ namespace OrphanageV3.Views.Orphan
             OrphanEditView orphanEditView = new OrphanEditView(id);
             orphanEditView.ShowDialog();
             _orphansViewModel.UpdateOrphan(id);
+        }
+
+        private async void btnShowSiblings_Click(object sender, EventArgs e)
+        {
+            foreach (var id in orphanageGridView1.SelectedIds)
+            {
+                var brothersIds = await _orphansViewModel.GetBrothers(id);
+                OrphansView orphansView = new OrphansView(brothersIds);
+                orphansView.Show();
+            }
+        }
+
+        private void btnShowMothers_Click(object sender, EventArgs e)
+        {
+                var mothersIds = _orphansViewModel.GetMothers(orphanageGridView1.SelectedIds);
+                MothersView mothersView = new MothersView(mothersIds);
+                mothersView.Show();
+            
         }
     }
 }

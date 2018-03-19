@@ -78,6 +78,8 @@ namespace OrphanageV3.Views.Caregiver
             lblJob.Text = Properties.Resources.Jop.getDobblePunkt();
             lblName.Text = Properties.Resources.FullName.getDobblePunkt();
             lblNotes.Text = Properties.Resources.Notes.getDobblePunkt();
+            btnSave.Text = Properties.Resources.SaveText;
+            btnCancel.Text = Properties.Resources.CancelText;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
@@ -104,7 +106,7 @@ namespace OrphanageV3.Views.Caregiver
                 _CaregiverEntityValidator.SetErrorProvider(errorProvider1);
             }
         }
-        private void grpIdentityCard_Click(object sender, EventArgs e)
+        private void HideNameAddressForms(object sender, EventArgs e)
         {
             nameForm1.HideMe();
             _Caregiver.Name = (Name)nameForm1.NameDataSource;

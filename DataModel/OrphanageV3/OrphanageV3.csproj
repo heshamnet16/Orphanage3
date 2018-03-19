@@ -145,6 +145,9 @@
     <Compile Include="ViewModel\Caregiver\CaregiverEditViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiversViewModel.cs" />
+    <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
+    <Compile Include="ViewModel\Mother\MotherModel.cs" />
+    <Compile Include="ViewModel\Mother\MothersViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
@@ -166,6 +169,18 @@
     <Compile Include="Views\Helper\Interfaces\IEntityValidator.cs" />
     <Compile Include="Views\Helper\Interfaces\IRadGridHelper.cs" />
     <Compile Include="Views\Helper\RadGridHelper.cs" />
+    <Compile Include="Views\Mother\MotherEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mother\MotherEditView.Designer.cs">
+      <DependentUpon>MotherEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mother\MothersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mother\MothersView.Designer.cs">
+      <DependentUpon>MothersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Orphan\OrphanEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +216,12 @@
     <EmbeddedResource Include="Views\Caregiver\CaregiversView.resx">
       <DependentUpon>CaregiversView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mother\MotherEditView.resx">
+      <DependentUpon>MotherEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mother\MothersView.resx">
+      <DependentUpon>MothersView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Orphan\OrphanEditView.resx">
       <DependentUpon>OrphanEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +243,7 @@
       <DependentUpon>SummaryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.Persons.Mother.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Address.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Name.datasource" />

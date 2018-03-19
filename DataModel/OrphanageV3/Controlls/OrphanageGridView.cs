@@ -40,11 +40,18 @@ namespace OrphanageV3.Controlls
         public IList<GridViewRowInfo> SelectedRows {
             get
             {
-                var selectedRows = radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
-                if (selectedRows == null || selectedRows.Count == 0)
-                    return radGridView.SelectedRows.ToList();
+                if (_AddSelectColumn && radGridView.Columns.Contains("Select"))
+                {
+                    var selectedRows = radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                    if (selectedRows == null || selectedRows.Count == 0)
+                        return radGridView.SelectedRows.ToList();
+                    else
+                        return radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                }
                 else
-                    return radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                {
+                    return radGridView.SelectedRows.ToList();
+                }
             }
         }
 
@@ -173,11 +180,11 @@ namespace OrphanageV3.Controlls
         }
         private void radGridView_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e)
         {
+            AddSelectColumnMethod();
             TranslateColumnsNames();
             TranslateGroupTools();
             changeColumnsDateTimeFormat();
             TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
-            AddSelectColumnMethod();
         }
 
         private void AddSelectColumnMethod()
@@ -187,7 +194,15 @@ namespace OrphanageV3.Controlls
                 var col = new GridViewCheckBoxColumn();
                 col.Name = "Select";
                 col.HeaderText = Properties.Resources.Select;
+                col.IsVisible = true;
                 radGridView.Columns.Insert(0, col);
+            }
+            else
+            {
+                if(radGridView.Columns.Contains("Select"))
+                {
+                    radGridView.Columns.Remove("Select");
+                }
             }
         }
         private void radGridView_RowFormatting(object sender, RowFormattingEventArgs e)
@@ -265,6 +280,7 @@ namespace OrphanageV3.Controlls
 
         private void radGridView_LayoutLoaded(object sender, LayoutLoadedEventArgs e)
         {
+            AddSelectColumnMethod();
             TranslateGroupTools();
             TranslateColumnsChooser();
             TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
