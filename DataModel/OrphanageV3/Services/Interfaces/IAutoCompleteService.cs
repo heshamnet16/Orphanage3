@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageV3.Services.Interfaces
 {
@@ -26,6 +23,6 @@ namespace OrphanageV3.Services.Interfaces
 
         void LoadData();
 
-        event EventHandler DataLoaded ;
+        event EventHandler DataLoaded;
     }
 }

@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -305,10 +304,10 @@ namespace OrphanageService.Services
         {
             using (var dbContext = new OrphanageDbCNoBinary())
             {
-                var orphans = await(from orp in dbContext.Orphans.AsNoTracking()
-                                    join fam in dbContext.Families.AsNoTracking() on orp.Family.FatherId equals fam.FatherId
-                                    where fam.FatherId == FatherId
-                                    select orp)
+                var orphans = await (from orp in dbContext.Orphans.AsNoTracking()
+                                     join fam in dbContext.Families.AsNoTracking() on orp.Family.FatherId equals fam.FatherId
+                                     where fam.FatherId == FatherId
+                                     select orp)
                               .CountAsync();
                 return orphans;
             }

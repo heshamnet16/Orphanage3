@@ -61,8 +61,8 @@ namespace OrphanageService.Mother.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             ////if (data != null)
             ////{
-                await _MotherDBService.SetMotherIdPhotoFace(Mid, data);
-                return result;
+            await _MotherDBService.SetMotherIdPhotoFace(Mid, data);
+            return result;
             //}
             //else
             //{
@@ -113,8 +113,8 @@ namespace OrphanageService.Mother.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _MotherDBService.SetMotherIdPhotoBack(Mid, data);
-                return result;
+            await _MotherDBService.SetMotherIdPhotoBack(Mid, data);
+            return result;
             //}
             //else
             //{

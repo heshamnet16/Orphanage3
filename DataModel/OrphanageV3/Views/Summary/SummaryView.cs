@@ -1,15 +1,10 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
 using Telerik.WinControls.UI;
-using OrphanageV3.Services.Interfaces;
 using Unity;
+
 namespace OrphanageV3.Views.Summary
 {
     public partial class SummaryView : Telerik.WinControls.UI.RadForm
@@ -18,7 +13,8 @@ namespace OrphanageV3.Views.Summary
         private readonly ITranslateService _translateService;
         private IList<string> translatedColumns = new List<string>();
         private IList<string> ColumnsToDelete = new List<string>();
-        int i = 0;
+        private int i = 0;
+
         public SummaryView()
         {
             _apiClient = Program.Factory.Resolve<IApiClient>();
@@ -28,7 +24,6 @@ namespace OrphanageV3.Views.Summary
 
         private void SummaryView_Load(object sender, EventArgs e)
         {
-
         }
 
         private void SummaryView_Click(object sender, EventArgs e)
@@ -41,27 +36,22 @@ namespace OrphanageV3.Views.Summary
 
         private void gridOrphans_CreateRow(object sender, GridViewCreateRowEventArgs e)
         {
-
         }
 
         private void gridOrphans_CreateCell(object sender, GridViewCreateCellEventArgs e)
         {
-
         }
 
         private void gridOrphans_ColumnChooserCreated(object sender, ColumnChooserCreatedEventArgs e)
         {
-
         }
 
         private void gridOrphans_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e)
         {
-
         }
 
         private void gridOrphans_BindingContextChanged(object sender, EventArgs e)
         {
-            
         }
     }
 }

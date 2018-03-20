@@ -1,12 +1,8 @@
 ﻿using OrphanageV3.Views.Helper.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Telerik.WinControls;
 using Telerik.WinControls.UI;
+
 namespace OrphanageV3.Views.Helper
 {
     public class RadGridHelper : IRadGridHelper
@@ -77,7 +73,6 @@ namespace OrphanageV3.Views.Helper
             List<int> retList = new List<int>();
             lock (LockObject)
             {
-
                 foreach (var row in GridView.ChildRows)
                     if (row.Cells[columnName].Value != null)
                         retList.Add((int)row.Cells[columnName].Value);
@@ -101,7 +96,6 @@ namespace OrphanageV3.Views.Helper
                 foreach (var row in GridView.ChildRows)
                     row.InvalidateRow();
             }
-
         }
 
         public void InvalidateRow(string IdColumnName, int IdValue)

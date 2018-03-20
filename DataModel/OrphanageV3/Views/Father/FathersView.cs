@@ -2,13 +2,9 @@
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
+
 namespace OrphanageV3.Views.Father
 {
     public partial class FathersView : Telerik.WinControls.UI.RadForm
@@ -24,6 +20,7 @@ namespace OrphanageV3.Views.Father
             SetObjectsDefaultsAndEvents();
             TranslateControls();
         }
+
         public FathersView(IEnumerable<int> FathersIdsList)
         {
             InitializeComponent();
@@ -42,6 +39,7 @@ namespace OrphanageV3.Views.Father
             btnShowMothers.ToolTipText = Properties.Resources.ShowFathers;
             btnShowOrphans.ToolTipText = Properties.Resources.ShowOrphans;
         }
+
         private void SetObjectsDefaultsAndEvents()
         {
             this.Text = Properties.Resources.OrphanViewTitle;
@@ -87,7 +85,7 @@ namespace OrphanageV3.Views.Father
 
         private void FathersView_Load(object sender, EventArgs e)
         {
-            //load saved layout 
+            //load saved layout
             if (System.IO.File.Exists(Properties.Settings.Default.FatherLayoutFilePath))
                 orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.FatherLayoutFilePath);
             //load orphans data

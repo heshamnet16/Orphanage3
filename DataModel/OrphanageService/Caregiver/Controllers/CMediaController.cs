@@ -61,8 +61,8 @@ namespace OrphanageService.Caregiver.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _CaregiverDBService.SetIdentityCardFace(Cid, data);
-                return result;
+            await _CaregiverDBService.SetIdentityCardFace(Cid, data);
+            return result;
             //}
             //else
             //{
@@ -113,8 +113,8 @@ namespace OrphanageService.Caregiver.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _CaregiverDBService.SetIdentityCardBack(Cid, data);
-                return result;
+            await _CaregiverDBService.SetIdentityCardBack(Cid, data);
+            return result;
             //}
             //else
             //{

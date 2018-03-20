@@ -1,9 +1,4 @@
 ﻿using OrphanageDataModel.RegularData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageService.Utilities
 {
@@ -11,7 +6,7 @@ namespace OrphanageService.Utilities
     {
         public static Address Clean(this Address address)
         {
-            if (address.HomePhone == "(000)0000-000" || address.HomePhone == "(031)0000-000" || 
+            if (address.HomePhone == "(000)0000-000" || address.HomePhone == "(031)0000-000" ||
                 address.HomePhone == "(____)___-___" || address.HomePhone == "(0000)000-000")
                 address.HomePhone = null;
 

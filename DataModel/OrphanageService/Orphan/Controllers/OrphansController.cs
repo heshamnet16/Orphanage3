@@ -2,7 +2,6 @@
 using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Net.Http;
@@ -18,7 +17,7 @@ namespace OrphanageService.Orphan.Controllers
         private readonly IHttpMessageConfiguerer _httpMessageConfigurere;
         private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere,IExceptionHandlerService exceptionHandlerService)
+        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere, IExceptionHandlerService exceptionHandlerService)
         {
             _OrphanDBService = orphanDBService;
             _httpMessageConfigurere = httpMessageConfigurere;
@@ -39,7 +38,7 @@ namespace OrphanageService.Orphan.Controllers
 
         [HttpGet]
         [Route("byIds")]
-        public async  Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetByIds([FromUri] IList<int> OrphanIds)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetByIds([FromUri] IList<int> OrphanIds)
         {
             var ret = await _OrphanDBService.GetOrphans(OrphanIds);
             if (ret == null)
@@ -47,6 +46,7 @@ namespace OrphanageService.Orphan.Controllers
             else
                 return ret;
         }
+
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
@@ -91,7 +91,7 @@ namespace OrphanageService.Orphan.Controllers
             }
             catch (DbEntityValidationException excp)
             {
-               throw _exceptionHandlerService.HandleValidationException(excp);
+                throw _exceptionHandlerService.HandleValidationException(excp);
             }
             if (ret > 0)
             {

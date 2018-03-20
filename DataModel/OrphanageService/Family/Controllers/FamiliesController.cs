@@ -46,7 +46,7 @@ namespace OrphanageService.Family.Controllers
             }
             catch (DbEntityValidationException excp)
             {
-                throw  _exceptionHandlerService.HandleValidationException(excp);
+                throw _exceptionHandlerService.HandleValidationException(excp);
             }
             if (ret)
             {

@@ -1,10 +1,6 @@
 ﻿using OrphanageV3.Views.Helper.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OrphanageV3.Views.Helper
@@ -19,6 +15,7 @@ namespace OrphanageV3.Views.Helper
             _DataEntity = null;
             _controlCollection = null;
         }
+
         public Control.ControlCollection controlCollection { get => _controlCollection; set { _controlCollection = value; } }
 
         public object DataEntity { get => _DataEntity; set { _DataEntity = value; } }
@@ -38,9 +35,9 @@ namespace OrphanageV3.Views.Helper
                         {
                             IList<Control> listControls = new List<Control>();
                             findControl(cont, dataMember, ref listControls);
-                            foreach(var retControl in listControls)
+                            foreach (var retControl in listControls)
                             {
-                                yield return new KeyValuePair<Control, string>(retControl,result.ErrorMessage);
+                                yield return new KeyValuePair<Control, string>(retControl, result.ErrorMessage);
                             }
                         }
                     }
@@ -59,6 +56,7 @@ namespace OrphanageV3.Views.Helper
                         findControl(cont, comparableString, ref controlList);
             }
         }
+
         public bool IsValid()
         {
             if (_DataEntity == null || controlCollection == null) return true;
@@ -75,11 +73,11 @@ namespace OrphanageV3.Views.Helper
         public void SetErrorProvider(ErrorProvider errorProvider)
         {
             errorProvider.Clear();
-            if (_DataEntity == null || controlCollection == null) return ;
+            if (_DataEntity == null || controlCollection == null) return;
             var controls = ErrorsControls();
-            foreach(var control in controls)
+            foreach (var control in controls)
             {
-                errorProvider.SetError(control.Key,control.Value);
+                errorProvider.SetError(control.Key, control.Value);
                 errorProvider.SetIconAlignment(control.Key, ErrorIconAlignment.MiddleLeft);
             }
         }

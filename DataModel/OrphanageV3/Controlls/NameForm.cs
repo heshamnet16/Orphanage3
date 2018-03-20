@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Telerik.WinControls.UI;
-using OrphanageV3.Services.Interfaces;
-using Unity;
-
+﻿using OrphanageV3.Services.Interfaces;
 using OrphanageV3.Views.Helper.Interfaces;
+using System;
+using System.Linq;
+using System.Windows.Forms;
+using Unity;
 
 namespace OrphanageV3.Controlls
 {
@@ -29,17 +21,17 @@ namespace OrphanageV3.Controlls
                 nameBindingSource.DataSource = value;
             }
         }
-        bool _ShowMovement;
-        bool isSHown = false;
-        int hi;
-        int wi;
-        int lef;
-        int tp;
-        int _MoveFactor = 10;
+
+        private bool _ShowMovement;
+        private bool isSHown = false;
+        private int hi;
+        private int wi;
+        private int lef;
+        private int tp;
+        private int _MoveFactor = 10;
 
         public enum _MoveType
         {
-
             LeftToRight,
 
             RightToLeft,
@@ -207,7 +199,6 @@ namespace OrphanageV3.Controlls
                     ret = (ret + txt.Text.Substring(1, (txt.Text.Length - 1)));
                     txt.Text = ret;
                 }
-
             }
             ValidateAndShowError();
         }
@@ -220,9 +211,7 @@ namespace OrphanageV3.Controlls
                 {
                     this.Visible = false;
                 }
-
             }
-
         }
 
         public void HideMe()
@@ -379,7 +368,6 @@ namespace OrphanageV3.Controlls
 
                 isSHown = true;
             }
-
         }
 
         private void NameForm_Load(object sender, EventArgs e)
@@ -436,7 +424,6 @@ namespace OrphanageV3.Controlls
 
         private void nameBindingSource_DataSourceChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -60,6 +60,7 @@ namespace OrphanageDataModel.Persons
         public long? ColorMark { get; set; }
 
         private string _IdentityCardNumber;
+
         [Column("IdentityCard_ID")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
@@ -79,7 +80,6 @@ namespace OrphanageDataModel.Persons
                 }
                 if (value != null && value.Length == 0)
                     _IdentityCardNumber = null;
-
             }
         }
 

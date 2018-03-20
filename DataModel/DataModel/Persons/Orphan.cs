@@ -45,6 +45,7 @@ namespace OrphanageDataModel.Persons
         public byte[] FacePhotoData { get; set; }
 
         private string _IdentityCardNumber;
+
         //4180034569
         [Column("IdentityNumber")]
         [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
@@ -56,7 +57,7 @@ namespace OrphanageDataModel.Persons
             {
                 if (value != null && value.Length == 10)
                 {
-                    _IdentityCardNumber ="0" + value;
+                    _IdentityCardNumber = "0" + value;
                 }
                 else
                 {
@@ -64,7 +65,6 @@ namespace OrphanageDataModel.Persons
                 }
                 if (value != null && value.Length == 0)
                     _IdentityCardNumber = null;
-
             }
         }
 

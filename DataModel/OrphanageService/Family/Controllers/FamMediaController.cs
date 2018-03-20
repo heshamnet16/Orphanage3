@@ -61,8 +61,8 @@ namespace OrphanageService.Family.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _FamilyDBService.SetFamilyCardPage1(FamId, data);
-                return result;
+            await _FamilyDBService.SetFamilyCardPage1(FamId, data);
+            return result;
             //}
             //else
             //{
@@ -113,8 +113,8 @@ namespace OrphanageService.Family.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _FamilyDBService.SetFamilyCardPage2(FamId, data);
-                return result;
+            await _FamilyDBService.SetFamilyCardPage2(FamId, data);
+            return result;
             //}
             //else
             //{

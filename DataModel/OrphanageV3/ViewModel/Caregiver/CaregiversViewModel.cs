@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Caregiver
@@ -96,10 +95,11 @@ namespace OrphanageV3.ViewModel.Caregiver
                 return null;
             }
         }
+
         public IList<int> OrphansIds(int caregiverId)
         {
-                var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
-                return caregiver.Orphans.Select(o=>o.Id).ToList();
+            var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
+            return caregiver.Orphans.Select(o => o.Id).ToList();
         }
     }
 }

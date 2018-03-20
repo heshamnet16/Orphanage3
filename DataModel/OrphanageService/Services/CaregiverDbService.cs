@@ -160,7 +160,7 @@ namespace OrphanageService.Services
                     .Include(c => c.Address)
                     .Include(c => c.Name)
                     .Include(c => c.Orphans)
-                    .Include(c=>c.ActingUser.Name)
+                    .Include(c => c.ActingUser.Name)
                     .ToListAsync();
 
                 foreach (var caregiver in caregivers)

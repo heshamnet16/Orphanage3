@@ -16,7 +16,7 @@ namespace OrphanageService.Father.Controllers
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
         private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public FathersController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpMessageConfiguerer,IExceptionHandlerService exceptionHandlerService)
+        public FathersController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
         {
             _FatherDBService = fatherDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
@@ -40,8 +40,9 @@ namespace OrphanageService.Father.Controllers
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.Persons.Father father)
         {
             var ret = 0;
-            try { 
-            ret =await _FatherDBService.SaveFather(father);
+            try
+            {
+                ret = await _FatherDBService.SaveFather(father);
             }
             catch (DbEntityValidationException excp)
             {

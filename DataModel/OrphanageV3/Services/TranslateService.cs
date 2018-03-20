@@ -1,11 +1,6 @@
 ﻿using Itenso.TimePeriod;
 using OrphanageV3.Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageV3.Services
 {
@@ -44,7 +39,7 @@ namespace OrphanageV3.Services
             }
             if ((_IntD >= 3) && (_IntD <= 10))
             {
-                return _IntD + " " +  Properties.Resources.DaysString;
+                return _IntD + " " + Properties.Resources.DaysString;
             }
             else
                 return _IntD + " " + Properties.Resources.DaysAccusativeString;
@@ -71,7 +66,7 @@ namespace OrphanageV3.Services
             }
             if ((_IntD >= 3) && (_IntD <= 10))
             {
-                return _IntD + " " + Properties.Resources.MonthesString; 
+                return _IntD + " " + Properties.Resources.MonthesString;
             }
             else
                 return _IntD + " " + Properties.Resources.MonthesAccusativeString;
@@ -151,6 +146,5 @@ namespace OrphanageV3.Services
             }
             return null;
         }
-        
     }
 }

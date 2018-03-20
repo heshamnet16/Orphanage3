@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.Services
@@ -10,10 +6,15 @@ namespace OrphanageV3.Services
     public partial interface IApiClient
     {
         Task<Image> GetImage(string url, Size size, int compress);
+
         Task<Image> GetImage(string url, Size size);
+
         Task<Image> GetImage(string url);
+
         Task<byte[]> GetImageData(string url, Size size, int compress);
+
         Task<byte[]> GetImageData(string url, Size size);
+
         Task<byte[]> GetImageData(string url);
 
         Task<bool> SetImage(string url, Image img);
@@ -21,7 +22,7 @@ namespace OrphanageV3.Services
 
     public partial class ApiClient : IApiClient
     {
-        public ApiClient(bool useSettingUrl) 
+        public ApiClient(bool useSettingUrl)
         {
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
             {
@@ -37,6 +38,7 @@ namespace OrphanageV3.Services
                 BaseUrl = url;
             }
         }
+
         public async Task<Image> GetImage(string url, Size size, int compress)
         {
             if (url == null || url.Length == 0)
@@ -319,7 +321,6 @@ namespace OrphanageV3.Services
                             var result_ = default(byte[]);
                             try
                             {
-
                                 result_ = responseData_;
 
                                 return result_;
@@ -467,7 +468,6 @@ namespace OrphanageV3.Services
                             var result_ = default(byte[]);
                             try
                             {
-
                                 result_ = responseData_;
 
                                 return result_;
@@ -516,7 +516,7 @@ namespace OrphanageV3.Services
             {
                 using (var memoryStream = new System.IO.MemoryStream())
                 {
-                    if(img != null)
+                    if (img != null)
                         img.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                     using (var request_ = new System.Net.Http.HttpRequestMessage())

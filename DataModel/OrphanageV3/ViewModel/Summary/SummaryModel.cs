@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Summary
 {
@@ -136,6 +132,5 @@ namespace OrphanageV3.ViewModel.Summary
         public string CaregiverMonthlyIncome { get; set; }
 
         public decimal FamilyColor { get; set; }
-
     }
 }

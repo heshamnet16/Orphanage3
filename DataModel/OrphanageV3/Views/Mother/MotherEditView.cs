@@ -3,13 +3,7 @@ using OrphanageV3.Extensions;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
 
 namespace OrphanageV3.Views.Mother
@@ -99,6 +93,7 @@ namespace OrphanageV3.Views.Mother
                 _motherEntityValidator.SetErrorProvider(motherErrorProvider1);
             }
         }
+
         private async void PhotoChanged(object sender, EventArgs e)
         {
             if (_Mother == null) return;
@@ -181,7 +176,6 @@ namespace OrphanageV3.Views.Mother
                 dteDateOfDeath.Enabled = false;
                 _Mother.DateOfDeath = null;
             }
-
         }
 
         private void chkIsMarried_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)

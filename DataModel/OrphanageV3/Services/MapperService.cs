@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using OrphanageDataModel.Persons;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Father;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
-using OrphanageV3.ViewModel.Father;
-using Unity;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace OrphanageV3.Services
 {
     public class MapperService : IMapperService
@@ -19,6 +15,7 @@ namespace OrphanageV3.Services
         private static readonly IMapper _mapper;
         private readonly IDataFormatterService _dataFormatterService;
         private readonly IApiClient _ApiClient;
+
         static MapperService()
         {
             var mapperConfiguration = new MapperConfiguration(cfg =>
@@ -72,8 +69,6 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
                     .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
-
-
             });
 
             _mapper = mapperConfiguration.CreateMapper();
@@ -89,7 +84,6 @@ namespace OrphanageV3.Services
         {
             foreach (var orp in orphanList)
             {
-
                 OrphanModel retOrp = null;
                 try
                 {
@@ -102,6 +96,7 @@ namespace OrphanageV3.Services
                 yield return retOrp;
             }
         }
+
         public OrphanModel MapToOrphanModel(OrphanageDataModel.Persons.Orphan orphan)
         {
             OrphanModel retOrp = null;
@@ -113,7 +108,7 @@ namespace OrphanageV3.Services
                 retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orphan.Caregiver?.Name);
                 retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Father?.Name);
                 retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Mother?.Name);
-                //TODO extend IsBailed to family bails 
+                //TODO extend IsBailed to family bails
             }
             catch
             {
@@ -130,6 +125,7 @@ namespace OrphanageV3.Services
                 yield return retCaregiver;
             }
         }
+
         public CaregiverModel MapToCaregiverModel(OrphanageDataModel.Persons.Caregiver caregiver)
         {
             CaregiverModel retCaregiver = null;
@@ -155,7 +151,7 @@ namespace OrphanageV3.Services
             IList<MotherModel> returnedList = new List<MotherModel>();
             foreach (var mother in mothersList)
             {
-                MotherModel retMother = await  MapToMotherModel(mother);
+                MotherModel retMother = await MapToMotherModel(mother);
                 returnedList.Add(retMother);
             }
             return returnedList;
@@ -173,7 +169,7 @@ namespace OrphanageV3.Services
                 retMother.HusbandsNames = "";
                 foreach (var fam in mother.Families)
                 {
-                    if(fam.Father == null || fam.Father.Name == null)
+                    if (fam.Father == null || fam.Father.Name == null)
                     {
                         fam.Father = await _ApiClient.FathersController_GetAsync(fam.FatherId);
                     }
@@ -198,7 +194,7 @@ namespace OrphanageV3.Services
             foreach (var father in fathersList)
             {
                 FatherModel retFather = await MapToFatherModel(father);
-                returnedFathers.Add( retFather);
+                returnedFathers.Add(retFather);
             }
             return returnedFathers;
         }
@@ -211,20 +207,20 @@ namespace OrphanageV3.Services
                 retFather = _mapper.Map<FatherModel>(father);
                 retFather.FullName = _dataFormatterService.GetFullNameString(father.Name);
                 retFather.WifeName = "";
-                foreach(var fam in father.Families)
+                foreach (var fam in father.Families)
                 {
                     if (fam.Mother == null || fam.Mother.Name == null)
                     {
                         fam.Mother = await _ApiClient.MothersController_GetAsync(fam.MotherId);
                     }
-                    if (father.Families.Count>1)
-                        retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name)  + ", "; 
+                    if (father.Families.Count > 1)
+                        retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name) + ", ";
                     else
                         retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name) + ", ";
                 }
                 if (retFather.WifeName.EndsWith(", "))
                     retFather.WifeName = retFather.WifeName.Substring(0, retFather.WifeName.Length - 2);
-                retFather.OrphansCount = -1;                
+                retFather.OrphansCount = -1;
             }
             catch
             {

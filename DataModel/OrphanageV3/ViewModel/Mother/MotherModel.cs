@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Mother
 {
@@ -16,7 +12,7 @@ namespace OrphanageV3.ViewModel.Mother
         public string FatherName { get; set; }
         public string LastName { get; set; }
 
-        public string  HusbandsNames {get;set;}
+        public string HusbandsNames { get; set; }
 
         public DateTime Birthday { get; set; }
 

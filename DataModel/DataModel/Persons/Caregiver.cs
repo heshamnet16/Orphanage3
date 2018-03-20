@@ -27,6 +27,7 @@ namespace OrphanageDataModel.Persons
         public virtual Address Address { get; set; }
 
         private string _IdentityCardNumber;
+
         [Column("IdentityCard_ID")]
         [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         [MaxLength(11, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]

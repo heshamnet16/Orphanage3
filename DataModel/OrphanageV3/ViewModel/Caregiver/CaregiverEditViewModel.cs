@@ -1,14 +1,10 @@
 ﻿using OrphanageV3.Services;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Caregiver
 {
-    public class  CaregiverEditViewModel
+    public class CaregiverEditViewModel
     {
         private readonly IApiClient _apiClient;
         private Size _ImageSize = new Size(153, 126);
@@ -58,6 +54,7 @@ namespace OrphanageV3.ViewModel.Caregiver
             var ret = await _apiClient.SetImage(url, image);
             return ret;
         }
+
         public async Task<bool> Save()
         {
             return await Save(_CurrentCaregiver);

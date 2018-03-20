@@ -1,16 +1,11 @@
 ﻿using OrphanageV3.ViewModel.Caregiver;
-using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
+
 namespace OrphanageV3.Views.Caregiver
 {
     public partial class CaregiversView : Telerik.WinControls.UI.RadForm
@@ -27,6 +22,7 @@ namespace OrphanageV3.Views.Caregiver
             _radGridHelper.GridView = orphanageGridView1.GridView;
             TranslateControls();
         }
+
         private void TranslateControls()
         {
             this.Text = Properties.Resources.Caregivers;
@@ -39,6 +35,7 @@ namespace OrphanageV3.Views.Caregiver
             btnShowMothers.ToolTipText = Properties.Resources.ShowMothers;
             btnShowOrphans.ToolTipText = Properties.Resources.ShowOrphans;
         }
+
         private void GridView_SelectionChanged(object sender, EventArgs e)
         {
             UpdateControls();
@@ -59,7 +56,7 @@ namespace OrphanageV3.Views.Caregiver
                     btnShowMothers.Enabled = value;
                     btnShowOrphans.Enabled = value;
                 }
-                if(orphanageGridView1.SelectedRows.Count == 1)
+                if (orphanageGridView1.SelectedRows.Count == 1)
                 {
                     btnEdit.Enabled = true;
                 }
@@ -69,6 +66,7 @@ namespace OrphanageV3.Views.Caregiver
                 }
             }
         }
+
         private void _caregiversViewModel_DataLoaded(object sender, EventArgs e)
         {
             orphanageGridView1.GridView.DataSource = _caregiversViewModel.Caregivers;
@@ -90,7 +88,6 @@ namespace OrphanageV3.Views.Caregiver
                 if (ret)
                     _radGridHelper.HideRow("Id", id);
             }
-
         }
 
         private void btnColumn_Click(object sender, EventArgs e)
@@ -106,7 +103,7 @@ namespace OrphanageV3.Views.Caregiver
                 return;
             foreach (var id in selectedIds)
             {
-                var retOIds =  _caregiversViewModel.OrphansIds(id);
+                var retOIds = _caregiversViewModel.OrphansIds(id);
                 if (retOIds != null && retOIds.Count > 0)
                     foreach (var retId in retOIds)
                         ret.Add(retId);
@@ -122,7 +119,7 @@ namespace OrphanageV3.Views.Caregiver
 
         private void CaregiversView_Load(object sender, EventArgs e)
         {
-            if( File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
+            if (File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
             {
                 orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.CaregiverLayoutFilePath);
             }

@@ -1,8 +1,5 @@
 ﻿using OrphanageService.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -13,7 +10,7 @@ namespace OrphanageService.DataBank.Controllers
     {
         private readonly IRegularDataService _regularDataService;
 
-        public DataBanksController (IRegularDataService regularDataService)
+        public DataBanksController(IRegularDataService regularDataService)
         {
             _regularDataService = regularDataService;
         }
@@ -53,6 +50,5 @@ namespace OrphanageService.DataBank.Controllers
             var ret = await _regularDataService.CleanHealthies();
             return ret;
         }
-
     }
 }

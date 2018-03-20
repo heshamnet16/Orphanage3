@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Telerik.WinControls.UI;
+﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
-using Unity;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using Telerik.WinControls;
-using OrphanageV3.Services;
+using Telerik.WinControls.UI;
 
 namespace OrphanageV3.Controlls
 {
@@ -24,6 +20,7 @@ namespace OrphanageV3.Controlls
         private bool _ShowHiddenRows = Properties.Settings.Default.ShowHiddenRows;
         private bool IsButtonsRotated = false;
         private bool _AddSelectColumn = true;
+
         public Telerik.WinControls.UI.RadGridView GridView
         {
             get
@@ -37,7 +34,8 @@ namespace OrphanageV3.Controlls
         public bool ShowHiddenRows { get => _ShowHiddenRows; set { _ShowHiddenRows = value; } }
         public bool AddSelectColumn { get => _AddSelectColumn; set { _AddSelectColumn = value; } }
 
-        public IList<GridViewRowInfo> SelectedRows {
+        public IList<GridViewRowInfo> SelectedRows
+        {
             get
             {
                 if (_AddSelectColumn && radGridView.Columns.Contains("Select"))
@@ -61,13 +59,14 @@ namespace OrphanageV3.Controlls
         {
             get
             {
-                var selRows =  SelectedRows;
+                var selRows = SelectedRows;
                 if (radGridView.Columns.Contains(IdColumnName))
                     return selRows.Where(r => r.Cells[IdColumnName].Value != null).Select(r => (int)r.Cells[IdColumnName].Value).ToList();
                 else
                     return null;
             }
         }
+
         public OrphanageGridView()
         {
             InitializeComponent();
@@ -108,6 +107,7 @@ namespace OrphanageV3.Controlls
                     }
             }
         }
+
         private void TranslatePagingPanel(RadElementCollection elementCollection)
         {
             foreach (var ele in elementCollection)
@@ -143,6 +143,7 @@ namespace OrphanageV3.Controlls
             }
             IsButtonsRotated = true;
         }
+
         private void TranslateColumnsNames()
         {
             foreach (var col in this.radGridView.Columns)
@@ -162,11 +163,13 @@ namespace OrphanageV3.Controlls
             }
             TranslateColumnsChooser();
         }
+
         private void TranslateColumnsChooser()
         {
             radGridView.ColumnChooser.Text = Properties.Resources.Columns;
             radGridView.ColumnChooser.ColumnChooserControl.ColumnChooserElement.Text = Properties.Resources.DragAndDropColumnHere;
         }
+
         private void changeColumnsDateTimeFormat()
         {
             foreach (var col in radGridView.Columns)
@@ -178,6 +181,7 @@ namespace OrphanageV3.Controlls
                 }
             }
         }
+
         private void radGridView_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e)
         {
             AddSelectColumnMethod();
@@ -199,12 +203,13 @@ namespace OrphanageV3.Controlls
             }
             else
             {
-                if(radGridView.Columns.Contains("Select"))
+                if (radGridView.Columns.Contains("Select"))
                 {
                     radGridView.Columns.Remove("Select");
                 }
             }
         }
+
         private void radGridView_RowFormatting(object sender, RowFormattingEventArgs e)
         {
             var row = e.RowElement.RowInfo;
@@ -261,6 +266,7 @@ namespace OrphanageV3.Controlls
             TranslateGroupTools();
             TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
         }
+
         private void radGridView_PageChanged(object sender, EventArgs e)
         {
             TranslateGroupTools();
@@ -269,7 +275,6 @@ namespace OrphanageV3.Controlls
 
         private void radGridView_BindingContextChanged(object sender, EventArgs e)
         {
-
         }
 
         public void ShowColumnsChooser()

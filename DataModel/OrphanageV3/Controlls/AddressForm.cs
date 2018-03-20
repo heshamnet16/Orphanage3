@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.ComponentModel.DataAnnotations;
-using OrphanageV3.Extensions;
+﻿using OrphanageV3.Extensions;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.Views.Helper.Interfaces;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 using Unity;
 
 namespace OrphanageV3.Controlls
 {
     public partial class AddressForm : UserControl
     {
-        bool _ShowMovement;
-        int _MoveFactor = 10;
+        private bool _ShowMovement;
+        private int _MoveFactor = 10;
         private IAutoCompleteService _AutoCompleteServic /*= Program.Factory.Resolve<IAutoCompleteService>()*/;
         private IDataFormatterService _DataFormatterService  /*= Program.Factory.Resolve<IDataFormatterService>()*/;
         private IEntityValidator _entityValidator;
@@ -31,6 +24,7 @@ namespace OrphanageV3.Controlls
                 addressBindingSource.DataSource = value;
             }
         }
+
         public enum _MoveType
         {
             LeftToRight,
@@ -56,8 +50,6 @@ namespace OrphanageV3.Controlls
 
         private _MoveType _Mtype = _MoveType.UpToDown;
 
-
-
         public int MoveFactor
         {
             get
@@ -81,7 +73,6 @@ namespace OrphanageV3.Controlls
                 this._ShowMovement = value;
             }
         }
-
 
         public int Id
         {
@@ -110,7 +101,6 @@ namespace OrphanageV3.Controlls
                 }
             }
         }
-
 
         private bool _HideOnEnter = false;
 
@@ -188,6 +178,7 @@ namespace OrphanageV3.Controlls
             txtTown.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.Towns.ToArray());
             txtStreet.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.Streets.ToArray());
         }
+
         private void TranslateControls()
         {
             lblCity.Text = Properties.Resources.City.getDobblePunkt();
@@ -225,7 +216,6 @@ namespace OrphanageV3.Controlls
                 {
                     txtFacebook.Text = null;
                 }
-
             }
             if ((sender == txtTwitter))
             {
@@ -260,7 +250,6 @@ namespace OrphanageV3.Controlls
                     txtFacebook.Text = "Https://www.Facebook.com/";
                     txtFacebook.SelectionStart = txtFacebook.Text.Length;
                 }
-
             }
             if ((sender == txtTwitter))
             {
@@ -270,7 +259,6 @@ namespace OrphanageV3.Controlls
                     txtTwitter.Text = "Https://www.twitter.com/";
                     txtTwitter.SelectionStart = txtTwitter.Text.Length;
                 }
-
             }
         }
 
@@ -347,7 +335,6 @@ namespace OrphanageV3.Controlls
             }
             else
                 ValidateAndShowError();
-
         }
 
         public void ShowMe()
@@ -424,7 +411,6 @@ namespace OrphanageV3.Controlls
 
                 isSHown = true;
             }
-
         }
 
         private void AddressFrom_Load(object sender, EventArgs e)
@@ -457,7 +443,6 @@ namespace OrphanageV3.Controlls
                     this.Visible = false;
                     _ShowMovement = true;
                 }
-
             }
         }
 
@@ -474,7 +459,6 @@ namespace OrphanageV3.Controlls
 
         private void addressBindingSource_DataSourceChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

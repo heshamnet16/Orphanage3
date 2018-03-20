@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -102,11 +101,12 @@ namespace OrphanageV3.ViewModel.Mother
                 return null;
             }
         }
+
         public async Task<IList<int>> OrphansIds(int motherId)
         {
             var mother = _SourceMothers.FirstOrDefault(c => c.Id == motherId);
             var orphansList = await _apiClient.MothersController_GetOrphansAsync(motherId);
-            if (orphansList != null && orphansList.Count > 0 )
+            if (orphansList != null && orphansList.Count > 0)
                 return orphansList.Select(o => o.Id).ToList();
             else
                 return null;
@@ -116,7 +116,7 @@ namespace OrphanageV3.ViewModel.Mother
         {
             var mother = _SourceMothers.FirstOrDefault(c => c.Id == motherId);
             IList<int> fatherList = new List<int>();
-            foreach(var family in mother.Families)
+            foreach (var family in mother.Families)
             {
                 fatherList.Add(family.FatherId);
             }

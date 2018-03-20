@@ -61,8 +61,8 @@ namespace OrphanageService.Father.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _FatherDBService.SetFatherPhoto(Fid, data);
-                return result;
+            await _FatherDBService.SetFatherPhoto(Fid, data);
+            return result;
             //}
             //else
             //{
@@ -113,8 +113,8 @@ namespace OrphanageService.Father.Controllers
             var data = await _httpResponseMessageConfiguerer.GetMIMIContentData(Request);
             //if (data != null)
             //{
-                await _FatherDBService.SetFatherDeathCertificate(Fid, data);
-                return result;
+            await _FatherDBService.SetFatherDeathCertificate(Fid, data);
+            return result;
             //}
             //else
             //{

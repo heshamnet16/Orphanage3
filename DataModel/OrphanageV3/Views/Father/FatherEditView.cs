@@ -3,14 +3,9 @@ using OrphanageV3.Extensions;
 using OrphanageV3.ViewModel.Father;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
+
 namespace OrphanageV3.Views.Father
 {
     public partial class FatherEditView : Telerik.WinControls.UI.RadForm
@@ -42,7 +37,7 @@ namespace OrphanageV3.Views.Father
             _Father = await _fatherEditViewModel.getFather(fatherId);
             if (_Father != null)
             {
-               fatherBindingSource.DataSource = _Father;
+                fatherBindingSource.DataSource = _Father;
                 _fatherEntityValidator.controlCollection = Controls;
                 _fatherEntityValidator.DataEntity = _Father;
                 nameForm1.NameDataSource = _Father.Name;
@@ -151,6 +146,7 @@ namespace OrphanageV3.Views.Father
                 ValidateAndShowError();
             }
         }
+
         private void clrColor_ValueChanged(object sender, EventArgs e)
         {
             if (clrColor.Value != null && clrColor.Value != Color.Black && clrColor.Value != Color.White)

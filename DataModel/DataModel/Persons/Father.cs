@@ -65,7 +65,6 @@ namespace OrphanageDataModel.Persons
                 }
                 if (value != null && value.Length == 0)
                     _IdentityCardNumber = null;
-
             }
         }
 

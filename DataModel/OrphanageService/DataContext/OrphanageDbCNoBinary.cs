@@ -10,7 +10,7 @@ namespace OrphanageService.DataContext
         {
             System.Data.Entity.Database.SetInitializer<OrphanageDBC>(new CreateDatabaseIfNotExists<OrphanageDBC>());
             Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;            
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<OrphanageDataModel.RegularData.Address> Addresses { get; set; }

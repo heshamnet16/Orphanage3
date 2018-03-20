@@ -1,12 +1,5 @@
 ﻿using OrphanageV3.Services;
-using OrphanageV3.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Father
@@ -61,6 +54,7 @@ namespace OrphanageV3.ViewModel.Father
             var ret = await _apiClient.SetImage(url, image);
             return ret;
         }
+
         public async Task<bool> Save()
         {
             return await Save(_CurrentFather);

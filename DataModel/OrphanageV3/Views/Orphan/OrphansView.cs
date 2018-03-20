@@ -1,20 +1,16 @@
 ﻿using OrphanageV3.ViewModel.Orphan;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
-using Unity;
-using System.Linq;
-using System.Threading;
-using Telerik.WinControls.UI;
-using OrphanageV3.Views.Helper;
+using OrphanageV3.Views.Father;
 using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageV3.Views.Mother;
-using OrphanageV3.Views.Father;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
+using Telerik.WinControls.UI;
+using Unity;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -66,14 +62,12 @@ namespace OrphanageV3.Views.Orphan
             }
         }
 
-
         private void GridView_GroupExpanded(object sender, GroupExpandedEventArgs e)
         {
             CloseOtherThreads();
-            var ids = e.DataGroup.Where(r => r.Cells["Id"].Value != null).Select(c=>(int)c.Cells["Id"].Value).ToList();
+            var ids = e.DataGroup.Where(r => r.Cells["Id"].Value != null).Select(c => (int)c.Cells["Id"].Value).ToList();
             StartThumbnailsThread(ids);
         }
-
 
         private void GridView_SelectionChanged(object sender, EventArgs e)
         {
@@ -83,7 +77,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void StartThumbnailsThread(IList<int> idsListFromGrid)
         {
-            foreach(var id in idsListFromGrid)
+            foreach (var id in idsListFromGrid)
             {
                 _radGridHelper.UpadteCellData("Id", id, "Photo", ref _loading);
             }
@@ -114,6 +108,7 @@ namespace OrphanageV3.Views.Orphan
             t.Start(idsListFromGrid);
             PagingThreads.Add(t);
         }
+
         private void CloseOtherThreads()
         {
             foreach (Thread th in PagingThreads)
@@ -130,6 +125,7 @@ namespace OrphanageV3.Views.Orphan
             if (PagingThreads.Count(th => th.IsAlive) == 0)
                 PagingThreads.Clear();
         }
+
         private void UpdateOrphanPictureAndDetails()
         {
             txtDetails.Text = "............";
@@ -150,6 +146,7 @@ namespace OrphanageV3.Views.Orphan
             upadteImageDetailsThread.Priority = ThreadPriority.Highest;
             upadteImageDetailsThread.Start();
         }
+
         private void UpdateControls()
         {
             var retObject = _radGridHelper.GetValueBySelectedRow("IsExcluded");
@@ -161,14 +158,13 @@ namespace OrphanageV3.Views.Orphan
                 btnExclud.ToolTipText = isExcluded ? Properties.Resources.UnExclude : Properties.Resources.Exclude;
             }
         }
+
         private void GridView_PageChanged(object sender, EventArgs e)
         {
             CloseOtherThreads();
             IList<int> idsListFromGrid = _radGridHelper.GetCurrentRows("Id").ToList();
             StartThumbnailsThread(idsListFromGrid);
-
         }
-
 
         private void OrphansViewModel_OrphansChangedEvent()
         {
@@ -176,7 +172,8 @@ namespace OrphanageV3.Views.Orphan
             var PicColumn = orphanageGridView1.GridView.Columns["Photo"];
             PicColumn.ImageLayout = ImageLayout.Stretch;
             orphanageGridView1.GridView.Columns["Photo"].Width = 80;
-            Thread tt = new Thread(new ThreadStart(() => {
+            Thread tt = new Thread(new ThreadStart(() =>
+            {
                 System.Threading.Thread.Sleep(1000);
                 GridView_PageChanged(null, null);
             }));
@@ -185,11 +182,11 @@ namespace OrphanageV3.Views.Orphan
 
         private void OrphansView_Load(object sender, EventArgs e)
         {
-            //load saved layout 
+            //load saved layout
             if (System.IO.File.Exists(Properties.Settings.Default.OrphanLayoutFilePath))
                 orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.OrphanLayoutFilePath);
             //load orphans data
-            if(_orphansIds != null)
+            if (_orphansIds != null)
                 _orphansViewModel.LoadData(_orphansIds);
             else
                 _orphansViewModel.LoadData();
@@ -270,9 +267,9 @@ namespace OrphanageV3.Views.Orphan
 
         private void btnShowMothers_Click(object sender, EventArgs e)
         {
-                var mothersIds = _orphansViewModel.GetMothers(orphanageGridView1.SelectedIds);
-                MothersView mothersView = new MothersView(mothersIds);
-                mothersView.Show();            
+            var mothersIds = _orphansViewModel.GetMothers(orphanageGridView1.SelectedIds);
+            MothersView mothersView = new MothersView(mothersIds);
+            mothersView.Show();
         }
 
         private void btnShowFathers_Click(object sender, EventArgs e)

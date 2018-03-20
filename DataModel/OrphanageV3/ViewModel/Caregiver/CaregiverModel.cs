@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Caregiver
 {
@@ -34,7 +30,7 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public DateTime RegDate { get; set; }
 
-        public string UserName  { get; set; }
+        public string UserName { get; set; }
 
         public string Notes { get; set; }
 
@@ -43,6 +39,5 @@ namespace OrphanageV3.ViewModel.Caregiver
         public string IdentityCardImageBackURI { get; set; }
 
         public int OrphansCount { get; set; }
-
     }
 }

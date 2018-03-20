@@ -1,10 +1,6 @@
-﻿using OrphanageV3.Services;
-using System;
+﻿using System;
 using System.Drawing;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using Unity;
+
 namespace OrphanageV3.ViewModel.Orphan
 {
     public class OrphanModel
@@ -60,7 +56,6 @@ namespace OrphanageV3.ViewModel.Orphan
         public string StudyReasons { get; set; }
 
         public bool IsSick { get; set; }
-
 
         public string CaregiverFatherName { get; set; }
         public string CaregiverLastName { get; set; }

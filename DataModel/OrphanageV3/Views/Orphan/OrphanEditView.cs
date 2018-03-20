@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageV3.Extensions;
-using OrphanageV3.ViewModel.Orphan;
-using Unity;
-using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Orphan;
+using OrphanageV3.Views.Helper.Interfaces;
+using System;
+using System.Drawing;
 using System.Linq;
-using OrphanageV3.Services;
-using OrphanageDataModel.RegularData;
+using System.Windows.Forms;
+using Unity;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -44,6 +38,7 @@ namespace OrphanageV3.Views.Orphan
             SetLablesString();
             loadOrphan(orphanId);
         }
+
         private async void loadOrphan(int Oid)
         {
             _CurrentOrphan = await _orphanViewModel.getOrphan(Oid);
@@ -57,6 +52,7 @@ namespace OrphanageV3.Views.Orphan
             _EducationEntityValidator.controlCollection = pgeEducation.Controls;
             _EducationEntityValidator.DataEntity = _CurrentOrphan.Education;
         }
+
         private void _AutoCompleteServic_DataLoaded(object sender, EventArgs e)
         {
             //fired when string is loaded
@@ -70,7 +66,6 @@ namespace OrphanageV3.Views.Orphan
             txtSschoolNAme.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.EducationSchools.ToArray());
             txtOPlaceOfBirth.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.BirthPlaces.ToArray());
             txtOStory.AutoCompleteCustomSource.AddRange(_AutoCompleteServic.OrphanStories.ToArray());
-
         }
 
         private void SetLablesString()
@@ -186,7 +181,7 @@ namespace OrphanageV3.Views.Orphan
             {
                 EnabledDisHealthControls(false);
             }
-            //Education 
+            //Education
             RadPageView1.SelectedPage = pgeEducation;
             if (_CurrentOrphan.EducationId.HasValue)
             {
@@ -237,7 +232,6 @@ namespace OrphanageV3.Views.Orphan
                 {
                     Medic += itm.Text + ";";
                 }
-
             }
 
             if ((!(Medic == null) && (Medic.Length > 0)))
@@ -252,7 +246,6 @@ namespace OrphanageV3.Views.Orphan
                 {
                     Sickne += itm.Text + ";";
                 }
-
             }
 
             if ((!(Sickne == null)
@@ -346,7 +339,6 @@ namespace OrphanageV3.Views.Orphan
                     stud.Reasons = txtSReason.Text;
                     _CurrentOrphan.Education = stud;
                 }
-
             }
             else
             {
@@ -385,6 +377,7 @@ namespace OrphanageV3.Views.Orphan
             chkHIsSick.ToggleState = value ? Telerik.WinControls.Enumerations.ToggleState.On : Telerik.WinControls.Enumerations.ToggleState.Off;
             chkHIsSick.ToggleStateChanged += chkHIsSick_ToggleStateChanged;
         }
+
         private void chkHIsSick_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
@@ -414,6 +407,7 @@ namespace OrphanageV3.Views.Orphan
             chkSisStudy.ToggleState = value ? Telerik.WinControls.Enumerations.ToggleState.On : Telerik.WinControls.Enumerations.ToggleState.Off;
             chkSisStudy.ToggleStateChanged += chkSisStudy_ToggleStateChanged;
         }
+
         private void chkSisStudy_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
@@ -525,6 +519,7 @@ namespace OrphanageV3.Views.Orphan
                 ValidateAndShowErrors();
             }
         }
+
         private void ValidateAndShowErrors()
         {
             _OrphanEntityValidator.controlCollection = Controls;
@@ -536,12 +531,11 @@ namespace OrphanageV3.Views.Orphan
             _EducationEntityValidator.controlCollection = pgeEducation.Controls;
             _EducationEntityValidator.DataEntity = _CurrentOrphan.Education;
             _EducationEntityValidator.SetErrorProvider(OrphanerrorProvider1);
-
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
     }
 }
-

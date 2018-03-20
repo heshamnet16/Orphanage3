@@ -1,9 +1,6 @@
 ﻿using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageV3.Services
 {
@@ -26,7 +23,7 @@ namespace OrphanageV3.Services
         public IList<string> Cities { get; set; }
         public IList<string> Towns { get; set; }
         public IList<string> Streets { get; set; }
-        public IList<string> Countries { get ; set ; }
+        public IList<string> Countries { get; set; }
 
         private bool EducationLoaded = false;
         private bool HealthLoaded = false;

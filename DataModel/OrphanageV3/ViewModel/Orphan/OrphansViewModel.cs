@@ -1,14 +1,11 @@
 ﻿using OrphanageDataModel.FinancialData;
 using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
-using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Orphan
@@ -21,8 +18,11 @@ namespace OrphanageV3.ViewModel.Orphan
         private readonly IDataFormatterService _dataFormatterService;
 
         public delegate void OrphansChnagedDelegate();
+
         public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
+
         public event OrphansChnagedDelegate OrphansChangedEvent;
+
         public ObservableCollection<OrphanModel> Orphans { get; set; }
         private IList<OrphanageDataModel.Persons.Orphan> _SourceOrphans;
         private Size PhotoSize = new Size(75, 75);
@@ -35,6 +35,7 @@ namespace OrphanageV3.ViewModel.Orphan
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
         }
+
         public void LoadData()
         {
             GetOrphans();
@@ -53,12 +54,13 @@ namespace OrphanageV3.ViewModel.Orphan
             //get first page orphan ids
             var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
 
-            //set Loading image 
+            //set Loading image
             foreach (var orp in Orphans)
                 orp.Photo = Properties.Resources.loading;
             //Start Image thread after data loading
             await LoadImages(ids);
         }
+
         private async void GetOrphans()
         {
             var Ocounts = await _apiClient.OrphansController_GetOrphansCountAsync();
@@ -318,7 +320,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public int GetMother(int Oid)
         {
-            var orphan = _SourceOrphans.FirstOrDefault(o=>o.Id==Oid);
+            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
             if (orphan != null)
             {
                 return orphan.Family.MotherId;

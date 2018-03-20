@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
+﻿using OrphanageDataModel.RegularData;
 using OrphanageV3.Extensions;
 using OrphanageV3.ViewModel.Caregiver;
-using Unity;
-using OrphanageV3.Services.Interfaces;
-using System.Linq;
 using OrphanageV3.Views.Helper.Interfaces;
-using OrphanageDataModel.RegularData;
+using System;
+using System.Drawing;
+using Unity;
 
 namespace OrphanageV3.Views.Caregiver
 {
@@ -35,7 +27,6 @@ namespace OrphanageV3.Views.Caregiver
             LoadCaregiver(CaregiverId);
         }
 
-
         private async void LoadCaregiver(int id)
         {
             _Caregiver = await _caregiverEditViewModel.getCaregiver(id);
@@ -55,6 +46,7 @@ namespace OrphanageV3.Views.Caregiver
             }
             TranslateControls();
         }
+
         private void CaregiverEditView_Load(object sender, EventArgs e)
         {
         }
@@ -96,6 +88,7 @@ namespace OrphanageV3.Views.Caregiver
                 ValidateAndShowError();
             }
         }
+
         private void ValidateAndShowError()
         {
             errorProvider1.Clear();
@@ -106,6 +99,7 @@ namespace OrphanageV3.Views.Caregiver
                 _CaregiverEntityValidator.SetErrorProvider(errorProvider1);
             }
         }
+
         private void HideNameAddressForms(object sender, EventArgs e)
         {
             nameForm1.HideMe();

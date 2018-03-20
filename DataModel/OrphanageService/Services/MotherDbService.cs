@@ -177,7 +177,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var mothers = await _orphanageDBC.Mothers.AsNoTracking()
-                    .Where(m=> motherIds.Contains(m.Id))
+                    .Where(m => motherIds.Contains(m.Id))
                     .Include(f => f.Families)
                     .Include(f => f.Name)
                     .Include(m => m.Address)
@@ -194,6 +194,7 @@ namespace OrphanageService.Services
             }
             return mothersList;
         }
+
         public IEnumerable<OrphanageDataModel.Persons.Mother> GetMothersByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
         {
             if (addressObject == null) throw new NullReferenceException();
