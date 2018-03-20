@@ -39,7 +39,7 @@ namespace OrphanageV3.ViewModel.Father
 
             _SourceFathers = ReturnedFathers;
 
-            Fathers = new ObservableCollection<FatherModel>(_mapperService.MapToFatherModel(_SourceFathers));
+            Fathers = new ObservableCollection<FatherModel>(await _mapperService.MapToFatherModel(_SourceFathers));
             UpdateFathersOrphansCount();
             DataLoaded?.Invoke(this, new EventArgs());
         }
@@ -50,7 +50,7 @@ namespace OrphanageV3.ViewModel.Father
 
             _SourceFathers = ReturnedFathers;
 
-            Fathers = new ObservableCollection<FatherModel>(_mapperService.MapToFatherModel(_SourceFathers));
+            Fathers = new ObservableCollection<FatherModel>(await _mapperService.MapToFatherModel(_SourceFathers));
             UpdateFathersOrphansCount();
             DataLoaded?.Invoke(this, new EventArgs());
         }
@@ -66,12 +66,16 @@ namespace OrphanageV3.ViewModel.Father
             })).Start();
         }
 
-        public async void Update(int motherId)
+        public async void Update(int fatherId)
         {
-            var sourceFather = await _apiClient.FathersController_GetAsync(motherId);
-            var orphansCountTask = _apiClient.FathersController_GetOrphansCountAsync(motherId);
-            var fatherModel = _mapperService.MapToFatherModel(sourceFather);
-            var FatherToEdit = Fathers.FirstOrDefault(c => c.Id == motherId);
+            var sourceFather = await _apiClient.FathersController_GetAsync(fatherId);
+            var orphansCountTask = _apiClient.FathersController_GetOrphansCountAsync(fatherId);
+            //update father object in the source list
+            var sourceFatherIndex = _SourceFathers.IndexOf(_SourceFathers.FirstOrDefault(f => f.Id == fatherId));
+            _SourceFathers[sourceFatherIndex] = sourceFather;
+
+            var fatherModel = await _mapperService.MapToFatherModel(sourceFather);
+            var FatherToEdit = Fathers.FirstOrDefault(c => c.Id == fatherId);
             var fatherToEditIndex = Fathers.IndexOf(FatherToEdit);
             fatherModel.OrphansCount = await orphansCountTask;
             Fathers[fatherToEditIndex] = fatherModel;
@@ -104,6 +108,20 @@ namespace OrphanageV3.ViewModel.Father
             var orphansList = await _apiClient.FathersController_GetOrphansAsync(motherId);
             if (orphansList != null && orphansList.Count > 0)
                 return orphansList.Select(o => o.Id).ToList();
+            else
+                return null;
+        }
+
+        public IList<int> MothersIds(int fatherId)
+        {
+            var father = _SourceFathers.FirstOrDefault(c => c.Id == fatherId);
+            IList<int> motherList = new List<int>();
+            foreach (var family in father.Families)
+            {
+                motherList.Add(family.MotherId);
+            }
+            if (motherList != null && motherList.Count > 0)
+                return motherList;
             else
                 return null;
         }

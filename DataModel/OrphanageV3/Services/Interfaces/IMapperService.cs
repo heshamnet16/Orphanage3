@@ -19,10 +19,10 @@ namespace OrphanageV3.Services.Interfaces
         IEnumerable<CaregiverModel> MapToCaregiverModel(IEnumerable<Caregiver> caregiverist);
         CaregiverModel MapToCaregiverModel(Caregiver caregiver);
 
-        IEnumerable<MotherModel> MapToMotherModel(IEnumerable<Mother> mothersList);
-        MotherModel MapToMotherModel(Mother mother);
+        Task<IEnumerable<MotherModel>> MapToMotherModel(IEnumerable<Mother> mothersList);
+        Task<MotherModel> MapToMotherModel(Mother mother);
 
-        IEnumerable<FatherModel> MapToFatherModel(IEnumerable<Father> fathersList);
-        FatherModel MapToFatherModel(Father father);
+        Task<IEnumerable<FatherModel>> MapToFatherModel(IEnumerable<Father> fathersList);
+        Task<FatherModel> MapToFatherModel(Father father);
     }
 }

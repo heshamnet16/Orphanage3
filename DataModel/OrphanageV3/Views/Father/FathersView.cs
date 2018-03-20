@@ -1,4 +1,4 @@
-﻿using OrphanageV3.ViewModel.Mother;
+﻿using OrphanageV3.ViewModel.Father;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,43 +9,43 @@ using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Unity;
-namespace OrphanageV3.Views.Mother
+namespace OrphanageV3.Views.Father
 {
-    public partial class MothersView : Telerik.WinControls.UI.RadForm
+    public partial class FathersView : Telerik.WinControls.UI.RadForm
     {
-        private MothersViewModel _mothersViewModel = Program.Factory.Resolve<MothersViewModel>();
+        private FathersViewModel _fathersViewModel = Program.Factory.Resolve<FathersViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
-        private IEnumerable<int> _MothersIdsList;
+        private IEnumerable<int> _FathersIdsList;
 
-        public MothersView()
+        public FathersView()
         {
             InitializeComponent();
-            _MothersIdsList = null;
+            _FathersIdsList = null;
+            SetObjectsDefaultsAndEvents();
+            TranslateControls();
+        }
+        public FathersView(IEnumerable<int> FathersIdsList)
+        {
+            InitializeComponent();
+            _FathersIdsList = FathersIdsList;
             SetObjectsDefaultsAndEvents();
             TranslateControls();
         }
 
-        public MothersView(IEnumerable<int> MothersIdsList)
-        {
-            InitializeComponent();
-            _MothersIdsList = MothersIdsList;
-            SetObjectsDefaultsAndEvents();
-            TranslateControls();
-        }
         private void TranslateControls()
         {
-            this.Text = Properties.Resources.Mothers;
+            this.Text = Properties.Resources.Fathers;
             btnColumn.ToolTipText = Properties.Resources.Columns;
             btnEdit.ToolTipText = Properties.Resources.Edit;
             btnSetColor.ToolTipText = Properties.Resources.Edit + " " + Properties.Resources.Color;
             btnShowFamilies.ToolTipText = Properties.Resources.ShowFamilies;
-            btnShowFathers.ToolTipText = Properties.Resources.ShowFathers;
+            btnShowMothers.ToolTipText = Properties.Resources.ShowFathers;
             btnShowOrphans.ToolTipText = Properties.Resources.ShowOrphans;
         }
         private void SetObjectsDefaultsAndEvents()
         {
             this.Text = Properties.Resources.OrphanViewTitle;
-            _mothersViewModel.DataLoaded += _Mothers_DataLoaded;
+            _fathersViewModel.DataLoaded += _Fathers_DataLoaded;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
             // set RadGridHelper
             _radGridHelper.GridView = orphanageGridView1.GridView;
@@ -80,58 +80,21 @@ namespace OrphanageV3.Views.Mother
             }
         }
 
-        private void _Mothers_DataLoaded(object sender, EventArgs e)
+        private void _Fathers_DataLoaded(object sender, EventArgs e)
         {
-            orphanageGridView1.GridView.DataSource = _mothersViewModel.Mothers;
+            orphanageGridView1.GridView.DataSource = _fathersViewModel.Fathers;
         }
 
-        private async void btnSetColor_Click(object sender, EventArgs e)
-        {
-            var dialogResult = radColorDialog.ShowDialog(this);
-            if (dialogResult == DialogResult.OK)
-            {
-                var selectedIds = orphanageGridView1.SelectedIds;
-                if (selectedIds == null || selectedIds.Count == 0)
-                    return;
-                foreach (var id in selectedIds)
-                {
-                    _radGridHelper.UpdateRowColor("ColorMark", await _mothersViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
-                }
-            }
-        }
-
-        private void btnColumn_Click(object sender, EventArgs e)
-        {
-            orphanageGridView1.ShowColumnsChooser();
-        }
-
-        private void View_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.MotherLayoutFilePath);
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            var objId = _radGridHelper.GetValueBySelectedRow("Id");
-            if (objId != null)
-            {
-                int id = (int)objId;
-                MotherEditView motherEditView = new MotherEditView(id);
-                motherEditView.ShowDialog();
-                _mothersViewModel.Update(id);
-            }
-        }
-
-        private void MothersView_Load(object sender, EventArgs e)
+        private void FathersView_Load(object sender, EventArgs e)
         {
             //load saved layout 
-            if (System.IO.File.Exists(Properties.Settings.Default.MotherLayoutFilePath))
-                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.MotherLayoutFilePath);
+            if (System.IO.File.Exists(Properties.Settings.Default.FatherLayoutFilePath))
+                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.FatherLayoutFilePath);
             //load orphans data
-            if (_MothersIdsList != null)
-                _mothersViewModel.LoadMothers(_MothersIdsList);
+            if (_FathersIdsList != null)
+                _fathersViewModel.LoadFathers(_FathersIdsList);
             else
-                _mothersViewModel.LoadMothers();
+                _fathersViewModel.LoadFathers();
             //set default grid values
             orphanageGridView1.GridView.AllowAutoSizeColumns = true;
             orphanageGridView1.GridView.PageSize = Properties.Settings.Default.DefaultPageSize;
@@ -145,7 +108,7 @@ namespace OrphanageV3.Views.Mother
                 return;
             foreach (var id in selectedIds)
             {
-                var retOIds = await _mothersViewModel.OrphansIds(id);
+                var retOIds = await _fathersViewModel.OrphansIds(id);
                 if (retOIds != null && retOIds.Count > 0)
                     foreach (var retId in retOIds)
                         ret.Add(retId);
@@ -154,7 +117,32 @@ namespace OrphanageV3.Views.Mother
             or.Show();
         }
 
-        private void btnShowFathers_Click(object sender, EventArgs e)
+        private async void btnSetColor_Click(object sender, EventArgs e)
+        {
+            var dialogResult = radColorDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                var selectedIds = orphanageGridView1.SelectedIds;
+                if (selectedIds == null || selectedIds.Count == 0)
+                    return;
+                foreach (var id in selectedIds)
+                {
+                    _radGridHelper.UpdateRowColor("ColorMark", await _fathersViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
+                }
+            }
+        }
+
+        private void btnColumn_Click(object sender, EventArgs e)
+        {
+            orphanageGridView1.ShowColumnsChooser();
+        }
+
+        private void FathersView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.FatherLayoutFilePath);
+        }
+
+        private void btnShowMothers_Click(object sender, EventArgs e)
         {
             IList<int> ret = new List<int>();
             var selectedIds = orphanageGridView1.SelectedIds;
@@ -162,13 +150,25 @@ namespace OrphanageV3.Views.Mother
                 return;
             foreach (var id in selectedIds)
             {
-                var retOIds = _mothersViewModel.FathersIds(id);
+                var retOIds = _fathersViewModel.MothersIds(id);
                 if (retOIds != null && retOIds.Count > 0)
                     foreach (var retId in retOIds)
                         ret.Add(retId);
             }
-            Father.FathersView or = new Father.FathersView(ret);
+            Mother.MothersView or = new Mother.MothersView(ret);
             or.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var objId = _radGridHelper.GetValueBySelectedRow("Id");
+            if (objId != null)
+            {
+                int id = (int)objId;
+                FatherEditView motherEditView = new FatherEditView(id);
+                motherEditView.ShowDialog();
+                _fathersViewModel.Update(id);
+            }
         }
     }
 }

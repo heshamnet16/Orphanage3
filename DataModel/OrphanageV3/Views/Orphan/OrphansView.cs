@@ -14,6 +14,7 @@ using Telerik.WinControls.UI;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageV3.Views.Mother;
+using OrphanageV3.Views.Father;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -131,6 +132,8 @@ namespace OrphanageV3.Views.Orphan
         }
         private void UpdateOrphanPictureAndDetails()
         {
+            txtDetails.Text = "............";
+            picPhoto.Image = (Bitmap)_loading;
             if (upadteImageDetailsThread != null && upadteImageDetailsThread.IsAlive)
                 upadteImageDetailsThread.Abort();
             upadteImageDetailsThread = new Thread(new ThreadStart(async () =>
@@ -269,8 +272,14 @@ namespace OrphanageV3.Views.Orphan
         {
                 var mothersIds = _orphansViewModel.GetMothers(orphanageGridView1.SelectedIds);
                 MothersView mothersView = new MothersView(mothersIds);
-                mothersView.Show();
-            
+                mothersView.Show();            
+        }
+
+        private void btnShowFathers_Click(object sender, EventArgs e)
+        {
+            var fathersIds = _orphansViewModel.GetFathers(orphanageGridView1.SelectedIds);
+            FathersView fathersView = new FathersView(fathersIds);
+            fathersView.Show();
         }
     }
 }

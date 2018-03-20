@@ -16,6 +16,8 @@ namespace OrphanageV3.ViewModel.Mother
         public string FatherName { get; set; }
         public string LastName { get; set; }
 
+        public string  HusbandsNames {get;set;}
+
         public DateTime Birthday { get; set; }
 
         public bool IsDead { get; set; }

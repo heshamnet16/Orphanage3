@@ -29,21 +29,11 @@ namespace OrphanageV3.ViewModel.Father
 
         public string Jop { get; set; }
 
-        public decimal? Income { get; set; }
-
         public string DeathReason { get; set; }
 
         public long? ColorMark { get; set; }
 
         public string Story { get; set; }
-
-        public string FullAddress { get; set; }
-
-        public string CellPhone { get; set; }
-
-        public string HomePhone { get; set; }
-
-        public string WorkPhone { get; set; }
 
         public DateTime RegDate { get; set; }
 
@@ -51,9 +41,9 @@ namespace OrphanageV3.ViewModel.Father
 
         public string Notes { get; set; }
 
-        public string IdentityCardImageFaceURI { get; set; }
+        public string PersonalPhotoURI { get; set; }
 
-        public string IdentityCardImageBackURI { get; set; }
+        public string DeathCertificatePhotoURI { get; set; }
 
         public int OrphansCount { get; set; }
     }

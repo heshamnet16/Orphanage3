@@ -48,8 +48,8 @@ namespace OrphanageV3.ViewModel.Father
         public async Task<OrphanageDataModel.Persons.Father> getFather(int Cid)
         {
             var returnedFather = await _apiClient.FathersController_GetAsync(Cid);
-            var deathCertificatePhotoTask = _apiClient.GetImageData(returnedFather.PersonalPhotoURI, _ImageSize, 50);
-            var personalPhotoTask = _apiClient.GetImageData(returnedFather.DeathCertificateImageURI, _ImageSize, 50);
+            var deathCertificatePhotoTask = _apiClient.GetImageData(returnedFather.DeathCertificateImageURI, _ImageSize, 50);
+            var personalPhotoTask = _apiClient.GetImageData(returnedFather.PersonalPhotoURI, _ImageSize, 50);
             returnedFather.DeathCertificatePhotoData = await deathCertificatePhotoTask;
             returnedFather.PhotoData = await personalPhotoTask;
             _CurrentFather = returnedFather;

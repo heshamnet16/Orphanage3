@@ -65,6 +65,15 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.HomePhone, sour => sour.MapFrom(prop => prop.Address.HomePhone))
                     .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+                cfg.CreateMap<OrphanageDataModel.Persons.Father, FatherModel>()
+                    .ForMember(dest => dest.FirstName, sour => sour.MapFrom(prop => prop.Name.First))
+                    .ForMember(dest => dest.FatherName, sour => sour.MapFrom(prop => prop.Name.Father))
+                    .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
+                    .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
+                    .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+
             });
 
             _mapper = mapperConfiguration.CreateMapper();
@@ -141,16 +150,18 @@ namespace OrphanageV3.Services
             return retCaregiver;
         }
 
-        public IEnumerable<MotherModel> MapToMotherModel(IEnumerable<Mother> mothersList)
+        public async Task<IEnumerable<MotherModel>> MapToMotherModel(IEnumerable<Mother> mothersList)
         {
+            IList<MotherModel> returnedList = new List<MotherModel>();
             foreach (var mother in mothersList)
             {
-                MotherModel retMother = MapToMotherModel(mother);
-                yield return retMother;
+                MotherModel retMother = await  MapToMotherModel(mother);
+                returnedList.Add(retMother);
             }
+            return returnedList;
         }
 
-        public MotherModel MapToMotherModel(Mother mother)
+        public async Task<MotherModel> MapToMotherModel(Mother mother)
         {
             MotherModel retMother = null;
             try
@@ -159,6 +170,20 @@ namespace OrphanageV3.Services
                 retMother.FullName = _dataFormatterService.GetFullNameString(mother.Name);
                 retMother.FullAddress = _dataFormatterService.GetAddressString(mother.Address);
                 retMother.OrphansCount = -1;
+                retMother.HusbandsNames = "";
+                foreach (var fam in mother.Families)
+                {
+                    if(fam.Father == null || fam.Father.Name == null)
+                    {
+                        fam.Father = await _ApiClient.FathersController_GetAsync(fam.FatherId);
+                    }
+                    if (mother.Families.Count > 1)
+                        retMother.HusbandsNames += _dataFormatterService.GetFullNameString(fam.Father.Name) + ", ";
+                    else
+                        retMother.HusbandsNames += _dataFormatterService.GetFullNameString(fam.Father.Name) + ", ";
+                }
+                if (retMother.HusbandsNames.EndsWith(", "))
+                    retMother.HusbandsNames = retMother.HusbandsNames.Substring(0, retMother.HusbandsNames.Length - 2);
             }
             catch
             {
@@ -167,14 +192,45 @@ namespace OrphanageV3.Services
             return retMother;
         }
 
-        public IEnumerable<FatherModel> MapToFatherModel(IEnumerable<Father> fathersList)
+        public async Task<IEnumerable<FatherModel>> MapToFatherModel(IEnumerable<Father> fathersList)
         {
-            throw new NotImplementedException();
+            IList<FatherModel> returnedFathers = new List<FatherModel>();
+            foreach (var father in fathersList)
+            {
+                FatherModel retFather = await MapToFatherModel(father);
+                returnedFathers.Add( retFather);
+            }
+            return returnedFathers;
         }
 
-        public FatherModel MapToFatherModel(Father father)
+        public async Task<FatherModel> MapToFatherModel(Father father)
         {
-            throw new NotImplementedException();
+            FatherModel retFather = null;
+            try
+            {
+                retFather = _mapper.Map<FatherModel>(father);
+                retFather.FullName = _dataFormatterService.GetFullNameString(father.Name);
+                retFather.WifeName = "";
+                foreach(var fam in father.Families)
+                {
+                    if (fam.Mother == null || fam.Mother.Name == null)
+                    {
+                        fam.Mother = await _ApiClient.MothersController_GetAsync(fam.MotherId);
+                    }
+                    if (father.Families.Count>1)
+                        retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name)  + ", "; 
+                    else
+                        retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name) + ", ";
+                }
+                if (retFather.WifeName.EndsWith(", "))
+                    retFather.WifeName = retFather.WifeName.Substring(0, retFather.WifeName.Length - 2);
+                retFather.OrphansCount = -1;                
+            }
+            catch
+            {
+                retFather = null;
+            }
+            return retFather;
         }
     }
 }

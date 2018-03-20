@@ -788,4 +788,22 @@
   <data name="FullAddress" xml:space="preserve">
     <value>العنوان</value>
   </data>
+  <data name="Fathers" xml:space="preserve">
+    <value>الآباء</value>
+  </data>
+  <data name="DeathCertificatePhoto" xml:space="preserve">
+    <value>صورة شهادة الوفاة</value>
+  </data>
+  <data name="PersonalPhoto" xml:space="preserve">
+    <value>صورة شخصية</value>
+  </data>
+  <data name="DeathReason" xml:space="preserve">
+    <value>سبب الوفاة</value>
+  </data>
+  <data name="HusbandsNames" xml:space="preserve">
+    <value>اسم الزوج</value>
+  </data>
+  <data name="WifeName" xml:space="preserve">
+    <value>اسم الزوجة</value>
+  </data>
 </root>
