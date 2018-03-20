@@ -145,6 +145,9 @@
     <Compile Include="ViewModel\Caregiver\CaregiverEditViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiversViewModel.cs" />
+    <Compile Include="ViewModel\Father\FatherEditViewModel.cs" />
+    <Compile Include="ViewModel\Father\FatherModel.cs" />
+    <Compile Include="ViewModel\Father\FathersViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
     <Compile Include="ViewModel\Mother\MothersViewModel.cs" />
@@ -318,6 +321,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Children.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Father\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

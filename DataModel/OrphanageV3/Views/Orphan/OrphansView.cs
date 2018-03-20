@@ -27,7 +27,6 @@ namespace OrphanageV3.Views.Orphan
         private static object _loading = Properties.Resources.loading;
 
         private IEnumerable<int> _orphansIds;
-        private IEnumerable<int> brothersIds;
 
         public OrphansView()
         {

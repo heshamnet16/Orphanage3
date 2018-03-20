@@ -66,6 +66,17 @@ namespace OrphanageService.Father.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Father>> GetByIds([FromUri] IList<int> fathersIds)
+        {
+            var ret = await _FatherDBService.GetFathers(fathersIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetFathersCount()
@@ -79,6 +90,14 @@ namespace OrphanageService.Father.Controllers
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int FatherID)
         {
             return await _FatherDBService.GetOrphans(FatherID);
+        }
+
+        [HttpGet]
+        [Route("orphans/count/{FatherID}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetOrphansCount(int FatherID)
+        {
+            return await _FatherDBService.GetOrphansCount(FatherID);
         }
     }
 }

@@ -1,0 +1,111 @@
+﻿using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace OrphanageV3.ViewModel.Father
+{
+    public class FathersViewModel
+    {
+        public ObservableCollection<FatherModel> Fathers { get; set; }
+        private IList<OrphanageDataModel.Persons.Father> _SourceFathers;
+
+        private readonly IApiClient _apiClient;
+        private readonly IMapperService _mapperService;
+        private readonly ITranslateService _translateService;
+        private readonly IDataFormatterService _dataFormatterService;
+
+        public event EventHandler DataLoaded;
+
+        public FathersViewModel(IApiClient apiClient, IMapperService mapperService,
+            ITranslateService translateService, IDataFormatterService dataFormatterService)
+        {
+            _apiClient = apiClient;
+            _mapperService = mapperService;
+            _translateService = translateService;
+            _dataFormatterService = dataFormatterService;
+        }
+
+        public async void LoadFathers()
+        {
+            var fathersCount = await _apiClient.FathersController_GetFathersCountAsync();
+            var ReturnedFathers = await _apiClient.FathersController_GetAllAsync(fathersCount, 0);
+
+            _SourceFathers = ReturnedFathers;
+
+            Fathers = new ObservableCollection<FatherModel>(_mapperService.MapToFatherModel(_SourceFathers));
+            UpdateFathersOrphansCount();
+            DataLoaded?.Invoke(this, new EventArgs());
+        }
+
+        public async void LoadFathers(IEnumerable<int> fathersIdsList)
+        {
+            var ReturnedFathers = await _apiClient.FathersController_GetByIdsAsync(fathersIdsList);
+
+            _SourceFathers = ReturnedFathers;
+
+            Fathers = new ObservableCollection<FatherModel>(_mapperService.MapToFatherModel(_SourceFathers));
+            UpdateFathersOrphansCount();
+            DataLoaded?.Invoke(this, new EventArgs());
+        }
+
+        private void UpdateFathersOrphansCount()
+        {
+            new Thread(new ThreadStart(async () =>
+            {
+                foreach (var mother in Fathers)
+                {
+                    mother.OrphansCount = await _apiClient.MothersController_GetOrphansCountAsync(mother.Id);
+                }
+            })).Start();
+        }
+
+        public async void Update(int motherId)
+        {
+            var sourceFather = await _apiClient.FathersController_GetAsync(motherId);
+            var orphansCountTask = _apiClient.FathersController_GetOrphansCountAsync(motherId);
+            var fatherModel = _mapperService.MapToFatherModel(sourceFather);
+            var FatherToEdit = Fathers.FirstOrDefault(c => c.Id == motherId);
+            var fatherToEditIndex = Fathers.IndexOf(FatherToEdit);
+            fatherModel.OrphansCount = await orphansCountTask;
+            Fathers[fatherToEditIndex] = fatherModel;
+        }
+
+        public async Task<long?> SetColor(int motherId, long? colorValue)
+        {
+            long? returnedColor = null;
+            try
+            {
+                var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
+                returnedColor = father.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    father.ColorMark = colorValue;
+                else
+                    father.ColorMark = null;
+                await _apiClient.FathersController_PutAsync(father);
+                return father.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                if (apiEx.StatusCode == "304")
+                    return returnedColor;
+                return null;
+            }
+        }
+        public async Task<IList<int>> OrphansIds(int motherId)
+        {
+            var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
+            var orphansList = await _apiClient.FathersController_GetOrphansAsync(motherId);
+            if (orphansList != null && orphansList.Count > 0)
+                return orphansList.Select(o => o.Id).ToList();
+            else
+                return null;
+        }
+    }
+}

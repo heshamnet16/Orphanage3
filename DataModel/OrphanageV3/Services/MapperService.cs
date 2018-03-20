@@ -10,6 +10,7 @@ using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
+using OrphanageV3.ViewModel.Father;
 using Unity;
 namespace OrphanageV3.Services
 {
@@ -164,6 +165,16 @@ namespace OrphanageV3.Services
                 retMother = null;
             }
             return retMother;
+        }
+
+        public IEnumerable<FatherModel> MapToFatherModel(IEnumerable<Father> fathersList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public FatherModel MapToFatherModel(Father father)
+        {
+            throw new NotImplementedException();
         }
     }
 }

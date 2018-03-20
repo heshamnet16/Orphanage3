@@ -10,9 +10,13 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Father>> GetFathers(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Father>> GetFathers(IList<int> fathersIds);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Fid);
 
         Task<int> GetFathersCount();
+
+        Task<int> GetOrphansCount(int FatherId);
 
         /// <summary>
         /// add new father object to the database
