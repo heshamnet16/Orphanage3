@@ -46,7 +46,7 @@ namespace OrphanageService.Utilities
         public void SetFatherUris(ref OrphanageDataModel.Persons.Father fatherDto)
         {
             if (fatherDto == null) return;
-            fatherDto.PersonalPhotoURI = "api/father/media/face/" + fatherDto.Id;
+            fatherDto.PersonalPhotoURI = "api/father/media/photo/" + fatherDto.Id;
             fatherDto.DeathCertificateImageURI = "api/father/media/death/" + fatherDto.Id;
             if (fatherDto.Families != null)
             {

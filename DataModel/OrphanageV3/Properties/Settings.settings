@@ -32,5 +32,8 @@
     <Setting Name="MotherLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Mother.layout</Value>
     </Setting>
+    <Setting Name="FatherLayoutFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Father.layout</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

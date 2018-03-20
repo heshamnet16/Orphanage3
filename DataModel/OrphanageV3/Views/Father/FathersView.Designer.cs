@@ -1,6 +1,6 @@
-﻿namespace OrphanageV3.Views.Mother
+﻿namespace OrphanageV3.Views.Father
 {
-    partial class MothersView
+    partial class FathersView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MothersView));
             this.radCmdBar = new Telerik.WinControls.UI.RadCommandBar();
             this.CommandBarRowElement3 = new Telerik.WinControls.UI.CommandBarRowElement();
             this.CommandBarStripElement1 = new Telerik.WinControls.UI.CommandBarStripElement();
@@ -38,7 +37,7 @@
             this.mnuSep2 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnShowOrphans = new Telerik.WinControls.UI.CommandBarButton();
             this.btnShowFamilies = new Telerik.WinControls.UI.CommandBarButton();
-            this.btnShowFathers = new Telerik.WinControls.UI.CommandBarButton();
+            this.btnShowMothers = new Telerik.WinControls.UI.CommandBarButton();
             this.btnSep3 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnColumn = new Telerik.WinControls.UI.CommandBarButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,7 +55,7 @@
             this.radCmdBar.Name = "radCmdBar";
             this.radCmdBar.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.CommandBarRowElement3});
-            this.radCmdBar.Size = new System.Drawing.Size(854, 38);
+            this.radCmdBar.Size = new System.Drawing.Size(779, 38);
             this.radCmdBar.TabIndex = 3;
             // 
             // CommandBarRowElement3
@@ -93,7 +92,7 @@
             this.mnuSep2,
             this.btnShowOrphans,
             this.btnShowFamilies,
-            this.btnShowFathers,
+            this.btnShowMothers,
             this.btnSep3,
             this.btnColumn});
             this.CommandBarStripElement1.Name = "CommandBarStripElement1";
@@ -188,19 +187,19 @@
             this.btnShowFamilies.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowFamilies.ToolTipText = "عرض العائلات";
             // 
-            // btnShowFathers
+            // btnShowMothers
             // 
-            this.btnShowFathers.AutoSize = false;
-            this.btnShowFathers.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
-            this.btnShowFathers.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnShowFathers.DisplayName = "CommandBarButton1";
-            this.btnShowFathers.Image = ((System.Drawing.Image)(resources.GetObject("btnShowFathers.Image")));
-            this.btnShowFathers.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnShowFathers.Name = "btnShowFathers";
-            this.btnShowFathers.Text = "";
-            this.btnShowFathers.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnShowFathers.ToolTipText = "عرض الآباء";
-            this.btnShowFathers.Click += new System.EventHandler(this.btnShowFathers_Click);
+            this.btnShowMothers.AutoSize = false;
+            this.btnShowMothers.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
+            this.btnShowMothers.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnShowMothers.DisplayName = "CommandBarButton1";
+            this.btnShowMothers.Image = global::OrphanageV3.Properties.Resources.MotherPic;
+            this.btnShowMothers.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowMothers.Name = "btnShowMothers";
+            this.btnShowMothers.Text = "";
+            this.btnShowMothers.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnShowMothers.ToolTipText = "عرض الآباء";
+            this.btnShowMothers.Click += new System.EventHandler(this.btnShowMothers_Click);
             // 
             // btnSep3
             // 
@@ -240,8 +239,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 468);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(785, 497);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // orphanageGridView1
             // 
@@ -253,7 +252,7 @@
             this.orphanageGridView1.Location = new System.Drawing.Point(3, 48);
             this.orphanageGridView1.Name = "orphanageGridView1";
             this.orphanageGridView1.ShowHiddenRows = true;
-            this.orphanageGridView1.Size = new System.Drawing.Size(854, 384);
+            this.orphanageGridView1.Size = new System.Drawing.Size(779, 413);
             this.orphanageGridView1.TabIndex = 0;
             // 
             // radColorDialog
@@ -261,21 +260,21 @@
             this.radColorDialog.AnyColor = true;
             this.radColorDialog.FullOpen = true;
             // 
-            // MothersView
+            // FathersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 468);
+            this.ClientSize = new System.Drawing.Size(785, 497);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MothersView";
+            this.Name = "FathersView";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "MothersView";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.View_FormClosing);
-            this.Load += new System.EventHandler(this.MothersView_Load);
+            this.Text = "RadForm1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FathersView_FormClosing);
+            this.Load += new System.EventHandler(this.FathersView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -294,11 +293,11 @@
         internal Telerik.WinControls.UI.CommandBarSeparator mnuSep2;
         private Telerik.WinControls.UI.CommandBarButton btnShowOrphans;
         internal Telerik.WinControls.UI.CommandBarButton btnShowFamilies;
-        internal Telerik.WinControls.UI.CommandBarButton btnShowFathers;
+        internal Telerik.WinControls.UI.CommandBarButton btnShowMothers;
         internal Telerik.WinControls.UI.CommandBarSeparator btnSep3;
         internal Telerik.WinControls.UI.CommandBarButton btnColumn;
-        private Controlls.OrphanageGridView orphanageGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Controlls.OrphanageGridView orphanageGridView1;
         private System.Windows.Forms.ColorDialog radColorDialog;
     }
 }

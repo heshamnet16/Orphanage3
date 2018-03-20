@@ -39,7 +39,7 @@ namespace OrphanageV3.ViewModel.Mother
 
             _SourceMothers = ReturnedMothers;
 
-            Mothers = new ObservableCollection<MotherModel>(_mapperService.MapToMotherModel(_SourceMothers));
+            Mothers = new ObservableCollection<MotherModel>(await _mapperService.MapToMotherModel(_SourceMothers));
             UpdateMotherOrphansCount();
             DataLoaded?.Invoke(this, new EventArgs());
         }
@@ -50,7 +50,7 @@ namespace OrphanageV3.ViewModel.Mother
 
             _SourceMothers = ReturnedMothers;
 
-            Mothers = new ObservableCollection<MotherModel>(_mapperService.MapToMotherModel(_SourceMothers));
+            Mothers = new ObservableCollection<MotherModel>(await _mapperService.MapToMotherModel(_SourceMothers));
             UpdateMotherOrphansCount();
             DataLoaded?.Invoke(this, new EventArgs());
         }
@@ -70,7 +70,11 @@ namespace OrphanageV3.ViewModel.Mother
         {
             var sourceMother = await _apiClient.MothersController_GetAsync(motherId);
             var orphansCountTask = _apiClient.MothersController_GetOrphansCountAsync(motherId);
-            var motherModel = _mapperService.MapToMotherModel(sourceMother);
+            //update father object in the source list
+            var sourceMotherIndex = _SourceMothers.IndexOf(_SourceMothers.FirstOrDefault(f => f.Id == motherId));
+            _SourceMothers[sourceMotherIndex] = sourceMother;
+
+            var motherModel = await _mapperService.MapToMotherModel(sourceMother);
             var MotherToEdit = Mothers.FirstOrDefault(c => c.Id == motherId);
             var motherToEditIndex = Mothers.IndexOf(MotherToEdit);
             motherModel.OrphansCount = await orphansCountTask;
@@ -104,6 +108,20 @@ namespace OrphanageV3.ViewModel.Mother
             var orphansList = await _apiClient.MothersController_GetOrphansAsync(motherId);
             if (orphansList != null && orphansList.Count > 0 )
                 return orphansList.Select(o => o.Id).ToList();
+            else
+                return null;
+        }
+
+        public IList<int> FathersIds(int motherId)
+        {
+            var mother = _SourceMothers.FirstOrDefault(c => c.Id == motherId);
+            IList<int> fatherList = new List<int>();
+            foreach(var family in mother.Families)
+            {
+                fatherList.Add(family.FatherId);
+            }
+            if (fatherList != null && fatherList.Count > 0)
+                return fatherList;
             else
                 return null;
         }

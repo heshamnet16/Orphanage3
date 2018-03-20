@@ -444,6 +444,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صورة شهادة الوفاة ähnelt.
+        /// </summary>
+        public static string DeathCertificatePhoto {
+            get {
+                return ResourceManager.GetString("DeathCertificatePhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die سبب الوفاة ähnelt.
+        /// </summary>
+        public static string DeathReason {
+            get {
+                return ResourceManager.GetString("DeathReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap DeletePic {
@@ -789,6 +807,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الآباء ähnelt.
+        /// </summary>
+        public static string Fathers {
+            get {
+                return ResourceManager.GetString("Fathers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die رقم الفاكس ähnelt.
         /// </summary>
         public static string FaxNumber {
@@ -1029,6 +1056,15 @@ namespace OrphanageV3.Properties {
         public static string HusbandName {
             get {
                 return ResourceManager.GetString("HusbandName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسم الزوج ähnelt.
+        /// </summary>
+        public static string HusbandsNames {
+            get {
+                return ResourceManager.GetString("HusbandsNames", resourceCulture);
             }
         }
         
@@ -1765,6 +1801,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صورة شخصية ähnelt.
+        /// </summary>
+        public static string PersonalPhoto {
+            get {
+                return ResourceManager.GetString("PersonalPhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ارقام الهواتف ähnelt.
         /// </summary>
         public static string PhoneNumbers {
@@ -2056,6 +2101,15 @@ namespace OrphanageV3.Properties {
         public static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسم الزوجة ähnelt.
+        /// </summary>
+        public static string WifeName {
+            get {
+                return ResourceManager.GetString("WifeName", resourceCulture);
             }
         }
         

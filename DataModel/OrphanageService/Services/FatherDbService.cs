@@ -1,4 +1,5 @@
-﻿using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -274,6 +275,42 @@ namespace OrphanageService.Services
             foreach (var father in Foundedfathers)
             {
                 yield return father;
+            }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Father>> GetFathers(IList<int> fathersIds)
+        {
+            IList<OrphanageDataModel.Persons.Father> fathersList = new List<OrphanageDataModel.Persons.Father>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var fathers = await _orphanageDBC.Fathers.AsNoTracking()
+                    .Where(m => fathersIds.Contains(m.Id))
+                    .Include(f => f.Families)
+                    .Include(f => f.Name)
+                    .ToListAsync();
+
+                foreach (var father in fathers)
+                {
+                    OrphanageDataModel.Persons.Father fatherToFill = father;
+                    setFatherEntities(ref fatherToFill, _orphanageDBC);
+                    _selfLoopBlocking.BlockFatherSelfLoop(ref fatherToFill);
+                    _uriGenerator.SetFatherUris(ref fatherToFill);
+                    fathersList.Add(fatherToFill);
+                }
+            }
+            return fathersList;
+        }
+
+        public async Task<int> GetOrphansCount(int FatherId)
+        {
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var orphans = await(from orp in dbContext.Orphans.AsNoTracking()
+                                    join fam in dbContext.Families.AsNoTracking() on orp.Family.FatherId equals fam.FatherId
+                                    where fam.FatherId == FatherId
+                                    select orp)
+                              .CountAsync();
+                return orphans;
             }
         }
     }

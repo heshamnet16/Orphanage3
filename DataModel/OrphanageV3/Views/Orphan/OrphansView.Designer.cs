@@ -308,6 +308,7 @@
             this.btnShowFathers.Text = "";
             this.btnShowFathers.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowFathers.ToolTipText = "عرض الآباء";
+            this.btnShowFathers.Click += new System.EventHandler(this.btnShowFathers_Click);
             // 
             // btnSep3
             // 

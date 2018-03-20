@@ -61,3 +61,16 @@ GO
 
 update [OrphansDB].[dbo].[Addresses] set Home_Phone = NULL where Home_Phone = '(000)0000-000' Or Home_Phone = '(031)0000-000' or Home_Phone = '(0000)000-000' or Home_Phone='(____)___-___'
 GO
+
+update [OrphansDB].dbo.Fathers set IdentityCard_ID = NULL where IdentityCard_ID = '' or IdentityCard_ID = '0'
+GO
+
+update [OrphansDB].dbo.Orphans set IdentityNumber = NULL where IdentityNumber = '' or IdentityNumber = '0'
+GO
+
+update [OrphansDB].dbo.Mothers set IdentityCard_ID = NULL where IdentityCard_ID = '' or IdentityCard_ID = '0'
+GO
+
+update [OrphansDB].dbo.BondsMen set IdentityCard_ID = NULL where IdentityCard_ID = '' or IdentityCard_ID = '0'
+GO
+
