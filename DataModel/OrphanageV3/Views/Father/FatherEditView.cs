@@ -10,7 +10,6 @@ namespace OrphanageV3.Views.Father
 {
     public partial class FatherEditView : Telerik.WinControls.UI.RadForm
     {
-        private readonly int _motherId;
 
         private OrphanageDataModel.Persons.Father _Father = null;
 
@@ -21,8 +20,6 @@ namespace OrphanageV3.Views.Father
         public FatherEditView(int FatherID)
         {
             InitializeComponent();
-
-            _motherId = FatherID;
 
             _fatherEditViewModel = Program.Factory.Resolve<FatherEditViewModel>();
 

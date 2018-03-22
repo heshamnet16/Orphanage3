@@ -23,8 +23,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Orphan orphan)
         {
-            try
-            {
+
                 orphan.BirthCertificatePhotoData = null;
                 orphan.FacePhotoData = null;
                 orphan.FamilyCardPagePhotoData = null;
@@ -38,17 +37,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     orphan.HealthStatus.ReporteFileData = null;
                 await _apiClient.OrphansController_PutAsync(orphan);
                 return true;
-            }
-            catch (ApiClientException apiException)
-            {
-                if (apiException.StatusCode != "304")
-                {
-                    //TODO Status Message not changed
-                    //TODO Bad request error handling
-                    return false;
-                }
-                return true;
-            }
+
         }
 
         public async Task<OrphanageDataModel.Persons.Orphan> getOrphan(int Oid)

@@ -1,9 +1,13 @@
 ﻿using OrphanageDataModel.FinancialData;
+using OrphanageV3.Extensions;
 using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +25,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public delegate void OrphanChnagedDelegate(int Oid, Image newPhoto);
 
-        public event OrphansChnagedDelegate OrphansChangedEvent;
+        public event OrphansChnagedDelegate DataLoaded;
 
         public ObservableCollection<OrphanModel> Orphans { get; set; }
         private IList<OrphanageDataModel.Persons.Orphan> _SourceOrphans;
@@ -50,15 +54,15 @@ namespace OrphanageV3.ViewModel.Orphan
             else
                 _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
             Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
-            OrphansChangedEvent?.Invoke();
+            DataLoaded?.Invoke();
             //get first page orphan ids
             var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
 
             //set Loading image
-            foreach (var orp in Orphans)
-                orp.Photo = Properties.Resources.loading;
+            //foreach (var orp in Orphans)
+            //    orp.Photo = Properties.Resources.loading;
             //Start Image thread after data loading
-            await LoadImages(ids);
+            //await LoadImages(ids);
         }
 
         private async void GetOrphans()
@@ -71,7 +75,7 @@ namespace OrphanageV3.ViewModel.Orphan
             else
                 _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
             Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
-            OrphansChangedEvent?.Invoke();
+            DataLoaded?.Invoke();
         }
 
         public async Task LoadImages(IList<int> lst)
@@ -130,26 +134,18 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> ExcludeOrphan(int Oid)
         {
-            try
-            {
+
                 var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
                 orphan.IsExcluded = true;
                 await _apiClient.OrphansController_PutAsync(orphan);
                 return true;
-            }
-            catch (ApiClientException apiEx)
-            {
-                if (apiEx.StatusCode == "304")
-                    return true;
-                return false;
-            }
+            
         }
 
         public async Task<long?> SetColor(int Oid, long? colorValue)
         {
             long? returnedColor = null;
-            try
-            {
+
                 var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
                 returnedColor = orphan.ColorMark;
                 if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
@@ -158,13 +154,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     orphan.ColorMark = null;
                 await _apiClient.OrphansController_PutAsync(orphan);
                 return orphan.ColorMark;
-            }
-            catch (ApiClientException apiEx)
-            {
-                if (apiEx.StatusCode == "304")
-                    return returnedColor;
-                return null;
-            }
+
         }
 
         public async Task<string> GetOrphanSummary(int Oid)
@@ -180,9 +170,9 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orp.Family.IsBailed)
                 FamilyBailTask = _apiClient.BailsController_GetAsync(orp.Family.BailId.Value);
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(Properties.Resources.FatherName + ": " + _dataFormatterService.GetFullNameString(orp.Family.Father.Name));
+            stringBuilder.AppendLine(Properties.Resources.FatherName + ": " + orp.Family.Father.Name.FullName());
             stringBuilder.AppendLine(Properties.Resources.FatherDeathDate + ": " + _dataFormatterService.GetFormattedDate(orp.Family.Father.DateOfDeath));
-            stringBuilder.AppendLine(Properties.Resources.MotherFirstName + ": " + _dataFormatterService.GetFullNameString(orp.Family.Mother.Name));
+            stringBuilder.AppendLine(Properties.Resources.MotherFirstName + ": " + orp.Family.Mother.Name.FullName());
             stringBuilder.AppendLine(Properties.Resources.MotherIsDead + ": " + _translateService.BooleanToString(orp.Family.Mother.IsDead));
             if (orp.Family.Mother.IsDead && orp.Family.Mother.DateOfDeath.HasValue)
                 stringBuilder.AppendLine(Properties.Resources.MotherDeathDate + ": " + _dataFormatterService.GetFormattedDate(orp.Family.Mother.DateOfDeath.Value));
@@ -210,7 +200,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 }
                 if (orpBail != null)
                 {
-                    stringBuilder.AppendLine(Properties.Resources.GuarantorName + ": " + _dataFormatterService.GetFullNameString(orpBail?.Guarantor?.Name));
+                    stringBuilder.AppendLine(Properties.Resources.GuarantorName + ": " + orpBail?.Guarantor?.Name.FullName());
                     stringBuilder.AppendLine(Properties.Resources.BailIsFamily + ": " + _translateService.BooleanToString(orpBail.IsFamilyBail));
                     stringBuilder.AppendLine(Properties.Resources.BailAmount + ": " + orpBail.Amount.ToString() + " " + orpBail?.Account.CurrencyShortcut);
                     stringBuilder.AppendLine(Properties.Resources.BailIsMonthly + ": " + _translateService.BooleanToString(orpBail.IsMonthlyBail));
@@ -302,6 +292,37 @@ namespace OrphanageV3.ViewModel.Orphan
                 img = await _apiClient.GetImage(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
             }
             catch
+            {
+                img = null;
+            }
+            if (img == null)
+            {
+                img = _translateService.IsBoy(orp.Gender) ? Properties.Resources.UnknownBoyPic : Properties.Resources.UnknownGirlPic;
+            }
+            Orphans[orpMIndex].Photo = img;
+        }
+
+        public async Task UpdateOrphanThumbnail(int Oid)
+        {
+            var orp = Orphans.FirstOrDefault(o => o.Id == Oid);
+            var sourceOrp = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+            int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
+            Image img = null;
+            try
+            {
+                if (sourceOrp.FacePhoto != null && sourceOrp.FacePhoto.Size != Properties.Resources.loading.Size)
+                    img = sourceOrp.FacePhoto;
+                else
+                {
+                    byte[] imageData = await _apiClient.GetImageData(orp.FacePhotoURI, PhotoSize, PhotoCompressRatio);
+                    sourceOrp.FacePhotoData = imageData;
+                    using (var mem = new MemoryStream(imageData))
+                    {
+                        img = Image.FromStream(mem);
+                    }
+                }
+            }
+            catch 
             {
                 img = null;
             }

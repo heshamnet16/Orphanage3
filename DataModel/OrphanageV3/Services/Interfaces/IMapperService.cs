@@ -1,5 +1,7 @@
 ﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
@@ -25,5 +27,11 @@ namespace OrphanageV3.Services.Interfaces
         Task<IEnumerable<FatherModel>> MapToFatherModel(IEnumerable<Father> fathersList);
 
         Task<FatherModel> MapToFatherModel(Father father);
+
+        IEnumerable<FamilyModel> MapToFamilyModel(IEnumerable<Family> familyList);
+
+        FamilyModel MapToFamilyModel(Family family);
+
+        
     }
 }

@@ -97,6 +97,17 @@ namespace OrphanageService.Family.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetByIds([FromUri] IList<int> familiesIds)
+        {
+            var ret = await _FamilyDBService.GetFamilies(familiesIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> Get(int pageSize, int pageNumber)
@@ -118,6 +129,14 @@ namespace OrphanageService.Family.Controllers
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetFamilyOrphans(int famId)
         {
             return await _FamilyDBService.GetOrphans(famId);
+        }
+
+        [HttpGet]
+        [Route("orphans/count/{FamId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetOrphansCount(int FamId)
+        {
+            return await _FamilyDBService.GetOrphansCount(FamId);
         }
     }
 }

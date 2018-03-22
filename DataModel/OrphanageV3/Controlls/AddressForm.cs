@@ -21,7 +21,8 @@ namespace OrphanageV3.Controlls
             get => addressBindingSource.DataSource;
             set
             {
-                addressBindingSource.DataSource = value;
+                if(value != null)
+                    addressBindingSource.DataSource = value;
             }
         }
 

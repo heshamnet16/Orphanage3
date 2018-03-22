@@ -34,7 +34,7 @@ namespace OrphanageV3.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool UseBackgroundColor {
             get {
                 return ((bool)(this["UseBackgroundColor"]));
@@ -128,6 +128,18 @@ namespace OrphanageV3.Properties {
             }
             set {
                 this["FatherLayoutFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Family.layout")]
+        public string FamiliesLayoutFilePath {
+            get {
+                return ((string)(this["FamiliesLayoutFilePath"]));
+            }
+            set {
+                this["FamiliesLayoutFilePath"] = value;
             }
         }
     }

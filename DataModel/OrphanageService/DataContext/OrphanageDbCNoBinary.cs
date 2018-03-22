@@ -109,8 +109,8 @@ namespace OrphanageService.DataContext
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<OrphanageDataModel.RegularData.Family>()
-                    .Ignore(f => f.FamilyCardImagePage1)
-                    .Ignore(f => f.FamilyCardImagePage2);
+                    .Ignore(f => f.FamilyCardImagePage1Data)
+                    .Ignore(f => f.FamilyCardImagePage2Data);
 
             modelBuilder.Entity<OrphanageDataModel.RegularData.Family>()
                 .HasMany(e => e.Orphans)

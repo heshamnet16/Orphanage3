@@ -81,16 +81,16 @@ namespace OrphanageDataModel.RegularData
         public string Note { get; set; }
 
         [Column("FamilyCardPhoto")]
-        public byte[] FamilyCardImagePage1 { get; set; }
+        public byte[] FamilyCardImagePage1Data { get; set; }
 
         [Column("FamilyCardPhotoP2")]
-        public byte[] FamilyCardImagePage2 { get; set; }
+        public byte[] FamilyCardImagePage2Data { get; set; }
 
         [NotMapped]
-        public Image FamilyCardImageFace { get => FamilyCardImagePage1 != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage1)) : null; }
+        public Image FamilyCardImagePage1 { get => FamilyCardImagePage1Data != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage1Data)) : null; }
 
         [NotMapped]
-        public Image FamilyCardImageBack { get => FamilyCardImagePage2 != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage2)) : null; }
+        public Image FamilyCardImagePage2 { get => FamilyCardImagePage2Data != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage2Data)) : null; }
 
         [NotMapped]
         public string FamilyCardImagePage1URI { get; set; }

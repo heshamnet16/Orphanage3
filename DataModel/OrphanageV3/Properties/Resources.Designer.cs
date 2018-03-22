@@ -153,6 +153,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العنوان الاساسي ähnelt.
+        /// </summary>
+        public static string BasicAddress {
+            get {
+                return ResourceManager.GetString("BasicAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die بيانات اساسية ähnelt.
         /// </summary>
         public static string BasicData {
@@ -404,6 +413,15 @@ namespace OrphanageV3.Properties {
         public static string Cost {
             get {
                 return ResourceManager.GetString("Cost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العنوان الحالي ähnelt.
+        /// </summary>
+        public static string CurrentAddress {
+            get {
+                return ResourceManager.GetString("CurrentAddress", resourceCulture);
             }
         }
         
@@ -671,6 +689,33 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العائلات ähnelt.
+        /// </summary>
+        public static string Families {
+            get {
+                return ResourceManager.GetString("Families", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عائلة ähnelt.
+        /// </summary>
+        public static string Family {
+            get {
+                return ResourceManager.GetString("Family", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die رقم البطاقة العائلة ähnelt.
+        /// </summary>
+        public static string FamilyCardNumber {
+            get {
+                return ResourceManager.GetString("FamilyCardNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die صورة دفتر العائلة ähnelt.
         /// </summary>
         public static string FamilyCardPhoto {
@@ -703,6 +748,15 @@ namespace OrphanageV3.Properties {
         public static string FamilyIsExcluded {
             get {
                 return ResourceManager.GetString("FamilyIsExcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسم العائلة ähnelt.
+        /// </summary>
+        public static string FamilyName {
+            get {
+                return ResourceManager.GetString("FamilyName", resourceCulture);
             }
         }
         
@@ -839,6 +893,105 @@ namespace OrphanageV3.Properties {
         public static string FemaleString {
             get {
                 return ResourceManager.GetString("FemaleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الحالة المالية ähnelt.
+        /// </summary>
+        public static string FinncialStatus {
+            get {
+                return ResourceManager.GetString("FinncialStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مقبول ähnelt.
+        /// </summary>
+        public static string FinncialStatus_Acceptable {
+            get {
+                return ResourceManager.GetString("FinncialStatus_Acceptable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die يوجد دخل شهري مقبول والعالة ليست بحاجة لتبرعات ähnelt.
+        /// </summary>
+        public static string FinncialStatus_Acceptable_Description {
+            get {
+                return ResourceManager.GetString("FinncialStatus_Acceptable_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die سيئ ähnelt.
+        /// </summary>
+        public static string FinncialStatus_Bad {
+            get {
+                return ResourceManager.GetString("FinncialStatus_Bad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لايوجد دخل شهري والعائلة بحاجة لتبرعات ähnelt.
+        /// </summary>
+        public static string FinncialStatus_Bad_Description {
+            get {
+                return ResourceManager.GetString("FinncialStatus_Bad_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die جيد ähnelt.
+        /// </summary>
+        public static string FinncialStatus_Good {
+            get {
+                return ResourceManager.GetString("FinncialStatus_Good", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die يوجد دخل شهري ممتاز والعالة ليست بحاجة لتبرعات ähnelt.
+        /// </summary>
+        public static string FinncialStatus_Good_Description {
+            get {
+                return ResourceManager.GetString("FinncialStatus_Good_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die متوسط ähnelt.
+        /// </summary>
+        public static string FinncialStatus_NotBad {
+            get {
+                return ResourceManager.GetString("FinncialStatus_NotBad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die يوجد دخل متقطع والوضع المالي سيئ نوعاً ما ähnelt.
+        /// </summary>
+        public static string FinncialStatus_NotBad_Description {
+            get {
+                return ResourceManager.GetString("FinncialStatus_NotBad_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die سيئ جداً ähnelt.
+        /// </summary>
+        public static string FinncialStatus_TooBad {
+            get {
+                return ResourceManager.GetString("FinncialStatus_TooBad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لايوجد دخل شهري والعائلة بأمس الحاجة للتبرعات ähnelt.
+        /// </summary>
+        public static string FinncialStatus_TooBad_Description {
+            get {
+                return ResourceManager.GetString("FinncialStatus_TooBad_Description", resourceCulture);
             }
         }
         
@@ -1155,6 +1308,15 @@ namespace OrphanageV3.Properties {
         public static string IsStudying {
             get {
                 return ResourceManager.GetString("IsStudying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مهجرة ähnelt.
+        /// </summary>
+        public static string IsTheyRefugees {
+            get {
+                return ResourceManager.GetString("IsTheyRefugees", resourceCulture);
             }
         }
         
@@ -1866,6 +2028,186 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حالة السكن ähnelt.
+        /// </summary>
+        public static string ResidenceStatus {
+            get {
+                return ResourceManager.GetString("ResidenceStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مقبول ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_Acceptable {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_Acceptable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لا يوجد ضرر في البناء و الحالة الصحية سيئة ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_Acceptable_Description {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_Acceptable_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die سيئ ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_Bad {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_Bad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die يوجد ضرر في البناء و الحالة الصحية سيئة ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_Bad_Description {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_Bad_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die جيد ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_Good {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_Good", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لا يوجد ضرر في البناء و الحلة الصحية جيدة ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_Good_Description {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_Good_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die سيئ جداً ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_TooBad {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_TooBad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die السكن شبه مستحيل ähnelt.
+        /// </summary>
+        public static string ResidenceStatus_TooBad_Description {
+            get {
+                return ResourceManager.GetString("ResidenceStatus_TooBad_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die نوع الإقامة ähnelt.
+        /// </summary>
+        public static string ResidenceType {
+            get {
+                return ResourceManager.GetString("ResidenceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مخيم ähnelt.
+        /// </summary>
+        public static string ResidenceType_Camp {
+            get {
+                return ResourceManager.GetString("ResidenceType_Camp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العائلة مهجرة وتسكن ضمن مخيم ähnelt.
+        /// </summary>
+        public static string ResidenceType_Camp_Description {
+            get {
+                return ResourceManager.GetString("ResidenceType_Camp_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ملك ähnelt.
+        /// </summary>
+        public static string ResidenceType_Owned {
+            get {
+                return ResourceManager.GetString("ResidenceType_Owned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العائلة تسكن بيت تملكه ähnelt.
+        /// </summary>
+        public static string ResidenceType_Owned_Description {
+            get {
+                return ResourceManager.GetString("ResidenceType_Owned_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إيجار ähnelt.
+        /// </summary>
+        public static string ResidenceType_Rental {
+            get {
+                return ResourceManager.GetString("ResidenceType_Rental", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العائلة تسكن بيت مستأجر ähnelt.
+        /// </summary>
+        public static string ResidenceType_Rental_Description {
+            get {
+                return ResourceManager.GetString("ResidenceType_Rental_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مركز أيواء ähnelt.
+        /// </summary>
+        public static string ResidenceType_Shelter {
+            get {
+                return ResourceManager.GetString("ResidenceType_Shelter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العائلة مهجرة وتسكن ضمن مركز ايواء ähnelt.
+        /// </summary>
+        public static string ResidenceType_Shelter_Description {
+            get {
+                return ResourceManager.GetString("ResidenceType_Shelter_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مؤقت ähnelt.
+        /// </summary>
+        public static string ResidenceType_Temporarry {
+            get {
+                return ResourceManager.GetString("ResidenceType_Temporarry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العالة تسكن بيت بشكل مؤقت ähnelt.
+        /// </summary>
+        public static string ResidenceType_Temporarry_Description {
+            get {
+                return ResourceManager.GetString("ResidenceType_Temporarry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die حفظ ähnelt.
         /// </summary>
         public static string SaveText {
@@ -1880,6 +2222,15 @@ namespace OrphanageV3.Properties {
         public static string Select {
             get {
                 return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اسناد كفالة ähnelt.
+        /// </summary>
+        public static string SetBail {
+            get {
+                return ResourceManager.GetString("SetBail", resourceCulture);
             }
         }
         
@@ -2083,6 +2434,15 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("UnknownPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إلغاء الكفالة ähnelt.
+        /// </summary>
+        public static string UnsetBail {
+            get {
+                return ResourceManager.GetString("UnsetBail", resourceCulture);
             }
         }
         

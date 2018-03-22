@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
 using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
+using OrphanageV3.Extensions;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.Services
@@ -69,6 +73,10 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.LastName, sour => sour.MapFrom(prop => prop.Name.Last))
                     .ForMember(dest => dest.Notes, sour => sour.MapFrom(prop => prop.Note))
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+                cfg.CreateMap<OrphanageDataModel.RegularData.Family, FamilyModel>()
+                    .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
             });
 
             _mapper = mapperConfiguration.CreateMapper();
@@ -104,10 +112,10 @@ namespace OrphanageV3.Services
             {
                 retOrp = _mapper.Map<OrphanModel>(orphan);
                 retOrp.IsSick = orphan.HealthStatus != null ? true : false;
-                retOrp.FullName = _dataFormatterService.GetFullNameString(orphan.Name);
-                retOrp.CaregiverFullName = _dataFormatterService.GetFullNameString(orphan.Caregiver?.Name);
-                retOrp.FatherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Father?.Name);
-                retOrp.MotherFullName = _dataFormatterService.GetFullNameString(orphan.Family?.Mother?.Name);
+                retOrp.FullName = orphan.Name.FullName();
+                retOrp.CaregiverFullName = orphan.Caregiver?.Name.FullName();
+                retOrp.FatherFullName = orphan.Family?.Father?.Name.FullName();
+                retOrp.MotherFullName = orphan.Family?.Mother?.Name.FullName();
                 //TODO extend IsBailed to family bails
             }
             catch
@@ -132,7 +140,7 @@ namespace OrphanageV3.Services
             try
             {
                 retCaregiver = _mapper.Map<CaregiverModel>(caregiver);
-                retCaregiver.FullName = _dataFormatterService.GetFullNameString(caregiver.Name);
+                retCaregiver.FullName = caregiver.Name.FullName();
                 retCaregiver.FullAddress = _dataFormatterService.GetAddressString(caregiver.Address);
                 if (caregiver.Orphans != null && caregiver.Orphans.Count > 0)
                     retCaregiver.OrphansCount = caregiver.Orphans.Count;
@@ -163,7 +171,7 @@ namespace OrphanageV3.Services
             try
             {
                 retMother = _mapper.Map<MotherModel>(mother);
-                retMother.FullName = _dataFormatterService.GetFullNameString(mother.Name);
+                retMother.FullName = mother.Name.FullName();
                 retMother.FullAddress = _dataFormatterService.GetAddressString(mother.Address);
                 retMother.OrphansCount = -1;
                 retMother.HusbandsNames = "";
@@ -174,9 +182,9 @@ namespace OrphanageV3.Services
                         fam.Father = await _ApiClient.FathersController_GetAsync(fam.FatherId);
                     }
                     if (mother.Families.Count > 1)
-                        retMother.HusbandsNames += _dataFormatterService.GetFullNameString(fam.Father.Name) + ", ";
+                        retMother.HusbandsNames += fam.Father.Name.FullName() + ", ";
                     else
-                        retMother.HusbandsNames += _dataFormatterService.GetFullNameString(fam.Father.Name) + ", ";
+                        retMother.HusbandsNames += fam.Father.Name.FullName() + ", ";
                 }
                 if (retMother.HusbandsNames.EndsWith(", "))
                     retMother.HusbandsNames = retMother.HusbandsNames.Substring(0, retMother.HusbandsNames.Length - 2);
@@ -205,7 +213,7 @@ namespace OrphanageV3.Services
             try
             {
                 retFather = _mapper.Map<FatherModel>(father);
-                retFather.FullName = _dataFormatterService.GetFullNameString(father.Name);
+                retFather.FullName = father.Name.FullName();
                 retFather.WifeName = "";
                 foreach (var fam in father.Families)
                 {
@@ -214,9 +222,9 @@ namespace OrphanageV3.Services
                         fam.Mother = await _ApiClient.MothersController_GetAsync(fam.MotherId);
                     }
                     if (father.Families.Count > 1)
-                        retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name) + ", ";
+                        retFather.WifeName += fam.Mother.Name.FullName() + ", ";
                     else
-                        retFather.WifeName += _dataFormatterService.GetFullNameString(fam.Mother.Name) + ", ";
+                        retFather.WifeName += fam.Mother.Name.FullName() + ", ";
                 }
                 if (retFather.WifeName.EndsWith(", "))
                     retFather.WifeName = retFather.WifeName.Substring(0, retFather.WifeName.Length - 2);
@@ -227,6 +235,55 @@ namespace OrphanageV3.Services
                 retFather = null;
             }
             return retFather;
+        }
+
+        public IEnumerable<FamilyModel> MapToFamilyModel(IEnumerable<Family> familyList)
+        {
+            IList<FamilyModel> returnedFamilies = new List<FamilyModel>();
+            foreach (var family in familyList)
+            {
+                FamilyModel retFamily = MapToFamilyModel(family);
+                returnedFamilies.Add(retFamily);
+            }
+            return returnedFamilies;
+        }
+
+        public FamilyModel MapToFamilyModel(Family family)
+        {
+            FamilyModel retFamily = null;
+            try
+            {
+                retFamily = _mapper.Map<FamilyModel>(family);
+
+                retFamily.AlternativeAddress = _dataFormatterService.GetAddressString(family.AlternativeAddress);
+
+                retFamily.FullAddress = _dataFormatterService.GetAddressString(family.PrimaryAddress);
+
+                if (family.Father != null && family.Father.Name != null)
+                    retFamily.FatherFullName = family.Father.Name.FullName();
+
+                if (family.Mother != null && family.Mother.Name != null)
+                    retFamily.MotherFullName = family.Mother.Name.FullName();
+
+                if (family.Mother != null && family.Mother.Name != null && family.Father != null && family.Father.Name != null)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.Append(Properties.Resources.Family);
+                    stringBuilder.Append(" ");
+                    stringBuilder.Append(retFamily.FatherFullName);
+                    stringBuilder.Append(" ");
+                    stringBuilder.Append(Properties.Resources.AndString);
+                    stringBuilder.Append(" ");
+                    stringBuilder.Append(retFamily.MotherFullName);
+                    retFamily.FamilyFullName = stringBuilder.ToString();
+                }
+                retFamily.OrphansCount = -1;
+            }
+            catch
+            {
+                retFamily = null;
+            }
+            return retFamily;
         }
     }
 }

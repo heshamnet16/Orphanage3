@@ -137,8 +137,11 @@ namespace OrphanageService.Services
                 var orphans = famToDelete.Orphans;
                 if (orphans != null && orphans.Count > 0)
                 {
-                    foreach (var orp in orphans)
+                    int orphansCount = orphans.Count;
+                    var orphansList = orphans.ToList();
+                    for (int orpIndex = 0; orpIndex < orphansCount; orpIndex++)
                     {
+                        var orp = orphansList[orpIndex];
                         allIsOK = await _orphanDbService.DeleteOrphan(orp.Id, orphanageDbc);
                         if (!allIsOK)
                         {
@@ -190,6 +193,35 @@ namespace OrphanageService.Services
                 if (totalSkiped < 0) totalSkiped = 0;
                 var families = await _orphanageDBC.Families.AsNoTracking()
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
+                    .Include(f => f.AlternativeAddress)
+                    .Include(f => f.Bail)
+                    .Include(f => f.Father)
+                    .Include(f => f.Father.Name)
+                    .Include(f => f.Mother)
+                    .Include(f => f.Mother.Name)
+                    .Include(f => f.Mother.Address)
+                    .Include(f => f.Orphans)
+                    .Include(f => f.PrimaryAddress)
+                    .ToListAsync();
+
+                foreach (var family in families)
+                {
+                    OrphanageDataModel.RegularData.Family familyToFill = family;
+                    _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
+                    _uriGenerator.SetFamilyUris(ref familyToFill);
+                    familiesList.Add(familyToFill);
+                }
+            }
+            return familiesList;
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(IEnumerable<int> familiesIds)
+        {
+            IList<OrphanageDataModel.RegularData.Family> familiesList = new List<OrphanageDataModel.RegularData.Family>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var families = await _orphanageDBC.Families.AsNoTracking()
+                    .Where(f=>familiesIds.Contains(f.Id))
                     .Include(f => f.AlternativeAddress)
                     .Include(f => f.Bail)
                     .Include(f => f.Father)
@@ -275,8 +307,8 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 var img = await _orphanageDBC.Families.AsNoTracking().Where(f => f.Id == FamId)
-                    .Select(f => new { f.FamilyCardImagePage1 }).FirstOrDefaultAsync();
-                return img?.FamilyCardImagePage1;
+                    .Select(f => new { f.FamilyCardImagePage1Data }).FirstOrDefaultAsync();
+                return img?.FamilyCardImagePage1Data;
             }
         }
 
@@ -285,8 +317,8 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 var img = await _orphanageDBC.Families.AsNoTracking().Where(f => f.Id == FamId)
-                    .Select(f => new { f.FamilyCardImagePage2 }).FirstOrDefaultAsync();
-                return img?.FamilyCardImagePage2;
+                    .Select(f => new { f.FamilyCardImagePage2Data }).FirstOrDefaultAsync();
+                return img?.FamilyCardImagePage2Data;
             }
         }
 
@@ -319,6 +351,15 @@ namespace OrphanageService.Services
                 }
             }
             return returnedOrphans;
+        }
+
+        public async Task<int> GetOrphansCount(int FamId)
+        {
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                int familiesCount = await _orphanageDBC.Orphans.Where(o=>o.FamilyId==FamId).AsNoTracking().CountAsync();
+                return familiesCount;
+            }
         }
 
         public Task<bool> IsExist(OrphanageDataModel.RegularData.Family family)
@@ -419,7 +460,7 @@ namespace OrphanageService.Services
                     if (family == null)
                         return;
 
-                    family.FamilyCardImagePage1 = data;
+                    family.FamilyCardImagePage1Data = data;
 
                     await _orphanageDBC.SaveChangesAsync();
                 }
@@ -443,7 +484,7 @@ namespace OrphanageService.Services
                 if (family == null)
                     return;
 
-                family.FamilyCardImagePage2 = data;
+                family.FamilyCardImagePage2Data = data;
 
                 await _orphanageDBC.SaveChangesAsync();
             }
