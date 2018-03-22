@@ -16,7 +16,7 @@ namespace OrphanageV3.Controlls
         private readonly ITranslateService _translateService;
         private string _ColorColumnName = "ColorMark";
         private string _IdColumnName = "Id";
-        private string _HideShowColumnName = "IsEcluded";
+        private string _HideShowColumnName = "IsExcluded";
         private bool _ShowHiddenRows = Properties.Settings.Default.ShowHiddenRows;
         private bool IsButtonsRotated = false;
         private bool _AddSelectColumn = true;
@@ -31,7 +31,9 @@ namespace OrphanageV3.Controlls
 
         public string ColorColumnName { get => _ColorColumnName; set { _ColorColumnName = value; } }
         public string HideShowColumnName { get => _HideShowColumnName; set { _HideShowColumnName = value; } }
-        public bool ShowHiddenRows { get => _ShowHiddenRows; set { _ShowHiddenRows = value; } }
+        public bool? ShowHiddenRows { get => _ShowHiddenRows; set
+            { _ShowHiddenRows = value.HasValue ?value.Value : Properties.Settings.Default.ShowHiddenRows; }
+        }
         public bool AddSelectColumn { get => _AddSelectColumn; set { _AddSelectColumn = value; } }
 
         public IList<GridViewRowInfo> SelectedRows
@@ -253,10 +255,12 @@ namespace OrphanageV3.Controlls
             }
             if (radGridView.Columns.Contains(_HideShowColumnName))
             {
+
                 if (!_ShowHiddenRows)
                 {
                     var isHidden = (bool)row.Cells[_HideShowColumnName].Value;
-                    if (isHidden) row.IsVisible = true;
+                    if (isHidden)
+                        row.IsVisible = false;
                 }
             }
         }

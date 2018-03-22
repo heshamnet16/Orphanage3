@@ -1,6 +1,7 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
+using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
@@ -24,10 +25,27 @@ namespace OrphanageV3
         [STAThread]
         private static void Main()
         {
-            Factory = BuildContainer();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Orphan.OrphansView());
+            try
+            {
+                Factory = BuildContainer();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Views.Family.FimiliesView());
+            }
+            catch (ApiClientException apiEx)
+            {
+                //Nothing Changed
+                //if (apiEx.StatusCode == "304")
+                //if (apiException.StatusCode != "404")
+                //{
+                //    //TODO show error message
+                //}
+
+            }        
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public static IUnityContainer BuildContainer()
@@ -44,6 +62,7 @@ namespace OrphanageV3
             currentContainer.RegisterType<CaregiversViewModel>();
             currentContainer.RegisterType<MothersViewModel>();
             currentContainer.RegisterType<FathersViewModel>();
+            currentContainer.RegisterType<FamiliesViewModel>();
             return currentContainer;
         }
     }

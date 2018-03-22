@@ -6,7 +6,7 @@
       <Value Profile="(Default)">yyyy/MM/dd</Value>
     </Setting>
     <Setting Name="UseBackgroundColor" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ShowHiddenRows" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
@@ -34,6 +34,9 @@
     </Setting>
     <Setting Name="FatherLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Father.layout</Value>
+    </Setting>
+    <Setting Name="FamiliesLayoutFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Family.layout</Value>
     </Setting>
   </Settings>
 </SettingsFile>

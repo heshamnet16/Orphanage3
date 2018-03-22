@@ -1,4 +1,5 @@
-﻿using OrphanageV3.Services.Interfaces;
+﻿using OrphanageV3.Extensions;
+using OrphanageV3.Services.Interfaces;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Linq;
@@ -45,8 +46,8 @@ namespace OrphanageV3.Controlls
         {
             get
             {
-                if (_DataFormatterService != null && NameDataSource != null && NameDataSource is OrphanageDataModel.RegularData.Name)
-                    return _DataFormatterService.GetFullNameString((OrphanageDataModel.RegularData.Name)NameDataSource);
+                if (NameDataSource != null && NameDataSource is OrphanageDataModel.RegularData.Name)
+                    return ((OrphanageDataModel.RegularData.Name)NameDataSource).FullName();
                 else
                     return null;
             }

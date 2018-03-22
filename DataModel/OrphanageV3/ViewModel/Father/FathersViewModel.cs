@@ -83,8 +83,7 @@ namespace OrphanageV3.ViewModel.Father
         public async Task<long?> SetColor(int motherId, long? colorValue)
         {
             long? returnedColor = null;
-            try
-            {
+
                 var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
                 returnedColor = father.ColorMark;
                 if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
@@ -93,13 +92,7 @@ namespace OrphanageV3.ViewModel.Father
                     father.ColorMark = null;
                 await _apiClient.FathersController_PutAsync(father);
                 return father.ColorMark;
-            }
-            catch (ApiClientException apiEx)
-            {
-                if (apiEx.StatusCode == "304")
-                    return returnedColor;
-                return null;
-            }
+
         }
 
         public async Task<IList<int>> OrphansIds(int motherId)

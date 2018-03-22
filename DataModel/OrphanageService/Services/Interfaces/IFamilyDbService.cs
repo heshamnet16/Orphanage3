@@ -10,9 +10,13 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(IEnumerable<int> familiesIds);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int FamId);
 
         Task<int> GetFamiliesCount();
+
+        Task<int> GetOrphansCount(int FamId);
 
         Task<byte[]> GetFamilyCardPage1(int FamId);
 

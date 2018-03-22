@@ -806,4 +806,124 @@
   <data name="WifeName" xml:space="preserve">
     <value>اسم الزوجة</value>
   </data>
+  <data name="Family" xml:space="preserve">
+    <value>عائلة</value>
+  </data>
+  <data name="FamilyCardNumber" xml:space="preserve">
+    <value>رقم البطاقة العائلة</value>
+  </data>
+  <data name="FamilyName" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="FinncialStatus" xml:space="preserve">
+    <value>الحالة المالية</value>
+  </data>
+  <data name="IsTheyRefugees" xml:space="preserve">
+    <value>مهجرة</value>
+  </data>
+  <data name="ResidenceStatus" xml:space="preserve">
+    <value>حالة السكن</value>
+  </data>
+  <data name="ResidenceType" xml:space="preserve">
+    <value>نوع الإقامة</value>
+  </data>
+  <data name="Families" xml:space="preserve">
+    <value>العائلات</value>
+  </data>
+  <data name="SetBail" xml:space="preserve">
+    <value>اسناد كفالة</value>
+  </data>
+  <data name="UnsetBail" xml:space="preserve">
+    <value>إلغاء الكفالة</value>
+  </data>
+  <data name="BasicAddress" xml:space="preserve">
+    <value>العنوان الاساسي</value>
+  </data>
+  <data name="CurrentAddress" xml:space="preserve">
+    <value>العنوان الحالي</value>
+  </data>
+  <data name="FinncialStatus_Acceptable" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="FinncialStatus_Acceptable_Description" xml:space="preserve">
+    <value>يوجد دخل شهري مقبول والعالة ليست بحاجة لتبرعات</value>
+  </data>
+  <data name="FinncialStatus_Bad" xml:space="preserve">
+    <value>سيئ</value>
+  </data>
+  <data name="FinncialStatus_Bad_Description" xml:space="preserve">
+    <value>لايوجد دخل شهري والعائلة بحاجة لتبرعات</value>
+  </data>
+  <data name="FinncialStatus_Good" xml:space="preserve">
+    <value>جيد</value>
+  </data>
+  <data name="FinncialStatus_Good_Description" xml:space="preserve">
+    <value>يوجد دخل شهري ممتاز والعالة ليست بحاجة لتبرعات</value>
+  </data>
+  <data name="FinncialStatus_NotBad" xml:space="preserve">
+    <value>متوسط</value>
+  </data>
+  <data name="FinncialStatus_NotBad_Description" xml:space="preserve">
+    <value>يوجد دخل متقطع والوضع المالي سيئ نوعاً ما</value>
+  </data>
+  <data name="FinncialStatus_TooBad" xml:space="preserve">
+    <value>سيئ جداً</value>
+  </data>
+  <data name="FinncialStatus_TooBad_Description" xml:space="preserve">
+    <value>لايوجد دخل شهري والعائلة بأمس الحاجة للتبرعات</value>
+  </data>
+  <data name="ResidenceStatus_Acceptable" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="ResidenceStatus_Acceptable_Description" xml:space="preserve">
+    <value>لا يوجد ضرر في البناء و الحالة الصحية سيئة</value>
+  </data>
+  <data name="ResidenceStatus_Bad" xml:space="preserve">
+    <value>سيئ</value>
+  </data>
+  <data name="ResidenceStatus_Bad_Description" xml:space="preserve">
+    <value>يوجد ضرر في البناء و الحالة الصحية سيئة</value>
+  </data>
+  <data name="ResidenceStatus_Good" xml:space="preserve">
+    <value>جيد</value>
+  </data>
+  <data name="ResidenceStatus_Good_Description" xml:space="preserve">
+    <value>لا يوجد ضرر في البناء و الحلة الصحية جيدة</value>
+  </data>
+  <data name="ResidenceStatus_TooBad" xml:space="preserve">
+    <value>سيئ جداً</value>
+  </data>
+  <data name="ResidenceStatus_TooBad_Description" xml:space="preserve">
+    <value>السكن شبه مستحيل</value>
+  </data>
+  <data name="ResidenceType_Camp" xml:space="preserve">
+    <value>مخيم</value>
+  </data>
+  <data name="ResidenceType_Camp_Description" xml:space="preserve">
+    <value>العائلة مهجرة وتسكن ضمن مخيم</value>
+  </data>
+  <data name="ResidenceType_Owned" xml:space="preserve">
+    <value>ملك</value>
+  </data>
+  <data name="ResidenceType_Owned_Description" xml:space="preserve">
+    <value>العائلة تسكن بيت تملكه</value>
+  </data>
+  <data name="ResidenceType_Rental" xml:space="preserve">
+    <value>إيجار</value>
+  </data>
+  <data name="ResidenceType_Rental_Description" xml:space="preserve">
+    <value>العائلة تسكن بيت مستأجر</value>
+  </data>
+  <data name="ResidenceType_Shelter" xml:space="preserve">
+    <value>مركز أيواء</value>
+  </data>
+  <data name="ResidenceType_Shelter_Description" xml:space="preserve">
+    <value>العائلة مهجرة وتسكن ضمن مركز ايواء</value>
+  </data>
+  <data name="ResidenceType_Temporarry" xml:space="preserve">
+    <value>مؤقت</value>
+  </data>
+  <data name="ResidenceType_Temporarry_Description" xml:space="preserve">
+    <value>العالة تسكن بيت بشكل مؤقت</value>
+  </data>
 </root>

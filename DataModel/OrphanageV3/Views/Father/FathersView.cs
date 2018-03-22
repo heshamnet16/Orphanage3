@@ -36,7 +36,7 @@ namespace OrphanageV3.Views.Father
             btnEdit.ToolTipText = Properties.Resources.Edit;
             btnSetColor.ToolTipText = Properties.Resources.Edit + " " + Properties.Resources.Color;
             btnShowFamilies.ToolTipText = Properties.Resources.ShowFamilies;
-            btnShowMothers.ToolTipText = Properties.Resources.ShowFathers;
+            btnShowMothers.ToolTipText = Properties.Resources.ShowMothers;
             btnShowOrphans.ToolTipText = Properties.Resources.ShowOrphans;
         }
 
@@ -64,7 +64,6 @@ namespace OrphanageV3.Views.Father
                     int orphansCount;
                     int.TryParse(retObject.ToString(), out orphansCount);
                     bool value = orphansCount > 0 ? true : false;
-                    btnShowFamilies.Enabled = value;
                     btnShowOrphans.Enabled = value;
                 }
                 if (orphanageGridView1.SelectedRows.Count == 1)

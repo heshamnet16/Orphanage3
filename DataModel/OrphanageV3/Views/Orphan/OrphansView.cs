@@ -42,7 +42,7 @@ namespace OrphanageV3.Views.Orphan
         private void SetObjectsDefaultsAndEvents()
         {
             this.Text = Properties.Resources.OrphanViewTitle;
-            _orphansViewModel.OrphansChangedEvent += OrphansViewModel_OrphansChangedEvent;
+            _orphansViewModel.DataLoaded += OrphansViewModel_DataLoadedEvent;
             orphanageGridView1.GridView.PageChanged += GridView_PageChanged;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
             orphanageGridView1.GridView.GroupExpanded += GridView_GroupExpanded;
@@ -89,7 +89,7 @@ namespace OrphanageV3.Views.Orphan
                     {
                         foreach (var id in idsList)
                         {
-                            _orphansViewModel.UpdateOrphanPhoto(id).Wait();
+                            _orphansViewModel.UpdateOrphanThumbnail(id).Wait();
                             this.Invoke(new MethodInvoker(() =>
                             {
                                 _radGridHelper.InvalidateRow("Id", id);
@@ -99,8 +99,12 @@ namespace OrphanageV3.Views.Orphan
                     }
                     catch (Exception ex)
                     {
-                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040)
+                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040 && ex.HResult != -2146233079 )
                             throw ex;
+                    }
+                    finally
+                    {
+                        GC.Collect();
                     }
             }));
             t.Priority = ThreadPriority.Normal;
@@ -166,9 +170,13 @@ namespace OrphanageV3.Views.Orphan
             StartThumbnailsThread(idsListFromGrid);
         }
 
-        private void OrphansViewModel_OrphansChangedEvent()
+        private void OrphansViewModel_DataLoadedEvent()
         {
             orphanageGridView1.GridView.DataSource = _orphansViewModel.Orphans;
+            foreach(var bind in orphanageGridView1.DataBindings)
+            {
+
+            }
             var PicColumn = orphanageGridView1.GridView.Columns["Photo"];
             PicColumn.ImageLayout = ImageLayout.Stretch;
             orphanageGridView1.GridView.Columns["Photo"].Width = 80;

@@ -19,23 +19,12 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Caregiver caregiver)
         {
-            try
-            {
+
                 caregiver.IdentityCardPhotoBackData = null;
                 caregiver.IdentityCardPhotoFaceData = null;
                 await _apiClient.CaregiversController_PutAsync(caregiver);
                 return true;
-            }
-            catch (ApiClientException apiException)
-            {
-                if (apiException.StatusCode != "304")
-                {
-                    //TODO Status Message not changed
-                    //TODO Bad request error handling
-                    return false;
-                }
-                return true;
-            }
+
         }
 
         public async Task<OrphanageDataModel.Persons.Caregiver> getCaregiver(int Cid)

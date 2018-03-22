@@ -77,8 +77,7 @@ namespace OrphanageV3.ViewModel.Caregiver
         public async Task<long?> SetColor(int caregiverId, long? colorValue)
         {
             long? returnedColor = null;
-            try
-            {
+
                 var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
                 returnedColor = caregiver.ColorMark;
                 if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
@@ -87,13 +86,7 @@ namespace OrphanageV3.ViewModel.Caregiver
                     caregiver.ColorMark = null;
                 await _apiClient.CaregiversController_PutAsync(caregiver);
                 return caregiver.ColorMark;
-            }
-            catch (ApiClientException apiEx)
-            {
-                if (apiEx.StatusCode == "304")
-                    return returnedColor;
-                return null;
-            }
+
         }
 
         public IList<int> OrphansIds(int caregiverId)

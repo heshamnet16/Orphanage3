@@ -283,11 +283,10 @@
             this.orphanageGridView1.AddSelectColumn = true;
             this.orphanageGridView1.ColorColumnName = "ColorMark";
             this.orphanageGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orphanageGridView1.HideShowColumnName = "IsEcluded";
+            this.orphanageGridView1.HideShowColumnName = "IsExcluded";
             this.orphanageGridView1.IdColumnName = "Id";
             this.orphanageGridView1.Location = new System.Drawing.Point(3, 48);
             this.orphanageGridView1.Name = "orphanageGridView1";
-            this.orphanageGridView1.ShowHiddenRows = true;
             this.orphanageGridView1.Size = new System.Drawing.Size(1123, 451);
             this.orphanageGridView1.TabIndex = 0;
             this.orphanageGridView1.Load += new System.EventHandler(this.orphanageGridView1_Load);

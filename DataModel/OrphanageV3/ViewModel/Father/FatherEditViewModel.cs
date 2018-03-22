@@ -19,23 +19,12 @@ namespace OrphanageV3.ViewModel.Father
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Father father)
         {
-            try
-            {
+
                 father.DeathCertificatePhotoData = null;
                 father.PhotoData = null;
                 await _apiClient.FathersController_PutAsync(father);
                 return true;
-            }
-            catch (ApiClientException apiException)
-            {
-                if (apiException.StatusCode != "304")
-                {
-                    //TODO Status Message not changed
-                    //TODO Bad request error handling
-                    return false;
-                }
-                return true;
-            }
+
         }
 
         public async Task<OrphanageDataModel.Persons.Father> getFather(int Cid)
