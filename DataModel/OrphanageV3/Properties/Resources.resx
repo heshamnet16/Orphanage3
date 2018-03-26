@@ -926,4 +926,10 @@
   <data name="ResidenceType_Temporarry_Description" xml:space="preserve">
     <value>العالة تسكن بيت بشكل مؤقت</value>
   </data>
+  <data name="OkString" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

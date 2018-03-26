@@ -1602,6 +1602,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die موافق ähnelt.
+        /// </summary>
+        public static string OkString {
+            get {
+                return ResourceManager.GetString("OkString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عمر اليتيم ähnelt.
         /// </summary>
         public static string OrphanAge {
@@ -2213,6 +2222,16 @@ namespace OrphanageV3.Properties {
         public static string SaveText {
             get {
                 return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

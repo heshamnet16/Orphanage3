@@ -30,7 +30,7 @@ namespace OrphanageV3
                 Factory = BuildContainer();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Views.Family.FimiliesView());
+                Application.Run(new Views.Orphan.OrphansView());
             }
             catch (ApiClientException apiEx)
             {
