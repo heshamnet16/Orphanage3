@@ -4,6 +4,7 @@ using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 using Unity;
 
 namespace OrphanageV3.Controlls
@@ -25,6 +26,11 @@ namespace OrphanageV3.Controlls
                     addressBindingSource.DataSource = value;
             }
         }
+
+        public RadGroupBoxStyle Style { get => this.grpAddress.GroupBoxStyle; set { grpAddress.GroupBoxStyle = value;
+                grpInternet.GroupBoxStyle = value;
+                grpPhoneNumbers.GroupBoxStyle = value;
+            } }
 
         public enum _MoveType
         {

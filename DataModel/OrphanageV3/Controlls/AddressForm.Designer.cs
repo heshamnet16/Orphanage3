@@ -229,7 +229,6 @@
             this.grpPhoneNumbers.Controls.Add(this.lblHomePhone);
             this.grpPhoneNumbers.Controls.Add(this.lblMobileNumber);
             this.grpPhoneNumbers.Controls.Add(this.lblFaxNumber);
-            this.grpPhoneNumbers.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpPhoneNumbers.HeaderText = " ";
             this.grpPhoneNumbers.Location = new System.Drawing.Point(346, 137);
             this.grpPhoneNumbers.Name = "grpPhoneNumbers";
@@ -468,7 +467,6 @@
             this.grpInternet.Controls.Add(this.lblSkype);
             this.grpInternet.Controls.Add(this.lblFacebook);
             this.grpInternet.Controls.Add(this.lblEmail);
-            this.grpInternet.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpInternet.HeaderText = " ";
             this.grpInternet.Location = new System.Drawing.Point(3, 5);
             this.grpInternet.Name = "grpInternet";

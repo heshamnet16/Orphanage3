@@ -31,23 +31,23 @@ namespace OrphanageV3.Views.Orphan
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem17 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem18 = new Telerik.WinControls.UI.RadListDataItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrphanEditView));
             Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrphanEditView));
-            Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem4 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem5 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem6 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem7 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem8 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem9 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem10 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem11 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem12 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem13 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem14 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem15 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem16 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem19 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem20 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem21 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem22 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem23 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem24 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem25 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem26 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem27 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem28 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem29 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem30 = new Telerik.WinControls.UI.RadListDataItem();
             this.RadPageView1 = new Telerik.WinControls.UI.RadPageView();
             this.pgeBasic = new Telerik.WinControls.UI.RadPageViewPage();
             this.nameForm1 = new OrphanageV3.Controlls.NameForm();
@@ -215,7 +215,7 @@ namespace OrphanageV3.Views.Orphan
             this.RadPageView1.Controls.Add(this.pgeHealth);
             this.RadPageView1.Location = new System.Drawing.Point(-1, 0);
             this.RadPageView1.Name = "RadPageView1";
-            this.RadPageView1.SelectedPage = this.pgeEducation;
+            this.RadPageView1.SelectedPage = this.pgeBasic;
             this.RadPageView1.Size = new System.Drawing.Size(504, 393);
             this.RadPageView1.TabIndex = 19;
             ((Telerik.WinControls.UI.RadPageViewStripElement)(this.RadPageView1.GetChildAt(0))).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
@@ -266,6 +266,7 @@ namespace OrphanageV3.Views.Orphan
             this.nameForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nameForm1.ShowMovement = false;
             this.nameForm1.Size = new System.Drawing.Size(345, 185);
+            this.nameForm1.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.nameForm1.TabIndex = 29;
             this.nameForm1.Visible = false;
             this.nameForm1.Leave += new System.EventHandler(this.pgeBasic_Click);
@@ -288,11 +289,11 @@ namespace OrphanageV3.Views.Orphan
             this.cmbOGender.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.orphanBindingSource, "Gender", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cmbOGender.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "Gender", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cmbOGender.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            radListDataItem1.Selected = true;
-            radListDataItem1.Text = "انثى";
-            radListDataItem2.Text = "ذكر";
-            this.cmbOGender.Items.Add(radListDataItem1);
-            this.cmbOGender.Items.Add(radListDataItem2);
+            radListDataItem17.Selected = true;
+            radListDataItem17.Text = "انثى";
+            radListDataItem18.Text = "ذكر";
+            this.cmbOGender.Items.Add(radListDataItem17);
+            this.cmbOGender.Items.Add(radListDataItem18);
             this.cmbOGender.Location = new System.Drawing.Point(220, 148);
             this.cmbOGender.Name = "cmbOGender";
             this.cmbOGender.SelectNextOnDoubleClick = true;
@@ -577,7 +578,8 @@ namespace OrphanageV3.Views.Orphan
             // 
             // picObirthCertificate
             // 
-            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picObirthCertificate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picObirthCertificate.BackgroundImage")));
+            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picObirthCertificate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picObirthCertificate.Location = new System.Drawing.Point(2, 18);
             this.picObirthCertificate.Name = "picObirthCertificate";
@@ -602,7 +604,8 @@ namespace OrphanageV3.Views.Orphan
             // 
             // picOFamilyCardPhoto
             // 
-            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picOFamilyCardPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picOFamilyCardPhoto.BackgroundImage")));
+            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picOFamilyCardPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picOFamilyCardPhoto.Location = new System.Drawing.Point(2, 18);
             this.picOFamilyCardPhoto.Name = "picOFamilyCardPhoto";
@@ -1100,34 +1103,34 @@ namespace OrphanageV3.Views.Orphan
             // txtHSicknessName
             // 
             this.txtHSicknessName.AcceptsTab = true;
-            radListDataItem3.Text = "سكري";
-            radListDataItem4.Text = "قلب";
-            radListDataItem5.Text = "سحايا";
-            radListDataItem6.Text = "توحد";
-            radListDataItem7.Text = "قصور كلوي";
-            radListDataItem8.Text = "بتر يد";
-            radListDataItem9.Text = "بتر قدم";
-            radListDataItem10.Text = "بتر ذراع";
-            radListDataItem11.Text = "بتر رجل";
-            radListDataItem12.Text = "شلل نصفي";
-            radListDataItem13.Text = "شلل رباعي";
-            radListDataItem14.Text = "صرع";
-            radListDataItem15.Text = "شقيقة";
-            radListDataItem16.Text = "سلّ";
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem3);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem4);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem5);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem6);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem7);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem8);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem9);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem10);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem11);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem12);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem13);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem14);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem15);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem16);
+            radListDataItem1.Text = "سكري";
+            radListDataItem2.Text = "قلب";
+            radListDataItem19.Text = "سحايا";
+            radListDataItem20.Text = "توحد";
+            radListDataItem21.Text = "قصور كلوي";
+            radListDataItem22.Text = "بتر يد";
+            radListDataItem23.Text = "بتر قدم";
+            radListDataItem24.Text = "بتر ذراع";
+            radListDataItem25.Text = "بتر رجل";
+            radListDataItem26.Text = "شلل نصفي";
+            radListDataItem27.Text = "شلل رباعي";
+            radListDataItem28.Text = "صرع";
+            radListDataItem29.Text = "شقيقة";
+            radListDataItem30.Text = "سلّ";
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem1);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem2);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem19);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem20);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem21);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem22);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem23);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem24);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem25);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem26);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem27);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem28);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem29);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem30);
             this.txtHSicknessName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtHSicknessName.Delimiter = '+';
             this.txtHSicknessName.Enabled = false;

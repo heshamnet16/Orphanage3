@@ -55,8 +55,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(438, 524);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 331);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lstDataList
@@ -69,7 +68,7 @@
             this.lstDataList.Location = new System.Drawing.Point(3, 47);
             this.lstDataList.Name = "lstDataList";
             this.lstDataList.ShowGridLines = true;
-            this.lstDataList.Size = new System.Drawing.Size(432, 474);
+            this.lstDataList.Size = new System.Drawing.Size(194, 281);
             this.lstDataList.TabIndex = 0;
             this.lstDataList.Text = "radListView1";
             this.lstDataList.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
@@ -88,7 +87,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(432, 38);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(194, 38);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // btnSearch
@@ -117,7 +116,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(44, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(385, 27);
+            this.txtSearch.Size = new System.Drawing.Size(147, 27);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
@@ -127,9 +126,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
+            this.MinimumSize = new System.Drawing.Size(200, 331);
             this.Name = "EntityChooser";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(438, 524);
+            this.Size = new System.Drawing.Size(200, 331);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lstDataList)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);

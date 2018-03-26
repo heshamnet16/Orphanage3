@@ -61,6 +61,60 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إضافة بينات العائلة الاساسية ähnelt.
+        /// </summary>
+        public static string AddFamilyBasicData {
+            get {
+                return ResourceManager.GetString("AddFamilyBasicData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إضافة بينات أخرى ähnelt.
+        /// </summary>
+        public static string AddFamilyOtherData {
+            get {
+                return ResourceManager.GetString("AddFamilyOtherData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إضافة أب ähnelt.
+        /// </summary>
+        public static string AddFather {
+            get {
+                return ResourceManager.GetString("AddFather", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die بيانات إضافية ähnelt.
+        /// </summary>
+        public static string AdditionalData {
+            get {
+                return ResourceManager.GetString("AdditionalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إضافة أم ähnelt.
+        /// </summary>
+        public static string AddMother {
+            get {
+                return ResourceManager.GetString("AddMother", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إضافة عائلة ähnelt.
+        /// </summary>
+        public static string AddNewFamily {
+            get {
+                return ResourceManager.GetString("AddNewFamily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap AddPic {
@@ -76,6 +130,15 @@ namespace OrphanageV3.Properties {
         public static string Address {
             get {
                 return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العناوين ähnelt.
+        /// </summary>
+        public static string Addresses {
+            get {
+                return ResourceManager.GetString("Addresses", resourceCulture);
             }
         }
         
@@ -339,6 +402,132 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("ChildrenPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر كفالة ähnelt.
+        /// </summary>
+        public static string ChooseBail {
+            get {
+                return ResourceManager.GetString("ChooseBail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر كفالات ähnelt.
+        /// </summary>
+        public static string ChooseBails {
+            get {
+                return ResourceManager.GetString("ChooseBails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر معيل ähnelt.
+        /// </summary>
+        public static string ChooseCaregiver {
+            get {
+                return ResourceManager.GetString("ChooseCaregiver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر معيلين ähnelt.
+        /// </summary>
+        public static string ChooseCaregivers {
+            get {
+                return ResourceManager.GetString("ChooseCaregivers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر العائلات ähnelt.
+        /// </summary>
+        public static string ChooseFamilies {
+            get {
+                return ResourceManager.GetString("ChooseFamilies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر عائلة ähnelt.
+        /// </summary>
+        public static string ChooseFamily {
+            get {
+                return ResourceManager.GetString("ChooseFamily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر أب ähnelt.
+        /// </summary>
+        public static string ChooseFather {
+            get {
+                return ResourceManager.GetString("ChooseFather", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر الآباء ähnelt.
+        /// </summary>
+        public static string ChooseFathers {
+            get {
+                return ResourceManager.GetString("ChooseFathers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر كفيل ähnelt.
+        /// </summary>
+        public static string ChooseGuarantor {
+            get {
+                return ResourceManager.GetString("ChooseGuarantor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر كفلاء ähnelt.
+        /// </summary>
+        public static string ChooseGuarantors {
+            get {
+                return ResourceManager.GetString("ChooseGuarantors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر أم ähnelt.
+        /// </summary>
+        public static string ChooseMother {
+            get {
+                return ResourceManager.GetString("ChooseMother", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر الأمهات ähnelt.
+        /// </summary>
+        public static string ChooseMothers {
+            get {
+                return ResourceManager.GetString("ChooseMothers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر يتيم ähnelt.
+        /// </summary>
+        public static string ChooseOrphan {
+            get {
+                return ResourceManager.GetString("ChooseOrphan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر ايتام ähnelt.
+        /// </summary>
+        public static string ChooseOrphans {
+            get {
+                return ResourceManager.GetString("ChooseOrphans", resourceCulture);
             }
         }
         
@@ -1584,6 +1773,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die التالي ähnelt.
+        /// </summary>
+        public static string NextText {
+            get {
+                return ResourceManager.GetString("NextText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ملاحظات ähnelt.
         /// </summary>
         public static string Notes {
@@ -2009,6 +2207,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die التقدم ähnelt.
+        /// </summary>
+        public static string Progress {
+            get {
+                return ResourceManager.GetString("Progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die السبب ähnelt.
         /// </summary>
         public static string Reason {
@@ -2350,6 +2557,15 @@ namespace OrphanageV3.Properties {
         public static string Street {
             get {
                 return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الملخص ähnelt.
+        /// </summary>
+        public static string Summary {
+            get {
+                return ResourceManager.GetString("Summary", resourceCulture);
             }
         }
         

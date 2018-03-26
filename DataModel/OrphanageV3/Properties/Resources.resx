@@ -932,4 +932,76 @@
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AddNewFamily" xml:space="preserve">
+    <value>إضافة عائلة</value>
+  </data>
+  <data name="ChooseBail" xml:space="preserve">
+    <value>اختر كفالة</value>
+  </data>
+  <data name="ChooseBails" xml:space="preserve">
+    <value>اختر كفالات</value>
+  </data>
+  <data name="ChooseCaregiver" xml:space="preserve">
+    <value>اختر معيل</value>
+  </data>
+  <data name="ChooseCaregivers" xml:space="preserve">
+    <value>اختر معيلين</value>
+  </data>
+  <data name="ChooseFamilies" xml:space="preserve">
+    <value>اختر العائلات</value>
+  </data>
+  <data name="ChooseFamily" xml:space="preserve">
+    <value>اختر عائلة</value>
+  </data>
+  <data name="ChooseFather" xml:space="preserve">
+    <value>اختر أب</value>
+  </data>
+  <data name="ChooseFathers" xml:space="preserve">
+    <value>اختر الآباء</value>
+  </data>
+  <data name="ChooseGuarantor" xml:space="preserve">
+    <value>اختر كفيل</value>
+  </data>
+  <data name="ChooseGuarantors" xml:space="preserve">
+    <value>اختر كفلاء</value>
+  </data>
+  <data name="ChooseMother" xml:space="preserve">
+    <value>اختر أم</value>
+  </data>
+  <data name="ChooseMothers" xml:space="preserve">
+    <value>اختر الأمهات</value>
+  </data>
+  <data name="ChooseOrphan" xml:space="preserve">
+    <value>اختر يتيم</value>
+  </data>
+  <data name="ChooseOrphans" xml:space="preserve">
+    <value>اختر ايتام</value>
+  </data>
+  <data name="AddFamilyBasicData" xml:space="preserve">
+    <value>إضافة بينات العائلة الاساسية</value>
+  </data>
+  <data name="AddFamilyOtherData" xml:space="preserve">
+    <value>إضافة بينات أخرى</value>
+  </data>
+  <data name="AddFather" xml:space="preserve">
+    <value>إضافة أب</value>
+  </data>
+  <data name="AddMother" xml:space="preserve">
+    <value>إضافة أم</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>التقدم</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>الملخص</value>
+  </data>
+  <data name="AdditionalData" xml:space="preserve">
+    <value>بيانات إضافية</value>
+  </data>
+  <data name="NextText" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="Addresses" xml:space="preserve">
+    <value>العناوين</value>
+  </data>
 </root>

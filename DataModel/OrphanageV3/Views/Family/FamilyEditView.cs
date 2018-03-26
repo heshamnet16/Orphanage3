@@ -21,7 +21,7 @@ namespace OrphanageV3.Views.Family
 
         private FamilyEditViewModel _fatherEditViewModel;
 
-        private IEntityValidator _fatherEntityValidator;
+        private IEntityValidator _familyEntityValidator;
 
         public FamilyEditView(int FatherID)
         {
@@ -29,7 +29,7 @@ namespace OrphanageV3.Views.Family
 
             _fatherEditViewModel = Program.Factory.Resolve<FamilyEditViewModel>();
 
-            _fatherEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+            _familyEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
             _fatherEditViewModel.ImagesSize = picCardphoto1.Size;
             LoadFamily(FatherID);
@@ -41,8 +41,8 @@ namespace OrphanageV3.Views.Family
             if (_Father != null)
             {
                 familyBindingSource.DataSource = _Father;
-                _fatherEntityValidator.controlCollection = Controls;
-                _fatherEntityValidator.DataEntity = _Father;
+                _familyEntityValidator.controlCollection = Controls;
+                _familyEntityValidator.DataEntity = _Father;
                 addressForm1.AddressDataSource = _Father.PrimaryAddress;
                 if (_Father.AlternativeAddress != null)
                     addressForm2.AddressDataSource = _Father.AlternativeAddress;
@@ -201,11 +201,11 @@ namespace OrphanageV3.Views.Family
         private void ValidateAndShowError()
         {
             familyErrorProvider1.Clear();
-            if (_fatherEntityValidator != null)
+            if (_familyEntityValidator != null)
             {
-                _fatherEntityValidator.controlCollection = Controls;
-                _fatherEntityValidator.DataEntity = familyBindingSource.DataSource;
-                _fatherEntityValidator.SetErrorProvider(familyErrorProvider1);
+                _familyEntityValidator.controlCollection = Controls;
+                _familyEntityValidator.DataEntity = familyBindingSource.DataSource;
+                _familyEntityValidator.SetErrorProvider(familyErrorProvider1);
             }
         }
 
@@ -273,7 +273,7 @@ namespace OrphanageV3.Views.Family
 
         private async void BtnOK_Click(object sender, EventArgs e)
         {
-            if (_fatherEntityValidator.IsValid())
+            if (_familyEntityValidator.IsValid())
             {
                 _Father.PrimaryAddress = (Address)addressForm1.AddressDataSource;
                 if (_Father.IsTheyRefugees)

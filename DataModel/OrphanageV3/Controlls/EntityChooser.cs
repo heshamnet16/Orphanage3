@@ -113,6 +113,7 @@ namespace OrphanageV3.Controlls
                 {
                     col.Visible = false;
                 }
+                col.BestFit();
             }
         }
 
@@ -162,7 +163,7 @@ namespace OrphanageV3.Controlls
         private void lstDataList_BindingCompleted(object sender, EventArgs e)
         {
             SetAttributedColumns();
-            TranslateColumnsNames();
+            TranslateColumnsNames();           
         }
 
         private void lstDataList_CellFormatting(object sender, ListViewCellFormattingEventArgs e)
