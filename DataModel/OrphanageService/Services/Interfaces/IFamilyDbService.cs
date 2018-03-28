@@ -31,7 +31,7 @@ namespace OrphanageService.Services.Interfaces
         /// </summary>
         /// <param name="family">the family object</param>
         /// <returns></returns>
-        Task<int> AddFamily(OrphanageDataModel.RegularData.Family family);
+        Task<OrphanageDataModel.RegularData.Family> AddFamily(OrphanageDataModel.RegularData.Family family);
 
         Task<bool> SaveFamily(OrphanageDataModel.RegularData.Family family);
 

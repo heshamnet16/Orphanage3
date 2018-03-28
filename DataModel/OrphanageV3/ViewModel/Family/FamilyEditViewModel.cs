@@ -1,9 +1,5 @@
 ﻿using OrphanageV3.Services;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Family
@@ -23,12 +19,10 @@ namespace OrphanageV3.ViewModel.Family
 
         public async Task<bool> Save(OrphanageDataModel.RegularData.Family family)
         {
-
             family.FamilyCardImagePage1Data = null;
-            family.FamilyCardImagePage2Data= null;
+            family.FamilyCardImagePage2Data = null;
             await _apiClient.FamiliesController_PutAsync(family);
             return true;
-
         }
 
         public async Task<OrphanageDataModel.RegularData.Family> getFamily(int Cid)
@@ -51,6 +45,26 @@ namespace OrphanageV3.ViewModel.Family
         public async Task<bool> Save()
         {
             return await Save(_CurrentFamily);
+        }
+
+        public async Task<OrphanageDataModel.RegularData.Family> Add(OrphanageDataModel.RegularData.Family family)
+        {
+            if (family != null)
+            {
+                try
+                {
+                    var fam = (OrphanageDataModel.RegularData.Family)await _apiClient.FamiliesController_PostAsync(family);
+                    return fam ?? null;
+                }
+                catch (ApiClientException apiEx)
+                {
+                    //Created
+                    if (apiEx.StatusCode == "201")
+                        return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.RegularData.Family>(apiEx.Response) ?? null;
+                    return null;
+                }
+            }
+            return null;
         }
     }
 }

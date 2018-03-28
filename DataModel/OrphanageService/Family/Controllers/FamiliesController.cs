@@ -62,7 +62,7 @@ namespace OrphanageService.Family.Controllers
         [Route("")]
         public async Task<HttpResponseMessage> Post(OrphanageDataModel.RegularData.Family family)
         {
-            var ret = 0;
+            OrphanageDataModel.RegularData.Family ret = null;
             try
             {
                 ret = await _FamilyDBService.AddFamily(family);
@@ -71,7 +71,7 @@ namespace OrphanageService.Family.Controllers
             {
                 throw _exceptionHandlerService.HandleValidationException(excp);
             }
-            if (ret > 0)
+            if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrphanageV3.Attributes;
+using System;
 using System.Drawing;
 
 namespace OrphanageV3.ViewModel.Father
@@ -7,12 +8,14 @@ namespace OrphanageV3.ViewModel.Father
     {
         public int Id { get; set; }
 
+        [ShowInChooser(Order = 0)]
         public string FullName { get; set; }
 
         public string FirstName { get; set; }
         public string FatherName { get; set; }
         public string LastName { get; set; }
 
+        [ShowInChooser(Order = 1)]
         public string WifeName { get; set; }
 
         public DateTime Birthday { get; set; }
@@ -41,6 +44,7 @@ namespace OrphanageV3.ViewModel.Father
 
         public string DeathCertificatePhotoURI { get; set; }
 
+        [ShowInChooser(Order = 2)]
         public int OrphansCount { get; set; }
     }
 }

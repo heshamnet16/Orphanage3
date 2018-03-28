@@ -78,6 +78,9 @@
     </Compile>
     <Compile Include="RegularData\Study.cs" />
     <Compile Include="Persons\User.cs" />
+    <Compile Include="ValidationAttributes\DateOfDeathValidator.cs" />
+    <Compile Include="ValidationAttributes\BirthdayValidator.cs" />
+    <Compile Include="ValidationAttributes\OrphanBirthdayValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -31,7 +31,5 @@ namespace OrphanageV3.Services.Interfaces
         IEnumerable<FamilyModel> MapToFamilyModel(IEnumerable<Family> familyList);
 
         FamilyModel MapToFamilyModel(Family family);
-
-        
     }
 }

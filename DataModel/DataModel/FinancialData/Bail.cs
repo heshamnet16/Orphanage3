@@ -10,6 +10,11 @@ namespace OrphanageDataModel.FinancialData
     [Table("Bails")]
     public class Bail
     {
+        public Bail()
+        {
+            RegDate = DateTime.Now;
+        }
+
         [Key]
         [Column("ID")]
         public int Id { get; set; }

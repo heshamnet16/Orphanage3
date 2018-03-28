@@ -12,6 +12,11 @@ namespace OrphanageDataModel.RegularData
     [Table("Famlies")]
     public class Family
     {
+        public Family()
+        {
+            RegDate = DateTime.Now;
+        }
+
         [Key]
         [Column("ID")]
         public int Id { get; set; }

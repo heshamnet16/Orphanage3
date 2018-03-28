@@ -10,6 +10,11 @@ namespace OrphanageDataModel.Persons
     [Table("Users")]
     public class User
     {
+        public User()
+        {
+            RegDate = DateTime.Now;
+        }
+
         [Key]
         [Column("ID")]
         public int Id { get; set; }

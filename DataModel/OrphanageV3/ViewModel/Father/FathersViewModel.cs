@@ -84,15 +84,14 @@ namespace OrphanageV3.ViewModel.Father
         {
             long? returnedColor = null;
 
-                var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
-                returnedColor = father.ColorMark;
-                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                    father.ColorMark = colorValue;
-                else
-                    father.ColorMark = null;
-                await _apiClient.FathersController_PutAsync(father);
-                return father.ColorMark;
-
+            var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
+            returnedColor = father.ColorMark;
+            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                father.ColorMark = colorValue;
+            else
+                father.ColorMark = null;
+            await _apiClient.FathersController_PutAsync(father);
+            return father.ColorMark;
         }
 
         public async Task<IList<int>> OrphansIds(int motherId)

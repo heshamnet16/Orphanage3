@@ -23,21 +23,19 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Orphan orphan)
         {
-
-                orphan.BirthCertificatePhotoData = null;
-                orphan.FacePhotoData = null;
-                orphan.FamilyCardPagePhotoData = null;
-                orphan.FullPhotoData = null;
-                if (orphan.Education != null)
-                {
-                    orphan.Education.CertificatePhotoBack = null;
-                    orphan.Education.CertificatePhotoFront = null;
-                }
-                if (orphan.HealthStatus != null)
-                    orphan.HealthStatus.ReporteFileData = null;
-                await _apiClient.OrphansController_PutAsync(orphan);
-                return true;
-
+            orphan.BirthCertificatePhotoData = null;
+            orphan.FacePhotoData = null;
+            orphan.FamilyCardPagePhotoData = null;
+            orphan.FullPhotoData = null;
+            if (orphan.Education != null)
+            {
+                orphan.Education.CertificatePhotoBack = null;
+                orphan.Education.CertificatePhotoFront = null;
+            }
+            if (orphan.HealthStatus != null)
+                orphan.HealthStatus.ReporteFileData = null;
+            await _apiClient.OrphansController_PutAsync(orphan);
+            return true;
         }
 
         public async Task<OrphanageDataModel.Persons.Orphan> getOrphan(int Oid)

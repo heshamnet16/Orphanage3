@@ -3,7 +3,6 @@
 //     Generated using the NSwag toolchain v11.8.2.0 (NJsonSchema v9.6.5.0 (Newtonsoft.Json v9.0.0.0)) (http://NSwag.org)
 // </auto-generated>
 //----------------------
-
 using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;

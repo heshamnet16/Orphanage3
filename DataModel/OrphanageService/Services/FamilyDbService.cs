@@ -31,7 +31,7 @@ namespace OrphanageService.Services
             _orphanDbService = orphanDbService;
         }
 
-        public async Task<int> AddFamily(OrphanageDataModel.RegularData.Family family)
+        public async Task<OrphanageDataModel.RegularData.Family> AddFamily(OrphanageDataModel.RegularData.Family family)
         {
             if (family == null) throw new NullReferenceException();
             if (family.PrimaryAddress == null) throw new NullReferenceException();
@@ -90,6 +90,7 @@ namespace OrphanageService.Services
                     father.Name = fatherName;
                     var taskFather = _fatherDbService.AddFather(father, orphanageDbc);
                     family.FatherId = await taskFather;
+                    _uriGenerator.SetFatherUris(ref father);
                     family.Father = father;
                     // set mother
                     var taskMotherName = _regularDataService.AddName(motherName, orphanageDbc);
@@ -100,18 +101,20 @@ namespace OrphanageService.Services
                     mother.Address = motherAddress;
                     var taskMother = _motherDbService.AddMother(mother, orphanageDbc);
                     family.MotherId = await taskMother;
+                    _uriGenerator.SetMotherUris(ref mother);
                     family.Mother = mother;
 
                     orphanageDbc.Families.Add(family);
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
                         DbT.Commit();
-                        return family.Id;
+                        _uriGenerator.SetFamilyUris(ref family);
+                        return family;
                     }
                     else
                     {
                         DbT.Rollback();
-                        return -1;
+                        return null;
                     }
                 }
             }
@@ -221,7 +224,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var families = await _orphanageDBC.Families.AsNoTracking()
-                    .Where(f=>familiesIds.Contains(f.Id))
+                    .Where(f => familiesIds.Contains(f.Id))
                     .Include(f => f.AlternativeAddress)
                     .Include(f => f.Bail)
                     .Include(f => f.Father)
@@ -357,7 +360,7 @@ namespace OrphanageService.Services
         {
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
-                int familiesCount = await _orphanageDBC.Orphans.Where(o=>o.FamilyId==FamId).AsNoTracking().CountAsync();
+                int familiesCount = await _orphanageDBC.Orphans.Where(o => o.FamilyId == FamId).AsNoTracking().CountAsync();
                 return familiesCount;
             }
         }

@@ -82,6 +82,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.WinControls.GridView, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDiagram, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Scheduler, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.2.503.40\Telerik.WinControls.UI.dll</HintPath>
       <Private>True</Private>
@@ -113,11 +115,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ShowInChooser.cs" />
     <Compile Include="Controlls\AddressForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controlls\AddressForm.Designer.cs">
       <DependentUpon>AddressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controlls\EntityChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlls\EntityChooser.Designer.cs">
+      <DependentUpon>EntityChooser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controlls\NameForm.cs">
       <SubType>UserControl</SubType>
@@ -172,6 +181,18 @@
     <Compile Include="Views\Caregiver\CaregiversView.Designer.cs">
       <DependentUpon>CaregiversView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChooserView\ChooserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChooserView\ChooserView.Designer.cs">
+      <DependentUpon>ChooserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Family\AddFamilyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Family\AddFamilyView.Designer.cs">
+      <DependentUpon>AddFamilyView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Family\FamilyEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +204,12 @@
     </Compile>
     <Compile Include="Views\Family\FimiliesView.Designer.cs">
       <DependentUpon>FimiliesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Father\FatherChooserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Father\FatherChooserView.Designer.cs">
+      <DependentUpon>FatherChooserView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Father\FathersView.cs">
       <SubType>Form</SubType>
@@ -235,6 +262,9 @@
     <EmbeddedResource Include="Controlls\AddressForm.resx">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controlls\EntityChooser.resx">
+      <DependentUpon>EntityChooser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controlls\NameForm.resx">
       <DependentUpon>NameForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,11 +277,20 @@
     <EmbeddedResource Include="Views\Caregiver\CaregiversView.resx">
       <DependentUpon>CaregiversView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChooserView\ChooserView.resx">
+      <DependentUpon>ChooserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Family\AddFamilyView.resx">
+      <DependentUpon>AddFamilyView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Family\FamilyEditView.resx">
       <DependentUpon>FamilyEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Family\FimiliesView.resx">
       <DependentUpon>FimiliesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Father\FatherChooserView.resx">
+      <DependentUpon>FatherChooserView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Father\FathersView.resx">
       <DependentUpon>FathersView.cs</DependentUpon>
@@ -365,7 +404,7 @@
     <None Include="Resources\Children.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Attributes\" />
+    <None Include="Resources\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

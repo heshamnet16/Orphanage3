@@ -2,11 +2,9 @@
 using OrphanageV3.Extensions;
 using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -134,27 +132,24 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> ExcludeOrphan(int Oid)
         {
-
-                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
-                orphan.IsExcluded = true;
-                await _apiClient.OrphansController_PutAsync(orphan);
-                return true;
-            
+            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+            orphan.IsExcluded = true;
+            await _apiClient.OrphansController_PutAsync(orphan);
+            return true;
         }
 
         public async Task<long?> SetColor(int Oid, long? colorValue)
         {
             long? returnedColor = null;
 
-                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
-                returnedColor = orphan.ColorMark;
-                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                    orphan.ColorMark = colorValue;
-                else
-                    orphan.ColorMark = null;
-                await _apiClient.OrphansController_PutAsync(orphan);
-                return orphan.ColorMark;
-
+            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+            returnedColor = orphan.ColorMark;
+            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                orphan.ColorMark = colorValue;
+            else
+                orphan.ColorMark = null;
+            await _apiClient.OrphansController_PutAsync(orphan);
+            return orphan.ColorMark;
         }
 
         public async Task<string> GetOrphanSummary(int Oid)
@@ -322,7 +317,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     }
                 }
             }
-            catch 
+            catch
             {
                 img = null;
             }

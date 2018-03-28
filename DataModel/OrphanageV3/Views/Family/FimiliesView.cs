@@ -192,7 +192,7 @@ namespace OrphanageV3.Views.Family
 
         private async void btnExclude_Click(object sender, EventArgs e)
         {
-            await _familiesViewModel.Exclude(orphanageGridView1.SelectedIds);       
+            await _familiesViewModel.Exclude(orphanageGridView1.SelectedIds);
         }
     }
 }

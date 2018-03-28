@@ -1,17 +1,11 @@
-﻿using OrphanageV3.ViewModel.Family;
+﻿using OrphanageDataModel.RegularData;
+using OrphanageV3.Extensions;
+using OrphanageV3.ViewModel.Family;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
-using Unity;
-using OrphanageV3.Extensions;
 using Telerik.WinControls.UI;
-using OrphanageDataModel.RegularData;
+using Unity;
 
 namespace OrphanageV3.Views.Family
 {
@@ -21,7 +15,7 @@ namespace OrphanageV3.Views.Family
 
         private FamilyEditViewModel _fatherEditViewModel;
 
-        private IEntityValidator _fatherEntityValidator;
+        private IEntityValidator _familyEntityValidator;
 
         public FamilyEditView(int FatherID)
         {
@@ -29,7 +23,7 @@ namespace OrphanageV3.Views.Family
 
             _fatherEditViewModel = Program.Factory.Resolve<FamilyEditViewModel>();
 
-            _fatherEntityValidator = Program.Factory.Resolve<IEntityValidator>();
+            _familyEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
             _fatherEditViewModel.ImagesSize = picCardphoto1.Size;
             LoadFamily(FatherID);
@@ -41,8 +35,8 @@ namespace OrphanageV3.Views.Family
             if (_Father != null)
             {
                 familyBindingSource.DataSource = _Father;
-                _fatherEntityValidator.controlCollection = Controls;
-                _fatherEntityValidator.DataEntity = _Father;
+                _familyEntityValidator.controlCollection = Controls;
+                _familyEntityValidator.DataEntity = _Father;
                 addressForm1.AddressDataSource = _Father.PrimaryAddress;
                 if (_Father.AlternativeAddress != null)
                     addressForm2.AddressDataSource = _Father.AlternativeAddress;
@@ -65,7 +59,7 @@ namespace OrphanageV3.Views.Family
 
         private void TranslateControls()
         {
-            this.Text = Properties.Resources.Family.getDobblePunkt() + " " +  _Father.Father.Name.FullName() + " " + Properties.Resources.AndString + " "
+            this.Text = Properties.Resources.Family.getDobblePunkt() + " " + _Father.Father.Name.FullName() + " " + Properties.Resources.AndString + " "
                 + _Father.Mother.Name.FullName();
             lblCurrentAddress.Text = Properties.Resources.CurrentAddress.getDobblePunkt();
             lblPrimaryAddress.Text = Properties.Resources.BasicAddress.getDobblePunkt();
@@ -82,6 +76,7 @@ namespace OrphanageV3.Views.Family
             grpFamilyCardPhotoP2.HeaderText = Properties.Resources.FamilyCardPhoto.getDobblePunkt() + "2";
 
             #region ComboBoxesData
+
             DescriptionTextListDataItem itm = new DescriptionTextListDataItem();
             itm.DescriptionText = Properties.Resources.FinncialStatus_Good_Description;
             itm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -194,18 +189,17 @@ namespace OrphanageV3.Views.Family
             itm.TextWrap = false;
             txtResidenceType.Items.Add(itm);
 
-            #endregion
-
+            #endregion ComboBoxesData
         }
 
         private void ValidateAndShowError()
         {
             familyErrorProvider1.Clear();
-            if (_fatherEntityValidator != null)
+            if (_familyEntityValidator != null)
             {
-                _fatherEntityValidator.controlCollection = Controls;
-                _fatherEntityValidator.DataEntity = familyBindingSource.DataSource;
-                _fatherEntityValidator.SetErrorProvider(familyErrorProvider1);
+                _familyEntityValidator.controlCollection = Controls;
+                _familyEntityValidator.DataEntity = familyBindingSource.DataSource;
+                _familyEntityValidator.SetErrorProvider(familyErrorProvider1);
             }
         }
 
@@ -254,6 +248,7 @@ namespace OrphanageV3.Views.Family
             addressForm1.HideMe();
             txtAddress.Text = addressForm1.FullAddress;
         }
+
         private void HideNameAddressForms(object sender, EventArgs e)
         {
             addressForm1.HideMe();
@@ -273,7 +268,7 @@ namespace OrphanageV3.Views.Family
 
         private async void BtnOK_Click(object sender, EventArgs e)
         {
-            if (_fatherEntityValidator.IsValid())
+            if (_familyEntityValidator.IsValid())
             {
                 _Father.PrimaryAddress = (Address)addressForm1.AddressDataSource;
                 if (_Father.IsTheyRefugees)

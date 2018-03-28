@@ -61,6 +61,15 @@ namespace OrphanageDataModel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die التاريخ غير صالح إما عمر اليتيم فوق 18 أو لايمكن للشخص انجاب يتيم ضمن السن القانوني ähnelt.
+        /// </summary>
+        public static string ErrorOverAge {
+            get {
+                return ResourceManager.GetString("ErrorOverAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die هذا الحقل مطلوب ähnelt.
         /// </summary>
         public static string ErrorRequired {

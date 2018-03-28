@@ -19,12 +19,10 @@ namespace OrphanageV3.ViewModel.Father
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Father father)
         {
-
-                father.DeathCertificatePhotoData = null;
-                father.PhotoData = null;
-                await _apiClient.FathersController_PutAsync(father);
-                return true;
-
+            father.DeathCertificatePhotoData = null;
+            father.PhotoData = null;
+            await _apiClient.FathersController_PutAsync(father);
+            return true;
         }
 
         public async Task<OrphanageDataModel.Persons.Father> getFather(int Cid)

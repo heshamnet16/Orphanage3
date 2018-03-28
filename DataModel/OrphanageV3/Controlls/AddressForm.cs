@@ -4,6 +4,7 @@ using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 using Unity;
 
 namespace OrphanageV3.Controlls
@@ -21,8 +22,20 @@ namespace OrphanageV3.Controlls
             get => addressBindingSource.DataSource;
             set
             {
-                if(value != null)
+                if (value != null)
                     addressBindingSource.DataSource = value;
+            }
+        }
+
+        public bool IsValid() => _entityValidator.IsValid();
+
+        public RadGroupBoxStyle Style
+        {
+            get => this.grpAddress.GroupBoxStyle; set
+            {
+                grpAddress.GroupBoxStyle = value;
+                grpInternet.GroupBoxStyle = value;
+                grpPhoneNumbers.GroupBoxStyle = value;
             }
         }
 
@@ -228,7 +241,7 @@ namespace OrphanageV3.Controlls
             ValidateAndShowError();
         }
 
-        private void ValidateAndShowError()
+        public void ValidateAndShowError()
         {
             addressErrorProvider1.Clear();
             if (_entityValidator != null)

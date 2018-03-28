@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData;
+
 namespace OrphanageV3.Extensions
 {
     public static class NameExtensions

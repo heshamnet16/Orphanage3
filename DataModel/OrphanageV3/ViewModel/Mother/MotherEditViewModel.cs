@@ -19,12 +19,10 @@ namespace OrphanageV3.ViewModel.Mother
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Mother mother)
         {
-
-                mother.IdentityCardPhotoBackData = null;
-                mother.IdentityCardPhotoFaceData = null;
-                await _apiClient.MothersController_PutAsync(mother);
-                return true;
-
+            mother.IdentityCardPhotoBackData = null;
+            mother.IdentityCardPhotoFaceData = null;
+            await _apiClient.MothersController_PutAsync(mother);
+            return true;
         }
 
         public async Task<OrphanageDataModel.Persons.Mother> getMother(int Cid)
