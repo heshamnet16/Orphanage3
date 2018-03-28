@@ -4,14 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OrphanageDataModel.ValidationAttributes
 {
-
-
     public class DateOfDeathValidator : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null) return ValidationResult.Success;
-            var dateOfDeath = (DateTime) value;
+            var dateOfDeath = (DateTime)value;
 
             if (dateOfDeath == null)
                 return ValidationResult.Success;

@@ -16,6 +16,7 @@ namespace OrphanageDataModel.RegularData
         {
             RegDate = DateTime.Now;
         }
+
         [Key]
         [Column("ID")]
         public int Id { get; set; }

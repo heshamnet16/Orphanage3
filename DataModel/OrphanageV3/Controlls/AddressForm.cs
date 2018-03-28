@@ -22,17 +22,22 @@ namespace OrphanageV3.Controlls
             get => addressBindingSource.DataSource;
             set
             {
-                if(value != null)
+                if (value != null)
                     addressBindingSource.DataSource = value;
             }
         }
 
         public bool IsValid() => _entityValidator.IsValid();
 
-        public RadGroupBoxStyle Style { get => this.grpAddress.GroupBoxStyle; set { grpAddress.GroupBoxStyle = value;
+        public RadGroupBoxStyle Style
+        {
+            get => this.grpAddress.GroupBoxStyle; set
+            {
+                grpAddress.GroupBoxStyle = value;
                 grpInternet.GroupBoxStyle = value;
                 grpPhoneNumbers.GroupBoxStyle = value;
-            } }
+            }
+        }
 
         public enum _MoveType
         {

@@ -13,6 +13,7 @@ namespace OrphanageDataModel.FinancialData
         {
             RegDate = DateTime.Now;
         }
+
         [Key]
         [Column("ID")]
         public int Id { get; set; }

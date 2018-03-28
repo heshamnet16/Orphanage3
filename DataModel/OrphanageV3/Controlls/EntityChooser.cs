@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using OrphanageV3.Attributes;
-using OrphanageV3.Services.Interfaces;
+﻿using OrphanageV3.Attributes;
 using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
 namespace OrphanageV3.Controlls
@@ -22,7 +19,6 @@ namespace OrphanageV3.Controlls
         private List<string> _greenStrings;
         private string _IdColumnName = "Id";
         public string IdColumnName { get => _IdColumnName; set { _IdColumnName = value; } }
-
 
         public object[] Items
         {
@@ -139,7 +135,6 @@ namespace OrphanageV3.Controlls
                         {
                             if (!lstDataList.Columns[i].Visible) continue;
 
-
                             if (itm[i] != null && itm[i].ToString().Contains(txtSearch.Text))
                             {
                                 itm.Visible = true;
@@ -163,7 +158,7 @@ namespace OrphanageV3.Controlls
         private void lstDataList_BindingCompleted(object sender, EventArgs e)
         {
             SetAttributedColumns();
-            TranslateColumnsNames();           
+            TranslateColumnsNames();
         }
 
         private void lstDataList_CellFormatting(object sender, ListViewCellFormattingEventArgs e)

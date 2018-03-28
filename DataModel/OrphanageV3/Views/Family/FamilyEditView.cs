@@ -1,17 +1,11 @@
-﻿using OrphanageV3.ViewModel.Family;
+﻿using OrphanageDataModel.RegularData;
+using OrphanageV3.Extensions;
+using OrphanageV3.ViewModel.Family;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
-using Unity;
-using OrphanageV3.Extensions;
 using Telerik.WinControls.UI;
-using OrphanageDataModel.RegularData;
+using Unity;
 
 namespace OrphanageV3.Views.Family
 {
@@ -65,7 +59,7 @@ namespace OrphanageV3.Views.Family
 
         private void TranslateControls()
         {
-            this.Text = Properties.Resources.Family.getDobblePunkt() + " " +  _Father.Father.Name.FullName() + " " + Properties.Resources.AndString + " "
+            this.Text = Properties.Resources.Family.getDobblePunkt() + " " + _Father.Father.Name.FullName() + " " + Properties.Resources.AndString + " "
                 + _Father.Mother.Name.FullName();
             lblCurrentAddress.Text = Properties.Resources.CurrentAddress.getDobblePunkt();
             lblPrimaryAddress.Text = Properties.Resources.BasicAddress.getDobblePunkt();
@@ -82,6 +76,7 @@ namespace OrphanageV3.Views.Family
             grpFamilyCardPhotoP2.HeaderText = Properties.Resources.FamilyCardPhoto.getDobblePunkt() + "2";
 
             #region ComboBoxesData
+
             DescriptionTextListDataItem itm = new DescriptionTextListDataItem();
             itm.DescriptionText = Properties.Resources.FinncialStatus_Good_Description;
             itm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -194,8 +189,7 @@ namespace OrphanageV3.Views.Family
             itm.TextWrap = false;
             txtResidenceType.Items.Add(itm);
 
-            #endregion
-
+            #endregion ComboBoxesData
         }
 
         private void ValidateAndShowError()
@@ -254,6 +248,7 @@ namespace OrphanageV3.Views.Family
             addressForm1.HideMe();
             txtAddress.Text = addressForm1.FullAddress;
         }
+
         private void HideNameAddressForms(object sender, EventArgs e)
         {
             addressForm1.HideMe();

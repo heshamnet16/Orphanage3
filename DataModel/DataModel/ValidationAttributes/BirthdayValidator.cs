@@ -4,15 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OrphanageDataModel.ValidationAttributes
 {
-
-
     public class BirthdayValidator : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null) return ValidationResult.Success;
 
-            var birthday = (DateTime) value;
+            var birthday = (DateTime)value;
 
             if (birthday == null)
                 return ValidationResult.Success;
@@ -23,7 +21,7 @@ namespace OrphanageDataModel.ValidationAttributes
             }
             if (DateTime.Now.Year - birthday.Year > 85)
             {
-                return new ValidationResult(Properties.Resources.ErrorOverAge,new List<string>() { validationContext.MemberName });
+                return new ValidationResult(Properties.Resources.ErrorOverAge, new List<string>() { validationContext.MemberName });
             }
             return ValidationResult.Success;
         }

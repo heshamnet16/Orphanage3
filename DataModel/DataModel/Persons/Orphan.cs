@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.RegularData;
+using OrphanageDataModel.ValidationAttributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.IO;
-using OrphanageDataModel.ValidationAttributes;
+
 namespace OrphanageDataModel.Persons
 {
     [Table("Orphans")]
@@ -16,6 +17,7 @@ namespace OrphanageDataModel.Persons
         {
             RegDate = DateTime.Now;
         }
+
         [Key]
         [Column("ID")]
         public int Id { get; set; }

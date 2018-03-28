@@ -4,15 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OrphanageDataModel.ValidationAttributes
 {
-
-
     public class OrphanBirthdayValidator : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null) return ValidationResult.Success;
 
-            var birthday = (DateTime) value;
+            var birthday = (DateTime)value;
 
             if (birthday == null)
                 return ValidationResult.Success;

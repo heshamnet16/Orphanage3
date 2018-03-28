@@ -60,11 +60,9 @@ namespace OrphanageServiceTests
             }
             catch (DbEntityValidationException exc)
             {
-
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-
             }
         }
 

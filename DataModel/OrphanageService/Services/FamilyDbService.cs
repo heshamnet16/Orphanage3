@@ -224,7 +224,7 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var families = await _orphanageDBC.Families.AsNoTracking()
-                    .Where(f=>familiesIds.Contains(f.Id))
+                    .Where(f => familiesIds.Contains(f.Id))
                     .Include(f => f.AlternativeAddress)
                     .Include(f => f.Bail)
                     .Include(f => f.Father)
@@ -360,7 +360,7 @@ namespace OrphanageService.Services
         {
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
-                int familiesCount = await _orphanageDBC.Orphans.Where(o=>o.FamilyId==FamId).AsNoTracking().CountAsync();
+                int familiesCount = await _orphanageDBC.Orphans.Where(o => o.FamilyId == FamId).AsNoTracking().CountAsync();
                 return familiesCount;
             }
         }

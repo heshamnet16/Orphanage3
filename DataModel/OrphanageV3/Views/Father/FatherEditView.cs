@@ -10,7 +10,6 @@ namespace OrphanageV3.Views.Father
 {
     public partial class FatherEditView : Telerik.WinControls.UI.RadForm
     {
-
         private OrphanageDataModel.Persons.Father _Father = null;
 
         private FatherEditViewModel _fatherEditViewModel;

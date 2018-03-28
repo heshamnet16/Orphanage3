@@ -99,7 +99,7 @@ namespace OrphanageV3.Views.Orphan
                     }
                     catch (Exception ex)
                     {
-                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040 && ex.HResult != -2146233079 )
+                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040 && ex.HResult != -2146233079)
                             throw ex;
                     }
                     finally
@@ -173,9 +173,8 @@ namespace OrphanageV3.Views.Orphan
         private void OrphansViewModel_DataLoadedEvent()
         {
             orphanageGridView1.GridView.DataSource = _orphansViewModel.Orphans;
-            foreach(var bind in orphanageGridView1.DataBindings)
+            foreach (var bind in orphanageGridView1.DataBindings)
             {
-
             }
             var PicColumn = orphanageGridView1.GridView.Columns["Photo"];
             PicColumn.ImageLayout = ImageLayout.Stretch;

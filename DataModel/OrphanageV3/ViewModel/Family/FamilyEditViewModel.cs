@@ -1,9 +1,5 @@
 ﻿using OrphanageV3.Services;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Family
@@ -23,12 +19,10 @@ namespace OrphanageV3.ViewModel.Family
 
         public async Task<bool> Save(OrphanageDataModel.RegularData.Family family)
         {
-
             family.FamilyCardImagePage1Data = null;
-            family.FamilyCardImagePage2Data= null;
+            family.FamilyCardImagePage2Data = null;
             await _apiClient.FamiliesController_PutAsync(family);
             return true;
-
         }
 
         public async Task<OrphanageDataModel.RegularData.Family> getFamily(int Cid)

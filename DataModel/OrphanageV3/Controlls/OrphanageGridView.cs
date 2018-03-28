@@ -31,9 +31,13 @@ namespace OrphanageV3.Controlls
 
         public string ColorColumnName { get => _ColorColumnName; set { _ColorColumnName = value; } }
         public string HideShowColumnName { get => _HideShowColumnName; set { _HideShowColumnName = value; } }
-        public bool? ShowHiddenRows { get => _ShowHiddenRows; set
-            { _ShowHiddenRows = value.HasValue ?value.Value : Properties.Settings.Default.ShowHiddenRows; }
+
+        public bool? ShowHiddenRows
+        {
+            get => _ShowHiddenRows; set
+            { _ShowHiddenRows = value.HasValue ? value.Value : Properties.Settings.Default.ShowHiddenRows; }
         }
+
         public bool AddSelectColumn { get => _AddSelectColumn; set { _AddSelectColumn = value; } }
 
         public IList<GridViewRowInfo> SelectedRows
@@ -255,7 +259,6 @@ namespace OrphanageV3.Controlls
             }
             if (radGridView.Columns.Contains(_HideShowColumnName))
             {
-
                 if (!_ShowHiddenRows)
                 {
                     var isHidden = (bool)row.Cells[_HideShowColumnName].Value;

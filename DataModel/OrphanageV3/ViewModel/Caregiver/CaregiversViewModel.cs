@@ -78,15 +78,14 @@ namespace OrphanageV3.ViewModel.Caregiver
         {
             long? returnedColor = null;
 
-                var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
-                returnedColor = caregiver.ColorMark;
-                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                    caregiver.ColorMark = colorValue;
-                else
-                    caregiver.ColorMark = null;
-                await _apiClient.CaregiversController_PutAsync(caregiver);
-                return caregiver.ColorMark;
-
+            var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
+            returnedColor = caregiver.ColorMark;
+            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                caregiver.ColorMark = colorValue;
+            else
+                caregiver.ColorMark = null;
+            await _apiClient.CaregiversController_PutAsync(caregiver);
+            return caregiver.ColorMark;
         }
 
         public IList<int> OrphansIds(int caregiverId)

@@ -76,7 +76,6 @@ namespace OrphanageV3.Services
 
                 cfg.CreateMap<OrphanageDataModel.RegularData.Family, FamilyModel>()
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
-
             });
 
             _mapper = mapperConfiguration.CreateMapper();

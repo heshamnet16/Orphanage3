@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -91,6 +90,7 @@ namespace OrphanageV3.ViewModel.Family
                 }
             })).Start();
         }
+
         public async void Update(int familyId)
         {
             var sourceFamily = await _apiClient.FamiliesController_GetAsync(familyId);
@@ -118,7 +118,6 @@ namespace OrphanageV3.ViewModel.Family
                 family.ColorMark = null;
             await _apiClient.FamiliesController_PutAsync(family);
             return family.ColorMark;
-
         }
 
         public IList<int> OrphansIds(int familyId)
@@ -220,7 +219,6 @@ namespace OrphanageV3.ViewModel.Family
                 _SourceFamilies.Remove(sourceFamily);
                 Families.Remove(family);
             }
-
         }
     }
 }

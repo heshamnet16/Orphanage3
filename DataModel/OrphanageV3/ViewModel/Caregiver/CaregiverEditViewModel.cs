@@ -19,12 +19,10 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Caregiver caregiver)
         {
-
-                caregiver.IdentityCardPhotoBackData = null;
-                caregiver.IdentityCardPhotoFaceData = null;
-                await _apiClient.CaregiversController_PutAsync(caregiver);
-                return true;
-
+            caregiver.IdentityCardPhotoBackData = null;
+            caregiver.IdentityCardPhotoFaceData = null;
+            await _apiClient.CaregiversController_PutAsync(caregiver);
+            return true;
         }
 
         public async Task<OrphanageDataModel.Persons.Caregiver> getCaregiver(int Cid)

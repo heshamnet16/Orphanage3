@@ -3,12 +3,7 @@ using OrphanageV3.Extensions;
 using OrphanageV3.ViewModel.Family;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
 using Unity;
@@ -21,6 +16,7 @@ namespace OrphanageV3.Views.Family
         private FamilyEditViewModel _familyEditViewModel;
 
         private bool _result = false;
+
         public AddFamilyView()
         {
             InitializeComponent();
@@ -81,7 +77,9 @@ namespace OrphanageV3.Views.Family
             grpFamilyBasicData.Text = grpMotherBasicData.Text = grpFatherBasicData.Text = Properties.Resources.BasicData;
             grpFamilyFamilyCardPhoto.Text = grpMotherAdditionalData.Text = grpFatherAdditionalData.Text = Properties.Resources.AdditionalData;
             grpFamilyAddresses.Text = Properties.Resources.Addresses.getDobblePunkt();
+
             #region ComboBoxesData
+
             DescriptionTextListDataItem itm = new DescriptionTextListDataItem();
             itm.DescriptionText = Properties.Resources.FinncialStatus_Good_Description;
             itm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -194,7 +192,7 @@ namespace OrphanageV3.Views.Family
             itm.TextWrap = false;
             txtFamilyResidenceType.Items.Add(itm);
 
-            #endregion
+            #endregion ComboBoxesData
 
             lblFamilyFamilyCardNumber.Text = Properties.Resources.FamilyCardNumber.getDobblePunkt();
             lblFamilyFamilyCardPhoto1.Text = Properties.Resources.FamilyCardPhoto.getDobblePunkt();
@@ -205,7 +203,6 @@ namespace OrphanageV3.Views.Family
             lblFamilyResidenceStatus.Text = Properties.Resources.ResidenceStatus.getDobblePunkt();
             lblFamilyResidenceType.Text = Properties.Resources.ResidenceType.getDobblePunkt();
             lblFamilySecondaryAddress.Text = Properties.Resources.CurrentAddress.getDobblePunkt();
-
 
             lblFatherPhoto.TextAlignment = lblFatherStory.TextAlignment = lblResult.TextAlignment =
                 lblFatherDeathCertificate.TextAlignment = ContentAlignment.MiddleCenter;
@@ -263,7 +260,6 @@ namespace OrphanageV3.Views.Family
                 FamilyAddressFormPrimary.ShowMe();
                 FamilyAddressFormPrimary.ValidateAndShowError();
             }
-
         }
 
         private OrphanageDataModel.RegularData.Family GetFamily()

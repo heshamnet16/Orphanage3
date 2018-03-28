@@ -20,6 +20,7 @@ namespace OrphanageV3
     {
         public static IUnityContainer Factory;
         public static User CurrentUser;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -30,8 +31,8 @@ namespace OrphanageV3
             {
                 Factory = BuildContainer();
                 //Todo set login User
-                        var _apiClient = Factory.Resolve<IApiClient>();
-                        CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
+                var _apiClient = Factory.Resolve<IApiClient>();
+                CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Family.AddFamilyView());
@@ -44,11 +45,9 @@ namespace OrphanageV3
                 //{
                 //    //TODO show error message
                 //}
-
-            }        
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-
             }
         }
 
