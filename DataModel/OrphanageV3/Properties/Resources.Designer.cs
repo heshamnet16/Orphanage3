@@ -923,6 +923,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die فشل في إنشاء عائلة جديدة ähnelt.
+        /// </summary>
+        public static string FamilyCreatedErrorMessage {
+            get {
+                return ResourceManager.GetString("FamilyCreatedErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم إنشاء عائلة بنجاح ähnelt.
+        /// </summary>
+        public static string FamilyCreatedMessage {
+            get {
+                return ResourceManager.GetString("FamilyCreatedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die رقم العائلة ähnelt.
         /// </summary>
         public static string FamilyID {
@@ -1082,6 +1100,15 @@ namespace OrphanageV3.Properties {
         public static string FemaleString {
             get {
                 return ResourceManager.GetString("FemaleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إنهاء ähnelt.
+        /// </summary>
+        public static string Finish {
+            get {
+                return ResourceManager.GetString("Finish", resourceCulture);
             }
         }
         
@@ -2203,6 +2230,15 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("preload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عودة ähnelt.
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
             }
         }
         

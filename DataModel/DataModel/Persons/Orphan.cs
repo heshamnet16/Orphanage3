@@ -6,12 +6,16 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.IO;
-
+using OrphanageDataModel.ValidationAttributes;
 namespace OrphanageDataModel.Persons
 {
     [Table("Orphans")]
     public class Orphan
     {
+        public Orphan()
+        {
+            RegDate = DateTime.Now;
+        }
         [Key]
         [Column("ID")]
         public int Id { get; set; }
@@ -23,6 +27,7 @@ namespace OrphanageDataModel.Persons
         public virtual Name Name { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [OrphanBirthdayValidator]
         public DateTime Birthday { get; set; }
 
         [Column("IsExcluded")]

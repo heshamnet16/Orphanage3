@@ -1004,4 +1004,16 @@
   <data name="Addresses" xml:space="preserve">
     <value>العناوين</value>
   </data>
+  <data name="FamilyCreatedMessage" xml:space="preserve">
+    <value>تم إنشاء عائلة بنجاح</value>
+  </data>
+  <data name="FamilyCreatedErrorMessage" xml:space="preserve">
+    <value>فشل في إنشاء عائلة جديدة</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>إنهاء</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>عودة</value>
+  </data>
 </root>

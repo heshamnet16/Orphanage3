@@ -14,6 +14,7 @@ namespace OrphanageDataModel.Persons
         {
             Bails = new HashSet<Bail>();
             Orphans = new HashSet<Orphan>();
+            RegDate = DateTime.Now;
         }
 
         [Key]

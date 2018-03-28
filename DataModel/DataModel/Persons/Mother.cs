@@ -1,4 +1,5 @@
 ﻿using OrphanageDataModel.RegularData;
+using OrphanageDataModel.ValidationAttributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,10 @@ namespace OrphanageDataModel.Persons
     [Table("Mothers")]
     public class Mother
     {
+        public Mother()
+        {
+            RegDate = DateTime.Now;
+        }
         [Key]
         [Column("ID")]
         public int Id { get; set; }
@@ -22,12 +27,14 @@ namespace OrphanageDataModel.Persons
         public virtual Name Name { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [BirthdayValidator]
         public DateTime Birthday { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         public bool IsDead { get; set; }
 
         [Column("Dieday")]
+        [DateOfDeathValidator]
         public DateTime? DateOfDeath { get; set; }
 
         [Column("IdentityCard_Photo")]

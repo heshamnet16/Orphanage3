@@ -52,5 +52,25 @@ namespace OrphanageV3.ViewModel.Family
         {
             return await Save(_CurrentFamily);
         }
+
+        public async Task<OrphanageDataModel.RegularData.Family> Add(OrphanageDataModel.RegularData.Family family)
+        {
+            if (family != null)
+            {
+                try
+                {
+                    var fam = (OrphanageDataModel.RegularData.Family)await _apiClient.FamiliesController_PostAsync(family);
+                    return fam ?? null;
+                }
+                catch (ApiClientException apiEx)
+                {
+                    //Created
+                    if (apiEx.StatusCode == "201")
+                        return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.RegularData.Family>(apiEx.Response) ?? null;
+                    return null;
+                }
+            }
+            return null;
+        }
     }
 }

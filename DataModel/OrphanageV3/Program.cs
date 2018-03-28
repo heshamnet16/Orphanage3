@@ -1,4 +1,5 @@
-﻿using OrphanageV3.Services;
+﻿using OrphanageDataModel.Persons;
+using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
@@ -18,7 +19,7 @@ namespace OrphanageV3
     internal static class Program
     {
         public static IUnityContainer Factory;
-
+        public static User CurrentUser;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -28,6 +29,9 @@ namespace OrphanageV3
             try
             {
                 Factory = BuildContainer();
+                //Todo set login User
+                        var _apiClient = Factory.Resolve<IApiClient>();
+                        CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Family.AddFamilyView());

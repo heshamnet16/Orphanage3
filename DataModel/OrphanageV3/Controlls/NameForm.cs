@@ -179,7 +179,7 @@ namespace OrphanageV3.Controlls
             LangChanger.CurLang.ChangeToEnglish();
         }
 
-        private void ValidateAndShowError()
+        public void ValidateAndShowError()
         {
             NameerrorProvider1.Clear();
             if (_entityValidator != null)
@@ -217,6 +217,8 @@ namespace OrphanageV3.Controlls
                 }
             }
         }
+
+        public bool IsValid() => _entityValidator.IsValid();
 
         public void HideMe()
         {

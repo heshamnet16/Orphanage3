@@ -9,6 +9,10 @@ namespace OrphanageDataModel.FinancialData
     [Table("Boxes")]
     public class Account
     {
+        public Account()
+        {
+            RegDate = DateTime.Now;
+        }
         [Key]
         [Column("ID")]
         public int Id { get; set; }

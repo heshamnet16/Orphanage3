@@ -30,23 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFamilyView));
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem1 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem2 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem3 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem4 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem5 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem6 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem7 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem8 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem9 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem10 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem11 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem12 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem13 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
-            Telerik.WinControls.UI.DescriptionTextListDataItem descriptionTextListDataItem14 = new Telerik.WinControls.UI.DescriptionTextListDataItem();
             this.radWizard1 = new Telerik.WinControls.UI.RadWizard();
             this.wizardCompletionPage1 = new Telerik.WinControls.UI.WizardCompletionPage();
             this.panelComplete = new System.Windows.Forms.Panel();
+            this.lblResult = new Telerik.WinControls.UI.RadLabel();
             this.panelFather = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpFatherAdditionalData = new Telerik.WinControls.UI.RadGroupBox();
@@ -55,7 +42,7 @@
             this.lblFatherPhoto = new Telerik.WinControls.UI.RadLabel();
             this.lblFatherDeathCertificate = new Telerik.WinControls.UI.RadLabel();
             this.lblFatherStory = new Telerik.WinControls.UI.RadLabel();
-            this.txtFAtherStory = new Telerik.WinControls.UI.RadTextBox();
+            this.txtFatherStory = new Telerik.WinControls.UI.RadTextBox();
             this.fatherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grpFatherBasicData = new Telerik.WinControls.UI.RadGroupBox();
@@ -72,7 +59,7 @@
             this.FatherNameForm = new OrphanageV3.Controlls.NameForm();
             this.panelMother = new System.Windows.Forms.Panel();
             this.MotherAddressForm = new OrphanageV3.Controlls.AddressForm();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableMotherMain = new System.Windows.Forms.TableLayoutPanel();
             this.grpMotherAdditionalData = new Telerik.WinControls.UI.RadGroupBox();
             this.txtMotherNote = new Telerik.WinControls.UI.RadTextBox();
             this.motherBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -107,9 +94,9 @@
             this.lblMotherBirthday = new Telerik.WinControls.UI.RadLabel();
             this.MotherNameForm = new OrphanageV3.Controlls.NameForm();
             this.panelFamily = new System.Windows.Forms.Panel();
-            this.FamilyAddressFromPrimary = new OrphanageV3.Controlls.AddressForm();
             this.FamilyAddressFormSecondary = new OrphanageV3.Controlls.AddressForm();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.FamilyAddressFormPrimary = new OrphanageV3.Controlls.AddressForm();
+            this.tableFamilyMain = new System.Windows.Forms.TableLayoutPanel();
             this.grpFamilyAddresses = new Telerik.WinControls.UI.RadGroupBox();
             this.txtFamilySecondaryAddress = new Telerik.WinControls.UI.RadTextBox();
             this.txtFamilyPrimaryAddress = new Telerik.WinControls.UI.RadTextBox();
@@ -144,6 +131,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).BeginInit();
             this.radWizard1.SuspendLayout();
+            this.panelComplete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblResult)).BeginInit();
             this.panelFather.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpFatherAdditionalData)).BeginInit();
@@ -151,7 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherDeathCertificate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherStory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFAtherStory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFatherStory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatherBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpFatherBasicData)).BeginInit();
@@ -167,7 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherDateOfDeath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherBirthday)).BeginInit();
             this.panelMother.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.tableMotherMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpMotherAdditionalData)).BeginInit();
             this.grpMotherAdditionalData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMotherNote)).BeginInit();
@@ -201,7 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblMotherDateOfDeath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblMotherBirthday)).BeginInit();
             this.panelFamily.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
+            this.tableFamilyMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpFamilyAddresses)).BeginInit();
             this.grpFamilyAddresses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFamilySecondaryAddress)).BeginInit();
@@ -259,20 +248,33 @@
             this.radWizard1.Text = "radWizard1";
             this.radWizard1.WelcomePage = null;
             this.radWizard1.SelectedPageChanging += new Telerik.WinControls.UI.SelectedPageChangingEventHandler(this.radWizard1_SelectedPageChanging);
+            this.radWizard1.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // wizardCompletionPage1
             // 
             this.wizardCompletionPage1.ContentArea = this.panelComplete;
-            this.wizardCompletionPage1.CustomizePageHeader = true;
+            this.wizardCompletionPage1.CustomizePageHeader = false;
             this.wizardCompletionPage1.Name = "wizardCompletionPage1";
             // 
             // panelComplete
             // 
             this.panelComplete.BackColor = System.Drawing.Color.White;
-            this.panelComplete.Location = new System.Drawing.Point(0, 65);
+            this.panelComplete.Controls.Add(this.lblResult);
+            this.panelComplete.Location = new System.Drawing.Point(0, 41);
             this.panelComplete.Name = "panelComplete";
-            this.panelComplete.Size = new System.Drawing.Size(607, 371);
+            this.panelComplete.Size = new System.Drawing.Size(607, 395);
             this.panelComplete.TabIndex = 2;
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = false;
+            this.lblResult.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.Location = new System.Drawing.Point(142, 174);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(354, 88);
+            this.lblResult.TabIndex = 0;
+            this.lblResult.Text = "radLabel1";
+            this.lblResult.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // panelFather
             // 
@@ -306,7 +308,7 @@
             this.grpFatherAdditionalData.Controls.Add(this.lblFatherPhoto);
             this.grpFatherAdditionalData.Controls.Add(this.lblFatherDeathCertificate);
             this.grpFatherAdditionalData.Controls.Add(this.lblFatherStory);
-            this.grpFatherAdditionalData.Controls.Add(this.txtFAtherStory);
+            this.grpFatherAdditionalData.Controls.Add(this.txtFatherStory);
             this.grpFatherAdditionalData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpFatherAdditionalData.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
             this.grpFatherAdditionalData.HeaderText = "s";
@@ -377,20 +379,20 @@
             this.lblFatherStory.Text = "s";
             this.lblFatherStory.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtFAtherStory
+            // txtFatherStory
             // 
-            this.txtFAtherStory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFatherStory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFAtherStory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtFAtherStory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtFAtherStory.AutoSize = false;
-            this.txtFAtherStory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fatherBindingSource, "Story", true));
-            this.txtFAtherStory.Location = new System.Drawing.Point(355, 44);
-            this.txtFAtherStory.Multiline = true;
-            this.txtFAtherStory.Name = "txtFAtherStory";
-            this.txtFAtherStory.Size = new System.Drawing.Size(237, 143);
-            this.txtFAtherStory.TabIndex = 12;
+            this.txtFatherStory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtFatherStory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtFatherStory.AutoSize = false;
+            this.txtFatherStory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fatherBindingSource, "Story", true));
+            this.txtFatherStory.Location = new System.Drawing.Point(355, 44);
+            this.txtFatherStory.Multiline = true;
+            this.txtFatherStory.Name = "txtFatherStory";
+            this.txtFatherStory.Size = new System.Drawing.Size(237, 143);
+            this.txtFatherStory.TabIndex = 12;
             // 
             // fatherBindingSource
             // 
@@ -447,8 +449,7 @@
             this.dteFatherDateOfDeath.Size = new System.Drawing.Size(220, 20);
             this.dteFatherDateOfDeath.TabIndex = 8;
             this.dteFatherDateOfDeath.TabStop = false;
-            this.dteFatherDateOfDeath.Text = "11.01.2014";
-            this.dteFatherDateOfDeath.Value = new System.DateTime(2014, 1, 11, 23, 10, 17, 605);
+            this.dteFatherDateOfDeath.Value = new System.DateTime(((long)(0)));
             // 
             // dteFatherBirthday
             // 
@@ -463,8 +464,8 @@
             this.dteFatherBirthday.Size = new System.Drawing.Size(219, 20);
             this.dteFatherBirthday.TabIndex = 7;
             this.dteFatherBirthday.TabStop = false;
-            this.dteFatherBirthday.Text = "11.01.2014";
-            this.dteFatherBirthday.Value = new System.DateTime(2014, 1, 11, 23, 10, 17, 605);
+            this.dteFatherBirthday.Text = "01.01.1910";
+            this.dteFatherBirthday.Value = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
             // 
             // txtFatherJop
             // 
@@ -623,7 +624,7 @@
             // 
             this.panelMother.BackColor = System.Drawing.Color.White;
             this.panelMother.Controls.Add(this.MotherAddressForm);
-            this.panelMother.Controls.Add(this.tableLayoutPanel3);
+            this.panelMother.Controls.Add(this.tableMotherMain);
             this.panelMother.Location = new System.Drawing.Point(0, 41);
             this.panelMother.Name = "panelMother";
             this.panelMother.Size = new System.Drawing.Size(607, 395);
@@ -634,30 +635,30 @@
             this.MotherAddressForm.AddressDataSource = typeof(OrphanageDataModel.RegularData.Address);
             this.MotherAddressForm.HideOnEnter = false;
             this.MotherAddressForm.Id = -1;
-            this.MotherAddressForm.Location = new System.Drawing.Point(9, 49);
+            this.MotherAddressForm.Location = new System.Drawing.Point(12, 21);
             this.MotherAddressForm.MoveFactor = 10;
             this.MotherAddressForm.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.UpToDown;
             this.MotherAddressForm.Name = "MotherAddressForm";
             this.MotherAddressForm.ShowMovement = true;
-            this.MotherAddressForm.Size = new System.Drawing.Size(515, 288);
+            this.MotherAddressForm.Size = new System.Drawing.Size(502, 284);
             this.MotherAddressForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.MotherAddressForm.TabIndex = 1;
+            this.MotherAddressForm.TabIndex = 7;
             this.MotherAddressForm.Visible = false;
             // 
-            // tableLayoutPanel3
+            // tableMotherMain
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.grpMotherAdditionalData, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.18987F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.81013F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(607, 395);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.tableMotherMain.ColumnCount = 1;
+            this.tableMotherMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableMotherMain.Controls.Add(this.grpMotherAdditionalData, 0, 1);
+            this.tableMotherMain.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableMotherMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableMotherMain.Location = new System.Drawing.Point(0, 0);
+            this.tableMotherMain.Name = "tableMotherMain";
+            this.tableMotherMain.RowCount = 2;
+            this.tableMotherMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.18987F));
+            this.tableMotherMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.81013F));
+            this.tableMotherMain.Size = new System.Drawing.Size(607, 395);
+            this.tableMotherMain.TabIndex = 0;
             // 
             // grpMotherAdditionalData
             // 
@@ -1128,66 +1129,65 @@
             this.MotherNameForm.ShowMovement = false;
             this.MotherNameForm.Size = new System.Drawing.Size(243, 205);
             this.MotherNameForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.MotherNameForm.TabIndex = 6;
-            this.MotherNameForm.Click += new System.EventHandler(this.HideMotherAddress);
+            this.MotherNameForm.TabIndex = 5;
             // 
             // panelFamily
             // 
             this.panelFamily.BackColor = System.Drawing.Color.White;
-            this.panelFamily.Controls.Add(this.FamilyAddressFromPrimary);
             this.panelFamily.Controls.Add(this.FamilyAddressFormSecondary);
-            this.panelFamily.Controls.Add(this.tableLayoutPanel5);
+            this.panelFamily.Controls.Add(this.FamilyAddressFormPrimary);
+            this.panelFamily.Controls.Add(this.tableFamilyMain);
             this.panelFamily.Location = new System.Drawing.Point(0, 41);
             this.panelFamily.Name = "panelFamily";
             this.panelFamily.Size = new System.Drawing.Size(607, 395);
             this.panelFamily.TabIndex = 4;
-            // 
-            // FamilyAddressFromPrimary
-            // 
-            this.FamilyAddressFromPrimary.AddressDataSource = typeof(OrphanageDataModel.RegularData.Address);
-            this.FamilyAddressFromPrimary.HideOnEnter = false;
-            this.FamilyAddressFromPrimary.Id = -1;
-            this.FamilyAddressFromPrimary.Location = new System.Drawing.Point(17, 17);
-            this.FamilyAddressFromPrimary.MoveFactor = 10;
-            this.FamilyAddressFromPrimary.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.DownToUp;
-            this.FamilyAddressFromPrimary.Name = "FamilyAddressFromPrimary";
-            this.FamilyAddressFromPrimary.ShowMovement = true;
-            this.FamilyAddressFromPrimary.Size = new System.Drawing.Size(502, 284);
-            this.FamilyAddressFromPrimary.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.FamilyAddressFromPrimary.TabIndex = 1;
-            this.FamilyAddressFromPrimary.Visible = false;
             // 
             // FamilyAddressFormSecondary
             // 
             this.FamilyAddressFormSecondary.AddressDataSource = typeof(OrphanageDataModel.RegularData.Address);
             this.FamilyAddressFormSecondary.HideOnEnter = false;
             this.FamilyAddressFormSecondary.Id = -1;
-            this.FamilyAddressFormSecondary.Location = new System.Drawing.Point(17, 61);
+            this.FamilyAddressFormSecondary.Location = new System.Drawing.Point(7, 61);
             this.FamilyAddressFormSecondary.MoveFactor = 10;
-            this.FamilyAddressFormSecondary.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.DownToUp;
+            this.FamilyAddressFormSecondary.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.UpToDown;
             this.FamilyAddressFormSecondary.Name = "FamilyAddressFormSecondary";
             this.FamilyAddressFormSecondary.ShowMovement = true;
             this.FamilyAddressFormSecondary.Size = new System.Drawing.Size(502, 284);
             this.FamilyAddressFormSecondary.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.FamilyAddressFormSecondary.TabIndex = 1;
+            this.FamilyAddressFormSecondary.TabIndex = 2;
             this.FamilyAddressFormSecondary.Visible = false;
             // 
-            // tableLayoutPanel5
+            // FamilyAddressFormPrimary
             // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.grpFamilyAddresses, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.grpFamilyFamilyCardPhoto, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.grpFamilyBasicData, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(607, 395);
-            this.tableLayoutPanel5.TabIndex = 0;
+            this.FamilyAddressFormPrimary.AddressDataSource = typeof(OrphanageDataModel.RegularData.Address);
+            this.FamilyAddressFormPrimary.HideOnEnter = false;
+            this.FamilyAddressFormPrimary.Id = -1;
+            this.FamilyAddressFormPrimary.Location = new System.Drawing.Point(5, 0);
+            this.FamilyAddressFormPrimary.MoveFactor = 10;
+            this.FamilyAddressFormPrimary.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.UpToDown;
+            this.FamilyAddressFormPrimary.Name = "FamilyAddressFormPrimary";
+            this.FamilyAddressFormPrimary.ShowMovement = true;
+            this.FamilyAddressFormPrimary.Size = new System.Drawing.Size(502, 284);
+            this.FamilyAddressFormPrimary.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
+            this.FamilyAddressFormPrimary.TabIndex = 1;
+            this.FamilyAddressFormPrimary.Visible = false;
+            // 
+            // tableFamilyMain
+            // 
+            this.tableFamilyMain.ColumnCount = 1;
+            this.tableFamilyMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableFamilyMain.Controls.Add(this.grpFamilyAddresses, 0, 1);
+            this.tableFamilyMain.Controls.Add(this.grpFamilyFamilyCardPhoto, 0, 2);
+            this.tableFamilyMain.Controls.Add(this.grpFamilyBasicData, 0, 0);
+            this.tableFamilyMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableFamilyMain.Location = new System.Drawing.Point(0, 0);
+            this.tableFamilyMain.Name = "tableFamilyMain";
+            this.tableFamilyMain.RowCount = 3;
+            this.tableFamilyMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableFamilyMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableFamilyMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableFamilyMain.Size = new System.Drawing.Size(607, 395);
+            this.tableFamilyMain.TabIndex = 0;
             // 
             // grpFamilyAddresses
             // 
@@ -1206,6 +1206,7 @@
             this.grpFamilyAddresses.TabStop = false;
             this.grpFamilyAddresses.Text = "s";
             this.grpFamilyAddresses.ThemeName = "ControlDefault";
+            this.grpFamilyAddresses.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // txtFamilySecondaryAddress
             // 
@@ -1222,10 +1223,14 @@
             "سكرتيرة"});
             this.txtFamilySecondaryAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtFamilySecondaryAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtFamilySecondaryAddress.Enabled = false;
             this.txtFamilySecondaryAddress.Location = new System.Drawing.Point(7, 58);
             this.txtFamilySecondaryAddress.Name = "txtFamilySecondaryAddress";
             this.txtFamilySecondaryAddress.Size = new System.Drawing.Size(506, 0);
             this.txtFamilySecondaryAddress.TabIndex = 61;
+            this.txtFamilySecondaryAddress.Click += new System.EventHandler(this.ShowFamilyAddressSecondary);
+            this.txtFamilySecondaryAddress.Enter += new System.EventHandler(this.ShowFamilyAddressSecondary);
+            this.txtFamilySecondaryAddress.Leave += new System.EventHandler(this.txtFamilySecondaryAddress_Leave);
             // 
             // txtFamilyPrimaryAddress
             // 
@@ -1246,6 +1251,9 @@
             this.txtFamilyPrimaryAddress.Name = "txtFamilyPrimaryAddress";
             this.txtFamilyPrimaryAddress.Size = new System.Drawing.Size(504, 0);
             this.txtFamilyPrimaryAddress.TabIndex = 61;
+            this.txtFamilyPrimaryAddress.Click += new System.EventHandler(this.ShowFamilyAddressPrimary);
+            this.txtFamilyPrimaryAddress.Enter += new System.EventHandler(this.ShowFamilyAddressPrimary);
+            this.txtFamilyPrimaryAddress.Leave += new System.EventHandler(this.txtFamilyPrimaryAddress_Leave);
             // 
             // lblFamilySecondaryAddress
             // 
@@ -1290,6 +1298,7 @@
             this.grpFamilyFamilyCardPhoto.TabStop = false;
             this.grpFamilyFamilyCardPhoto.Text = "s";
             this.grpFamilyFamilyCardPhoto.ThemeName = "ControlDefault";
+            this.grpFamilyFamilyCardPhoto.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // lblFamilyFamilyCardPhoto2
             // 
@@ -1339,6 +1348,7 @@
             this.lblFamilyFamilyCardPhoto1.TabIndex = 20;
             this.lblFamilyFamilyCardPhoto1.Text = "s";
             this.lblFamilyFamilyCardPhoto1.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFamilyFamilyCardPhoto1.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // grpFamilyBasicData
             // 
@@ -1365,6 +1375,7 @@
             this.grpFamilyBasicData.TabStop = false;
             this.grpFamilyBasicData.Text = "s";
             this.grpFamilyBasicData.ThemeName = "ControlDefault";
+            this.grpFamilyBasicData.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // txtFamilyFamilyCardNumber
             // 
@@ -1402,6 +1413,7 @@
             this.txtFamilyNote.Name = "txtFamilyNote";
             this.txtFamilyNote.Size = new System.Drawing.Size(183, 105);
             this.txtFamilyNote.TabIndex = 105;
+            this.txtFamilyNote.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // txtFamilyFinncialStatus
             // 
@@ -1413,36 +1425,6 @@
             this.txtFamilyFinncialStatus.DefaultItemsCountInDropDown = 5;
             this.txtFamilyFinncialStatus.DropDownHeight = 250;
             this.txtFamilyFinncialStatus.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            descriptionTextListDataItem1.DescriptionText = "يوجد دخل شهري ممتاز والعالة ليست بحاجة لتبرعات";
-            descriptionTextListDataItem1.ForeColor = System.Drawing.Color.LimeGreen;
-            descriptionTextListDataItem1.Height = 50;
-            descriptionTextListDataItem1.Text = "جيد";
-            descriptionTextListDataItem1.TextWrap = false;
-            descriptionTextListDataItem2.DescriptionText = "يوجد دخل شهري مقبول والعالة ليست بحاجة لتبرعات";
-            descriptionTextListDataItem2.ForeColor = System.Drawing.Color.Green;
-            descriptionTextListDataItem2.Height = 50;
-            descriptionTextListDataItem2.Text = "مقبول";
-            descriptionTextListDataItem2.TextWrap = false;
-            descriptionTextListDataItem3.DescriptionText = "يوجد دخل متقطع والوضع المال سيئ نوعاً ما";
-            descriptionTextListDataItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            descriptionTextListDataItem3.Height = 50;
-            descriptionTextListDataItem3.Text = "متوسط";
-            descriptionTextListDataItem3.TextWrap = false;
-            descriptionTextListDataItem4.DescriptionText = "لايوجد دخل شهري والعائلة بحاجة لتبرعات";
-            descriptionTextListDataItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            descriptionTextListDataItem4.Height = 50;
-            descriptionTextListDataItem4.Text = "سيئ";
-            descriptionTextListDataItem4.TextWrap = false;
-            descriptionTextListDataItem5.DescriptionText = "لايوجد دخل شهري والعائلة بأمس الحاجة للتبرعات";
-            descriptionTextListDataItem5.ForeColor = System.Drawing.Color.Red;
-            descriptionTextListDataItem5.Height = 50;
-            descriptionTextListDataItem5.Text = "سيئ جداً";
-            descriptionTextListDataItem5.TextWrap = false;
-            this.txtFamilyFinncialStatus.Items.Add(descriptionTextListDataItem1);
-            this.txtFamilyFinncialStatus.Items.Add(descriptionTextListDataItem2);
-            this.txtFamilyFinncialStatus.Items.Add(descriptionTextListDataItem3);
-            this.txtFamilyFinncialStatus.Items.Add(descriptionTextListDataItem4);
-            this.txtFamilyFinncialStatus.Items.Add(descriptionTextListDataItem5);
             this.txtFamilyFinncialStatus.Location = new System.Drawing.Point(272, 68);
             this.txtFamilyFinncialStatus.Name = "txtFamilyFinncialStatus";
             this.txtFamilyFinncialStatus.SelectNextOnDoubleClick = true;
@@ -1459,30 +1441,6 @@
             this.txtFamilyResidenceStatus.DefaultItemsCountInDropDown = 5;
             this.txtFamilyResidenceStatus.DropDownHeight = 200;
             this.txtFamilyResidenceStatus.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            descriptionTextListDataItem6.DescriptionText = "لا يوجد ضرر في البناء و الحلة الصحية جيدة";
-            descriptionTextListDataItem6.ForeColor = System.Drawing.Color.Lime;
-            descriptionTextListDataItem6.Height = 50;
-            descriptionTextListDataItem6.Text = "جيد";
-            descriptionTextListDataItem6.TextWrap = false;
-            descriptionTextListDataItem7.DescriptionText = "لا يوجد ضرر في البناء و الحالة الصحية سيئة";
-            descriptionTextListDataItem7.ForeColor = System.Drawing.Color.Green;
-            descriptionTextListDataItem7.Height = 50;
-            descriptionTextListDataItem7.Text = "مقبول";
-            descriptionTextListDataItem7.TextWrap = false;
-            descriptionTextListDataItem8.DescriptionText = "يوجد ضرر في البناء و الحالة الصحية سيئة";
-            descriptionTextListDataItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            descriptionTextListDataItem8.Height = 50;
-            descriptionTextListDataItem8.Text = "سيئ";
-            descriptionTextListDataItem8.TextWrap = false;
-            descriptionTextListDataItem9.DescriptionText = "السكن شبه مستحيل";
-            descriptionTextListDataItem9.ForeColor = System.Drawing.Color.Red;
-            descriptionTextListDataItem9.Height = 45;
-            descriptionTextListDataItem9.Text = "سيئ جداً";
-            descriptionTextListDataItem9.TextWrap = false;
-            this.txtFamilyResidenceStatus.Items.Add(descriptionTextListDataItem6);
-            this.txtFamilyResidenceStatus.Items.Add(descriptionTextListDataItem7);
-            this.txtFamilyResidenceStatus.Items.Add(descriptionTextListDataItem8);
-            this.txtFamilyResidenceStatus.Items.Add(descriptionTextListDataItem9);
             this.txtFamilyResidenceStatus.Location = new System.Drawing.Point(272, 45);
             this.txtFamilyResidenceStatus.Name = "txtFamilyResidenceStatus";
             this.txtFamilyResidenceStatus.SelectNextOnDoubleClick = true;
@@ -1499,36 +1457,6 @@
             this.txtFamilyResidenceType.DefaultItemsCountInDropDown = 5;
             this.txtFamilyResidenceType.DropDownHeight = 245;
             this.txtFamilyResidenceType.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            descriptionTextListDataItem10.DescriptionText = "العائلة تسكن بيت تملكه";
-            descriptionTextListDataItem10.ForeColor = System.Drawing.Color.Green;
-            descriptionTextListDataItem10.Height = 40;
-            descriptionTextListDataItem10.Text = "ملك";
-            descriptionTextListDataItem10.TextWrap = false;
-            descriptionTextListDataItem11.DescriptionText = "العالة تسكن بيت بشكل مؤقت";
-            descriptionTextListDataItem11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            descriptionTextListDataItem11.Height = 40;
-            descriptionTextListDataItem11.Text = "مؤقت";
-            descriptionTextListDataItem11.TextWrap = false;
-            descriptionTextListDataItem12.DescriptionText = "العائلة مهجرة وتسكن ضمن مركز ايواء";
-            descriptionTextListDataItem12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            descriptionTextListDataItem12.Height = 55;
-            descriptionTextListDataItem12.Text = "مركز أيواء";
-            descriptionTextListDataItem12.TextWrap = false;
-            descriptionTextListDataItem13.DescriptionText = "العائلة مهجرة وتسكن ضمن مخيم";
-            descriptionTextListDataItem13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            descriptionTextListDataItem13.Height = 55;
-            descriptionTextListDataItem13.Text = "مخيم";
-            descriptionTextListDataItem13.TextWrap = false;
-            descriptionTextListDataItem14.DescriptionText = "العائلة تسكن بيت مستأجر";
-            descriptionTextListDataItem14.ForeColor = System.Drawing.Color.Red;
-            descriptionTextListDataItem14.Height = 55;
-            descriptionTextListDataItem14.Text = "إيجار";
-            descriptionTextListDataItem14.TextWrap = false;
-            this.txtFamilyResidenceType.Items.Add(descriptionTextListDataItem10);
-            this.txtFamilyResidenceType.Items.Add(descriptionTextListDataItem11);
-            this.txtFamilyResidenceType.Items.Add(descriptionTextListDataItem12);
-            this.txtFamilyResidenceType.Items.Add(descriptionTextListDataItem13);
-            this.txtFamilyResidenceType.Items.Add(descriptionTextListDataItem14);
             this.txtFamilyResidenceType.Location = new System.Drawing.Point(272, 22);
             this.txtFamilyResidenceType.Name = "txtFamilyResidenceType";
             this.txtFamilyResidenceType.NullText = "نوع السكن";
@@ -1558,6 +1486,7 @@
             this.lblFamilyResidenceStatus.TabIndex = 1;
             this.lblFamilyResidenceStatus.Text = "s";
             this.lblFamilyResidenceStatus.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFamilyResidenceStatus.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // lblFamilyNote
             // 
@@ -1583,6 +1512,7 @@
             this.lblFamilyResidenceType.TabIndex = 1;
             this.lblFamilyResidenceType.Text = "s";
             this.lblFamilyResidenceType.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFamilyResidenceType.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // lblFamilyIsTheyRefugees
             // 
@@ -1596,6 +1526,7 @@
             this.lblFamilyIsTheyRefugees.TabIndex = 1;
             this.lblFamilyIsTheyRefugees.Text = "s";
             this.lblFamilyIsTheyRefugees.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFamilyIsTheyRefugees.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // lblFamilyFamilyCardNumber
             // 
@@ -1609,6 +1540,7 @@
             this.lblFamilyFamilyCardNumber.TabIndex = 1;
             this.lblFamilyFamilyCardNumber.Text = "s";
             this.lblFamilyFamilyCardNumber.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFamilyFamilyCardNumber.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // lblFamilyFinncialStatus
             // 
@@ -1622,6 +1554,7 @@
             this.lblFamilyFinncialStatus.TabIndex = 1;
             this.lblFamilyFinncialStatus.Text = "s";
             this.lblFamilyFinncialStatus.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFamilyFinncialStatus.Click += new System.EventHandler(this.HideFamilyAddresses);
             // 
             // panelProgress
             // 
@@ -1643,11 +1576,24 @@
             this.radWaitingBar1.WaitingIndicators.Add(this.dotsSpinnerWaitingBarIndicatorElement1);
             this.radWaitingBar1.WaitingSpeed = 100;
             this.radWaitingBar1.WaitingStyle = Telerik.WinControls.Enumerations.WaitingBarStyles.DotsSpinner;
+            ((Telerik.WinControls.UI.RadWaitingBarElement)(this.radWaitingBar1.GetChildAt(0))).WaitingSpeed = 100;
+            ((Telerik.WinControls.UI.WaitingBarContentElement)(this.radWaitingBar1.GetChildAt(0).GetChildAt(0))).WaitingStyle = Telerik.WinControls.Enumerations.WaitingBarStyles.DotsSpinner;
+            ((Telerik.WinControls.UI.WaitingBarSeparatorElement)(this.radWaitingBar1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).Dash = false;
             // 
             // dotsSpinnerWaitingBarIndicatorElement1
             // 
+            this.dotsSpinnerWaitingBarIndicatorElement1.ClipDrawing = false;
+            this.dotsSpinnerWaitingBarIndicatorElement1.ClipText = false;
+            this.dotsSpinnerWaitingBarIndicatorElement1.DrawBackgroundImage = true;
+            this.dotsSpinnerWaitingBarIndicatorElement1.DrawBorder = false;
+            this.dotsSpinnerWaitingBarIndicatorElement1.DrawFill = false;
             this.dotsSpinnerWaitingBarIndicatorElement1.ElementColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(14)))), ((int)(((byte)(67)))));
+            this.dotsSpinnerWaitingBarIndicatorElement1.ElementColor2 = System.Drawing.Color.Transparent;
+            this.dotsSpinnerWaitingBarIndicatorElement1.ElementNumberOfColors = 16;
+            this.dotsSpinnerWaitingBarIndicatorElement1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dotsSpinnerWaitingBarIndicatorElement1.Name = "dotsSpinnerWaitingBarIndicatorElement1";
+            this.dotsSpinnerWaitingBarIndicatorElement1.NumberOfColors = 16;
+            this.dotsSpinnerWaitingBarIndicatorElement1.RotationDirection = Telerik.WinControls.UI.RotationDirection.Clockwise;
             // 
             // wizardPageFather
             // 
@@ -1710,6 +1656,8 @@
             this.Text = "AddFamilyView";
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).EndInit();
             this.radWizard1.ResumeLayout(false);
+            this.panelComplete.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lblResult)).EndInit();
             this.panelFather.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpFatherAdditionalData)).EndInit();
@@ -1717,7 +1665,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherDeathCertificate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherStory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFAtherStory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFatherStory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatherBindingSource)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpFatherBasicData)).EndInit();
@@ -1734,7 +1682,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherDateOfDeath)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblFatherBirthday)).EndInit();
             this.panelMother.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableMotherMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpMotherAdditionalData)).EndInit();
             this.grpMotherAdditionalData.ResumeLayout(false);
             this.grpMotherAdditionalData.PerformLayout();
@@ -1770,7 +1718,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblMotherDateOfDeath)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblMotherBirthday)).EndInit();
             this.panelFamily.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableFamilyMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpFamilyAddresses)).EndInit();
             this.grpFamilyAddresses.ResumeLayout(false);
             this.grpFamilyAddresses.PerformLayout();
@@ -1826,7 +1774,7 @@
         internal Telerik.WinControls.UI.RadLabel lblFatherPhoto;
         internal Telerik.WinControls.UI.RadLabel lblFatherDeathCertificate;
         internal Telerik.WinControls.UI.RadLabel lblFatherStory;
-        internal Telerik.WinControls.UI.RadTextBox txtFAtherStory;
+        internal Telerik.WinControls.UI.RadTextBox txtFatherStory;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         internal Telerik.WinControls.UI.RadGroupBox grpFatherBasicData;
         internal Telerik.WinControls.UI.RadDateTimePicker dteFatherDateOfDeath;
@@ -1838,10 +1786,9 @@
         internal Telerik.WinControls.UI.RadLabel lblFatherDeathReason;
         internal Telerik.WinControls.UI.RadLabel lblFatherDateOfDeath;
         internal Telerik.WinControls.UI.RadLabel lblFatherBirthday;
-        private Controlls.NameForm FatherNameForm;
         private System.Windows.Forms.BindingSource fatherBindingSource;
         internal Telerik.WinControls.UI.RadTextBox txtFatherIdentityCardNumber;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableMotherMain;
         internal Telerik.WinControls.UI.RadGroupBox grpMotherAdditionalData;
         internal Telerik.WinControls.UI.RadTextBox txtMotherNote;
         internal Telerik.WinControls.UI.RadTextBox txtMotherStory;
@@ -1871,12 +1818,10 @@
         internal Telerik.WinControls.UI.RadLabel lblMotherIsDead;
         internal Telerik.WinControls.UI.RadLabel lblMotherDateOfDeath;
         internal Telerik.WinControls.UI.RadLabel lblMotherBirthday;
-        private Controlls.NameForm MotherNameForm;
         internal Telerik.WinControls.UI.RadTextBox txtMotherAddress;
         internal Telerik.WinControls.UI.RadLabel lblMotherAddress;
-        private Controlls.AddressForm MotherAddressForm;
         private System.Windows.Forms.BindingSource motherBindingSource;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableFamilyMain;
         internal Telerik.WinControls.UI.RadGroupBox grpFamilyBasicData;
         internal Telerik.WinControls.UI.RadTextBox txtFamilyFamilyCardNumber;
         internal Telerik.WinControls.UI.RadTextBox txtFamilyNote;
@@ -1902,9 +1847,13 @@
         internal Telerik.WinControls.UI.RadLabel lblFamilyPrimaryAddress;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.BindingSource familyBindingSource;
-        private Controlls.AddressForm FamilyAddressFromPrimary;
-        private Controlls.AddressForm FamilyAddressFormSecondary;
         private Telerik.WinControls.UI.RadWaitingBar radWaitingBar1;
         private Telerik.WinControls.UI.DotsSpinnerWaitingBarIndicatorElement dotsSpinnerWaitingBarIndicatorElement1;
+        private Controlls.NameForm FatherNameForm;
+        private Controlls.NameForm MotherNameForm;
+        private Controlls.AddressForm MotherAddressForm;
+        private Controlls.AddressForm FamilyAddressFormSecondary;
+        private Controlls.AddressForm FamilyAddressFormPrimary;
+        private Telerik.WinControls.UI.RadLabel lblResult;
     }
 }

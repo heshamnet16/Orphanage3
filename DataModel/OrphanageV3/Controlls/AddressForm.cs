@@ -27,6 +27,8 @@ namespace OrphanageV3.Controlls
             }
         }
 
+        public bool IsValid() => _entityValidator.IsValid();
+
         public RadGroupBoxStyle Style { get => this.grpAddress.GroupBoxStyle; set { grpAddress.GroupBoxStyle = value;
                 grpInternet.GroupBoxStyle = value;
                 grpPhoneNumbers.GroupBoxStyle = value;
@@ -234,7 +236,7 @@ namespace OrphanageV3.Controlls
             ValidateAndShowError();
         }
 
-        private void ValidateAndShowError()
+        public void ValidateAndShowError()
         {
             addressErrorProvider1.Clear();
             if (_entityValidator != null)
