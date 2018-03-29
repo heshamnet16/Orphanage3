@@ -12,13 +12,15 @@ namespace OrphanageV3.Views.ChooserView
 
         public IList<object> SelectedObjects => entityChooser1.SelectedItems;
 
+        public bool MultiSelect { get => entityChooser1.MultiSelect; set => entityChooser1.MultiSelect = value; }
+
         public ChooserView(List<object> list, string title)
         {
             InitializeComponent();
             _itemsList = list;
             btnOk.Text = Properties.Resources.OkString;
             btnClose.Text = Properties.Resources.CancelText;
-            entityChooser1.DataSource = list;
+            entityChooser1.Items = list.ToArray();
             this.Text = title;
         }
 

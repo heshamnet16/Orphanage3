@@ -274,7 +274,7 @@ namespace OrphanageV3.Services
                     stringBuilder.Append(Properties.Resources.AndString);
                     stringBuilder.Append(" ");
                     stringBuilder.Append(retFamily.MotherFullName);
-                    retFamily.FamilyFullName = stringBuilder.ToString();
+                    retFamily.FamilyName = stringBuilder.ToString();
                 }
                 retFamily.OrphansCount = -1;
             }

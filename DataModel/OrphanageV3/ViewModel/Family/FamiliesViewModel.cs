@@ -47,6 +47,11 @@ namespace OrphanageV3.ViewModel.Family
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
+        public OrphanageDataModel.RegularData.Family GetSourceFamily(int FamModelId)
+        {
+            return _SourceFamilies.FirstOrDefault(fam => fam.Id == FamModelId);
+        }
+
         public async void LoadFamilies(IEnumerable<int> familiesIdsList)
         {
             var ReturnedFamilies = await _apiClient.FamiliesController_GetByIdsAsync(familiesIdsList);

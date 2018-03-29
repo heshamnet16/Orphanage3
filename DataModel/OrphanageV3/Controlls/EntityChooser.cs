@@ -128,7 +128,6 @@ namespace OrphanageV3.Controlls
             {
                 foreach (var itm in lstDataList.Items)
                 {
-                    Application.DoEvents();
                     if (txtSearch.Text != null && txtSearch.Text.Length > 0)
                     {
                         for (int i = 0; i < lstDataList.Columns.Count; i++)
@@ -139,6 +138,7 @@ namespace OrphanageV3.Controlls
                             {
                                 itm.Visible = true;
                                 _greenStrings.Add(itm[i].ToString());
+                                Application.DoEvents();
                                 break;
                             }
                             else
@@ -159,6 +159,10 @@ namespace OrphanageV3.Controlls
         {
             SetAttributedColumns();
             TranslateColumnsNames();
+            foreach (var col in this.lstDataList.Columns)
+            {
+                col.BestFit();
+            }
         }
 
         private void lstDataList_CellFormatting(object sender, ListViewCellFormattingEventArgs e)

@@ -175,7 +175,7 @@ namespace OrphanageV3.Views.Orphan
                 {
                     numHCost.Value = (decimal)_CurrentOrphan.HealthStatus.Cost.Value;
                 }
-                picHFace.SetImageByBytes(_CurrentOrphan.HealthStatus.ReporteFileData);
+                picHReportPhoto.SetImageByBytes(_CurrentOrphan.HealthStatus.ReporteFileData);
             }
             else
             {
@@ -255,7 +255,7 @@ namespace OrphanageV3.Views.Orphan
                 health.SicknessName = Sickne;
             }
 
-            health.ReporteFileData = picHFace.PhotoAsBytes;
+            health.ReporteFileData = picHReportPhoto.PhotoAsBytes;
             health.ReporteFileURI = "api/orphan/media/healthreport/" + _CurrentOrphan.Id;
             health.SupervisorDoctor = txtHDoctorName.Text;
             health.Note = txtHNote.Text;
@@ -366,7 +366,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void EnabledDisHealthControls(bool value)
         {
-            picHFace.Enabled = value;
+            picHReportPhoto.Enabled = value;
             txtHNote.Enabled = value;
             txtHDoctorName.Enabled = value;
             txtHMedicen.Enabled = value;
@@ -437,7 +437,7 @@ namespace OrphanageV3.Views.Orphan
             SetValues();
             picFace.PhotoChanged += PhotoChanged;
             PicBody.PhotoChanged += PhotoChanged;
-            picHFace.PhotoChanged += PhotoChanged;
+            picHReportPhoto.PhotoChanged += PhotoChanged;
             picObirthCertificate.PhotoChanged += PhotoChanged;
             picOFamilyCardPhoto.PhotoChanged += PhotoChanged;
             picSStarter.PhotoChanged += PhotoChanged;
@@ -502,7 +502,7 @@ namespace OrphanageV3.Views.Orphan
                 await _orphanViewModel.Save(_CurrentOrphan);
 
                 if (_CurrentOrphan.HealthStatus != null && _HealthPhotoChanged)
-                    await _orphanViewModel.SaveImage(_CurrentOrphan.HealthStatus.ReporteFileURI, picHFace.Photo);
+                    await _orphanViewModel.SaveImage(_CurrentOrphan.HealthStatus.ReporteFileURI, picHReportPhoto.Photo);
 
                 if (_CurrentOrphan.Education != null)
                 {

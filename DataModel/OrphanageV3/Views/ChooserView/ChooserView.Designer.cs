@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(299, 446);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(588, 457);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -62,10 +62,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnClose);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 402);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 413);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 41);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(582, 41);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // btnOk
@@ -93,17 +93,18 @@
             this.entityChooser1.IdColumnName = "Id";
             this.entityChooser1.Items = null;
             this.entityChooser1.Location = new System.Drawing.Point(3, 3);
+            this.entityChooser1.MinimumSize = new System.Drawing.Size(200, 331);
             this.entityChooser1.MultiSelect = false;
             this.entityChooser1.Name = "entityChooser1";
             this.entityChooser1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.entityChooser1.Size = new System.Drawing.Size(293, 393);
+            this.entityChooser1.Size = new System.Drawing.Size(582, 404);
             this.entityChooser1.TabIndex = 4;
             // 
             // ChooserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 446);
+            this.ClientSize = new System.Drawing.Size(588, 457);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ChooserView";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

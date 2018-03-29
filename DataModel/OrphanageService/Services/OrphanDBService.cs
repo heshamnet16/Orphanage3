@@ -392,11 +392,11 @@ namespace OrphanageService.Services
         }
 
         ///<inheritdoc/>
-        public async Task<int> AddOrphan(OrphanageDataModel.Persons.Orphan orphan, OrphanageDbCNoBinary orphanageDBC)
+        public async Task<OrphanageDataModel.Persons.Orphan> AddOrphan(OrphanageDataModel.Persons.Orphan orphan, OrphanageDbCNoBinary orphanageDBC)
         {
-            if (orphan.FamilyId <= 0) return -1;
-            if (orphan.CaregiverId <= 0) return -1;
-            if (orphan.Name == null) return -1;
+            if (orphan.FamilyId <= 0) return null;
+            if (orphan.CaregiverId <= 0) return null;
+            if (orphan.Name == null) return null;
 
             if (!Properties.Settings.Default.ForceAdd)
             {
@@ -418,14 +418,15 @@ namespace OrphanageService.Services
             {
                 orphan.HealthId = await _regularDataService.AddHealth(orphan.HealthStatus, orphanageDBC);
             }
+            _uriGenerator.SetOrphanUris(ref orphan);
             orphanageDBC.Orphans.Add(orphan);
             if (await orphanageDBC.SaveChangesAsync() > 0)
             {
-                return orphan.Id;
+                return orphan;
             }
             else
             {
-                return -1;
+                return null;
             }
         }
 
@@ -559,11 +560,11 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<int> AddOrphan(OrphanageDataModel.Persons.Orphan orphan)
+        public async Task<OrphanageDataModel.Persons.Orphan> AddOrphan(OrphanageDataModel.Persons.Orphan orphan)
         {
-            if (orphan.FamilyId <= 0) return -1;
-            if (orphan.CaregiverId <= 0) return -1;
-            if (orphan.Name == null) return -1;
+            if (orphan.FamilyId <= 0) return null;
+            if (orphan.CaregiverId <= 0) return null;
+            if (orphan.Name == null) return null;
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
@@ -588,16 +589,17 @@ namespace OrphanageService.Services
                     {
                         orphan.HealthId = await _regularDataService.AddHealth(orphan.HealthStatus, orphanageDbc);
                     }
+                    _uriGenerator.SetOrphanUris(ref orphan);
                     orphanageDbc.Orphans.Add(orphan);
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
                         dbT.Commit();
-                        return orphan.Id;
+                        return orphan;
                     }
                     else
                     {
                         dbT.Rollback();
-                        return -1;
+                        return null;
                     }
                 }
             }

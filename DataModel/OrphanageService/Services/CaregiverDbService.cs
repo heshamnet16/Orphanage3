@@ -25,7 +25,7 @@ namespace OrphanageService.Services
             _regularDataService = regularDataService;
         }
 
-        public async Task<int> AddCaregiver(OrphanageDataModel.Persons.Caregiver caregiver)
+        public async Task<OrphanageDataModel.Persons.Caregiver> AddCaregiver(OrphanageDataModel.Persons.Caregiver caregiver)
         {
             if (caregiver == null) throw new NullReferenceException();
             if (caregiver.Name == null) throw new NullReferenceException();
@@ -56,7 +56,7 @@ namespace OrphanageService.Services
                     if (nameId == -1)
                     {
                         Dbt.Rollback();
-                        return -1;
+                        return null;
                     }
                     caregiver.NameId = nameId;
                     if (caregiver.Address != null)
@@ -65,22 +65,23 @@ namespace OrphanageService.Services
                         if (addressId == -1)
                         {
                             Dbt.Rollback();
-                            return -1;
+                            return null;
                         }
                         caregiver.AddressId = addressId;
                     }
-                    if (caregiver.Orphans != null || caregiver.Orphans.Count > 0) caregiver.Orphans = null;
+                    if (caregiver.Orphans != null && caregiver.Orphans.Count > 0) caregiver.Orphans = null;
                     orphanageDBC.Caregivers.Add(caregiver);
                     var ret = await orphanageDBC.SaveChangesAsync();
                     if (ret >= 1)
                     {
                         Dbt.Commit();
-                        return caregiver.Id;
+                        _uriGenerator.SetCaregiverUris(ref caregiver);
+                        return caregiver;
                     }
                     else
                     {
                         Dbt.Rollback();
-                        return -1;
+                        return null;
                     }
                 }
             }

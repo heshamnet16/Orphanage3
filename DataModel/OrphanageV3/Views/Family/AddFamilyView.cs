@@ -32,7 +32,6 @@ namespace OrphanageV3.Views.Family
             _entityValidator = Program.Factory.Resolve<IEntityValidator>();
             _familyEditViewModel = Program.Factory.Resolve<FamilyEditViewModel>();
             radWaitingBar1.StartWaiting();
-            centeringResultLabel();
             radWizard1.FinishButton.Click += FinishButton_Click;
             radWizard1.CancelButton.Click += FinishButton_Click;
         }
@@ -40,12 +39,6 @@ namespace OrphanageV3.Views.Family
         private void FinishButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void centeringResultLabel()
-        {
-            lblResult.Left = (panelComplete.Width / 2) - (lblResult.Width / 2);
-            lblResult.Top = (panelComplete.Height / 2) - (lblResult.Height / 2);
         }
 
         private void TranlateControls()
@@ -388,6 +381,8 @@ namespace OrphanageV3.Views.Family
                     e.Cancel = true;
                 else
                 {
+                    radWizard1.NextButton.Enabled = false;
+                    radWizard1.BackButton.Enabled = false;
                     var family = GetFamily();
                     var fam = await _familyEditViewModel.Add(family);
                     _result = fam != null ? true : false;
@@ -407,6 +402,8 @@ namespace OrphanageV3.Views.Family
                             await _familyEditViewModel.SaveImage($"api/mother/media/idback/{fam.MotherId}", picMotherIDBack.Photo);
                     }
                     radWizard1.SelectNextPage();
+                    radWizard1.NextButton.Enabled = true;
+                    radWizard1.BackButton.Enabled = true;
                 }
             }
             if (e.SelectedPage == wizardCompletionPage1 && e.NextPage == wizardPageProgress)

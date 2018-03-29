@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using OrphanageService.Filters;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
@@ -84,7 +85,7 @@ namespace OrphanageService.Orphan.Controllers
         public async Task<HttpResponseMessage> Post(object orphan)
         {
             var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
-            var ret = 0;
+            OrphanageDataModel.Persons.Orphan ret = null;
             try
             {
                 ret = await _OrphanDBService.AddOrphan(orp);
@@ -93,7 +94,12 @@ namespace OrphanageService.Orphan.Controllers
             {
                 throw _exceptionHandlerService.HandleValidationException(excp);
             }
-            if (ret > 0)
+            catch (DuplicatedObjectException dubExc)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
+            }
+
+            if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
             }

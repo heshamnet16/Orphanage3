@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrphanageV3.Attributes;
+using System;
 
 namespace OrphanageV3.ViewModel.Family
 {
@@ -6,7 +7,8 @@ namespace OrphanageV3.ViewModel.Family
     {
         public int Id { get; set; }
 
-        public string FamilyFullName { get; set; }
+        [ShowInChooser(Order = 0)]
+        public string FamilyName { get; set; }
 
         public string MotherFullName { get; set; }
 
@@ -18,6 +20,7 @@ namespace OrphanageV3.ViewModel.Family
 
         public bool IsBailed { get; set; }
 
+        [ShowInChooser(Order = 3)]
         public string FullAddress { get; set; }
 
         public string AlternativeAddress { get; set; }
@@ -42,6 +45,7 @@ namespace OrphanageV3.ViewModel.Family
 
         public string Note { get; set; }
 
+        [ShowInChooser(Order = 2)]
         public int OrphansCount { get; set; }
     }
 }

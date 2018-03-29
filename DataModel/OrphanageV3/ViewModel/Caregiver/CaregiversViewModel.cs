@@ -93,5 +93,8 @@ namespace OrphanageV3.ViewModel.Caregiver
             var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
             return caregiver.Orphans.Select(o => o.Id).ToList();
         }
+
+        public OrphanageDataModel.Persons.Caregiver GetSourceCaregiver(int caregiverModelId) =>
+            _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverModelId);
     }
 }
