@@ -1034,4 +1034,16 @@
   <data name="NewCaregiver" xml:space="preserve">
     <value>معيل جديد</value>
   </data>
+  <data name="CaregiverAddedFailed" xml:space="preserve">
+    <value>فشل في إنشاء معيل جديد</value>
+  </data>
+  <data name="CaregiverAddedSuccess" xml:space="preserve">
+    <value>تم إنشاء معيل بنجاح</value>
+  </data>
+  <data name="OrphanAddedFailed" xml:space="preserve">
+    <value>فشل في إنشاء يتيم جديد</value>
+  </data>
+  <data name="OrphanAddedSuccess" xml:space="preserve">
+    <value>تم إنشاء يتيم بنجاح</value>
+  </data>
 </root>

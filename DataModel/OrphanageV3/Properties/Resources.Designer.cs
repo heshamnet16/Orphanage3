@@ -343,6 +343,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die فشل في إنشاء معيل جديد ähnelt.
+        /// </summary>
+        public static string CaregiverAddedFailed {
+            get {
+                return ResourceManager.GetString("CaregiverAddedFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم إنشاء معيل بنجاح ähnelt.
+        /// </summary>
+        public static string CaregiverAddedSuccess {
+            get {
+                return ResourceManager.GetString("CaregiverAddedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اسم أب المعيل ähnelt.
         /// </summary>
         public static string CaregiverFatherName {
@@ -1887,6 +1905,24 @@ namespace OrphanageV3.Properties {
         public static string OkString {
             get {
                 return ResourceManager.GetString("OkString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die فشل في إنشاء يتيم جديد ähnelt.
+        /// </summary>
+        public static string OrphanAddedFailed {
+            get {
+                return ResourceManager.GetString("OrphanAddedFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم إنشاء يتيم بنجاح ähnelt.
+        /// </summary>
+        public static string OrphanAddedSuccess {
+            get {
+                return ResourceManager.GetString("OrphanAddedSuccess", resourceCulture);
             }
         }
         

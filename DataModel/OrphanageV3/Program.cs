@@ -35,7 +35,7 @@ namespace OrphanageV3
                 CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Views.Orphan.AddOrphanView());
+                Application.Run(new Views.Orphan.OrphansView());
             }
             catch (ApiClientException apiEx)
             {

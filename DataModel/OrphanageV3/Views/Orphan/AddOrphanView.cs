@@ -14,6 +14,7 @@ using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageDataModel.RegularData;
 using LangChanger;
 using System.Threading.Tasks;
+using OrphanageV3.ViewModel.Orphan;
 
 namespace OrphanageV3.Views.Orphan
 {
@@ -21,19 +22,16 @@ namespace OrphanageV3.Views.Orphan
     {
         private ViewModel.Family.FamilyModel _familyModel = null;
         private OrphanageDataModel.RegularData.Family _family = null;
-        private List<object> _families = null;
-        private ViewModel.Family.FamiliesViewModel _FamiliesViewModel = null;
 
-        private List<object> _caregivers = null;
-        private ViewModel.Caregiver.CaregiversViewModel _CaregiversViewModel = null;
-        private ViewModel.Caregiver.CaregiverEditViewModel _caregiverEditViewModel = null;
-        private ViewModel.Mother.MotherEditViewModel _motherEditViewModel = null;
+        private List<object> _familiesSelectionList = null;
+        private List<object> _caregiversSelectionList = null;
 
-        private OrphanageDataModel.Persons.Caregiver _BrothersCaregiver = null;
-        private OrphanageDataModel.Persons.Mother _mother = null;
-        private OrphanageDataModel.Persons.Caregiver _caregiver = null;
+        private AddOrphanViewModel _AddOrphanViewModel = null;
 
-        private ViewModel.Orphan.OrphanViewModel _orphanViewModel = null;
+        private OrphanageDataModel.Persons.Caregiver _mainCaregiver = null;
+        private OrphanageDataModel.Persons.Caregiver _motherCaregiver = null;
+        private OrphanageDataModel.Persons.Caregiver _selectedCaregiver = null;
+        private OrphanageDataModel.Persons.Caregiver _brothersCaregiver = null;
 
         private IEntityValidator _entityValidator;
         private IAutoCompleteService _AutoCompleteServic = null;
@@ -43,18 +41,12 @@ namespace OrphanageV3.Views.Orphan
         public AddOrphanView()
         {
             InitializeComponent();
-            _CaregiversViewModel = Program.Factory.Resolve<ViewModel.Caregiver.CaregiversViewModel>();
-            _CaregiversViewModel.DataLoaded += CaregiverDataLoaded;
-            _CaregiversViewModel.LoadCaregivers();
 
-            _FamiliesViewModel = Program.Factory.Resolve<ViewModel.Family.FamiliesViewModel>();
-            _FamiliesViewModel.DataLoaded += FamiliesDataLoaded;
-            _FamiliesViewModel.LoadFamilies();
+            _AddOrphanViewModel = Program.Factory.Resolve<AddOrphanViewModel>();
+            _AddOrphanViewModel.CaregiversSelectionListLoad += CaregiverDataLoaded;
+            _AddOrphanViewModel.FamiliesSelectionListLoad += FamiliesDataLoaded;
+            _AddOrphanViewModel.LoadSelectionData();
 
-            _orphanViewModel = Program.Factory.Resolve<ViewModel.Orphan.OrphanViewModel>();
-            _caregiverEditViewModel = Program.Factory.Resolve<ViewModel.Caregiver.CaregiverEditViewModel>();
-
-            _motherEditViewModel = Program.Factory.Resolve<ViewModel.Mother.MotherEditViewModel>();
             TranslateControls();
 
             _orphan = new OrphanageDataModel.Persons.Orphan();
@@ -63,12 +55,9 @@ namespace OrphanageV3.Views.Orphan
             orphanBindingSource.DataSource = _orphan;
             orphanNameForm.NameDataSource = _orphan.Name;
             studyBindingSource.DataSource = _orphan.Education;
-            _caregiver = new OrphanageDataModel.Persons.Caregiver();
-            _caregiver.Name = new OrphanageDataModel.RegularData.Name();
-            _caregiver.Address = new OrphanageDataModel.RegularData.Address();
-            caregiverBindingSource.DataSource = _caregiver;
-            caregiverNameForm.NameDataSource = _caregiver.Name;
-            caregiverAddressForm.AddressDataSource = _caregiver.Address;
+            caregiverBindingSource.DataSource = new OrphanageDataModel.Persons.Caregiver();
+            caregiverNameForm.NameDataSource = new OrphanageDataModel.RegularData.Name();
+            caregiverAddressForm.AddressDataSource = new OrphanageDataModel.RegularData.Address();
 
             _entityValidator = Program.Factory.Resolve<IEntityValidator>();
             _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
@@ -136,12 +125,12 @@ namespace OrphanageV3.Views.Orphan
         private void FamiliesDataLoaded(object sender, EventArgs e)
         {
             btnFamilyBrowse.Enabled = true;
-            _families = new List<object>(_FamiliesViewModel.Families);
+            _familiesSelectionList = new List<object>(_AddOrphanViewModel.FamiliesSelectionList);
         }
 
         private void CaregiverDataLoaded(object sender, EventArgs e)
         {
-            _caregivers = new List<object>(_CaregiversViewModel.Caregivers);
+            _caregiversSelectionList = new List<object>(_AddOrphanViewModel.CaregiversSelectionList);
             optChooseCaregiver.Enabled = true;
         }
 
@@ -316,31 +305,37 @@ namespace OrphanageV3.Views.Orphan
             }
         }
 
+        private async void SetOtherCaregiversOptions()
+        {
+            _motherCaregiver = await _AddOrphanViewModel.GetCaregiverFromMother(_family.Id);
+            _brothersCaregiver = await _AddOrphanViewModel.GetCaregiverFromOrphans(_family.Id);
+        }
+
         private void btnFamilyBrowse_Click(object sender, EventArgs e)
         {
-            ChooserView.ChooserView chooserView = new ChooserView.ChooserView(_families, Properties.Resources.ChooseFamily);
+            ChooserView.ChooserView chooserView = new ChooserView.ChooserView(_familiesSelectionList, Properties.Resources.ChooseFamily);
             chooserView.MultiSelect = false;
             chooserView.ShowDialog();
             if (chooserView.DialogResult == DialogResult.OK)
             {
                 EnabledDisabledControl(true);
                 _familyModel = (ViewModel.Family.FamilyModel)chooserView.SelectedObject;
-                _family = _FamiliesViewModel.GetSourceFamily(_familyModel.Id);
+                _family = _AddOrphanViewModel.GetSourceFamily(_familyModel.Id);
+                SetOtherCaregiversOptions();
                 txtFatherName.Text = _familyModel.FatherFullName;
                 txtMotherName.Text = _familyModel.MotherFullName;
                 orphanNameForm.txtEnglishFather.Text = _family.Father.Name.EnglishFirst;
                 orphanNameForm.txtFather.Text = _family.Father.Name.First;
                 orphanNameForm.txtLast.Text = _family.Father.Name.Last;
                 orphanNameForm.txtEnglishLast.Text = _family.Father.Name.EnglishLast;
-                GetBrothersCaregiver();
-                GetMother();
             }
             else
             {
                 EnabledDisabledControl(false);
                 _familyModel = null;
-                _BrothersCaregiver = null;
-                _mother = null;
+                _brothersCaregiver = null;
+                _motherCaregiver = null;
+                _family = null;
                 txtFatherName.Text = string.Empty;
                 txtMotherName.Text = string.Empty;
             }
@@ -351,80 +346,6 @@ namespace OrphanageV3.Views.Orphan
             radWizard1.NextButton.Enabled = value;
             orphanNameForm.Enabled = value;
             grpOrphanBasicData.Enabled = value;
-        }
-
-        private async void GetBrothersCaregiver()
-        {
-            if (_familyModel != null)
-            {
-                var orphanIds = _FamiliesViewModel.OrphansIds(_familyModel.Id);
-                if (orphanIds != null && orphanIds.Count > 0)
-                {
-                    int caregiverId = -1;
-                    bool sameCaregiver = true;
-                    OrphanageDataModel.Persons.Orphan orphan = null;
-                    foreach (var orphanId in orphanIds)
-                    {
-                        orphan = await _orphanViewModel.getOrphan(orphanId);
-                        if (caregiverId == -1)
-                            caregiverId = orphan.CaregiverId;
-
-                        //check if all orphan has the same caregiver;
-                        if (caregiverId != orphan.CaregiverId)
-                        {
-                            sameCaregiver = false;
-                            break;
-                        }
-                    }
-                    if (orphan != null && sameCaregiver && caregiverId != -1)
-                    {
-                        _BrothersCaregiver = await _caregiverEditViewModel.getCaregiver(caregiverId);
-                        optBrothersCaregiver.Enabled = true;
-                    }
-                    else
-                        optBrothersCaregiver.Enabled = false;
-                }
-            }
-        }
-
-        private async void GetMother()
-        {
-            if (_familyModel != null)
-            {
-                var orphanIds = _FamiliesViewModel.OrphansIds(_familyModel.Id);
-                if (orphanIds != null && orphanIds.Count > 0)
-                {
-                    int motherId = -1;
-                    bool sameMother = true;
-                    OrphanageDataModel.Persons.Orphan orphan = null;
-                    foreach (var orphanId in orphanIds)
-                    {
-                        orphan = await _orphanViewModel.getOrphan(orphanId);
-                        if (motherId == -1)
-                            motherId = orphan.Family.MotherId;
-
-                        //check if all orphan has the same caregiver;
-                        if (motherId != orphan.Family.MotherId)
-                        {
-                            sameMother = false;
-                            break;
-                        }
-                    }
-                    if (orphan != null && sameMother && motherId != -1)
-                    {
-                        _mother = await _motherEditViewModel.getMother(motherId);
-                        optMotherCaregiver.Enabled = true;
-                    }
-                    else
-                        optMotherCaregiver.Enabled = false;
-                }
-                else
-                {
-                    var motherId = _FamiliesViewModel.MothersIds(_familyModel.Id);
-                    _mother = await _motherEditViewModel.getMother(motherId);
-                    optMotherCaregiver.Enabled = true;
-                }
-            }
         }
 
         private void AddOrphanView_Load(object sender, EventArgs e)
@@ -494,6 +415,8 @@ namespace OrphanageV3.Views.Orphan
             {
                 //leaving Health Page
                 SaveHealth();
+                optMotherCaregiver.Enabled = _motherCaregiver != null;
+                optBrothersCaregiver.Enabled = _brothersCaregiver != null;
             }
             if (e.SelectedPage == pgeCaregiver && e.NextPage == pgeCaregiverOtherData)
             {
@@ -528,45 +451,50 @@ namespace OrphanageV3.Views.Orphan
             _orphan = (OrphanageDataModel.Persons.Orphan)orphanBindingSource.DataSource;
             _orphan.Name = (OrphanageDataModel.RegularData.Name)orphanNameForm.NameDataSource;
             _orphan.FamilyId = _family.Id;
-            _caregiver = (OrphanageDataModel.Persons.Caregiver)caregiverBindingSource.DataSource;
-            _caregiver.Name = (OrphanageDataModel.RegularData.Name)caregiverNameForm.NameDataSource;
-            _caregiver.Address = (OrphanageDataModel.RegularData.Address)caregiverAddressForm.AddressDataSource;
-            _orphan.UserId = _caregiver.UserId = Program.CurrentUser.Id;
-            if (_caregiver.Id > 0)
+            _mainCaregiver = (OrphanageDataModel.Persons.Caregiver)caregiverBindingSource.DataSource;
+            _mainCaregiver.Name = (OrphanageDataModel.RegularData.Name)caregiverNameForm.NameDataSource;
+            _mainCaregiver.Address = (OrphanageDataModel.RegularData.Address)caregiverAddressForm.AddressDataSource;
+            _orphan.UserId = _mainCaregiver.UserId = Program.CurrentUser.Id;
+
+            _mainCaregiver = await _AddOrphanViewModel.AddCaregiver(_mainCaregiver);
+            if (_mainCaregiver == null)
             {
-                _orphan.CaregiverId = _caregiver.Id;
+                lblResult.Text = Properties.Resources.CaregiverAddedFailed;
+                return;
             }
             else
             {
-                _caregiver = await _caregiverEditViewModel.Add(_caregiver);
-                if (picCaregiverIdPhotoBack.Photo != null)
-                    await _orphanViewModel.SaveImage(_caregiver.IdentityCardImageBackURI, picCaregiverIdPhotoBack.Photo);
-                if (picCaregiverIdPhotoFace.Photo != null)
-                    await _orphanViewModel.SaveImage(_caregiver.IdentityCardImageFaceURI, picCaregiverIdPhotoFace.Photo);
+                lblResult.Text = Properties.Resources.CaregiverAddedSuccess;
             }
-            if (_caregiver == null)
-            {
-                lblResult.Text = Properties.Resources.FamilyCreatedErrorMessage;
-            }
+            if (picCaregiverIdPhotoBack.Photo != null)
+                await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageBackURI, picCaregiverIdPhotoBack.Photo);
+            if (picCaregiverIdPhotoFace.Photo != null)
+                await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageFaceURI, picCaregiverIdPhotoFace.Photo);
+
+            _orphan.CaregiverId = _mainCaregiver.Id;
+            var retOrp = await _AddOrphanViewModel.Add(_orphan);
+            if (retOrp != null)
+                lblResult.Text += "\n" + Properties.Resources.OrphanAddedSuccess;
             else
             {
-                _orphan.CaregiverId = _caregiver.Id;
-                var retOrp = await _orphanViewModel.Add(_orphan);
-                if (picObirthCertificate.Photo != null)
-                    await _orphanViewModel.SaveImage(retOrp.BirthCertificatePhotoURI, picObirthCertificate.Photo);
-                if (PicOBodyPhoto.Photo != null)
-                    await _orphanViewModel.SaveImage(retOrp.FullPhotoURI, PicOBodyPhoto.Photo);
-                if (PicOFacePhoto.Photo != null)
-                    await _orphanViewModel.SaveImage(retOrp.FacePhotoURI, PicOFacePhoto.Photo);
-                if (picOFamilyCardPhoto.Photo != null)
-                    await _orphanViewModel.SaveImage(retOrp.FamilyCardPagePhotoURI, picOFamilyCardPhoto.Photo);
-                if (picHealthReportPhoto.Photo != null && _orphan.HealthId.HasValue)
-                    await _orphanViewModel.SaveImage(retOrp.HealthStatus.ReporteFileURI, picHealthReportPhoto.Photo);
-                if (_orphan.EducationId.HasValue && picEducationCertificate1.Photo != null)
-                    await _orphanViewModel.SaveImage(retOrp.Education.CertificateImageURI, picEducationCertificate1.Photo);
-                if (_orphan.EducationId.HasValue && picEdiucationCertificate2.Photo != null)
-                    await _orphanViewModel.SaveImage(retOrp.Education.CertificateImage2URI, picEdiucationCertificate2.Photo);
+                lblResult.Text += "\n" + Properties.Resources.OrphanAddedFailed;
+                return;
             }
+
+            if (picObirthCertificate.Photo != null)
+                await _AddOrphanViewModel.SendImage(retOrp.BirthCertificatePhotoURI, picObirthCertificate.Photo);
+            if (PicOBodyPhoto.Photo != null)
+                await _AddOrphanViewModel.SendImage(retOrp.FullPhotoURI, PicOBodyPhoto.Photo);
+            if (PicOFacePhoto.Photo != null)
+                await _AddOrphanViewModel.SendImage(retOrp.FacePhotoURI, PicOFacePhoto.Photo);
+            if (picOFamilyCardPhoto.Photo != null)
+                await _AddOrphanViewModel.SendImage(retOrp.FamilyCardPagePhotoURI, picOFamilyCardPhoto.Photo);
+            if (picHealthReportPhoto.Photo != null && _orphan.HealthId.HasValue)
+                await _AddOrphanViewModel.SendImage(retOrp.HealthStatus.ReporteFileURI, picHealthReportPhoto.Photo);
+            if (_orphan.EducationId.HasValue && picEducationCertificate1.Photo != null)
+                await _AddOrphanViewModel.SendImage(retOrp.Education.CertificateImageURI, picEducationCertificate1.Photo);
+            if (_orphan.EducationId.HasValue && picEdiucationCertificate2.Photo != null)
+                await _AddOrphanViewModel.SendImage(retOrp.Education.CertificateImage2URI, picEdiucationCertificate2.Photo);
         }
 
         private void ChangeLanguageToArabic_Enter(object sender, EventArgs e)
@@ -582,11 +510,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void optNewCaregiver_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
-            _caregiver = new OrphanageDataModel.Persons.Caregiver();
-            _caregiver.Id = -1;
-            caregiverBindingSource.DataSource = _caregiver;
-            picCaregiverIdPhotoBack.Photo = null;
-            picCaregiverIdPhotoFace.Photo = null;
+            setMainCaregiver(null);
             caregiverNameForm.Enabled = true;
         }
 
@@ -594,45 +518,7 @@ namespace OrphanageV3.Views.Orphan
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
-                _caregiver = new OrphanageDataModel.Persons.Caregiver()
-                {
-                    ColorMark = _mother.ColorMark,
-                    Jop = _mother.Jop,
-                    IdentityCardId = _mother.IdentityCardNumber,
-                    Note = _mother.Note,
-                };
-                _caregiver.Name = new OrphanageDataModel.RegularData.Name()
-                {
-                    First = _mother.Name.First,
-                    Father = _mother.Name.Father,
-                    Last = _mother.Name.Last,
-                    EnglishFather = _mother.Name.EnglishFather,
-                    EnglishFirst = _mother.Name.EnglishFirst,
-                    EnglishLast = _mother.Name.EnglishLast
-                };
-                caregiverNameForm.NameDataSource = _caregiver.Name;
-                if (_mother.Address != null)
-                    _caregiver.Address = new Address()
-                    {
-                        CellPhone = _mother.Address.CellPhone,
-                        City = _mother.Address.City,
-                        Country = _mother.Address.Country,
-                        Email = _mother.Address.Email,
-                        Facebook = _mother.Address.Facebook,
-                        Fax = _mother.Address.Fax,
-                        HomePhone = _mother.Address.HomePhone,
-                        Note = _mother.Address.Note,
-                        Street = _mother.Address.Street,
-                        Town = _mother.Address.Town,
-                        Twitter = _mother.Address.Twitter,
-                        WorkPhone = _mother.Address.WorkPhone
-                    };
-                else
-                    _caregiver.Address = new Address();
-                caregiverAddressForm.AddressDataSource = _caregiver.Address;
-                caregiverBindingSource.DataSource = _caregiver;
-                picCaregiverIdPhotoBack.Photo = _mother.IdentityCardBack;
-                picCaregiverIdPhotoFace.Photo = _mother.IdentityCardFace;
+                setMainCaregiver(_motherCaregiver);
                 caregiverNameForm.Enabled = false;
             }
         }
@@ -641,10 +527,7 @@ namespace OrphanageV3.Views.Orphan
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
-                _caregiver = _BrothersCaregiver;
-                caregiverBindingSource.DataSource = _caregiver;
-                caregiverNameForm.NameDataSource = _caregiver.Name;
-                caregiverAddressForm.AddressDataSource = _caregiver.Address;
+                setMainCaregiver(_brothersCaregiver);
                 caregiverNameForm.Enabled = false;
             }
         }
@@ -653,22 +536,45 @@ namespace OrphanageV3.Views.Orphan
         {
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
-                ChooserView.ChooserView chooserView = new ChooserView.ChooserView(_caregivers, Properties.Resources.ChooseFamily);
+                ChooserView.ChooserView chooserView = new ChooserView.ChooserView(_caregiversSelectionList, Properties.Resources.ChooseFamily);
                 chooserView.MultiSelect = false;
                 chooserView.ShowDialog();
                 if (chooserView.DialogResult == DialogResult.OK)
                 {
-                    caregiverNameForm.Enabled = true;
                     var chosenCaregiverModel = (ViewModel.Caregiver.CaregiverModel)chooserView.SelectedObject;
-                    _caregiver = _CaregiversViewModel.GetSourceCaregiver(chosenCaregiverModel.Id);
-                    caregiverBindingSource.DataSource = _caregiver;
-                    caregiverNameForm.NameDataSource = _caregiver.Name;
-                    caregiverAddressForm.AddressDataSource = _caregiver.Address;
+                    _selectedCaregiver = _AddOrphanViewModel.GetSourceCaregiver(chosenCaregiverModel.Id);
+                    setMainCaregiver(_selectedCaregiver);
                 }
                 else
                 {
-                    caregiverNameForm.Enabled = false;
+                    setMainCaregiver(null);
                 }
+                caregiverNameForm.Enabled = false;
+            }
+        }
+
+        private async void setMainCaregiver(OrphanageDataModel.Persons.Caregiver caregiver)
+        {
+            _mainCaregiver = caregiver;
+            if (caregiver != null)
+            {
+                picCaregiverIdPhotoBack.Photo = await _AddOrphanViewModel.GetImage(caregiver.IdentityCardImageBackURI);
+                picCaregiverIdPhotoFace.Photo = await _AddOrphanViewModel.GetImage(caregiver.IdentityCardImageFaceURI);
+                caregiverBindingSource.DataSource = _mainCaregiver;
+                caregiverNameForm.NameDataSource = _mainCaregiver.Name;
+                caregiverAddressForm.AddressDataSource = _mainCaregiver.Address;
+            }
+            else
+            {
+                _mainCaregiver = new OrphanageDataModel.Persons.Caregiver();
+                _mainCaregiver.Name = new OrphanageDataModel.RegularData.Name();
+                _mainCaregiver.Address = new OrphanageDataModel.RegularData.Address();
+                caregiverBindingSource.DataSource = _mainCaregiver;
+                _mainCaregiver.Id = -1;
+                caregiverNameForm.NameDataSource = _mainCaregiver.Name;
+                caregiverAddressForm.AddressDataSource = _mainCaregiver.Address;
+                picCaregiverIdPhotoBack.Photo = null;
+                picCaregiverIdPhotoFace.Photo = null;
             }
         }
     }

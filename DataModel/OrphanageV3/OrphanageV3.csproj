@@ -164,6 +164,7 @@
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
     <Compile Include="ViewModel\Mother\MothersViewModel.cs" />
+    <Compile Include="ViewModel\Orphan\AddOrphanViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
