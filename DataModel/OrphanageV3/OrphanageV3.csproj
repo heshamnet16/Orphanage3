@@ -228,6 +228,12 @@
     <Compile Include="Views\Helper\Interfaces\IEntityValidator.cs" />
     <Compile Include="Views\Helper\Interfaces\IRadGridHelper.cs" />
     <Compile Include="Views\Helper\RadGridHelper.cs" />
+    <Compile Include="Views\Main\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Main\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Mother\MotherEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Father\FatherEditView.resx">
       <DependentUpon>FatherEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Mother\MotherEditView.resx">
       <DependentUpon>MotherEditView.cs</DependentUpon>
