@@ -78,6 +78,7 @@
             this.lblOrphanPlaceOfBirth = new Telerik.WinControls.UI.RadLabel();
             this.lblOrphanWeight = new Telerik.WinControls.UI.RadLabel();
             this.lblOrphanBirthday = new Telerik.WinControls.UI.RadLabel();
+            this.orphanNameForm = new OrphanageV3.Controlls.NameForm();
             this.pnlEducation = new System.Windows.Forms.Panel();
             this.tblEducationMain = new System.Windows.Forms.TableLayoutPanel();
             this.grpEducation = new Telerik.WinControls.UI.RadGroupBox();
@@ -145,8 +146,10 @@
             this.lblCaregiverIdentityCardNumber = new Telerik.WinControls.UI.RadLabel();
             this.lblCaregiverMonthlyIncome = new Telerik.WinControls.UI.RadLabel();
             this.lblCaregiverJob = new Telerik.WinControls.UI.RadLabel();
+            this.caregiverNameForm = new OrphanageV3.Controlls.NameForm();
             this.pnlCaregiverOtherData = new System.Windows.Forms.Panel();
             this.tblCaregiverOtherDataMain = new System.Windows.Forms.TableLayoutPanel();
+            this.caregiverAddressForm = new OrphanageV3.Controlls.AddressForm();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.grpCaregiverIdPhotoBack = new Telerik.WinControls.UI.RadGroupBox();
             this.picCaregiverIdPhotoBack = new PictureSelector.PictureSelector();
@@ -162,9 +165,6 @@
             this.pgeCaregiverOtherData = new Telerik.WinControls.UI.WizardPage();
             this.pgeProgress = new Telerik.WinControls.UI.WizardPage();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.orphanNameForm = new OrphanageV3.Controlls.NameForm();
-            this.caregiverNameForm = new OrphanageV3.Controlls.NameForm();
-            this.caregiverAddressForm = new OrphanageV3.Controlls.AddressForm();
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).BeginInit();
             this.radWizard1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -788,6 +788,24 @@
             this.lblOrphanBirthday.TabIndex = 1;
             this.lblOrphanBirthday.Text = "s";
             this.lblOrphanBirthday.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // orphanNameForm
+            // 
+            this.orphanNameForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orphanNameForm.Enabled = false;
+            this.orphanNameForm.FocusWhenShow = true;
+            this.orphanNameForm.HideOnEnter = false;
+            this.orphanNameForm.Id = -1;
+            this.orphanNameForm.Location = new System.Drawing.Point(274, 3);
+            this.orphanNameForm.MoveFactor = 10;
+            this.orphanNameForm.MoveType = OrphanageV3.Controlls.NameForm._MoveType.UpToDown;
+            this.orphanNameForm.Name = "orphanNameForm";
+            this.orphanNameForm.NameDataSource = typeof(OrphanageDataModel.RegularData.Name);
+            this.orphanNameForm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.orphanNameForm.ShowMovement = false;
+            this.orphanNameForm.Size = new System.Drawing.Size(264, 200);
+            this.orphanNameForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
+            this.orphanNameForm.TabIndex = 14;
             // 
             // pnlEducation
             // 
@@ -1794,6 +1812,23 @@
             this.lblCaregiverJob.Text = "2";
             this.lblCaregiverJob.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
+            // caregiverNameForm
+            // 
+            this.caregiverNameForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.caregiverNameForm.FocusWhenShow = true;
+            this.caregiverNameForm.HideOnEnter = false;
+            this.caregiverNameForm.Id = -1;
+            this.caregiverNameForm.Location = new System.Drawing.Point(274, 3);
+            this.caregiverNameForm.MoveFactor = 10;
+            this.caregiverNameForm.MoveType = OrphanageV3.Controlls.NameForm._MoveType.UpToDown;
+            this.caregiverNameForm.Name = "caregiverNameForm";
+            this.caregiverNameForm.NameDataSource = typeof(OrphanageDataModel.RegularData.Name);
+            this.caregiverNameForm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.caregiverNameForm.ShowMovement = false;
+            this.caregiverNameForm.Size = new System.Drawing.Size(264, 183);
+            this.caregiverNameForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
+            this.caregiverNameForm.TabIndex = 14;
+            // 
             // pnlCaregiverOtherData
             // 
             this.pnlCaregiverOtherData.BackColor = System.Drawing.Color.White;
@@ -1818,6 +1853,21 @@
             this.tblCaregiverOtherDataMain.Size = new System.Drawing.Size(547, 282);
             this.tblCaregiverOtherDataMain.TabIndex = 0;
             // 
+            // caregiverAddressForm
+            // 
+            this.caregiverAddressForm.AddressDataSource = typeof(OrphanageDataModel.RegularData.Address);
+            this.caregiverAddressForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.caregiverAddressForm.HideOnEnter = false;
+            this.caregiverAddressForm.Id = -1;
+            this.caregiverAddressForm.Location = new System.Drawing.Point(153, 3);
+            this.caregiverAddressForm.MoveFactor = 10;
+            this.caregiverAddressForm.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.UpToDown;
+            this.caregiverAddressForm.Name = "caregiverAddressForm";
+            this.caregiverAddressForm.ShowMovement = false;
+            this.caregiverAddressForm.Size = new System.Drawing.Size(391, 276);
+            this.caregiverAddressForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
+            this.caregiverAddressForm.TabIndex = 0;
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
@@ -1825,12 +1875,13 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Controls.Add(this.grpCaregiverIdPhotoBack, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.grpCaregiverIdPhotoFace, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(144, 160);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(144, 276);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // grpCaregiverIdPhotoBack
@@ -1840,9 +1891,9 @@
             this.grpCaregiverIdPhotoBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpCaregiverIdPhotoBack.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
             this.grpCaregiverIdPhotoBack.HeaderText = "s";
-            this.grpCaregiverIdPhotoBack.Location = new System.Drawing.Point(3, 83);
+            this.grpCaregiverIdPhotoBack.Location = new System.Drawing.Point(3, 141);
             this.grpCaregiverIdPhotoBack.Name = "grpCaregiverIdPhotoBack";
-            this.grpCaregiverIdPhotoBack.Size = new System.Drawing.Size(138, 74);
+            this.grpCaregiverIdPhotoBack.Size = new System.Drawing.Size(138, 132);
             this.grpCaregiverIdPhotoBack.TabIndex = 10110;
             this.grpCaregiverIdPhotoBack.Text = "s";
             this.grpCaregiverIdPhotoBack.ThemeName = "ControlDefault";
@@ -1855,7 +1906,7 @@
             this.picCaregiverIdPhotoBack.Location = new System.Drawing.Point(2, 18);
             this.picCaregiverIdPhotoBack.Name = "picCaregiverIdPhotoBack";
             this.picCaregiverIdPhotoBack.Photo = null;
-            this.picCaregiverIdPhotoBack.Size = new System.Drawing.Size(134, 54);
+            this.picCaregiverIdPhotoBack.Size = new System.Drawing.Size(134, 112);
             this.picCaregiverIdPhotoBack.TabIndex = 5;
             // 
             // grpCaregiverIdPhotoFace
@@ -1867,7 +1918,7 @@
             this.grpCaregiverIdPhotoFace.HeaderText = "s";
             this.grpCaregiverIdPhotoFace.Location = new System.Drawing.Point(3, 3);
             this.grpCaregiverIdPhotoFace.Name = "grpCaregiverIdPhotoFace";
-            this.grpCaregiverIdPhotoFace.Size = new System.Drawing.Size(138, 74);
+            this.grpCaregiverIdPhotoFace.Size = new System.Drawing.Size(138, 132);
             this.grpCaregiverIdPhotoFace.TabIndex = 10109;
             this.grpCaregiverIdPhotoFace.Text = "s";
             this.grpCaregiverIdPhotoFace.ThemeName = "ControlDefault";
@@ -1880,7 +1931,7 @@
             this.picCaregiverIdPhotoFace.Location = new System.Drawing.Point(2, 18);
             this.picCaregiverIdPhotoFace.Name = "picCaregiverIdPhotoFace";
             this.picCaregiverIdPhotoFace.Photo = null;
-            this.picCaregiverIdPhotoFace.Size = new System.Drawing.Size(134, 54);
+            this.picCaregiverIdPhotoFace.Size = new System.Drawing.Size(134, 112);
             this.picCaregiverIdPhotoFace.TabIndex = 5;
             // 
             // panel4
@@ -1965,56 +2016,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
-            // 
-            // orphanNameForm
-            // 
-            this.orphanNameForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orphanNameForm.Enabled = false;
-            this.orphanNameForm.FocusWhenShow = true;
-            this.orphanNameForm.HideOnEnter = false;
-            this.orphanNameForm.Id = -1;
-            this.orphanNameForm.Location = new System.Drawing.Point(274, 3);
-            this.orphanNameForm.MoveFactor = 10;
-            this.orphanNameForm.MoveType = OrphanageV3.Controlls.NameForm._MoveType.UpToDown;
-            this.orphanNameForm.Name = "orphanNameForm";
-            this.orphanNameForm.NameDataSource = typeof(OrphanageDataModel.RegularData.Name);
-            this.orphanNameForm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.orphanNameForm.ShowMovement = false;
-            this.orphanNameForm.Size = new System.Drawing.Size(264, 200);
-            this.orphanNameForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.orphanNameForm.TabIndex = 14;
-            // 
-            // caregiverNameForm
-            // 
-            this.caregiverNameForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.caregiverNameForm.FocusWhenShow = true;
-            this.caregiverNameForm.HideOnEnter = false;
-            this.caregiverNameForm.Id = -1;
-            this.caregiverNameForm.Location = new System.Drawing.Point(274, 3);
-            this.caregiverNameForm.MoveFactor = 10;
-            this.caregiverNameForm.MoveType = OrphanageV3.Controlls.NameForm._MoveType.UpToDown;
-            this.caregiverNameForm.Name = "caregiverNameForm";
-            this.caregiverNameForm.NameDataSource = typeof(OrphanageDataModel.RegularData.Name);
-            this.caregiverNameForm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.caregiverNameForm.ShowMovement = false;
-            this.caregiverNameForm.Size = new System.Drawing.Size(264, 183);
-            this.caregiverNameForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.caregiverNameForm.TabIndex = 14;
-            // 
-            // caregiverAddressForm
-            // 
-            this.caregiverAddressForm.AddressDataSource = typeof(OrphanageDataModel.RegularData.Address);
-            this.caregiverAddressForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.caregiverAddressForm.HideOnEnter = false;
-            this.caregiverAddressForm.Id = -1;
-            this.caregiverAddressForm.Location = new System.Drawing.Point(153, 3);
-            this.caregiverAddressForm.MoveFactor = 10;
-            this.caregiverAddressForm.MoveType = OrphanageV3.Controlls.AddressForm._MoveType.UpToDown;
-            this.caregiverAddressForm.Name = "caregiverAddressForm";
-            this.caregiverAddressForm.ShowMovement = false;
-            this.caregiverAddressForm.Size = new System.Drawing.Size(391, 276);
-            this.caregiverAddressForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
-            this.caregiverAddressForm.TabIndex = 0;
             // 
             // AddOrphanView
             // 

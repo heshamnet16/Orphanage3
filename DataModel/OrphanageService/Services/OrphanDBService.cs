@@ -418,10 +418,10 @@ namespace OrphanageService.Services
             {
                 orphan.HealthId = await _regularDataService.AddHealth(orphan.HealthStatus, orphanageDBC);
             }
-            _uriGenerator.SetOrphanUris(ref orphan);
             orphanageDBC.Orphans.Add(orphan);
             if (await orphanageDBC.SaveChangesAsync() > 0)
             {
+                _uriGenerator.SetOrphanUris(ref orphan);
                 return orphan;
             }
             else
@@ -589,11 +589,11 @@ namespace OrphanageService.Services
                     {
                         orphan.HealthId = await _regularDataService.AddHealth(orphan.HealthStatus, orphanageDbc);
                     }
-                    _uriGenerator.SetOrphanUris(ref orphan);
                     orphanageDbc.Orphans.Add(orphan);
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
                         dbT.Commit();
+                        _uriGenerator.SetOrphanUris(ref orphan);
                         return orphan;
                     }
                     else

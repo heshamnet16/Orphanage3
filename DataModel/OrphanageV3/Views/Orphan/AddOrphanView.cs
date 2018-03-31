@@ -444,6 +444,14 @@ namespace OrphanageV3.Views.Orphan
                     radWizard1.SelectedPageChanging += radWizard1_SelectedPageChanging;
                 }
             }
+            if (e.SelectedPage == wizardCompletionPage1 && e.NextPage == pgeProgress)
+            {
+                e.Cancel = true;
+                radWizard1.SelectedPageChanging -= radWizard1_SelectedPageChanging;
+                radWizard1.SelectPreviousPage();
+                radWizard1.SelectPreviousPage();
+                radWizard1.SelectedPageChanging += radWizard1_SelectedPageChanging;
+            }
         }
 
         private async Task SendData()
@@ -472,6 +480,7 @@ namespace OrphanageV3.Views.Orphan
                 await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageFaceURI, picCaregiverIdPhotoFace.Photo);
 
             _orphan.CaregiverId = _mainCaregiver.Id;
+            _orphan.Caregiver = _mainCaregiver;
             var retOrp = await _AddOrphanViewModel.Add(_orphan);
             if (retOrp != null)
                 lblResult.Text += "\n" + Properties.Resources.OrphanAddedSuccess;
@@ -558,11 +567,13 @@ namespace OrphanageV3.Views.Orphan
             _mainCaregiver = caregiver;
             if (caregiver != null)
             {
-                picCaregiverIdPhotoBack.Photo = await _AddOrphanViewModel.GetImage(caregiver.IdentityCardImageBackURI);
-                picCaregiverIdPhotoFace.Photo = await _AddOrphanViewModel.GetImage(caregiver.IdentityCardImageFaceURI);
                 caregiverBindingSource.DataSource = _mainCaregiver;
                 caregiverNameForm.NameDataSource = _mainCaregiver.Name;
                 caregiverAddressForm.AddressDataSource = _mainCaregiver.Address;
+                if (_mainCaregiver.IdentityCardImageBackURI != null && _mainCaregiver.IdentityCardImageBackURI.Length > 0)
+                    picCaregiverIdPhotoBack.Photo = await _AddOrphanViewModel.GetImage(_mainCaregiver.IdentityCardImageBackURI);
+                if (_mainCaregiver.IdentityCardImageFaceURI != null && _mainCaregiver.IdentityCardImageFaceURI.Length > 0)
+                    picCaregiverIdPhotoFace.Photo = await _AddOrphanViewModel.GetImage(_mainCaregiver.IdentityCardImageFaceURI);
             }
             else
             {
