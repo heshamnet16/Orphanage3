@@ -46,5 +46,33 @@ namespace OrphanageV3.ViewModel.Caregiver
         {
             return await Save(_CurrentCaregiver);
         }
+
+        public async Task<OrphanageDataModel.Persons.Caregiver> Add(OrphanageDataModel.Persons.Caregiver caregiver)
+        {
+            caregiver.IdentityCardPhotoBackData = null;
+            caregiver.IdentityCardPhotoFaceData = null;
+
+            try
+            {
+                var retOrp = (OrphanageDataModel.Persons.Caregiver)await _apiClient.CaregiversController_PostAsync(caregiver);
+            }
+            catch (ApiClientException apiEx)
+            {
+                //Created
+                if (apiEx.StatusCode == "201")
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(apiEx.Response) ?? null;
+                //Todo Conflict
+                if (apiEx.StatusCode == "409")
+                    if (apiEx.Response.Contains("Id"))
+                    {
+                        int IdIndex = apiEx.Response.IndexOf("Id") + 3;
+                        string idString = apiEx.Response.Substring(IdIndex, apiEx.Response.Length - IdIndex - 1);
+                        int id = System.Convert.ToInt32(idString);
+                        return await getCaregiver(id);
+                    }
+                return null;
+            }
+            return null;
+        }
     }
 }

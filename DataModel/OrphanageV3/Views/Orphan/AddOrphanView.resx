@@ -117,48 +117,109 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="picFatherPhoto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
-        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
-        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
-        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
-        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
-        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
-        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
-        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
-        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
-        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
-        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
-        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
-</value>
-  </data>
-  <data name="picFatherDeathCertifi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
-        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
-        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
-        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
-        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
-        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
-        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
-        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
-        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
-        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
-        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
-        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
-</value>
-  </data>
-  <metadata name="fatherBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="motherBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>179, 17</value>
+  <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACO
+        FAAAAk1TRnQBSQFMAwEBAAFwAQABcAEAASUBAAEkAQAE/wEZAQAI/wFCAU0BNgcAATYDAAEoAwABlAMA
+        ASQDAAEBAQABGAUAAXABPhIAA9EBhwGGAYcD0gP/Bv4G/wP+Bv8G/gP/Bv4D/wb+Bv8D/gb/Bv4D/wb+
+        A/8G/gb/A/4G//8ATgADwgOiAoMBhAPXYP4D//8ATgAD5gPRAaUBpAGlAoIBgwPfYP7/AE4AA/8D6gPQ
+        AagBpwGoAYMBggGDA+ZF/gP8AvkB+wL6AfsM/gP//wBOAAb+A/ABzQHMAc0BqwGqAasBhwGGAYcD7DP+
+        AfgB+QH6AdUB1wHxAaoBrgHwAX8BhwHyAVkBYQH0AUwBVgH2AUkBUwH4AUIBSwH3AUYBTQHzAXUBewHw
+        Ab8BwgHvAvcB+gP//wBOAAn+AeIB2gHUAcIBtAGqA60BjQKMAcsBnwGAAd8BowF7AeABsgGSAeIBwwGu
+        AegB2gHPAfMB8AHtA/0Y/gHiAeMB9AGcAaEB6QHAAcEB1gFtAXkB+gFsAXgB+QFqAXYB+wFlAXEB+wFf
+        AWsB+QFZAWMB+QFSAVsB+gFKAVMB+QFBAUkB+QE4AUEB9wE7AUwB2gHXAdkB7v8ATgAD/gHlAdgBzgHR
+        AX0BRAHsAWQBDwHxAW4BHwHJAaoBmAOwAY4BgwF9AegBgQFBAf0BhgE8AfwBiQFBAfsBiwFDAfMBhwFB
+        AeEBiAFNAd8BywG7AewB6AHkA/0J/gH1AfYB+QGPAZUB8AFqAXcB+gGAAYkB5ALSAdUBeQGGAfoBdwGD
+        AfsBcwF/AfkBbgF7AfsBaAF0AfsBYAFsAfkBWQFjAfkBUAFZAfoBRwFPAfkBPgFGAfkBNgFDAesBKAFC
+        Acf/AE4AAdQBtAGZAeoBpAFnAfUBfgEwAfwBbQEWAf0BdAEgAfcBewEuAcoBogGJArEBsgGUAYYBfgHL
+        AZABawHkAYsBUQGwAXsBWAGyAX8BXgG4AYQBYwGsAZ4BlgGsAZUBhgG/AY8BbgHkAdEBwwP8AvgB+gFx
+        AXoB9AFwAXwB+gF3AYQB+gGKAZMB3gHbAdoB2QGSAZ0B9AGBAY8B+wF9AYoB+wF2AYMB+QFwAXwB+wFn
+        AXMB+wFeAWkB+QFWAV8B+QFMAVUB+gFCAUoB+QE8AUQB9QE3AUkB2v8ATgAB0wGRAVUB/AHFAY0B/AF1
+        ASEB+wFzASAB/QF7ASwB/QGDATcB+gGJAUIByQGfAYQDrAF6AXcBdgG0AYIBYQH3AaIBagH8AagBbwH8
+        AakBcQHeAdQBzQHWAbUBnwHkAZkBaAHGAZsBgQHXAZkBbgGrAacB2AFtAXoB+gF3AYMB+wF+AYwB+gGR
+        AZoB2QHgAd8B3gGyAboB7gGKAZkB+wGGAZQB+wF+AYwB+gF2AYIB+QFtAXkB+wFkAW8B+wFaAWQB+AFQ
+        AVkB+QFGAU4B+gFCAUkB+AFTAV8B5/8ATgAB2AGPAVYB+wG1AXgB/QF2ASMB/AF6ASkB+wGBATYB/QGK
+        AUIB/QGSAU0B6AGZAWYBngGYAZQB1QGXAWwB/AGwAXwB/AG1AYIB/QG2AYQB+AG7AY8C3gHdAdEBvgGx
+        AfwBqQFxAfkBnQFhAc0BoQGGAXkBawHLAXEBfgH5AXsBiQH7AYUBkwH7AZQBnAHVAeQB4wHiAdYB2AHo
+        AZQBpAH7AY0BnAH7AYQBkwH7AXsBiAH6AXEBfQH5AWcBcwH7AV0BaAH6AVMBXAH4AUkBUQH6AUcBTwH5
+        AX4BhAHu/wBOAAHcAZQBXgH8AakBZwH8AXwBLAH9AX8BMQH8AYgBPgH7AZABSwH9AZkBWAHUAY4BYAHC
+        AY8BawH9AbYBhAH9AbsBjAH8Ab4BkAH8AcABkwHyAc4BswHiAeEB4AHLAb4BtAH9AbUBggH8AaoBcgH2
+        AZ4BYwGTAYwBuAF0AYEB+wF+AYwB+QGJAZcB/AGSAZwB0gLoAecC6QHoAawBuAH4AZIBoQH7AYgBlgH7
+        AX4BjAH7AXQBgAH6AWkBdQH5AV8BagH6AVQBXgH6AUwBVQH4AUsBUwH5AbEBswHw/wBOAAHfAaIBeAH9
+        AaABWwH8AYQBNwH8AYMBOAH9AY0BRgH8AZYBUwH8AZ4BYAGpAYIBaAH8AbUBggH7Ab4BkAH9AcQBmQH9
+        AcgBnwH8AckBoQHsAd4B0wLmAeQBxgG8AbUB/AG7AY0B/QG1AYMB/AGlAWoBzQGXAXcBeAGDAe8BfwGN
+        AfsBiQGYAfoBjQGXAc8B7gTtAewB1QHaAfIBkwGjAfwBiAGXAfsBfgGMAfoBdAGBAfsBaQF1AfoBXwFq
+        AfkBVAFeAfoBUwFcAfkBSAFQAfcB5gHnAfX/AE4AAeIBvAGiAfwBlQFNAf0BiwFBAfwBhwE9AfwBkQFM
+        Af0BmgFaAfoBowFoAbIBjQFyAf0BvQGPAf0BxQGbAfsBywGkAf0B0QGsAfoB1wG4AugB5wLpAegBwQG7
+        AbYB/AHDAZkB/AG8AY4B/QGvAXgB7QGdAWgBegF/Ac0BfQGKAfsBhwGVAfsBhAGPAdED8QHtAe4B7wPx
+        AagBtAH5AYYBlQH8AXwBiQH6AXIBfwH6AWgBdAH7AV4BaAH5AVYBXwH5AVwBZAH5AW8BdAHyA/7/AE4A
+        AesB4AHXAfgBhQE6AfwBkAFIAf0BiQFBAfwBkwFPAfwBnQFeAfIBowFtAcQBmgF8AfwBwQGVAf0BygGi
+        AfwB0gGuAfsB2AG3AfQB5gHYAu0D7AHrAcIBvgG6Af0B0gGxAfwByAGiAfwBtAGBAfoBogFoAZEBgwGb
+        AXIBfwH0AYEBjwH7AYIBjgHjAaQBtAHIAUwBdQGlAVwBgQGtAZgBrAHTAYMBkQH6AXgBhQH7AW8BewH6
+        AWUBcQH6AVsBZgH6AWMBbAH4AVUBXgH0AusB9gP+/wBOAAH8AvsB4wF8ATgB+wGPAUcB/QGNAUUB/QGV
+        AVEB/AGeAWAB+AGnAW8BwwGeAYMB/AHDAZgB/AHMAaUB/QHVAbMB+wHgAcQB8AHvAe0G8AHMAcgBxAH9
+        AeYB1AH9AdQBtQH8AbsBjQHzAaEBagHWAdIBzgHpAeoB9QF7AYUB9AGAAY4B+QFNAW4BmwFBAWkBlgFD
+        AWwBmgFHAXEBoQFbAXkBwQFvAXsB9AFqAXYB+wFhAWwB+gFnAXAB+AFoAXAB9AHjAeQB9AP+A///AE4A
+        A/4B4QHEAa8B+wGIAT0B+wGPAUkB/QGUAVEB/QGeAV8B/AGoAW4BwwGgAYgB/QG+AY8B/AHIAZ4B/AHS
+        Aa0B+AHqAd0C8QHyAeYB6QHsAvQB8wHQAckBwwH7AekB2wH9AdUBtwH9AbkBiQHJAY0BYgLqAekB2QHg
+        AeMC+QH6AaQBqwHoAUoBaQGkATkBXwGHATkBYAGIAT8BaAGSAUUBcgGYAVgBcAHIAWABawHxAWIBawHz
+        Aa8BswHuAvgB+gb+A///AE4AA/8C+wH6AdwBkQFfAfwBjQFGAfsBkwFQAf0BnAFcAf0BpgFrAdYBpgGG
+        Ae0BuQGSAf0ByAGfAfMB0AG0AaABtAHNAV4BgwGuAVQBfAGqAacBugHQAdIBwgG1AfwB1AG2AfsBxQGd
+        AeYBogFxAbMBogGVAY8BqQG2AT4BbAGBAb4ByAHPAUoBagGGATkBXQF6ATkBXQF7ATgBYAF9AUMBdAGD
+        AUMBdQGDAUMBdQGEAWcBgQG9AvQB+A/+/wBOAAP/A/4B9wH2AfQB3AGWAWQB+wGRAUwB+wGYAVcB/QGi
+        AWUB+wGrAXMBzgGuAZgB5wG2AZMBdwGPAa0BWgGAAasBWAF9AacBVgF7AaQBWQF9AaUB0QGvAZcB/QHD
+        AZgB5AGqAYABwwG0AacB5gLnASYBXgF6ATwBaQGAAT8BYwGBAT4BYgGBAT0BYQF/ATsBXwF9AToBXQF7
+        AT4BagF/AUMBdQGDAUMBdQGDAUMBdQGDAdcB3wHhDP4D//8ATgAJ/gP7Ad8BwgGtAekBiwFNAfsBnAFd
+        AfkBogFnAecBogFyAYkBkAGcAVsBfQGjAVQBeAGgAVEBdAGZAVABcwGYAVsBeAGZAe0BsgGGAdoBtwGa
+        AckBwgG6AekB5wHmAegB7AHuASMBXQF5AUABawGHAUsBbwGPAUwBcAGRAUoBbgGPAUcBawGLAUIBZgGF
+        AT0BYQGAAUABbgGBAUMBdQGDAUMBdQGDAWIBjAGVA/0J/gP//wBOAA/+AfYB9AHzAdwBugGgAeMBkQFW
+        AbwBjgF2AUgBcAGeAWYBeQGQAWoBeAGIAVkBbgGEAVABaQGCAVkBawF9AY4BhAF8AbcCtQP2A/4B7QHw
+        AfEBJAFeAXkBUAF3AZgBWAF9AaABWQF9AaABVwF8AZ8BVAF4AZsBTgFyAZQBSAFsAYwBQQFnAYMBQwF0
+        AYMBQwF1AYMBQwF1AYMB5AHpAeoM/v8ATgAD/xL+AfMB8AHuAYkBlAGmAUABaAGUATgBXwGGATMBWAF6
+        AUUBYgF6AU4BZQF5AUkBYgF3ATwBXgF6AUUBZwGCAe4B7wHxBv4BaQGPAaEBYQGGAaoBZQGKAbABZgGL
+        AbEBZAGJAa4BYAGFAaoBWgF+AaIBUgF2AZgBSQFtAY0BQQFoAYMBQwF1AYMBQwF2AYQBwAHOAdIM/v8A
+        TgAD/xX+Ad0B4gHnATwBYwGNATUBWwF/ATkBXAF7ATsBXgF8AT0BYQF/AT8BYwGCAUEBZAGDAUEBZAGE
+        AXQBjQGkA/0D/gHsAe8B8QFtAZMBugFyAZcBvwFzAZkBwQFxAZYBvgFsAZEBtwFkAYkBrwFbAYABpAFR
+        AXUBlwFGAWoBigFEAXMBhQFEAXcBhQGqAb8BxAn+A///AE4AGP4B8wH0AfYBOwFiAYwBOgFfAX4BPwFj
+        AYEBQwFnAYcBRwFrAYsBSgFuAY8BTAFwAZEBTAFwAZEBSwFvAZAB4wHmAekD/gHuAfAB8wF6AaAByQF/
+        AaUBzwGAAaYB0QF+AaMBzgF3AZwBxQFtAZMBugFjAYgBrgFWAXwBnQFQAXcBlAFGAXcBhgFGAXsBigGr
+        AcABxgn+A///AE4AA/8V/gH0AfUB9gE9AWEBhQFDAWcBhgFIAWwBjAFNAXIBkwFSAXYBmAFVAXkBnAFX
+        AXwBnwFXAXwBnwFWAXoBnQGnAbgByAP+Ae8B8QH0AYYBqwHVAY0BswHeAY4BtAHgAYsBsAHcAYEBpwHS
+        AXUBmwHEAWoBjgG1AVQBfgGZAUMBdQGDAUUBeAGHAUkBggGRAbcByQHPDP7/AE4AA/8S/gP9AZYBmwGf
+        AUEBZAGCAUsBbwGQAVEBdQGXAVcBfAGfAVwBgQGlAWABhQGpAWIBhwGrAWIBhwGtAWEBhQGqAXQBkwGx
+        A/4C9wH4AY4BswHdAZcBuwHiAZoBvAHhAZQBuQHhAYsBsAHaAX4BowHLAW4BkwG6AVcBgQGdAUMBdgGE
+        AUgBfwGOAU4BigGaAcoB1wHbCf4D//8ATgAV/gOqAT0BWAFvAUkBbQGNAVIBdwGZAVkBfgGiAWABhQGq
+        AWYBiwGxAWsBkAG3AW0BkgG5AW0BkgG5AWwBkQG4AWcBjAGzA/oD/gGgAb8B4gGbAb0B4QGfAcAB4QGa
+        AbwB4wGNAbEB2wFuAZcBuAFdAYgBpQFLAXoBjQFFAXgBhgFNAYkBmgFUAZUBpgHlAeoB6wn+A///AE4A
+        A/8P/gP1ATcBOQE6AUsBbgGOAU8BcwGVAVgBfQGgAWEBhgGrAWkBjgG1AXABlQG9AXUBmwHDAXgBngHH
+        AXgBngHHAXYBnAHEAXIBlwG/AfQB9QH2AfQC9QGCAaEBtwGUAbgB3gGRAbUB2QF3AaEBwAFNAX4BkAFE
+        AXYBhAFJAYEBkAFOAYoBmwFPAYsBnAFVAZcBqQFlAaIBsgP8DP7/AE4AA/8P/gPMAzMBUgFsAYQBUAFq
+        AYMBWQF6AZoBaAGMAbIBcQGWAb4BeQGfAcgBfwGlAc8BgwGpAdUBhQGrAdYBgQGnAdIBfAGhAcoB7QHv
+        AfEBXQF/AYkBPgFqAXgBQQFwAX4BQwF1AYMBRAF3AYUBRwF9AYsBTgGIAZgBUwGQAaEBWQGaAawBXgGj
+        AbYBXAGhAbQBxQHXAdwP/v8ATgAD/w/+A7UDMwYxAVkBdgGUAW0BkgG6AXcBnAHFAYEBpwHRAYoBsAHc
+        AY8BtQHgAZEBtgHhAY0BswHdAYUBqgHUAeEB5QHoATsBZAFzAT4BawF5AUIBcgGAAUcBewGJAUsBgQGP
+        AVABhwGWAVYBjwGfAV4BmgGrAWcBpgG4AXABsgHEAagBygHSA/0M/gP//wBOABL+A7IDNQMxAzIBXAF5
+        AZYBcQGWAb4BfAGhAcsBiQGuAdgBkwG4AeIBmAG8AeIBmQG7AeABlQG5AeMBjAGyAdwD+wHIAdEB1AFX
+        AXwBiAFEAXMBggFJAX0BiwFPAYQBkwFWAYwBmwFeAZYBpgFqAaMBswGeAcQBzgHhAekB7BX+/wBOAAP/
+        D/4DvAM6AzMDOwFYAW0BgwFxAZcBvwGCAacBzwGOAbMB3AGXAboB4gGeAb8B4QGfAcAB4QGZAbwB4gGk
+        AcAB4gb+A/0B8ALyAd8B5QHnAdgB4AHiAdsB4wHlAegB7QHuA/kb/v8ATgAD/w/+A9UDRAM7A0UBUAFT
+        AVUBbAGGAaEBggGlAcoBjgGyAdoBlgG5AeIBmgG7AeABmgG7Ad8BmQG8AeMB0wHeAeoz/gP//wBOABL+
+        A/IDTgNCA00DVwNjAmwBbQF1AnYBewV8A3gBbgFwAXMB1gHXAdgz/gP//wBOAAP/Ev4DkANKA1IBXQJe
+        AWgCaQNzAXsCfAGBA4ICgwN9A3QDmzb+/wBOAAP/Ev4D8gNnA1UDYQNtA3kDhAOOA5ADjAPHA/s2/v8A
+        TgAG/wb+Bv8D/gP/A/sD0wOcA30DegOTA70D4gP7Bv8D/gb/A/4G/wb+A/8G/gb/A/4G/wP+A///AE4A
+        AUIBTQE+BwABPgMAASgDAAGUAwABJAMAAQEBAAEBBQAB0AECFgAD//8A/wDTAAs=
+</value>
+  </data>
+  <metadata name="orphanBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>127, 17</value>
   </metadata>
-  <data name="picMotherIDFace.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="picEdiucationCertificate2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -175,7 +236,7 @@
         hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
 </value>
   </data>
-  <data name="picMotherIDBack.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picEducationCertificate1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -192,43 +253,131 @@
         hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
 </value>
   </data>
-  <data name="picFamilyFamilyCardPhoto2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
-        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
-        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
-        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
-        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
-        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
-        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
-        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
-        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
-        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
-        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
-        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
-</value>
-  </data>
-  <data name="picFamilyFamilyCardphoto1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
-        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
-        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
-        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
-        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
-        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
-        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
-        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
-        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
-        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
-        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
-        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
-</value>
-  </data>
-  <metadata name="familyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>479, 17</value>
+  <metadata name="studyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>426, 17</value>
   </metadata>
+  <data name="PicOBodyPhoto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <data name="PicOFacePhoto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <data name="picOFamilyCardPhoto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <data name="picObirthCertificate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <data name="picHealthReportPhoto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <metadata name="caregiverBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>586, 17</value>
+  </metadata>
+  <data name="picCaregiverIdPhotoBack.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <data name="picCaregiverIdPhotoFace.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
   <data name="radWizard1.PageHeaderIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -250,6 +399,6 @@
 </value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>349, 17</value>
+    <value>296, 17</value>
   </metadata>
 </root>

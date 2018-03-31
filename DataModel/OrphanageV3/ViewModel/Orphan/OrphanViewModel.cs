@@ -38,6 +38,34 @@ namespace OrphanageV3.ViewModel.Orphan
             return true;
         }
 
+        public async Task<OrphanageDataModel.Persons.Orphan> Add(OrphanageDataModel.Persons.Orphan orphan)
+        {
+            if (orphan == null) return null;
+            orphan.BirthCertificatePhotoData = null;
+            orphan.FacePhotoData = null;
+            orphan.FamilyCardPagePhotoData = null;
+            orphan.FullPhotoData = null;
+            if (orphan.Education != null)
+            {
+                orphan.Education.CertificatePhotoBack = null;
+                orphan.Education.CertificatePhotoFront = null;
+            }
+            if (orphan.HealthStatus != null)
+                orphan.HealthStatus.ReporteFileData = null;
+            try
+            {
+                var retOrp = (OrphanageDataModel.Persons.Orphan)await _apiClient.OrphansController_PostAsync(orphan);
+            }
+            catch (ApiClientException apiEx)
+            {
+                //Created
+                if (apiEx.StatusCode == "201")
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(apiEx.Response) ?? null;
+                return null;
+            }
+            return null;
+        }
+
         public async Task<OrphanageDataModel.Persons.Orphan> getOrphan(int Oid)
         {
             var returnedOrphan = await _apiClient.OrphansController_GetAsync(Oid);

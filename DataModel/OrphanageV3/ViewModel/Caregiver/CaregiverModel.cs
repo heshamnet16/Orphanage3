@@ -1,4 +1,5 @@
 ﻿using System;
+using OrphanageV3.Attributes;
 
 namespace OrphanageV3.ViewModel.Caregiver
 {
@@ -6,6 +7,7 @@ namespace OrphanageV3.ViewModel.Caregiver
     {
         public int Id { get; set; }
 
+        [ShowInChooser(Order = 0)]
         public string FullName { get; set; }
 
         public string FirstName { get; set; }
@@ -38,6 +40,7 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public string IdentityCardImageBackURI { get; set; }
 
+        [ShowInChooser(Order = 1)]
         public int OrphansCount { get; set; }
     }
 }

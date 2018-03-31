@@ -14,7 +14,7 @@ namespace OrphanageService.Services.Interfaces
 
         Task<bool> SaveCaregiver(OrphanageDataModel.Persons.Caregiver caregiver);
 
-        Task<int> AddCaregiver(OrphanageDataModel.Persons.Caregiver caregiver);
+        Task<OrphanageDataModel.Persons.Caregiver> AddCaregiver(OrphanageDataModel.Persons.Caregiver caregiver);
 
         Task<bool> DeleteCaregiver(int Cid);
 

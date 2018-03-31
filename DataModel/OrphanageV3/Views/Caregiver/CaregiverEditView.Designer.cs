@@ -33,10 +33,11 @@
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.grpIdentityCard = new Telerik.WinControls.UI.RadGroupBox();
-            this.caregiverBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblIdPhotoBack = new Telerik.WinControls.UI.RadLabel();
             this.lblIdPhotoFront = new Telerik.WinControls.UI.RadLabel();
             this.PicIDBack = new PictureSelector.PictureSelector();
+            this.txtIdentityCardId = new Telerik.WinControls.UI.RadTextBox();
+            this.caregiverBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblIdentityNumber = new Telerik.WinControls.UI.RadLabel();
             this.picIDFront = new PictureSelector.PictureSelector();
             this.grpData = new Telerik.WinControls.UI.RadGroupBox();
@@ -55,14 +56,14 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.addressForm1 = new OrphanageV3.Controlls.AddressForm();
             this.nameForm1 = new OrphanageV3.Controlls.NameForm();
-            this.txtIdentityCardId = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpIdentityCard)).BeginInit();
             this.grpIdentityCard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.caregiverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdPhotoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdPhotoFront)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caregiverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdentityNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpData)).BeginInit();
             this.grpData.SuspendLayout();
@@ -79,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblIncome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMonthlyIncome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,10 +119,6 @@
             this.grpIdentityCard.Text = "بطاقة شخصية";
             this.grpIdentityCard.Click += new System.EventHandler(this.HideNameAddressForms);
             // 
-            // caregiverBindingSource
-            // 
-            this.caregiverBindingSource.DataSource = typeof(OrphanageDataModel.Persons.Caregiver);
-            // 
             // lblIdPhotoBack
             // 
             this.lblIdPhotoBack.Location = new System.Drawing.Point(196, 58);
@@ -151,6 +147,18 @@
             this.PicIDBack.Size = new System.Drawing.Size(122, 103);
             this.PicIDBack.TabIndex = 0;
             this.PicIDBack.PhotoChanged += new System.EventHandler(this.PhotoChanged);
+            // 
+            // txtIdentityCardId
+            // 
+            this.txtIdentityCardId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caregiverBindingSource, "IdentityCardId", true));
+            this.txtIdentityCardId.Location = new System.Drawing.Point(16, 21);
+            this.txtIdentityCardId.Name = "txtIdentityCardId";
+            this.txtIdentityCardId.Size = new System.Drawing.Size(365, 20);
+            this.txtIdentityCardId.TabIndex = 4;
+            // 
+            // caregiverBindingSource
+            // 
+            this.caregiverBindingSource.DataSource = typeof(OrphanageDataModel.Persons.Caregiver);
             // 
             // lblIdentityNumber
             // 
@@ -351,6 +359,7 @@
             this.addressForm1.Name = "addressForm1";
             this.addressForm1.ShowMovement = false;
             this.addressForm1.Size = new System.Drawing.Size(462, 268);
+            this.addressForm1.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
             this.addressForm1.TabIndex = 59;
             this.addressForm1.Visible = false;
             // 
@@ -367,16 +376,9 @@
             this.nameForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nameForm1.ShowMovement = false;
             this.nameForm1.Size = new System.Drawing.Size(376, 178);
+            this.nameForm1.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.nameForm1.TabIndex = 60;
             this.nameForm1.Visible = false;
-            // 
-            // txtIdentityCardId
-            // 
-            this.txtIdentityCardId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caregiverBindingSource, "IdentityCardId", true));
-            this.txtIdentityCardId.Location = new System.Drawing.Point(16, 21);
-            this.txtIdentityCardId.Name = "txtIdentityCardId";
-            this.txtIdentityCardId.Size = new System.Drawing.Size(365, 20);
-            this.txtIdentityCardId.TabIndex = 4;
             // 
             // CaregiverEditView
             // 
@@ -408,9 +410,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpIdentityCard)).EndInit();
             this.grpIdentityCard.ResumeLayout(false);
             this.grpIdentityCard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.caregiverBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdPhotoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdPhotoFront)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caregiverBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIdentityNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpData)).EndInit();
             this.grpData.ResumeLayout(false);
@@ -428,7 +431,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblIncome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMonthlyIncome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

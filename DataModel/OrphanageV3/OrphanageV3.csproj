@@ -164,6 +164,7 @@
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
     <Compile Include="ViewModel\Mother\MothersViewModel.cs" />
+    <Compile Include="ViewModel\Orphan\AddOrphanViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphansViewModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanModel.cs" />
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
@@ -239,6 +240,12 @@
     <Compile Include="Views\Mother\MothersView.Designer.cs">
       <DependentUpon>MothersView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Orphan\AddOrphanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Orphan\AddOrphanView.Designer.cs">
+      <DependentUpon>AddOrphanView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Orphan\OrphanEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +311,9 @@
     <EmbeddedResource Include="Views\Mother\MothersView.resx">
       <DependentUpon>MothersView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Orphan\AddOrphanView.resx">
+      <DependentUpon>AddOrphanView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Orphan\OrphanEditView.resx">
       <DependentUpon>OrphanEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,10 +335,12 @@
       <DependentUpon>SummaryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.Persons.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Father.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Mother.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Address.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Family.datasource" />
+    <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Study.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Name.datasource" />
     <None Include="Properties\DataSources\OrphanageV3.Services.Orphan.datasource" />
@@ -405,6 +417,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BrowseFamily.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

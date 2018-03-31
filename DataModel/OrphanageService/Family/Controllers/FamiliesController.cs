@@ -1,4 +1,5 @@
 ﻿using OrphanageService.Filters;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
@@ -71,6 +72,11 @@ namespace OrphanageService.Family.Controllers
             {
                 throw _exceptionHandlerService.HandleValidationException(excp);
             }
+            catch (DuplicatedObjectException dubExc)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
+            }
+
             if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
