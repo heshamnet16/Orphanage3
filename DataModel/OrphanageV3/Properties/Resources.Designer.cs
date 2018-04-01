@@ -170,6 +170,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الكل ähnelt.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die و ähnelt.
         /// </summary>
         public static string AndString {
@@ -193,6 +202,15 @@ namespace OrphanageV3.Properties {
         public static string BailAmount {
             get {
                 return ResourceManager.GetString("BailAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مكفولين ähnelt.
+        /// </summary>
+        public static string Baild {
+            get {
+                return ResourceManager.GetString("Baild", resourceCulture);
             }
         }
         
@@ -911,6 +929,15 @@ namespace OrphanageV3.Properties {
         public static string Exclude {
             get {
                 return ResourceManager.GetString("Exclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مستبعدين ähnelt.
+        /// </summary>
+        public static string Excluded {
+            get {
+                return ResourceManager.GetString("Excluded", resourceCulture);
             }
         }
         
@@ -1864,6 +1891,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die جديد ähnelt.
+        /// </summary>
+        public static string New {
+            get {
+                return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die معيل جديد ähnelt.
         /// </summary>
         public static string NewCaregiver {
@@ -2211,6 +2247,15 @@ namespace OrphanageV3.Properties {
         public static string OrphanLastName {
             get {
                 return ResourceManager.GetString("OrphanLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ايتام ähnelt.
+        /// </summary>
+        public static string Orphans {
+            get {
+                return ResourceManager.GetString("Orphans", resourceCulture);
             }
         }
         
@@ -2588,6 +2633,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عرض ähnelt.
+        /// </summary>
+        public static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عرض الكفالات ähnelt.
         /// </summary>
         public static string ShowBails {
@@ -2751,11 +2805,29 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير مكفولين ähnelt.
+        /// </summary>
+        public static string UnBaild {
+            get {
+                return ResourceManager.GetString("UnBaild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الغاء الاستبعاد ähnelt.
         /// </summary>
         public static string UnExclude {
             get {
                 return ResourceManager.GetString("UnExclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير مستبعدين ähnelt.
+        /// </summary>
+        public static string UnExcluded {
+            get {
+                return ResourceManager.GetString("UnExcluded", resourceCulture);
             }
         }
         

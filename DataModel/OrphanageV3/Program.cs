@@ -4,6 +4,7 @@ using OrphanageV3.Services.Interfaces;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
+using OrphanageV3.ViewModel.Main;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper;
@@ -35,7 +36,7 @@ namespace OrphanageV3
                 CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Views.Orphan.AddOrphanView());
+                Application.Run(new Views.Main.MainView());
             }
             catch (ApiClientException apiEx)
             {
@@ -66,6 +67,8 @@ namespace OrphanageV3
             currentContainer.RegisterType<MothersViewModel>();
             currentContainer.RegisterType<FathersViewModel>();
             currentContainer.RegisterType<FamiliesViewModel>();
+            currentContainer.RegisterType<AddOrphanViewModel>();
+            currentContainer.RegisterType<MainViewModel>();
             return currentContainer;
         }
     }

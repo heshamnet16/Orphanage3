@@ -161,6 +161,7 @@
     <Compile Include="ViewModel\Father\FatherEditViewModel.cs" />
     <Compile Include="ViewModel\Father\FatherModel.cs" />
     <Compile Include="ViewModel\Father\FathersViewModel.cs" />
+    <Compile Include="ViewModel\Main\MainViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
     <Compile Include="ViewModel\Mother\MothersViewModel.cs" />
@@ -430,6 +431,7 @@
   <ItemGroup>
     <None Include="Resources\BrowseFamily.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
