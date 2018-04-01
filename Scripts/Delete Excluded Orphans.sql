@@ -64,48 +64,60 @@ GO
 
 ALTER TABLE [dbo].[Orphans] CHECK CONSTRAINT [Study_Orphan]
 GO
--- guarantor constraint
-ALTER TABLE [dbo].[Orphans] DROP CONSTRAINT [Supporter_Orphan]
-GO
-
-ALTER TABLE [dbo].[Orphans]  WITH CHECK ADD  CONSTRAINT [Supporter_Orphan] FOREIGN KEY([Supporter_ID])
-REFERENCES [dbo].[Supporters] ([ID]) ON DELETE CASCADE 
-GO
-
-ALTER TABLE [dbo].[Orphans] CHECK CONSTRAINT [Supporter_Orphan]
-GO
 
 -- careviers table address constraint
 ALTER TABLE [dbo].[BondsMen] DROP CONSTRAINT [Address_BondsMan]
 GO
 
 ALTER TABLE [dbo].[BondsMen]  WITH CHECK ADD  CONSTRAINT [Address_BondsMan] FOREIGN KEY([Address_ID])
-REFERENCES [dbo].[Addresses] ([ID]) On Delete cascade
+REFERENCES [dbo].[Addresses] ([ID]) on delete cascade
 GO
 
 ALTER TABLE [dbo].[BondsMen] CHECK CONSTRAINT [Address_BondsMan]
 GO
 
--- caregivers table name constraint
-ALTER TABLE [dbo].[BondsMen] DROP CONSTRAINT [Name_BondsMan]
+
+-- mother table name constraint
+ALTER TABLE [dbo].[Mothers] DROP CONSTRAINT [Name_Mother]
 GO
 
-ALTER TABLE [dbo].[BondsMen]  WITH CHECK ADD  CONSTRAINT [Name_BondsMan] FOREIGN KEY([Name_Id])
+ALTER TABLE [dbo].[Mothers]  WITH CHECK ADD  CONSTRAINT [Name_Mother] FOREIGN KEY([Name_Id])
 REFERENCES [dbo].[Names] ([ID]) on delete cascade
 GO
 
-ALTER TABLE [dbo].[BondsMen] CHECK CONSTRAINT [Name_BondsMan]
+ALTER TABLE [dbo].[Mothers] CHECK CONSTRAINT [Name_Mother]
 GO
 
---delete caregivers
-delete from BondsMen
-from BondsMen as B inner join Orphans as O on  B.ID = O.BondsMan_ID
-where o.IsExcluded=1
-go
+-- mother table address constraint
+ALTER TABLE [dbo].[Mothers] DROP CONSTRAINT [Address_Mother]
+GO
 
+ALTER TABLE [dbo].[Mothers]  WITH CHECK ADD  CONSTRAINT [Address_Mother] FOREIGN KEY([Address_ID])
+REFERENCES [dbo].[Addresses] ([ID]) on delete cascade
+GO
+
+ALTER TABLE [dbo].[Mothers] CHECK CONSTRAINT [Address_Mother]
+GO
+
+-- father table name constraint
+ALTER TABLE [dbo].[Fathers] DROP CONSTRAINT [Name_Father]
+GO
+
+ALTER TABLE [dbo].[Fathers]  WITH CHECK ADD  CONSTRAINT [Name_Father] FOREIGN KEY([Name_ID])
+REFERENCES [dbo].[Names] ([ID]) on delete cascade
+GO
+
+ALTER TABLE [dbo].[Fathers] CHECK CONSTRAINT [Name_Father]
+GO
 
 
 delete from Orphans where IsExcluded = 1
+go
 
+delete from BondsMen where ID not in (select Orphans.BondsMan_ID from orphans)
 
+delete from Famlies where id not in (select Orphans.Family_ID from Orphans)
 
+delete from Fathers where ID not in (select Famlies.Father_Id from Famlies)
+
+delete from Mothers where ID not in (select Famlies.Mother_ID from Famlies)
