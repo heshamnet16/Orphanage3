@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Data Source=.;Initial Catalog=OrphansDB;Persist Security Info=False;User ID=OrphansApp</Value>
     </Setting>
     <Setting Name="BaseURI" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://localhost:1515/</Value>
+      <Value Profile="(Default)">http://*:1515/</Value>
     </Setting>
     <Setting Name="ForceAdd" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
