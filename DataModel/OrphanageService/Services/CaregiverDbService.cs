@@ -321,6 +321,25 @@ namespace OrphanageService.Services
             }
         }
 
+        public async Task SetCaregiverColor(int Fid, int? value)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var caregiver = await _orphanageDBC.Caregivers.FirstOrDefaultAsync(m => m.Id == Fid);
+
+                if (caregiver == null)
+                    throw new ObjectNotFoundException();
+
+                caregiver.ColorMark = value;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
         public async Task SetIdentityCardBack(int Cid, byte[] data)
         {
             using (var _orphanageDBC = new OrphanageDBC())

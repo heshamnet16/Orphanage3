@@ -109,6 +109,7 @@ namespace OrphanageV3.Views.Caregiver
                         ret.Add(retId);
             }
             Orphan.OrphansView or = new Orphan.OrphansView(ret);
+            or.MdiParent = this.MdiParent;
             or.Show();
         }
 
@@ -131,6 +132,21 @@ namespace OrphanageV3.Views.Caregiver
             CaregiverEditView caregiverEditView = new CaregiverEditView(id);
             caregiverEditView.ShowDialog();
             _caregiversViewModel.Update(id);
+        }
+
+        private void btnShowFamilies_Click(object sender, EventArgs e)
+        {
+            //TODO Show Families
+        }
+
+        private void btnShowMothers_Click(object sender, EventArgs e)
+        {
+            //Todo Show Mothers
+        }
+
+        private void btnShowFathers_Click(object sender, EventArgs e)
+        {
+            //Todo Show Fathers
         }
     }
 }

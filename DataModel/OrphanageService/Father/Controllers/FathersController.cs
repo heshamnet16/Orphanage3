@@ -58,6 +58,24 @@ namespace OrphanageService.Father.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("color")]
+        public async Task<HttpResponseMessage> SetFatherColor(int FatherId, int colorValue)
+        {
+            try
+            {
+                if (colorValue == -1)
+                    await _FatherDBService.SetFatherColor(FatherId, null);
+                else
+                    await _FatherDBService.SetFatherColor(FatherId, colorValue);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfiguerer.OK();
+        }
+
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]

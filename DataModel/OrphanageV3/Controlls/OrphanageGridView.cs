@@ -34,7 +34,8 @@ namespace OrphanageV3.Controlls
 
         public bool? ShowHiddenRows
         {
-            get => _ShowHiddenRows; set
+            get => _ShowHiddenRows;
+            set
             { _ShowHiddenRows = value.HasValue ? value.Value : Properties.Settings.Default.ShowHiddenRows; }
         }
 

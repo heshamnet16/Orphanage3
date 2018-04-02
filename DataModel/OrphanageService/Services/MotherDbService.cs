@@ -326,6 +326,25 @@ namespace OrphanageService.Services
             }
         }
 
+        public async Task SetMotherColor(int Mid, int? value)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var mother = await _orphanageDBC.Mothers.Where(m => m.Id == Mid).FirstOrDefaultAsync();
+
+                if (mother == null)
+                    return;
+
+                mother.ColorMark = value;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
         public async Task SetMotherIdPhotoBack(int Mid, byte[] data)
         {
             using (var _orphanageDBC = new OrphanageDBC())

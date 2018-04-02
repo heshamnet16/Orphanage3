@@ -231,6 +231,7 @@
             this.radWizard1.Controls.Add(this.panelFamily);
             this.radWizard1.Controls.Add(this.panelProgress);
             this.radWizard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radWizard1.EnableAeroStyle = false;
             this.radWizard1.HideCompletionImage = true;
             this.radWizard1.HideWelcomeImage = true;
             this.radWizard1.Location = new System.Drawing.Point(0, 0);
@@ -275,7 +276,7 @@
             this.lblResult.Size = new System.Drawing.Size(607, 395);
             this.lblResult.TabIndex = 0;
             this.lblResult.Text = "radLabel1";
-            this.lblResult.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblResult.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // panelFather
             // 
@@ -735,8 +736,7 @@
             // 
             // picMotherIDFace
             // 
-            this.picMotherIDFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picMotherIDFace.BackgroundImage")));
-            this.picMotherIDFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picMotherIDFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picMotherIDFace.Location = new System.Drawing.Point(5, 24);
             this.picMotherIDFace.Name = "picMotherIDFace";
             this.picMotherIDFace.Photo = null;
@@ -746,8 +746,7 @@
             // 
             // picMotherIDBack
             // 
-            this.picMotherIDBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picMotherIDBack.BackgroundImage")));
-            this.picMotherIDBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picMotherIDBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picMotherIDBack.Location = new System.Drawing.Point(5, 93);
             this.picMotherIDBack.Name = "picMotherIDBack";
             this.picMotherIDBack.Photo = null;
@@ -1229,7 +1228,7 @@
             this.txtFamilySecondaryAddress.Enabled = false;
             this.txtFamilySecondaryAddress.Location = new System.Drawing.Point(7, 58);
             this.txtFamilySecondaryAddress.Name = "txtFamilySecondaryAddress";
-            this.txtFamilySecondaryAddress.Size = new System.Drawing.Size(506, 20);
+            this.txtFamilySecondaryAddress.Size = new System.Drawing.Size(506, 0);
             this.txtFamilySecondaryAddress.TabIndex = 61;
             this.txtFamilySecondaryAddress.Click += new System.EventHandler(this.ShowFamilyAddressSecondary);
             this.txtFamilySecondaryAddress.Enter += new System.EventHandler(this.ShowFamilyAddressSecondary);
@@ -1252,7 +1251,7 @@
             this.txtFamilyPrimaryAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtFamilyPrimaryAddress.Location = new System.Drawing.Point(7, 21);
             this.txtFamilyPrimaryAddress.Name = "txtFamilyPrimaryAddress";
-            this.txtFamilyPrimaryAddress.Size = new System.Drawing.Size(504, 20);
+            this.txtFamilyPrimaryAddress.Size = new System.Drawing.Size(504, 0);
             this.txtFamilyPrimaryAddress.TabIndex = 61;
             this.txtFamilyPrimaryAddress.Click += new System.EventHandler(this.ShowFamilyAddressPrimary);
             this.txtFamilyPrimaryAddress.Enter += new System.EventHandler(this.ShowFamilyAddressPrimary);
@@ -1318,8 +1317,7 @@
             // 
             this.picFamilyFamilyCardPhoto2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.picFamilyFamilyCardPhoto2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFamilyFamilyCardPhoto2.BackgroundImage")));
-            this.picFamilyFamilyCardPhoto2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picFamilyFamilyCardPhoto2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picFamilyFamilyCardPhoto2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picFamilyFamilyCardPhoto2.Location = new System.Drawing.Point(7, 21);
             this.picFamilyFamilyCardPhoto2.Name = "picFamilyFamilyCardPhoto2";
@@ -1332,8 +1330,7 @@
             // 
             this.picFamilyFamilyCardphoto1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.picFamilyFamilyCardphoto1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFamilyFamilyCardphoto1.BackgroundImage")));
-            this.picFamilyFamilyCardphoto1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picFamilyFamilyCardphoto1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picFamilyFamilyCardphoto1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picFamilyFamilyCardphoto1.Location = new System.Drawing.Point(384, 21);
             this.picFamilyFamilyCardphoto1.Name = "picFamilyFamilyCardphoto1";
@@ -1400,7 +1397,7 @@
             this.txtFamilyFamilyCardNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.familyBindingSource, "FamilyCardNumber", true));
             this.txtFamilyFamilyCardNumber.Location = new System.Drawing.Point(272, 106);
             this.txtFamilyFamilyCardNumber.Name = "txtFamilyFamilyCardNumber";
-            this.txtFamilyFamilyCardNumber.Size = new System.Drawing.Size(239, 20);
+            this.txtFamilyFamilyCardNumber.Size = new System.Drawing.Size(239, 0);
             this.txtFamilyFamilyCardNumber.TabIndex = 61;
             // 
             // familyBindingSource
@@ -1433,7 +1430,7 @@
             this.txtFamilyFinncialStatus.Location = new System.Drawing.Point(272, 68);
             this.txtFamilyFinncialStatus.Name = "txtFamilyFinncialStatus";
             this.txtFamilyFinncialStatus.SelectNextOnDoubleClick = true;
-            this.txtFamilyFinncialStatus.Size = new System.Drawing.Size(239, 20);
+            this.txtFamilyFinncialStatus.Size = new System.Drawing.Size(239, 0);
             this.txtFamilyFinncialStatus.TabIndex = 102;
             // 
             // txtFamilyResidenceStatus
@@ -1449,7 +1446,7 @@
             this.txtFamilyResidenceStatus.Location = new System.Drawing.Point(272, 45);
             this.txtFamilyResidenceStatus.Name = "txtFamilyResidenceStatus";
             this.txtFamilyResidenceStatus.SelectNextOnDoubleClick = true;
-            this.txtFamilyResidenceStatus.Size = new System.Drawing.Size(239, 20);
+            this.txtFamilyResidenceStatus.Size = new System.Drawing.Size(239, 0);
             this.txtFamilyResidenceStatus.TabIndex = 101;
             // 
             // txtFamilyResidenceType
@@ -1466,7 +1463,7 @@
             this.txtFamilyResidenceType.Name = "txtFamilyResidenceType";
             this.txtFamilyResidenceType.NullText = "نوع السكن";
             this.txtFamilyResidenceType.SelectNextOnDoubleClick = true;
-            this.txtFamilyResidenceType.Size = new System.Drawing.Size(239, 20);
+            this.txtFamilyResidenceType.Size = new System.Drawing.Size(239, 0);
             this.txtFamilyResidenceType.TabIndex = 100;
             // 
             // chkFamilyIsTheyRefugees
@@ -1658,6 +1655,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddFamilyView";
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).EndInit();
             this.radWizard1.ResumeLayout(false);

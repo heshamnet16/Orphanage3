@@ -29,11 +29,13 @@ namespace OrphanageService.Services.Interfaces
 
         Task<bool> DeleteFather(int Fid, OrphanageDbCNoBinary orphanageDbCNoBinary);
 
+        Task SetFatherPhoto(int Fid, byte[] data);
+
         Task<bool> IsExist(int Fid);
 
         Task<byte[]> GetFatherPhoto(int Fid);
 
-        Task SetFatherPhoto(int Fid, byte[] data);
+        Task SetFatherColor(int Fid, int? value);
 
         Task<byte[]> GetFatherDeathCertificate(int Fid);
 

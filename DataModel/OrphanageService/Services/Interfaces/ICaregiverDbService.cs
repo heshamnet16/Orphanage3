@@ -24,6 +24,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetIdentityCardBack(int Cid);
 
+        Task SetCaregiverColor(int Fid, int? value);
+
         Task SetIdentityCardFace(int Cid, byte[] data);
 
         Task SetIdentityCardBack(int Cid, byte[] data);

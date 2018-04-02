@@ -149,6 +149,7 @@ namespace OrphanageV3.Views.Mother
                         ret.Add(retId);
             }
             Orphan.OrphansView or = new Orphan.OrphansView(ret);
+            or.MdiParent = this.MdiParent;
             or.Show();
         }
 
@@ -166,7 +167,13 @@ namespace OrphanageV3.Views.Mother
                         ret.Add(retId);
             }
             Father.FathersView or = new Father.FathersView(ret);
+            or.MdiParent = this.MdiParent;
             or.Show();
+        }
+
+        private void btnShowFamilies_Click(object sender, EventArgs e)
+        {
+            //Todo Show Families
         }
     }
 }

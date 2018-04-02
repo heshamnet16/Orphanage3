@@ -89,8 +89,8 @@ namespace OrphanageV3.ViewModel.Father
             if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
                 father.ColorMark = colorValue;
             else
-                father.ColorMark = null;
-            await _apiClient.FathersController_PutAsync(father);
+                father.ColorMark = -1;
+            await _apiClient.FathersController_SetFatherColorAsync(father.Id, (int)father.ColorMark.Value);
             return father.ColorMark;
         }
 

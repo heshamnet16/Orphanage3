@@ -45,13 +45,12 @@
             this.mnuShowBailedOrphans = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowALLOrphans = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowExcludedOrphans = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuShowUnExcludedOrphans = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem3 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowFamilies = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuShowUnSFamilies = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuShowSFamilies = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuShowUnBailedFamilies = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuShowBailedFamilies = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowAllFamilies = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuShowExceFams = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuShowExcludedFamilies = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowFathers = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowMothers = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
@@ -91,8 +90,8 @@
             this.mnuAppWin7 = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuAppWin8 = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuAppDefault = new Telerik.WinControls.UI.RadMenuItem();
-            this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +135,7 @@
             this.mnuNewFamily.AccessibleName = "RadMenuItem4";
             this.mnuNewFamily.Name = "mnuNewFamily";
             this.mnuNewFamily.Text = "asdasd";
+            this.mnuNewFamily.Click += new System.EventHandler(this.mnuNewFamily_Click);
             // 
             // RadMenuSeparatorItem2
             // 
@@ -199,37 +199,35 @@
             this.mnuShowBailedOrphans,
             this.mnuShowALLOrphans});
             this.mnuShowOrphans.Name = "mnuShowOrphans";
-            this.mnuShowOrphans.Text = "asdasd";
+            this.mnuShowOrphans.Text = "Orphans";
             // 
             // mnuShowUnBailedOrphans
             // 
             this.mnuShowUnBailedOrphans.Name = "mnuShowUnBailedOrphans";
-            this.mnuShowUnBailedOrphans.Text = "ghfgh";
+            this.mnuShowUnBailedOrphans.Text = "UnBailedOrphans";
+            this.mnuShowUnBailedOrphans.Click += new System.EventHandler(this.mnuShowUnBailedOrphans_Click);
             // 
             // mnuShowBailedOrphans
             // 
             this.mnuShowBailedOrphans.Name = "mnuShowBailedOrphans";
-            this.mnuShowBailedOrphans.Text = "fghfgh";
+            this.mnuShowBailedOrphans.Text = "BailedOrphans";
+            this.mnuShowBailedOrphans.Click += new System.EventHandler(this.mnuShowBailedOrphans_Click);
             // 
             // mnuShowALLOrphans
             // 
             this.mnuShowALLOrphans.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.mnuShowExcludedOrphans,
-            this.mnuShowUnExcludedOrphans});
+            this.mnuShowExcludedOrphans});
             this.mnuShowALLOrphans.Name = "mnuShowALLOrphans";
-            this.mnuShowALLOrphans.Text = "fdgdfg";
+            this.mnuShowALLOrphans.Text = "AllOrphans";
+            this.mnuShowALLOrphans.Click += new System.EventHandler(this.mnuShowALLOrphans_Click);
             // 
             // mnuShowExcludedOrphans
             // 
             this.mnuShowExcludedOrphans.AccessibleDescription = "RadMenuItem1";
             this.mnuShowExcludedOrphans.AccessibleName = "RadMenuItem1";
             this.mnuShowExcludedOrphans.Name = "mnuShowExcludedOrphans";
-            this.mnuShowExcludedOrphans.Text = "asdasd";
-            // 
-            // mnuShowUnExcludedOrphans
-            // 
-            this.mnuShowUnExcludedOrphans.Name = "mnuShowUnExcludedOrphans";
-            this.mnuShowUnExcludedOrphans.Text = "radMenuItem1";
+            this.mnuShowExcludedOrphans.Text = "ExcludedOrphans";
+            this.mnuShowExcludedOrphans.Click += new System.EventHandler(this.mnuShowExcludedOrphans_Click);
             // 
             // RadMenuSeparatorItem3
             // 
@@ -242,33 +240,37 @@
             this.mnuShowFamilies.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowFamilies.Image")));
             this.mnuShowFamilies.ImageKey = "Parents.png";
             this.mnuShowFamilies.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.mnuShowUnSFamilies,
-            this.mnuShowSFamilies,
+            this.mnuShowUnBailedFamilies,
+            this.mnuShowBailedFamilies,
             this.mnuShowAllFamilies});
             this.mnuShowFamilies.Name = "mnuShowFamilies";
-            this.mnuShowFamilies.Text = "sdfsdfsd";
+            this.mnuShowFamilies.Text = "Families";
             // 
-            // mnuShowUnSFamilies
+            // mnuShowUnBailedFamilies
             // 
-            this.mnuShowUnSFamilies.Name = "mnuShowUnSFamilies";
-            this.mnuShowUnSFamilies.Text = "عائلات غير مكفولة";
+            this.mnuShowUnBailedFamilies.Name = "mnuShowUnBailedFamilies";
+            this.mnuShowUnBailedFamilies.Text = "UnBailedFamilies";
+            this.mnuShowUnBailedFamilies.Click += new System.EventHandler(this.mnuShowUnBailedFamilies_Click);
             // 
-            // mnuShowSFamilies
+            // mnuShowBailedFamilies
             // 
-            this.mnuShowSFamilies.Name = "mnuShowSFamilies";
-            this.mnuShowSFamilies.Text = "عائلات مكفولة";
+            this.mnuShowBailedFamilies.Name = "mnuShowBailedFamilies";
+            this.mnuShowBailedFamilies.Text = "BailedFamilies";
+            this.mnuShowBailedFamilies.Click += new System.EventHandler(this.mnuShowBailedFamilies_Click);
             // 
             // mnuShowAllFamilies
             // 
             this.mnuShowAllFamilies.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.mnuShowExceFams});
+            this.mnuShowExcludedFamilies});
             this.mnuShowAllFamilies.Name = "mnuShowAllFamilies";
-            this.mnuShowAllFamilies.Text = "الكل";
+            this.mnuShowAllFamilies.Text = "all";
+            this.mnuShowAllFamilies.Click += new System.EventHandler(this.mnuShowAllFamilies_Click);
             // 
-            // mnuShowExceFams
+            // mnuShowExcludedFamilies
             // 
-            this.mnuShowExceFams.Name = "mnuShowExceFams";
-            this.mnuShowExceFams.Text = "مستبعدة";
+            this.mnuShowExcludedFamilies.Name = "mnuShowExcludedFamilies";
+            this.mnuShowExcludedFamilies.Text = "excluded";
+            this.mnuShowExcludedFamilies.Click += new System.EventHandler(this.mnuShowExcludedFams_Click);
             // 
             // mnuShowFathers
             // 
@@ -276,6 +278,7 @@
             this.mnuShowFathers.ImageKey = "Father.png";
             this.mnuShowFathers.Name = "mnuShowFathers";
             this.mnuShowFathers.Text = "أباء";
+            this.mnuShowFathers.Click += new System.EventHandler(this.mnuShowFathers_Click);
             // 
             // mnuShowMothers
             // 
@@ -283,6 +286,7 @@
             this.mnuShowMothers.ImageKey = "Mother.png";
             this.mnuShowMothers.Name = "mnuShowMothers";
             this.mnuShowMothers.Text = "امهات";
+            this.mnuShowMothers.Click += new System.EventHandler(this.mnuShowMothers_Click);
             // 
             // RadMenuSeparatorItem4
             // 
@@ -294,6 +298,7 @@
             // 
             this.mnuShowBonds.Name = "mnuShowBonds";
             this.mnuShowBonds.Text = "معيلين";
+            this.mnuShowBonds.Click += new System.EventHandler(this.mnuShowBonds_Click);
             // 
             // mnuShowSupporter
             // 
@@ -393,7 +398,6 @@
             // 
             // mnuTools
             // 
-            this.mnuTools.Enabled = false;
             this.mnuTools.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.RadMenuItem2,
             this.RadMenuSeparatorItem8,
@@ -409,6 +413,7 @@
             // 
             this.RadMenuItem2.AccessibleDescription = "RadMenuItem2";
             this.RadMenuItem2.AccessibleName = "RadMenuItem2";
+            this.RadMenuItem2.Enabled = false;
             this.RadMenuItem2.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.mnuBackupNow,
             this.mnuRestoreNow,
@@ -446,6 +451,7 @@
             // 
             // mnuCreateSalaryTable
             // 
+            this.mnuCreateSalaryTable.Enabled = false;
             this.mnuCreateSalaryTable.Name = "mnuCreateSalaryTable";
             this.mnuCreateSalaryTable.Text = "جداول التقبيض";
             // 
@@ -457,6 +463,7 @@
             // 
             // mnuCorrections
             // 
+            this.mnuCorrections.Enabled = false;
             this.mnuCorrections.Name = "mnuCorrections";
             this.mnuCorrections.Text = "تحقق و تصحيح";
             // 
@@ -469,7 +476,8 @@
             // mnuShowSetting
             // 
             this.mnuShowSetting.Name = "mnuShowSetting";
-            this.mnuShowSetting.Text = "إعدادت";
+            this.mnuShowSetting.Text = "settings";
+            this.mnuShowSetting.Click += new System.EventHandler(this.mnuShowSetting_Click);
             // 
             // mnuApperance
             // 
@@ -555,6 +563,15 @@
             this.mnuAppDefault.Name = "mnuAppDefault";
             this.mnuAppDefault.Text = "افتراضي";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Children.png");
+            this.imageList1.Images.SetKeyName(1, "Father.png");
+            this.imageList1.Images.SetKeyName(2, "Mother.png");
+            this.imageList1.Images.SetKeyName(3, "Parents.png");
+            // 
             // RadMenu1
             // 
             this.RadMenu1.AllItemsEqualHeight = true;
@@ -572,15 +589,6 @@
             this.RadMenu1.Name = "RadMenu1";
             this.RadMenu1.Size = new System.Drawing.Size(1034, 20);
             this.RadMenu1.TabIndex = 5;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Children.png");
-            this.imageList1.Images.SetKeyName(1, "Father.png");
-            this.imageList1.Images.SetKeyName(2, "Mother.png");
-            this.imageList1.Images.SetKeyName(3, "Parents.png");
             // 
             // MainView
             // 
@@ -622,10 +630,10 @@
         internal Telerik.WinControls.UI.RadMenuItem mnuShowExcludedOrphans;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem3;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowFamilies;
-        internal Telerik.WinControls.UI.RadMenuItem mnuShowUnSFamilies;
-        internal Telerik.WinControls.UI.RadMenuItem mnuShowSFamilies;
+        internal Telerik.WinControls.UI.RadMenuItem mnuShowUnBailedFamilies;
+        internal Telerik.WinControls.UI.RadMenuItem mnuShowBailedFamilies;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowAllFamilies;
-        internal Telerik.WinControls.UI.RadMenuItem mnuShowExceFams;
+        internal Telerik.WinControls.UI.RadMenuItem mnuShowExcludedFamilies;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowFathers;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowMothers;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem4;
@@ -665,8 +673,7 @@
         internal Telerik.WinControls.UI.RadMenuItem mnuAppWin7;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppWin8;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppDefault;
-        private Telerik.WinControls.UI.RadMenu RadMenu1;
-        private Telerik.WinControls.UI.RadMenuItem mnuShowUnExcludedOrphans;
         private System.Windows.Forms.ImageList imageList1;
+        private Telerik.WinControls.UI.RadMenu RadMenu1;
     }
 }

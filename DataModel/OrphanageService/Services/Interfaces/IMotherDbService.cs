@@ -22,6 +22,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<byte[]> GetMotherIdPhotoBack(int Mid);
 
+        Task SetMotherColor(int Fid, int? value);
+
         Task SetMotherIdPhotoFace(int Mid, byte[] data);
 
         Task SetMotherIdPhotoBack(int Mid, byte[] data);

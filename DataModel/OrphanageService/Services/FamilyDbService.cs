@@ -182,9 +182,43 @@ namespace OrphanageService.Services
             }
         }
 
+        private IEnumerable<OrphanageDataModel.RegularData.Family> prepareFamiliesList(IEnumerable<OrphanageDataModel.RegularData.Family> familiesList)
+        {
+            if (familiesList == null || familiesList.Count() == 0) return null;
+            IList<OrphanageDataModel.RegularData.Family> returnedFamiliesList = new List<OrphanageDataModel.RegularData.Family>();
+            foreach (var family in familiesList)
+            {
+                OrphanageDataModel.RegularData.Family familyToFill = family;
+                _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
+                _uriGenerator.SetFamilyUris(ref familyToFill);
+                returnedFamiliesList.Add(familyToFill);
+            }
+            return returnedFamiliesList;
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetExcludedFamilies()
+        {
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var families = await _orphanageDBC.Families.AsNoTracking()
+                    .Include(f => f.AlternativeAddress)
+                    .Include(f => f.Bail)
+                    .Include(f => f.Father)
+                    .Include(f => f.Father.Name)
+                    .Include(f => f.Mother)
+                    .Include(f => f.Mother.Name)
+                    .Include(f => f.Mother.Address)
+                    .Include(f => f.Orphans)
+                    .Include(f => f.PrimaryAddress)
+                    .Where(f => f.IsExcluded == true)
+                    .ToListAsync();
+
+                return prepareFamiliesList(families);
+            }
+        }
+
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int pageSize, int pageNum)
         {
-            IList<OrphanageDataModel.RegularData.Family> familiesList = new List<OrphanageDataModel.RegularData.Family>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -207,20 +241,12 @@ namespace OrphanageService.Services
                     .Include(f => f.PrimaryAddress)
                     .ToListAsync();
 
-                foreach (var family in families)
-                {
-                    OrphanageDataModel.RegularData.Family familyToFill = family;
-                    _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
-                    _uriGenerator.SetFamilyUris(ref familyToFill);
-                    familiesList.Add(familyToFill);
-                }
+                return prepareFamiliesList(families);
             }
-            return familiesList;
         }
 
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(IEnumerable<int> familiesIds)
         {
-            IList<OrphanageDataModel.RegularData.Family> familiesList = new List<OrphanageDataModel.RegularData.Family>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var families = await _orphanageDBC.Families.AsNoTracking()
@@ -236,15 +262,8 @@ namespace OrphanageService.Services
                     .Include(f => f.PrimaryAddress)
                     .ToListAsync();
 
-                foreach (var family in families)
-                {
-                    OrphanageDataModel.RegularData.Family familyToFill = family;
-                    _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
-                    _uriGenerator.SetFamilyUris(ref familyToFill);
-                    familiesList.Add(familyToFill);
-                }
+                return prepareFamiliesList(families);
             }
-            return familiesList;
         }
 
         public IEnumerable<OrphanageDataModel.RegularData.Family> GetFamiliesByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
@@ -345,6 +364,7 @@ namespace OrphanageService.Services
                                      .Include(o => o.Bail)
                                      .Include(o => o.HealthStatus)
                               .ToListAsync();
+
                 foreach (var orphan in orphans)
                 {
                     var orpToFill = orphan;
@@ -445,6 +465,58 @@ namespace OrphanageService.Services
                     return true;
                 else
                     return false;
+            }
+        }
+
+        public async Task SetFamilyColor(int FamId, int? colorValue)
+        {
+            try
+            {
+                using (var _orphanageDBC = new OrphanageDBC())
+                {
+                    _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                    _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                    _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                    var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                    if (family == null)
+                        return;
+
+                    family.ColorMark = colorValue;
+
+                    await _orphanageDBC.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ServiceException("Error in SetFamilyCardPage1 method.", ex);
+            }
+        }
+
+        public async Task SetFamilyExclude(int FamId, bool value)
+        {
+            try
+            {
+                using (var _orphanageDBC = new OrphanageDBC())
+                {
+                    _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                    _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                    _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                    var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                    if (family == null)
+                        return;
+
+                    family.IsExcluded = value;
+
+                    await _orphanageDBC.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ServiceException("Error in SetFamilyCardPage1 method.", ex);
             }
         }
 

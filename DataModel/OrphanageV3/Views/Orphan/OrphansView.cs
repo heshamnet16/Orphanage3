@@ -24,6 +24,7 @@ namespace OrphanageV3.Views.Orphan
         private static object _loading = Properties.Resources.loading;
 
         private IEnumerable<int> _orphansIds;
+        private IEnumerable<OrphanageDataModel.Persons.Orphan> _orphansList;
 
         public OrphansView()
         {
@@ -37,6 +38,14 @@ namespace OrphanageV3.Views.Orphan
             InitializeComponent();
             SetObjectsDefaultsAndEvents();
             _orphansIds = OrphansIds;
+        }
+
+        public OrphansView(IEnumerable<OrphanageDataModel.Persons.Orphan> OrphansList)
+        {
+            InitializeComponent();
+            SetObjectsDefaultsAndEvents();
+            _orphansList = OrphansList;
+            orphanageGridView1.ShowHiddenRows = true;
         }
 
         private void SetObjectsDefaultsAndEvents()
@@ -97,6 +106,7 @@ namespace OrphanageV3.Views.Orphan
                         }
                         //_orphansViewModel.LoadImages(idsList).Wait();
                     }
+                    catch (ObjectDisposedException) { }
                     catch (Exception ex)
                     {
                         if (ex.HResult != -2146233063 && ex.HResult != -2146233040 && ex.HResult != -2146233079)
@@ -134,7 +144,7 @@ namespace OrphanageV3.Views.Orphan
         {
             txtDetails.Text = "............";
             picPhoto.Image = (Bitmap)_loading;
-            if (upadteImageDetailsThread != null && upadteImageDetailsThread.IsAlive)
+            if (upadteImageDetailsThread != null)
                 upadteImageDetailsThread.Abort();
             upadteImageDetailsThread = new Thread(new ThreadStart(async () =>
             {
@@ -196,7 +206,12 @@ namespace OrphanageV3.Views.Orphan
             if (_orphansIds != null)
                 _orphansViewModel.LoadData(_orphansIds);
             else
-                _orphansViewModel.LoadData();
+            {
+                if (_orphansList != null)
+                    _orphansViewModel.LoadData(_orphansList);
+                else
+                    _orphansViewModel.LoadData();
+            }
             //set default grid values
             orphanageGridView1.GridView.TableElement.RowHeight = 80;
             orphanageGridView1.GridView.AllowAutoSizeColumns = true;
@@ -223,9 +238,18 @@ namespace OrphanageV3.Views.Orphan
                 return;
             foreach (var id in selectedIds)
             {
-                var ret = await _orphansViewModel.ExcludeOrphan(id);
-                if (ret)
-                    _radGridHelper.HideRow("Id", id);
+                if (btnExclud.ToolTipText == Properties.Resources.Exclude)
+                {
+                    var ret = await _orphansViewModel.ExcludeOrphan(id);
+                    if (ret)
+                        _radGridHelper.HideRow("Id", id);
+                }
+                else
+                {
+                    var ret = await _orphansViewModel.UnExcludeOrphan(id);
+                    if (ret)
+                        _radGridHelper.ShowRow("Id", id);
+                }
             }
         }
 
@@ -268,6 +292,7 @@ namespace OrphanageV3.Views.Orphan
             {
                 var brothersIds = await _orphansViewModel.GetBrothers(id);
                 OrphansView orphansView = new OrphansView(brothersIds);
+                orphansView.MdiParent = this.MdiParent;
                 orphansView.Show();
             }
         }
@@ -276,6 +301,7 @@ namespace OrphanageV3.Views.Orphan
         {
             var mothersIds = _orphansViewModel.GetMothers(orphanageGridView1.SelectedIds);
             MothersView mothersView = new MothersView(mothersIds);
+            mothersView.MdiParent = this.MdiParent;
             mothersView.Show();
         }
 
@@ -283,7 +309,13 @@ namespace OrphanageV3.Views.Orphan
         {
             var fathersIds = _orphansViewModel.GetFathers(orphanageGridView1.SelectedIds);
             FathersView fathersView = new FathersView(fathersIds);
+            fathersView.MdiParent = this.MdiParent;
             fathersView.Show();
+        }
+
+        private void btnShowFamilies_Click(object sender, EventArgs e)
+        {
+            // Todo Show Families
         }
     }
 }

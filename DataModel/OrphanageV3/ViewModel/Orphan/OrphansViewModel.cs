@@ -53,14 +53,13 @@ namespace OrphanageV3.ViewModel.Orphan
                 _SourceOrphans = ReturnedOrphans.Where(o => o.IsExcluded == false || !o.IsExcluded.HasValue).ToList();
             Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
             DataLoaded?.Invoke();
-            //get first page orphan ids
-            var ids = Orphans.Take(Properties.Settings.Default.DefaultPageSize).Select(op => op.Id).ToList();
+        }
 
-            //set Loading image
-            //foreach (var orp in Orphans)
-            //    orp.Photo = Properties.Resources.loading;
-            //Start Image thread after data loading
-            //await LoadImages(ids);
+        public void LoadData(IEnumerable<OrphanageDataModel.Persons.Orphan> orphansList)
+        {
+            _SourceOrphans = orphansList.ToList();
+            Orphans = new ObservableCollection<OrphanModel>(_mapperService.MapToOrphanModel(_SourceOrphans));
+            DataLoaded?.Invoke();
         }
 
         private async void GetOrphans()
@@ -133,8 +132,20 @@ namespace OrphanageV3.ViewModel.Orphan
         public async Task<bool> ExcludeOrphan(int Oid)
         {
             var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+            var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
+            await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, true);
+            orphanModel.IsExcluded = true;
             orphan.IsExcluded = true;
-            await _apiClient.OrphansController_PutAsync(orphan);
+            return true;
+        }
+
+        public async Task<bool> UnExcludeOrphan(int Oid)
+        {
+            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+            var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
+            await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, false);
+            orphan.IsExcluded = false;
+            orphanModel.IsExcluded = false;
             return true;
         }
 
@@ -147,8 +158,8 @@ namespace OrphanageV3.ViewModel.Orphan
             if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
                 orphan.ColorMark = colorValue;
             else
-                orphan.ColorMark = null;
-            await _apiClient.OrphansController_PutAsync(orphan);
+                orphan.ColorMark = -1;
+            await _apiClient.OrphansController_SetOrphanColorAsync(orphan.Id, (int)orphan.ColorMark.Value);
             return orphan.ColorMark;
         }
 

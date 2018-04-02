@@ -136,7 +136,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void TranslateControls()
         {
-            this.Text = Properties.Resources.AddNewFamily;
+            this.Text = Properties.Resources.AddOrphan;
             pgeCaregiver.Title = Properties.Resources.AddCaregiver;
             pgeCaregiverOtherData.Title = Properties.Resources.AddFamilyOtherData;
             pgeEducation.Title = Properties.Resources.EducationData;

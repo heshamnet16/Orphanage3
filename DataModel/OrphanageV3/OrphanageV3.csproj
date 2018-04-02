@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Output\Orphanage3\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -273,6 +273,12 @@
     <Compile Include="Views\Summary\SummaryView.Designer.cs">
       <DependentUpon>SummaryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tools\SettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\SettingView.Designer.cs">
+      <DependentUpon>SettingView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controlls\AddressForm.resx">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +349,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Summary\SummaryView.resx">
       <DependentUpon>SummaryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\SettingView.resx">
+      <DependentUpon>SettingView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Caregiver.datasource" />

@@ -10,6 +10,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetExcludedFamilies();
+
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(IEnumerable<int> familiesIds);
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int FamId);
@@ -21,6 +23,10 @@ namespace OrphanageService.Services.Interfaces
         Task<byte[]> GetFamilyCardPage1(int FamId);
 
         Task<byte[]> GetFamilyCardPage2(int FamId);
+
+        Task SetFamilyColor(int FamId, int? colorValue);
+
+        Task SetFamilyExclude(int FamId, bool value);
 
         Task SetFamilyCardPage1(int FamId, byte[] data);
 

@@ -38,7 +38,7 @@ namespace OrphanageV3
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Main.MainView());
             }
-            catch (ApiClientException apiEx)
+            catch (ApiClientException)
             {
                 //Nothing Changed
                 //if (apiEx.StatusCode == "304")
@@ -47,7 +47,7 @@ namespace OrphanageV3
                 //    //TODO show error message
                 //}
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

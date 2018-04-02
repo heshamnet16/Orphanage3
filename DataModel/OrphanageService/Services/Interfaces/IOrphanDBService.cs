@@ -12,6 +12,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetExcludedOrphans();
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid);
 
         Task<int> GetBrothersCount(int Oid);
@@ -34,6 +36,10 @@ namespace OrphanageService.Services.Interfaces
         Task<OrphanageDataModel.Persons.Orphan> AddOrphan(OrphanageDataModel.Persons.Orphan orphan);
 
         Task<bool> SaveOrphan(OrphanageDataModel.Persons.Orphan orphan);
+
+        Task SetOrphanColor(int Fid, int? value);
+
+        Task SetOrphanExclude(int Fid, bool value);
 
         Task<bool> DeleteOrphan(int Oid);
 
