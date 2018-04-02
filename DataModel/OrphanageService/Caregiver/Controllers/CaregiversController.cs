@@ -85,6 +85,24 @@ namespace OrphanageService.Caregiver.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("color")]
+        public async Task<HttpResponseMessage> SetCaregiverColor(int CaregiverId, int colorValue)
+        {
+            try
+            {
+                if (colorValue == -1)
+                    await _CaregiverDBService.SetCaregiverColor(CaregiverId, null);
+                else
+                    await _CaregiverDBService.SetCaregiverColor(CaregiverId, colorValue);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfiguerer.OK();
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object caregiver)

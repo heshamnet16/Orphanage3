@@ -413,7 +413,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(33, 17);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "الاسم :";
             this.lblName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblBirthday
@@ -423,29 +422,10 @@ namespace OrphanageV3.Views.Orphan
             this.lblBirthday.Name = "lblBirthday";
             this.lblBirthday.Size = new System.Drawing.Size(62, 17);
             this.lblBirthday.TabIndex = 2;
-            this.lblBirthday.Text = "تاريخ الولادة :";
             this.lblBirthday.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // txtOIdentityCardNumber
             // 
-            this.txtOIdentityCardNumber.AutoCompleteCustomSource.AddRange(new string[] {
-            "أمه",
-            "أمها",
-            "عمه",
-            "عمها",
-            "خاله",
-            "خالها",
-            "جده",
-            "جدها",
-            "جدته",
-            "جدتها",
-            "خالته",
-            "خالتها",
-            "عمته",
-            "عمتها",
-            "قريبه",
-            "قريبها",
-            "لايوجد صلة قرابة"});
             this.txtOIdentityCardNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtOIdentityCardNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtOIdentityCardNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "IdentityCardNumber", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -457,24 +437,6 @@ namespace OrphanageV3.Views.Orphan
             // 
             // txtOConsanguinityToCaregiver
             // 
-            this.txtOConsanguinityToCaregiver.AutoCompleteCustomSource.AddRange(new string[] {
-            "أمه",
-            "أمها",
-            "عمه",
-            "عمها",
-            "خاله",
-            "خالها",
-            "جده",
-            "جدها",
-            "جدته",
-            "جدتها",
-            "خالته",
-            "خالتها",
-            "عمته",
-            "عمتها",
-            "قريبه",
-            "قريبها",
-            "لايوجد صلة قرابة"});
             this.txtOConsanguinityToCaregiver.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtOConsanguinityToCaregiver.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtOConsanguinityToCaregiver.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orphanBindingSource, "ConsanguinityToCaregiver", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -491,7 +453,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblIdentityNumber.Name = "lblIdentityNumber";
             this.lblIdentityNumber.Size = new System.Drawing.Size(53, 17);
             this.lblIdentityNumber.TabIndex = 2;
-            this.lblIdentityNumber.Text = "رقم الهوية :";
             this.lblIdentityNumber.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIdentityNumber.Click += new System.EventHandler(this.pgeBasic_Click);
             // 
@@ -502,7 +463,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblConsanguinityToCaregiver.Name = "lblConsanguinityToCaregiver";
             this.lblConsanguinityToCaregiver.Size = new System.Drawing.Size(68, 17);
             this.lblConsanguinityToCaregiver.TabIndex = 2;
-            this.lblConsanguinityToCaregiver.Text = "علاقته بالمعيل :";
             this.lblConsanguinityToCaregiver.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblConsanguinityToCaregiver.Click += new System.EventHandler(this.pgeBasic_Click);
             // 
@@ -550,8 +510,6 @@ namespace OrphanageV3.Views.Orphan
             this.pgeOthers.Location = new System.Drawing.Point(10, 37);
             this.pgeOthers.Name = "pgeOthers";
             this.pgeOthers.Size = new System.Drawing.Size(483, 345);
-            this.pgeOthers.Text = "بيانات أخرى";
-            this.pgeOthers.ToolTipText = "بيانات أخرى";
             // 
             // txtOAge
             // 
@@ -567,13 +525,11 @@ namespace OrphanageV3.Views.Orphan
             this.grpBirthCertificatePhoto.Controls.Add(this.picObirthCertificate);
             this.grpBirthCertificatePhoto.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpBirthCertificatePhoto.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpBirthCertificatePhoto.HeaderText = "صورة شهادة الولادة";
             this.grpBirthCertificatePhoto.Location = new System.Drawing.Point(14, 17);
             this.grpBirthCertificatePhoto.Name = "grpBirthCertificatePhoto";
             this.grpBirthCertificatePhoto.Size = new System.Drawing.Size(157, 146);
             this.grpBirthCertificatePhoto.TabIndex = 123126;
             this.grpBirthCertificatePhoto.TabStop = false;
-            this.grpBirthCertificatePhoto.Text = "صورة شهادة الولادة";
             this.grpBirthCertificatePhoto.ThemeName = "ControlDefault";
             // 
             // picObirthCertificate
@@ -593,13 +549,11 @@ namespace OrphanageV3.Views.Orphan
             this.grpFamilyCardPhoto.Controls.Add(this.picOFamilyCardPhoto);
             this.grpFamilyCardPhoto.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpFamilyCardPhoto.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpFamilyCardPhoto.HeaderText = "صورة دفتر العائلة";
             this.grpFamilyCardPhoto.Location = new System.Drawing.Point(14, 182);
             this.grpFamilyCardPhoto.Name = "grpFamilyCardPhoto";
             this.grpFamilyCardPhoto.Size = new System.Drawing.Size(157, 146);
             this.grpFamilyCardPhoto.TabIndex = 123125;
             this.grpFamilyCardPhoto.TabStop = false;
-            this.grpFamilyCardPhoto.Text = "صورة دفتر العائلة";
             this.grpFamilyCardPhoto.ThemeName = "ControlDefault";
             // 
             // picOFamilyCardPhoto
@@ -646,7 +600,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblStory.Name = "lblStory";
             this.lblStory.Size = new System.Drawing.Size(36, 17);
             this.lblStory.TabIndex = 16;
-            this.lblStory.Text = "القصة :";
             this.lblStory.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // numOTall
@@ -684,7 +637,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblCM.Name = "lblCM";
             this.lblCM.Size = new System.Drawing.Size(17, 17);
             this.lblCM.TabIndex = 15;
-            this.lblCM.Text = "سم";
             this.lblCM.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblFootSize
@@ -694,7 +646,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblFootSize.Name = "lblFootSize";
             this.lblFootSize.Size = new System.Drawing.Size(52, 17);
             this.lblFootSize.TabIndex = 10;
-            this.lblFootSize.Text = "قياس القدم :";
             this.lblFootSize.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblKG
@@ -704,7 +655,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblKG.Name = "lblKG";
             this.lblKG.Size = new System.Drawing.Size(17, 17);
             this.lblKG.TabIndex = 12;
-            this.lblKG.Text = "كغ";
             this.lblKG.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblAge
@@ -714,7 +664,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblAge.Name = "lblAge";
             this.lblAge.Size = new System.Drawing.Size(34, 17);
             this.lblAge.TabIndex = 14;
-            this.lblAge.Text = "العمر :";
             this.lblAge.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTallness
@@ -724,7 +673,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblTallness.Name = "lblTallness";
             this.lblTallness.Size = new System.Drawing.Size(37, 17);
             this.lblTallness.TabIndex = 13;
-            this.lblTallness.Text = "الطول :";
             this.lblTallness.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblWeight
@@ -735,7 +683,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(36, 17);
             this.lblWeight.TabIndex = 11;
-            this.lblWeight.Text = "الوزن :";
             this.lblWeight.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // pgeEducation
@@ -761,8 +708,6 @@ namespace OrphanageV3.Views.Orphan
             this.pgeEducation.Location = new System.Drawing.Point(10, 37);
             this.pgeEducation.Name = "pgeEducation";
             this.pgeEducation.Size = new System.Drawing.Size(483, 345);
-            this.pgeEducation.Text = "بيانات دراسية";
-            this.pgeEducation.ToolTipText = "بيانات دراسية";
             // 
             // lblGradRate
             // 
@@ -772,7 +717,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblGradRate.Name = "lblGradRate";
             this.lblGradRate.Size = new System.Drawing.Size(38, 17);
             this.lblGradRate.TabIndex = 65;
-            this.lblGradRate.Text = "المعدل :";
             this.lblGradRate.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // grpEducationCertificate2
@@ -782,13 +726,11 @@ namespace OrphanageV3.Views.Orphan
             this.grpEducationCertificate2.Enabled = false;
             this.grpEducationCertificate2.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpEducationCertificate2.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpEducationCertificate2.HeaderText = "شهادة دراسية";
             this.grpEducationCertificate2.Location = new System.Drawing.Point(7, 182);
             this.grpEducationCertificate2.Name = "grpEducationCertificate2";
             this.grpEducationCertificate2.Size = new System.Drawing.Size(153, 117);
             this.grpEducationCertificate2.TabIndex = 67;
             this.grpEducationCertificate2.TabStop = false;
-            this.grpEducationCertificate2.Text = "شهادة دراسية";
             this.grpEducationCertificate2.ThemeName = "ControlDefault";
             // 
             // PicSstudyCerti
@@ -809,13 +751,11 @@ namespace OrphanageV3.Views.Orphan
             this.grpEducationCertificate1.Enabled = false;
             this.grpEducationCertificate1.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpEducationCertificate1.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpEducationCertificate1.HeaderText = "المرحلة الأبتدائية";
             this.grpEducationCertificate1.Location = new System.Drawing.Point(5, 59);
             this.grpEducationCertificate1.Name = "grpEducationCertificate1";
             this.grpEducationCertificate1.Size = new System.Drawing.Size(153, 117);
             this.grpEducationCertificate1.TabIndex = 66;
             this.grpEducationCertificate1.TabStop = false;
-            this.grpEducationCertificate1.Text = "المرحلة الأبتدائية";
             this.grpEducationCertificate1.ThemeName = "ControlDefault";
             // 
             // picSStarter
@@ -868,44 +808,22 @@ namespace OrphanageV3.Views.Orphan
             // 
             // txtSReason
             // 
-            this.txtSReason.AutoCompleteCustomSource.AddRange(new string[] {
-            "دون العمر الدراسي",
-            "بسبب الاوضاع الأمنية",
-            "بسبب المرض"});
             this.txtSReason.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtSReason.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSReason.Location = new System.Drawing.Point(7, 23);
             this.txtSReason.Name = "txtSReason";
-            this.txtSReason.NullText = "أدخل سبب التخلف عن الدراسة";
             this.txtSReason.Size = new System.Drawing.Size(260, 20);
             this.txtSReason.TabIndex = 36;
             // 
             // txtSStudyStage
             // 
-            this.txtSStudyStage.AutoCompleteCustomSource.AddRange(new string[] {
-            "الصف الأول ابتدائي",
-            "الصف الثاني ابتدائي",
-            "الصف الثالث ابتدائي",
-            "الصف الرابع ابتدائي",
-            "الصف الخامس ابتدائي",
-            "الصف السادس ابتدائي",
-            "الصف السابع اعدادي",
-            "الصف الثامن اعدادي",
-            "الصف التاسع اعدادي",
-            "الصف العاشر ثانوي",
-            "الصف الحادي عشر ثانوي",
-            "الصف الثاني عشر ثانوي",
-            "حاصل على الشهادة الثانوي",
-            "حاصل على الشهادة الإعدادية"});
             this.txtSStudyStage.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtSStudyStage.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSStudyStage.Enabled = false;
             this.txtSStudyStage.Location = new System.Drawing.Point(243, 102);
             this.txtSStudyStage.Name = "txtSStudyStage";
-            this.txtSStudyStage.NullText = "أدخل المرحلة الدراسية";
             this.txtSStudyStage.Size = new System.Drawing.Size(161, 20);
             this.txtSStudyStage.TabIndex = 32;
-            this.txtSStudyStage.Text = "متخلف عن الدراسة";
             // 
             // txtSschoolNAme
             // 
@@ -914,7 +832,6 @@ namespace OrphanageV3.Views.Orphan
             this.txtSschoolNAme.Enabled = false;
             this.txtSschoolNAme.Location = new System.Drawing.Point(243, 60);
             this.txtSschoolNAme.Name = "txtSschoolNAme";
-            this.txtSschoolNAme.NullText = "أدخل اسم المدرسة";
             this.txtSschoolNAme.Size = new System.Drawing.Size(161, 20);
             this.txtSschoolNAme.TabIndex = 31;
             // 
@@ -934,7 +851,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(51, 17);
             this.lblNotes.TabIndex = 59;
-            this.lblNotes.Text = "ملاحظات :";
             this.lblNotes.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblReason
@@ -945,7 +861,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblReason.Name = "lblReason";
             this.lblReason.Size = new System.Drawing.Size(37, 17);
             this.lblReason.TabIndex = 58;
-            this.lblReason.Text = "السبب :";
             this.lblReason.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblMonthlyCost
@@ -956,7 +871,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblMonthlyCost.Name = "lblMonthlyCost";
             this.lblMonthlyCost.Size = new System.Drawing.Size(67, 17);
             this.lblMonthlyCost.TabIndex = 61;
-            this.lblMonthlyCost.Text = "الكلفة الشهرية :";
             this.lblMonthlyCost.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblSchoolName
@@ -967,7 +881,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblSchoolName.Name = "lblSchoolName";
             this.lblSchoolName.Size = new System.Drawing.Size(61, 17);
             this.lblSchoolName.TabIndex = 64;
-            this.lblSchoolName.Text = "اسم المدرسة :";
             this.lblSchoolName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblStudyStage
@@ -978,7 +891,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblStudyStage.Name = "lblStudyStage";
             this.lblStudyStage.Size = new System.Drawing.Size(78, 17);
             this.lblStudyStage.TabIndex = 63;
-            this.lblStudyStage.Text = "المرحلة الدراسية :";
             this.lblStudyStage.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblIsStudying
@@ -989,7 +901,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblIsStudying.Name = "lblIsStudying";
             this.lblIsStudying.Size = new System.Drawing.Size(36, 17);
             this.lblIsStudying.TabIndex = 62;
-            this.lblIsStudying.Text = "يدرس :";
             this.lblIsStudying.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // RadLabel26
@@ -1020,8 +931,6 @@ namespace OrphanageV3.Views.Orphan
             this.pgeHealth.Location = new System.Drawing.Point(10, 37);
             this.pgeHealth.Name = "pgeHealth";
             this.pgeHealth.Size = new System.Drawing.Size(483, 345);
-            this.pgeHealth.Text = "بيانات صحية";
-            this.pgeHealth.ToolTipText = "بيانات صحية";
             // 
             // grpHPicReporte
             // 
@@ -1030,13 +939,11 @@ namespace OrphanageV3.Views.Orphan
             this.grpHPicReporte.Enabled = false;
             this.grpHPicReporte.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.grpHPicReporte.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpHPicReporte.HeaderText = "صورة التقريرالطبي";
             this.grpHPicReporte.Location = new System.Drawing.Point(5, 30);
             this.grpHPicReporte.Name = "grpHPicReporte";
             this.grpHPicReporte.Size = new System.Drawing.Size(232, 279);
             this.grpHPicReporte.TabIndex = 123137;
             this.grpHPicReporte.TabStop = false;
-            this.grpHPicReporte.Text = "صورة التقريرالطبي";
             this.grpHPicReporte.ThemeName = "ControlDefault";
             // 
             // picHReportPhoto
@@ -1074,7 +981,6 @@ namespace OrphanageV3.Views.Orphan
             this.txtHMedicen.Location = new System.Drawing.Point(259, 101);
             this.txtHMedicen.Multiline = true;
             this.txtHMedicen.Name = "txtHMedicen";
-            this.txtHMedicen.NullText = "الأدوية أسماء أدخل";
             this.txtHMedicen.Size = new System.Drawing.Size(160, 61);
             this.txtHMedicen.TabIndex = 42;
             // 
@@ -1097,27 +1003,12 @@ namespace OrphanageV3.Views.Orphan
             this.txtHDoctorName.Enabled = false;
             this.txtHDoctorName.Location = new System.Drawing.Point(259, 168);
             this.txtHDoctorName.Name = "txtHDoctorName";
-            this.txtHDoctorName.NullText = "أدخل اسم الطبيب المشرف";
             this.txtHDoctorName.Size = new System.Drawing.Size(160, 20);
             this.txtHDoctorName.TabIndex = 43;
             // 
             // txtHSicknessName
             // 
             this.txtHSicknessName.AcceptsTab = true;
-            radListDataItem3.Text = "سكري";
-            radListDataItem4.Text = "قلب";
-            radListDataItem5.Text = "سحايا";
-            radListDataItem6.Text = "توحد";
-            radListDataItem7.Text = "قصور كلوي";
-            radListDataItem8.Text = "بتر يد";
-            radListDataItem9.Text = "بتر قدم";
-            radListDataItem10.Text = "بتر ذراع";
-            radListDataItem11.Text = "بتر رجل";
-            radListDataItem12.Text = "شلل نصفي";
-            radListDataItem13.Text = "شلل رباعي";
-            radListDataItem14.Text = "صرع";
-            radListDataItem15.Text = "شقيقة";
-            radListDataItem16.Text = "سلّ";
             this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem3);
             this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem4);
             this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem5);
@@ -1138,7 +1029,6 @@ namespace OrphanageV3.Views.Orphan
             this.txtHSicknessName.Location = new System.Drawing.Point(259, 54);
             this.txtHSicknessName.Multiline = true;
             this.txtHSicknessName.Name = "txtHSicknessName";
-            this.txtHSicknessName.NullText = "المرض أسم أدخل";
             this.txtHSicknessName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtHSicknessName.Size = new System.Drawing.Size(160, 41);
             this.txtHSicknessName.TabIndex = 41;
@@ -1159,7 +1049,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblHealthNote.Name = "lblHealthNote";
             this.lblHealthNote.Size = new System.Drawing.Size(51, 17);
             this.lblHealthNote.TabIndex = 123127;
-            this.lblHealthNote.Text = "ملاحظات :";
             this.lblHealthNote.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblHealthCost
@@ -1170,7 +1059,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblHealthCost.Name = "lblHealthCost";
             this.lblHealthCost.Size = new System.Drawing.Size(33, 17);
             this.lblHealthCost.TabIndex = 123126;
-            this.lblHealthCost.Text = "الكلفة :";
             this.lblHealthCost.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblDoctor
@@ -1181,7 +1069,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblDoctor.Name = "lblDoctor";
             this.lblDoctor.Size = new System.Drawing.Size(40, 17);
             this.lblDoctor.TabIndex = 123125;
-            this.lblDoctor.Text = "الطبيب :";
             this.lblDoctor.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblMedicen
@@ -1192,7 +1079,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblMedicen.Name = "lblMedicen";
             this.lblMedicen.Size = new System.Drawing.Size(39, 17);
             this.lblMedicen.TabIndex = 123130;
-            this.lblMedicen.Text = "الأدوية :";
             this.lblMedicen.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblIsSick
@@ -1203,7 +1089,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblIsSick.Name = "lblIsSick";
             this.lblIsSick.Size = new System.Drawing.Size(41, 17);
             this.lblIsSick.TabIndex = 123129;
-            this.lblIsSick.Text = "مريض :";
             this.lblIsSick.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblSicknessName
@@ -1214,7 +1099,6 @@ namespace OrphanageV3.Views.Orphan
             this.lblSicknessName.Name = "lblSicknessName";
             this.lblSicknessName.Size = new System.Drawing.Size(59, 17);
             this.lblSicknessName.TabIndex = 123128;
-            this.lblSicknessName.Text = "اسم المرض :";
             this.lblSicknessName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnBondsMan
@@ -1223,7 +1107,6 @@ namespace OrphanageV3.Views.Orphan
             this.btnBondsMan.Name = "btnBondsMan";
             this.btnBondsMan.Size = new System.Drawing.Size(80, 24);
             this.btnBondsMan.TabIndex = 16;
-            this.btnBondsMan.Text = "تغير المعيل";
             // 
             // btnCancel
             // 
@@ -1232,7 +1115,6 @@ namespace OrphanageV3.Views.Orphan
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "الغاء";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
@@ -1241,7 +1123,6 @@ namespace OrphanageV3.Views.Orphan
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 24);
             this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "حفظ";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // OrphanerrorProvider1

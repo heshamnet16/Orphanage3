@@ -93,6 +93,7 @@
             this.btnShowFathers.Text = "";
             this.btnShowFathers.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowFathers.ToolTipText = "عرض الآباء";
+            this.btnShowFathers.Click += new System.EventHandler(this.btnShowFathers_Click);
             // 
             // btnShowMothers
             // 
@@ -106,6 +107,7 @@
             this.btnShowMothers.Text = "";
             this.btnShowMothers.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowMothers.ToolTipText = "عرض الأمهات!";
+            this.btnShowMothers.Click += new System.EventHandler(this.btnShowMothers_Click);
             // 
             // mnuSep2
             // 
@@ -242,6 +244,7 @@
             this.btnShowFamilies.Text = "";
             this.btnShowFamilies.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowFamilies.ToolTipText = "عرض العائلات";
+            this.btnShowFamilies.Click += new System.EventHandler(this.btnShowFamilies_Click);
             // 
             // CommandBarRowElement3
             // 
@@ -287,6 +290,7 @@
             this.orphanageGridView1.IdColumnName = "Id";
             this.orphanageGridView1.Location = new System.Drawing.Point(3, 48);
             this.orphanageGridView1.Name = "orphanageGridView1";
+            this.orphanageGridView1.ShowHiddenRows = false;
             this.orphanageGridView1.Size = new System.Drawing.Size(1123, 451);
             this.orphanageGridView1.TabIndex = 0;
             this.orphanageGridView1.Load += new System.EventHandler(this.orphanageGridView1_Load);

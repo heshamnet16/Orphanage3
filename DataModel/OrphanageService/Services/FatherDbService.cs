@@ -312,5 +312,24 @@ namespace OrphanageService.Services
                 return orphans;
             }
         }
+
+        public async Task SetFatherColor(int Fid, int? value)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var father = await _orphanageDBC.Fathers.Where(m => m.Id == Fid).FirstOrDefaultAsync();
+
+                if (father == null)
+                    return;
+
+                father.ColorMark = value;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
     }
 }

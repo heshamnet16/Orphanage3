@@ -30,6 +30,8 @@ namespace OrphanageService.Services.Interfaces
         /// <returns></returns>
         IEnumerable<OrphanageDataModel.Persons.Guarantor> GetGuarantorByName(OrphanageDataModel.RegularData.Name nameObject, OrphanageDbCNoBinary orphanageDbCNo);
 
+        Task SetGuarantorColor(int Fid, int? value);
+
         /// <summary>
         /// get Guarantor with the same address object
         /// </summary>

@@ -50,9 +50,46 @@ namespace OrphanageService.Services
             }
         }
 
-        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetExcludedOrphans()
         {
             IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var orphans = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Education)
+                    .Include(o => o.Name)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
+                    .Include(o => o.Bail)
+                    .Include(o => o.HealthStatus)
+                    .Where(o => o.IsExcluded.HasValue && o.IsExcluded == true)
+                    .ToListAsync();
+
+                return prepareOrphansList(orphans);
+            }
+        }
+
+        private IEnumerable<OrphanageDataModel.Persons.Orphan> prepareOrphansList(IList<OrphanageDataModel.Persons.Orphan> orphansList)
+        {
+            if (orphansList == null || orphansList.Count == 0) return null;
+            IList<OrphanageDataModel.Persons.Orphan> returnedOrphansList = new List<OrphanageDataModel.Persons.Orphan>();
+            foreach (var orphan in orphansList)
+            {
+                var orphanTofill = orphan;
+                _loopBlocking.BlockOrphanSelfLoop(ref orphanTofill);
+                _uriGenerator.SetOrphanUris(ref orphanTofill);
+                returnedOrphansList.Add(orphanTofill);
+            }
+            return returnedOrphansList;
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum)
+        {
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -77,15 +114,8 @@ namespace OrphanageService.Services
                     .Include(o => o.HealthStatus)
                     .ToListAsync();
 
-                foreach (var orphan in orphans)
-                {
-                    var orphanTofill = orphan;
-                    _loopBlocking.BlockOrphanSelfLoop(ref orphanTofill);
-                    _uriGenerator.SetOrphanUris(ref orphanTofill);
-                    orphansList.Add(orphanTofill);
-                }
+                return prepareOrphansList(orphans);
             }
-            return orphansList;
         }
 
         public async Task<int> GetOrphansCount()
@@ -687,8 +717,6 @@ namespace OrphanageService.Services
 
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(IList<int> ids)
         {
-            IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
-
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var orphans = await _orphanageDBC.Orphans.AsNoTracking()
@@ -706,16 +734,40 @@ namespace OrphanageService.Services
                     .Include(o => o.HealthStatus)
                     .ToListAsync();
 
-                foreach (var orphan in orphans)
-                {
-                    var orphanTofill = orphan;
-                    _loopBlocking.BlockOrphanSelfLoop(ref orphanTofill);
-                    _uriGenerator.SetOrphanUris(ref orphanTofill);
-                    orphansList.Add(orphanTofill);
-                }
+                return prepareOrphansList(orphans);
             }
+        }
 
-            return orphansList;
+        public async Task SetOrphanColor(int Fid, int? value)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans
+                    .Where(o => o.Id == Fid).FirstOrDefaultAsync();
+
+                orphan.ColorMark = value;
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetOrphanExclude(int Fid, bool value)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var orphan = await _orphanageDBC.Orphans
+                    .Where(o => o.Id == Fid).FirstOrDefaultAsync();
+
+                orphan.IsExcluded = value;
+                await _orphanageDBC.SaveChangesAsync();
+            }
         }
     }
 }

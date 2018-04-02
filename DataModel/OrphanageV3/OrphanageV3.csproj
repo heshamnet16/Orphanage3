@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Output\Orphanage3\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -161,6 +161,7 @@
     <Compile Include="ViewModel\Father\FatherEditViewModel.cs" />
     <Compile Include="ViewModel\Father\FatherModel.cs" />
     <Compile Include="ViewModel\Father\FathersViewModel.cs" />
+    <Compile Include="ViewModel\Main\MainViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
     <Compile Include="ViewModel\Mother\MothersViewModel.cs" />
@@ -272,6 +273,12 @@
     <Compile Include="Views\Summary\SummaryView.Designer.cs">
       <DependentUpon>SummaryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tools\SettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\SettingView.Designer.cs">
+      <DependentUpon>SettingView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controlls\AddressForm.resx">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,6 +349,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Summary\SummaryView.resx">
       <DependentUpon>SummaryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\SettingView.resx">
+      <DependentUpon>SettingView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Caregiver.datasource" />
@@ -430,6 +440,7 @@
   <ItemGroup>
     <None Include="Resources\BrowseFamily.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

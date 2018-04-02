@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Output\</OutputPath>
+    <OutputPath>..\..\Output\OrphanageService\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -156,6 +156,7 @@
     <Compile Include="Father\Controllers\FMediaController.cs" />
     <Compile Include="Filters\CacheFilter.cs" />
     <Compile Include="Guarantor\Controllers\GuarantorsController.cs" />
+    <Compile Include="Info\Controllers\InfosController.cs" />
     <Compile Include="Mother\Controllers\MMediaController.cs" />
     <Compile Include="Mother\Controllers\MothersController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />

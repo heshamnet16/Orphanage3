@@ -322,5 +322,24 @@ namespace OrphanageService.Services
                 return ret > 0 ? true : false;
             }
         }
+
+        public async Task SetGuarantorColor(int Gid, int? value)
+        {
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var guarantor = await _orphanageDBC.Guarantors.Where(m => m.Id == Gid).FirstOrDefaultAsync();
+
+                if (guarantor == null)
+                    return;
+
+                guarantor.ColorMark = value;
+
+                await _orphanageDBC.SaveChangesAsync();
+            }
+        }
     }
 }

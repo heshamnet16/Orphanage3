@@ -29,6 +29,7 @@ namespace OrphanageService.Family.Controllers
         [Route("{id}")]
         public async Task<OrphanageDataModel.RegularData.Family> Get(int id)
         {
+            if (id <= 0) return null;
             var ret = await _FamilyDBService.GetFamily(id);
             if (ret == null)
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
@@ -57,6 +58,39 @@ namespace OrphanageService.Family.Controllers
             {
                 return _httpMessageConfiguerer.NothingChanged();
             }
+        }
+
+        [HttpPut]
+        [Route("color")]
+        public async Task<HttpResponseMessage> SetFamilyColor(int FamilyId, int colorValue)
+        {
+            try
+            {
+                if (colorValue == -1)
+                    await _FamilyDBService.SetFamilyColor(FamilyId, null);
+                else
+                    await _FamilyDBService.SetFamilyColor(FamilyId, colorValue);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfiguerer.OK();
+        }
+
+        [HttpPut]
+        [Route("exclude")]
+        public async Task<HttpResponseMessage> SetFamilyExclude(int FamilyId, bool value)
+        {
+            try
+            {
+                await _FamilyDBService.SetFamilyExclude(FamilyId, value);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfiguerer.OK();
         }
 
         [HttpPost]
@@ -106,6 +140,7 @@ namespace OrphanageService.Family.Controllers
         [Route("byIds")]
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetByIds([FromUri] IList<int> familiesIds)
         {
+            if (familiesIds == null || familiesIds.Count == 0) return null;
             var ret = await _FamilyDBService.GetFamilies(familiesIds);
             if (ret == null)
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
@@ -122,6 +157,14 @@ namespace OrphanageService.Family.Controllers
         }
 
         [HttpGet]
+        [Route("excluded")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetExcluded()
+        {
+            return await _FamilyDBService.GetExcludedFamilies();
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetFamiliesCount()
@@ -134,6 +177,7 @@ namespace OrphanageService.Family.Controllers
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetFamilyOrphans(int famId)
         {
+            if (famId <= 0) return null;
             return await _FamilyDBService.GetOrphans(famId);
         }
 

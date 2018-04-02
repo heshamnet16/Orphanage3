@@ -1046,4 +1046,61 @@
   <data name="OrphanAddedSuccess" xml:space="preserve">
     <value>تم إنشاء يتيم بنجاح</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="Baild" xml:space="preserve">
+    <value>مكفولين</value>
+  </data>
+  <data name="Excluded" xml:space="preserve">
+    <value>مستبعدين</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="Orphans" xml:space="preserve">
+    <value>ايتام</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="UnBaild" xml:space="preserve">
+    <value>غير مكفولين</value>
+  </data>
+  <data name="UnExcluded" xml:space="preserve">
+    <value>غير مستبعدين</value>
+  </data>
+  <data name="BailedFamilies" xml:space="preserve">
+    <value>مكفولة</value>
+  </data>
+  <data name="ExcludedFamilies" xml:space="preserve">
+    <value>مستبعدة</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>إعدادات</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>ادوات</value>
+  </data>
+  <data name="UnBailedFamilies" xml:space="preserve">
+    <value>غير مكفولة</value>
+  </data>
+  <data name="BaseUrl" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Connection" xml:space="preserve">
+    <value>الإتصال</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+  <data name="CheckConnection" xml:space="preserve">
+    <value>افحص الاتصال</value>
+  </data>
+  <data name="RemoteAddress" xml:space="preserve">
+    <value>عنوان المضيف</value>
+  </data>
 </root>

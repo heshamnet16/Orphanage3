@@ -83,8 +83,8 @@ namespace OrphanageV3.ViewModel.Caregiver
             if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
                 caregiver.ColorMark = colorValue;
             else
-                caregiver.ColorMark = null;
-            await _apiClient.CaregiversController_PutAsync(caregiver);
+                caregiver.ColorMark = -1;
+            await _apiClient.CaregiversController_SetCaregiverColorAsync(caregiver.Id, (int)caregiver.ColorMark.Value);
             return caregiver.ColorMark;
         }
 

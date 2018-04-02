@@ -55,9 +55,19 @@ namespace OrphanageV3.ViewModel.Family
         public async void LoadFamilies(IEnumerable<int> familiesIdsList)
         {
             var ReturnedFamilies = await _apiClient.FamiliesController_GetByIdsAsync(familiesIdsList);
-
+            if (ReturnedFamilies == null) return;
             _SourceFamilies = ReturnedFamilies;
 
+            Families = new ObservableCollection<FamilyModel>(_mapperService.MapToFamilyModel(_SourceFamilies));
+            UpdateFamilyOrphansCount();
+            UpdateFamilyBails();
+            DataLoaded?.Invoke(this, new EventArgs());
+        }
+
+        public void LoadFamilies(IEnumerable<OrphanageDataModel.RegularData.Family> familieslist)
+        {
+            if (familieslist == null) return;
+            _SourceFamilies = familieslist.ToList();
             Families = new ObservableCollection<FamilyModel>(_mapperService.MapToFamilyModel(_SourceFamilies));
             UpdateFamilyOrphansCount();
             UpdateFamilyBails();
@@ -120,8 +130,8 @@ namespace OrphanageV3.ViewModel.Family
             if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
                 family.ColorMark = colorValue;
             else
-                family.ColorMark = null;
-            await _apiClient.FamiliesController_PutAsync(family);
+                family.ColorMark = -1;
+            await _apiClient.FamiliesController_SetFamilyColorAsync(family.Id, (int)family.ColorMark.Value);
             return family.ColorMark;
         }
 
@@ -209,7 +219,19 @@ namespace OrphanageV3.ViewModel.Family
                 var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
                 var family = Families.FirstOrDefault(o => o.Id == famId);
                 sourceFamily.IsExcluded = family.IsExcluded = true;
-                await _apiClient.FamiliesController_PutAsync(sourceFamily);
+                await _apiClient.FamiliesController_SetFamilyExcludeAsync(sourceFamily.Id, true);
+            }
+        }
+
+        public async Task UnExclude(IEnumerable<int> familiesIds)
+        {
+            if (familiesIds == null) return;
+            foreach (var famId in familiesIds)
+            {
+                var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
+                var family = Families.FirstOrDefault(o => o.Id == famId);
+                sourceFamily.IsExcluded = family.IsExcluded = false;
+                await _apiClient.FamiliesController_SetFamilyExcludeAsync(sourceFamily.Id, false);
             }
         }
 

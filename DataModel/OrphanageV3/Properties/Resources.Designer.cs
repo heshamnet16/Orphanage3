@@ -170,6 +170,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الكل ähnelt.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die و ähnelt.
         /// </summary>
         public static string AndString {
@@ -193,6 +202,24 @@ namespace OrphanageV3.Properties {
         public static string BailAmount {
             get {
                 return ResourceManager.GetString("BailAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مكفولين ähnelt.
+        /// </summary>
+        public static string Baild {
+            get {
+                return ResourceManager.GetString("Baild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مكفولة ähnelt.
+        /// </summary>
+        public static string BailedFamilies {
+            get {
+                return ResourceManager.GetString("BailedFamilies", resourceCulture);
             }
         }
         
@@ -230,6 +257,15 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("BailPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die العنوان ähnelt.
+        /// </summary>
+        public static string BaseUrl {
+            get {
+                return ResourceManager.GetString("BaseUrl", resourceCulture);
             }
         }
         
@@ -451,6 +487,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die افحص الاتصال ähnelt.
+        /// </summary>
+        public static string CheckConnection {
+            get {
+                return ResourceManager.GetString("CheckConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap ChildrenPic {
@@ -639,6 +684,15 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("ColumnsPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الإتصال ähnelt.
+        /// </summary>
+        public static string Connection {
+            get {
+                return ResourceManager.GetString("Connection", resourceCulture);
             }
         }
         
@@ -911,6 +965,24 @@ namespace OrphanageV3.Properties {
         public static string Exclude {
             get {
                 return ResourceManager.GetString("Exclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مستبعدين ähnelt.
+        /// </summary>
+        public static string Excluded {
+            get {
+                return ResourceManager.GetString("Excluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die مستبعدة ähnelt.
+        /// </summary>
+        public static string ExcludedFamilies {
+            get {
+                return ResourceManager.GetString("ExcludedFamilies", resourceCulture);
             }
         }
         
@@ -1864,6 +1936,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die جديد ähnelt.
+        /// </summary>
+        public static string New {
+            get {
+                return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die معيل جديد ähnelt.
         /// </summary>
         public static string NewCaregiver {
@@ -2215,6 +2296,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ايتام ähnelt.
+        /// </summary>
+        public static string Orphans {
+            get {
+                return ResourceManager.GetString("Orphans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عدد الايتام ähnelt.
         /// </summary>
         public static string OrphansCount {
@@ -2367,6 +2457,15 @@ namespace OrphanageV3.Properties {
         public static string RegDate {
             get {
                 return ResourceManager.GetString("RegDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عنوان المضيف ähnelt.
+        /// </summary>
+        public static string RemoteAddress {
+            get {
+                return ResourceManager.GetString("RemoteAddress", resourceCulture);
             }
         }
         
@@ -2588,6 +2687,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إعدادات ähnelt.
+        /// </summary>
+        public static string Setting {
+            get {
+                return ResourceManager.GetString("Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عرض ähnelt.
+        /// </summary>
+        public static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عرض الكفالات ähnelt.
         /// </summary>
         public static string ShowBails {
@@ -2670,6 +2787,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الحالة ähnelt.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die القصة ähnelt.
         /// </summary>
         public static string Story {
@@ -2702,6 +2828,15 @@ namespace OrphanageV3.Properties {
         public static string Tallness {
             get {
                 return ResourceManager.GetString("Tallness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ادوات ähnelt.
+        /// </summary>
+        public static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
             }
         }
         
@@ -2751,11 +2886,38 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير مكفولين ähnelt.
+        /// </summary>
+        public static string UnBaild {
+            get {
+                return ResourceManager.GetString("UnBaild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير مكفولة ähnelt.
+        /// </summary>
+        public static string UnBailedFamilies {
+            get {
+                return ResourceManager.GetString("UnBailedFamilies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الغاء الاستبعاد ähnelt.
         /// </summary>
         public static string UnExclude {
             get {
                 return ResourceManager.GetString("UnExclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير مستبعدين ähnelt.
+        /// </summary>
+        public static string UnExcluded {
+            get {
+                return ResourceManager.GetString("UnExcluded", resourceCulture);
             }
         }
         
@@ -2814,6 +2976,15 @@ namespace OrphanageV3.Properties {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الإصدار ähnelt.
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
             }
         }
         

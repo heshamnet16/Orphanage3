@@ -294,6 +294,7 @@
             this.radWizard1.Controls.Add(this.pnlCaregiverOtherData);
             this.radWizard1.Controls.Add(this.panel4);
             this.radWizard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radWizard1.EnableAeroStyle = false;
             this.radWizard1.Location = new System.Drawing.Point(0, 0);
             this.radWizard1.Mode = Telerik.WinControls.UI.WizardMode.Aero;
             this.radWizard1.Name = "radWizard1";
@@ -890,8 +891,7 @@
             // 
             // picEdiucationCertificate2
             // 
-            this.picEdiucationCertificate2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picEdiucationCertificate2.BackgroundImage")));
-            this.picEdiucationCertificate2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picEdiucationCertificate2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEdiucationCertificate2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picEdiucationCertificate2.Location = new System.Drawing.Point(2, 18);
             this.picEdiucationCertificate2.Name = "picEdiucationCertificate2";
@@ -918,8 +918,7 @@
             // 
             // picEducationCertificate1
             // 
-            this.picEducationCertificate1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picEducationCertificate1.BackgroundImage")));
-            this.picEducationCertificate1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picEducationCertificate1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEducationCertificate1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picEducationCertificate1.Location = new System.Drawing.Point(2, 18);
             this.picEducationCertificate1.Name = "picEducationCertificate1";
@@ -993,7 +992,7 @@
             this.txtEducationReasons.Location = new System.Drawing.Point(6, 24);
             this.txtEducationReasons.Name = "txtEducationReasons";
             this.txtEducationReasons.NullText = "s";
-            this.txtEducationReasons.Size = new System.Drawing.Size(210, 20);
+            this.txtEducationReasons.Size = new System.Drawing.Size(210, 0);
             this.txtEducationReasons.TabIndex = 52;
             this.txtEducationReasons.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
             this.txtEducationReasons.Leave += new System.EventHandler(this.ReturnSavedLanguage_Enter);
@@ -1024,7 +1023,7 @@
             this.txtEducationStage.Location = new System.Drawing.Point(164, 86);
             this.txtEducationStage.Name = "txtEducationStage";
             this.txtEducationStage.NullText = "s";
-            this.txtEducationStage.Size = new System.Drawing.Size(124, 20);
+            this.txtEducationStage.Size = new System.Drawing.Size(124, 0);
             this.txtEducationStage.TabIndex = 54;
             this.txtEducationStage.Text = "s";
             this.txtEducationStage.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
@@ -1041,7 +1040,7 @@
             this.txtEducationSchool.Location = new System.Drawing.Point(164, 63);
             this.txtEducationSchool.Name = "txtEducationSchool";
             this.txtEducationSchool.NullText = "s";
-            this.txtEducationSchool.Size = new System.Drawing.Size(124, 20);
+            this.txtEducationSchool.Size = new System.Drawing.Size(124, 0);
             this.txtEducationSchool.TabIndex = 53;
             this.txtEducationSchool.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
             this.txtEducationSchool.Leave += new System.EventHandler(this.ReturnSavedLanguage_Enter);
@@ -1156,8 +1155,7 @@
             // 
             // PicOBodyPhoto
             // 
-            this.PicOBodyPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicOBodyPhoto.BackgroundImage")));
-            this.PicOBodyPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicOBodyPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PicOBodyPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicOBodyPhoto.Location = new System.Drawing.Point(2, 18);
             this.PicOBodyPhoto.Name = "PicOBodyPhoto";
@@ -1182,8 +1180,7 @@
             // 
             // PicOFacePhoto
             // 
-            this.PicOFacePhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicOFacePhoto.BackgroundImage")));
-            this.PicOFacePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicOFacePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PicOFacePhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicOFacePhoto.Location = new System.Drawing.Point(2, 18);
             this.PicOFacePhoto.Name = "PicOFacePhoto";
@@ -1247,8 +1244,7 @@
             // 
             // picOFamilyCardPhoto
             // 
-            this.picOFamilyCardPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picOFamilyCardPhoto.BackgroundImage")));
-            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picOFamilyCardPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picOFamilyCardPhoto.Location = new System.Drawing.Point(2, 18);
             this.picOFamilyCardPhoto.Name = "picOFamilyCardPhoto";
@@ -1273,8 +1269,7 @@
             // 
             // picObirthCertificate
             // 
-            this.picObirthCertificate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picObirthCertificate.BackgroundImage")));
-            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picObirthCertificate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picObirthCertificate.Location = new System.Drawing.Point(2, 18);
             this.picObirthCertificate.Name = "picObirthCertificate";
@@ -1325,8 +1320,7 @@
             // 
             // picHealthReportPhoto
             // 
-            this.picHealthReportPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHealthReportPhoto.BackgroundImage")));
-            this.picHealthReportPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picHealthReportPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picHealthReportPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picHealthReportPhoto.Location = new System.Drawing.Point(2, 18);
             this.picHealthReportPhoto.Name = "picHealthReportPhoto";
@@ -1660,7 +1654,7 @@
             0,
             0});
             this.numCaregiverIncome.Name = "numCaregiverIncome";
-            this.numCaregiverIncome.Size = new System.Drawing.Size(190, 20);
+            this.numCaregiverIncome.Size = new System.Drawing.Size(190, 0);
             this.numCaregiverIncome.TabIndex = 85;
             this.numCaregiverIncome.TabStop = false;
             // 
@@ -1699,7 +1693,7 @@
             this.txtCaregiverIdentityCardId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caregiverBindingSource, "IdentityCardId", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtCaregiverIdentityCardId.Location = new System.Drawing.Point(6, 49);
             this.txtCaregiverIdentityCardId.Name = "txtCaregiverIdentityCardId";
-            this.txtCaregiverIdentityCardId.Size = new System.Drawing.Size(190, 20);
+            this.txtCaregiverIdentityCardId.Size = new System.Drawing.Size(190, 0);
             this.txtCaregiverIdentityCardId.TabIndex = 83;
             // 
             // txtCaregiverJop
@@ -1733,7 +1727,7 @@
             this.txtCaregiverJop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caregiverBindingSource, "Jop", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtCaregiverJop.Location = new System.Drawing.Point(5, 23);
             this.txtCaregiverJop.Name = "txtCaregiverJop";
-            this.txtCaregiverJop.Size = new System.Drawing.Size(190, 20);
+            this.txtCaregiverJop.Size = new System.Drawing.Size(190, 0);
             this.txtCaregiverJop.TabIndex = 83;
             this.txtCaregiverJop.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
             this.txtCaregiverJop.Leave += new System.EventHandler(this.ReturnSavedLanguage_Enter);
@@ -1900,8 +1894,7 @@
             // 
             // picCaregiverIdPhotoBack
             // 
-            this.picCaregiverIdPhotoBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picCaregiverIdPhotoBack.BackgroundImage")));
-            this.picCaregiverIdPhotoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCaregiverIdPhotoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picCaregiverIdPhotoBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picCaregiverIdPhotoBack.Location = new System.Drawing.Point(2, 18);
             this.picCaregiverIdPhotoBack.Name = "picCaregiverIdPhotoBack";
@@ -1925,8 +1918,7 @@
             // 
             // picCaregiverIdPhotoFace
             // 
-            this.picCaregiverIdPhotoFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picCaregiverIdPhotoFace.BackgroundImage")));
-            this.picCaregiverIdPhotoFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCaregiverIdPhotoFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picCaregiverIdPhotoFace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picCaregiverIdPhotoFace.Location = new System.Drawing.Point(2, 18);
             this.picCaregiverIdPhotoFace.Name = "picCaregiverIdPhotoFace";
@@ -2023,6 +2015,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 371);
             this.Controls.Add(this.radWizard1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(555, 401);
             this.Name = "AddOrphanView";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

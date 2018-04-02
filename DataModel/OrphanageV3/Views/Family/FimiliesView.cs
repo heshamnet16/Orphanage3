@@ -13,6 +13,7 @@ namespace OrphanageV3.Views.Family
         private FamiliesViewModel _familiesViewModel = Program.Factory.Resolve<FamiliesViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _FamiliesIdsList;
+        private IEnumerable<OrphanageDataModel.RegularData.Family> _FamiliesList;
 
         public FimiliesView()
         {
@@ -26,6 +27,15 @@ namespace OrphanageV3.Views.Family
         {
             InitializeComponent();
             _FamiliesIdsList = FamiliesIdsList;
+            SetObjectsDefaultsAndEvents();
+            TranslateControls();
+        }
+
+        public FimiliesView(IEnumerable<OrphanageDataModel.RegularData.Family> FamiliesList)
+        {
+            InitializeComponent();
+            _FamiliesList = FamiliesList;
+            orphanageGridView1.ShowHiddenRows = true;
             SetObjectsDefaultsAndEvents();
             TranslateControls();
         }
@@ -81,8 +91,9 @@ namespace OrphanageV3.Views.Family
                 if (IsExcludedObject != null)
                 {
                     bool isExcluded;
-                    bool.TryParse(IsBailedObject.ToString(), out isExcluded);
-                    btnExclude.Enabled = !isExcluded;
+                    bool.TryParse(IsExcludedObject.ToString(), out isExcluded);
+                    btnExclude.Image = isExcluded ? Properties.Resources.UnhidePic : Properties.Resources.HidePic;
+                    btnExclude.ToolTipText = isExcluded ? Properties.Resources.UnExclude : Properties.Resources.Exclude;
                 }
                 if (orphanageGridView1.SelectedRows.Count == 1)
                 {
@@ -109,7 +120,12 @@ namespace OrphanageV3.Views.Family
             if (_FamiliesIdsList != null)
                 _familiesViewModel.LoadFamilies(_FamiliesIdsList);
             else
-                _familiesViewModel.LoadFamilies();
+            {
+                if (_FamiliesList != null)
+                    _familiesViewModel.LoadFamilies(_FamiliesList);
+                else
+                    _familiesViewModel.LoadFamilies();
+            }
             //set default grid values
             orphanageGridView1.GridView.AllowAutoSizeColumns = true;
             orphanageGridView1.GridView.PageSize = Properties.Settings.Default.DefaultPageSize;
@@ -123,6 +139,7 @@ namespace OrphanageV3.Views.Family
                 return;
             var retOIds = _familiesViewModel.OrphansIds(selectedIds);
             Orphan.OrphansView or = new Orphan.OrphansView(retOIds);
+            or.MdiParent = this.MdiParent;
             or.Show();
         }
 
@@ -159,6 +176,7 @@ namespace OrphanageV3.Views.Family
                 return;
             var retOIds = _familiesViewModel.MothersIds(selectedIds);
             Mother.MothersView or = new Mother.MothersView(retOIds);
+            or.MdiParent = this.MdiParent;
             or.Show();
         }
 
@@ -187,12 +205,16 @@ namespace OrphanageV3.Views.Family
                 return;
             var retOIds = _familiesViewModel.FathersIds(selectedIds);
             FathersView or = new FathersView(retOIds);
+            or.MdiParent = this.MdiParent;
             or.Show();
         }
 
         private async void btnExclude_Click(object sender, EventArgs e)
         {
-            await _familiesViewModel.Exclude(orphanageGridView1.SelectedIds);
+            if (btnExclude.ToolTipText == Properties.Resources.Exclude)
+                await _familiesViewModel.Exclude(orphanageGridView1.SelectedIds);
+            else
+                await _familiesViewModel.UnExclude(orphanageGridView1.SelectedIds);
         }
     }
 }

@@ -92,6 +92,24 @@ namespace OrphanageService.Guarantor.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("color")]
+        public async Task<HttpResponseMessage> SetGuarantorColor(int guarantorId, int colorValue)
+        {
+            try
+            {
+                if (colorValue == -1)
+                    await _GuarantorDBService.SetGuarantorColor(guarantorId, null);
+                else
+                    await _GuarantorDBService.SetGuarantorColor(guarantorId, colorValue);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfiguerer.OK();
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object guarantor)

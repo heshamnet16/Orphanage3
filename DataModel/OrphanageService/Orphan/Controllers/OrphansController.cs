@@ -57,6 +57,14 @@ namespace OrphanageService.Orphan.Controllers
         }
 
         [HttpGet]
+        [Route("excluded")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetExcluded()
+        {
+            return await _OrphanDBService.GetExcludedOrphans();
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetOrphansCount()
@@ -131,6 +139,39 @@ namespace OrphanageService.Orphan.Controllers
             {
                 return _httpMessageConfigurere.NothingChanged();
             }
+        }
+
+        [HttpPut]
+        [Route("color")]
+        public async Task<HttpResponseMessage> SetOrphanColor(int orphanId, int colorValue)
+        {
+            try
+            {
+                if (colorValue == -1)
+                    await _OrphanDBService.SetOrphanColor(orphanId, null);
+                else
+                    await _OrphanDBService.SetOrphanColor(orphanId, colorValue);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfigurere.OK();
+        }
+
+        [HttpPut]
+        [Route("exclude")]
+        public async Task<HttpResponseMessage> SetOrphanExclude(int orphanId, bool value)
+        {
+            try
+            {
+                await _OrphanDBService.SetOrphanExclude(orphanId, value);
+            }
+            catch (DbEntityValidationException excp)
+            {
+                throw _exceptionHandlerService.HandleValidationException(excp);
+            }
+            return _httpMessageConfigurere.OK();
         }
 
         [HttpDelete]
