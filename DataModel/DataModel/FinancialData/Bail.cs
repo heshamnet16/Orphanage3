@@ -20,7 +20,7 @@ namespace OrphanageDataModel.FinancialData
         public int Id { get; set; }
 
         [Column("Supporter_ID")]
-        public int? GuarantorID { get; set; }
+        public int GuarantorID { get; set; }
 
         public virtual Guarantor Guarantor { get; set; }
 
