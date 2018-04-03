@@ -1103,4 +1103,10 @@
   <data name="RemoteAddress" xml:space="preserve">
     <value>عنوان المضيف</value>
   </data>
+  <data name="Connected" xml:space="preserve">
+    <value>متصل</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>غير متصل</value>
+  </data>
 </root>

@@ -54,7 +54,11 @@ namespace OrphanageService.Utilities
                 foreach (var fam in fatherDto.Families)
                 {
                     var familyDC = fam;
-                    SetFamilyUris(ref familyDC);
+                    if (familyDC.FamilyCardImagePage1URI == null || familyDC.FamilyCardImagePage1URI.Length == 0 ||
+                        familyDC.FamilyCardImagePage2URI == null || familyDC.FamilyCardImagePage2URI.Length == 0)
+                    {
+                        SetFamilyUris(ref familyDC);
+                    }
                     tempList.Add(familyDC);
                 }
                 fatherDto.Families = tempList;
@@ -72,7 +76,11 @@ namespace OrphanageService.Utilities
                 foreach (var fam in motherDto.Families)
                 {
                     var familyDto = fam;
-                    SetFamilyUris(ref familyDto);
+                    if (familyDto.FamilyCardImagePage1URI == null || familyDto.FamilyCardImagePage1URI.Length == 0 ||
+                        familyDto.FamilyCardImagePage2URI == null || familyDto.FamilyCardImagePage2URI.Length == 0)
+                    {
+                        SetFamilyUris(ref familyDto);
+                    }
                     tempList.Add(familyDto);
                 }
                 motherDto.Families = tempList;
@@ -89,7 +97,11 @@ namespace OrphanageService.Utilities
             if (orphanDC.Caregiver != null)
             {
                 OrphanageDataModel.Persons.Caregiver caregiverDC = orphanDC.Caregiver;
-                SetCaregiverUris(ref caregiverDC);
+                if (caregiverDC.IdentityCardImageBackURI == null || caregiverDC.IdentityCardImageBackURI.Length == 0 ||
+                   caregiverDC.IdentityCardImageFaceURI == null || caregiverDC.IdentityCardImageFaceURI.Length == 0)
+                {
+                    SetCaregiverUris(ref caregiverDC);
+                }
                 orphanDC.Caregiver = caregiverDC;
             }
             if (orphanDC.Education != null)
@@ -104,8 +116,12 @@ namespace OrphanageService.Utilities
             if (orphanDC.Family != null)
             {
                 var familyDC = orphanDC.Family;
-                SetFamilyUris(ref familyDC);
-                orphanDC.Family = familyDC;
+                if (familyDC.FamilyCardImagePage1URI == null || familyDC.FamilyCardImagePage1URI.Length == 0 ||
+                    familyDC.FamilyCardImagePage2URI == null || familyDC.FamilyCardImagePage2URI.Length == 0)
+                {
+                    SetFamilyUris(ref familyDC);
+                    orphanDC.Family = familyDC;
+                }
             }
         }
     }

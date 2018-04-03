@@ -58,6 +58,7 @@
             // 
             // 
             this.radGridView.MasterTemplate.AllowAddNewRow = false;
+            this.radGridView.MasterTemplate.AllowCellContextMenu = false;
             this.radGridView.MasterTemplate.AllowColumnHeaderContextMenu = false;
             this.radGridView.MasterTemplate.AllowDeleteRow = false;
             this.radGridView.MasterTemplate.AllowEditRow = false;

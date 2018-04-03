@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.ViewModel.Orphan;
+using OrphanageV3.Views.Family;
 using OrphanageV3.Views.Father;
 using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageV3.Views.Mother;
@@ -315,7 +316,10 @@ namespace OrphanageV3.Views.Orphan
 
         private void btnShowFamilies_Click(object sender, EventArgs e)
         {
-            // Todo Show Families
+            var families = _orphansViewModel.GetFamilies(orphanageGridView1.SelectedIds);
+            FimiliesView fimiliesView = new FimiliesView(families);
+            fimiliesView.MdiParent = this.MdiParent;
+            fimiliesView.Show();
         }
     }
 }

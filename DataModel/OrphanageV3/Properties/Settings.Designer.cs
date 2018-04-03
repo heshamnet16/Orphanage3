@@ -23,75 +23,99 @@ namespace OrphanageV3.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("yyyy/MM/dd")]
         public string GeneralDateFormat {
             get {
                 return ((string)(this["GeneralDateFormat"]));
             }
+            set {
+                this["GeneralDateFormat"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool UseBackgroundColor {
             get {
                 return ((bool)(this["UseBackgroundColor"]));
             }
+            set {
+                this["UseBackgroundColor"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ShowHiddenRows {
             get {
                 return ((bool)(this["ShowHiddenRows"]));
             }
+            set {
+                this["ShowHiddenRows"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool UseFatherName {
             get {
                 return ((bool)(this["UseFatherName"]));
             }
+            set {
+                this["UseFatherName"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("-")]
         public char AddressSeparator {
             get {
                 return ((char)(this["AddressSeparator"]));
             }
+            set {
+                this["AddressSeparator"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Orphan.layout")]
         public string OrphanLayoutFilePath {
             get {
                 return ((string)(this["OrphanLayoutFilePath"]));
             }
+            set {
+                this["OrphanLayoutFilePath"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1515/")]
         public string OrphanageServiceURL {
             get {
                 return ((string)(this["OrphanageServiceURL"]));
             }
+            set {
+                this["OrphanageServiceURL"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("20")]
         public int DefaultPageSize {
             get {
                 return ((int)(this["DefaultPageSize"]));
+            }
+            set {
+                this["DefaultPageSize"] = value;
             }
         }
         

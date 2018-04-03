@@ -117,5 +117,19 @@ namespace OrphanageV3.ViewModel.Mother
             else
                 return null;
         }
+
+        public IList<int> FamiliesIds(int motherId)
+        {
+            var mother = _SourceMothers.FirstOrDefault(c => c.Id == motherId);
+            IList<int> familiesList = new List<int>();
+            foreach (var family in mother.Families)
+            {
+                familiesList.Add(family.Id);
+            }
+            if (familiesList != null && familiesList.Count > 0)
+                return familiesList;
+            else
+                return null;
+        }
     }
 }

@@ -94,6 +94,65 @@ namespace OrphanageV3.ViewModel.Caregiver
             return caregiver.Orphans.Select(o => o.Id).ToList();
         }
 
+        public async Task<IList<OrphanageDataModel.Persons.Orphan>> Orphans(int caregiverId)
+        {
+            return await _apiClient.CaregiversController_GetFamilyOrphansAsync(caregiverId);
+        }
+
+        public async Task<IList<int>> MothersIds(IEnumerable<int> caregiversIds)
+        {
+            if (caregiversIds == null || caregiversIds.Count() == 0) return null;
+            IList<int> returnedIds = new List<int>();
+            foreach (var id in caregiversIds)
+            {
+                var orphans = await Orphans(id);
+                if (orphans != null && orphans.Count > 0)
+                {
+                    foreach (var orphan in orphans)
+                    {
+                        returnedIds.Add(orphan.Family.MotherId);
+                    }
+                }
+            }
+            return returnedIds;
+        }
+
+        public async Task<IList<int>> FathersIds(IEnumerable<int> caregiversIds)
+        {
+            if (caregiversIds == null || caregiversIds.Count() == 0) return null;
+            IList<int> returnedIds = new List<int>();
+            foreach (var id in caregiversIds)
+            {
+                var orphans = await Orphans(id);
+                if (orphans != null && orphans.Count > 0)
+                {
+                    foreach (var orphan in orphans)
+                    {
+                        returnedIds.Add(orphan.Family.FatherId);
+                    }
+                }
+            }
+            return returnedIds;
+        }
+
+        public async Task<IList<int>> FamiliesIds(IEnumerable<int> caregiversIds)
+        {
+            if (caregiversIds == null || caregiversIds.Count() == 0) return null;
+            IList<int> returnedIds = new List<int>();
+            foreach (var id in caregiversIds)
+            {
+                var orphans = await Orphans(id);
+                if (orphans != null && orphans.Count > 0)
+                {
+                    foreach (var orphan in orphans)
+                    {
+                        returnedIds.Add(orphan.Family.Id);
+                    }
+                }
+            }
+            return returnedIds;
+        }
+
         public OrphanageDataModel.Persons.Caregiver GetSourceCaregiver(int caregiverModelId) =>
             _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverModelId);
     }

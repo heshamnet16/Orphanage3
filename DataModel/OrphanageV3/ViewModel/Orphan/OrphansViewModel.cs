@@ -383,5 +383,19 @@ namespace OrphanageV3.ViewModel.Orphan
                     yield return -1;
             }
         }
+
+        public IEnumerable<int> GetFamilies(IEnumerable<int> Oids)
+        {
+            foreach (var Oid in Oids)
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                if (orphan != null)
+                {
+                    yield return orphan.Family.Id;
+                }
+                else
+                    yield return -1;
+            }
+        }
     }
 }

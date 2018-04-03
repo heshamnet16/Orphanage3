@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Unity;
@@ -39,6 +41,7 @@ namespace OrphanageV3.Views.Main
             mnuShowExcludedFamilies.Text = Properties.Resources.ExcludedFamilies;
             mnuTools.Text = Properties.Resources.Tools;
             mnuShowSetting.Text = Properties.Resources.Setting;
+            lblConnectionStatus.Text = Properties.Resources.Disconnected;
         }
 
         private void mnuNewOrphan_Click(object sender, EventArgs e)
@@ -110,6 +113,60 @@ namespace OrphanageV3.Views.Main
         {
             SettingView settingView = new SettingView();
             settingView.ShowDialog();
+        }
+
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            var connectionValue = await CheckConnection();
+            lblConnectionStatus.Text = connectionValue ? Properties.Resources.Connected : Properties.Resources.Disconnected;
+            lblConnectionStatus.ForeColor = connectionValue ? Color.Green : Color.Red;
+        }
+
+        private async Task<bool> CheckConnection()
+        {
+            var url = Properties.Settings.Default.OrphanageServiceURL;
+
+            if (!url.EndsWith("/")) url += "/";
+
+            url += "api/info/version";
+
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                    request_.RequestUri = new System.Uri(url, System.UriKind.RelativeOrAbsolute);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead);
+                    try
+                    {
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200")
+                        {
+                            return true;
+                        }
+                    }
+                    catch { return false; }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+            return false;
         }
     }
 }

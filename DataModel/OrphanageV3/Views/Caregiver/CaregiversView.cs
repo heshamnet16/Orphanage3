@@ -134,19 +134,37 @@ namespace OrphanageV3.Views.Caregiver
             _caregiversViewModel.Update(id);
         }
 
-        private void btnShowFamilies_Click(object sender, EventArgs e)
+        private async void btnShowFamilies_Click(object sender, EventArgs e)
         {
-            //TODO Show Families
+            var selectedIds = orphanageGridView1.SelectedIds;
+            if (selectedIds == null || selectedIds.Count == 0)
+                return;
+            var familiesIds = await _caregiversViewModel.FamiliesIds(selectedIds);
+            Family.FimiliesView familiesView = new Family.FimiliesView(familiesIds);
+            familiesView.MdiParent = this.MdiParent;
+            familiesView.Show();
         }
 
-        private void btnShowMothers_Click(object sender, EventArgs e)
+        private async void btnShowMothers_Click(object sender, EventArgs e)
         {
-            //Todo Show Mothers
+            var selectedIds = orphanageGridView1.SelectedIds;
+            if (selectedIds == null || selectedIds.Count == 0)
+                return;
+            var mothersIds = await _caregiversViewModel.MothersIds(selectedIds);
+            Mother.MothersView mothersView = new Mother.MothersView(mothersIds);
+            mothersView.MdiParent = this.MdiParent;
+            mothersView.Show();
         }
 
-        private void btnShowFathers_Click(object sender, EventArgs e)
+        private async void btnShowFathers_Click(object sender, EventArgs e)
         {
-            //Todo Show Fathers
+            var selectedIds = orphanageGridView1.SelectedIds;
+            if (selectedIds == null || selectedIds.Count == 0)
+                return;
+            var fathersIds = await _caregiversViewModel.FathersIds(selectedIds);
+            Father.FathersView fathersView = new Father.FathersView(fathersIds);
+            fathersView.MdiParent = this.MdiParent;
+            fathersView.Show();
         }
     }
 }

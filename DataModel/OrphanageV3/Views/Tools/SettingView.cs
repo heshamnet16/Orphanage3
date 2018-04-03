@@ -143,5 +143,15 @@ namespace OrphanageV3.Views.Tools
         {
             txtBaseUrl.Text = getHostName(Properties.Settings.Default.OrphanageServiceURL);
         }
+
+        private void SettingView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
+
+        private void txtBaseUrl_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.OrphanageServiceURL = getBaseUrl(txtBaseUrl.Text);
+            Properties.Settings.Default.Save();
+        }
     }
 }

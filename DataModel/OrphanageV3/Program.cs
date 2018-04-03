@@ -31,9 +31,21 @@ namespace OrphanageV3
             try
             {
                 Factory = BuildContainer();
-                //Todo set login User
-                var _apiClient = Factory.Resolve<IApiClient>();
-                CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
+                try
+                {
+                    //Todo set login User
+                    var _apiClient = Factory.Resolve<IApiClient>();
+                    CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
+                }
+                catch
+                {
+                    CurrentUser = new User()
+                    {
+                        IsAdmin = true,
+                        UserName = "مدير",
+                        Id = 1
+                    };
+                }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Main.MainView());

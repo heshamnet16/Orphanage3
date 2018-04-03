@@ -92,7 +92,11 @@
             this.mnuAppDefault = new Telerik.WinControls.UI.RadMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
+            this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
+            this.lblConnectionStatus = new Telerik.WinControls.UI.RadLabelElement();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -590,11 +594,38 @@
             this.RadMenu1.Size = new System.Drawing.Size(1034, 20);
             this.RadMenu1.TabIndex = 5;
             // 
+            // radStatusStrip1
+            // 
+            this.radStatusStrip1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.lblConnectionStatus});
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 537);
+            this.radStatusStrip1.Name = "radStatusStrip1";
+            this.radStatusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radStatusStrip1.Size = new System.Drawing.Size(1034, 24);
+            this.radStatusStrip1.TabIndex = 7;
+            this.radStatusStrip1.Text = "radStatusStrip1";
+            // 
+            // lblConnectionStatus
+            // 
+            this.lblConnectionStatus.Name = "lblConnectionStatus";
+            this.lblConnectionStatus.RightToLeft = true;
+            this.radStatusStrip1.SetSpring(this.lblConnectionStatus, false);
+            this.lblConnectionStatus.Text = "radLabelElement1";
+            this.lblConnectionStatus.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblConnectionStatus.TextWrap = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 561);
+            this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.RadMenu1);
             this.IsMdiContainer = true;
             this.Name = "MainView";
@@ -605,6 +636,7 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "MainView";
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -675,5 +707,8 @@
         internal Telerik.WinControls.UI.RadMenuItem mnuAppDefault;
         private System.Windows.Forms.ImageList imageList1;
         private Telerik.WinControls.UI.RadMenu RadMenu1;
+        private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
+        private Telerik.WinControls.UI.RadLabelElement lblConnectionStatus;
+        private System.Windows.Forms.Timer timer1;
     }
 }

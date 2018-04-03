@@ -39,6 +39,7 @@
             this.lblVersion = new Telerik.WinControls.UI.RadLabel();
             this.lblBaseUrl = new Telerik.WinControls.UI.RadLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             ((System.ComponentModel.ISupportInitialize)(this.pnlConnection)).BeginInit();
             this.pnlConnection.PanelContainer.SuspendLayout();
             this.pnlConnection.SuspendLayout();
@@ -51,6 +52,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblVersion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBaseUrl)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
+            this.radScrollablePanel1.PanelContainer.SuspendLayout();
+            this.radScrollablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +65,7 @@
             this.pnlConnection.AnimationType = Telerik.WinControls.UI.CollapsiblePanelAnimationType.Slide;
             this.pnlConnection.HeaderText = "ConnectionSettings";
             this.pnlConnection.HorizontalHeaderAlignment = Telerik.WinControls.UI.RadHorizontalAlignment.Stretch;
-            this.pnlConnection.Location = new System.Drawing.Point(13, 3);
+            this.pnlConnection.Location = new System.Drawing.Point(3, 3);
             this.pnlConnection.Name = "pnlConnection";
             this.pnlConnection.OwnerBoundsCache = new System.Drawing.Rectangle(15, 3, 649, 116);
             // 
@@ -75,8 +79,8 @@
             this.pnlConnection.PanelContainer.Controls.Add(this.lblStatus);
             this.pnlConnection.PanelContainer.Controls.Add(this.lblVersion);
             this.pnlConnection.PanelContainer.Controls.Add(this.lblBaseUrl);
-            this.pnlConnection.PanelContainer.Size = new System.Drawing.Size(647, 115);
-            this.pnlConnection.Size = new System.Drawing.Size(649, 143);
+            this.pnlConnection.PanelContainer.Size = new System.Drawing.Size(655, 115);
+            this.pnlConnection.Size = new System.Drawing.Size(657, 143);
             this.pnlConnection.TabIndex = 0;
             this.pnlConnection.Text = "radCollapsiblePanel1";
             this.pnlConnection.VerticalHeaderAlignment = Telerik.WinControls.UI.RadVerticalAlignment.Center;
@@ -120,6 +124,7 @@
             this.txtBaseUrl.Name = "txtBaseUrl";
             this.txtBaseUrl.Size = new System.Drawing.Size(515, 20);
             this.txtBaseUrl.TabIndex = 1;
+            this.txtBaseUrl.TextChanged += new System.EventHandler(this.txtBaseUrl_TextChanged);
             // 
             // lblStatusCircle
             // 
@@ -167,15 +172,29 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(665, 405);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(663, 403);
             this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // radScrollablePanel1
+            // 
+            this.radScrollablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radScrollablePanel1.Location = new System.Drawing.Point(0, 0);
+            this.radScrollablePanel1.Name = "radScrollablePanel1";
+            // 
+            // radScrollablePanel1.PanelContainer
+            // 
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.flowLayoutPanel1);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(663, 403);
+            this.radScrollablePanel1.Size = new System.Drawing.Size(665, 405);
+            this.radScrollablePanel1.TabIndex = 2;
+            this.radScrollablePanel1.Text = "radScrollablePanel1";
             // 
             // SettingView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 405);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.radScrollablePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "SettingView";
@@ -185,6 +204,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "SettingView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingView_FormClosing);
             this.pnlConnection.PanelContainer.ResumeLayout(false);
             this.pnlConnection.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlConnection)).EndInit();
@@ -198,6 +218,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblVersion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBaseUrl)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
+            this.radScrollablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -216,5 +239,6 @@
         private Telerik.WinControls.UI.DotsLineWaitingBarIndicatorElement dotsLineWaitingBarIndicatorElement1;
         private Telerik.WinControls.UI.RadLabel lblStatusCircle;
         private Telerik.WinControls.UI.RadButton btnCheck;
+        private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
     }
 }

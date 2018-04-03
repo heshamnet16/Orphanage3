@@ -172,7 +172,20 @@ namespace OrphanageV3.Views.Father
 
         private void btnShowFamilies_Click(object sender, EventArgs e)
         {
-            //Todo Show Families
+            IList<int> ret = new List<int>();
+            var selectedIds = orphanageGridView1.SelectedIds;
+            if (selectedIds == null || selectedIds.Count == 0)
+                return;
+            foreach (var id in selectedIds)
+            {
+                var retOIds = _fathersViewModel.FamiliesIds(id);
+                if (retOIds != null && retOIds.Count > 0)
+                    foreach (var retId in retOIds)
+                        ret.Add(retId);
+            }
+            Family.FimiliesView or = new Family.FimiliesView(ret);
+            or.MdiParent = this.MdiParent;
+            or.Show();
         }
     }
 }

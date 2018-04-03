@@ -2,28 +2,28 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OrphanageV3.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="GeneralDateFormat" Type="System.String" Scope="Application">
+    <Setting Name="GeneralDateFormat" Type="System.String" Scope="User">
       <Value Profile="(Default)">yyyy/MM/dd</Value>
     </Setting>
-    <Setting Name="UseBackgroundColor" Type="System.Boolean" Scope="Application">
+    <Setting Name="UseBackgroundColor" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ShowHiddenRows" Type="System.Boolean" Scope="Application">
+    <Setting Name="ShowHiddenRows" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="UseFatherName" Type="System.Boolean" Scope="Application">
+    <Setting Name="UseFatherName" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AddressSeparator" Type="System.Char" Scope="Application">
+    <Setting Name="AddressSeparator" Type="System.Char" Scope="User">
       <Value Profile="(Default)">-</Value>
     </Setting>
-    <Setting Name="OrphanLayoutFilePath" Type="System.String" Scope="Application">
+    <Setting Name="OrphanLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Orphan.layout</Value>
     </Setting>
-    <Setting Name="OrphanageServiceURL" Type="System.String" Scope="Application">
+    <Setting Name="OrphanageServiceURL" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://localhost:1515/</Value>
     </Setting>
-    <Setting Name="DefaultPageSize" Type="System.Int32" Scope="Application">
+    <Setting Name="DefaultPageSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="CaregiverLayoutFilePath" Type="System.String" Scope="User">
