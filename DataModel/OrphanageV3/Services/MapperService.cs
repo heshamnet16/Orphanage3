@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;
 using OrphanageV3.Extensions;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Bail;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
@@ -75,6 +77,12 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
 
                 cfg.CreateMap<OrphanageDataModel.RegularData.Family, FamilyModel>()
+                    .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+                cfg.CreateMap<OrphanageDataModel.FinancialData.Bail, BailModel>()
+                    .ForMember(dest => dest.AccountName, sour => sour.MapFrom(prop => prop.Account.AccountName))
+                    .ForMember(dest => dest.CurrencyName, sour => sour.MapFrom(prop => prop.Account.Currency))
+                    .ForMember(dest => dest.CurrencyShortcut, sour => sour.MapFrom(prop => prop.Account.CurrencyShortcut))
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
             });
 
@@ -283,6 +291,18 @@ namespace OrphanageV3.Services
                 retFamily = null;
             }
             return retFamily;
+        }
+
+        public IEnumerable<BailModel> MapToBailModel(IEnumerable<Bail> bailsList)
+        {
+            //Todo
+            throw new System.NotImplementedException();
+        }
+
+        public BailModel MapToBailModel(Bail bail)
+        {
+            //Todo get guarantor name
+            throw new System.NotImplementedException();
         }
     }
 }

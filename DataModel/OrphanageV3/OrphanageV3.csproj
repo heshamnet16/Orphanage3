@@ -152,6 +152,7 @@
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
     <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\TranslateService.cs" />
+    <Compile Include="ViewModel\Bail\BailModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverEditViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiversViewModel.cs" />
