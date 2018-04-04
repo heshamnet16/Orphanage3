@@ -14,5 +14,11 @@ namespace OrphanageService.Services.Interfaces
         Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int Aid);
 
         Task<int> GetAccountsCount();
+
+        Task<OrphanageDataModel.FinancialData.Account> AddAccount(OrphanageDataModel.FinancialData.Account accountToAdd);
+
+        Task<bool> SaveAccount(OrphanageDataModel.FinancialData.Account accountToSave);
+
+        Task<bool> DeleteAccount(int accountID);
     }
 }

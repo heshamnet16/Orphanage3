@@ -14,5 +14,11 @@ namespace OrphanageService.Services.Interfaces
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int Bid);
 
         Task<int> GetBailsCount();
+
+        Task<OrphanageDataModel.FinancialData.Bail> AddBail(OrphanageDataModel.FinancialData.Bail bailToAdd);
+
+        Task<bool> SaveBail(OrphanageDataModel.FinancialData.Bail bailToSave);
+
+        Task<bool> DeleteBail(int bailID, bool forceDelete);
     }
 }

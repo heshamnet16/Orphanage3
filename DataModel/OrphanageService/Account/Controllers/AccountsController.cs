@@ -1,6 +1,9 @@
-﻿using OrphanageService.Filters;
+﻿using Newtonsoft.Json;
+using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,10 +13,13 @@ namespace OrphanageService.Account.Controllers
     public class AccountsController : ApiController
     {
         private IAccountDbService _accountDbService;
+        private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public AccountsController(IAccountDbService accountDbService)
+        public AccountsController(IAccountDbService accountDbService,
+            IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _accountDbService = accountDbService;
+            _httpMessageConfiguerer = httpMessageConfiguerer;
         }
 
         //api/account/{id}
@@ -26,6 +32,59 @@ namespace OrphanageService.Account.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else
                 return ret;
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> Put(object account)
+        {
+            var accountEntity = JsonConvert.DeserializeObject<OrphanageDataModel.FinancialData.Account>(account.ToString());
+            var ret = false;
+
+            ret = await _accountDbService.SaveAccount(accountEntity);
+
+            if (ret)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> Post(object account)
+        {
+            var accountEntity = JsonConvert.DeserializeObject<OrphanageDataModel.FinancialData.Account>(account.ToString());
+            OrphanageDataModel.FinancialData.Account ret = null;
+
+            ret = await _accountDbService.AddAccount(accountEntity);
+
+            if (ret != null)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpDelete]
+        [Route("{AID}")]
+        public async Task<HttpResponseMessage> Delete(int AID)
+        {
+            var ret = await _accountDbService.DeleteAccount(AID);
+            if (ret)
+            {
+                return _httpMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpMessageConfiguerer.NothingChanged();
+            }
         }
 
         [HttpGet]

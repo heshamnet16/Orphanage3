@@ -80,6 +80,18 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.6.0\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.ColoredConsole, Version=3.0.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.ColoredConsole.3.0.1\lib\net45\Serilog.Sinks.ColoredConsole.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=3.0.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.3.0.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.4.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
@@ -140,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Controllers\AccountsController.cs" />
+    <Compile Include="App_Start\GlobalExceptionsHandler.cs" />
     <Compile Include="App_Start\HttpAreaSelector.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -153,6 +166,8 @@
       <DependentUpon>OrphanageDBC.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContext\OrphanageDbCNoBinary.cs" />
+    <Compile Include="Extensions\NameExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Family\Controllers\FamiliesController.cs" />
     <Compile Include="Family\Controllers\FamMediaController.cs" />
     <Compile Include="Father\Controllers\FathersController.cs" />
@@ -175,7 +190,6 @@
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\CheckerService.cs" />
     <Compile Include="Services\DataModel\CheckerResultData.cs" />
-    <Compile Include="Services\ExceptionHandlerService.cs" />
     <Compile Include="Services\Exceptions\DuplicatedObjectException.cs" />
     <Compile Include="Services\Exceptions\HasForeignKeyException.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
@@ -188,13 +202,14 @@
     <Compile Include="Services\Interfaces\IBailDbService.cs" />
     <Compile Include="Services\Interfaces\ICaregiverDbService.cs" />
     <Compile Include="Services\Interfaces\ICheckerService.cs" />
-    <Compile Include="Services\Interfaces\IExceptionHandlerService.cs" />
     <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />
+    <Compile Include="Services\Interfaces\ILogger.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
     <Compile Include="Services\Interfaces\IRegularDataService.cs" />
     <Compile Include="Services\Interfaces\IUserDbService.cs" />
+    <Compile Include="Services\Logger.cs" />
     <Compile Include="Services\MotherDbService.cs" />
     <Compile Include="Services\OrphanDbService.cs" />
     <Compile Include="App_Start\WepApiConfig.cs" />

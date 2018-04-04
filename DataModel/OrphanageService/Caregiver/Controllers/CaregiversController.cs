@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using OrphanageService.Filters;
-using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -16,13 +14,11 @@ namespace OrphanageService.Caregiver.Controllers
     {
         private readonly ICaregiverDbService _CaregiverDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public CaregiversController(ICaregiverDbService caregiverDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
+        public CaregiversController(ICaregiverDbService caregiverDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _CaregiverDBService = caregiverDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
-            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/caregiver/{id}
@@ -67,14 +63,9 @@ namespace OrphanageService.Caregiver.Controllers
         {
             var caregiverEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(caregiver.ToString());
             var ret = false;
-            try
-            {
-                ret = await _CaregiverDBService.SaveCaregiver(caregiverEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _CaregiverDBService.SaveCaregiver(caregiverEntity);
+
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -89,17 +80,11 @@ namespace OrphanageService.Caregiver.Controllers
         [Route("color")]
         public async Task<HttpResponseMessage> SetCaregiverColor(int CaregiverId, int colorValue)
         {
-            try
-            {
-                if (colorValue == -1)
-                    await _CaregiverDBService.SetCaregiverColor(CaregiverId, null);
-                else
-                    await _CaregiverDBService.SetCaregiverColor(CaregiverId, colorValue);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            if (colorValue == -1)
+                await _CaregiverDBService.SetCaregiverColor(CaregiverId, null);
+            else
+                await _CaregiverDBService.SetCaregiverColor(CaregiverId, colorValue);
+
             return _httpMessageConfiguerer.OK();
         }
 
@@ -109,18 +94,9 @@ namespace OrphanageService.Caregiver.Controllers
         {
             var caregiverEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Caregiver>(caregiver.ToString());
             OrphanageDataModel.Persons.Caregiver ret = null;
-            try
-            {
-                ret = await _CaregiverDBService.AddCaregiver(caregiverEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
-            catch (DuplicatedObjectException dubExc)
-            {
-                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
-            }
+
+            ret = await _CaregiverDBService.AddCaregiver(caregiverEntity);
+
             if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);

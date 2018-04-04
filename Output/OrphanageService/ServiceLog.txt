@@ -1,0 +1,18 @@
+2018-04-03 22:38:07.264 [INF] Logging initialized.
+2018-04-03 22:38:07.319 [INF] Trying to get Bails with pageSize 1000 and pageNumber 0
+2018-04-03 22:38:16.652 [INF] 40 records of bails will be returned
+2018-04-03 22:38:32.667 [INF] Logging initialized.
+2018-04-03 22:39:09.046 [INF] Logging initialized.
+2018-04-03 22:39:09.049 [INF] Trying to get Bail with id 73
+2018-04-03 22:39:09.066 [INF] returned Bail with id 73
+2018-04-03 22:40:22.834 [INF] Logging initialized.
+2018-04-03 22:40:22.835 [INF] Trying to get Bail with id 73
+2018-04-03 22:40:22.841 [INF] returned Bail with id 73
+2018-04-03 22:40:39.245 [INF] Logging initialized.
+2018-04-03 22:40:39.752 [INF] Trying to get Bails with pageSize 73 and pageNumber 0
+2018-04-03 22:40:39.785 [INF] 40 records of bails will be returned
+2018-04-04 09:34:59.795 [INF] Logging initialized.
+2018-04-04 09:34:59.848 [ERR] Trying to get Bails with pageSize 73 and pageNumber 0
+2018-04-04 09:34:59.849 [FTL] Trying to get Bails with pageSize 73 and pageNumber 0
+2018-04-04 09:34:59.849 [INF] Trying to get Bails with pageSize 73 and pageNumber 0
+2018-04-04 09:35:03.272 [INF] 40 records of bails will be returned

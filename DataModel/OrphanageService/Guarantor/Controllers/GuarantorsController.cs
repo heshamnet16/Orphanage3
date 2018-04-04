@@ -3,7 +3,6 @@ using OrphanageService.Filters;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -15,13 +14,11 @@ namespace OrphanageService.Guarantor.Controllers
     {
         private readonly IGuarantorDbService _GuarantorDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public GuarantorsController(IGuarantorDbService guarantorDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
+        public GuarantorsController(IGuarantorDbService guarantorDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _GuarantorDBService = guarantorDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
-            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/guarantor/{id}
@@ -74,14 +71,9 @@ namespace OrphanageService.Guarantor.Controllers
         {
             var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
             var ret = false;
-            try
-            {
-                ret = await _GuarantorDBService.SaveGuarantor(guarantorEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _GuarantorDBService.SaveGuarantor(guarantorEntity);
+
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -96,17 +88,11 @@ namespace OrphanageService.Guarantor.Controllers
         [Route("color")]
         public async Task<HttpResponseMessage> SetGuarantorColor(int guarantorId, int colorValue)
         {
-            try
-            {
-                if (colorValue == -1)
-                    await _GuarantorDBService.SetGuarantorColor(guarantorId, null);
-                else
-                    await _GuarantorDBService.SetGuarantorColor(guarantorId, colorValue);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            if (colorValue == -1)
+                await _GuarantorDBService.SetGuarantorColor(guarantorId, null);
+            else
+                await _GuarantorDBService.SetGuarantorColor(guarantorId, colorValue);
+
             return _httpMessageConfiguerer.OK();
         }
 
@@ -116,14 +102,9 @@ namespace OrphanageService.Guarantor.Controllers
         {
             var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
             var ret = 0;
-            try
-            {
-                ret = await _GuarantorDBService.AddGuarantor(guarantorEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _GuarantorDBService.AddGuarantor(guarantorEntity);
+
             if (ret > 0)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);

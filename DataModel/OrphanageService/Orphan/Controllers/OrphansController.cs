@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using OrphanageService.Filters;
-using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -16,13 +14,11 @@ namespace OrphanageService.Orphan.Controllers
     {
         private readonly IOrphanDbService _OrphanDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfigurere;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere, IExceptionHandlerService exceptionHandlerService)
+        public OrphansController(IOrphanDbService orphanDBService, IHttpMessageConfiguerer httpMessageConfigurere)
         {
             _OrphanDBService = orphanDBService;
             _httpMessageConfigurere = httpMessageConfigurere;
-            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/Orphan/{id}
@@ -46,6 +42,14 @@ namespace OrphanageService.Orphan.Controllers
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             else
                 return ret;
+        }
+
+        [HttpPut]
+        [Route("BailOrphans/{BailId}")]
+        public async Task<bool> SetBail(int BailId, [FromUri] IList<int> OrphanIds)
+        {
+            var ret = await _OrphanDBService.BailOrphans(BailId, OrphanIds);
+            return ret;
         }
 
         [HttpGet]
@@ -94,18 +98,8 @@ namespace OrphanageService.Orphan.Controllers
         {
             var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
             OrphanageDataModel.Persons.Orphan ret = null;
-            try
-            {
-                ret = await _OrphanDBService.AddOrphan(orp);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
-            catch (DuplicatedObjectException dubExc)
-            {
-                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
-            }
+
+            ret = await _OrphanDBService.AddOrphan(orp);
 
             if (ret != null)
             {
@@ -123,14 +117,9 @@ namespace OrphanageService.Orphan.Controllers
         {
             var orp = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(orphan.ToString());
             var ret = false;
-            try
-            {
-                ret = await _OrphanDBService.SaveOrphan(orp);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _OrphanDBService.SaveOrphan(orp);
+
             if (ret)
             {
                 return _httpMessageConfigurere.OK();
@@ -145,17 +134,11 @@ namespace OrphanageService.Orphan.Controllers
         [Route("color")]
         public async Task<HttpResponseMessage> SetOrphanColor(int orphanId, int colorValue)
         {
-            try
-            {
-                if (colorValue == -1)
-                    await _OrphanDBService.SetOrphanColor(orphanId, null);
-                else
-                    await _OrphanDBService.SetOrphanColor(orphanId, colorValue);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            if (colorValue == -1)
+                await _OrphanDBService.SetOrphanColor(orphanId, null);
+            else
+                await _OrphanDBService.SetOrphanColor(orphanId, colorValue);
+
             return _httpMessageConfigurere.OK();
         }
 
@@ -163,14 +146,8 @@ namespace OrphanageService.Orphan.Controllers
         [Route("exclude")]
         public async Task<HttpResponseMessage> SetOrphanExclude(int orphanId, bool value)
         {
-            try
-            {
-                await _OrphanDBService.SetOrphanExclude(orphanId, value);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            await _OrphanDBService.SetOrphanExclude(orphanId, value);
+
             return _httpMessageConfigurere.OK();
         }
 

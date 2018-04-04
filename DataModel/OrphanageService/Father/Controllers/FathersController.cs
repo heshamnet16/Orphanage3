@@ -2,7 +2,6 @@
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -14,13 +13,11 @@ namespace OrphanageService.Father.Controllers
     {
         private readonly IFatherDbService _FatherDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public FathersController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
+        public FathersController(IFatherDbService fatherDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _FatherDBService = fatherDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
-            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/father/{id}
@@ -40,14 +37,9 @@ namespace OrphanageService.Father.Controllers
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.Persons.Father father)
         {
             var ret = 0;
-            try
-            {
-                ret = await _FatherDBService.SaveFather(father);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _FatherDBService.SaveFather(father);
+
             if (ret > 0)
             {
                 return _httpMessageConfiguerer.OK();
@@ -62,17 +54,11 @@ namespace OrphanageService.Father.Controllers
         [Route("color")]
         public async Task<HttpResponseMessage> SetFatherColor(int FatherId, int colorValue)
         {
-            try
-            {
-                if (colorValue == -1)
-                    await _FatherDBService.SetFatherColor(FatherId, null);
-                else
-                    await _FatherDBService.SetFatherColor(FatherId, colorValue);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            if (colorValue == -1)
+                await _FatherDBService.SetFatherColor(FatherId, null);
+            else
+                await _FatherDBService.SetFatherColor(FatherId, colorValue);
+
             return _httpMessageConfiguerer.OK();
         }
 
