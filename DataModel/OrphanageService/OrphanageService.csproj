@@ -166,6 +166,8 @@
       <DependentUpon>OrphanageDBC.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContext\OrphanageDbCNoBinary.cs" />
+    <Compile Include="Extensions\NameExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Family\Controllers\FamiliesController.cs" />
     <Compile Include="Family\Controllers\FamMediaController.cs" />
     <Compile Include="Father\Controllers\FathersController.cs" />

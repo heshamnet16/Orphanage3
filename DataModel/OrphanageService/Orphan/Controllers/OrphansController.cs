@@ -44,6 +44,14 @@ namespace OrphanageService.Orphan.Controllers
                 return ret;
         }
 
+        [HttpPut]
+        [Route("BailOrphans/{BailId}")]
+        public async Task<bool> SetBail(int BailId, [FromUri] IList<int> OrphanIds)
+        {
+            var ret = await _OrphanDBService.BailOrphans(BailId, OrphanIds);
+            return ret;
+        }
+
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]

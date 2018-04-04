@@ -16,6 +16,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid);
 
+        Task<bool> BailOrphans(int BailId, IList<int> ids);
+
         Task<int> GetBrothersCount(int Oid);
 
         Task<int> GetOrphansCount();
