@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Controllers\AccountsController.cs" />
+    <Compile Include="App_Start\GlobalExceptionsHandler.cs" />
     <Compile Include="App_Start\HttpAreaSelector.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -187,7 +188,6 @@
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\CheckerService.cs" />
     <Compile Include="Services\DataModel\CheckerResultData.cs" />
-    <Compile Include="Services\ExceptionHandlerService.cs" />
     <Compile Include="Services\Exceptions\DuplicatedObjectException.cs" />
     <Compile Include="Services\Exceptions\HasForeignKeyException.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
@@ -200,7 +200,6 @@
     <Compile Include="Services\Interfaces\IBailDbService.cs" />
     <Compile Include="Services\Interfaces\ICaregiverDbService.cs" />
     <Compile Include="Services\Interfaces\ICheckerService.cs" />
-    <Compile Include="Services\Interfaces\IExceptionHandlerService.cs" />
     <Compile Include="Services\Interfaces\IFamilyDbService.cs" />
     <Compile Include="Services\Interfaces\IFatherDbService.cs" />
     <Compile Include="Services\Interfaces\IGuarantorDbService.cs" />

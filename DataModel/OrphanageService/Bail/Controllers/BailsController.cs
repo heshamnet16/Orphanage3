@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using OrphanageService.Filters;
-using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -16,13 +14,11 @@ namespace OrphanageService.Bail.Controllers
     {
         private IBailDbService _bailDbService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public BailsController(IBailDbService bailDbService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
+        public BailsController(IBailDbService bailDbService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _bailDbService = bailDbService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
-            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/bail/{id}
@@ -75,14 +71,9 @@ namespace OrphanageService.Bail.Controllers
         {
             var accountEntity = JsonConvert.DeserializeObject<OrphanageDataModel.FinancialData.Bail>(bail.ToString());
             var ret = false;
-            try
-            {
-                ret = await _bailDbService.SaveBail(accountEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _bailDbService.SaveBail(accountEntity);
+
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -99,18 +90,9 @@ namespace OrphanageService.Bail.Controllers
         {
             var bailEntity = JsonConvert.DeserializeObject<OrphanageDataModel.FinancialData.Bail>(bail.ToString());
             OrphanageDataModel.FinancialData.Bail ret = null;
-            try
-            {
-                ret = await _bailDbService.AddBail(bailEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
-            catch (DuplicatedObjectException dubExc)
-            {
-                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
-            }
+
+            ret = await _bailDbService.AddBail(bailEntity);
+
             if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
@@ -125,7 +107,10 @@ namespace OrphanageService.Bail.Controllers
         [Route("{CID}/{forceDelete}")]
         public async Task<HttpResponseMessage> Delete(int CID, bool forceDelete)
         {
-            var ret = await _bailDbService.DeleteBail(CID, forceDelete);
+            var ret = false;
+
+            ret = await _bailDbService.DeleteBail(CID, forceDelete);
+
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();

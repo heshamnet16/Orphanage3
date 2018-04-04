@@ -1,12 +1,10 @@
-﻿using OrphanageDataModel.FinancialData;
-using OrphanageService.DataContext;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,7 +52,10 @@ namespace OrphanageService.Services
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
-                int bailsCount = await _orphanageDBC.Bails.AsNoTracking().CountAsync();
+                int bailsCount = 0;
+
+                bailsCount = await _orphanageDBC.Bails.AsNoTracking().CountAsync();
+
                 if (bailsCount < totalSkiped)
                 {
                     _logger.Warning($"Total skipped bails({totalSkiped}) are more than the count of all bails ({bailsCount})");

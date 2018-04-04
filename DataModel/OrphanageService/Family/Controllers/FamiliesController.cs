@@ -1,9 +1,7 @@
 ﻿using OrphanageService.Filters;
-using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -15,13 +13,11 @@ namespace OrphanageService.Family.Controllers
     {
         private readonly IFamilyDbService _FamilyDBService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
 
-        public FamiliesController(IFamilyDbService familyDBService, IHttpMessageConfiguerer httpMessageConfiguerer, IExceptionHandlerService exceptionHandlerService)
+        public FamiliesController(IFamilyDbService familyDBService, IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _FamilyDBService = familyDBService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
-            _exceptionHandlerService = exceptionHandlerService;
         }
 
         //api/family/{id}
@@ -42,14 +38,9 @@ namespace OrphanageService.Family.Controllers
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.RegularData.Family family)
         {
             var ret = false;
-            try
-            {
-                ret = await _FamilyDBService.SaveFamily(family);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _FamilyDBService.SaveFamily(family);
+
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -64,17 +55,11 @@ namespace OrphanageService.Family.Controllers
         [Route("color")]
         public async Task<HttpResponseMessage> SetFamilyColor(int FamilyId, int colorValue)
         {
-            try
-            {
-                if (colorValue == -1)
-                    await _FamilyDBService.SetFamilyColor(FamilyId, null);
-                else
-                    await _FamilyDBService.SetFamilyColor(FamilyId, colorValue);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            if (colorValue == -1)
+                await _FamilyDBService.SetFamilyColor(FamilyId, null);
+            else
+                await _FamilyDBService.SetFamilyColor(FamilyId, colorValue);
+
             return _httpMessageConfiguerer.OK();
         }
 
@@ -82,14 +67,8 @@ namespace OrphanageService.Family.Controllers
         [Route("exclude")]
         public async Task<HttpResponseMessage> SetFamilyExclude(int FamilyId, bool value)
         {
-            try
-            {
-                await _FamilyDBService.SetFamilyExclude(FamilyId, value);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+            await _FamilyDBService.SetFamilyExclude(FamilyId, value);
+
             return _httpMessageConfiguerer.OK();
         }
 
@@ -98,18 +77,8 @@ namespace OrphanageService.Family.Controllers
         public async Task<HttpResponseMessage> Post(OrphanageDataModel.RegularData.Family family)
         {
             OrphanageDataModel.RegularData.Family ret = null;
-            try
-            {
-                ret = await _FamilyDBService.AddFamily(family);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
-            catch (DuplicatedObjectException dubExc)
-            {
-                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
-            }
+
+            ret = await _FamilyDBService.AddFamily(family);
 
             if (ret != null)
             {

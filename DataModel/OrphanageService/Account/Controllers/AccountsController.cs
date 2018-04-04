@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using OrphanageService.Filters;
-using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -15,14 +13,12 @@ namespace OrphanageService.Account.Controllers
     public class AccountsController : ApiController
     {
         private IAccountDbService _accountDbService;
-        private readonly IExceptionHandlerService _exceptionHandlerService;
         private readonly IHttpMessageConfiguerer _httpMessageConfiguerer;
 
-        public AccountsController(IAccountDbService accountDbService, IExceptionHandlerService exceptionHandlerService,
+        public AccountsController(IAccountDbService accountDbService,
             IHttpMessageConfiguerer httpMessageConfiguerer)
         {
             _accountDbService = accountDbService;
-            _exceptionHandlerService = exceptionHandlerService;
             _httpMessageConfiguerer = httpMessageConfiguerer;
         }
 
@@ -44,14 +40,9 @@ namespace OrphanageService.Account.Controllers
         {
             var accountEntity = JsonConvert.DeserializeObject<OrphanageDataModel.FinancialData.Account>(account.ToString());
             var ret = false;
-            try
-            {
-                ret = await _accountDbService.SaveAccount(accountEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
+
+            ret = await _accountDbService.SaveAccount(accountEntity);
+
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();
@@ -68,18 +59,9 @@ namespace OrphanageService.Account.Controllers
         {
             var accountEntity = JsonConvert.DeserializeObject<OrphanageDataModel.FinancialData.Account>(account.ToString());
             OrphanageDataModel.FinancialData.Account ret = null;
-            try
-            {
-                ret = await _accountDbService.AddAccount(accountEntity);
-            }
-            catch (DbEntityValidationException excp)
-            {
-                throw _exceptionHandlerService.HandleValidationException(excp);
-            }
-            catch (DuplicatedObjectException dubExc)
-            {
-                return Request.CreateResponse(System.Net.HttpStatusCode.Conflict, dubExc.InnerException.Message);
-            }
+
+            ret = await _accountDbService.AddAccount(accountEntity);
+
             if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);

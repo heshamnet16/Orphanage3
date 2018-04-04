@@ -1,12 +1,6 @@
-﻿using OrphanageService.Services.Interfaces;
-using Serilog;
-using Serilog.Formatting.Json;
+﻿using Serilog;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageService.Services
 {
@@ -19,7 +13,7 @@ namespace OrphanageService.Services
         {
             _log = new LoggerConfiguration().MinimumLevel.Debug()
                 .WriteTo.Console()
-                .WriteTo.File($"log-{DateTime.UtcNow:yy-MM-dd-hh-mm-ss}.txt",
+                .WriteTo.File($"ServiceLog.txt",
                 fileSizeLimitBytes: 10485760,
                 outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
                 shared: true)
