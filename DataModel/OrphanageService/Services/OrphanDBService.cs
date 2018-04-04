@@ -107,15 +107,23 @@ namespace OrphanageService.Services
 
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int pageSize, int pageNum)
         {
+            _logger.Information($"trying to get orphans by paging, pageSize({pageSize}) pageNumber({pageNum})");
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
-                int orphansCount = await _orphanageDBC.Orphans.AsNoTracking().CountAsync();
+                _logger.Information($"total page to skip equals ({totalSkiped})");
+                int orphansCount = await GetOrphansCount();
+
                 if (orphansCount < totalSkiped)
                 {
                     totalSkiped = orphansCount - pageSize;
+                    _logger.Information($"orphans count is smaller than total skipped orphans, reset total skipped orphans to ({totalSkiped})");
                 }
-                if (totalSkiped < 0) totalSkiped = 0;
+                if (totalSkiped < 0)
+                {
+                    totalSkiped = 0;
+                    _logger.Information($"total skipped orphans is less than zero, reset total skipped orphans to ({totalSkiped})");
+                }
                 var orphans = await _orphanageDBC.Orphans.AsNoTracking()
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(o => o.Education)
@@ -678,6 +686,12 @@ namespace OrphanageService.Services
         public async Task<bool> SaveOrphan(OrphanageDataModel.Persons.Orphan orphan)
         {
             _logger.Information($"trying to save orphan with id({orphan.Id})");
+            if (orphan == null)
+            {
+                _logger.Error($"orphan parameter is null, false will be returned");
+                return false;
+            }
+            _logger.Information($"trying to save orphan with id({orphan.Id})");
             if (orphan.FamilyId <= 0)
             {
                 _logger.Warning($"family id is equal or less than zero, false will be returned");
@@ -915,6 +929,11 @@ namespace OrphanageService.Services
         public async Task<bool> DeleteOrphan(int Oid)
         {
             _logger.Information($"trying to delete orphan with id({Oid})");
+            if (Oid <= 0)
+            {
+                _logger.Warning($"the given orphan id ({Oid}) is not valid, false will be returned");
+                return false;
+            }
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
                 using (var dbT = orphanageDbc.Database.BeginTransaction())
@@ -1101,7 +1120,7 @@ namespace OrphanageService.Services
             _logger.Information($"trying to get orphans with the given Id list");
             if (ids == null || ids.Count == 0)
             {
-                _logger.Information($"the given Id list is null or empty, null will be returned");
+                _logger.Information($"the given Id list is null or empty, false will be returned");
                 return false;
             }
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
@@ -1112,6 +1131,7 @@ namespace OrphanageService.Services
 
                 var orphans = await _orphanageDBC.Orphans
                     .Where(o => ids.Contains(o.Id))
+                    .Include(o => o.Family)
                     .ToListAsync();
 
                 if (orphans == null || orphans.Count == 0)
@@ -1133,14 +1153,14 @@ namespace OrphanageService.Services
                 {
                     if (BailId > 0)
                     {
-                        _logger.Warning($"trying to set value ({BailId}) to bailId property for the orphan with the id ({orp.Id})");
+                        _logger.Information($"trying to set value ({BailId}) to bailId property for the orphan with the id ({orp.Id})");
                         orp.IsBailed = true;
                         orp.BailId = BailId;
                     }
                     else
                     {
-                        _logger.Warning($"trying to set bailId property to NULL for the orphan with the id ({orp.Id})");
-                        orp.IsBailed = false;
+                        _logger.Information($"trying to set bailId property to NULL for the orphan with the id ({orp.Id})");
+                        orp.IsBailed = orp.Family.IsBailed;
                         orp.BailId = null;
                     }
                     if (await _orphanageDBC.SaveChangesAsync() > 0)

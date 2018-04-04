@@ -19,9 +19,10 @@ namespace OrphanageService.Services
         private readonly IFatherDbService _fatherDbService;
         private readonly IMotherDbService _motherDbService;
         private readonly IOrphanDbService _orphanDbService;
+        private readonly ILogger _logger;
 
         public FamilyDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator, IRegularDataService regularDataService, IFatherDbService fatherDbService
-            , IMotherDbService motherDbService, IOrphanDbService orphanDbService)
+            , IMotherDbService motherDbService, IOrphanDbService orphanDbService, ILogger logger)
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
@@ -29,12 +30,22 @@ namespace OrphanageService.Services
             _fatherDbService = fatherDbService;
             _motherDbService = motherDbService;
             _orphanDbService = orphanDbService;
+            _logger = logger;
         }
 
         public async Task<OrphanageDataModel.RegularData.Family> AddFamily(OrphanageDataModel.RegularData.Family family)
         {
-            if (family == null) throw new NullReferenceException();
-            if (family.PrimaryAddress == null) throw new NullReferenceException();
+            _logger.Information($"trying to add new family");
+            if (family == null)
+            {
+                _logger.Error($"the given family parameter is null, null will be returned");
+                return null;
+            }
+            if (family.PrimaryAddress == null)
+            {
+                _logger.Error($"the given primary address of the given family parameter is null, null will be returned");
+                return null;
+            }
 
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
@@ -42,19 +53,32 @@ namespace OrphanageService.Services
                 {
                     if (!Properties.Settings.Default.ForceAdd)
                     {
+                        _logger.Information($"ForceAdd option is not activated");
                         if (Properties.Settings.Default.CheckContactData)
                         {
+                            _logger.Information($"CheckContactData option is activated, trying to get the equal contact data for the primary address from database");
                             var ret = GetFamiliesByAddress(family.PrimaryAddress, orphanageDbc).FirstOrDefault();
                             if (ret != null)
                             {
+                                _logger.Error($"family with id({ret.Id}) has the same address, DuplicatedObjectException will be thrown");
                                 throw new DuplicatedObjectException(family.GetType(), ret.GetType(), ret.Id);
+                            }
+                            else
+                            {
+                                _logger.Information($"didn't found any similar contact data to family primary address in the database");
                             }
                             if (family.AlternativeAddress != null)
                             {
+                                _logger.Information($"CheckContactData option is activated, trying to get the equal contact data for the alternative address from database");
                                 ret = GetFamiliesByAddress(family.AlternativeAddress, orphanageDbc).FirstOrDefault();
                                 if (ret != null)
                                 {
+                                    _logger.Error($"family with id({ret.Id}) has the same address, DuplicatedObjectException will be thrown");
                                     throw new DuplicatedObjectException(family.GetType(), ret.GetType(), ret.Id);
+                                }
+                                else
+                                {
+                                    _logger.Information($"didn't found any similar contact data to family alternative address in the database");
                                 }
                             }
                         }
@@ -108,12 +132,14 @@ namespace OrphanageService.Services
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
                         DbT.Commit();
+                        _logger.Information($"family with id({family.Id}) has been successfully added to the database");
                         _uriGenerator.SetFamilyUris(ref family);
                         return family;
                     }
                     else
                     {
                         DbT.Rollback();
+                        _logger.Information($"nothing has changed, family has not added, null will be returned");
                         return null;
                     }
                 }
@@ -122,7 +148,12 @@ namespace OrphanageService.Services
 
         public async Task<bool> DeleteFamily(int Famid)
         {
-            if (Famid <= 0) return false;
+            _logger.Information($"trying to delete family with id({Famid})");
+            if (Famid <= 0)
+            {
+                _logger.Warning($"the given family id ({Famid}) is not valid, false will be returned");
+                return false;
+            }
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
                 var allIsOK = false;
@@ -131,7 +162,11 @@ namespace OrphanageService.Services
                 var dbT = orphanageDbc.Database.BeginTransaction();
                 var famToDelete = await orphanageDbc.Families.Where(fam => fam.Id == Famid).FirstOrDefaultAsync();
 
-                if (famToDelete == null) throw new NullReferenceException();
+                if (famToDelete == null)
+                {
+                    _logger.Error($"family with id ({Famid}) has not been found, ObjectNotFoundException will be thrown");
+                    throw new NullReferenceException();
+                }
 
                 var fatherID = famToDelete.FatherId;
                 var motherID = famToDelete.MotherId;
@@ -172,11 +207,13 @@ namespace OrphanageService.Services
                 if (await orphanageDbc.SaveChangesAsync() > 0 && allIsOK)
                 {
                     dbT.Commit();
+                    _logger.Information($"family with id({Famid}) has been successfully deleted from the database");
                     return true;
                 }
                 else
                 {
                     dbT.Rollback();
+                    _logger.Information($"nothing has changed, false will be returned");
                     return false;
                 }
             }
@@ -184,7 +221,12 @@ namespace OrphanageService.Services
 
         private IEnumerable<OrphanageDataModel.RegularData.Family> prepareFamiliesList(IEnumerable<OrphanageDataModel.RegularData.Family> familiesList)
         {
-            if (familiesList == null || familiesList.Count() == 0) return null;
+            _logger.Information($"trying to prepare families list to return it");
+            if (familiesList == null || familiesList.Count() == 0)
+            {
+                _logger.Information($"there is no family list to return, null will be returned");
+                return null;
+            }
             IList<OrphanageDataModel.RegularData.Family> returnedFamiliesList = new List<OrphanageDataModel.RegularData.Family>();
             foreach (var family in familiesList)
             {
@@ -193,11 +235,13 @@ namespace OrphanageService.Services
                 _uriGenerator.SetFamilyUris(ref familyToFill);
                 returnedFamiliesList.Add(familyToFill);
             }
+            _logger.Information($"{returnedFamiliesList.Count} records of families are ready and they will be returned");
             return returnedFamiliesList;
         }
 
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetExcludedFamilies()
         {
+            _logger.Information($"trying to get all excluded families");
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var families = await _orphanageDBC.Families.AsNoTracking()
@@ -219,15 +263,22 @@ namespace OrphanageService.Services
 
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int pageSize, int pageNum)
         {
+            _logger.Information($"trying to get families by paging, pageSize({pageSize}) pageNumber({pageNum})");
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
-                int FamiliesCount = await _orphanageDBC.Fathers.AsNoTracking().CountAsync();
+                _logger.Information($"total page to skip equals ({totalSkiped})");
+                int FamiliesCount = await GetFamiliesCount();
                 if (FamiliesCount < totalSkiped)
                 {
                     totalSkiped = FamiliesCount - pageSize;
+                    _logger.Information($"families count is smaller than total skipped families, reset total skipped families to ({totalSkiped})");
                 }
-                if (totalSkiped < 0) totalSkiped = 0;
+                if (totalSkiped < 0)
+                {
+                    totalSkiped = 0;
+                    _logger.Information($"total skipped families is less than zero, reset total skipped families to ({totalSkiped})");
+                }
                 var families = await _orphanageDBC.Families.AsNoTracking()
                     .OrderBy(o => o.Id).Skip(() => totalSkiped).Take(() => pageSize)
                     .Include(f => f.AlternativeAddress)
@@ -247,6 +298,12 @@ namespace OrphanageService.Services
 
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(IEnumerable<int> familiesIds)
         {
+            _logger.Information($"trying to get families with the given Id list");
+            if (familiesIds == null || familiesIds.Count() == 0)
+            {
+                _logger.Information($"the given Id list is null or empty, null will be returned");
+                return null;
+            }
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var families = await _orphanageDBC.Families.AsNoTracking()
@@ -268,7 +325,12 @@ namespace OrphanageService.Services
 
         public IEnumerable<OrphanageDataModel.RegularData.Family> GetFamiliesByAddress(Address addressObject, OrphanageDbCNoBinary orphanageDbCNo)
         {
-            if (addressObject == null) throw new NullReferenceException();
+            _logger.Information($"trying to get family with the similar address");
+            if (addressObject == null)
+            {
+                _logger.Error($"address object is null, NullReferenceException will be thrown");
+                throw new NullReferenceException();
+            }
 
             var families = orphanageDbCNo.Families
             .Include(m => m.PrimaryAddress)
@@ -286,21 +348,25 @@ namespace OrphanageService.Services
 
             foreach (var family in Foundedfamilies)
             {
+                _logger.Information($"family with id({family.Id}) has the same address");
                 yield return family;
             }
         }
 
         public async Task<int> GetFamiliesCount()
         {
+            _logger.Information($"trying to get all families count");
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int familiesCount = await _orphanageDBC.Families.AsNoTracking().CountAsync();
+                _logger.Information($"orphans count({familiesCount}) will be returned");
                 return familiesCount;
             }
         }
 
         public async Task<OrphanageDataModel.RegularData.Family> GetFamily(int FamId)
         {
+            _logger.Information($"trying to get family with id ({FamId})");
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var family = await _orphanageDBC.Families.AsNoTracking()
@@ -315,37 +381,64 @@ namespace OrphanageService.Services
                     .Include(f => f.PrimaryAddress)
                     .FirstOrDefaultAsync(f => f.Id == FamId);
 
-                if (family == null) return null;
+                if (family == null)
+                {
+                    _logger.Error($"family with id ({FamId}) has not been found, ObjectNotFoundException will be thrown");
+                    return null;
+                }
 
                 OrphanageDataModel.RegularData.Family familyToFill = family;
                 _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
                 _uriGenerator.SetFamilyUris(ref familyToFill);
+                _logger.Information($"family object with id({FamId}) will be returned");
                 return familyToFill;
             }
         }
 
         public async Task<byte[]> GetFamilyCardPage1(int FamId)
         {
+            _logger.Information($"trying to get family with id ({FamId}) family card photo page1");
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 var img = await _orphanageDBC.Families.AsNoTracking().Where(f => f.Id == FamId)
                     .Select(f => new { f.FamilyCardImagePage1Data }).FirstOrDefaultAsync();
-                return img?.FamilyCardImagePage1Data;
+
+                if (img?.FamilyCardImagePage1Data == null)
+                {
+                    _logger.Information($"family with id({FamId}) family card photo page1");
+                    return null;
+                }
+                else
+                {
+                    _logger.Information($"return family with id({FamId}) family card photo page1, count of bytes are {img?.FamilyCardImagePage1Data.Length}");
+                    return img?.FamilyCardImagePage1Data;
+                }
             }
         }
 
         public async Task<byte[]> GetFamilyCardPage2(int FamId)
         {
+            _logger.Information($"trying to get family with id ({FamId}) family card photo page2");
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 var img = await _orphanageDBC.Families.AsNoTracking().Where(f => f.Id == FamId)
                     .Select(f => new { f.FamilyCardImagePage2Data }).FirstOrDefaultAsync();
-                return img?.FamilyCardImagePage2Data;
+                if (img?.FamilyCardImagePage2Data == null)
+                {
+                    _logger.Information($"family with id({FamId}) family card photo page2");
+                    return null;
+                }
+                else
+                {
+                    _logger.Information($"return family with id({FamId}) family card photo page2, count of bytes are {img?.FamilyCardImagePage2Data.Length}");
+                    return img?.FamilyCardImagePage2Data;
+                }
             }
         }
 
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int FamId)
         {
+            _logger.Information($"trying to get all orphans of the family with id ({FamId})");
             IList<OrphanageDataModel.Persons.Orphan> returnedOrphans = new List<OrphanageDataModel.Persons.Orphan>();
             using (var dbContext = new OrphanageDbCNoBinary())
             {
@@ -364,24 +457,32 @@ namespace OrphanageService.Services
                                      .Include(o => o.Bail)
                                      .Include(o => o.HealthStatus)
                               .ToListAsync();
-
+                if (orphans == null || orphans.Count == 0)
+                {
+                    _logger.Information($"family with id({FamId}) has no orphans, null will be returned");
+                    return null;
+                }
                 foreach (var orphan in orphans)
                 {
                     var orpToFill = orphan;
                     _selfLoopBlocking.BlockOrphanSelfLoop(ref orpToFill);
                     _uriGenerator.SetOrphanUris(ref orpToFill);
+                    _logger.Information($"adding orphan with id({orphan.Id}) to the returned List");
                     returnedOrphans.Add(orpToFill);
                 }
             }
+            _logger.Information($"({returnedOrphans.Count}) records of orphans will be returned");
             return returnedOrphans;
         }
 
         public async Task<int> GetOrphansCount(int FamId)
         {
+            _logger.Information($"trying to get orphans count of the family with id ({FamId})");
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
-                int familiesCount = await _orphanageDBC.Orphans.Where(o => o.FamilyId == FamId).AsNoTracking().CountAsync();
-                return familiesCount;
+                int orphansCount = await _orphanageDBC.Orphans.Where(o => o.FamilyId == FamId).AsNoTracking().CountAsync();
+                _logger.Information($"({orphansCount}) is the count of orphans in the family with id({FamId})");
+                return orphansCount;
             }
         }
 
@@ -392,6 +493,14 @@ namespace OrphanageService.Services
 
         public async Task<bool> SaveFamily(OrphanageDataModel.RegularData.Family family)
         {
+            _logger.Information($"trying to save family");
+            if (family == null)
+            {
+                _logger.Error($"family parameter is null, false will be returned");
+                return false;
+            }
+            _logger.Information($"trying to save family with id({family.Id})");
+
             using (var orphanageDbc = new OrphanageDbCNoBinary())
             {
                 int ret = 0;
@@ -402,6 +511,7 @@ namespace OrphanageService.Services
                     Include(f => f.AlternativeAddress).
                     Include(f => f.PrimaryAddress)
                     .Where(fam => fam.Id == family.Id).FirstOrDefaultAsync();
+                _logger.Information($"processing alternative address to the family with id({family.Id})");
                 if (family.AlternativeAddress != null)
                 {
                     if (savedFamily.AlternativeAddress == null)
@@ -424,6 +534,7 @@ namespace OrphanageService.Services
                         await _regularDataService.DeleteAddress(alAdd, orphanageDbc);
                     }
                 }
+                _logger.Information($"processing primary address to the family with id({family.Id})");
                 if (family.PrimaryAddress != null)
                 {
                     if (savedFamily.PrimaryAddress == null)
@@ -462,9 +573,15 @@ namespace OrphanageService.Services
                 savedFamily.ResidenceType = family.ResidenceType;
                 ret += await orphanageDbc.SaveChangesAsync();
                 if (ret > 0)
+                {
+                    _logger.Information($"family with id({family.Id}) has been successfully saved to the database, {ret} changes have been made");
                     return true;
+                }
                 else
+                {
+                    _logger.Information($"nothing has changed, false will be returned");
                     return false;
+                }
             }
         }
 
@@ -472,6 +589,7 @@ namespace OrphanageService.Services
         {
             try
             {
+                _logger.Information($"trying to set the color value ({colorValue ?? -1}) to the family with Id({FamId})");
                 using (var _orphanageDBC = new OrphanageDBC())
                 {
                     _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
@@ -481,11 +599,21 @@ namespace OrphanageService.Services
                     var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
 
                     if (family == null)
-                        return;
+                    {
+                        _logger.Error($"family with id ({FamId}) has not been found, ObjectNotFoundException will be thrown");
+                        throw new ObjectNotFoundException();
+                    }
 
                     family.ColorMark = colorValue;
 
-                    await _orphanageDBC.SaveChangesAsync();
+                    if (await _orphanageDBC.SaveChangesAsync() > 0)
+                    {
+                        _logger.Information($"color value ({colorValue ?? -1}) has been set successfully to the family with id({FamId})");
+                    }
+                    else
+                    {
+                        _logger.Warning($"color value ({colorValue ?? -1}) has not been set to the family with id({FamId}), nothing has changed");
+                    }
                 }
             }
             catch (Exception ex)
@@ -496,58 +624,7 @@ namespace OrphanageService.Services
 
         public async Task SetFamilyExclude(int FamId, bool value)
         {
-            try
-            {
-                using (var _orphanageDBC = new OrphanageDBC())
-                {
-                    _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
-                    _orphanageDBC.Configuration.LazyLoadingEnabled = true;
-                    _orphanageDBC.Configuration.ProxyCreationEnabled = true;
-
-                    var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
-
-                    if (family == null)
-                        return;
-
-                    family.IsExcluded = value;
-
-                    await _orphanageDBC.SaveChangesAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ServiceException("Error in SetFamilyCardPage1 method.", ex);
-            }
-        }
-
-        public async Task SetFamilyCardPage1(int FamId, byte[] data)
-        {
-            try
-            {
-                using (var _orphanageDBC = new OrphanageDBC())
-                {
-                    _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
-                    _orphanageDBC.Configuration.LazyLoadingEnabled = true;
-                    _orphanageDBC.Configuration.ProxyCreationEnabled = true;
-
-                    var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
-
-                    if (family == null)
-                        return;
-
-                    family.FamilyCardImagePage1Data = data;
-
-                    await _orphanageDBC.SaveChangesAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ServiceException("Error in SetFamilyCardPage1 method.", ex);
-            }
-        }
-
-        public async Task SetFamilyCardPage2(int FamId, byte[] data)
-        {
+            _logger.Information($"trying to set the isExcluded value ({value.ToString()}) to the family with Id({FamId})");
             using (var _orphanageDBC = new OrphanageDBC())
             {
                 _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
@@ -557,12 +634,151 @@ namespace OrphanageService.Services
                 var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
 
                 if (family == null)
-                    return;
+                {
+                    _logger.Error($"family with id ({FamId}) has not been found, ObjectNotFoundException will be thrown");
+                    throw new ObjectNotFoundException();
+                }
+
+                family.IsExcluded = value;
+
+                if (await _orphanageDBC.SaveChangesAsync() > 0)
+                {
+                    _logger.Information($"isExcluded value ({value}) has been set successfully to the family with id({FamId})");
+                }
+                else
+                {
+                    _logger.Warning($"isExcluded value ({value}) has not been set to the family with id({FamId}), nothing has changed");
+                }
+            }
+        }
+
+        public async Task<bool> SetFamilyCardPage1(int FamId, byte[] data)
+        {
+            _logger.Information($"trying to set family with id ({FamId}) FamilyCard Page1 Photo");
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                if (family == null)
+                {
+                    _logger.Error($"family with id ({FamId}) has not been found, ObjectNotFoundException will be thrown");
+                    throw new ObjectNotFoundException();
+                }
+
+                family.FamilyCardImagePage1Data = data;
+
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    _logger.Information($"new FamilyCard Page1 Photo has been set successfully to the family with id ({FamId}), true will be returned");
+                    return true;
+                }
+                else
+                {
+                    _logger.Warning($"something went wrong , cannot set new FamilyCard Page1 Photo to the family with id ({FamId}), false will be returned");
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> SetFamilyCardPage2(int FamId, byte[] data)
+        {
+            _logger.Information($"trying to set family with id ({FamId}) FamilyCard Page2 Photo");
+            using (var _orphanageDBC = new OrphanageDBC())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var family = await _orphanageDBC.Families.Where(f => f.Id == FamId).FirstOrDefaultAsync();
+
+                if (family == null)
+                {
+                    _logger.Error($"family with id ({FamId}) has not been found, ObjectNotFoundException will be thrown");
+                    throw new ObjectNotFoundException();
+                }
 
                 family.FamilyCardImagePage2Data = data;
 
-                await _orphanageDBC.SaveChangesAsync();
+                var ret = await _orphanageDBC.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    _logger.Information($"new FamilyCard Page2 Photo has been set successfully to the family with id ({FamId}), true will be returned");
+                    return true;
+                }
+                else
+                {
+                    _logger.Warning($"something went wrong , cannot set new FamilyCard Page2 Photo to the family with id ({FamId}), false will be returned");
+                    return false;
+                }
             }
+        }
+
+        public async Task<bool> BailFamilies(int BailId, IList<int> familiesIds)
+        {
+            bool ret = true;
+            _logger.Information($"trying to set Bail with id({BailId}) to the families with the given Id list");
+            _logger.Information($"trying to get families with the given Id list");
+            if (familiesIds == null || familiesIds.Count == 0)
+            {
+                _logger.Information($"the given Id list is null or empty, false will be returned");
+                return false;
+            }
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                _orphanageDBC.Configuration.AutoDetectChangesEnabled = true;
+                _orphanageDBC.Configuration.LazyLoadingEnabled = true;
+                _orphanageDBC.Configuration.ProxyCreationEnabled = true;
+
+                var families = await _orphanageDBC.Families
+                    .Where(o => familiesIds.Contains(o.Id))
+                    .ToListAsync();
+
+                if (families == null || families.Count == 0)
+                {
+                    _logger.Warning($"there is no families founded in the given ids list, false will be returned");
+                    return false;
+                }
+                OrphanageDataModel.FinancialData.Bail bail = null;
+                if (BailId > 0)
+                {
+                    await _orphanageDBC.Bails.AsNoTracking().FirstOrDefaultAsync(b => b.Id == BailId);
+                    if (bail == null)
+                    {
+                        _logger.Error($"bail with id ({BailId}) has not been found, ObjectNotFoundException will be thrown");
+                        throw new ObjectNotFoundException();
+                    }
+                }
+                foreach (var fam in families)
+                {
+                    if (BailId > 0)
+                    {
+                        _logger.Information($"trying to set value ({BailId}) to bailId property for the family with the id ({fam.Id})");
+                        fam.IsBailed = true;
+                        fam.BailId = BailId;
+                    }
+                    else
+                    {
+                        _logger.Information($"trying to set bailId property to NULL for the family with the id ({fam.Id})");
+                        fam.IsBailed = false;
+                        fam.BailId = null;
+                    }
+                    if (await _orphanageDBC.SaveChangesAsync() > 0)
+                    {
+                        _logger.Information($"bailId property has been set successfully to the value ({BailId}) for the family with the id ({fam.Id})");
+                    }
+                    else
+                    {
+                        _logger.Warning($"bailId property has not been set to the value ({BailId}) for the family with the id ({fam.Id})");
+                        ret = false;
+                    }
+                }
+            }
+            return ret;
         }
     }
 }

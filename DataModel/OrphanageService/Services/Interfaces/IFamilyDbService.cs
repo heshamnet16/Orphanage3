@@ -28,9 +28,11 @@ namespace OrphanageService.Services.Interfaces
 
         Task SetFamilyExclude(int FamId, bool value);
 
-        Task SetFamilyCardPage1(int FamId, byte[] data);
+        Task<bool> SetFamilyCardPage1(int FamId, byte[] data);
 
-        Task SetFamilyCardPage2(int FamId, byte[] data);
+        Task<bool> SetFamilyCardPage2(int FamId, byte[] data);
+
+        Task<bool> BailFamilies(int BailId, IList<int> OrphanIds);
 
         /// <summary>
         /// add new family object to the database

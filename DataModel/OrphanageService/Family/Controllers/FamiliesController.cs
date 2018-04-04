@@ -52,6 +52,14 @@ namespace OrphanageService.Family.Controllers
         }
 
         [HttpPut]
+        [Route("BailFamilies/{BailId}")]
+        public async Task<bool> SetBail(int BailId, [FromUri] IList<int> OrphanIds)
+        {
+            var ret = await _FamilyDBService.BailFamilies(BailId, OrphanIds);
+            return ret;
+        }
+
+        [HttpPut]
         [Route("color")]
         public async Task<HttpResponseMessage> SetFamilyColor(int FamilyId, int colorValue)
         {
