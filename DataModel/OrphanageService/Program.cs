@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Owin.Hosting;
+using OrphanageService.Services;
 using System;
+using W.Firewall;
 
 namespace OrphanageService
 {
@@ -8,6 +10,7 @@ namespace OrphanageService
     {
         private static void Main(string[] args)
         {
+            CreateFirewallRules();
             string baseUrl = Properties.Settings.Default.BaseURI;
 
             WebApp.Start<Startup>(baseUrl);
@@ -37,6 +40,35 @@ namespace OrphanageService
                 cfg.CreateMap<OrphanageDataModel.RegularData.Name, OrphanageDataModel.RegularData.Name>();
                 cfg.CreateMap<OrphanageDataModel.RegularData.Study, OrphanageDataModel.RegularData.Study>();
             });
+        }
+
+        private static void CreateFirewallRules()
+        {
+            try
+            {
+                if (!Rules.Exists("Orphanage3"))
+                {
+                    Rules.Add("Orphanage3", "", localPorts: "1515");
+                }
+            }
+            catch (Exception ex)
+            {
+                var logger = new Logger();
+                logger.Fatal("Connot create Orphanage3 rule");
+                logger.Fatal(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    logger.Fatal(ex.InnerException.Message);
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        logger.Fatal(ex.InnerException.InnerException.Message);
+                        if (ex.InnerException.InnerException.InnerException != null)
+                        {
+                            logger.Fatal(ex.InnerException.InnerException.InnerException.Message);
+                        }
+                    }
+                }
+            }
         }
     }
 }
