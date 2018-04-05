@@ -355,7 +355,7 @@ namespace OrphanageService.Services
 
                 if (brotherFM.Count == 1)
                 {
-                    _logger.Error($"orphan with id({Oid}) has no brothers null will be returned");
+                    _logger.Information($"orphan with id({Oid}) has no brothers null will be returned");
                     return null;
                 }
 

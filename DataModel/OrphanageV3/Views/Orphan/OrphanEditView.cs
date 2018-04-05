@@ -144,6 +144,7 @@ namespace OrphanageV3.Views.Orphan
 
         private void SetValues()
         {
+            setImageControlsHanlder(false);
             if (_CurrentOrphan == null) return;
             orphanBindingSource.DataSource = _CurrentOrphan;
             RadPageView1.SelectedPage = pgeBasic;
@@ -213,6 +214,7 @@ namespace OrphanageV3.Views.Orphan
             _CertificatePhotoChanged = false;
             _CertificatePhoto2Changed = false;
             _HealthPhotoChanged = false;
+            setImageControlsHanlder(true);
         }
 
         private Health fillHealth(Health health)
@@ -435,13 +437,30 @@ namespace OrphanageV3.Views.Orphan
         private void OrphanEditView_Load(object sender, EventArgs e)
         {
             SetValues();
-            picFace.PhotoChanged += PhotoChanged;
-            PicBody.PhotoChanged += PhotoChanged;
-            picHReportPhoto.PhotoChanged += PhotoChanged;
-            picObirthCertificate.PhotoChanged += PhotoChanged;
-            picOFamilyCardPhoto.PhotoChanged += PhotoChanged;
-            picSStarter.PhotoChanged += PhotoChanged;
-            PicSstudyCerti.PhotoChanged += PhotoChanged;
+        }
+
+        private void setImageControlsHanlder(bool value)
+        {
+            if (value)
+            {
+                picFace.PhotoChanged += PhotoChanged;
+                PicBody.PhotoChanged += PhotoChanged;
+                picHReportPhoto.PhotoChanged += PhotoChanged;
+                picObirthCertificate.PhotoChanged += PhotoChanged;
+                picOFamilyCardPhoto.PhotoChanged += PhotoChanged;
+                picSStarter.PhotoChanged += PhotoChanged;
+                PicSstudyCerti.PhotoChanged += PhotoChanged;
+            }
+            else
+            {
+                picFace.PhotoChanged -= PhotoChanged;
+                PicBody.PhotoChanged -= PhotoChanged;
+                picHReportPhoto.PhotoChanged -= PhotoChanged;
+                picObirthCertificate.PhotoChanged -= PhotoChanged;
+                picOFamilyCardPhoto.PhotoChanged -= PhotoChanged;
+                picSStarter.PhotoChanged -= PhotoChanged;
+                PicSstudyCerti.PhotoChanged -= PhotoChanged;
+            }
         }
 
         private async void PhotoChanged(object sender, EventArgs e)

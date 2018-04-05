@@ -83,6 +83,7 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.AccountName, sour => sour.MapFrom(prop => prop.Account.AccountName))
                     .ForMember(dest => dest.CurrencyName, sour => sour.MapFrom(prop => prop.Account.Currency))
                     .ForMember(dest => dest.CurrencyShortcut, sour => sour.MapFrom(prop => prop.Account.CurrencyShortcut))
+                    .ForMember(dest => dest.GuarantorName, sour => sour.MapFrom(prop => prop.Guarantor.Name.FullName()))
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
             });
 

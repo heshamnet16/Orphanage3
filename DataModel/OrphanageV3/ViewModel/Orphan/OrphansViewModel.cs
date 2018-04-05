@@ -188,10 +188,16 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orp.Age.HasValue)
                 stringBuilder.AppendLine(Properties.Resources.Age + ": " + _translateService.DateToString(orp.Birthday));
             var brothers = await brothersTask;
-            int boys = brothers.Count(o => _translateService.IsBoy(o.Gender));
-            int girls = brothers.Count(o => !_translateService.IsBoy(o.Gender));
-            stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": " + boys + " " + Properties.Resources.MalesString + ", " + girls + " " + Properties.Resources.FemalesString);
-
+            if (brothers != null)
+            {
+                int boys = brothers.Count(o => _translateService.IsBoy(o.Gender));
+                int girls = brothers.Count(o => !_translateService.IsBoy(o.Gender));
+                stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": " + boys + " " + Properties.Resources.MalesString + ", " + girls + " " + Properties.Resources.FemalesString);
+            }
+            else
+            {
+                stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": 0 " + Properties.Resources.MalesString + ", 0 " + Properties.Resources.FemalesString);
+            }
             if (bailTask != null || FamilyBailTask != null)
             {
                 stringBuilder.AppendLine(Properties.Resources.IsBailed + ": " + Properties.Resources.BooleanTrue);

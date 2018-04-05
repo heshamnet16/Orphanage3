@@ -109,7 +109,7 @@ namespace OrphanageV3.ViewModel.Main
 
         public void ShowBailsView()
         {
-            ShowView(new Views.Caregiver.CaregiversView());
+            ShowView(new Views.Bail.BailsView());
         }
 
         private void ShowView(RadForm frm)

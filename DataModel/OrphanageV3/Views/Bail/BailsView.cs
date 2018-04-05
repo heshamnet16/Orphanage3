@@ -56,7 +56,7 @@ namespace OrphanageV3.Views.Bail
                     bool value = orphansCount > 0 ? true : false;
                     btnShowOrphans.Enabled = value;
                 }
-                var retObjectFamiliesCount = _radGridHelper.GetValueBySelectedRow("OrphansCount");
+                var retObjectFamiliesCount = _radGridHelper.GetValueBySelectedRow("FamiliesCount");
                 if (retObjectFamiliesCount != null)
                 {
                     int familiesCount;
