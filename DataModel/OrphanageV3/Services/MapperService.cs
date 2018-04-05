@@ -295,14 +295,29 @@ namespace OrphanageV3.Services
 
         public IEnumerable<BailModel> MapToBailModel(IEnumerable<Bail> bailsList)
         {
-            //Todo
-            throw new System.NotImplementedException();
+            IList<BailModel> returnedBails = new List<BailModel>();
+            foreach (var bail in bailsList)
+            {
+                BailModel retBail = MapToBailModel(bail);
+                returnedBails.Add(retBail);
+            }
+            return returnedBails;
         }
 
         public BailModel MapToBailModel(Bail bail)
         {
-            //Todo get guarantor name
-            throw new System.NotImplementedException();
+            BailModel retBail = null;
+            try
+            {
+                retBail = _mapper.Map<BailModel>(bail);
+                retBail.FamiliesCount = -1;
+                retBail.OrphansCount = -1;
+            }
+            catch
+            {
+                retBail = null;
+            }
+            return retBail;
         }
     }
 }

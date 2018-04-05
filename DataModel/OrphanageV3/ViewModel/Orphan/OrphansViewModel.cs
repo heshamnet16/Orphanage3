@@ -169,8 +169,8 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orp == null)
                 return string.Empty;
             var brothersTask = _apiClient.OrphansController_GetBrothersAsync(Oid);
-            Task<Bail> bailTask = null;
-            Task<Bail> FamilyBailTask = null;
+            Task<OrphanageDataModel.FinancialData.Bail> bailTask = null;
+            Task<OrphanageDataModel.FinancialData.Bail> FamilyBailTask = null;
             if (orp.IsBailed)
                 bailTask = _apiClient.BailsController_GetAsync(orp.BailId.Value);
             if (orp.Family.IsBailed)
@@ -195,7 +195,7 @@ namespace OrphanageV3.ViewModel.Orphan
             if (bailTask != null || FamilyBailTask != null)
             {
                 stringBuilder.AppendLine(Properties.Resources.IsBailed + ": " + Properties.Resources.BooleanTrue);
-                Bail orpBail = null;
+                OrphanageDataModel.FinancialData.Bail orpBail = null;
                 if (bailTask != null)
                 {
                     orpBail = await bailTask;

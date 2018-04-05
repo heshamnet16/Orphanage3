@@ -95,6 +95,7 @@
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.lblConnectionStatus = new Telerik.WinControls.UI.RadLabelElement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.mnuShowBails = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -185,6 +186,7 @@
             this.RadMenuSeparatorItem4,
             this.mnuShowBonds,
             this.mnuShowSupporter,
+            this.mnuShowBails,
             this.RadMenuSeparatorItem5,
             this.mnuShowAccounts,
             this.mnuShowBills,
@@ -575,6 +577,7 @@
             this.imageList1.Images.SetKeyName(1, "Father.png");
             this.imageList1.Images.SetKeyName(2, "Mother.png");
             this.imageList1.Images.SetKeyName(3, "Parents.png");
+            this.imageList1.Images.SetKeyName(4, "Bails.png");
             // 
             // RadMenu1
             // 
@@ -619,6 +622,14 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // mnuShowBails
+            // 
+            this.mnuShowBails.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowBails.Image")));
+            this.mnuShowBails.ImageKey = "Bails.png";
+            this.mnuShowBails.Name = "mnuShowBails";
+            this.mnuShowBails.Text = "show Bails";
+            this.mnuShowBails.Click += new System.EventHandler(this.mnuShowBails_Click);
             // 
             // MainView
             // 
@@ -710,5 +721,6 @@
         private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
         private Telerik.WinControls.UI.RadLabelElement lblConnectionStatus;
         private System.Windows.Forms.Timer timer1;
+        private Telerik.WinControls.UI.RadMenuItem mnuShowBails;
     }
 }

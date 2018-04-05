@@ -65,6 +65,38 @@ namespace OrphanageService.Bail.Controllers
             return await _bailDbService.GetFamilies(BId);
         }
 
+        [HttpGet]
+        [Route("orphans/count/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetOrphansCount(int BId)
+        {
+            return await _bailDbService.GetOrphansCount(BId);
+        }
+
+        [HttpGet]
+        [Route("families/count/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetFamiliesCount(int BId)
+        {
+            return await _bailDbService.GetFamiliesCount(BId);
+        }
+
+        [HttpGet]
+        [Route("orphans/ids/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetOrphansIds(int BId)
+        {
+            return await _bailDbService.GetOrphansIds(BId);
+        }
+
+        [HttpGet]
+        [Route("families/ids/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetFamiliesIds(int BId)
+        {
+            return await _bailDbService.GetFamiliesIds(BId);
+        }
+
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(object bail)

@@ -16,3 +16,66 @@
 2018-04-04 09:34:59.849 [FTL] Trying to get Bails with pageSize 73 and pageNumber 0
 2018-04-04 09:34:59.849 [INF] Trying to get Bails with pageSize 73 and pageNumber 0
 2018-04-04 09:35:03.272 [INF] 40 records of bails will be returned
+2018-04-05 12:07:47.936 [INF] Logging initialized.
+2018-04-05 12:07:48.059 [INF] Trying to get Bails with pageSize 1000 and pageNumber 0
+2018-04-05 12:12:17.955 [INF] Logging initialized.
+2018-04-05 12:12:18.005 [INF] Trying to get Bails with pageSize 1000 and pageNumber 0
+2018-04-05 12:16:08.729 [INF] Logging initialized.
+2018-04-05 12:16:08.781 [INF] Trying to get Bails with pageSize 1000 and pageNumber 0
+2018-04-05 12:18:32.234 [INF] Logging initialized.
+2018-04-05 12:18:32.291 [INF] Trying to get Bails with pageSize 1000 and pageNumber 0
+2018-04-05 12:19:08.302 [INF] Logging initialized.
+2018-04-05 12:19:08.356 [INF] Trying to get Bails with pageSize 1000 and pageNumber 0
+2018-04-05 12:19:48.042 [INF] Logging initialized.
+2018-04-05 12:19:48.044 [INF] Trying to get Bail with id 72
+2018-04-05 12:22:57.612 [INF] Logging initialized.
+2018-04-05 12:22:57.661 [INF] Trying to get Bail with id 72
+2018-04-05 12:23:00.103 [WRN] Bail with id72 cannot be found null is returned
+2018-04-05 12:23:20.534 [INF] Logging initialized.
+2018-04-05 12:23:20.535 [INF] Trying to get Bail with id 74
+2018-04-05 12:23:20.622 [INF] returned Bail with id 74
+2018-04-05 12:23:38.131 [INF] Logging initialized.
+2018-04-05 12:23:38.135 [INF] trying to get orphan with id (74)
+2018-04-05 12:23:39.140 [INF] orphan object with id(74) will be returned
+2018-04-05 12:24:02.919 [INF] Logging initialized.
+2018-04-05 12:24:02.919 [INF] Trying to get Bail with id 74
+2018-04-05 12:24:03.284 [INF] returned Bail with id 74
+2018-04-05 12:24:16.997 [INF] Logging initialized.
+2018-04-05 12:24:16.999 [INF] Trying to get Bail with id 72
+2018-04-05 12:24:17.001 [WRN] Bail with id72 cannot be found null is returned
+2018-04-05 12:24:20.417 [INF] Logging initialized.
+2018-04-05 12:24:20.418 [INF] Trying to get Bail with id 73
+2018-04-05 12:24:20.420 [INF] returned Bail with id 73
+2018-04-05 12:24:44.846 [INF] Logging initialized.
+2018-04-05 12:24:44.855 [INF] trying to get orphans by paging, pageSize(73) pageNumber(0)
+2018-04-05 12:24:44.855 [INF] total page to skip equals (0)
+2018-04-05 12:24:44.856 [INF] trying to get all orphans count
+2018-04-05 12:24:45.461 [INF] orphans count(2007) will be returned
+2018-04-05 12:24:45.759 [INF] trying to prepare orphans list to return it
+2018-04-05 12:24:45.760 [INF] 73 records of orphans are ready and they will be returned
+2018-04-05 12:25:45.654 [INF] Logging initialized.
+2018-04-05 12:25:45.657 [INF] trying to get orphans by paging, pageSize(12) pageNumber(5000)
+2018-04-05 12:25:45.657 [INF] total page to skip equals (60000)
+2018-04-05 12:25:45.658 [INF] trying to get all orphans count
+2018-04-05 12:25:45.947 [INF] orphans count(2007) will be returned
+2018-04-05 12:25:45.947 [INF] orphans count is smaller than total skipped orphans, reset total skipped orphans to (1995)
+2018-04-05 12:25:46.943 [INF] trying to prepare orphans list to return it
+2018-04-05 12:25:46.943 [INF] 12 records of orphans are ready and they will be returned
+2018-04-05 12:26:39.753 [INF] Logging initialized.
+2018-04-05 12:26:39.753 [INF] trying to get orphans by paging, pageSize(12) pageNumber(4)
+2018-04-05 12:26:39.754 [INF] total page to skip equals (48)
+2018-04-05 12:26:39.754 [INF] trying to get all orphans count
+2018-04-05 12:26:39.756 [INF] orphans count(2007) will be returned
+2018-04-05 12:26:40.038 [INF] trying to prepare orphans list to return it
+2018-04-05 12:26:40.039 [INF] 12 records of orphans are ready and they will be returned
+2018-04-05 12:26:51.409 [INF] Logging initialized.
+2018-04-05 12:26:51.411 [INF] Logging initialized.
+2018-04-05 12:26:51.414 [INF] trying to get families by paging, pageSize(12) pageNumber(4)
+2018-04-05 12:26:51.414 [INF] total page to skip equals (48)
+2018-04-05 12:26:51.415 [INF] trying to get all families count
+2018-04-05 12:26:51.510 [INF] orphans count(811) will be returned
+2018-04-05 12:26:51.772 [INF] trying to prepare families list to return it
+2018-04-05 12:26:51.773 [INF] 12 records of families are ready and they will be returned
+2018-04-05 12:28:07.095 [INF] Logging initialized.
+2018-04-05 12:28:07.097 [INF] trying to get orphan with id (12)
+2018-04-05 12:28:07.483 [INF] orphan object with id(12) will be returned

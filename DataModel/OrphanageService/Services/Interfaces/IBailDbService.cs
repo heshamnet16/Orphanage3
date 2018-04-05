@@ -13,6 +13,14 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int Bid);
 
+        Task<int> GetOrphansCount(int Bid);
+
+        Task<int> GetFamiliesCount(int Bid);
+
+        Task<IEnumerable<int>> GetOrphansIds(int Bid);
+
+        Task<IEnumerable<int>> GetFamiliesIds(int Bid);
+
         Task<int> GetBailsCount();
 
         Task<OrphanageDataModel.FinancialData.Bail> AddBail(OrphanageDataModel.FinancialData.Bail bailToAdd);

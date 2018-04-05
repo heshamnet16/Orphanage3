@@ -166,5 +166,17 @@ namespace OrphanageV3.Properties {
                 this["FamiliesLayoutFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bail.layout")]
+        public string BailsLayoutFilePath {
+            get {
+                return ((string)(this["BailsLayoutFilePath"]));
+            }
+            set {
+                this["BailsLayoutFilePath"] = value;
+            }
+        }
     }
 }

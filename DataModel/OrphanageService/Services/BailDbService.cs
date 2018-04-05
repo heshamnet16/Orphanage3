@@ -179,6 +179,62 @@ namespace OrphanageService.Services
             return returnedOrphans;
         }
 
+        public async Task<int> GetFamiliesCount(int Bid)
+        {
+            _logger.Information($"Trying to get the count families those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var bailsCount = await (from orp in dbContext.Families.AsNoTracking()
+                                        where orp.BailId == Bid
+                                        select orp)
+                              .CountAsync();
+                _logger.Information($"count of families those related to bail with id ({Bid}) is ({bailsCount}), and it will be returned");
+                return bailsCount;
+            }
+        }
+
+        public async Task<int> GetOrphansCount(int Bid)
+        {
+            _logger.Information($"Trying to get the count orphans those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var bailsCount = await (from orp in dbContext.Orphans.AsNoTracking()
+                                        where orp.BailId == Bid
+                                        select orp)
+                              .CountAsync();
+                _logger.Information($"count of orphans those related to bail with id ({Bid}) is ({bailsCount}), and it will be returned");
+                return bailsCount;
+            }
+        }
+
+        public async Task<IEnumerable<int>> GetFamiliesIds(int Bid)
+        {
+            _logger.Information($"Trying to get the families ids those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var familiesIds = await (from fam in dbContext.Families.AsNoTracking()
+                                         where fam.BailId == Bid
+                                         select fam.Id)
+                              .ToListAsync();
+                _logger.Information($"({familiesIds}) records of families ids those related to bail with id ({Bid}), will be returned");
+                return familiesIds;
+            }
+        }
+
+        public async Task<IEnumerable<int>> GetOrphansIds(int Bid)
+        {
+            _logger.Information($"Trying to get the orphans ids those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var orphansIds = await (from orp in dbContext.Orphans.AsNoTracking()
+                                        where orp.BailId == Bid
+                                        select orp.Id)
+                              .ToListAsync();
+                _logger.Information($"({orphansIds}) records of orphans ids those related to bail with id ({Bid}), will be returned");
+                return orphansIds;
+            }
+        }
+
         public async Task<OrphanageDataModel.FinancialData.Bail> AddBail(OrphanageDataModel.FinancialData.Bail bailToAdd)
         {
             _logger.Information($"Trying to add new Bail");

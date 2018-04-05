@@ -1109,4 +1109,40 @@
   <data name="Disconnected" xml:space="preserve">
     <value>غير متصل</value>
   </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>اسم الحساب</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="Bail" xml:space="preserve">
+    <value>كفالة</value>
+  </data>
+  <data name="Bails" xml:space="preserve">
+    <value>الكفالات</value>
+  </data>
+  <data name="CurrencyName" xml:space="preserve">
+    <value>اسم العملة</value>
+  </data>
+  <data name="CurrencyShortcut" xml:space="preserve">
+    <value>اختصار العملة</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="FamiliesCount" xml:space="preserve">
+    <value>عدد العائلات</value>
+  </data>
+  <data name="IsExpired" xml:space="preserve">
+    <value>منتهية</value>
+  </data>
+  <data name="IsFamilyBail" xml:space="preserve">
+    <value>كفالة عائلية</value>
+  </data>
+  <data name="IsMonthlyBail" xml:space="preserve">
+    <value>شهرية</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
 </root>

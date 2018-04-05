@@ -152,7 +152,9 @@
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
     <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\TranslateService.cs" />
+    <Compile Include="ViewModel\Bail\BailEditViewModel.cs" />
     <Compile Include="ViewModel\Bail\BailModel.cs" />
+    <Compile Include="ViewModel\Bail\BailsViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverEditViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiversViewModel.cs" />
@@ -172,6 +174,24 @@
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
+    <Compile Include="Views\Bail\AddBailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bail\AddBailView.Designer.cs">
+      <DependentUpon>AddBailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bail\BailEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bail\BailEditView.Designer.cs">
+      <DependentUpon>BailEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bail\BailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bail\BailsView.Designer.cs">
+      <DependentUpon>BailsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Caregiver\CaregiverEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +311,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controlls\OrphanageGridView.resx">
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bail\AddBailView.resx">
+      <DependentUpon>AddBailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bail\BailEditView.resx">
+      <DependentUpon>BailEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bail\BailsView.resx">
+      <DependentUpon>BailsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Caregiver\CaregiverEditView.resx">
       <DependentUpon>CaregiverEditView.cs</DependentUpon>

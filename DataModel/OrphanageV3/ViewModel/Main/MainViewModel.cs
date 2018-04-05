@@ -107,6 +107,11 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Caregiver.CaregiversView());
         }
 
+        public void ShowBailsView()
+        {
+            ShowView(new Views.Caregiver.CaregiversView());
+        }
+
         private void ShowView(RadForm frm)
         {
             frm.MdiParent = _MainView;

@@ -26,6 +26,10 @@ namespace OrphanageV3.ViewModel.Bail
         [ShowInChooser(Order = 3)]
         public string AccountName { get; set; }
 
+        public int OrphansCount { get; set; }
+
+        public int FamiliesCount { get; set; }
+
         public bool IsFamilyBail { get; set; }
 
         public DateTime? StartDate { get; set; }
