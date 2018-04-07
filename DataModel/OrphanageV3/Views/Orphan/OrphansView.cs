@@ -321,5 +321,21 @@ namespace OrphanageV3.Views.Orphan
             fimiliesView.MdiParent = this.MdiParent;
             fimiliesView.Show();
         }
+
+        private void BtnBail_Click(object sender, EventArgs e)
+        {
+            if (orphanageGridView1.SelectedIds == null || orphanageGridView1.SelectedIds.Count == 0) return;
+            ChooserView.ChooserView bailsChooser = new ChooserView.ChooserView(_orphansViewModel.Bails.ToList<object>(), Properties.Resources.ChooseBail);
+            bailsChooser.MultiSelect = false;
+            bailsChooser.ShowDialog();
+            if (bailsChooser.DialogResult == DialogResult.OK)
+            {
+                var bail = (ViewModel.Bail.BailModel)bailsChooser.SelectedObject;
+                if (bail != null && bail.Id > 0)
+                {
+                    _orphansViewModel.BailOrphans(bail.Id, orphanageGridView1.SelectedIds);
+                }
+            }
+        }
     }
 }

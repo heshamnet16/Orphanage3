@@ -18,6 +18,9 @@ namespace OrphanageV3.ViewModel.Orphan
         private readonly IMapperService _mapperService;
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
+        private readonly Bail.BailsViewModel _bailsViewModel;
+
+        public IEnumerable<Bail.BailModel> Bails { get; set; }
 
         public delegate void OrphansChnagedDelegate();
 
@@ -30,12 +33,21 @@ namespace OrphanageV3.ViewModel.Orphan
         private Size PhotoSize = new Size(75, 75);
         private int PhotoCompressRatio = 40;
 
-        public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService, IDataFormatterService dataFormatterService)
+        public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService, IDataFormatterService dataFormatterService,
+            Bail.BailsViewModel bailsViewModel)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
+            _bailsViewModel = bailsViewModel;
+            _bailsViewModel.DataLoaded += bailsLoaded;
+            _bailsViewModel.LoadBails();
+        }
+
+        private void bailsLoaded(object sender, System.EventArgs e)
+        {
+            Bails = _bailsViewModel.Bails;
         }
 
         public void LoadData()
@@ -401,6 +413,19 @@ namespace OrphanageV3.ViewModel.Orphan
                 }
                 else
                     yield return -1;
+            }
+        }
+
+        public async void BailOrphans(int bailId, IEnumerable<int> orphansIds)
+        {
+            if (bailId <= 0) return;
+            if (orphansIds == null || orphansIds.Count() == 0) return;
+
+            var ret = await _apiClient.OrphansController_SetBailAsync(bailId, orphansIds);
+            if (ret)
+            {
+                foreach (int orphanId in orphansIds)
+                    UpdateOrphan(orphanId);
             }
         }
     }
