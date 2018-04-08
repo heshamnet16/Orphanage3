@@ -21,6 +21,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<int>> GetFamiliesIds(int Bid);
 
+        Task<bool> UnBailEverything(int Bid);
+
         Task<int> GetBailsCount();
 
         Task<OrphanageDataModel.FinancialData.Bail> AddBail(OrphanageDataModel.FinancialData.Bail bailToAdd);

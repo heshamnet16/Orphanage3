@@ -961,21 +961,66 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetCaregiversCountAsync();
+        System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetCaregiversCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetFamilyOrphansAsync(int gId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetFamilyOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -985,6 +1030,24 @@ namespace OrphanageV3.Services
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> GuarantorsController_GetBailsAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -1015,12 +1078,12 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID);
+        System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
@@ -10208,15 +10271,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> GuarantorsController_GetCaregiversCountAsync()
+        public System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync()
         {
-            return GuarantorsController_GetCaregiversCountAsync(System.Threading.CancellationToken.None);
+            return GuarantorsController_GetGuarantorsCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> GuarantorsController_GetCaregiversCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/guarantor/count");
@@ -10283,15 +10346,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetFamilyOrphansAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId)
         {
-            return GuarantorsController_GetFamilyOrphansAsync(gId, System.Threading.CancellationToken.None);
+            return GuarantorsController_GetOrphansAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetFamilyOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -10345,6 +10408,401 @@ namespace OrphanageV3.Services
                         }
             
                         return default(System.Collections.ObjectModel.ObservableCollection<Orphan>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId)
+        {
+            return GuarantorsController_GetOrphansCountAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/orphans/count/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(int); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(int);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId)
+        {
+            return GuarantorsController_GetOrphansIdsAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/orphans/Ids/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<int>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<int>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.ObjectModel.ObservableCollection<int>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId)
+        {
+            return GuarantorsController_GetFamiliesAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/families/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<Family>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<Family>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.ObjectModel.ObservableCollection<Family>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId)
+        {
+            return GuarantorsController_GetFamiliesCountAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/families/count/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(int); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(int);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId)
+        {
+            return GuarantorsController_GetFamiliesIdsAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/families/Ids/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<int>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<int>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.ObjectModel.ObservableCollection<int>);
                     }
                     finally
                     {
@@ -10424,6 +10882,164 @@ namespace OrphanageV3.Services
                         }
             
                         return default(System.Collections.ObjectModel.ObservableCollection<Bail>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId)
+        {
+            return GuarantorsController_GetBailsCountAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/bails/count/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(int); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(int);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId)
+        {
+            return GuarantorsController_GetBailsIdsAsync(gId, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        {
+            if (gId == null)
+                throw new System.ArgumentNullException("gId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/bails/Ids/{GId}");
+            urlBuilder_.Replace("{GId}", System.Uri.EscapeDataString(System.Convert.ToString(gId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<int>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<int>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.ObjectModel.ObservableCollection<int>);
                     }
                     finally
                     {
@@ -10683,22 +11299,27 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID)
+        public System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete)
         {
-            return GuarantorsController_DeleteAsync(gID, System.Threading.CancellationToken.None);
+            return GuarantorsController_DeleteAsync(gID, forceDelete, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete, System.Threading.CancellationToken cancellationToken)
         {
             if (gID == null)
                 throw new System.ArgumentNullException("gID");
     
+            if (forceDelete == null)
+                throw new System.ArgumentNullException("forceDelete");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/{GID}");
+            urlBuilder_.Append(BaseUrl).Append("/api/guarantor/{GID}?");
             urlBuilder_.Replace("{GID}", System.Uri.EscapeDataString(System.Convert.ToString(gID, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("forceDelete=").Append(System.Uri.EscapeDataString(System.Convert.ToString(forceDelete, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = new System.Net.Http.HttpClient();
             try

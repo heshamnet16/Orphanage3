@@ -39,7 +39,16 @@ namespace OrphanageV3.Controlls
             { _ShowHiddenRows = value.HasValue ? value.Value : Properties.Settings.Default.ShowHiddenRows; }
         }
 
-        public bool AddSelectColumn { get => _AddSelectColumn; set { _AddSelectColumn = value; } }
+        public bool AddSelectColumn
+        {
+            get => _AddSelectColumn;
+            set
+            {
+                _AddSelectColumn = value;
+                if (!value)
+                    RemoveSelectColumn();
+            }
+        }
 
         public IList<GridViewRowInfo> SelectedRows
         {
@@ -208,7 +217,11 @@ namespace OrphanageV3.Controlls
                 col.IsVisible = true;
                 radGridView.Columns.Insert(0, col);
             }
-            else
+        }
+
+        private void RemoveSelectColumn()
+        {
+            if (!_AddSelectColumn)
             {
                 if (radGridView.Columns.Contains("Select"))
                 {

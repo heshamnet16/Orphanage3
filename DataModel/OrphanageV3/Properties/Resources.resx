@@ -1145,4 +1145,22 @@
   <data name="StartDate" xml:space="preserve">
     <value>تاريخ البداية</value>
   </data>
+  <data name="UnBailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnBail_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IsPayingMonthly" xml:space="preserve">
+    <value>يدفع شهريا</value>
+  </data>
+  <data name="IsStillPaying" xml:space="preserve">
+    <value>ملتزم بالدفع</value>
+  </data>
+  <data name="IsSupportingOnlyFamilies" xml:space="preserve">
+    <value>عائلات فقط</value>
+  </data>
+  <data name="NewBail" xml:space="preserve">
+    <value>كفالة جديدة</value>
+  </data>
+  <data name="NotLimited" xml:space="preserve">
+    <value>غير محدودة</value>
+  </data>
 </root>

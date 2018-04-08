@@ -1754,6 +1754,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die يدفع شهريا ähnelt.
+        /// </summary>
+        public static string IsPayingMonthly {
+            get {
+                return ResourceManager.GetString("IsPayingMonthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die مريض ähnelt.
         /// </summary>
         public static string IsSick {
@@ -1763,11 +1772,29 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ملتزم بالدفع ähnelt.
+        /// </summary>
+        public static string IsStillPaying {
+            get {
+                return ResourceManager.GetString("IsStillPaying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die يدرس ähnelt.
         /// </summary>
         public static string IsStudying {
             get {
                 return ResourceManager.GetString("IsStudying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عائلات فقط ähnelt.
+        /// </summary>
+        public static string IsSupportingOnlyFamilies {
+            get {
+                return ResourceManager.GetString("IsSupportingOnlyFamilies", resourceCulture);
             }
         }
         
@@ -2062,6 +2089,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كفالة جديدة ähnelt.
+        /// </summary>
+        public static string NewBail {
+            get {
+                return ResourceManager.GetString("NewBail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die معيل جديد ähnelt.
         /// </summary>
         public static string NewCaregiver {
@@ -2085,6 +2121,15 @@ namespace OrphanageV3.Properties {
         public static string Notes {
             get {
                 return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير محدودة ähnelt.
+        /// </summary>
+        public static string NotLimited {
+            get {
+                return ResourceManager.GetString("NotLimited", resourceCulture);
             }
         }
         
@@ -3026,6 +3071,16 @@ namespace OrphanageV3.Properties {
         public static string UnBailedFamilies {
             get {
                 return ResourceManager.GetString("UnBailedFamilies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap UnBailPic {
+            get {
+                object obj = ResourceManager.GetObject("UnBailPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

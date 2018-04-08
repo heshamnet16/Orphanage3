@@ -164,6 +164,9 @@
     <Compile Include="ViewModel\Father\FatherEditViewModel.cs" />
     <Compile Include="ViewModel\Father\FatherModel.cs" />
     <Compile Include="ViewModel\Father\FathersViewModel.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorEditViewModle.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorModel.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorsViewModel.cs" />
     <Compile Include="ViewModel\Main\MainViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
@@ -384,8 +387,10 @@
       <DependentUpon>SettingView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.FinancialData.Bail.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Father.datasource" />
+    <None Include="Properties\DataSources\OrphanageDataModel.Persons.Guarantor.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Mother.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Address.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Family.datasource" />
@@ -470,7 +475,9 @@
   <ItemGroup>
     <None Include="Resources\BrowseFamily.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\UnBail_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

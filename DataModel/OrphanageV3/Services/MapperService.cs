@@ -8,6 +8,7 @@ using OrphanageV3.ViewModel.Bail;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
+using OrphanageV3.ViewModel.Guarantor;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace OrphanageV3.Services
         private static readonly IMapper _mapper;
         private readonly IDataFormatterService _dataFormatterService;
         private readonly IApiClient _ApiClient;
+        private GuarantorModel retBail;
 
         static MapperService()
         {
@@ -84,6 +86,12 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.CurrencyName, sour => sour.MapFrom(prop => prop.Account.Currency))
                     .ForMember(dest => dest.CurrencyShortcut, sour => sour.MapFrom(prop => prop.Account.CurrencyShortcut))
                     .ForMember(dest => dest.GuarantorName, sour => sour.MapFrom(prop => prop.Guarantor.Name.FullName()))
+                    .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+                cfg.CreateMap<OrphanageDataModel.Persons.Guarantor, GuarantorModel>()
+                    .ForMember(dest => dest.AccountName, sour => sour.MapFrom(prop => prop.Account.AccountName))
+                    .ForMember(dest => dest.FullName, sour => sour.MapFrom(prop => prop.Name.FullName()))
+                    .ForMember(dest => dest.FullAddress, sour => sour.MapFrom(prop => prop.Address.FullAddress()))
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
             });
 
@@ -149,7 +157,7 @@ namespace OrphanageV3.Services
             {
                 retCaregiver = _mapper.Map<CaregiverModel>(caregiver);
                 retCaregiver.FullName = caregiver.Name.FullName();
-                retCaregiver.FullAddress = _dataFormatterService.GetAddressString(caregiver.Address);
+                retCaregiver.FullAddress = caregiver.Address.FullAddress();
                 if (caregiver.Orphans != null && caregiver.Orphans.Count > 0)
                     retCaregiver.OrphansCount = caregiver.Orphans.Count;
                 else
@@ -180,7 +188,7 @@ namespace OrphanageV3.Services
             {
                 retMother = _mapper.Map<MotherModel>(mother);
                 retMother.FullName = mother.Name.FullName();
-                retMother.FullAddress = _dataFormatterService.GetAddressString(mother.Address);
+                retMother.FullAddress = mother.Address.FullAddress();
                 retMother.OrphansCount = -1;
                 retMother.HusbandsNames = "";
                 foreach (var fam in mother.Families)
@@ -263,9 +271,9 @@ namespace OrphanageV3.Services
             {
                 retFamily = _mapper.Map<FamilyModel>(family);
 
-                retFamily.AlternativeAddress = _dataFormatterService.GetAddressString(family.AlternativeAddress);
+                retFamily.AlternativeAddress = family.AlternativeAddress.FullAddress();
 
-                retFamily.FullAddress = _dataFormatterService.GetAddressString(family.PrimaryAddress);
+                retFamily.FullAddress = family.PrimaryAddress.FullAddress();
 
                 if (family.Father != null && family.Father.Name != null)
                     retFamily.FatherFullName = family.Father.Name.FullName();
@@ -313,6 +321,33 @@ namespace OrphanageV3.Services
                 retBail = _mapper.Map<BailModel>(bail);
                 retBail.FamiliesCount = -1;
                 retBail.OrphansCount = -1;
+            }
+            catch
+            {
+                retBail = null;
+            }
+            return retBail;
+        }
+
+        public IEnumerable<GuarantorModel> MapToGuarantorModel(IEnumerable<Guarantor> guarantorsList)
+        {
+            IList<GuarantorModel> returnedGuarantors = new List<GuarantorModel>();
+            foreach (var guarantor in guarantorsList)
+            {
+                GuarantorModel retGuarantor = MapToGuarantorModel(guarantor);
+                returnedGuarantors.Add(retGuarantor);
+            }
+            return returnedGuarantors;
+        }
+
+        public GuarantorModel MapToGuarantorModel(Guarantor guarantor)
+        {
+            GuarantorModel retGuarantor = null;
+            try
+            {
+                retGuarantor = _mapper.Map<GuarantorModel>(guarantor);
+                retGuarantor.FamiliesCount = -1;
+                retGuarantor.OrphansCount = -1;
             }
             catch
             {

@@ -2,7 +2,7 @@
 
 namespace OrphanageV3.Extensions
 {
-    public static class NameExtensions
+    public static class NameAddressExtensions
     {
         public static string FullName(this Name name)
         {
@@ -68,6 +68,31 @@ namespace OrphanageV3.Extensions
                     }
                 }
             }
+        }
+
+        public static string FullAddress(this Address address)
+        {
+            string ret = string.Empty;
+            char sep = Properties.Settings.Default.AddressSeparator;
+            if (address == null) return string.Empty;
+            if (address.Country != null && address.Country.Length > 0)
+                ret = address.Country;
+            if (address.City != null && address.City.Length > 0)
+                if (ret.Length > 0)
+                    ret = ret + sep + address.City;
+                else
+                    ret = address.City;
+            if (address.Town != null && address.Town.Length > 0)
+                if (ret.Length > 0)
+                    ret = ret + sep + address.Town;
+                else
+                    ret = address.Town;
+            if (address.Street != null && address.Street.Length > 0)
+                if (ret.Length > 0)
+                    ret = ret + sep + address.Street;
+                else
+                    ret = address.Street;
+            return ret;
         }
     }
 }

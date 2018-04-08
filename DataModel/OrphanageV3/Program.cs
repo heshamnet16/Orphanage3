@@ -1,9 +1,11 @@
 ﻿using OrphanageDataModel.Persons;
 using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Bail;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
+using OrphanageV3.ViewModel.Guarantor;
 using OrphanageV3.ViewModel.Main;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
@@ -81,6 +83,8 @@ namespace OrphanageV3
             currentContainer.RegisterType<FamiliesViewModel>();
             currentContainer.RegisterType<AddOrphanViewModel>();
             currentContainer.RegisterType<MainViewModel>();
+            currentContainer.RegisterType<GuarantorsViewModel>();
+            currentContainer.RegisterType<BailsViewModel>();
             return currentContainer;
         }
     }

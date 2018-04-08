@@ -428,5 +428,17 @@ namespace OrphanageV3.ViewModel.Orphan
                     UpdateOrphan(orphanId);
             }
         }
+
+        public async void UnBailOrphans(IEnumerable<int> orphansIds)
+        {
+            if (orphansIds == null || orphansIds.Count() == 0) return;
+
+            var ret = await _apiClient.OrphansController_SetBailAsync(-1, orphansIds);
+            if (ret)
+            {
+                foreach (int orphanId in orphansIds)
+                    UpdateOrphan(orphanId);
+            }
+        }
     }
 }

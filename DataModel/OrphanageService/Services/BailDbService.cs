@@ -270,7 +270,7 @@ namespace OrphanageService.Services
                     else
                     {
                         Dbt.Rollback();
-                        _logger.Information($"something went wrong, nothing was added, null will be returned");
+                        _logger.Warning($"something went wrong, nothing was added, null will be returned");
                         return null;
                     }
                 }
@@ -338,10 +338,11 @@ namespace OrphanageService.Services
 
         public async Task<bool> DeleteBail(int bailID, bool forceDelete)
         {
+            _logger.Information($"trying to delete bail with id({bailID})");
             if (bailID <= 0)
             {
-                _logger.Error($"the integer parameter bailID less than zero, NullReferenceException will be thrown");
-                throw new NullReferenceException();
+                _logger.Error($"the integer parameter bailID less than zero, false will be returned");
+                return false;
             }
             using (var orphanageDb = new OrphanageDbCNoBinary())
             {
@@ -362,7 +363,7 @@ namespace OrphanageService.Services
                         //the bail has another orphans
                         if (forceDelete)
                         {
-                            _logger.Error($"the bail object with id {bailID} has not null foreign key on Orphans table, all related orphan object will be not bailed");
+                            _logger.Warning($"the bail object with id {bailID} has not null foreign key on Orphans table, all related orphan object will be not bailed");
                             foreach (var orphan in bail.Orphans)
                             {
                                 _logger.Warning($"trying to set orphan ({orphan.Id}) to not bailed");
@@ -376,6 +377,8 @@ namespace OrphanageService.Services
                                 catch
                                 {
                                     _logger.Error($"failed to set orphan ({orphan.Id}) to not bailed");
+                                    dbT.Rollback();
+                                    return false;
                                 }
                             }
                         }
@@ -425,6 +428,84 @@ namespace OrphanageService.Services
                         dbT.Rollback();
                         _logger.Information($"something went wrong, bail with id ({bailID}) was not be removed, false will be returned");
                         return false;
+                    }
+                }
+            }
+        }
+
+        public async Task<bool> UnBailEverything(int bailID)
+        {
+            _logger.Information($"trying to set all related orphans and families of the bail with id({bailID}) to null");
+            if (bailID <= 0)
+            {
+                _logger.Error($"the integer parameter bailID less than zero, false will be returned");
+                return false;
+            }
+            using (var orphanageDb = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDb.Database.BeginTransaction())
+                {
+                    var bail = await orphanageDb.Bails.Where(c => c.Id == bailID)
+                        .Include(b => b.Families)
+                        .Include(b => b.Orphans)
+                        .FirstOrDefaultAsync();
+
+                    if (bail == null)
+                    {
+                        _logger.Error($"the original bail object with id {bailID} object is not founded, ObjectNotFoundException will be thrown");
+                        throw new Exceptions.ObjectNotFoundException();
+                    }
+                    if (bail.Orphans != null && bail.Orphans.Count > 0)
+                    {
+                        //the bail has another orphans
+                        foreach (var orphan in bail.Orphans)
+                        {
+                            _logger.Information($"trying to set orphan ({orphan.Id}) to not bailed");
+                            try
+                            {
+                                orphan.IsBailed = false;
+                                orphan.Bail = null;
+                                orphan.BailId = null;
+                                await orphanageDb.SaveChangesAsync();
+                            }
+                            catch
+                            {
+                                _logger.Error($"failed to set orphan ({orphan.Id}) to not bailed");
+                                dbT.Rollback();
+                                return false;
+                            }
+                        }
+                    }
+                    if (bail.Families != null && bail.Families.Count > 0)
+                    {
+                        //the bail has another families
+                        foreach (var family in bail.Families)
+                        {
+                            _logger.Information($"trying to set family ({family.Id}) to not bailed");
+                            try
+                            {
+                                family.IsBailed = false;
+                                family.Bail = null;
+                                family.BailId = null;
+                                await orphanageDb.SaveChangesAsync();
+                            }
+                            catch
+                            {
+                                _logger.Error($"failed to set family ({family.Id}) to not bailed");
+                            }
+                        }
+                    }
+                    if (await orphanageDb.SaveChangesAsync() > 1)
+                    {
+                        dbT.Commit();
+                        _logger.Information($"all orphans and families that related to the bail object with id {bailID} has been successfully set to null");
+                        return true;
+                    }
+                    else
+                    {
+                        dbT.Rollback();
+                        _logger.Information($"nothing was changed, true will be returned because no errors");
+                        return true;
                     }
                 }
             }
