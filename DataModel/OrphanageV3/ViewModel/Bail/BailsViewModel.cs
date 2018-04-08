@@ -79,6 +79,8 @@ namespace OrphanageV3.ViewModel.Bail
             _SourceBails[sourceBailIndex] = sourceBail;
 
             var bailModel = _mapperService.MapToBailModel(sourceBail);
+            bailModel.OrphansCount = await _apiClient.BailsController_GetOrphansCountAsync(bailId);
+            bailModel.FamiliesCount = await _apiClient.BailsController_GetFamiliesCountAsync(bailId);
 
             var bailToEdit = Bails.FirstOrDefault(c => c.Id == bailId);
             var bailToEditIndex = Bails.IndexOf(bailToEdit);

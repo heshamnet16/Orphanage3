@@ -53,6 +53,7 @@ namespace OrphanageV3.ViewModel.Family
             {
                 try
                 {
+                    family.UserId = Program.CurrentUser.Id;
                     var fam = (OrphanageDataModel.RegularData.Family)await _apiClient.FamiliesController_PostAsync(family);
                     return fam ?? null;
                 }

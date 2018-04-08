@@ -23,9 +23,12 @@ namespace OrphanageV3.Views.Bail
 
         private IEnumerable<GuarantorModel> _Guarantors = null;
         private int _CurrentGuarantorId = -1;
+        private int _CurrentAccountId = -1;
 
         private OrphanageDataModel.FinancialData.Bail _bail = null;
         private int _bailId = -1;
+
+        private bool _addNewBail = false;
 
         public BailEditView()
         {
@@ -35,6 +38,9 @@ namespace OrphanageV3.Views.Bail
             _bailEntityValidator = Program.Factory.Resolve<IEntityValidator>();
             _bailEditViewModel = Program.Factory.Resolve<BailEditViewModel>();
             DisableEnableControls(false);
+            TranslateControls();
+            _guarantorsViewModel.LoadGuarantors();
+            _addNewBail = true;
         }
 
         public BailEditView(int BailID)
@@ -46,6 +52,9 @@ namespace OrphanageV3.Views.Bail
             _bailEditViewModel = Program.Factory.Resolve<BailEditViewModel>();
             _bailId = BailID;
             DisableEnableControls(false);
+            TranslateControls();
+            _guarantorsViewModel.LoadGuarantors();
+            _addNewBail = false;
         }
 
         private void DisableEnableControls(bool value)
@@ -65,7 +74,6 @@ namespace OrphanageV3.Views.Bail
         {
             this.Text = _bail == null ? Properties.Resources.NewBail : Properties.Resources.Bail + " " + _bail.Guarantor.Name.FullName();
             lblAmount.Text = Properties.Resources.Amount.getDobblePunkt();
-            lblCurrency.Text = Properties.Resources.CurrencyName.getDobblePunkt();
             lblFrom.Text = Properties.Resources.StartDate.getDobblePunkt();
             lblTo.Text = Properties.Resources.EndDate.getDobblePunkt();
             lblGuarantorName.Text = Properties.Resources.GuarantorName.getDobblePunkt();
@@ -128,8 +136,15 @@ namespace OrphanageV3.Views.Bail
             {
                 var guaratorModel = (GuarantorModel)chooserView.SelectedObject;
                 _CurrentGuarantorId = guaratorModel.Id;
+                _CurrentAccountId = _guarantorsViewModel.GetSourceGuarantor(guaratorModel.Id).Account.Id;
                 DisableEnableControls(true);
                 txtGuarantorName.Text = guaratorModel.FullName;
+                lblCurrency.Text = _guarantorsViewModel.GetSourceGuarantor(guaratorModel.Id).Account.CurrencyShortcut;
+                if (guaratorModel.IsSupportingOnlyFamilies)
+                {
+                    chkIsFamilyBail.Enabled = false;
+                    chkIsFamilyBail.Checked = true;
+                }
             }
             else
             {
@@ -144,11 +159,41 @@ namespace OrphanageV3.Views.Bail
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            ValidateAndShowError();
+            ((OrphanageDataModel.FinancialData.Bail)bailBindingSource.DataSource).IsExpired = chkIsExpired.Checked;
+            _bailEntityValidator.controlCollection = Controls;
+            _bailEntityValidator.DataEntity = bailBindingSource.DataSource;
             if (_bailEntityValidator.IsValid())
             {
+                _bail = (OrphanageDataModel.FinancialData.Bail)bailBindingSource.DataSource;
+                _bail.GuarantorID = _CurrentGuarantorId;
+                _bail.AccountID = _CurrentAccountId;
+                if (chkNoTime.Checked)
+                {
+                    _bail.EndDate = null;
+                    _bail.StartDate = null;
+                }
+                if (_addNewBail)
+                {
+                    if (await _bailEditViewModel.Add(_bail) != null)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    if (await _bailEditViewModel.Save(_bail))
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+            }
+            else
+            {
+                ValidateAndShowError();
             }
         }
 
@@ -161,10 +206,27 @@ namespace OrphanageV3.Views.Bail
                 {
                     bailBindingSource.DataSource = _bail;
                     _CurrentGuarantorId = _bail.GuarantorID;
+                    _CurrentAccountId = _bail.AccountID;
                     txtGuarantorName.Text = _bail.Guarantor.Name.FullName();
+                    lblCurrency.Text = _bail.Account.CurrencyShortcut;
+                    chkIsExpired.Checked = _bail.IsExpired;
+                    if (_bail.Guarantor.IsSupportingOnlyFamilies)
+                    {
+                        chkIsFamilyBail.Enabled = false;
+                        chkIsFamilyBail.Checked = true;
+                    }
+                    if (_CurrentGuarantorId <= 0)
+                    {
+                        DisableEnableControls(false);
+                    }
+                    else
+                    {
+                        DisableEnableControls(true);
+                    }
                 }
                 else
                 {
+                    this.DialogResult = DialogResult.Cancel;
                     this.Close();
                 }
             }

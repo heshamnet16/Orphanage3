@@ -40,6 +40,7 @@ namespace OrphanageV3.ViewModel.Bail
         {
             try
             {
+                bail.UserId = Program.CurrentUser.Id;
                 var retBail = (OrphanageDataModel.FinancialData.Bail)await _apiClient.BailsController_PostAsync(bail);
             }
             catch (ApiClientException apiEx)

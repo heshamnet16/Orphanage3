@@ -129,9 +129,8 @@ namespace OrphanageV3.Views.Bail
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int id = (int)_radGridHelper.GetValueBySelectedRow("Id");
-            //Todo set bail Edit view
-            //BailEditView caregiverEditView = new BailEditView(id);
-            //caregiverEditView.ShowDialog();
+            BailEditView caregiverEditView = new BailEditView(id);
+            caregiverEditView.ShowDialog();
             _bailsViewModel.Update(id);
         }
 

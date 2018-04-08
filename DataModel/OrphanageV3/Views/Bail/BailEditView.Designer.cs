@@ -33,7 +33,6 @@
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnChooseGuarantor = new Telerik.WinControls.UI.RadButton();
             this.dteEndDate = new Telerik.WinControls.UI.RadDateTimePicker();
-            this.bailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dteStartDate = new Telerik.WinControls.UI.RadDateTimePicker();
             this.numAmount = new Telerik.WinControls.UI.RadSpinEditor();
             this.txtNote = new Telerik.WinControls.UI.RadTextBox();
@@ -53,11 +52,11 @@
             this.lblAmount = new Telerik.WinControls.UI.RadLabel();
             this.chkIsMonthlyBail = new Telerik.WinControls.UI.RadCheckBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChooseGuarantor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteEndDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteStartDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote)).BeginInit();
@@ -77,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIsMonthlyBail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +91,6 @@
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(47, 318);
             this.btnSave.Name = "btnSave";
@@ -112,7 +111,7 @@
             // 
             // dteEndDate
             // 
-            this.dteEndDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bailBindingSource, "EndDate", true));
+            this.dteEndDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bailBindingSource, "EndDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dteEndDate.Enabled = false;
             this.dteEndDate.Location = new System.Drawing.Point(42, 124);
             this.dteEndDate.Name = "dteEndDate";
@@ -122,14 +121,9 @@
             this.dteEndDate.Text = "Samstag, 31. Mai 2014";
             this.dteEndDate.Value = new System.DateTime(2014, 5, 31, 12, 4, 52, 559);
             // 
-            // bailBindingSource
-            // 
-            this.bailBindingSource.AllowNew = true;
-            this.bailBindingSource.DataSource = typeof(OrphanageDataModel.FinancialData.Bail);
-            // 
             // dteStartDate
             // 
-            this.dteStartDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bailBindingSource, "StartDate", true));
+            this.dteStartDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bailBindingSource, "StartDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dteStartDate.Enabled = false;
             this.dteStartDate.Location = new System.Drawing.Point(42, 96);
             this.dteStartDate.Name = "dteStartDate";
@@ -141,7 +135,7 @@
             // 
             // numAmount
             // 
-            this.numAmount.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bailBindingSource, "Amount", true));
+            this.numAmount.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bailBindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numAmount.DecimalPlaces = 2;
             this.numAmount.Enabled = false;
             this.numAmount.Increment = new decimal(new int[] {
@@ -164,7 +158,7 @@
             // txtNote
             // 
             this.txtNote.AutoSize = false;
-            this.txtNote.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bailBindingSource, "Note", true));
+            this.txtNote.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bailBindingSource, "Note", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtNote.Enabled = false;
             this.txtNote.Location = new System.Drawing.Point(42, 234);
             this.txtNote.Multiline = true;
@@ -262,7 +256,6 @@
             // 
             // chkIsExpired
             // 
-            this.chkIsExpired.DataBindings.Add(new System.Windows.Forms.Binding("IsChecked", this.bailBindingSource, "IsExpired", true));
             this.chkIsExpired.Enabled = false;
             this.chkIsExpired.Location = new System.Drawing.Point(181, 206);
             this.chkIsExpired.Name = "chkIsExpired";
@@ -282,7 +275,7 @@
             // 
             // chkIsFamilyBail
             // 
-            this.chkIsFamilyBail.DataBindings.Add(new System.Windows.Forms.Binding("IsChecked", this.bailBindingSource, "IsFamilyBail", true));
+            this.chkIsFamilyBail.DataBindings.Add(new System.Windows.Forms.Binding("IsChecked", this.bailBindingSource, "IsFamilyBail", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkIsFamilyBail.Enabled = false;
             this.chkIsFamilyBail.Location = new System.Drawing.Point(181, 179);
             this.chkIsFamilyBail.Name = "chkIsFamilyBail";
@@ -310,7 +303,7 @@
             // 
             // chkIsMonthlyBail
             // 
-            this.chkIsMonthlyBail.DataBindings.Add(new System.Windows.Forms.Binding("IsChecked", this.bailBindingSource, "IsMonthlyBail", true));
+            this.chkIsMonthlyBail.DataBindings.Add(new System.Windows.Forms.Binding("IsChecked", this.bailBindingSource, "IsMonthlyBail", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkIsMonthlyBail.Enabled = false;
             this.chkIsMonthlyBail.Location = new System.Drawing.Point(181, 152);
             this.chkIsMonthlyBail.Name = "chkIsMonthlyBail";
@@ -323,10 +316,17 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
+            // bailBindingSource
+            // 
+            this.bailBindingSource.AllowNew = true;
+            this.bailBindingSource.DataSource = typeof(OrphanageDataModel.FinancialData.Bail);
+            // 
             // BailEditView
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(284, 353);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -364,7 +364,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChooseGuarantor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteEndDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteStartDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote)).EndInit();
@@ -384,6 +383,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIsMonthlyBail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

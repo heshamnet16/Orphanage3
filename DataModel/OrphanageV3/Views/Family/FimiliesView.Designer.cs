@@ -46,8 +46,8 @@ namespace OrphanageV3.Views.Family
             this.btnSep3 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnColumn = new Telerik.WinControls.UI.CommandBarButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
+            this.radColorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -187,6 +187,7 @@ namespace OrphanageV3.Views.Family
             this.btnBail.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBail.Name = "btnBail";
             this.btnBail.Text = "";
+            this.btnBail.Click += new System.EventHandler(this.btnBail_Click);
             // 
             // mnuSep2
             // 
@@ -277,11 +278,6 @@ namespace OrphanageV3.Views.Family
             this.tableLayoutPanel1.Size = new System.Drawing.Size(950, 538);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // radColorDialog
-            // 
-            this.radColorDialog.AnyColor = true;
-            this.radColorDialog.FullOpen = true;
-            // 
             // orphanageGridView1
             // 
             this.orphanageGridView1.AddSelectColumn = true;
@@ -291,8 +287,14 @@ namespace OrphanageV3.Views.Family
             this.orphanageGridView1.IdColumnName = "Id";
             this.orphanageGridView1.Location = new System.Drawing.Point(3, 48);
             this.orphanageGridView1.Name = "orphanageGridView1";
+            this.orphanageGridView1.ShowHiddenRows = false;
             this.orphanageGridView1.Size = new System.Drawing.Size(944, 454);
             this.orphanageGridView1.TabIndex = 0;
+            // 
+            // radColorDialog
+            // 
+            this.radColorDialog.AnyColor = true;
+            this.radColorDialog.FullOpen = true;
             // 
             // FimiliesView
             // 

@@ -22,7 +22,6 @@ namespace OrphanageV3.Services
         private static readonly IMapper _mapper;
         private readonly IDataFormatterService _dataFormatterService;
         private readonly IApiClient _ApiClient;
-        private GuarantorModel retBail;
 
         static MapperService()
         {
@@ -351,9 +350,9 @@ namespace OrphanageV3.Services
             }
             catch
             {
-                retBail = null;
+                retGuarantor = null;
             }
-            return retBail;
+            return retGuarantor;
         }
     }
 }

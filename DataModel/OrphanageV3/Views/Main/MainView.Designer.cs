@@ -56,6 +56,7 @@
             this.RadMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowBonds = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowSupporter = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuShowBails = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem5 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowAccounts = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowBills = new Telerik.WinControls.UI.RadMenuItem();
@@ -95,7 +96,6 @@
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.lblConnectionStatus = new Telerik.WinControls.UI.RadLabelElement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.mnuShowBails = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -158,9 +158,9 @@
             // 
             // mnuNewBail
             // 
-            this.mnuNewBail.Enabled = false;
             this.mnuNewBail.Name = "mnuNewBail";
-            this.mnuNewBail.Text = "كفالة";
+            this.mnuNewBail.Text = "bail";
+            this.mnuNewBail.Click += new System.EventHandler(this.mnuNewBail_Click);
             // 
             // SepNewUserSep
             // 
@@ -313,6 +313,14 @@
             this.mnuShowSupporter.ImageKey = "Supporter.png";
             this.mnuShowSupporter.Name = "mnuShowSupporter";
             this.mnuShowSupporter.Text = "كفلاء";
+            // 
+            // mnuShowBails
+            // 
+            this.mnuShowBails.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowBails.Image")));
+            this.mnuShowBails.ImageKey = "Bails.png";
+            this.mnuShowBails.Name = "mnuShowBails";
+            this.mnuShowBails.Text = "show Bails";
+            this.mnuShowBails.Click += new System.EventHandler(this.mnuShowBails_Click);
             // 
             // RadMenuSeparatorItem5
             // 
@@ -622,14 +630,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // mnuShowBails
-            // 
-            this.mnuShowBails.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowBails.Image")));
-            this.mnuShowBails.ImageKey = "Bails.png";
-            this.mnuShowBails.Name = "mnuShowBails";
-            this.mnuShowBails.Text = "show Bails";
-            this.mnuShowBails.Click += new System.EventHandler(this.mnuShowBails_Click);
             // 
             // MainView
             // 

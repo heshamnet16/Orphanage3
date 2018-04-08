@@ -177,12 +177,6 @@
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
-    <Compile Include="Views\Bail\AddBailView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Bail\AddBailView.Designer.cs">
-      <DependentUpon>AddBailView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Bail\BailEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,9 +308,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controlls\OrphanageGridView.resx">
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Bail\AddBailView.resx">
-      <DependentUpon>AddBailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Bail\BailEditView.resx">
       <DependentUpon>BailEditView.cs</DependentUpon>

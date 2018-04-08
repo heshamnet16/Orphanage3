@@ -216,5 +216,10 @@ namespace OrphanageV3.Views.Family
             else
                 await _familiesViewModel.UnExclude(orphanageGridView1.SelectedIds);
         }
+
+        private void btnBail_Click(object sender, EventArgs e)
+        {
+            TODO
+        }
     }
 }

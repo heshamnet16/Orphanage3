@@ -112,6 +112,11 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Bail.BailsView());
         }
 
+        public void ShowNewBail()
+        {
+            ShowView(new Views.Bail.BailEditView());
+        }
+
         private void ShowView(RadForm frm)
         {
             frm.MdiParent = _MainView;
