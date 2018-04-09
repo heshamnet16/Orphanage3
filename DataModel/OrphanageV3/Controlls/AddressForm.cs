@@ -14,7 +14,6 @@ namespace OrphanageV3.Controlls
         private bool _ShowMovement;
         private int _MoveFactor = 10;
         private IAutoCompleteService _AutoCompleteServic /*= Program.Factory.Resolve<IAutoCompleteService>()*/;
-        private IDataFormatterService _DataFormatterService  /*= Program.Factory.Resolve<IDataFormatterService>()*/;
         private IEntityValidator _entityValidator;
 
         public object AddressDataSource
@@ -134,10 +133,10 @@ namespace OrphanageV3.Controlls
         {
             get
             {
-                if (_DataFormatterService != null && addressBindingSource.DataSource != null && addressBindingSource.DataSource is OrphanageDataModel.RegularData.Address)
+                if (addressBindingSource.DataSource != null && addressBindingSource.DataSource is OrphanageDataModel.RegularData.Address)
                 {
                     var addObject = (OrphanageDataModel.RegularData.Address)addressBindingSource.DataSource;
-                    return _DataFormatterService.GetAddressString(addObject);
+                    return addObject.FullAddress();
                 }
                 else
                     return null;
@@ -165,14 +164,6 @@ namespace OrphanageV3.Controlls
             catch
             {
                 _entityValidator = null;
-            }
-            try
-            {
-                _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
-            }
-            catch
-            {
-                _DataFormatterService = null;
             }
             try
             {

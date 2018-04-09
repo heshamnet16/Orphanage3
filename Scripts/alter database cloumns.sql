@@ -48,7 +48,18 @@ ALTER COLUMN  IdentityCard_ID nvarchar(30);
 ALTER TABLE Orphans
 ALTER COLUMN  IdentityNumber nvarchar(30);
 
-Go
+ALTER TABLE [dbo].[Bails] DROP CONSTRAINT [Supporter_Bail]
+GO
+
+ALTER TABLE Bails
+ALTER COLUMN Supporter_ID  int NOT NULL;
+
+ALTER TABLE [dbo].[Bails]  WITH CHECK ADD  CONSTRAINT [Supporter_Bail] FOREIGN KEY([Supporter_ID])
+REFERENCES [dbo].[Supporters] ([ID])
+GO
+
+ALTER TABLE [dbo].[Bails] CHECK CONSTRAINT [Supporter_Bail]
+GO
 
 update [OrphansDB].[dbo].[Addresses] set Work_phone = NULL where Work_phone = '(000)0000-000' Or Work_phone = '(031)0000-000' or Work_phone = '(0000)000-000' or Work_phone='(____)___-___'
 GO

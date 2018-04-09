@@ -355,7 +355,7 @@ namespace OrphanageService.Services
 
                 if (brotherFM.Count == 1)
                 {
-                    _logger.Error($"orphan with id({Oid}) has no brothers null will be returned");
+                    _logger.Information($"orphan with id({Oid}) has no brothers null will be returned");
                     return null;
                 }
 
@@ -1142,7 +1142,7 @@ namespace OrphanageService.Services
                 OrphanageDataModel.FinancialData.Bail bail = null;
                 if (BailId > 0)
                 {
-                    await _orphanageDBC.Bails.AsNoTracking().FirstOrDefaultAsync(b => b.Id == BailId);
+                    bail = await _orphanageDBC.Bails.AsNoTracking().FirstOrDefaultAsync(b => b.Id == BailId);
                     if (bail == null)
                     {
                         _logger.Error($"bail with id ({BailId}) has not been found, ObjectNotFoundException will be thrown");

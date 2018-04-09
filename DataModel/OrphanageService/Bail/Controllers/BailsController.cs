@@ -42,6 +42,14 @@ namespace OrphanageService.Bail.Controllers
         }
 
         [HttpGet]
+        [Route("IsFamily/{value}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBailsByFamily(bool value)
+        {
+            return await _bailDbService.GetBails(value);
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetBailsCount()
@@ -63,6 +71,38 @@ namespace OrphanageService.Bail.Controllers
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int BId)
         {
             return await _bailDbService.GetFamilies(BId);
+        }
+
+        [HttpGet]
+        [Route("orphans/count/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetOrphansCount(int BId)
+        {
+            return await _bailDbService.GetOrphansCount(BId);
+        }
+
+        [HttpGet]
+        [Route("families/count/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetFamiliesCount(int BId)
+        {
+            return await _bailDbService.GetFamiliesCount(BId);
+        }
+
+        [HttpGet]
+        [Route("orphans/ids/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetOrphansIds(int BId)
+        {
+            return await _bailDbService.GetOrphansIds(BId);
+        }
+
+        [HttpGet]
+        [Route("families/ids/{BId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetFamiliesIds(int BId)
+        {
+            return await _bailDbService.GetFamiliesIds(BId);
         }
 
         [HttpPut]

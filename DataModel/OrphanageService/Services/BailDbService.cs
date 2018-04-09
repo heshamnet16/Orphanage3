@@ -1,4 +1,5 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.FinancialData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -179,6 +180,62 @@ namespace OrphanageService.Services
             return returnedOrphans;
         }
 
+        public async Task<int> GetFamiliesCount(int Bid)
+        {
+            _logger.Information($"Trying to get the count families those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var bailsCount = await (from orp in dbContext.Families.AsNoTracking()
+                                        where orp.BailId == Bid
+                                        select orp)
+                              .CountAsync();
+                _logger.Information($"count of families those related to bail with id ({Bid}) is ({bailsCount}), and it will be returned");
+                return bailsCount;
+            }
+        }
+
+        public async Task<int> GetOrphansCount(int Bid)
+        {
+            _logger.Information($"Trying to get the count orphans those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var bailsCount = await (from orp in dbContext.Orphans.AsNoTracking()
+                                        where orp.BailId == Bid
+                                        select orp)
+                              .CountAsync();
+                _logger.Information($"count of orphans those related to bail with id ({Bid}) is ({bailsCount}), and it will be returned");
+                return bailsCount;
+            }
+        }
+
+        public async Task<IEnumerable<int>> GetFamiliesIds(int Bid)
+        {
+            _logger.Information($"Trying to get the families ids those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var familiesIds = await (from fam in dbContext.Families.AsNoTracking()
+                                         where fam.BailId == Bid
+                                         select fam.Id)
+                              .ToListAsync();
+                _logger.Information($"({familiesIds}) records of families ids those related to bail with id ({Bid}), will be returned");
+                return familiesIds;
+            }
+        }
+
+        public async Task<IEnumerable<int>> GetOrphansIds(int Bid)
+        {
+            _logger.Information($"Trying to get the orphans ids those are related to the bail id {Bid}");
+            using (var dbContext = new OrphanageDbCNoBinary())
+            {
+                var orphansIds = await (from orp in dbContext.Orphans.AsNoTracking()
+                                        where orp.BailId == Bid
+                                        select orp.Id)
+                              .ToListAsync();
+                _logger.Information($"({orphansIds}) records of orphans ids those related to bail with id ({Bid}), will be returned");
+                return orphansIds;
+            }
+        }
+
         public async Task<OrphanageDataModel.FinancialData.Bail> AddBail(OrphanageDataModel.FinancialData.Bail bailToAdd)
         {
             _logger.Information($"Trying to add new Bail");
@@ -214,7 +271,7 @@ namespace OrphanageService.Services
                     else
                     {
                         Dbt.Rollback();
-                        _logger.Information($"something went wrong, nothing was added, null will be returned");
+                        _logger.Warning($"something went wrong, nothing was added, null will be returned");
                         return null;
                     }
                 }
@@ -282,10 +339,11 @@ namespace OrphanageService.Services
 
         public async Task<bool> DeleteBail(int bailID, bool forceDelete)
         {
+            _logger.Information($"trying to delete bail with id({bailID})");
             if (bailID <= 0)
             {
-                _logger.Error($"the integer parameter bailID less than zero, NullReferenceException will be thrown");
-                throw new NullReferenceException();
+                _logger.Error($"the integer parameter bailID less than zero, false will be returned");
+                return false;
             }
             using (var orphanageDb = new OrphanageDbCNoBinary())
             {
@@ -306,7 +364,7 @@ namespace OrphanageService.Services
                         //the bail has another orphans
                         if (forceDelete)
                         {
-                            _logger.Error($"the bail object with id {bailID} has not null foreign key on Orphans table, all related orphan object will be not bailed");
+                            _logger.Warning($"the bail object with id {bailID} has not null foreign key on Orphans table, all related orphan object will be not bailed");
                             foreach (var orphan in bail.Orphans)
                             {
                                 _logger.Warning($"trying to set orphan ({orphan.Id}) to not bailed");
@@ -320,6 +378,8 @@ namespace OrphanageService.Services
                                 catch
                                 {
                                     _logger.Error($"failed to set orphan ({orphan.Id}) to not bailed");
+                                    dbT.Rollback();
+                                    return false;
                                 }
                             }
                         }
@@ -372,6 +432,115 @@ namespace OrphanageService.Services
                     }
                 }
             }
+        }
+
+        public async Task<bool> UnBailEverything(int bailID)
+        {
+            _logger.Information($"trying to set all related orphans and families of the bail with id({bailID}) to null");
+            if (bailID <= 0)
+            {
+                _logger.Error($"the integer parameter bailID less than zero, false will be returned");
+                return false;
+            }
+            using (var orphanageDb = new OrphanageDbCNoBinary())
+            {
+                using (var dbT = orphanageDb.Database.BeginTransaction())
+                {
+                    var bail = await orphanageDb.Bails.Where(c => c.Id == bailID)
+                        .Include(b => b.Families)
+                        .Include(b => b.Orphans)
+                        .FirstOrDefaultAsync();
+
+                    if (bail == null)
+                    {
+                        _logger.Error($"the original bail object with id {bailID} object is not founded, ObjectNotFoundException will be thrown");
+                        throw new Exceptions.ObjectNotFoundException();
+                    }
+                    if (bail.Orphans != null && bail.Orphans.Count > 0)
+                    {
+                        //the bail has another orphans
+                        foreach (var orphan in bail.Orphans)
+                        {
+                            _logger.Information($"trying to set orphan ({orphan.Id}) to not bailed");
+                            try
+                            {
+                                orphan.IsBailed = false;
+                                orphan.Bail = null;
+                                orphan.BailId = null;
+                                await orphanageDb.SaveChangesAsync();
+                            }
+                            catch
+                            {
+                                _logger.Error($"failed to set orphan ({orphan.Id}) to not bailed");
+                                dbT.Rollback();
+                                return false;
+                            }
+                        }
+                    }
+                    if (bail.Families != null && bail.Families.Count > 0)
+                    {
+                        //the bail has another families
+                        foreach (var family in bail.Families)
+                        {
+                            _logger.Information($"trying to set family ({family.Id}) to not bailed");
+                            try
+                            {
+                                family.IsBailed = false;
+                                family.Bail = null;
+                                family.BailId = null;
+                                await orphanageDb.SaveChangesAsync();
+                            }
+                            catch
+                            {
+                                _logger.Error($"failed to set family ({family.Id}) to not bailed");
+                            }
+                        }
+                    }
+                    if (await orphanageDb.SaveChangesAsync() > 1)
+                    {
+                        dbT.Commit();
+                        _logger.Information($"all orphans and families that related to the bail object with id {bailID} has been successfully set to null");
+                        return true;
+                    }
+                    else
+                    {
+                        dbT.Rollback();
+                        _logger.Information($"nothing was changed, true will be returned because no errors");
+                        return true;
+                    }
+                }
+            }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(bool isFamily)
+        {
+            _logger.Information($"Trying to get Bails with isFamily equals {isFamily}");
+            IList<OrphanageDataModel.FinancialData.Bail> bailsList = new List<OrphanageDataModel.FinancialData.Bail>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var bails = await _orphanageDBC.Bails.AsNoTracking()
+                    .Include(b => b.Account)
+                    .Include(b => b.Guarantor)
+                    .Include(b => b.Guarantor.Name)
+                    .Where(b => b.IsFamilyBail == isFamily)
+                    .ToListAsync();
+
+                if (bails != null && bails.Count > 0)
+                {
+                    foreach (var bail in bails)
+                    {
+                        OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
+                        _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
+                        bailsList.Add(bailsToFill);
+                    }
+                }
+                else
+                {
+                    _logger.Warning($"the returned bails are null, empty list will be returned");
+                }
+            }
+            _logger.Information($"{bailsList.Count} records of bails will be returned");
+            return bailsList;
         }
     }
 }

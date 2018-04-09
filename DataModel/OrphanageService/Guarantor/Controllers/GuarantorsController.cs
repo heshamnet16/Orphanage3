@@ -44,7 +44,7 @@ namespace OrphanageService.Guarantor.Controllers
         [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<int> GetCaregiversCount()
+        public async Task<int> GetGuarantorsCount()
         {
             return await _GuarantorDBService.GetGuarantorsCount();
         }
@@ -52,9 +52,49 @@ namespace OrphanageService.Guarantor.Controllers
         [HttpGet]
         [Route("orphans/{GId}")]
         [CacheFilter(TimeDuration = 200)]
-        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetFamilyOrphans(int GId)
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int GId)
         {
             return await _GuarantorDBService.GetOrphans(GId);
+        }
+
+        [HttpGet]
+        [Route("orphans/count/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetOrphansCount(int GId)
+        {
+            return await _GuarantorDBService.GetOrphansCount(GId);
+        }
+
+        [HttpGet]
+        [Route("orphans/Ids/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetOrphansIds(int GId)
+        {
+            return await _GuarantorDBService.GetOrphansIds(GId);
+        }
+
+        [HttpGet]
+        [Route("families/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int GId)
+        {
+            return await _GuarantorDBService.GetFamilies(GId);
+        }
+
+        [HttpGet]
+        [Route("families/count/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetFamiliesCount(int GId)
+        {
+            return await _GuarantorDBService.GetFamiliesCount(GId);
+        }
+
+        [HttpGet]
+        [Route("families/Ids/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetFamiliesIds(int GId)
+        {
+            return await _GuarantorDBService.GetFamiliesIds(GId);
         }
 
         [HttpGet]
@@ -63,6 +103,22 @@ namespace OrphanageService.Guarantor.Controllers
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int GId)
         {
             return await _GuarantorDBService.GetBails(GId);
+        }
+
+        [HttpGet]
+        [Route("bails/count/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<int> GetBailsCount(int GId)
+        {
+            return await _GuarantorDBService.GetBailsCount(GId);
+        }
+
+        [HttpGet]
+        [Route("bails/Ids/{GId}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<int>> GetBailsIds(int GId)
+        {
+            return await _GuarantorDBService.GetBailsIds(GId);
         }
 
         [HttpPut]
@@ -101,11 +157,11 @@ namespace OrphanageService.Guarantor.Controllers
         public async Task<HttpResponseMessage> Post(object guarantor)
         {
             var guarantorEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(guarantor.ToString());
-            var ret = 0;
+            OrphanageDataModel.Persons.Guarantor ret = null;
 
             ret = await _GuarantorDBService.AddGuarantor(guarantorEntity);
 
-            if (ret > 0)
+            if (ret != null)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
             }
@@ -117,9 +173,9 @@ namespace OrphanageService.Guarantor.Controllers
 
         [HttpDelete]
         [Route("{GID}")]
-        public async Task<HttpResponseMessage> Delete(int GID)
+        public async Task<HttpResponseMessage> Delete(int GID, bool forceDelete)
         {
-            var ret = await _GuarantorDBService.DeleteGuarantor(GID);
+            var ret = await _GuarantorDBService.DeleteGuarantor(GID, forceDelete);
             if (ret)
             {
                 return _httpMessageConfiguerer.OK();

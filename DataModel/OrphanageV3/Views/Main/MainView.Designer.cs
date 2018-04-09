@@ -56,6 +56,7 @@
             this.RadMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowBonds = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowSupporter = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuShowBails = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem5 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowAccounts = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowBills = new Telerik.WinControls.UI.RadMenuItem();
@@ -157,9 +158,9 @@
             // 
             // mnuNewBail
             // 
-            this.mnuNewBail.Enabled = false;
             this.mnuNewBail.Name = "mnuNewBail";
-            this.mnuNewBail.Text = "كفالة";
+            this.mnuNewBail.Text = "bail";
+            this.mnuNewBail.Click += new System.EventHandler(this.mnuNewBail_Click);
             // 
             // SepNewUserSep
             // 
@@ -185,6 +186,7 @@
             this.RadMenuSeparatorItem4,
             this.mnuShowBonds,
             this.mnuShowSupporter,
+            this.mnuShowBails,
             this.RadMenuSeparatorItem5,
             this.mnuShowAccounts,
             this.mnuShowBills,
@@ -311,6 +313,14 @@
             this.mnuShowSupporter.ImageKey = "Supporter.png";
             this.mnuShowSupporter.Name = "mnuShowSupporter";
             this.mnuShowSupporter.Text = "كفلاء";
+            // 
+            // mnuShowBails
+            // 
+            this.mnuShowBails.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowBails.Image")));
+            this.mnuShowBails.ImageKey = "Bails.png";
+            this.mnuShowBails.Name = "mnuShowBails";
+            this.mnuShowBails.Text = "show Bails";
+            this.mnuShowBails.Click += new System.EventHandler(this.mnuShowBails_Click);
             // 
             // RadMenuSeparatorItem5
             // 
@@ -575,6 +585,7 @@
             this.imageList1.Images.SetKeyName(1, "Father.png");
             this.imageList1.Images.SetKeyName(2, "Mother.png");
             this.imageList1.Images.SetKeyName(3, "Parents.png");
+            this.imageList1.Images.SetKeyName(4, "Bails.png");
             // 
             // RadMenu1
             // 
@@ -710,5 +721,6 @@
         private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
         private Telerik.WinControls.UI.RadLabelElement lblConnectionStatus;
         private System.Windows.Forms.Timer timer1;
+        private Telerik.WinControls.UI.RadMenuItem mnuShowBails;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;
+using OrphanageDataModel.ValidationAttributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,7 +21,7 @@ namespace OrphanageDataModel.FinancialData
         public int Id { get; set; }
 
         [Column("Supporter_ID")]
-        public int? GuarantorID { get; set; }
+        public int GuarantorID { get; set; }
 
         public virtual Guarantor Guarantor { get; set; }
 
@@ -41,6 +42,7 @@ namespace OrphanageDataModel.FinancialData
         public DateTime? StartDate { get; set; }
 
         [Column("End_Date")]
+        [BailEndDateValidator]
         public DateTime? EndDate { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]

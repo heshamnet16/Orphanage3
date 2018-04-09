@@ -92,6 +92,9 @@ namespace OrphanageDataModel.RegularData
         public byte[] FamilyCardImagePage2Data { get; set; }
 
         [NotMapped]
+        public int OrphansCount { get; set; }
+
+        [NotMapped]
         public Image FamilyCardImagePage1 { get => FamilyCardImagePage1Data != null ? Image.FromStream(new MemoryStream(this.FamilyCardImagePage1Data)) : null; }
 
         [NotMapped]

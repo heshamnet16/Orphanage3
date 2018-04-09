@@ -1109,4 +1109,73 @@
   <data name="Disconnected" xml:space="preserve">
     <value>غير متصل</value>
   </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>اسم الحساب</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="Bail" xml:space="preserve">
+    <value>كفالة</value>
+  </data>
+  <data name="Bails" xml:space="preserve">
+    <value>الكفالات</value>
+  </data>
+  <data name="CurrencyName" xml:space="preserve">
+    <value>اسم العملة</value>
+  </data>
+  <data name="CurrencyShortcut" xml:space="preserve">
+    <value>اختصار العملة</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="FamiliesCount" xml:space="preserve">
+    <value>عدد العائلات</value>
+  </data>
+  <data name="IsExpired" xml:space="preserve">
+    <value>منتهية</value>
+  </data>
+  <data name="IsFamilyBail" xml:space="preserve">
+    <value>كفالة عائلية</value>
+  </data>
+  <data name="IsMonthlyBail" xml:space="preserve">
+    <value>شهرية</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
+  <data name="UnBailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnBail_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IsPayingMonthly" xml:space="preserve">
+    <value>يدفع شهريا</value>
+  </data>
+  <data name="IsStillPaying" xml:space="preserve">
+    <value>ملتزم بالدفع</value>
+  </data>
+  <data name="IsSupportingOnlyFamilies" xml:space="preserve">
+    <value>عائلات فقط</value>
+  </data>
+  <data name="NewBail" xml:space="preserve">
+    <value>كفالة جديدة</value>
+  </data>
+  <data name="NotLimited" xml:space="preserve">
+    <value>غير محدودة</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>المظهر</value>
+  </data>
+  <data name="DefaultPageSize" xml:space="preserve">
+    <value>عدد السجلات الافتراضي</value>
+  </data>
+  <data name="ShowHiddenRecords" xml:space="preserve">
+    <value>اظهار السجلات المستبعدة</value>
+  </data>
+  <data name="UseBackgroundColor" xml:space="preserve">
+    <value>تلوين الخلفية</value>
+  </data>
+  <data name="UseColors" xml:space="preserve">
+    <value>استخدام الألوان</value>
+  </data>
 </root>

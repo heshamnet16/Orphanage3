@@ -243,6 +243,7 @@
             this.BtnBail.Text = "";
             this.BtnBail.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.BtnBail.ToolTipText = "كفالة الأيتام";
+            this.BtnBail.Click += new System.EventHandler(this.BtnBail_Click);
             // 
             // mnuSep2
             // 

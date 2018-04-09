@@ -9,9 +9,21 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(bool isFamily);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Bid);
 
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int Bid);
+
+        Task<int> GetOrphansCount(int Bid);
+
+        Task<int> GetFamiliesCount(int Bid);
+
+        Task<IEnumerable<int>> GetOrphansIds(int Bid);
+
+        Task<IEnumerable<int>> GetFamiliesIds(int Bid);
+
+        Task<bool> UnBailEverything(int Bid);
 
         Task<int> GetBailsCount();
 

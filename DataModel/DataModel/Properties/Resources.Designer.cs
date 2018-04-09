@@ -61,6 +61,24 @@ namespace OrphanageDataModel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الكفالة منتهية بالفعل ähnelt.
+        /// </summary>
+        public static string ErrorBailDateEnded {
+            get {
+                return ResourceManager.GetString("ErrorBailDateEnded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ الانتهاء اصغر من تاريخ البدء ähnelt.
+        /// </summary>
+        public static string ErrorBailEndDateBiggerThanStartDate {
+            get {
+                return ResourceManager.GetString("ErrorBailEndDateBiggerThanStartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die التاريخ غير صالح إما عمر اليتيم فوق 18 أو لايمكن للشخص انجاب يتيم ضمن السن القانوني ähnelt.
         /// </summary>
         public static string ErrorOverAge {

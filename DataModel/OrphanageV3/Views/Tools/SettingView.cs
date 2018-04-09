@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Extensions;
+using OrphanageV3.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,9 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
 
 namespace OrphanageV3.Views.Tools
 {
@@ -34,10 +38,15 @@ namespace OrphanageV3.Views.Tools
         private void TranslateControls()
         {
             pnlConnection.HeaderText = Properties.Resources.Connection;
+            pnlAppearance.HeaderText = Properties.Resources.Appearance;
             lblBaseUrl.Text = Properties.Resources.RemoteAddress.getDobblePunkt();
             lblStatus.Text = Properties.Resources.Status.getDobblePunkt();
             lblVersion.Text = Properties.Resources.Version.getDobblePunkt();
             btnCheck.Text = Properties.Resources.CheckConnection;
+            lblUseBackgroundColor.Text = Properties.Resources.UseBackgroundColor.getDobblePunkt();
+            lblShowHidden.Text = Properties.Resources.ShowHiddenRecords.getDobblePunkt();
+            lblRecordsNumber.Text = Properties.Resources.DefaultPageSize.getDobblePunkt();
+            lblUseColors.Text = Properties.Resources.UseColors.getDobblePunkt();
         }
 
         private async void btnCheck_Click(object sender, EventArgs e)
@@ -142,6 +151,10 @@ namespace OrphanageV3.Views.Tools
         private void LoadSettings()
         {
             txtBaseUrl.Text = getHostName(Properties.Settings.Default.OrphanageServiceURL);
+            chkUseBackgroundColor.Checked = Properties.Settings.Default.UseBackgroundColor;
+            chkShowHidden.Checked = Properties.Settings.Default.ShowHiddenRows;
+            numRowsCount.Value = Properties.Settings.Default.DefaultPageSize;
+            chkUseColors.Checked = Properties.Settings.Default.UseColors;
         }
 
         private void SettingView_FormClosing(object sender, FormClosingEventArgs e)
@@ -151,6 +164,31 @@ namespace OrphanageV3.Views.Tools
         private void txtBaseUrl_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.OrphanageServiceURL = getBaseUrl(txtBaseUrl.Text);
+            Properties.Settings.Default.Save();
+            Program.RenewApiClient();
+        }
+
+        private void chkUseBackgroundColor_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            Properties.Settings.Default.UseBackgroundColor = args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On;
+            Properties.Settings.Default.Save();
+        }
+
+        private void chkShowHidden_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            Properties.Settings.Default.ShowHiddenRows = args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On;
+            Properties.Settings.Default.Save();
+        }
+
+        private void numRowsCount_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DefaultPageSize = (int)numRowsCount.Value;
+            Properties.Settings.Default.Save();
+        }
+
+        private void chkUseColors_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            Properties.Settings.Default.UseColors = args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On;
             Properties.Settings.Default.Save();
         }
     }

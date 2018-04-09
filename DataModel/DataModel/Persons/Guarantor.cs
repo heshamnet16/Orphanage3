@@ -43,7 +43,7 @@ namespace OrphanageDataModel.Persons
 
         [Column("Is_Family_sup")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
-        public bool IsSupportingTheWholeFamily { get; set; }
+        public bool IsSupportingOnlyFamilies { get; set; }
 
         [Column("Is_Monthly_sup")]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]

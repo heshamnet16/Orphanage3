@@ -152,6 +152,9 @@
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
     <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\TranslateService.cs" />
+    <Compile Include="ViewModel\Bail\BailEditViewModel.cs" />
+    <Compile Include="ViewModel\Bail\BailModel.cs" />
+    <Compile Include="ViewModel\Bail\BailsViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverEditViewModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiverModel.cs" />
     <Compile Include="ViewModel\Caregiver\CaregiversViewModel.cs" />
@@ -161,6 +164,9 @@
     <Compile Include="ViewModel\Father\FatherEditViewModel.cs" />
     <Compile Include="ViewModel\Father\FatherModel.cs" />
     <Compile Include="ViewModel\Father\FathersViewModel.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorEditViewModle.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorModel.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorsViewModel.cs" />
     <Compile Include="ViewModel\Main\MainViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
@@ -171,6 +177,18 @@
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
+    <Compile Include="Views\Bail\BailEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bail\BailEditView.Designer.cs">
+      <DependentUpon>BailEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bail\BailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bail\BailsView.Designer.cs">
+      <DependentUpon>BailsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Caregiver\CaregiverEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +309,12 @@
     <EmbeddedResource Include="Controlls\OrphanageGridView.resx">
       <DependentUpon>OrphanageGridView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bail\BailEditView.resx">
+      <DependentUpon>BailEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bail\BailsView.resx">
+      <DependentUpon>BailsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Caregiver\CaregiverEditView.resx">
       <DependentUpon>CaregiverEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,8 +378,10 @@
       <DependentUpon>SettingView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.FinancialData.Bail.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Father.datasource" />
+    <None Include="Properties\DataSources\OrphanageDataModel.Persons.Guarantor.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Mother.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Address.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.RegularData.Family.datasource" />
@@ -440,7 +466,9 @@
   <ItemGroup>
     <None Include="Resources\BrowseFamily.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\UnBail_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -45,7 +45,12 @@ namespace OrphanageV3.ViewModel.Caregiver
         public async void Update(int caregiverId)
         {
             var sourceCaregiver = await _apiClient.CaregiversController_GetAsync(caregiverId);
+
+            var sourceCaregiverIndex = _SourceCaregivers.IndexOf(_SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId));
+            _SourceCaregivers[sourceCaregiverIndex] = sourceCaregiver;
+
             var caregiverModel = _mapperService.MapToCaregiverModel(sourceCaregiver);
+
             var CaregiverToEdit = Caregivers.FirstOrDefault(c => c.Id == caregiverId);
             var caregiverToEditIndex = Caregivers.IndexOf(CaregiverToEdit);
             Caregivers[caregiverToEditIndex] = caregiverModel;

@@ -11,7 +11,7 @@ namespace OrphanageV3.ViewModel.Main
     public class MainViewModel
     {
         private RadForm _MainView;
-        private readonly IApiClient _apiClient;
+        private IApiClient _apiClient;
 
         public RadForm MainView
         {
@@ -20,6 +20,11 @@ namespace OrphanageV3.ViewModel.Main
         }
 
         public MainViewModel(IApiClient apiClient)
+        {
+            _apiClient = apiClient;
+        }
+
+        public void UpdateApiClient(IApiClient apiClient)
         {
             _apiClient = apiClient;
         }
@@ -105,6 +110,16 @@ namespace OrphanageV3.ViewModel.Main
         public void ShowCaregiversView()
         {
             ShowView(new Views.Caregiver.CaregiversView());
+        }
+
+        public void ShowBailsView()
+        {
+            ShowView(new Views.Bail.BailsView());
+        }
+
+        public void ShowNewBail()
+        {
+            ShowView(new Views.Bail.BailEditView());
         }
 
         private void ShowView(RadForm frm)

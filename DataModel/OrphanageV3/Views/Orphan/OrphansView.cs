@@ -172,6 +172,14 @@ namespace OrphanageV3.Views.Orphan
                 btnExclud.Image = isExcluded ? Properties.Resources.UnhidePic : Properties.Resources.HidePic;
                 btnExclud.ToolTipText = isExcluded ? Properties.Resources.UnExclude : Properties.Resources.Exclude;
             }
+            var retIsBailedObject = _radGridHelper.GetValueBySelectedRow("IsBailed");
+            if (retIsBailedObject != null)
+            {
+                bool isBailed;
+                bool.TryParse(retIsBailedObject.ToString(), out isBailed);
+                BtnBail.Image = isBailed ? Properties.Resources.UnBailPic : Properties.Resources.BailPic;
+                BtnBail.ToolTipText = isBailed ? Properties.Resources.UnsetBail : Properties.Resources.SetBail;
+            }
         }
 
         private void GridView_PageChanged(object sender, EventArgs e)
@@ -292,9 +300,12 @@ namespace OrphanageV3.Views.Orphan
             foreach (var id in orphanageGridView1.SelectedIds)
             {
                 var brothersIds = await _orphansViewModel.GetBrothers(id);
-                OrphansView orphansView = new OrphansView(brothersIds);
-                orphansView.MdiParent = this.MdiParent;
-                orphansView.Show();
+                if (brothersIds != null)
+                {
+                    OrphansView orphansView = new OrphansView(brothersIds);
+                    orphansView.MdiParent = this.MdiParent;
+                    orphansView.Show();
+                }
             }
         }
 
@@ -320,6 +331,29 @@ namespace OrphanageV3.Views.Orphan
             FimiliesView fimiliesView = new FimiliesView(families);
             fimiliesView.MdiParent = this.MdiParent;
             fimiliesView.Show();
+        }
+
+        private void BtnBail_Click(object sender, EventArgs e)
+        {
+            if (orphanageGridView1.SelectedIds == null || orphanageGridView1.SelectedIds.Count == 0) return;
+            if (BtnBail.ToolTipText == Properties.Resources.SetBail)
+            {
+                ChooserView.ChooserView bailsChooser = new ChooserView.ChooserView(_orphansViewModel.Bails.ToList<object>(), Properties.Resources.ChooseBail);
+                bailsChooser.MultiSelect = false;
+                bailsChooser.ShowDialog();
+                if (bailsChooser.DialogResult == DialogResult.OK)
+                {
+                    var bail = (ViewModel.Bail.BailModel)bailsChooser.SelectedObject;
+                    if (bail != null && bail.Id > 0)
+                    {
+                        _orphansViewModel.BailOrphans(bail.Id, orphanageGridView1.SelectedIds);
+                    }
+                }
+            }
+            else
+            {
+                _orphansViewModel.UnBailOrphans(orphanageGridView1.SelectedIds);
+            }
         }
     }
 }

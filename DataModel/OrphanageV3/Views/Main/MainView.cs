@@ -41,6 +41,9 @@ namespace OrphanageV3.Views.Main
             mnuShowExcludedFamilies.Text = Properties.Resources.ExcludedFamilies;
             mnuTools.Text = Properties.Resources.Tools;
             mnuShowSetting.Text = Properties.Resources.Setting;
+            mnuShowBails.Text = Properties.Resources.Bails;
+            mnuNewBail.Text = Properties.Resources.Bail;
+            mnuShowAllFamilies.Text = Properties.Resources.All;
             lblConnectionStatus.Text = Properties.Resources.Disconnected;
         }
 
@@ -167,6 +170,16 @@ namespace OrphanageV3.Views.Main
                     client_.Dispose();
             }
             return false;
+        }
+
+        private void mnuShowBails_Click(object sender, EventArgs e)
+        {
+            _mainViewModel.ShowBailsView();
+        }
+
+        private void mnuNewBail_Click(object sender, EventArgs e)
+        {
+            _mainViewModel.ShowNewBail();
         }
     }
 }

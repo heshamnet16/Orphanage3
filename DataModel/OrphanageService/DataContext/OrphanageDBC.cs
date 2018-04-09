@@ -175,7 +175,7 @@ namespace OrphanageService.DataContext
 
             modelBuilder.Entity<OrphanageDataModel.Persons.Guarantor>()
                 .HasMany(e => e.Bails)
-                .WithOptional(e => e.Guarantor)
+                .WithRequired(e => e.Guarantor)
                 .HasForeignKey(e => e.GuarantorID);
 
             modelBuilder.Entity<OrphanageDataModel.Persons.Guarantor>()

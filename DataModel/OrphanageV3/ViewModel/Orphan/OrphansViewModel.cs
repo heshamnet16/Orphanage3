@@ -18,6 +18,9 @@ namespace OrphanageV3.ViewModel.Orphan
         private readonly IMapperService _mapperService;
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
+        private readonly Bail.BailsViewModel _bailsViewModel;
+
+        public IEnumerable<Bail.BailModel> Bails { get; set; }
 
         public delegate void OrphansChnagedDelegate();
 
@@ -30,12 +33,21 @@ namespace OrphanageV3.ViewModel.Orphan
         private Size PhotoSize = new Size(75, 75);
         private int PhotoCompressRatio = 40;
 
-        public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService, IDataFormatterService dataFormatterService)
+        public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService, IDataFormatterService dataFormatterService,
+            Bail.BailsViewModel bailsViewModel)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
+            _bailsViewModel = bailsViewModel;
+            _bailsViewModel.DataLoaded += bailsLoaded;
+            _bailsViewModel.LoadBailsByIsFamily(false);
+        }
+
+        private void bailsLoaded(object sender, System.EventArgs e)
+        {
+            Bails = _bailsViewModel.Bails;
         }
 
         public void LoadData()
@@ -169,8 +181,8 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orp == null)
                 return string.Empty;
             var brothersTask = _apiClient.OrphansController_GetBrothersAsync(Oid);
-            Task<Bail> bailTask = null;
-            Task<Bail> FamilyBailTask = null;
+            Task<OrphanageDataModel.FinancialData.Bail> bailTask = null;
+            Task<OrphanageDataModel.FinancialData.Bail> FamilyBailTask = null;
             if (orp.IsBailed)
                 bailTask = _apiClient.BailsController_GetAsync(orp.BailId.Value);
             if (orp.Family.IsBailed)
@@ -188,14 +200,20 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orp.Age.HasValue)
                 stringBuilder.AppendLine(Properties.Resources.Age + ": " + _translateService.DateToString(orp.Birthday));
             var brothers = await brothersTask;
-            int boys = brothers.Count(o => _translateService.IsBoy(o.Gender));
-            int girls = brothers.Count(o => !_translateService.IsBoy(o.Gender));
-            stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": " + boys + " " + Properties.Resources.MalesString + ", " + girls + " " + Properties.Resources.FemalesString);
-
+            if (brothers != null)
+            {
+                int boys = brothers.Count(o => _translateService.IsBoy(o.Gender));
+                int girls = brothers.Count(o => !_translateService.IsBoy(o.Gender));
+                stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": " + boys + " " + Properties.Resources.MalesString + ", " + girls + " " + Properties.Resources.FemalesString);
+            }
+            else
+            {
+                stringBuilder.AppendLine(Properties.Resources.BrothersCountString + ": 0 " + Properties.Resources.MalesString + ", 0 " + Properties.Resources.FemalesString);
+            }
             if (bailTask != null || FamilyBailTask != null)
             {
                 stringBuilder.AppendLine(Properties.Resources.IsBailed + ": " + Properties.Resources.BooleanTrue);
-                Bail orpBail = null;
+                OrphanageDataModel.FinancialData.Bail orpBail = null;
                 if (bailTask != null)
                 {
                     orpBail = await bailTask;
@@ -342,7 +360,12 @@ namespace OrphanageV3.ViewModel.Orphan
         public async Task<IEnumerable<int>> GetBrothers(int Oid)
         {
             var orphans = await _apiClient.OrphansController_GetBrothersAsync(Oid);
-            return orphans.Select(o => o.Id).ToArray();
+            if (orphans != null)
+            {
+                return orphans.Select(o => o.Id).ToArray();
+            }
+            else
+                return null;
         }
 
         public int GetMother(int Oid)
@@ -395,6 +418,31 @@ namespace OrphanageV3.ViewModel.Orphan
                 }
                 else
                     yield return -1;
+            }
+        }
+
+        public async void BailOrphans(int bailId, IEnumerable<int> orphansIds)
+        {
+            if (bailId <= 0) return;
+            if (orphansIds == null || orphansIds.Count() == 0) return;
+
+            var ret = await _apiClient.OrphansController_SetBailAsync(bailId, orphansIds);
+            if (ret)
+            {
+                foreach (int orphanId in orphansIds)
+                    UpdateOrphan(orphanId);
+            }
+        }
+
+        public async void UnBailOrphans(IEnumerable<int> orphansIds)
+        {
+            if (orphansIds == null || orphansIds.Count() == 0) return;
+
+            var ret = await _apiClient.OrphansController_SetBailAsync(-1, orphansIds);
+            if (ret)
+            {
+                foreach (int orphanId in orphansIds)
+                    UpdateOrphan(orphanId);
             }
         }
     }

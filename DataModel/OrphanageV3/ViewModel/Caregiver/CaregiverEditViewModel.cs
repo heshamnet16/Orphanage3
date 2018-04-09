@@ -54,6 +54,7 @@ namespace OrphanageV3.ViewModel.Caregiver
 
             try
             {
+                caregiver.UserId = Program.CurrentUser.Id;
                 var retOrp = (OrphanageDataModel.Persons.Caregiver)await _apiClient.CaregiversController_PostAsync(caregiver);
             }
             catch (ApiClientException apiEx)
