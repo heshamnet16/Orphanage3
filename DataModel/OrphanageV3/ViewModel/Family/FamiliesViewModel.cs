@@ -55,7 +55,7 @@ namespace OrphanageV3.ViewModel.Family
             _SourceFamilies = ReturnedFamilies;
 
             Families = new ObservableCollection<FamilyModel>(_mapperService.MapToFamilyModel(_SourceFamilies));
-            UpdateFamilyOrphansCount();
+            //UpdateFamilyOrphansCount();
             UpdateFamilyBails();
             DataLoaded?.Invoke(this, new EventArgs());
         }
@@ -72,7 +72,7 @@ namespace OrphanageV3.ViewModel.Family
             _SourceFamilies = ReturnedFamilies;
 
             Families = new ObservableCollection<FamilyModel>(_mapperService.MapToFamilyModel(_SourceFamilies));
-            UpdateFamilyOrphansCount();
+            //UpdateFamilyOrphansCount();
             UpdateFamilyBails();
             DataLoaded?.Invoke(this, new EventArgs());
         }
@@ -82,22 +82,22 @@ namespace OrphanageV3.ViewModel.Family
             if (familieslist == null) return;
             _SourceFamilies = familieslist.ToList();
             Families = new ObservableCollection<FamilyModel>(_mapperService.MapToFamilyModel(_SourceFamilies));
-            UpdateFamilyOrphansCount();
+            //UpdateFamilyOrphansCount();
             UpdateFamilyBails();
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
-        private void UpdateFamilyOrphansCount()
-        {
-            new Thread(new ThreadStart(async () =>
-            {
-                foreach (var fam in Families)
-                {
-                    var value = await _apiClient.FamiliesController_GetOrphansCountAsync(fam.Id);
-                    fam.OrphansCount = value;
-                }
-            })).Start();
-        }
+        //private void UpdateFamilyOrphansCount()
+        //{
+        //    new Thread(new ThreadStart(async () =>
+        //    {
+        //        foreach (var fam in Families)
+        //        {
+        //            var value = await _apiClient.FamiliesController_GetOrphansCountAsync(fam.Id);
+        //            fam.OrphansCount = value;
+        //        }
+        //    })).Start();
+        //}
 
         private void UpdateFamilyBails()
         {

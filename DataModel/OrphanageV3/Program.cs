@@ -82,10 +82,16 @@ namespace OrphanageV3
             currentContainer.RegisterType<FathersViewModel>();
             currentContainer.RegisterType<FamiliesViewModel>();
             currentContainer.RegisterType<AddOrphanViewModel>();
-            currentContainer.RegisterType<MainViewModel>();
+            currentContainer.RegisterSingleton<MainViewModel>();
             currentContainer.RegisterType<GuarantorsViewModel>();
             currentContainer.RegisterType<BailsViewModel>();
             return currentContainer;
+        }
+
+        public static void RenewApiClient()
+        {
+            Factory.RegisterType<IApiClient, ApiClient>(new ContainerControlledLifetimeManager(), new InjectionConstructor(new object[] { true }));
+            Factory.Resolve<MainViewModel>().UpdateApiClient(Factory.Resolve<IApiClient>());
         }
     }
 }

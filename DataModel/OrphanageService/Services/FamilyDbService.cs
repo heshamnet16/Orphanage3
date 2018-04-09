@@ -219,7 +219,7 @@ namespace OrphanageService.Services
             }
         }
 
-        private IEnumerable<OrphanageDataModel.RegularData.Family> prepareFamiliesList(IEnumerable<OrphanageDataModel.RegularData.Family> familiesList)
+        private async Task<IEnumerable<OrphanageDataModel.RegularData.Family>> prepareFamiliesList(IEnumerable<OrphanageDataModel.RegularData.Family> familiesList)
         {
             _logger.Information($"trying to prepare families list to return it");
             if (familiesList == null || familiesList.Count() == 0)
@@ -231,6 +231,7 @@ namespace OrphanageService.Services
             foreach (var family in familiesList)
             {
                 OrphanageDataModel.RegularData.Family familyToFill = family;
+                familyToFill.OrphansCount = await GetOrphansCount(family.Id);
                 _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
                 _uriGenerator.SetFamilyUris(ref familyToFill);
                 returnedFamiliesList.Add(familyToFill);
@@ -257,7 +258,7 @@ namespace OrphanageService.Services
                     .Where(f => f.IsExcluded == true)
                     .ToListAsync();
 
-                return prepareFamiliesList(families);
+                return await prepareFamiliesList(families);
             }
         }
 
@@ -292,7 +293,7 @@ namespace OrphanageService.Services
                     .Include(f => f.PrimaryAddress)
                     .ToListAsync();
 
-                return prepareFamiliesList(families);
+                return await prepareFamiliesList(families);
             }
         }
 
@@ -319,7 +320,7 @@ namespace OrphanageService.Services
                     .Include(f => f.PrimaryAddress)
                     .ToListAsync();
 
-                return prepareFamiliesList(families);
+                return await prepareFamiliesList(families);
             }
         }
 
@@ -388,6 +389,7 @@ namespace OrphanageService.Services
                 }
 
                 OrphanageDataModel.RegularData.Family familyToFill = family;
+                familyToFill.OrphansCount = await GetOrphansCount(family.Id);
                 _selfLoopBlocking.BlockFamilySelfLoop(ref familyToFill);
                 _uriGenerator.SetFamilyUris(ref familyToFill);
                 _logger.Information($"family object with id({FamId}) will be returned");

@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Extensions;
+using OrphanageV3.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,9 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
 
 namespace OrphanageV3.Views.Tools
 {
@@ -161,6 +165,7 @@ namespace OrphanageV3.Views.Tools
         {
             Properties.Settings.Default.OrphanageServiceURL = getBaseUrl(txtBaseUrl.Text);
             Properties.Settings.Default.Save();
+            Program.RenewApiClient();
         }
 
         private void chkUseBackgroundColor_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)

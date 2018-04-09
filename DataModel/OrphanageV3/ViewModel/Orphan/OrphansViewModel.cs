@@ -42,7 +42,7 @@ namespace OrphanageV3.ViewModel.Orphan
             _dataFormatterService = dataFormatterService;
             _bailsViewModel = bailsViewModel;
             _bailsViewModel.DataLoaded += bailsLoaded;
-            _bailsViewModel.LoadBails();
+            _bailsViewModel.LoadBailsByIsFamily(false);
         }
 
         private void bailsLoaded(object sender, System.EventArgs e)
