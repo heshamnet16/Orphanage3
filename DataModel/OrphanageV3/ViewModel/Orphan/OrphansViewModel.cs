@@ -360,7 +360,12 @@ namespace OrphanageV3.ViewModel.Orphan
         public async Task<IEnumerable<int>> GetBrothers(int Oid)
         {
             var orphans = await _apiClient.OrphansController_GetBrothersAsync(Oid);
-            return orphans.Select(o => o.Id).ToArray();
+            if (orphans != null)
+            {
+                return orphans.Select(o => o.Id).ToArray();
+            }
+            else
+                return null;
         }
 
         public int GetMother(int Oid)

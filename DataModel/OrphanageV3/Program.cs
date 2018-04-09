@@ -61,7 +61,7 @@ namespace OrphanageV3
                 //    //TODO show error message
                 //}
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
         }

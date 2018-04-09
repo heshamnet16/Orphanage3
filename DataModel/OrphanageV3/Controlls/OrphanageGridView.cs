@@ -56,11 +56,11 @@ namespace OrphanageV3.Controlls
             {
                 if (_AddSelectColumn && radGridView.Columns.Contains("Select"))
                 {
-                    var selectedRows = radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                    var selectedRows = radGridView.Rows.Where(r => r.Cells["Select"].Value != null && (bool)r.Cells["Select"].Value == true).ToList();
                     if (selectedRows == null || selectedRows.Count == 0)
                         return radGridView.SelectedRows.ToList();
                     else
-                        return radGridView.Rows.Where(r => r.Cells[0].Value != null && (bool)r.Cells[0].Value == true).ToList();
+                        return radGridView.Rows.Where(r => r.Cells["Select"].Value != null && (bool)r.Cells["Select"].Value == true).ToList();
                 }
                 else
                 {

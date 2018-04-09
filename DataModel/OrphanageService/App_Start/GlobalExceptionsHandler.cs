@@ -1,4 +1,7 @@
-﻿using OrphanageService.Services.Exceptions;
+﻿using OrphanageService.Services;
+using OrphanageService.Services.Exceptions;
+using OrphanageService.Services.Interfaces;
+using System;
 using System.Data.Entity.Validation;
 using System.Net;
 using System.Net.Http;
@@ -11,8 +14,11 @@ namespace OrphanageService.App_Start
 {
     public class GlobalExceptionsHandler : IExceptionHandler
     {
+        private ILogger _logger = new Logger();
+
         public Task HandleAsync(ExceptionHandlerContext context, CancellationToken cancellationToken)
         {
+            logException(context.Exception);
             if (context.Exception is HasForeignKeyException)
             {
                 var hasForeignKeyException = (HasForeignKeyException)context.Exception;
@@ -66,6 +72,16 @@ namespace OrphanageService.App_Start
             }
             else
                 throw context.Exception;
+        }
+
+        private void logException(Exception exc)
+        {
+            if (exc == null) return;
+            _logger.Error($"an Exception has occurred with exception message: ({exc.Message}) and exception type {exc.GetType().ToString()}");
+            if (exc.InnerException != null)
+            {
+                logException(exc.InnerException.InnerException);
+            }
         }
     }
 }

@@ -300,9 +300,12 @@ namespace OrphanageV3.Views.Orphan
             foreach (var id in orphanageGridView1.SelectedIds)
             {
                 var brothersIds = await _orphansViewModel.GetBrothers(id);
-                OrphansView orphansView = new OrphansView(brothersIds);
-                orphansView.MdiParent = this.MdiParent;
-                orphansView.Show();
+                if (brothersIds != null)
+                {
+                    OrphansView orphansView = new OrphansView(brothersIds);
+                    orphansView.MdiParent = this.MdiParent;
+                    orphansView.Show();
+                }
             }
         }
 
