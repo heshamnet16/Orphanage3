@@ -42,6 +42,14 @@ namespace OrphanageService.Bail.Controllers
         }
 
         [HttpGet]
+        [Route("IsFamily/{value}")]
+        [CacheFilter(TimeDuration = 200)]
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBailsByFamily(bool value)
+        {
+            return await _bailDbService.GetBails(value);
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetBailsCount()

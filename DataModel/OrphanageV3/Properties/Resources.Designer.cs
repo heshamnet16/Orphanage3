@@ -206,6 +206,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die المظهر ähnelt.
+        /// </summary>
+        public static string Appearance {
+            get {
+                return ResourceManager.GetString("Appearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die صورة خلفية ähnelt.
         /// </summary>
         public static string BackPhoto {
@@ -837,6 +846,15 @@ namespace OrphanageV3.Properties {
         public static string DeathReason {
             get {
                 return ResourceManager.GetString("DeathReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عدد السجلات الافتراضي ähnelt.
+        /// </summary>
+        public static string DefaultPageSize {
+            get {
+                return ResourceManager.GetString("DefaultPageSize", resourceCulture);
             }
         }
         
@@ -2912,6 +2930,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اظهار السجلات المستبعدة ähnelt.
+        /// </summary>
+        public static string ShowHiddenRecords {
+            get {
+                return ResourceManager.GetString("ShowHiddenRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die عرض الأمهات ähnelt.
         /// </summary>
         public static string ShowMothers {
@@ -3148,6 +3175,24 @@ namespace OrphanageV3.Properties {
         public static string UnsetBail {
             get {
                 return ResourceManager.GetString("UnsetBail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تلوين الخلفية ähnelt.
+        /// </summary>
+        public static string UseBackgroundColor {
+            get {
+                return ResourceManager.GetString("UseBackgroundColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die استخدام الألوان ähnelt.
+        /// </summary>
+        public static string UseColors {
+            get {
+                return ResourceManager.GetString("UseColors", resourceCulture);
             }
         }
         

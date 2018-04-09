@@ -1163,4 +1163,19 @@
   <data name="NotLimited" xml:space="preserve">
     <value>غير محدودة</value>
   </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>المظهر</value>
+  </data>
+  <data name="DefaultPageSize" xml:space="preserve">
+    <value>عدد السجلات الافتراضي</value>
+  </data>
+  <data name="ShowHiddenRecords" xml:space="preserve">
+    <value>اظهار السجلات المستبعدة</value>
+  </data>
+  <data name="UseBackgroundColor" xml:space="preserve">
+    <value>تلوين الخلفية</value>
+  </data>
+  <data name="UseColors" xml:space="preserve">
+    <value>استخدام الألوان</value>
+  </data>
 </root>

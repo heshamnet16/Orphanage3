@@ -183,6 +183,7 @@ namespace OrphanageV3.Views.Family
             this.btnBail.AutoSize = false;
             this.btnBail.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
             this.btnBail.DisplayName = "commandBarButton1";
+            this.btnBail.Enabled = false;
             this.btnBail.Image = global::OrphanageV3.Properties.Resources.BailPic;
             this.btnBail.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBail.Name = "btnBail";

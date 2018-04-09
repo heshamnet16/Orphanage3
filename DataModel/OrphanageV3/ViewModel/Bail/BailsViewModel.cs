@@ -46,6 +46,20 @@ namespace OrphanageV3.ViewModel.Bail
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
+        public async void LoadBailsByIsFamily(bool value)
+        {
+            var ReturnedBails = await _apiClient.BailsController_GetBailsByFamilyAsync(value);
+
+            _SourceBails = ReturnedBails;
+
+            Bails = new ObservableCollection<BailModel>(_mapperService.MapToBailModel(_SourceBails));
+
+            UpdateFamiliesCount();
+            UpdateOrphansCount();
+
+            DataLoaded?.Invoke(this, new EventArgs());
+        }
+
         private void UpdateFamiliesCount()
         {
             new Thread(new ThreadStart(async () =>

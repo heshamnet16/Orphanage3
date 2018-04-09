@@ -41,5 +41,8 @@
     <Setting Name="BailsLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Bail.layout</Value>
     </Setting>
+    <Setting Name="UseColors" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,4 +1,5 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.FinancialData;
+using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
@@ -509,6 +510,37 @@ namespace OrphanageService.Services
                     }
                 }
             }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(bool isFamily)
+        {
+            _logger.Information($"Trying to get Bails with isFamily equals {isFamily}");
+            IList<OrphanageDataModel.FinancialData.Bail> bailsList = new List<OrphanageDataModel.FinancialData.Bail>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var bails = await _orphanageDBC.Bails.AsNoTracking()
+                    .Include(b => b.Account)
+                    .Include(b => b.Guarantor)
+                    .Include(b => b.Guarantor.Name)
+                    .Where(b => b.IsFamilyBail == isFamily)
+                    .ToListAsync();
+
+                if (bails != null && bails.Count > 0)
+                {
+                    foreach (var bail in bails)
+                    {
+                        OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
+                        _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
+                        bailsList.Add(bailsToFill);
+                    }
+                }
+                else
+                {
+                    _logger.Warning($"the returned bails are null, empty list will be returned");
+                }
+            }
+            _logger.Information($"{bailsList.Count} records of bails will be returned");
+            return bailsList;
         }
     }
 }

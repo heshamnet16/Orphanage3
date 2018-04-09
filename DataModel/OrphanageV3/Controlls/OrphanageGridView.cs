@@ -233,29 +233,36 @@ namespace OrphanageV3.Controlls
         private void radGridView_RowFormatting(object sender, RowFormattingEventArgs e)
         {
             var row = e.RowElement.RowInfo;
-
-            if (radGridView.Columns.Contains(_ColorColumnName))
+            if (Properties.Settings.Default.UseColors)
             {
-                e.RowElement.DrawFill = true;
-                if (row.Cells[_ColorColumnName].Value != null)
+                if (radGridView.Columns.Contains(_ColorColumnName))
                 {
-                    var colorDecimal = row.Cells[_ColorColumnName].Value;
-                    var ColorMark = Color.FromArgb(int.Parse(colorDecimal.ToString()));
-                    e.RowElement.GradientStyle = GradientStyles.Gel;
-                    //e.RowElement.GradientPercentage
-                    e.RowElement.BackColor2 = Color.White;
-                    e.RowElement.BackColor3 = Color.White;
-                    e.RowElement.BackColor4 = Color.White;
-                    if (ColorMark.ToArgb() != Color.White.ToArgb() && ColorMark.ToArgb() != Color.Black.ToArgb() && int.Parse(colorDecimal.ToString()) != 0)
+                    e.RowElement.DrawFill = true;
+                    if (row.Cells[_ColorColumnName].Value != null)
                     {
-                        if (Properties.Settings.Default.UseBackgroundColor)
+                        var colorDecimal = row.Cells[_ColorColumnName].Value;
+                        var ColorMark = Color.FromArgb(int.Parse(colorDecimal.ToString()));
+                        e.RowElement.GradientStyle = GradientStyles.Gel;
+                        //e.RowElement.GradientPercentage
+                        e.RowElement.BackColor2 = Color.White;
+                        e.RowElement.BackColor3 = Color.White;
+                        e.RowElement.BackColor4 = Color.White;
+                        if (ColorMark.ToArgb() != Color.White.ToArgb() && ColorMark.ToArgb() != Color.Black.ToArgb() && int.Parse(colorDecimal.ToString()) != 0)
                         {
-                            e.RowElement.BackColor = ColorMark;
-                            e.RowElement.ForeColor = Color.Black;
+                            if (Properties.Settings.Default.UseBackgroundColor)
+                            {
+                                e.RowElement.BackColor = ColorMark;
+                                e.RowElement.ForeColor = Color.Black;
+                            }
+                            else
+                            {
+                                e.RowElement.ForeColor = ColorMark;
+                                e.RowElement.BackColor = Color.White;
+                            }
                         }
                         else
                         {
-                            e.RowElement.ForeColor = ColorMark;
+                            e.RowElement.ForeColor = Color.Black;
                             e.RowElement.BackColor = Color.White;
                         }
                     }
@@ -264,11 +271,6 @@ namespace OrphanageV3.Controlls
                         e.RowElement.ForeColor = Color.Black;
                         e.RowElement.BackColor = Color.White;
                     }
-                }
-                else
-                {
-                    e.RowElement.ForeColor = Color.Black;
-                    e.RowElement.BackColor = Color.White;
                 }
             }
             if (radGridView.Columns.Contains(_HideShowColumnName))

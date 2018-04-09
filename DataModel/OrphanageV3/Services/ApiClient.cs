@@ -286,6 +286,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<int> BailsController_GetBailsCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4173,6 +4182,85 @@ namespace OrphanageV3.Services
             urlBuilder_.Append(BaseUrl).Append("/api/bail/{pageSize}/{pageNumber}");
             urlBuilder_.Replace("{pageSize}", System.Uri.EscapeDataString(System.Convert.ToString(pageSize, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{pageNumber}", System.Uri.EscapeDataString(System.Convert.ToString(pageNumber, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<Bail>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<Bail>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.ObjectModel.ObservableCollection<Bail>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value)
+        {
+            return BailsController_GetBailsByFamilyAsync(value, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value, System.Threading.CancellationToken cancellationToken)
+        {
+            if (value == null)
+                throw new System.ArgumentNullException("value");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/bail/IsFamily/{value}");
+            urlBuilder_.Replace("{value}", System.Uri.EscapeDataString(System.Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = new System.Net.Http.HttpClient();
             try

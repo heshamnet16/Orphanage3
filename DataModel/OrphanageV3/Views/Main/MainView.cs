@@ -43,6 +43,7 @@ namespace OrphanageV3.Views.Main
             mnuShowSetting.Text = Properties.Resources.Setting;
             mnuShowBails.Text = Properties.Resources.Bails;
             mnuNewBail.Text = Properties.Resources.Bail;
+            mnuShowAllFamilies.Text = Properties.Resources.All;
             lblConnectionStatus.Text = Properties.Resources.Disconnected;
         }
 
