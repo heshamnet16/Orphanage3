@@ -169,6 +169,7 @@
     <Compile Include="Account\Controllers\AccountsController.cs" />
     <Compile Include="App_Start\GlobalExceptionsHandler.cs" />
     <Compile Include="App_Start\HttpAreaSelector.cs" />
+    <Compile Include="App_Start\PowerShellExecuter.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="AutoComplete\Controllers\AutoCompletesController.cs" />

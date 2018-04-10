@@ -9,7 +9,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
 using System.Web.Http.Routing;
 
-namespace OrphanageService.App_Start
+namespace OrphanageService
 {
     internal class HttpAreaSelector : IHttpControllerSelector
     {
