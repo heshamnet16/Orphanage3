@@ -117,1065 +117,1074 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Age" xml:space="preserve">
-    <value>العمر</value>
+  <data name="AddFamilyBasicData" xml:space="preserve">
+    <value>إضافة بينات العائلة الاساسية</value>
   </data>
-  <data name="OrphanIsBailed" xml:space="preserve">
-    <value>اليتم مكفول</value>
+  <data name="OrphanConsanguinityToCaregiverSimple12" xml:space="preserve">
+    <value>عمتها</value>
+  </data>
+  <data name="ChooseOrphan" xml:space="preserve">
+    <value>اختر يتيم</value>
   </data>
   <data name="OrphanBirthplace" xml:space="preserve">
     <value>مكان ولادة اليتيم</value>
   </data>
-  <data name="BirthPlace" xml:space="preserve">
-    <value>مكان الولادة</value>
+  <data name="HealthDoctor" xml:space="preserve">
+    <value>الطبيب المشرف</value>
   </data>
-  <data name="Color" xml:space="preserve">
-    <value>اللون</value>
+  <data name="OrphanConsanguinityToCaregiverSimple9" xml:space="preserve">
+    <value>امه</value>
   </data>
-  <data name="FatherName" xml:space="preserve">
-    <value>اسم الأب</value>
+  <data name="GuarantorID" xml:space="preserve">
+    <value>رقم الكفيل</value>
   </data>
-  <data name="FootSize" xml:space="preserve">
-    <value>قياس القدم</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ChildrenPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Children.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Gender" xml:space="preserve">
-    <value>الجنس</value>
+  <data name="AddOrphan" xml:space="preserve">
+    <value>إضافة يتيم</value>
   </data>
-  <data name="GrandFatherName" xml:space="preserve">
-    <value>اسم الجد</value>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>رقم الجوال</value>
   </data>
-  <data name="ID" xml:space="preserve">
-    <value>الرقم</value>
+  <data name="MotherDeathDate" xml:space="preserve">
+    <value>تاريخ وفاة الأم</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>صفحة</value>
+  </data>
+  <data name="FinncialStatus_Good_Description" xml:space="preserve">
+    <value>يوجد دخل شهري ممتاز والعالة ليست بحاجة لتبرعات</value>
+  </data>
+  <data name="ChooseBail" xml:space="preserve">
+    <value>اختر كفالة</value>
+  </data>
+  <data name="ResidenceStatus_TooBad" xml:space="preserve">
+    <value>سيئ جداً</value>
+  </data>
+  <data name="MotherIsMarried" xml:space="preserve">
+    <value>الأم متزوجة</value>
+  </data>
+  <data name="HealthSicknessNameNullText" xml:space="preserve">
+    <value>المرض أسم أدخل</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>ادوات</value>
+  </data>
+  <data name="FinncialStatus" xml:space="preserve">
+    <value>الحالة المالية</value>
+  </data>
+  <data name="FamilyName" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="BasicAddress" xml:space="preserve">
+    <value>العنوان الاساسي</value>
+  </data>
+  <data name="CaregiverAddedSuccess" xml:space="preserve">
+    <value>تم إنشاء معيل بنجاح</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple13" xml:space="preserve">
+    <value>خالته</value>
   </data>
   <data name="MotherFirstName" xml:space="preserve">
     <value>اسم الأم</value>
   </data>
-  <data name="OrphanFirstName" xml:space="preserve">
-    <value>اسم اليتيم</value>
+  <data name="EditPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FinncialStatus_TooBad_Description" xml:space="preserve">
+    <value>لايوجد دخل شهري والعائلة بأمس الحاجة للتبرعات</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple3" xml:space="preserve">
+    <value>عمه</value>
+  </data>
+  <data name="ChooseBails" xml:space="preserve">
+    <value>اختر كفالات</value>
+  </data>
+  <data name="FemaleString" xml:space="preserve">
+    <value>انثى</value>
+  </data>
+  <data name="FamiliesCount" xml:space="preserve">
+    <value>عدد العائلات</value>
+  </data>
+  <data name="LessThanDayString" xml:space="preserve">
+    <value>أقل من يوم</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
+  <data name="ShowMothers" xml:space="preserve">
+    <value>عرض الأمهات</value>
+  </data>
+  <data name="Story" xml:space="preserve">
+    <value>القصة</value>
+  </data>
+  <data name="ChooseOrphans" xml:space="preserve">
+    <value>اختر ايتام</value>
+  </data>
+  <data name="NewCaregiver" xml:space="preserve">
+    <value>معيل جديد</value>
+  </data>
+  <data name="LessThanYearString" xml:space="preserve">
+    <value>اقل من سنة</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple15" xml:space="preserve">
+    <value>لايوجد صلة قرابة</value>
+  </data>
+  <data name="AddCaregiver" xml:space="preserve">
+    <value>إضافة معيل</value>
+  </data>
+  <data name="OrphanLastName" xml:space="preserve">
+    <value>كنية اليتيم</value>
+  </data>
+  <data name="WorkPhone" xml:space="preserve">
+    <value>هاتف العمل</value>
+  </data>
+  <data name="IsMonthlyBail" xml:space="preserve">
+    <value>شهرية</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple2" xml:space="preserve">
+    <value>خالها</value>
+  </data>
+  <data name="BailIsEnded" xml:space="preserve">
+    <value>كفالة منتهية</value>
+  </data>
+  <data name="FinncialStatus_Acceptable_Description" xml:space="preserve">
+    <value>يوجد دخل شهري مقبول والعالة ليست بحاجة لتبرعات</value>
+  </data>
+  <data name="FacePhoto" xml:space="preserve">
+    <value>صورة الوجه</value>
+  </data>
+  <data name="MonthString" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="FatherLastName" xml:space="preserve">
+    <value>كنية الأب</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>إعدادات</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>السبب</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="HealthReportFilePhoto" xml:space="preserve">
+    <value>صورة التقرير الطبي</value>
+  </data>
+  <data name="ShowGuarantors" xml:space="preserve">
+    <value>عرض الكفلاء</value>
+  </data>
+  <data name="ChooseCaregiver" xml:space="preserve">
+    <value>اختر معيل</value>
+  </data>
+  <data name="UnExclude" xml:space="preserve">
+    <value>الغاء الاستبعاد</value>
+  </data>
+  <data name="BailIsFamily" xml:space="preserve">
+    <value>كفالة عائلية</value>
+  </data>
+  <data name="ColumnsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Columns.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple14" xml:space="preserve">
+    <value>خالتها</value>
+  </data>
+  <data name="MalesString" xml:space="preserve">
+    <value>الذكور</value>
+  </data>
+  <data name="IsDead" xml:space="preserve">
+    <value>متوفى</value>
+  </data>
+  <data name="CaregiverFatherName" xml:space="preserve">
+    <value>اسم أب المعيل</value>
+  </data>
+  <data name="CellPhone" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>الأيميل</value>
+  </data>
+  <data name="ChooseGuarantors" xml:space="preserve">
+    <value>اختر كفلاء</value>
+  </data>
+  <data name="ChooseCaregivers" xml:space="preserve">
+    <value>اختر معيلين</value>
+  </data>
+  <data name="LessThanMonthString" xml:space="preserve">
+    <value>أقل من شهر</value>
+  </data>
+  <data name="CaregiverIdentityNumber" xml:space="preserve">
+    <value>رقم هوية المعيل</value>
+  </data>
+  <data name="HealthMedicen" xml:space="preserve">
+    <value>الأدوية</value>
+  </data>
+  <data name="EducationMonthlyCost" xml:space="preserve">
+    <value>الكلفة الشهرية</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>التقدم</value>
+  </data>
+  <data name="ResidenceType" xml:space="preserve">
+    <value>نوع الإقامة</value>
+  </data>
+  <data name="CurrencyName" xml:space="preserve">
+    <value>اسم العملة</value>
+  </data>
+  <data name="ChooseFamily" xml:space="preserve">
+    <value>اختر عائلة</value>
+  </data>
+  <data name="ResidenceType_Shelter" xml:space="preserve">
+    <value>مركز أيواء</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="ResidenceStatus_TooBad_Description" xml:space="preserve">
+    <value>السكن شبه مستحيل</value>
+  </data>
+  <data name="FinncialStatus_Good" xml:space="preserve">
+    <value>جيد</value>
+  </data>
+  <data name="preload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\preload.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MotherLastName" xml:space="preserve">
+    <value>كنية الأم</value>
+  </data>
+  <data name="EducationCertificateImage1" xml:space="preserve">
+    <value>شهادة دراسية</value>
+  </data>
+  <data name="CurrentAddress" xml:space="preserve">
+    <value>العنوان الحالي</value>
+  </data>
+  <data name="EducationAvaregeGrade" xml:space="preserve">
+    <value>معدل الدرجات</value>
+  </data>
+  <data name="FatherFatherName" xml:space="preserve">
+    <value>اسم الجد</value>
+  </data>
+  <data name="SiblingsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\siblings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowFathers" xml:space="preserve">
+    <value>عرض الأباء</value>
+  </data>
+  <data name="EducationSchoolName" xml:space="preserve">
+    <value>اسم المدرسة</value>
+  </data>
+  <data name="EducationReasonNullText" xml:space="preserve">
+    <value>أدخل سبب التخلف عن الدراسة</value>
+  </data>
+  <data name="ExcludedFamilies" xml:space="preserve">
+    <value>مستبعدة</value>
+  </data>
+  <data name="BailIsMonthly" xml:space="preserve">
+    <value>كفالة شهرية</value>
+  </data>
+  <data name="SetBail" xml:space="preserve">
+    <value>اسناد كفالة</value>
+  </data>
+  <data name="ShowFamilies" xml:space="preserve">
+    <value>عرض العائلات</value>
+  </data>
+  <data name="BrothersCountString" xml:space="preserve">
+    <value>عدد الأخوة</value>
+  </data>
+  <data name="Kilogramm" xml:space="preserve">
+    <value>كغ</value>
+  </data>
+  <data name="FinncialStatus_Acceptable" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="FatherDeathDate" xml:space="preserve">
+    <value>تاريخ وفاة الأب</value>
+  </data>
+  <data name="WifeName" xml:space="preserve">
+    <value>اسم الزوجة</value>
+  </data>
+  <data name="OrphanIsBailed" xml:space="preserve">
+    <value>اليتم مكفول</value>
+  </data>
+  <data name="Orphans" xml:space="preserve">
+    <value>ايتام</value>
+  </data>
+  <data name="IsSupportingOnlyFamilies" xml:space="preserve">
+    <value>عائلات فقط</value>
+  </data>
+  <data name="TowDaysString" xml:space="preserve">
+    <value>يومان</value>
+  </data>
+  <data name="ChooseMother" xml:space="preserve">
+    <value>اختر أم</value>
+  </data>
+  <data name="ResidenceStatus_Bad_Description" xml:space="preserve">
+    <value>يوجد ضرر في البناء و الحالة الصحية سيئة</value>
+  </data>
+  <data name="EducationData" xml:space="preserve">
+    <value>بيانات دراسية</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple5" xml:space="preserve">
+    <value>جده</value>
+  </data>
+  <data name="ChooseFather" xml:space="preserve">
+    <value>اختر أب</value>
+  </data>
+  <data name="ResidenceStatus_Bad" xml:space="preserve">
+    <value>سيئ</value>
+  </data>
+  <data name="Tallness" xml:space="preserve">
+    <value>الطول</value>
+  </data>
+  <data name="RegDate" xml:space="preserve">
+    <value>تاريخ التسجيل</value>
+  </data>
+  <data name="YearsString" xml:space="preserve">
+    <value>سنوات</value>
+  </data>
+  <data name="ResidenceStatus_Acceptable_Description" xml:space="preserve">
+    <value>لا يوجد ضرر في البناء و الحالة الصحية سيئة</value>
+  </data>
+  <data name="CurrencyShortcut" xml:space="preserve">
+    <value>اختصار العملة</value>
+  </data>
+  <data name="Family" xml:space="preserve">
+    <value>عائلة</value>
+  </data>
+  <data name="ResidenceStatus" xml:space="preserve">
+    <value>حالة السكن</value>
+  </data>
+  <data name="BailedFamilies" xml:space="preserve">
+    <value>مكفولة</value>
+  </data>
+  <data name="BodyPhoto" xml:space="preserve">
+    <value>صورة كاملة</value>
+  </data>
+  <data name="IsSick" xml:space="preserve">
+    <value>مريض</value>
+  </data>
+  <data name="DeathReason" xml:space="preserve">
+    <value>سبب الوفاة</value>
+  </data>
+  <data name="AndString" xml:space="preserve">
+    <value>و</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple17" xml:space="preserve">
+    <value>قريبته</value>
+  </data>
+  <data name="OrphanTallness" xml:space="preserve">
+    <value>طول اليتيم</value>
+  </data>
+  <data name="HealthMedicenNullText" xml:space="preserve">
+    <value>المرض أسم أدخل</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple4" xml:space="preserve">
+    <value>عمها</value>
+  </data>
+  <data name="FamilyCreatedMessage" xml:space="preserve">
+    <value>تم إنشاء عائلة بنجاح</value>
+  </data>
+  <data name="OrphanAddedFailed" xml:space="preserve">
+    <value>فشل في إنشاء يتيم جديد</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="FatherFullName" xml:space="preserve">
+    <value>اسم الاب الكامل</value>
+  </data>
+  <data name="BailsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bails.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrphanGender" xml:space="preserve">
+    <value>جنس اليتيم</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>الشارع</value>
+  </data>
+  <data name="CaregiverLastName" xml:space="preserve">
+    <value>كنية المعيل</value>
+  </data>
+  <data name="BooleanTrue" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="ResidenceStatus_Good_Description" xml:space="preserve">
+    <value>لا يوجد ضرر في البناء و الحلة الصحية جيدة</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="CaregiverID" xml:space="preserve">
+    <value>رقم المعيل</value>
+  </data>
+  <data name="Jop" xml:space="preserve">
+    <value>العمل</value>
+  </data>
+  <data name="HealthSicknessName" xml:space="preserve">
+    <value>اسم المرض</value>
+  </data>
+  <data name="NextText" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="UnBaild" xml:space="preserve">
+    <value>غير مكفولين</value>
+  </data>
+  <data name="BaseUrl" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="DefaultPageSize" xml:space="preserve">
+    <value>عدد السجلات الافتراضي</value>
+  </data>
+  <data name="FamilyID" xml:space="preserve">
+    <value>رقم العائلة</value>
+  </data>
+  <data name="ChooseMothers" xml:space="preserve">
+    <value>اختر الأمهات</value>
   </data>
   <data name="OrphanIDNumber" xml:space="preserve">
     <value>رقم هوية اليتيم</value>
   </data>
-  <data name="OrphanLastName" xml:space="preserve">
-    <value>كنية اليتيم</value>
+  <data name="BirthPlace" xml:space="preserve">
+    <value>مكان الولادة</value>
+  </data>
+  <data name="GridViewGroupByText" xml:space="preserve">
+    <value>تجميع بواسطة :</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="TowYearsString" xml:space="preserve">
+    <value>سنتين</value>
+  </data>
+  <data name="OrphanEditViewTitle" xml:space="preserve">
+    <value>يتيم</value>
+  </data>
+  <data name="DragAndDropColumnHere" xml:space="preserve">
+    <value>اسحب الأعمدة من و إلى الشبكة</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="UseColors" xml:space="preserve">
+    <value>استخدام الألوان</value>
+  </data>
+  <data name="MotherID" xml:space="preserve">
+    <value>رقم الأم</value>
+  </data>
+  <data name="IsBailed" xml:space="preserve">
+    <value>مكفول</value>
+  </data>
+  <data name="Guarantors" xml:space="preserve">
+    <value>الكفلاء</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="ColorPickerPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ColorPicker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Families" xml:space="preserve">
+    <value>العائلات</value>
+  </data>
+  <data name="MotherAge" xml:space="preserve">
+    <value>عمر الأم</value>
+  </data>
+  <data name="ShowCaregivers" xml:space="preserve">
+    <value>عرض المعيلين</value>
+  </data>
+  <data name="ParentsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Parents.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Baild" xml:space="preserve">
+    <value>مكفولين</value>
+  </data>
+  <data name="BirthCertificatePhoto" xml:space="preserve">
+    <value>صورة شهادة الولادة</value>
+  </data>
+  <data name="MotherIsDead" xml:space="preserve">
+    <value>الأم متوفية</value>
+  </data>
+  <data name="FinncialStatus_Bad" xml:space="preserve">
+    <value>سيئ</value>
+  </data>
+  <data name="FamilyCardPhoto" xml:space="preserve">
+    <value>صورة دفتر العائلة</value>
+  </data>
+  <data name="OrphanStory" xml:space="preserve">
+    <value>قصة اليتيم</value>
+  </data>
+  <data name="FootSize" xml:space="preserve">
+    <value>قياس القدم</value>
+  </data>
+  <data name="Mothers" xml:space="preserve">
+    <value>الأمهات</value>
+  </data>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Addresses" xml:space="preserve">
+    <value>العناوين</value>
+  </data>
+  <data name="AddMother" xml:space="preserve">
+    <value>إضافة أم</value>
+  </data>
+  <data name="IsStillPaying" xml:space="preserve">
+    <value>ملتزم بالدفع</value>
+  </data>
+  <data name="MonthesAccusativeString" xml:space="preserve">
+    <value>شهراً</value>
+  </data>
+  <data name="OrphanAddedSuccess" xml:space="preserve">
+    <value>تم إنشاء يتيم بنجاح</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>غير متصل</value>
+  </data>
+  <data name="OrphanIdentityNumber" xml:space="preserve">
+    <value>رقم هوية اليتيم</value>
+  </data>
+  <data name="FamilyCreatedErrorMessage" xml:space="preserve">
+    <value>فشل في إنشاء عائلة جديدة</value>
+  </data>
+  <data name="EducationNonStudyKeyword" xml:space="preserve">
+    <value>متخلف</value>
+  </data>
+  <data name="IsMarried" xml:space="preserve">
+    <value>متزوجة</value>
+  </data>
+  <data name="FemalesString" xml:space="preserve">
+    <value>الإناث</value>
+  </data>
+  <data name="ResidenceType_Shelter_Description" xml:space="preserve">
+    <value>العائلة مهجرة وتسكن ضمن مركز ايواء</value>
+  </data>
+  <data name="HusbandName" xml:space="preserve">
+    <value>اسم الزوج</value>
+  </data>
+  <data name="FirstNameE" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Excluded" xml:space="preserve">
+    <value>مستبعدين</value>
+  </data>
+  <data name="FinncialStatus_Bad_Description" xml:space="preserve">
+    <value>لايوجد دخل شهري والعائلة بحاجة لتبرعات</value>
+  </data>
+  <data name="UseBackgroundColor" xml:space="preserve">
+    <value>تلوين الخلفية</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>متصل</value>
+  </data>
+  <data name="FatherPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Father.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YearString" xml:space="preserve">
+    <value>سنة</value>
+  </data>
+  <data name="EducationStageNullString" xml:space="preserve">
+    <value>أدخل المرحلة الدراسية</value>
+  </data>
+  <data name="MonthesString" xml:space="preserve">
+    <value>أشهر</value>
+  </data>
+  <data name="ResidenceStatus_Acceptable" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="UnknownPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnknownMale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FullAddress" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="MotherCaregiver" xml:space="preserve">
+    <value>تعيله أمه</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="RefreshPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RemoteAddress" xml:space="preserve">
+    <value>عنوان المضيف</value>
+  </data>
+  <data name="HidePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>تويتر</value>
+  </data>
+  <data name="FatherAge" xml:space="preserve">
+    <value>عمر الأب</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>المظهر</value>
+  </data>
+  <data name="IsTheyRefugees" xml:space="preserve">
+    <value>مهجرة</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>صورة</value>
+  </data>
+  <data name="ErrorMessageCannotDelete" xml:space="preserve">
+    <value>لايمكن حذف السجل</value>
+  </data>
+  <data name="AdditionalData" xml:space="preserve">
+    <value>بيانات إضافية</value>
+  </data>
+  <data name="OrphanBirthday" xml:space="preserve">
+    <value>تاريخ الميلاد اليتيم</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple6" xml:space="preserve">
+    <value>جدها</value>
+  </data>
+  <data name="Centimeter" xml:space="preserve">
+    <value>سم</value>
+  </data>
+  <data name="FatherIdentityNumber" xml:space="preserve">
+    <value>رقم هوية الأب</value>
+  </data>
+  <data name="BailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple16" xml:space="preserve">
+    <value>قريبه</value>
+  </data>
+  <data name="OrphansCount" xml:space="preserve">
+    <value>عدد الايتام</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>العمر</value>
   </data>
   <data name="OrphanViewTitle" xml:space="preserve">
     <value>ايتام</value>
     <comment>OrphanView</comment>
   </data>
-  <data name="RegDate" xml:space="preserve">
-    <value>تاريخ التسجيل</value>
-  </data>
-  <data name="OrphanStory" xml:space="preserve">
-    <value>قصة اليتيم</value>
-  </data>
-  <data name="OrphanTallness" xml:space="preserve">
-    <value>طول اليتيم</value>
-  </data>
-  <data name="OrphanWeight" xml:space="preserve">
-    <value>وزن اليتيم</value>
-  </data>
-  <data name="Birthday" xml:space="preserve">
-    <value>تاريخ الميلاد</value>
-  </data>
-  <data name="CaregiverFatherName" xml:space="preserve">
-    <value>اسم أب المعيل</value>
-  </data>
-  <data name="CaregiverFirstName" xml:space="preserve">
-    <value>اسم المعيل</value>
-  </data>
-  <data name="CaregiverID" xml:space="preserve">
-    <value>رقم المعيل</value>
-  </data>
-  <data name="CaregiverIdentityNumber" xml:space="preserve">
-    <value>رقم هوية المعيل</value>
-  </data>
-  <data name="CaregiverLastName" xml:space="preserve">
-    <value>كنية المعيل</value>
-  </data>
-  <data name="ConsanguinityToCaregiver" xml:space="preserve">
-    <value>الصلة بالمعيل</value>
-  </data>
-  <data name="FamilyColor" xml:space="preserve">
-    <value>علامة لونية للعائلة</value>
-  </data>
-  <data name="FamilyID" xml:space="preserve">
-    <value>رقم العائلة</value>
-  </data>
-  <data name="FamilyIsExcluded" xml:space="preserve">
-    <value>العائلة مستبعدة</value>
-  </data>
-  <data name="FatherAge" xml:space="preserve">
-    <value>عمر الأب</value>
-  </data>
-  <data name="FatherBirthday" xml:space="preserve">
-    <value>تاريخ ميلاد الأب</value>
-  </data>
-  <data name="FatherDeathDate" xml:space="preserve">
-    <value>تاريخ وفاة الأب</value>
-  </data>
-  <data name="FatherID" xml:space="preserve">
-    <value>رقم الأب</value>
-  </data>
-  <data name="FatherIdentityNumber" xml:space="preserve">
-    <value>رقم هوية الأب</value>
-  </data>
-  <data name="FatherLastName" xml:space="preserve">
-    <value>كنية الأب</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>الاسم الأول</value>
-  </data>
-  <data name="GuarantorID" xml:space="preserve">
-    <value>رقم الكفيل</value>
-  </data>
-  <data name="IdentityCardNumber" xml:space="preserve">
-    <value>رقم الهوية</value>
-  </data>
-  <data name="IsBailed" xml:space="preserve">
-    <value>مكفول</value>
-  </data>
-  <data name="IsExcluded" xml:space="preserve">
-    <value>مستبعد</value>
-  </data>
-  <data name="IsSick" xml:space="preserve">
-    <value>مريض</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>الكنية</value>
-  </data>
-  <data name="MotherAge" xml:space="preserve">
-    <value>عمر الأم</value>
-  </data>
-  <data name="MotherBirthday" xml:space="preserve">
-    <value>تاريخ ميلاد الأم</value>
-  </data>
-  <data name="MotherDeathDate" xml:space="preserve">
-    <value>تاريخ وفاة الأم</value>
-  </data>
-  <data name="MotherID" xml:space="preserve">
-    <value>رقم الأم</value>
-  </data>
-  <data name="MotherIdentityNumber" xml:space="preserve">
-    <value>رقم هوية الأم</value>
-  </data>
-  <data name="MotherLastName" xml:space="preserve">
-    <value>كنية الأم</value>
-  </data>
-  <data name="OrphanAge" xml:space="preserve">
-    <value>عمر اليتيم</value>
-  </data>
-  <data name="OrphanBirthday" xml:space="preserve">
-    <value>تاريخ الميلاد اليتيم</value>
+  <data name="NotLimited" xml:space="preserve">
+    <value>غير محدودة</value>
   </data>
   <data name="OrphanColor" xml:space="preserve">
     <value>علامة لونية لليتيم</value>
   </data>
-  <data name="OrphanConsanguinityToCaregiver" xml:space="preserve">
-    <value>صلة اليتيم بالمعيل</value>
-  </data>
-  <data name="OrphanGender" xml:space="preserve">
-    <value>جنس اليتيم</value>
-  </data>
-  <data name="OrphanID" xml:space="preserve">
-    <value>رقم اليتيم</value>
-  </data>
-  <data name="OrphanIdentityNumber" xml:space="preserve">
-    <value>رقم هوية اليتيم</value>
-  </data>
-  <data name="OrphanIsExcluded" xml:space="preserve">
-    <value>اليتيم مستبعد</value>
-  </data>
-  <data name="OrphanIsSick" xml:space="preserve">
-    <value>اليتيم مريض</value>
-  </data>
-  <data name="EducationNonStudyingReasons" xml:space="preserve">
-    <value>اسباب التخلف عن الدراسة</value>
-  </data>
-  <data name="EducationStage" xml:space="preserve">
-    <value>المرحلة الدراسية</value>
-  </data>
-  <data name="GirdViewGroupPanelElementText" xml:space="preserve">
-    <value>اسحب الاعمدة هنا</value>
-  </data>
-  <data name="GridViewGroupByText" xml:space="preserve">
-    <value>تجميع بواسطة :</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>من</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>صفحة</value>
-  </data>
-  <data name="Photo" xml:space="preserve">
-    <value>صورة</value>
-  </data>
-  <data name="Columns" xml:space="preserve">
-    <value>الأعمدة</value>
-  </data>
-  <data name="DragAndDropColumnHere" xml:space="preserve">
-    <value>اسحب الأعمدة من و إلى الشبكة</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AddPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ColorPickerPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ColorPicker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ColumnsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Columns.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeletePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EditPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FatherPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Father.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HidePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MotherPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ParentsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Parents.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RefreshPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SiblingsPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\siblings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UnhidePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Unhide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UnknownBoyPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UnknownBoy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UnknownGirlPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UnknownGirl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UnknownPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UnknownMale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Exclude" xml:space="preserve">
-    <value>استبعاد</value>
-  </data>
-  <data name="UnExclude" xml:space="preserve">
-    <value>الغاء الاستبعاد</value>
-  </data>
-  <data name="Detele" xml:space="preserve">
-    <value>حذف</value>
-  </data>
-  <data name="CaregiverFullName" xml:space="preserve">
-    <value>اسم المعيل الكامل</value>
-  </data>
-  <data name="FatherFatherName" xml:space="preserve">
-    <value>اسم الجد</value>
-  </data>
-  <data name="FatherFullName" xml:space="preserve">
-    <value>اسم الاب الكامل</value>
-  </data>
-  <data name="FullName" xml:space="preserve">
-    <value>الاسم الكامل</value>
-  </data>
-  <data name="MotherFatherName" xml:space="preserve">
-    <value>اسم اب الأم</value>
-  </data>
-  <data name="MotherFullName" xml:space="preserve">
-    <value>اسم الأم الكامل</value>
-  </data>
-  <data name="Story" xml:space="preserve">
-    <value>القصة</value>
-  </data>
-  <data name="Tallness" xml:space="preserve">
-    <value>الطول</value>
-  </data>
-  <data name="Weight" xml:space="preserve">
-    <value>الوزن</value>
-  </data>
-  <data name="BooleanFalse" xml:space="preserve">
-    <value>لا</value>
-  </data>
-  <data name="BooleanTrue" xml:space="preserve">
-    <value>نعم</value>
-  </data>
-  <data name="MotherIsDead" xml:space="preserve">
-    <value>الأم متوفية</value>
-  </data>
-  <data name="AndString" xml:space="preserve">
-    <value>و</value>
-  </data>
-  <data name="BrothersCountString" xml:space="preserve">
-    <value>عدد الأخوة</value>
-  </data>
-  <data name="DaysAccusativeString" xml:space="preserve">
-    <value>يوماً</value>
-  </data>
-  <data name="DaysString" xml:space="preserve">
-    <value>أيام</value>
-  </data>
-  <data name="DayString" xml:space="preserve">
-    <value>يوم</value>
-  </data>
-  <data name="FemalesString" xml:space="preserve">
-    <value>الإناث</value>
-  </data>
-  <data name="LessThanDayString" xml:space="preserve">
-    <value>أقل من يوم</value>
-  </data>
-  <data name="LessThanMonthString" xml:space="preserve">
-    <value>أقل من شهر</value>
-  </data>
-  <data name="LessThanYearString" xml:space="preserve">
-    <value>اقل من سنة</value>
-  </data>
-  <data name="MalesString" xml:space="preserve">
-    <value>الذكور</value>
-  </data>
-  <data name="MonthesAccusativeString" xml:space="preserve">
-    <value>شهراً</value>
-  </data>
-  <data name="MonthesString" xml:space="preserve">
-    <value>أشهر</value>
-  </data>
-  <data name="MonthString" xml:space="preserve">
-    <value>شهر</value>
-  </data>
-  <data name="MotherHusbandName" xml:space="preserve">
-    <value>اسم زوج الأم</value>
-  </data>
-  <data name="MotherIsMarried" xml:space="preserve">
-    <value>الأم متزوجة</value>
-  </data>
-  <data name="TowDaysString" xml:space="preserve">
-    <value>يومان</value>
-  </data>
-  <data name="TowMonthesString" xml:space="preserve">
-    <value>شهران</value>
-  </data>
-  <data name="TowYearsString" xml:space="preserve">
-    <value>سنتين</value>
-  </data>
-  <data name="YearsString" xml:space="preserve">
-    <value>سنوات</value>
-  </data>
-  <data name="YearString" xml:space="preserve">
-    <value>سنة</value>
-  </data>
-  <data name="BailAmount" xml:space="preserve">
-    <value>المبلغ</value>
-  </data>
-  <data name="BailIsEnded" xml:space="preserve">
-    <value>كفالة منتهية</value>
-  </data>
-  <data name="BailIsFamily" xml:space="preserve">
-    <value>كفالة عائلية</value>
-  </data>
-  <data name="BailIsMonthly" xml:space="preserve">
-    <value>كفالة شهرية</value>
-  </data>
-  <data name="Cost" xml:space="preserve">
-    <value>الكلفة</value>
-  </data>
-  <data name="GuarantorName" xml:space="preserve">
-    <value>اسم الكفيل</value>
-  </data>
-  <data name="HealthMedicen" xml:space="preserve">
-    <value>الأدوية</value>
-  </data>
-  <data name="HealthSicknessName" xml:space="preserve">
-    <value>اسم المرض</value>
-  </data>
-  <data name="IsStudying" xml:space="preserve">
-    <value>يدرس</value>
-  </data>
-  <data name="Reason" xml:space="preserve">
-    <value>السبب</value>
-  </data>
-  <data name="EducationAvaregeGrade" xml:space="preserve">
-    <value>معدل الدرجات</value>
-  </data>
-  <data name="EducationNonStudyKeyword" xml:space="preserve">
-    <value>متخلف</value>
-  </data>
-  <data name="EducationSchoolName" xml:space="preserve">
-    <value>اسم المدرسة</value>
-  </data>
-  <data name="BasicData" xml:space="preserve">
-    <value>بيانات اساسية</value>
-  </data>
-  <data name="BirthCertificatePhoto" xml:space="preserve">
-    <value>صورة شهادة الولادة</value>
-  </data>
-  <data name="BodyPhoto" xml:space="preserve">
-    <value>صورة كاملة</value>
-  </data>
-  <data name="CivilRegisterNumber" xml:space="preserve">
-    <value>رقم القيد</value>
-  </data>
-  <data name="EducationCertificateImage1" xml:space="preserve">
-    <value>شهادة دراسية</value>
-  </data>
-  <data name="EducationCertificateImage2" xml:space="preserve">
-    <value>شهادة دراسية</value>
-  </data>
-  <data name="EducationData" xml:space="preserve">
-    <value>بيانات دراسية</value>
-  </data>
-  <data name="EducationMonthlyCost" xml:space="preserve">
-    <value>الكلفة الشهرية</value>
-  </data>
-  <data name="FacePhoto" xml:space="preserve">
-    <value>صورة الوجه</value>
-  </data>
-  <data name="FamilyCardPhoto" xml:space="preserve">
-    <value>صورة دفتر العائلة</value>
-  </data>
-  <data name="FemaleString" xml:space="preserve">
-    <value>انثى</value>
-  </data>
-  <data name="HealthData" xml:space="preserve">
-    <value>بيانات طبية</value>
-  </data>
-  <data name="HealthDoctor" xml:space="preserve">
-    <value>الطبيب المشرف</value>
-  </data>
-  <data name="HealthReportFilePhoto" xml:space="preserve">
-    <value>صورة التقرير الطبي</value>
-  </data>
-  <data name="MaleString" xml:space="preserve">
-    <value>ذكر</value>
-  </data>
-  <data name="Notes" xml:space="preserve">
-    <value>ملاحظات</value>
-  </data>
-  <data name="OrphanEditViewTitle" xml:space="preserve">
-    <value>يتيم</value>
-  </data>
-  <data name="OtherData" xml:space="preserve">
-    <value>بينات أخرى</value>
-  </data>
-  <data name="CancelText" xml:space="preserve">
-    <value>الغاء</value>
-  </data>
-  <data name="Centimeter" xml:space="preserve">
-    <value>سم</value>
-  </data>
-  <data name="ChangeCaregiverText" xml:space="preserve">
-    <value>تغير المعيل</value>
-  </data>
-  <data name="EducationReasonNullText" xml:space="preserve">
-    <value>أدخل سبب التخلف عن الدراسة</value>
-  </data>
-  <data name="EducationSchoolNameNullText" xml:space="preserve">
-    <value>أدخل اسم المدرسة</value>
-  </data>
-  <data name="EducationStageDefaultString" xml:space="preserve">
-    <value>متخلف عن الدراسة</value>
-  </data>
-  <data name="EducationStageNullString" xml:space="preserve">
-    <value>أدخل المرحلة الدراسية</value>
-  </data>
-  <data name="HealthDoctorNullText" xml:space="preserve">
-    <value>أدخل اسم الطبيب المشرف</value>
-  </data>
-  <data name="HealthMedicenNullText" xml:space="preserve">
-    <value>المرض أسم أدخل</value>
-  </data>
-  <data name="HealthSicknessNameNullText" xml:space="preserve">
-    <value>المرض أسم أدخل</value>
-  </data>
-  <data name="Kilogramm" xml:space="preserve">
-    <value>كغ</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple1" xml:space="preserve">
-    <value>خاله</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple10" xml:space="preserve">
-    <value>امها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple11" xml:space="preserve">
-    <value>عمته</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple12" xml:space="preserve">
-    <value>عمتها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple13" xml:space="preserve">
-    <value>خالته</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple14" xml:space="preserve">
-    <value>خالتها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple15" xml:space="preserve">
-    <value>لايوجد صلة قرابة</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple16" xml:space="preserve">
-    <value>قريبه</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple17" xml:space="preserve">
-    <value>قريبته</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple2" xml:space="preserve">
-    <value>خالها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple3" xml:space="preserve">
-    <value>عمه</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple4" xml:space="preserve">
-    <value>عمها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple5" xml:space="preserve">
-    <value>جده</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple6" xml:space="preserve">
-    <value>جدها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple7" xml:space="preserve">
-    <value>جدته</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple8" xml:space="preserve">
-    <value>جدتها</value>
-  </data>
-  <data name="OrphanConsanguinityToCaregiverSimple9" xml:space="preserve">
-    <value>امه</value>
-  </data>
-  <data name="SaveText" xml:space="preserve">
-    <value>حفظ</value>
-  </data>
-  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="preload" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\preload.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ChildrenPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Children.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Income" xml:space="preserve">
-    <value>الدخل</value>
-  </data>
-  <data name="Jop" xml:space="preserve">
-    <value>العمل</value>
-  </data>
-  <data name="OrphansCount" xml:space="preserve">
-    <value>عدد الايتام</value>
-  </data>
-  <data name="UserName" xml:space="preserve">
-    <value>اسم المستخدم</value>
-  </data>
-  <data name="CellPhone" xml:space="preserve">
-    <value>رقم الجوال</value>
-  </data>
-  <data name="ErrorMessageCannotDelete" xml:space="preserve">
-    <value>لايمكن حذف السجل</value>
-  </data>
-  <data name="HomePhone" xml:space="preserve">
-    <value>هاتف المنزل</value>
-  </data>
-  <data name="Select" xml:space="preserve">
-    <value>تحديد</value>
-  </data>
-  <data name="WorkPhone" xml:space="preserve">
-    <value>هاتف العمل</value>
-  </data>
-  <data name="Caregivers" xml:space="preserve">
-    <value>المعيلين</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>تعديل</value>
-  </data>
-  <data name="ShowBails" xml:space="preserve">
-    <value>عرض الكفالات</value>
-  </data>
-  <data name="ShowCaregivers" xml:space="preserve">
-    <value>عرض المعيلين</value>
-  </data>
-  <data name="ShowFamilies" xml:space="preserve">
-    <value>عرض العائلات</value>
-  </data>
-  <data name="ShowFathers" xml:space="preserve">
-    <value>عرض الأباء</value>
-  </data>
-  <data name="ShowGuarantors" xml:space="preserve">
-    <value>عرض الكفلاء</value>
-  </data>
-  <data name="ShowMothers" xml:space="preserve">
-    <value>عرض الأمهات</value>
-  </data>
-  <data name="ShowOrphans" xml:space="preserve">
-    <value>عرض الأيتام</value>
+  <data name="ResidenceType_Rental_Description" xml:space="preserve">
+    <value>العائلة تسكن بيت مستأجر</value>
   </data>
   <data name="BackPhoto" xml:space="preserve">
     <value>صورة خلفية</value>
   </data>
-  <data name="FrontPhoto" xml:space="preserve">
-    <value>صورة أمامية</value>
+  <data name="UnsetBail" xml:space="preserve">
+    <value>إلغاء الكفالة</value>
   </data>
-  <data name="Address" xml:space="preserve">
-    <value>العنوان</value>
-  </data>
-  <data name="City" xml:space="preserve">
-    <value>المدينة</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>الأيميل</value>
-  </data>
-  <data name="Facebook" xml:space="preserve">
-    <value>فيسبوك</value>
-  </data>
-  <data name="FaxNumber" xml:space="preserve">
-    <value>رقم الفاكس</value>
-  </data>
-  <data name="Internet" xml:space="preserve">
-    <value>الإنترنت</value>
-  </data>
-  <data name="MobileNumber" xml:space="preserve">
-    <value>رقم الجوال</value>
-  </data>
-  <data name="PhoneNumbers" xml:space="preserve">
-    <value>ارقام الهواتف</value>
-  </data>
-  <data name="State" xml:space="preserve">
-    <value>المحافظة</value>
-  </data>
-  <data name="Street" xml:space="preserve">
-    <value>الشارع</value>
-  </data>
-  <data name="Town" xml:space="preserve">
-    <value>البلدة</value>
-  </data>
-  <data name="Twitter" xml:space="preserve">
-    <value>تويتر</value>
-  </data>
-  <data name="FatherNameE" xml:space="preserve">
-    <value>Father Name</value>
-  </data>
-  <data name="FirstNameE" xml:space="preserve">
-    <value>First Name</value>
-  </data>
-  <data name="LastNameE" xml:space="preserve">
-    <value>Last Name</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>الاسم</value>
-  </data>
-  <data name="DateOfDeath" xml:space="preserve">
-    <value>تاريخ الوفاة</value>
+  <data name="Detele" xml:space="preserve">
+    <value>حذف</value>
   </data>
   <data name="HasSheOrphans" xml:space="preserve">
     <value>ترعى أيتام</value>
   </data>
-  <data name="HusbandName" xml:space="preserve">
-    <value>اسم الزوج</value>
-  </data>
-  <data name="IsDead" xml:space="preserve">
-    <value>متوفى</value>
-  </data>
-  <data name="IsMarried" xml:space="preserve">
-    <value>متزوجة</value>
-  </data>
-  <data name="Mothers" xml:space="preserve">
-    <value>الأمهات</value>
-  </data>
-  <data name="FullAddress" xml:space="preserve">
-    <value>العنوان</value>
-  </data>
-  <data name="Fathers" xml:space="preserve">
-    <value>الآباء</value>
-  </data>
-  <data name="DeathCertificatePhoto" xml:space="preserve">
-    <value>صورة شهادة الوفاة</value>
-  </data>
-  <data name="PersonalPhoto" xml:space="preserve">
-    <value>صورة شخصية</value>
-  </data>
-  <data name="DeathReason" xml:space="preserve">
-    <value>سبب الوفاة</value>
-  </data>
-  <data name="HusbandsNames" xml:space="preserve">
-    <value>اسم الزوج</value>
-  </data>
-  <data name="WifeName" xml:space="preserve">
-    <value>اسم الزوجة</value>
-  </data>
-  <data name="Family" xml:space="preserve">
-    <value>عائلة</value>
-  </data>
-  <data name="FamilyCardNumber" xml:space="preserve">
-    <value>رقم البطاقة العائلة</value>
-  </data>
-  <data name="FamilyName" xml:space="preserve">
-    <value>اسم العائلة</value>
-  </data>
-  <data name="FinncialStatus" xml:space="preserve">
-    <value>الحالة المالية</value>
-  </data>
-  <data name="IsTheyRefugees" xml:space="preserve">
-    <value>مهجرة</value>
-  </data>
-  <data name="ResidenceStatus" xml:space="preserve">
-    <value>حالة السكن</value>
-  </data>
-  <data name="ResidenceType" xml:space="preserve">
-    <value>نوع الإقامة</value>
-  </data>
-  <data name="Families" xml:space="preserve">
-    <value>العائلات</value>
-  </data>
-  <data name="SetBail" xml:space="preserve">
-    <value>اسناد كفالة</value>
-  </data>
-  <data name="UnsetBail" xml:space="preserve">
-    <value>إلغاء الكفالة</value>
-  </data>
-  <data name="BasicAddress" xml:space="preserve">
-    <value>العنوان الاساسي</value>
-  </data>
-  <data name="CurrentAddress" xml:space="preserve">
-    <value>العنوان الحالي</value>
-  </data>
-  <data name="FinncialStatus_Acceptable" xml:space="preserve">
-    <value>مقبول</value>
-  </data>
-  <data name="FinncialStatus_Acceptable_Description" xml:space="preserve">
-    <value>يوجد دخل شهري مقبول والعالة ليست بحاجة لتبرعات</value>
-  </data>
-  <data name="FinncialStatus_Bad" xml:space="preserve">
-    <value>سيئ</value>
-  </data>
-  <data name="FinncialStatus_Bad_Description" xml:space="preserve">
-    <value>لايوجد دخل شهري والعائلة بحاجة لتبرعات</value>
-  </data>
-  <data name="FinncialStatus_Good" xml:space="preserve">
-    <value>جيد</value>
-  </data>
-  <data name="FinncialStatus_Good_Description" xml:space="preserve">
-    <value>يوجد دخل شهري ممتاز والعالة ليست بحاجة لتبرعات</value>
-  </data>
-  <data name="FinncialStatus_NotBad" xml:space="preserve">
-    <value>متوسط</value>
-  </data>
-  <data name="FinncialStatus_NotBad_Description" xml:space="preserve">
-    <value>يوجد دخل متقطع والوضع المالي سيئ نوعاً ما</value>
-  </data>
-  <data name="FinncialStatus_TooBad" xml:space="preserve">
-    <value>سيئ جداً</value>
-  </data>
-  <data name="FinncialStatus_TooBad_Description" xml:space="preserve">
-    <value>لايوجد دخل شهري والعائلة بأمس الحاجة للتبرعات</value>
-  </data>
-  <data name="ResidenceStatus_Acceptable" xml:space="preserve">
-    <value>مقبول</value>
-  </data>
-  <data name="ResidenceStatus_Acceptable_Description" xml:space="preserve">
-    <value>لا يوجد ضرر في البناء و الحالة الصحية سيئة</value>
-  </data>
-  <data name="ResidenceStatus_Bad" xml:space="preserve">
-    <value>سيئ</value>
-  </data>
-  <data name="ResidenceStatus_Bad_Description" xml:space="preserve">
-    <value>يوجد ضرر في البناء و الحالة الصحية سيئة</value>
-  </data>
-  <data name="ResidenceStatus_Good" xml:space="preserve">
-    <value>جيد</value>
-  </data>
-  <data name="ResidenceStatus_Good_Description" xml:space="preserve">
-    <value>لا يوجد ضرر في البناء و الحلة الصحية جيدة</value>
-  </data>
-  <data name="ResidenceStatus_TooBad" xml:space="preserve">
-    <value>سيئ جداً</value>
-  </data>
-  <data name="ResidenceStatus_TooBad_Description" xml:space="preserve">
-    <value>السكن شبه مستحيل</value>
-  </data>
-  <data name="ResidenceType_Camp" xml:space="preserve">
-    <value>مخيم</value>
-  </data>
-  <data name="ResidenceType_Camp_Description" xml:space="preserve">
-    <value>العائلة مهجرة وتسكن ضمن مخيم</value>
-  </data>
-  <data name="ResidenceType_Owned" xml:space="preserve">
-    <value>ملك</value>
-  </data>
-  <data name="ResidenceType_Owned_Description" xml:space="preserve">
-    <value>العائلة تسكن بيت تملكه</value>
-  </data>
-  <data name="ResidenceType_Rental" xml:space="preserve">
-    <value>إيجار</value>
-  </data>
-  <data name="ResidenceType_Rental_Description" xml:space="preserve">
-    <value>العائلة تسكن بيت مستأجر</value>
-  </data>
-  <data name="ResidenceType_Shelter" xml:space="preserve">
-    <value>مركز أيواء</value>
-  </data>
-  <data name="ResidenceType_Shelter_Description" xml:space="preserve">
-    <value>العائلة مهجرة وتسكن ضمن مركز ايواء</value>
-  </data>
-  <data name="ResidenceType_Temporarry" xml:space="preserve">
-    <value>مؤقت</value>
-  </data>
-  <data name="ResidenceType_Temporarry_Description" xml:space="preserve">
-    <value>العالة تسكن بيت بشكل مؤقت</value>
-  </data>
-  <data name="OkString" xml:space="preserve">
-    <value>موافق</value>
-  </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddNewFamily" xml:space="preserve">
-    <value>إضافة عائلة</value>
-  </data>
-  <data name="ChooseBail" xml:space="preserve">
-    <value>اختر كفالة</value>
-  </data>
-  <data name="ChooseBails" xml:space="preserve">
-    <value>اختر كفالات</value>
-  </data>
-  <data name="ChooseCaregiver" xml:space="preserve">
-    <value>اختر معيل</value>
-  </data>
-  <data name="ChooseCaregivers" xml:space="preserve">
-    <value>اختر معيلين</value>
-  </data>
-  <data name="ChooseFamilies" xml:space="preserve">
-    <value>اختر العائلات</value>
-  </data>
-  <data name="ChooseFamily" xml:space="preserve">
-    <value>اختر عائلة</value>
-  </data>
-  <data name="ChooseFather" xml:space="preserve">
-    <value>اختر أب</value>
-  </data>
-  <data name="ChooseFathers" xml:space="preserve">
-    <value>اختر الآباء</value>
-  </data>
-  <data name="ChooseGuarantor" xml:space="preserve">
-    <value>اختر كفيل</value>
-  </data>
-  <data name="ChooseGuarantors" xml:space="preserve">
-    <value>اختر كفلاء</value>
-  </data>
-  <data name="ChooseMother" xml:space="preserve">
-    <value>اختر أم</value>
-  </data>
-  <data name="ChooseMothers" xml:space="preserve">
-    <value>اختر الأمهات</value>
-  </data>
-  <data name="ChooseOrphan" xml:space="preserve">
-    <value>اختر يتيم</value>
-  </data>
-  <data name="ChooseOrphans" xml:space="preserve">
-    <value>اختر ايتام</value>
-  </data>
-  <data name="AddFamilyBasicData" xml:space="preserve">
-    <value>إضافة بينات العائلة الاساسية</value>
-  </data>
-  <data name="AddFamilyOtherData" xml:space="preserve">
-    <value>إضافة بينات أخرى</value>
-  </data>
-  <data name="AddFather" xml:space="preserve">
-    <value>إضافة أب</value>
-  </data>
-  <data name="AddMother" xml:space="preserve">
-    <value>إضافة أم</value>
-  </data>
-  <data name="Progress" xml:space="preserve">
-    <value>التقدم</value>
-  </data>
-  <data name="Summary" xml:space="preserve">
-    <value>الملخص</value>
-  </data>
-  <data name="AdditionalData" xml:space="preserve">
-    <value>بيانات إضافية</value>
-  </data>
-  <data name="NextText" xml:space="preserve">
-    <value>التالي</value>
-  </data>
-  <data name="Addresses" xml:space="preserve">
-    <value>العناوين</value>
-  </data>
-  <data name="FamilyCreatedMessage" xml:space="preserve">
-    <value>تم إنشاء عائلة بنجاح</value>
-  </data>
-  <data name="FamilyCreatedErrorMessage" xml:space="preserve">
-    <value>فشل في إنشاء عائلة جديدة</value>
-  </data>
-  <data name="Finish" xml:space="preserve">
-    <value>إنهاء</value>
-  </data>
-  <data name="Previous" xml:space="preserve">
-    <value>عودة</value>
-  </data>
-  <data name="BrowseFamilyPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BrowseFamily.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddCaregiver" xml:space="preserve">
-    <value>إضافة معيل</value>
-  </data>
-  <data name="AddOrphan" xml:space="preserve">
-    <value>إضافة يتيم</value>
-  </data>
-  <data name="BrothersCaregiver" xml:space="preserve">
-    <value>يعال مع اخوته</value>
-  </data>
-  <data name="MotherCaregiver" xml:space="preserve">
-    <value>تعيله أمه</value>
-  </data>
-  <data name="NewCaregiver" xml:space="preserve">
-    <value>معيل جديد</value>
-  </data>
-  <data name="CaregiverAddedFailed" xml:space="preserve">
-    <value>فشل في إنشاء معيل جديد</value>
-  </data>
-  <data name="CaregiverAddedSuccess" xml:space="preserve">
-    <value>تم إنشاء معيل بنجاح</value>
-  </data>
-  <data name="OrphanAddedFailed" xml:space="preserve">
-    <value>فشل في إنشاء يتيم جديد</value>
-  </data>
-  <data name="OrphanAddedSuccess" xml:space="preserve">
-    <value>تم إنشاء يتيم بنجاح</value>
-  </data>
-  <data name="All" xml:space="preserve">
-    <value>الكل</value>
-  </data>
-  <data name="Baild" xml:space="preserve">
-    <value>مكفولين</value>
-  </data>
-  <data name="Excluded" xml:space="preserve">
-    <value>مستبعدين</value>
-  </data>
-  <data name="New" xml:space="preserve">
-    <value>جديد</value>
-  </data>
-  <data name="Orphans" xml:space="preserve">
-    <value>ايتام</value>
-  </data>
-  <data name="Show" xml:space="preserve">
-    <value>عرض</value>
-  </data>
-  <data name="UnBaild" xml:space="preserve">
-    <value>غير مكفولين</value>
-  </data>
-  <data name="UnExcluded" xml:space="preserve">
-    <value>غير مستبعدين</value>
-  </data>
-  <data name="BailedFamilies" xml:space="preserve">
-    <value>مكفولة</value>
-  </data>
-  <data name="ExcludedFamilies" xml:space="preserve">
-    <value>مستبعدة</value>
-  </data>
-  <data name="Setting" xml:space="preserve">
-    <value>إعدادات</value>
-  </data>
-  <data name="Tools" xml:space="preserve">
-    <value>ادوات</value>
-  </data>
-  <data name="UnBailedFamilies" xml:space="preserve">
-    <value>غير مكفولة</value>
-  </data>
-  <data name="BaseUrl" xml:space="preserve">
-    <value>العنوان</value>
-  </data>
-  <data name="Connection" xml:space="preserve">
-    <value>الإتصال</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>الحالة</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>الإصدار</value>
-  </data>
-  <data name="CheckConnection" xml:space="preserve">
-    <value>افحص الاتصال</value>
-  </data>
-  <data name="RemoteAddress" xml:space="preserve">
-    <value>عنوان المضيف</value>
-  </data>
-  <data name="Connected" xml:space="preserve">
-    <value>متصل</value>
-  </data>
-  <data name="Disconnected" xml:space="preserve">
-    <value>غير متصل</value>
-  </data>
-  <data name="AccountName" xml:space="preserve">
-    <value>اسم الحساب</value>
-  </data>
-  <data name="Amount" xml:space="preserve">
-    <value>المبلغ</value>
-  </data>
-  <data name="Bail" xml:space="preserve">
-    <value>كفالة</value>
-  </data>
-  <data name="Bails" xml:space="preserve">
-    <value>الكفالات</value>
-  </data>
-  <data name="CurrencyName" xml:space="preserve">
-    <value>اسم العملة</value>
-  </data>
-  <data name="CurrencyShortcut" xml:space="preserve">
-    <value>اختصار العملة</value>
-  </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>تاريخ الانتهاء</value>
-  </data>
-  <data name="FamiliesCount" xml:space="preserve">
-    <value>عدد العائلات</value>
+  <data name="MotherBirthday" xml:space="preserve">
+    <value>تاريخ ميلاد الأم</value>
   </data>
   <data name="IsExpired" xml:space="preserve">
     <value>منتهية</value>
   </data>
-  <data name="IsFamilyBail" xml:space="preserve">
-    <value>كفالة عائلية</value>
+  <data name="OrphanFirstName" xml:space="preserve">
+    <value>اسم اليتيم</value>
   </data>
-  <data name="IsMonthlyBail" xml:space="preserve">
-    <value>شهرية</value>
+  <data name="MotherFatherName" xml:space="preserve">
+    <value>اسم اب الأم</value>
   </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>تاريخ البداية</value>
+  <data name="Finish" xml:space="preserve">
+    <value>إنهاء</value>
   </data>
-  <data name="UnBailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UnBail_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GrandFatherName" xml:space="preserve">
+    <value>اسم الجد</value>
   </data>
-  <data name="IsPayingMonthly" xml:space="preserve">
-    <value>يدفع شهريا</value>
+  <data name="BailAmount" xml:space="preserve">
+    <value>المبلغ</value>
   </data>
-  <data name="IsStillPaying" xml:space="preserve">
-    <value>ملتزم بالدفع</value>
+  <data name="ResidenceType_Temporarry" xml:space="preserve">
+    <value>مؤقت</value>
   </data>
-  <data name="IsSupportingOnlyFamilies" xml:space="preserve">
-    <value>عائلات فقط</value>
+  <data name="FinncialStatus_NotBad_Description" xml:space="preserve">
+    <value>يوجد دخل متقطع والوضع المالي سيئ نوعاً ما</value>
   </data>
-  <data name="NewBail" xml:space="preserve">
-    <value>كفالة جديدة</value>
+  <data name="CheckConnection" xml:space="preserve">
+    <value>افحص الاتصال</value>
   </data>
-  <data name="NotLimited" xml:space="preserve">
-    <value>غير محدودة</value>
+  <data name="IsExcluded" xml:space="preserve">
+    <value>مستبعد</value>
   </data>
-  <data name="Appearance" xml:space="preserve">
-    <value>المظهر</value>
+  <data name="HealthData" xml:space="preserve">
+    <value>بيانات طبية</value>
   </data>
-  <data name="DefaultPageSize" xml:space="preserve">
-    <value>عدد السجلات الافتراضي</value>
+  <data name="AddNewFamily" xml:space="preserve">
+    <value>إضافة عائلة</value>
+  </data>
+  <data name="MotherPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BrothersCaregiver" xml:space="preserve">
+    <value>يعال مع اخوته</value>
+  </data>
+  <data name="Internet" xml:space="preserve">
+    <value>الإنترنت</value>
+  </data>
+  <data name="CaregiverFirstName" xml:space="preserve">
+    <value>اسم المعيل</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>الكنية</value>
+  </data>
+  <data name="ChooseGuarantor" xml:space="preserve">
+    <value>اختر كفيل</value>
+  </data>
+  <data name="FatherID" xml:space="preserve">
+    <value>رقم الأب</value>
+  </data>
+  <data name="UnknownGirlPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnknownGirl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrphanAge" xml:space="preserve">
+    <value>عمر اليتيم</value>
+  </data>
+  <data name="Connection" xml:space="preserve">
+    <value>الإتصال</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>عودة</value>
+  </data>
+  <data name="GirdViewGroupPanelElementText" xml:space="preserve">
+    <value>اسحب الاعمدة هنا</value>
+  </data>
+  <data name="BrowseFamilyPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BrowseFamily.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HealthDoctorNullText" xml:space="preserve">
+    <value>أدخل اسم الطبيب المشرف</value>
+  </data>
+  <data name="FamilyIsExcluded" xml:space="preserve">
+    <value>العائلة مستبعدة</value>
+  </data>
+  <data name="CaregiverFullName" xml:space="preserve">
+    <value>اسم المعيل الكامل</value>
+  </data>
+  <data name="ShowBails" xml:space="preserve">
+    <value>عرض الكفالات</value>
+  </data>
+  <data name="PersonalPhoto" xml:space="preserve">
+    <value>صورة شخصية</value>
+  </data>
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChooseFathers" xml:space="preserve">
+    <value>اختر الآباء</value>
+  </data>
+  <data name="MotherFullName" xml:space="preserve">
+    <value>اسم الأم الكامل</value>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>اسم الحساب</value>
+  </data>
+  <data name="OkString" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="FamilyColor" xml:space="preserve">
+    <value>علامة لونية للعائلة</value>
   </data>
   <data name="ShowHiddenRecords" xml:space="preserve">
     <value>اظهار السجلات المستبعدة</value>
   </data>
-  <data name="UseBackgroundColor" xml:space="preserve">
-    <value>تلوين الخلفية</value>
+  <data name="UnExcluded" xml:space="preserve">
+    <value>غير مستبعدين</value>
   </data>
-  <data name="UseColors" xml:space="preserve">
-    <value>استخدام الألوان</value>
+  <data name="CancelText" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="OtherData" xml:space="preserve">
+    <value>بينات أخرى</value>
+  </data>
+  <data name="Town" xml:space="preserve">
+    <value>البلدة</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>فيسبوك</value>
+  </data>
+  <data name="ResidenceType_Camp_Description" xml:space="preserve">
+    <value>العائلة مهجرة وتسكن ضمن مخيم</value>
+  </data>
+  <data name="UnBailPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnBail_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FatherBirthday" xml:space="preserve">
+    <value>تاريخ ميلاد الأب</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple10" xml:space="preserve">
+    <value>امها</value>
+  </data>
+  <data name="FatherName" xml:space="preserve">
+    <value>اسم الأب</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple8" xml:space="preserve">
+    <value>جدتها</value>
+  </data>
+  <data name="OrphanID" xml:space="preserve">
+    <value>رقم اليتيم</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>بيانات اساسية</value>
+  </data>
+  <data name="LastNameE" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="PhoneNumbers" xml:space="preserve">
+    <value>ارقام الهواتف</value>
+  </data>
+  <data name="EducationNonStudyingReasons" xml:space="preserve">
+    <value>اسباب التخلف عن الدراسة</value>
+  </data>
+  <data name="OrphanIsExcluded" xml:space="preserve">
+    <value>اليتيم مستبعد</value>
+  </data>
+  <data name="ShowOrphans" xml:space="preserve">
+    <value>عرض الأيتام</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="OrphanIsSick" xml:space="preserve">
+    <value>اليتيم مريض</value>
+  </data>
+  <data name="DateOfDeath" xml:space="preserve">
+    <value>تاريخ الوفاة</value>
+  </data>
+  <data name="ResidenceStatus_Good" xml:space="preserve">
+    <value>جيد</value>
+  </data>
+  <data name="TowMonthesString" xml:space="preserve">
+    <value>شهران</value>
+  </data>
+  <data name="DaysAccusativeString" xml:space="preserve">
+    <value>يوماً</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>الأعمدة</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="GuarantorName" xml:space="preserve">
+    <value>اسم الكفيل</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="UnhidePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Unhide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple7" xml:space="preserve">
+    <value>جدته</value>
+  </data>
+  <data name="HomePhone" xml:space="preserve">
+    <value>هاتف المنزل</value>
+  </data>
+  <data name="DayString" xml:space="preserve">
+    <value>يوم</value>
+  </data>
+  <data name="FamilyCardNumber" xml:space="preserve">
+    <value>رقم البطاقة العائلة</value>
+  </data>
+  <data name="DeletePic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HusbandsNames" xml:space="preserve">
+    <value>اسم الزوج</value>
+  </data>
+  <data name="IsStudying" xml:space="preserve">
+    <value>يدرس</value>
+  </data>
+  <data name="ResidenceType_Rental" xml:space="preserve">
+    <value>إيجار</value>
+  </data>
+  <data name="AddFamilyOtherData" xml:space="preserve">
+    <value>إضافة بينات أخرى</value>
+  </data>
+  <data name="EducationStage" xml:space="preserve">
+    <value>المرحلة الدراسية</value>
+  </data>
+  <data name="ResidenceType_Owned" xml:space="preserve">
+    <value>ملك</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>الدخل</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>الملخص</value>
+  </data>
+  <data name="MotherHusbandName" xml:space="preserve">
+    <value>اسم زوج الأم</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>المحافظة</value>
+  </data>
+  <data name="OrphanWeight" xml:space="preserve">
+    <value>وزن اليتيم</value>
+  </data>
+  <data name="CaregiverAddedFailed" xml:space="preserve">
+    <value>فشل في إنشاء معيل جديد</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="DeathCertificatePhoto" xml:space="preserve">
+    <value>صورة شهادة الوفاة</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>الوزن</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple1" xml:space="preserve">
+    <value>خاله</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>اللون</value>
+  </data>
+  <data name="NewBail" xml:space="preserve">
+    <value>كفالة جديدة</value>
+  </data>
+  <data name="FinncialStatus_NotBad" xml:space="preserve">
+    <value>متوسط</value>
+  </data>
+  <data name="Bail" xml:space="preserve">
+    <value>كفالة</value>
+  </data>
+  <data name="MotherIdentityNumber" xml:space="preserve">
+    <value>رقم هوية الأم</value>
+  </data>
+  <data name="ResidenceType_Temporarry_Description" xml:space="preserve">
+    <value>العالة تسكن بيت بشكل مؤقت</value>
+  </data>
+  <data name="Exclude" xml:space="preserve">
+    <value>استبعاد</value>
+  </data>
+  <data name="IsPayingMonthly" xml:space="preserve">
+    <value>يدفع شهريا</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="FrontPhoto" xml:space="preserve">
+    <value>صورة أمامية</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+  <data name="AddFather" xml:space="preserve">
+    <value>إضافة أب</value>
+  </data>
+  <data name="CivilRegisterNumber" xml:space="preserve">
+    <value>رقم القيد</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>الكلفة</value>
+  </data>
+  <data name="ConsanguinityToCaregiver" xml:space="preserve">
+    <value>الصلة بالمعيل</value>
+  </data>
+  <data name="Fathers" xml:space="preserve">
+    <value>الآباء</value>
+  </data>
+  <data name="ChangeCaregiverText" xml:space="preserve">
+    <value>تغير المعيل</value>
+  </data>
+  <data name="EducationCertificateImage2" xml:space="preserve">
+    <value>شهادة دراسية</value>
+  </data>
+  <data name="DaysString" xml:space="preserve">
+    <value>أيام</value>
+  </data>
+  <data name="FatherNameE" xml:space="preserve">
+    <value>Father Name</value>
+  </data>
+  <data name="ChooseFamilies" xml:space="preserve">
+    <value>اختر العائلات</value>
+  </data>
+  <data name="EducationSchoolNameNullText" xml:space="preserve">
+    <value>أدخل اسم المدرسة</value>
+  </data>
+  <data name="AddPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BooleanFalse" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="IdentityCardNumber" xml:space="preserve">
+    <value>رقم الهوية</value>
+  </data>
+  <data name="Caregivers" xml:space="preserve">
+    <value>المعيلين</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiver" xml:space="preserve">
+    <value>صلة اليتيم بالمعيل</value>
+  </data>
+  <data name="FaxNumber" xml:space="preserve">
+    <value>رقم الفاكس</value>
+  </data>
+  <data name="ResidenceType_Camp" xml:space="preserve">
+    <value>مخيم</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="FinncialStatus_TooBad" xml:space="preserve">
+    <value>سيئ جداً</value>
+  </data>
+  <data name="SaveText" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="MaleString" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="ResidenceType_Owned_Description" xml:space="preserve">
+    <value>العائلة تسكن بيت تملكه</value>
+  </data>
+  <data name="EducationStageDefaultString" xml:space="preserve">
+    <value>متخلف عن الدراسة</value>
+  </data>
+  <data name="UnknownBoyPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnknownBoy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrphanConsanguinityToCaregiverSimple11" xml:space="preserve">
+    <value>عمته</value>
+  </data>
+  <data name="UnBailedFamilies" xml:space="preserve">
+    <value>غير مكفولة</value>
+  </data>
+  <data name="IsFamilyBail" xml:space="preserve">
+    <value>كفالة عائلية</value>
+  </data>
+  <data name="BailsCount" xml:space="preserve">
+    <value>عدد الكفالات</value>
+  </data>
+  <data name="Bails" xml:space="preserve">
+    <value>كفالات</value>
   </data>
 </root>

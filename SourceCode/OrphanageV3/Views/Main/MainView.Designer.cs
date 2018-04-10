@@ -55,7 +55,7 @@
             this.mnuShowMothers = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowBonds = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuShowSupporter = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuShowGuarantors = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuShowBails = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem5 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowAccounts = new Telerik.WinControls.UI.RadMenuItem();
@@ -185,7 +185,7 @@
             this.mnuShowMothers,
             this.RadMenuSeparatorItem4,
             this.mnuShowBonds,
-            this.mnuShowSupporter,
+            this.mnuShowGuarantors,
             this.mnuShowBails,
             this.RadMenuSeparatorItem5,
             this.mnuShowAccounts,
@@ -306,13 +306,14 @@
             this.mnuShowBonds.Text = "معيلين";
             this.mnuShowBonds.Click += new System.EventHandler(this.mnuShowBonds_Click);
             // 
-            // mnuShowSupporter
+            // mnuShowGuarantors
             // 
-            this.mnuShowSupporter.Enabled = false;
-            this.mnuShowSupporter.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowSupporter.Image")));
-            this.mnuShowSupporter.ImageKey = "Supporter.png";
-            this.mnuShowSupporter.Name = "mnuShowSupporter";
-            this.mnuShowSupporter.Text = "كفلاء";
+            this.mnuShowGuarantors.Enabled = false;
+            this.mnuShowGuarantors.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowGuarantors.Image")));
+            this.mnuShowGuarantors.ImageKey = "Supporter.png";
+            this.mnuShowGuarantors.Name = "mnuShowGuarantors";
+            this.mnuShowGuarantors.Text = "asdasd";
+            this.mnuShowGuarantors.Click += new System.EventHandler(this.mnuShowGuarantors_Click);
             // 
             // mnuShowBails
             // 
@@ -681,7 +682,7 @@
         internal Telerik.WinControls.UI.RadMenuItem mnuShowMothers;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem4;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowBonds;
-        internal Telerik.WinControls.UI.RadMenuItem mnuShowSupporter;
+        internal Telerik.WinControls.UI.RadMenuItem mnuShowGuarantors;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem5;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowAccounts;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowBills;

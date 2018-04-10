@@ -2,6 +2,7 @@
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
 using OrphanageV3.Extensions;
 using System;
@@ -94,6 +95,17 @@ namespace OrphanageService.Services
                         return null;
                     }
                     guarantor.NameId = nameId;
+                    if (guarantor.Address != null)
+                    {
+                        var addressId = await _regularDataService.AddAddress(guarantor.Address, orphanageDBC);
+                        if (addressId == -1)
+                        {
+                            Dbt.Rollback();
+                            _logger.Warning($"Address object has not been added, nothing will be added, null will be returned");
+                            return null;
+                        }
+                        guarantor.AddressId = addressId;
+                    }
                     if (guarantor.Orphans != null || guarantor.Orphans.Count > 0) guarantor.Orphans = null;
                     if (guarantor.Account != null) guarantor.Account = null;
                     orphanageDBC.Guarantors.Add(guarantor);
@@ -373,6 +385,7 @@ namespace OrphanageService.Services
                     return null;
                 }
                 _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantor);
+                guarantor.Address = guarantor.Address.Clean();
                 _logger.Information($"returned Guarantor with id {Gid}");
                 return guarantor;
             }
@@ -396,6 +409,7 @@ namespace OrphanageService.Services
             foreach (var guarantor in Foundedguarantors)
             {
                 _logger.Information($"guarantor with id({guarantor.Id}) has the same address");
+                guarantor.Address = guarantor.Address.Clean();
                 yield return guarantor;
             }
         }

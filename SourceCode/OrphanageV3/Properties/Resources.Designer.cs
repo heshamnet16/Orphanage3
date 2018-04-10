@@ -297,11 +297,30 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die الكفالات ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die كفالات ähnelt.
         /// </summary>
         public static string Bails {
             get {
                 return ResourceManager.GetString("Bails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عدد الكفالات ähnelt.
+        /// </summary>
+        public static string BailsCount {
+            get {
+                return ResourceManager.GetString("BailsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap BailsPic {
+            get {
+                object obj = ResourceManager.GetObject("BailsPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1551,6 +1570,15 @@ namespace OrphanageV3.Properties {
         public static string GuarantorName {
             get {
                 return ResourceManager.GetString("GuarantorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الكفلاء ähnelt.
+        /// </summary>
+        public static string Guarantors {
+            get {
+                return ResourceManager.GetString("Guarantors", resourceCulture);
             }
         }
         

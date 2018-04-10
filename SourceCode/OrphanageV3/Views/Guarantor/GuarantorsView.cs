@@ -1,22 +1,28 @@
-﻿using OrphanageV3.ViewModel.Caregiver;
+﻿using OrphanageV3.ViewModel.Guarantor;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using Unity;
+using System.Linq;
+using System.IO;
 
-namespace OrphanageV3.Views.Caregiver
+namespace OrphanageV3.Views.Guarantor
 {
-    public partial class CaregiversView : Telerik.WinControls.UI.RadForm
+    public partial class GuarantorsView : Telerik.WinControls.UI.RadForm
     {
-        private CaregiversViewModel _caregiversViewModel = Program.Factory.Resolve<CaregiversViewModel>();
+        private GuarantorsViewModel _guarantorsViewModel = Program.Factory.Resolve<GuarantorsViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
 
-        public CaregiversView()
+        public GuarantorsView()
         {
             InitializeComponent();
-            _caregiversViewModel.DataLoaded += _caregiversViewModel_DataLoaded;
+            _guarantorsViewModel.DataLoaded += _guarantorsViewModel_DataLoaded;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
 
             _radGridHelper.GridView = orphanageGridView1.GridView;
@@ -25,15 +31,14 @@ namespace OrphanageV3.Views.Caregiver
 
         private void TranslateControls()
         {
-            this.Text = Properties.Resources.Caregivers;
+            this.Text = Properties.Resources.Guarantors;
             btnColumn.ToolTipText = Properties.Resources.Columns;
             btnDelete.ToolTipText = Properties.Resources.Detele;
             btnEdit.ToolTipText = Properties.Resources.Edit;
             btnSetColor.ToolTipText = Properties.Resources.Edit + " " + Properties.Resources.Color;
             btnShowFamilies.ToolTipText = Properties.Resources.ShowFamilies;
-            btnShowFathers.ToolTipText = Properties.Resources.ShowFathers;
-            btnShowMothers.ToolTipText = Properties.Resources.ShowMothers;
             btnShowOrphans.ToolTipText = Properties.Resources.ShowOrphans;
+            btnShowBails.ToolTipText = Properties.Resources.ShowBails;
         }
 
         private void GridView_SelectionChanged(object sender, EventArgs e)
@@ -45,16 +50,29 @@ namespace OrphanageV3.Views.Caregiver
         {
             if (orphanageGridView1.SelectedRows != null)
             {
-                var retObject = _radGridHelper.GetValueBySelectedRow("OrphansCount");
-                if (retObject != null)
+                var retOrphansCountObject = _radGridHelper.GetValueBySelectedRow("OrphansCount");
+                var retFamiliesCountObject = _radGridHelper.GetValueBySelectedRow("FamiliesCount");
+                var retBailsCountObject = _radGridHelper.GetValueBySelectedRow("BailsCount");
+                if (retOrphansCountObject != null)
                 {
                     int orphansCount;
-                    int.TryParse(retObject.ToString(), out orphansCount);
+                    int.TryParse(retOrphansCountObject.ToString(), out orphansCount);
                     bool value = orphansCount > 0 ? true : false;
-                    btnShowFamilies.Enabled = value;
-                    btnShowFathers.Enabled = value;
-                    btnShowMothers.Enabled = value;
                     btnShowOrphans.Enabled = value;
+                }
+                if (retFamiliesCountObject != null)
+                {
+                    int familiesCount;
+                    int.TryParse(retFamiliesCountObject.ToString(), out familiesCount);
+                    bool value = familiesCount > 0 ? true : false;
+                    btnShowFamilies.Enabled = value;
+                }
+                if (retBailsCountObject != null)
+                {
+                    int bailsCount;
+                    int.TryParse(retBailsCountObject.ToString(), out bailsCount);
+                    bool value = bailsCount > 0 ? true : false;
+                    btnShowBails.Enabled = value;
                 }
                 if (orphanageGridView1.SelectedRows.Count == 1)
                 {
@@ -67,14 +85,14 @@ namespace OrphanageV3.Views.Caregiver
             }
         }
 
-        private void _caregiversViewModel_DataLoaded(object sender, EventArgs e)
+        private void _guarantorsViewModel_DataLoaded(object sender, EventArgs e)
         {
-            orphanageGridView1.GridView.DataSource = _caregiversViewModel.Caregivers;
+            orphanageGridView1.GridView.DataSource = _guarantorsViewModel.Guarantors;
         }
 
         private void orphanageGridView1_Load(object sender, EventArgs e)
         {
-            _caregiversViewModel.LoadCaregivers();
+            _guarantorsViewModel.LoadGuarantors();
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
@@ -84,7 +102,7 @@ namespace OrphanageV3.Views.Caregiver
                 return;
             foreach (var id in selectedIds)
             {
-                var ret = await _caregiversViewModel.Delete(id, true);
+                var ret = await _guarantorsViewModel.Delete(id, true);
                 if (ret)
                     _radGridHelper.HideRow("Id", id);
             }
@@ -95,7 +113,7 @@ namespace OrphanageV3.Views.Caregiver
             orphanageGridView1.ShowColumnsChooser();
         }
 
-        private void btnShowOrphans_Click(object sender, EventArgs e)
+        private async void btnShowOrphans_Click(object sender, EventArgs e)
         {
             IList<int> ret = new List<int>();
             var selectedIds = orphanageGridView1.SelectedIds;
@@ -103,8 +121,8 @@ namespace OrphanageV3.Views.Caregiver
                 return;
             foreach (var id in selectedIds)
             {
-                var retOIds = _caregiversViewModel.OrphansIds(id);
-                if (retOIds != null && retOIds.Count > 0)
+                var retOIds = await _guarantorsViewModel.OrphansIds(id);
+                if (retOIds != null && retOIds.Count() > 0)
                     foreach (var retId in retOIds)
                         ret.Add(retId);
             }
@@ -113,12 +131,12 @@ namespace OrphanageV3.Views.Caregiver
             or.Show();
         }
 
-        private void CaregiversView_FormClosing(object sender, FormClosingEventArgs e)
+        private void GuarantorsView_FormClosing(object sender, FormClosingEventArgs e)
         {
             orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.CaregiverLayoutFilePath);
         }
 
-        private void CaregiversView_Load(object sender, EventArgs e)
+        private void GuarantorsView_Load(object sender, EventArgs e)
         {
             if (File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
             {
@@ -128,10 +146,10 @@ namespace OrphanageV3.Views.Caregiver
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int id = (int)_radGridHelper.GetValueBySelectedRow("Id");
-            CaregiverEditView caregiverEditView = new CaregiverEditView(id);
-            caregiverEditView.ShowDialog();
-            _caregiversViewModel.Update(id);
+            //int id = (int)_radGridHelper.GetValueBySelectedRow("Id");
+            //CaregiverEditView caregiverEditView = new CaregiverEditView(id);
+            //caregiverEditView.ShowDialog();
+            //_guarantorsViewModel.Update(id);
         }
 
         private async void btnShowFamilies_Click(object sender, EventArgs e)
@@ -139,32 +157,10 @@ namespace OrphanageV3.Views.Caregiver
             var selectedIds = orphanageGridView1.SelectedIds;
             if (selectedIds == null || selectedIds.Count == 0)
                 return;
-            var familiesIds = await _caregiversViewModel.FamiliesIds(selectedIds);
+            var familiesIds = await _guarantorsViewModel.FamiliesIds(selectedIds);
             Family.FimiliesView familiesView = new Family.FimiliesView(familiesIds);
             familiesView.MdiParent = this.MdiParent;
             familiesView.Show();
-        }
-
-        private async void btnShowMothers_Click(object sender, EventArgs e)
-        {
-            var selectedIds = orphanageGridView1.SelectedIds;
-            if (selectedIds == null || selectedIds.Count == 0)
-                return;
-            var mothersIds = await _caregiversViewModel.MothersIds(selectedIds);
-            Mother.MothersView mothersView = new Mother.MothersView(mothersIds);
-            mothersView.MdiParent = this.MdiParent;
-            mothersView.Show();
-        }
-
-        private async void btnShowFathers_Click(object sender, EventArgs e)
-        {
-            var selectedIds = orphanageGridView1.SelectedIds;
-            if (selectedIds == null || selectedIds.Count == 0)
-                return;
-            var fathersIds = await _caregiversViewModel.FathersIds(selectedIds);
-            Father.FathersView fathersView = new Father.FathersView(fathersIds);
-            fathersView.MdiParent = this.MdiParent;
-            fathersView.Show();
         }
 
         private async void btnSetColor_Click(object sender, EventArgs e)
@@ -177,7 +173,7 @@ namespace OrphanageV3.Views.Caregiver
                     return;
                 foreach (var id in selectedIds)
                 {
-                    _radGridHelper.UpdateRowColor("ColorMark", await _caregiversViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
+                    _radGridHelper.UpdateRowColor("ColorMark", await _guarantorsViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
                 }
             }
         }

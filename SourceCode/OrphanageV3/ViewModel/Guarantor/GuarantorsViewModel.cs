@@ -3,6 +3,7 @@ using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -66,7 +67,7 @@ namespace OrphanageV3.ViewModel.Guarantor
                 foreach (var guarantor in Guarantors)
                 {
                     var value = await _apiClient.GuarantorsController_GetBailsCountAsync(guarantor.Id);
-                    guarantor.FamiliesCount = value;
+                    guarantor.BailsCount = value;
                 }
             })).Start();
         }
@@ -96,6 +97,20 @@ namespace OrphanageV3.ViewModel.Guarantor
             var guarantorToEdit = Guarantors.FirstOrDefault(c => c.Id == guarantorId);
             var guarantorToEditIndex = Guarantors.IndexOf(guarantorToEdit);
             Guarantors[guarantorToEditIndex] = guarantorModel;
+        }
+
+        public async Task<long?> SetColor(int caregiverId, long? colorValue)
+        {
+            long? returnedColor = null;
+
+            var guarantor = _SourceGuarantor.FirstOrDefault(c => c.Id == caregiverId);
+            returnedColor = guarantor.ColorMark;
+            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                guarantor.ColorMark = colorValue;
+            else
+                guarantor.ColorMark = -1;
+            await _apiClient.GuarantorsController_SetGuarantorColorAsync(guarantor.Id, (int)guarantor.ColorMark.Value);
+            return guarantor.ColorMark;
         }
 
         public async Task<bool> Delete(int guarantorId, bool ForceDelete)

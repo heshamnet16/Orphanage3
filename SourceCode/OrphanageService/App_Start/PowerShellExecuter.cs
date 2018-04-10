@@ -35,7 +35,7 @@ namespace OrphanageService
                 }
             }
             logger.Information("trying to execute the power-shell script file");
-            RunPsScript("excuteMe.ps1");
+            RunPsScriptFile("excuteMe.ps1");
         }
 
         public static bool IsExist()
