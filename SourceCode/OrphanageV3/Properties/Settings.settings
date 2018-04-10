@@ -44,5 +44,8 @@
     <Setting Name="UseColors" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="GuarantorsLayoutFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Guarantors.layout</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

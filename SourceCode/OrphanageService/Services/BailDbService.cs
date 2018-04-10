@@ -49,7 +49,6 @@ namespace OrphanageService.Services
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int pageSize, int pageNum)
         {
             _logger.Information($"Trying to get Bails with pageSize {pageSize} and pageNumber {pageNum}");
-            IList<OrphanageDataModel.FinancialData.Bail> bailsList = new List<OrphanageDataModel.FinancialData.Bail>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -74,22 +73,8 @@ namespace OrphanageService.Services
                     .Include(b => b.Guarantor.Name)
                     .ToListAsync();
 
-                if (bails != null && bails.Count > 0)
-                {
-                    foreach (var bail in bails)
-                    {
-                        OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
-                        _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
-                        bailsList.Add(bailsToFill);
-                    }
-                }
-                else
-                {
-                    _logger.Warning($"the returned bails are null, empty list will be returned");
-                }
+                return prepareBailsList(bails);
             }
-            _logger.Information($"{bailsList.Count} records of bails will be returned");
-            return bailsList;
         }
 
         public async Task<int> GetBailsCount()
@@ -515,7 +500,6 @@ namespace OrphanageService.Services
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(bool isFamily)
         {
             _logger.Information($"Trying to get Bails with isFamily equals {isFamily}");
-            IList<OrphanageDataModel.FinancialData.Bail> bailsList = new List<OrphanageDataModel.FinancialData.Bail>();
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 var bails = await _orphanageDBC.Bails.AsNoTracking()
@@ -524,23 +508,49 @@ namespace OrphanageService.Services
                     .Include(b => b.Guarantor.Name)
                     .Where(b => b.IsFamilyBail == isFamily)
                     .ToListAsync();
+                return prepareBailsList(bails);
+            }
+        }
 
-                if (bails != null && bails.Count > 0)
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(IList<int> bailsIds)
+        {
+            _logger.Information($"trying to get bails with the given Id list");
+            if (bailsIds == null || bailsIds.Count() == 0)
+            {
+                _logger.Information($"the given Id list is null or empty, null will be returned");
+                return null;
+            }
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var bails = await _orphanageDBC.Bails.AsNoTracking()
+                    .Where(f => bailsIds.Contains(f.Id))
+                    .Include(b => b.Account)
+                    .Include(b => b.Guarantor)
+                    .Include(b => b.Guarantor.Name)
+                    .ToListAsync();
+
+                return prepareBailsList(bails);
+            }
+        }
+
+        private IEnumerable<OrphanageDataModel.FinancialData.Bail> prepareBailsList(IEnumerable<OrphanageDataModel.FinancialData.Bail> bailsList)
+        {
+            IList<OrphanageDataModel.FinancialData.Bail> returnedbailsList = new List<OrphanageDataModel.FinancialData.Bail>();
+            if (bailsList != null && bailsList.Count() > 0)
+            {
+                foreach (var bail in bailsList)
                 {
-                    foreach (var bail in bails)
-                    {
-                        OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
-                        _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
-                        bailsList.Add(bailsToFill);
-                    }
-                }
-                else
-                {
-                    _logger.Warning($"the returned bails are null, empty list will be returned");
+                    OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
+                    _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
+                    returnedbailsList.Add(bailsToFill);
                 }
             }
-            _logger.Information($"{bailsList.Count} records of bails will be returned");
-            return bailsList;
+            else
+            {
+                _logger.Warning($"the returned bails are null, empty list will be returned");
+            }
+            _logger.Information($"{returnedbailsList.Count} records of bails will be returned");
+            return returnedbailsList;
         }
     }
 }

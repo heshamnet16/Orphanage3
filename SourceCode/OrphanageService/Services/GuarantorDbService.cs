@@ -1,4 +1,5 @@
-﻿using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -442,7 +443,7 @@ namespace OrphanageService.Services
         public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int pageSize, int pageNum)
         {
             _logger.Information($"Trying to get Guarantors with pageSize {pageSize} and pageNumber {pageNum}");
-            IList<OrphanageDataModel.Persons.Guarantor> guarantorsList = new List<OrphanageDataModel.Persons.Guarantor>();
+
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -466,21 +467,49 @@ namespace OrphanageService.Services
                     .Include(g => g.Account)
                     .ToListAsync();
 
-                if (guarantors != null && guarantors.Count > 0)
+                return prepareGuarantorsList(guarantors);
+            }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(IEnumerable<int> guarantorsIds)
+        {
+            _logger.Information($"trying to get Guarantors with the given Id list");
+            if (guarantorsIds == null || guarantorsIds.Count() == 0)
+            {
+                _logger.Information($"the given Id list is null or empty, null will be returned");
+                return null;
+            }
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var guarantors = await _orphanageDBC.Guarantors.AsNoTracking()
+                    .Where(f => guarantorsIds.Contains(f.Id))
+                    .Include(g => g.Address)
+                    .Include(c => c.Name)
+                    .Include(g => g.Account)
+                    .ToListAsync();
+
+                return prepareGuarantorsList(guarantors);
+            }
+        }
+
+        private IEnumerable<OrphanageDataModel.Persons.Guarantor> prepareGuarantorsList(IEnumerable<OrphanageDataModel.Persons.Guarantor> guarantorsList)
+        {
+            IList<OrphanageDataModel.Persons.Guarantor> returnedGuarantorsList = new List<OrphanageDataModel.Persons.Guarantor>();
+            if (guarantorsList != null && guarantorsList.Count() > 0)
+            {
+                foreach (var guarantor in guarantorsList)
                 {
-                    foreach (var guarantor in guarantors)
-                    {
-                        OrphanageDataModel.Persons.Guarantor guarantorToFill = guarantor;
-                        _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantorToFill);
-                        guarantorsList.Add(guarantorToFill);
-                    }
-                }
-                else
-                {
-                    _logger.Warning($"the returned guarantors are null, empty list will be returned");
+                    OrphanageDataModel.Persons.Guarantor guarantorToFill = guarantor;
+                    _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantorToFill);
+                    returnedGuarantorsList.Add(guarantorToFill);
                 }
             }
-            return guarantorsList;
+            else
+            {
+                _logger.Warning($"the returned guarantors are null, empty list will be returned");
+            }
+            _logger.Information($"{returnedGuarantorsList.Count} records of guarantors will be returned");
+            return returnedGuarantorsList;
         }
 
         public async Task<int> GetGuarantorsCount()

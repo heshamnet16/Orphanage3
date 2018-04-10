@@ -24,7 +24,7 @@ namespace OrphanageV3.Views.Guarantor
             InitializeComponent();
             _guarantorsViewModel.DataLoaded += _guarantorsViewModel_DataLoaded;
             orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
-
+            orphanageGridView1.Load += orphanageGridView1_Load;
             _radGridHelper.GridView = orphanageGridView1.GridView;
             TranslateControls();
         }
@@ -133,14 +133,14 @@ namespace OrphanageV3.Views.Guarantor
 
         private void GuarantorsView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.CaregiverLayoutFilePath);
+            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.GuarantorsLayoutFilePath);
         }
 
         private void GuarantorsView_Load(object sender, EventArgs e)
         {
-            if (File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
+            if (File.Exists(Properties.Settings.Default.GuarantorsLayoutFilePath))
             {
-                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.CaregiverLayoutFilePath);
+                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.GuarantorsLayoutFilePath);
             }
         }
 
@@ -176,6 +176,17 @@ namespace OrphanageV3.Views.Guarantor
                     _radGridHelper.UpdateRowColor("ColorMark", await _guarantorsViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
                 }
             }
+        }
+
+        private async void btnShowBails_Click(object sender, EventArgs e)
+        {
+            var selectedIds = orphanageGridView1.SelectedIds;
+            if (selectedIds == null || selectedIds.Count == 0)
+                return;
+            var bailsIds = await _guarantorsViewModel.BailsIds(selectedIds);
+            Bail.BailsView bailsView = new Bail.BailsView(bailsIds);
+            bailsView.MdiParent = this.MdiParent;
+            bailsView.Show();
         }
     }
 }

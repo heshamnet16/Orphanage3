@@ -308,7 +308,6 @@
             // 
             // mnuShowGuarantors
             // 
-            this.mnuShowGuarantors.Enabled = false;
             this.mnuShowGuarantors.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowGuarantors.Image")));
             this.mnuShowGuarantors.ImageKey = "Supporter.png";
             this.mnuShowGuarantors.Name = "mnuShowGuarantors";

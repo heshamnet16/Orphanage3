@@ -11,6 +11,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(bool isFamily);
 
+        Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(IList<int> bailsIds);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Bid);
 
         Task<IEnumerable<OrphanageDataModel.RegularData.Family>> GetFamilies(int Bid);

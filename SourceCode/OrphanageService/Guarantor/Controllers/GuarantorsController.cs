@@ -42,6 +42,18 @@ namespace OrphanageService.Guarantor.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetByIds([FromUri] IList<int> guarantorsIds)
+        {
+            if (guarantorsIds == null || guarantorsIds.Count == 0) return null;
+            var ret = await _GuarantorDBService.GetGuarantors(guarantorsIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetGuarantorsCount()

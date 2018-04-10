@@ -17,6 +17,7 @@ namespace OrphanageV3.Views.Bail
     {
         private BailsViewModel _bailsViewModel = Program.Factory.Resolve<BailsViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
+        private IEnumerable<int> _bailsIds = null;
 
         public BailsView()
         {
@@ -27,6 +28,18 @@ namespace OrphanageV3.Views.Bail
 
             _radGridHelper.GridView = orphanageGridView1.GridView;
             TranslateControls();
+        }
+
+        public BailsView(IEnumerable<int> bailsIds)
+        {
+            InitializeComponent();
+
+            _bailsViewModel.DataLoaded += _bailsViewModel_DataLoaded;
+            orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
+
+            _radGridHelper.GridView = orphanageGridView1.GridView;
+            TranslateControls();
+            this._bailsIds = bailsIds;
         }
 
         private void TranslateControls()
@@ -83,7 +96,14 @@ namespace OrphanageV3.Views.Bail
 
         private void BailsView_Load(object sender, EventArgs e)
         {
-            _bailsViewModel.LoadBails();
+            if (_bailsIds != null)
+            {
+                _bailsViewModel.LoadBails(_bailsIds);
+            }
+            else
+            {
+                _bailsViewModel.LoadBails();
+            }
 
             if (File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
             {

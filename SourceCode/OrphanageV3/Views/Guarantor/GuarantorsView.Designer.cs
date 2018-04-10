@@ -39,11 +39,11 @@
             this.mnuSep2 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnShowOrphans = new Telerik.WinControls.UI.CommandBarButton();
             this.btnShowFamilies = new Telerik.WinControls.UI.CommandBarButton();
+            this.btnShowBails = new Telerik.WinControls.UI.CommandBarButton();
             this.btnSep3 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnColumn = new Telerik.WinControls.UI.CommandBarButton();
             this.orphanageGridView1 = new OrphanageV3.Controlls.OrphanageGridView();
             this.radColorDialog = new System.Windows.Forms.ColorDialog();
-            this.btnShowBails = new Telerik.WinControls.UI.CommandBarButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -223,6 +223,17 @@
             this.btnShowFamilies.ToolTipText = "عرض العائلات";
             this.btnShowFamilies.Click += new System.EventHandler(this.btnShowFamilies_Click);
             // 
+            // btnShowBails
+            // 
+            this.btnShowBails.AutoSize = false;
+            this.btnShowBails.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
+            this.btnShowBails.DisplayName = "commandBarButton1";
+            this.btnShowBails.Image = global::OrphanageV3.Properties.Resources.BailsPic;
+            this.btnShowBails.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowBails.Name = "btnShowBails";
+            this.btnShowBails.Text = "commandBarButton1";
+            this.btnShowBails.Click += new System.EventHandler(this.btnShowBails_Click);
+            // 
             // btnSep3
             // 
             this.btnSep3.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -266,16 +277,6 @@
             this.radColorDialog.AnyColor = true;
             this.radColorDialog.FullOpen = true;
             // 
-            // btnShowBails
-            // 
-            this.btnShowBails.AutoSize = false;
-            this.btnShowBails.Bounds = new System.Drawing.Rectangle(0, 0, 40, 40);
-            this.btnShowBails.DisplayName = "commandBarButton1";
-            this.btnShowBails.Image = global::OrphanageV3.Properties.Resources.BailsPic;
-            this.btnShowBails.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnShowBails.Name = "btnShowBails";
-            this.btnShowBails.Text = "commandBarButton1";
-            // 
             // GuarantorsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +290,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "GuarantorsView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuarantorsView_FormClosing);
             this.Load += new System.EventHandler(this.GuarantorsView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).EndInit();

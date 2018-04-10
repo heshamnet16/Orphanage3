@@ -190,5 +190,17 @@ namespace OrphanageV3.Properties {
                 this["UseColors"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Guarantors.layout")]
+        public string GuarantorsLayoutFilePath {
+            get {
+                return ((string)(this["GuarantorsLayoutFilePath"]));
+            }
+            set {
+                this["GuarantorsLayoutFilePath"] = value;
+            }
+        }
     }
 }
