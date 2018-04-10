@@ -1,0 +1,246 @@
+﻿Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Der Dienst OrphanageService wird vom System entfernt...
+Dienst OrphanageService wurde vom System entfernt.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird zurückgesetzt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Der vorherige Zustand des Ereignisprotokolls für die Quelle OrphanageService wird wiederhergestellt.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Warnung: Die Quelle OrphanageService ist nicht auf dem lokalen Computer registriert.
+Der Dienst OrphanageService wird vom System entfernt...
+Während der Deinstallation des Installers System.ServiceProcess.ServiceInstaller ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst ist kein installierter Dienst
+Während der Deinstallation ist eine Ausnahme aufgetreten. Diese Ausnahme wird ignoriert, und die Deinstallation wird fortgesetzt. Die Anwendung wird jedoch möglicherweise nicht vollständig deinstalliert.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Dienst OrphanageService wurde installiert.
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird ausgeführt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Der Dienst OrphanageService wird vom System entfernt...
+Dienst OrphanageService wurde vom System entfernt.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird zurückgesetzt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Warnung: Die Quelle OrphanageService ist nicht auf dem lokalen Computer registriert.
+Der Dienst OrphanageService wird vom System entfernt...
+Während der Deinstallation des Installers System.ServiceProcess.ServiceInstaller ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst ist kein installierter Dienst
+Während der Deinstallation ist eine Ausnahme aufgetreten. Diese Ausnahme wird ignoriert, und die Deinstallation wird fortgesetzt. Die Anwendung wird jedoch möglicherweise nicht vollständig deinstalliert.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird zurückgesetzt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Warnung: Die Quelle OrphanageService ist nicht auf dem lokalen Computer registriert.
+Der Dienst OrphanageService wird vom System entfernt...
+Während der Deinstallation des Installers System.ServiceProcess.ServiceInstaller ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst ist kein installierter Dienst
+Während der Deinstallation ist eine Ausnahme aufgetreten. Diese Ausnahme wird ignoriert, und die Deinstallation wird fortgesetzt. Die Anwendung wird jedoch möglicherweise nicht vollständig deinstalliert.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Dienst OrphanageService wurde installiert.
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird ausgeführt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Der Dienst OrphanageService wird vom System entfernt...
+Dienst OrphanageService wurde vom System entfernt.
+Es wird versucht, den Dienst OrphanageService zu beenden.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird zurückgesetzt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Der vorherige Zustand des Ereignisprotokolls für die Quelle OrphanageService wird wiederhergestellt.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Warnung: Die Quelle OrphanageService ist nicht auf dem lokalen Computer registriert.
+Der Dienst OrphanageService wird vom System entfernt...
+Während der Deinstallation des Installers System.ServiceProcess.ServiceInstaller ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst ist kein installierter Dienst
+Während der Deinstallation ist eine Ausnahme aufgetreten. Diese Ausnahme wird ignoriert, und die Deinstallation wird fortgesetzt. Die Anwendung wird jedoch möglicherweise nicht vollständig deinstalliert.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Dienst OrphanageService wurde installiert.
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird ausgeführt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Der Dienst OrphanageService wird vom System entfernt...
+Dienst OrphanageService wurde vom System entfernt.
+Es wird versucht, den Dienst OrphanageService zu beenden.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird zurückgesetzt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Der vorherige Zustand des Ereignisprotokolls für die Quelle OrphanageService wird wiederhergestellt.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Warnung: Die Quelle OrphanageService ist nicht auf dem lokalen Computer registriert.
+Der Dienst OrphanageService wird vom System entfernt...
+Während der Deinstallation des Installers System.ServiceProcess.ServiceInstaller ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst ist kein installierter Dienst
+Während der Deinstallation ist eine Ausnahme aufgetreten. Diese Ausnahme wird ignoriert, und die Deinstallation wird fortgesetzt. Die Anwendung wird jedoch möglicherweise nicht vollständig deinstalliert.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Dienst OrphanageService wurde installiert.
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird ausgeführt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Der Dienst OrphanageService wird vom System entfernt...
+Dienst OrphanageService wurde vom System entfernt.
+Es wird versucht, den Dienst OrphanageService zu beenden.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird zurückgesetzt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Der vorherige Zustand des Ereignisprotokolls für die Quelle OrphanageService wird wiederhergestellt.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird deinstalliert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Die EventLog-Quelle OrphanageService wird entfernt.
+Warnung: Die Quelle OrphanageService ist nicht auf dem lokalen Computer registriert.
+Der Dienst OrphanageService wird vom System entfernt...
+Während der Deinstallation des Installers System.ServiceProcess.ServiceInstaller ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst ist kein installierter Dienst
+Während der Deinstallation ist eine Ausnahme aufgetreten. Diese Ausnahme wird ignoriert, und die Deinstallation wird fortgesetzt. Die Anwendung wird jedoch möglicherweise nicht vollständig deinstalliert.
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird installiert.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog
+Dienst OrphanageService wird installiert...
+Dienst OrphanageService wurde installiert.
+Die EventLog-Quelle OrphanageService im Protokoll Application wird erstellt...
+Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wird ausgeführt.
+Betroffene Parameter:
+   logtoconsole = 
+   assemblypath = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe
+   logfile = F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog

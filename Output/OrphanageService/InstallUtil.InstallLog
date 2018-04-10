@@ -1,0 +1,177 @@
+﻿
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Während der Installationsphase ist eine Ausnahme aufgetreten.
+System.ComponentModel.Win32Exception: Der angegebene Dienst wurde zum Löschen markiert
+
+Die Rollbackphase der Installation wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Rollbackphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Installationsphase ist abgeschlossen, und die Commitphase beginnt.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Commitphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Während der Installationsphase ist eine Ausnahme aufgetreten.
+System.InvalidOperationException: Die Diensteinstallation in der ausführbaren Datei F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wurde vom Benutzer abgebrochen.
+
+Die Rollbackphase der Installation wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Rollbackphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Während der Installationsphase ist eine Ausnahme aufgetreten.
+System.InvalidOperationException: Die Diensteinstallation in der ausführbaren Datei F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe wurde vom Benutzer abgebrochen.
+
+Die Rollbackphase der Installation wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Rollbackphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Installationsphase ist abgeschlossen, und die Commitphase beginnt.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Commitphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Installationsphase ist abgeschlossen, und die Commitphase beginnt.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Commitphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Installationsphase ist abgeschlossen, und die Commitphase beginnt.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Commitphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
+
+
+Die Deinstallation wurde gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Deinstallation ist abgeschlossen.
+
+Eine transaktive Installation wird ausgeführt.
+
+Die Installationsphase wird gestartet.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Installationsphase ist abgeschlossen, und die Commitphase beginnt.
+Die Protokolldatei enthält den Fortschritt der Assembly F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.exe.
+Die Datei befindet sich in F:\Repo\Orphanage3\Orphanage3\Output\OrphanageService\OrphanageService.InstallLog.
+
+Die Commitphase wurde erfolgreich abgeschlossen.
+
+Die transaktive Installation ist abgeschlossen.
