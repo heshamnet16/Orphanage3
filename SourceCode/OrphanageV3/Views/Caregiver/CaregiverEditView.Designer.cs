@@ -387,12 +387,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(470, 410);
-            this.Controls.Add(this.addressForm1);
-            this.Controls.Add(this.nameForm1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.grpIdentityCard);
             this.Controls.Add(this.grpData);
+            this.Controls.Add(this.addressForm1);
+            this.Controls.Add(this.nameForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

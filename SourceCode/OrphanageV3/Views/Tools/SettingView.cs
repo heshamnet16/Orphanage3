@@ -139,6 +139,8 @@ namespace OrphanageV3.Views.Tools
 
         private string getBaseUrl(string hostName)
         {
+            if (hostName == null || hostName == "." || hostName.Length == 0)
+                hostName = "localhost";
             return "http://" + hostName + ":1515/";
         }
 

@@ -7,8 +7,6 @@ namespace OrphanageV3.ViewModel.Family
     public class FamilyEditViewModel
     {
         private readonly IApiClient _apiClient;
-        private Size _ImageSize = new Size(153, 126);
-        public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
         private OrphanageDataModel.RegularData.Family _CurrentFamily = null;
 
@@ -28,8 +26,8 @@ namespace OrphanageV3.ViewModel.Family
         public async Task<OrphanageDataModel.RegularData.Family> getFamily(int Cid)
         {
             var returnedFamily = await _apiClient.FamiliesController_GetAsync(Cid);
-            var FamilyCardP1Task = _apiClient.GetImageData(returnedFamily.FamilyCardImagePage1URI, _ImageSize, 50);
-            var FamilyCardP2Task = _apiClient.GetImageData(returnedFamily.FamilyCardImagePage2URI, _ImageSize, 50);
+            var FamilyCardP1Task = _apiClient.GetImageData(returnedFamily.FamilyCardImagePage1URI);
+            var FamilyCardP2Task = _apiClient.GetImageData(returnedFamily.FamilyCardImagePage2URI);
             returnedFamily.FamilyCardImagePage1Data = await FamilyCardP1Task;
             returnedFamily.FamilyCardImagePage2Data = await FamilyCardP2Task;
             _CurrentFamily = returnedFamily;

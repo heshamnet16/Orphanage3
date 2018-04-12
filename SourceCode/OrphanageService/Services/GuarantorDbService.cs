@@ -79,8 +79,8 @@ namespace OrphanageService.Services
                             var retguarantors = GetGuarantorByAddress(guarantor.Address, orphanageDBC).FirstOrDefault();
                             if (retguarantors != null)
                             {
-                                _logger.Error($"guarantor with id({retguarantors.Id}) has the same address, DuplicatedObjectException will be thrown");
-                                throw new DuplicatedObjectException(guarantor.GetType(), retguarantors.GetType(), retguarantors.Id);
+                                _logger.Warning($"guarantor with id({retguarantors.Id}) has the same address, no DuplicatedObjectException will be thrown");
+                                //    throw new DuplicatedObjectException(guarantor.GetType(), retguarantors.GetType(), retguarantors.Id);
                             }
                             else
                             {
@@ -405,7 +405,9 @@ namespace OrphanageService.Services
             .Include(m => m.Address)
             .ToArray();
 
-            var Foundedguarantors = guarantors.Where(n => n.Address.Equals(addressObject));
+            var Foundedguarantors = guarantors.Where(n => n.Address.Equals(addressObject)).ToList();
+
+            if (Foundedguarantors == null || Foundedguarantors.Count() == 0) yield return null;
 
             foreach (var guarantor in Foundedguarantors)
             {
@@ -429,9 +431,9 @@ namespace OrphanageService.Services
             .ToArray();
 
             var Foundedguarantors = guarantors.Where(n =>
-            n.Name.Equals(nameObject));
+            n.Name.Equals(nameObject)).ToList();
 
-            if (Foundedguarantors == null) yield return null;
+            if (Foundedguarantors == null || Foundedguarantors.Count() == 0) yield return null;
 
             foreach (var guarantor in Foundedguarantors)
             {

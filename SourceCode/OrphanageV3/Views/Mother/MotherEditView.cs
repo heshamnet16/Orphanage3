@@ -27,7 +27,6 @@ namespace OrphanageV3.Views.Mother
 
             _motherEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-            _motherEditViewModel.ImagesSize = picIdentityCardBack.Size;
             LoadMother(MotherId);
         }
 

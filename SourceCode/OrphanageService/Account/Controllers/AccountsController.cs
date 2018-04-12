@@ -96,6 +96,18 @@ namespace OrphanageService.Account.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetByIds([FromUri] IList<int> accoutnsIds)
+        {
+            if (accoutnsIds == null || accoutnsIds.Count == 0) return null;
+            var ret = await _accountDbService.GetAccounts(accoutnsIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<int> GetAccountsCount()

@@ -570,6 +570,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر حساب ähnelt.
+        /// </summary>
+        public static string ChooseAccount {
+            get {
+                return ResourceManager.GetString("ChooseAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اختر كفالة ähnelt.
         /// </summary>
         public static string ChooseBail {
@@ -1552,6 +1561,15 @@ namespace OrphanageV3.Properties {
         public static string GridViewGroupByText {
             get {
                 return ResourceManager.GetString("GridViewGroupByText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كفيل ähnelt.
+        /// </summary>
+        public static string Guarantor {
+            get {
+                return ResourceManager.GetString("Guarantor", resourceCulture);
             }
         }
         

@@ -7,8 +7,6 @@ namespace OrphanageV3.ViewModel.Mother
     public class MotherEditViewModel
     {
         private readonly IApiClient _apiClient;
-        private Size _ImageSize = new Size(153, 126);
-        public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
         private OrphanageDataModel.Persons.Mother _CurrentMother = null;
 
@@ -28,8 +26,8 @@ namespace OrphanageV3.ViewModel.Mother
         public async Task<OrphanageDataModel.Persons.Mother> getMother(int Cid)
         {
             var returnedMother = await _apiClient.MothersController_GetAsync(Cid);
-            var fronPhotoTask = _apiClient.GetImageData(returnedMother.IdentityCardFaceURI, _ImageSize, 50);
-            var backPhotoTask = _apiClient.GetImageData(returnedMother.IdentityCardBackURI, _ImageSize, 50);
+            var fronPhotoTask = _apiClient.GetImageData(returnedMother.IdentityCardFaceURI);
+            var backPhotoTask = _apiClient.GetImageData(returnedMother.IdentityCardBackURI);
             returnedMother.IdentityCardPhotoFaceData = await fronPhotoTask;
             returnedMother.IdentityCardPhotoBackData = await backPhotoTask;
             _CurrentMother = returnedMother;

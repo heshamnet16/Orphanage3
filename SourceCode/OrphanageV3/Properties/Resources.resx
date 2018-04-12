@@ -1187,4 +1187,10 @@
   <data name="Bails" xml:space="preserve">
     <value>كفالات</value>
   </data>
+  <data name="Guarantor" xml:space="preserve">
+    <value>كفيل</value>
+  </data>
+  <data name="ChooseAccount" xml:space="preserve">
+    <value>اختر حساب</value>
+  </data>
 </root>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrphanageV3.ViewModel.Guarantor
+namespace OrphanageV3.ViewModel.Account
 {
-    public class GuarantorEditViewModle
+    class AccountEditViewModel
     {
     }
 }

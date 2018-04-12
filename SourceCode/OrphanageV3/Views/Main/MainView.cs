@@ -45,6 +45,7 @@ namespace OrphanageV3.Views.Main
             mnuNewBail.Text = Properties.Resources.Bail;
             mnuShowAllFamilies.Text = Properties.Resources.All;
             mnuShowGuarantors.Text = Properties.Resources.Guarantors;
+            mnuNewGuarantor.Text = Properties.Resources.Guarantor;
             lblConnectionStatus.Text = Properties.Resources.Disconnected;
         }
 
@@ -186,6 +187,11 @@ namespace OrphanageV3.Views.Main
         private void mnuShowGuarantors_Click(object sender, EventArgs e)
         {
             _mainViewModel.ShowGuarantors();
+        }
+
+        private void mnuNewGuarantor_Click(object sender, EventArgs e)
+        {
+            _mainViewModel.ShowNewGuarantor();
         }
     }
 }

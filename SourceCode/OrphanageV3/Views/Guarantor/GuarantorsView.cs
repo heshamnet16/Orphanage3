@@ -146,10 +146,10 @@ namespace OrphanageV3.Views.Guarantor
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //int id = (int)_radGridHelper.GetValueBySelectedRow("Id");
-            //CaregiverEditView caregiverEditView = new CaregiverEditView(id);
-            //caregiverEditView.ShowDialog();
-            //_guarantorsViewModel.Update(id);
+            int id = (int)_radGridHelper.GetValueBySelectedRow("Id");
+            GuarantorEditView guarantorEditView = new GuarantorEditView(id);
+            guarantorEditView.ShowDialog();
+            _guarantorsViewModel.Update(id);
         }
 
         private async void btnShowFamilies_Click(object sender, EventArgs e)

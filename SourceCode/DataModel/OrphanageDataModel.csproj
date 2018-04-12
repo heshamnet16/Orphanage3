@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="RegularData\Study.cs" />
     <Compile Include="Persons\User.cs" />
+    <Compile Include="ValidationAttributes\AccountAlwaysPositiv.cs" />
     <Compile Include="ValidationAttributes\BailEndDateValidator.cs" />
     <Compile Include="ValidationAttributes\DateOfDeathValidator.cs" />
     <Compile Include="ValidationAttributes\BirthdayValidator.cs" />

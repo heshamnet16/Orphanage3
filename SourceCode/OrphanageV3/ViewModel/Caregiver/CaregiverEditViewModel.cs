@@ -7,8 +7,6 @@ namespace OrphanageV3.ViewModel.Caregiver
     public class CaregiverEditViewModel
     {
         private readonly IApiClient _apiClient;
-        private Size _ImageSize = new Size(153, 126);
-        public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
         private OrphanageDataModel.Persons.Caregiver _CurrentCaregiver = null;
 
@@ -28,8 +26,8 @@ namespace OrphanageV3.ViewModel.Caregiver
         public async Task<OrphanageDataModel.Persons.Caregiver> getCaregiver(int Cid)
         {
             var returnedCaregiver = await _apiClient.CaregiversController_GetAsync(Cid);
-            var fronPhotoTask = _apiClient.GetImageData(returnedCaregiver.IdentityCardImageFaceURI, _ImageSize, 50);
-            var backPhotoTask = _apiClient.GetImageData(returnedCaregiver.IdentityCardImageBackURI, _ImageSize, 50);
+            var fronPhotoTask = _apiClient.GetImageData(returnedCaregiver.IdentityCardImageFaceURI);
+            var backPhotoTask = _apiClient.GetImageData(returnedCaregiver.IdentityCardImageBackURI);
             returnedCaregiver.IdentityCardPhotoFaceData = await fronPhotoTask;
             returnedCaregiver.IdentityCardPhotoBackData = await backPhotoTask;
             _CurrentCaregiver = returnedCaregiver;

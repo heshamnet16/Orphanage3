@@ -31,12 +31,30 @@ namespace OrphanageV3.Views.Orphan
         private bool _CertificatePhoto2Changed = false;
         private bool _HealthPhotoChanged = false;
 
+        private Image _Loading = Properties.Resources.loading;
+
         public OrphanEditView(int orphanId)
         {
             InitializeComponent();
             _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
             SetLablesString();
             loadOrphan(orphanId);
+        }
+
+        private void setLoadingImages()
+        {
+            RadPageView1.SelectedPage = pgeBasic;
+            PicBody.ShowLoadingGif();
+            picFace.ShowLoadingGif();
+            RadPageView1.SelectedPage = pgeOthers;
+            picObirthCertificate.ShowLoadingGif();
+            picOFamilyCardPhoto.ShowLoadingGif();
+            RadPageView1.SelectedPage = pgeHealth;
+            picHReportPhoto.ShowLoadingGif();
+            RadPageView1.SelectedPage = pgeEducation;
+            picSStarter.ShowLoadingGif();
+            PicSstudyCerti.ShowLoadingGif();
+            RadPageView1.SelectedPage = pgeBasic;
         }
 
         private async void loadOrphan(int Oid)
@@ -214,6 +232,13 @@ namespace OrphanageV3.Views.Orphan
             _CertificatePhotoChanged = false;
             _CertificatePhoto2Changed = false;
             _HealthPhotoChanged = false;
+            picFace.HideLoadingGif();
+            PicBody.HideLoadingGif();
+            picObirthCertificate.HideLoadingGif();
+            picOFamilyCardPhoto.HideLoadingGif();
+            picHReportPhoto.HideLoadingGif();
+            picSStarter.HideLoadingGif();
+            PicSstudyCerti.HideLoadingGif();
             setImageControlsHanlder(true);
         }
 
@@ -437,6 +462,7 @@ namespace OrphanageV3.Views.Orphan
         private void OrphanEditView_Load(object sender, EventArgs e)
         {
             SetValues();
+            setLoadingImages();
         }
 
         private void setImageControlsHanlder(bool value)
@@ -465,6 +491,7 @@ namespace OrphanageV3.Views.Orphan
 
         private async void PhotoChanged(object sender, EventArgs e)
         {
+            if (_CurrentOrphan == null) return;
             if (sender is PictureSelector.PictureSelector)
             {
                 string url = null;

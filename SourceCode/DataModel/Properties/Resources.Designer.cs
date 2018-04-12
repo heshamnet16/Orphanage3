@@ -61,6 +61,15 @@ namespace OrphanageDataModel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die هذا الحساب لايمكن أن يكون سالباُ, الرجاء التحقق من ذلك ähnelt.
+        /// </summary>
+        public static string ErrorAccountCannotBeNegativ {
+            get {
+                return ResourceManager.GetString("ErrorAccountCannotBeNegativ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الكفالة منتهية بالفعل ähnelt.
         /// </summary>
         public static string ErrorBailDateEnded {

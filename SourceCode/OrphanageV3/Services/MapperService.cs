@@ -4,6 +4,7 @@ using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;
 using OrphanageV3.Extensions;
 using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Account;
 using OrphanageV3.ViewModel.Bail;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
@@ -91,6 +92,9 @@ namespace OrphanageV3.Services
                     .ForMember(dest => dest.AccountName, sour => sour.MapFrom(prop => prop.Account.AccountName))
                     .ForMember(dest => dest.FullName, sour => sour.MapFrom(prop => prop.Name.FullName()))
                     .ForMember(dest => dest.FullAddress, sour => sour.MapFrom(prop => prop.Address.FullAddress()))
+                    .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
+
+                cfg.CreateMap<OrphanageDataModel.FinancialData.Account, AccountModel>()
                     .ForMember(dest => dest.UserName, sour => sour.MapFrom(prop => prop.ActingUser.UserName));
             });
 
@@ -352,6 +356,33 @@ namespace OrphanageV3.Services
                 retGuarantor = null;
             }
             return retGuarantor;
+        }
+
+        public IEnumerable<AccountModel> MapToAccountModel(IEnumerable<Account> accountsList)
+        {
+            IList<AccountModel> returnedAccounts = new List<AccountModel>();
+            foreach (var account in accountsList)
+            {
+                AccountModel retAccount = MapToAccountModel(account);
+                returnedAccounts.Add(retAccount);
+            }
+            return returnedAccounts;
+        }
+
+        public AccountModel MapToAccountModel(Account account)
+        {
+            AccountModel retAccount = null;
+            try
+            {
+                retAccount = _mapper.Map<AccountModel>(account);
+                retAccount.BailsCount = account.Bails != null ? account.Bails.Count : 0;
+                retAccount.GuarantorsCount = account.Guarantors != null ? account.Guarantors.Count : 0;
+            }
+            catch
+            {
+                retAccount = null;
+            }
+            return retAccount;
         }
     }
 }

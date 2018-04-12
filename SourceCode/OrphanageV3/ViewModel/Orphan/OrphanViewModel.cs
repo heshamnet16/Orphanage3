@@ -10,11 +10,11 @@ namespace OrphanageV3.ViewModel.Orphan
         private OrphansViewModel _orphansViewModel = Program.Factory.Resolve<OrphansViewModel>();
 
         private readonly IApiClient _apiClient;
-        private Size _ImageSize = new Size(153, 126);
+        //private Size _ImageSize = new Size(153, 126);
 
         public OrphanageDataModel.Persons.Orphan CurrentOrphan { get; private set; }
 
-        public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
+        //public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
         public OrphanViewModel(IApiClient apiClient)
         {
@@ -69,15 +69,15 @@ namespace OrphanageV3.ViewModel.Orphan
         public async Task<OrphanageDataModel.Persons.Orphan> getOrphan(int Oid)
         {
             var returnedOrphan = await _apiClient.OrphansController_GetAsync(Oid);
-            var facePhotoTask = _apiClient.GetImageData(returnedOrphan.FacePhotoURI, _ImageSize, 50);
-            var bodyPhotoTask = _apiClient.GetImageData(returnedOrphan.FullPhotoURI, _ImageSize, 50);
-            var birthCertificateTask = _apiClient.GetImageData(returnedOrphan.BirthCertificatePhotoURI, _ImageSize, 50);
-            var familiyCardPhotoTask = _apiClient.GetImageData(returnedOrphan.FamilyCardPagePhotoURI, _ImageSize, 50);
+            var facePhotoTask = _apiClient.GetImageData(returnedOrphan.FacePhotoURI);
+            var bodyPhotoTask = _apiClient.GetImageData(returnedOrphan.FullPhotoURI);
+            var birthCertificateTask = _apiClient.GetImageData(returnedOrphan.BirthCertificatePhotoURI);
+            var familiyCardPhotoTask = _apiClient.GetImageData(returnedOrphan.FamilyCardPagePhotoURI);
             if (returnedOrphan.EducationId.HasValue)
             {
                 try
                 {
-                    returnedOrphan.Education.CertificatePhotoFront = await _apiClient.GetImageData(returnedOrphan.Education.CertificateImageURI, _ImageSize, 50);
+                    returnedOrphan.Education.CertificatePhotoFront = await _apiClient.GetImageData(returnedOrphan.Education.CertificateImageURI);
                 }
                 catch (ApiClientException apiException)
                 {
@@ -89,7 +89,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 }
                 try
                 {
-                    returnedOrphan.Education.CertificatePhotoBack = await _apiClient.GetImageData(returnedOrphan.Education.CertificateImage2URI, _ImageSize, 50);
+                    returnedOrphan.Education.CertificatePhotoBack = await _apiClient.GetImageData(returnedOrphan.Education.CertificateImage2URI);
                 }
                 catch (ApiClientException apiException)
                 {

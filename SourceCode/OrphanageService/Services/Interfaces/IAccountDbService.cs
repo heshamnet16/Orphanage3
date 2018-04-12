@@ -9,6 +9,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(IEnumerable<int> accountsIds);
+
         Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetBails(int Aid);
 
         Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int Aid);

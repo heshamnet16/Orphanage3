@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorAccountCannotBeNegativ" xml:space="preserve">
-    <value>هذا الحساب لايمكن أن يكون سالباُ, الرجاء التحقق من ذلك</value>
-  </data>
-  <data name="ErrorBailDateEnded" xml:space="preserve">
-    <value>الكفالة منتهية بالفعل</value>
-  </data>
-  <data name="ErrorBailEndDateBiggerThanStartDate" xml:space="preserve">
-    <value>تاريخ الانتهاء اصغر من تاريخ البدء</value>
-  </data>
-  <data name="ErrorOverAge" xml:space="preserve">
-    <value>التاريخ غير صالح إما عمر اليتيم فوق 18 أو لايمكن للشخص انجاب يتيم ضمن السن القانوني</value>
-  </data>
-  <data name="ErrorRequired" xml:space="preserve">
-    <value>هذا الحقل مطلوب</value>
-  </data>
-  <data name="ErrorWrongData" xml:space="preserve">
-    <value>الرجاء التحقق من صحة البيانات المدخلة</value>
-  </data>
+  <metadata name="guarantorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>201, 17</value>
+  </metadata>
 </root>

@@ -64,6 +64,27 @@ namespace OrphanageService.Services
             return accountsList;
         }
 
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(IEnumerable<int> accoutnsIds)
+        {
+            IList<OrphanageDataModel.FinancialData.Account> accountsList = new List<OrphanageDataModel.FinancialData.Account>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var accounts = await _orphanageDBC.Accounts.AsNoTracking()
+                    .Where(a => accoutnsIds.Contains(a.Id))
+                    .Include(a => a.Bails)
+                    .Include(b => b.Guarantors)
+                    .ToListAsync();
+
+                foreach (var account in accounts)
+                {
+                    OrphanageDataModel.FinancialData.Account accountToFill = account;
+                    _selfLoopBlocking.BlockAccountSelfLoop(ref accountToFill);
+                    accountsList.Add(accountToFill);
+                }
+            }
+            return accountsList;
+        }
+
         public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int Aid)
         {
             IList<OrphanageDataModel.Persons.Guarantor> returnedGuarantors = new List<OrphanageDataModel.Persons.Guarantor>();

@@ -35,7 +35,7 @@
             this.RadMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuNewFamily = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem2 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
-            this.mnuNewSupporter = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuNewGuarantor = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuNewBail = new Telerik.WinControls.UI.RadMenuItem();
             this.SepNewUserSep = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuNewUser = new Telerik.WinControls.UI.RadMenuItem();
@@ -113,7 +113,7 @@
             this.RadMenuSeparatorItem1,
             this.mnuNewFamily,
             this.RadMenuSeparatorItem2,
-            this.mnuNewSupporter,
+            this.mnuNewGuarantor,
             this.mnuNewBail,
             this.SepNewUserSep,
             this.mnuNewUser});
@@ -148,13 +148,13 @@
             this.RadMenuSeparatorItem2.Text = "RadMenuSeparatorItem2";
             this.RadMenuSeparatorItem2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // mnuNewSupporter
+            // mnuNewGuarantor
             // 
-            this.mnuNewSupporter.AccessibleDescription = "RadMenuItem6";
-            this.mnuNewSupporter.AccessibleName = "RadMenuItem6";
-            this.mnuNewSupporter.Enabled = false;
-            this.mnuNewSupporter.Name = "mnuNewSupporter";
-            this.mnuNewSupporter.Text = "كفيل";
+            this.mnuNewGuarantor.AccessibleDescription = "RadMenuItem6";
+            this.mnuNewGuarantor.AccessibleName = "RadMenuItem6";
+            this.mnuNewGuarantor.Name = "mnuNewGuarantor";
+            this.mnuNewGuarantor.Text = "guarantor";
+            this.mnuNewGuarantor.Click += new System.EventHandler(this.mnuNewGuarantor_Click);
             // 
             // mnuNewBail
             // 
@@ -645,7 +645,9 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -661,7 +663,7 @@
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem1;
         internal Telerik.WinControls.UI.RadMenuItem mnuNewFamily;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem2;
-        internal Telerik.WinControls.UI.RadMenuItem mnuNewSupporter;
+        internal Telerik.WinControls.UI.RadMenuItem mnuNewGuarantor;
         internal Telerik.WinControls.UI.RadMenuItem mnuNewBail;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem SepNewUserSep;
         internal Telerik.WinControls.UI.RadMenuItem mnuNewUser;

@@ -448,20 +448,22 @@ namespace OrphanageV3.Views.Orphan
             // 
             // lblIdentityNumber
             // 
+            this.lblIdentityNumber.AutoSize = false;
             this.lblIdentityNumber.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdentityNumber.Location = new System.Drawing.Point(401, 235);
             this.lblIdentityNumber.Name = "lblIdentityNumber";
-            this.lblIdentityNumber.Size = new System.Drawing.Size(2, 2);
+            this.lblIdentityNumber.Size = new System.Drawing.Size(60, 20);
             this.lblIdentityNumber.TabIndex = 2;
             this.lblIdentityNumber.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIdentityNumber.Click += new System.EventHandler(this.pgeBasic_Click);
             // 
             // lblConsanguinityToCaregiver
             // 
+            this.lblConsanguinityToCaregiver.AutoSize = false;
             this.lblConsanguinityToCaregiver.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsanguinityToCaregiver.Location = new System.Drawing.Point(401, 277);
             this.lblConsanguinityToCaregiver.Name = "lblConsanguinityToCaregiver";
-            this.lblConsanguinityToCaregiver.Size = new System.Drawing.Size(2, 2);
+            this.lblConsanguinityToCaregiver.Size = new System.Drawing.Size(60, 20);
             this.lblConsanguinityToCaregiver.TabIndex = 2;
             this.lblConsanguinityToCaregiver.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblConsanguinityToCaregiver.Click += new System.EventHandler(this.pgeBasic_Click);
@@ -597,12 +599,13 @@ namespace OrphanageV3.Views.Orphan
             // 
             // lblStory
             // 
+            this.lblStory.AutoSize = false;
             this.lblStory.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStory.Location = new System.Drawing.Point(412, 215);
             this.lblStory.Name = "lblStory";
-            this.lblStory.Size = new System.Drawing.Size(2, 2);
+            this.lblStory.Size = new System.Drawing.Size(60, 20);
             this.lblStory.TabIndex = 16;
-            this.lblStory.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblStory.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // numOTall
             // 
@@ -643,12 +646,13 @@ namespace OrphanageV3.Views.Orphan
             // 
             // lblFootSize
             // 
+            this.lblFootSize.AutoSize = false;
             this.lblFootSize.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFootSize.Location = new System.Drawing.Point(412, 117);
             this.lblFootSize.Name = "lblFootSize";
-            this.lblFootSize.Size = new System.Drawing.Size(2, 2);
+            this.lblFootSize.Size = new System.Drawing.Size(60, 20);
             this.lblFootSize.TabIndex = 10;
-            this.lblFootSize.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblFootSize.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblKG
             // 
@@ -661,31 +665,34 @@ namespace OrphanageV3.Views.Orphan
             // 
             // lblAge
             // 
+            this.lblAge.AutoSize = false;
             this.lblAge.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAge.Location = new System.Drawing.Point(412, 166);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(2, 2);
+            this.lblAge.Size = new System.Drawing.Size(60, 20);
             this.lblAge.TabIndex = 14;
-            this.lblAge.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblAge.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTallness
             // 
+            this.lblTallness.AutoSize = false;
             this.lblTallness.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTallness.Location = new System.Drawing.Point(412, 68);
             this.lblTallness.Name = "lblTallness";
-            this.lblTallness.Size = new System.Drawing.Size(2, 2);
+            this.lblTallness.Size = new System.Drawing.Size(60, 20);
             this.lblTallness.TabIndex = 13;
-            this.lblTallness.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblTallness.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblWeight
             // 
+            this.lblWeight.AutoSize = false;
             this.lblWeight.EnableTheming = false;
             this.lblWeight.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeight.Location = new System.Drawing.Point(412, 19);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(2, 2);
+            this.lblWeight.Size = new System.Drawing.Size(60, 20);
             this.lblWeight.TabIndex = 11;
-            this.lblWeight.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblWeight.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pgeEducation
             // 
@@ -714,12 +721,14 @@ namespace OrphanageV3.Views.Orphan
             // lblGradRate
             // 
             this.lblGradRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGradRate.AutoSize = false;
             this.lblGradRate.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGradRate.Location = new System.Drawing.Point(443, 146);
+            this.lblGradRate.Location = new System.Drawing.Point(410, 146);
             this.lblGradRate.Name = "lblGradRate";
-            this.lblGradRate.Size = new System.Drawing.Size(2, 2);
+            this.lblGradRate.Size = new System.Drawing.Size(69, 20);
             this.lblGradRate.TabIndex = 65;
-            this.lblGradRate.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblGradRate.Text = "hgvjhvb";
+            this.lblGradRate.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // grpEducationCertificate2
             // 
@@ -850,12 +859,14 @@ namespace OrphanageV3.Views.Orphan
             // lblNotes
             // 
             this.lblNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNotes.AutoSize = false;
             this.lblNotes.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.Location = new System.Drawing.Point(454, 228);
+            this.lblNotes.Location = new System.Drawing.Point(410, 228);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(2, 2);
+            this.lblNotes.Size = new System.Drawing.Size(69, 20);
             this.lblNotes.TabIndex = 59;
-            this.lblNotes.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblNotes.Text = "hgvjhvb";
+            this.lblNotes.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblReason
             // 
@@ -870,42 +881,50 @@ namespace OrphanageV3.Views.Orphan
             // lblMonthlyCost
             // 
             this.lblMonthlyCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMonthlyCost.AutoSize = false;
             this.lblMonthlyCost.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonthlyCost.Location = new System.Drawing.Point(471, 188);
+            this.lblMonthlyCost.Location = new System.Drawing.Point(410, 188);
             this.lblMonthlyCost.Name = "lblMonthlyCost";
-            this.lblMonthlyCost.Size = new System.Drawing.Size(2, 2);
+            this.lblMonthlyCost.Size = new System.Drawing.Size(69, 20);
             this.lblMonthlyCost.TabIndex = 61;
-            this.lblMonthlyCost.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblMonthlyCost.Text = "hgvjhvb";
+            this.lblMonthlyCost.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblSchoolName
             // 
             this.lblSchoolName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSchoolName.AutoSize = false;
             this.lblSchoolName.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchoolName.Location = new System.Drawing.Point(466, 60);
+            this.lblSchoolName.Location = new System.Drawing.Point(410, 60);
             this.lblSchoolName.Name = "lblSchoolName";
-            this.lblSchoolName.Size = new System.Drawing.Size(2, 2);
+            this.lblSchoolName.Size = new System.Drawing.Size(69, 20);
             this.lblSchoolName.TabIndex = 64;
-            this.lblSchoolName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblSchoolName.Text = "hgvjhvb";
+            this.lblSchoolName.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStudyStage
             // 
             this.lblStudyStage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStudyStage.AutoSize = false;
             this.lblStudyStage.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudyStage.Location = new System.Drawing.Point(482, 104);
+            this.lblStudyStage.Location = new System.Drawing.Point(410, 102);
             this.lblStudyStage.Name = "lblStudyStage";
-            this.lblStudyStage.Size = new System.Drawing.Size(2, 2);
+            this.lblStudyStage.Size = new System.Drawing.Size(69, 20);
             this.lblStudyStage.TabIndex = 63;
+            this.lblStudyStage.Text = "hgvjhvb";
             this.lblStudyStage.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblIsStudying
             // 
             this.lblIsStudying.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIsStudying.AutoSize = false;
             this.lblIsStudying.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsStudying.Location = new System.Drawing.Point(441, 23);
+            this.lblIsStudying.Location = new System.Drawing.Point(410, 23);
             this.lblIsStudying.Name = "lblIsStudying";
-            this.lblIsStudying.Size = new System.Drawing.Size(2, 2);
+            this.lblIsStudying.Size = new System.Drawing.Size(69, 20);
             this.lblIsStudying.TabIndex = 62;
-            this.lblIsStudying.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblIsStudying.Text = "hgvjhvb";
+            this.lblIsStudying.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // RadLabel26
             // 
@@ -1049,62 +1068,68 @@ namespace OrphanageV3.Views.Orphan
             // lblHealthNote
             // 
             this.lblHealthNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHealthNote.AutoSize = false;
             this.lblHealthNote.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHealthNote.Location = new System.Drawing.Point(469, 260);
+            this.lblHealthNote.Location = new System.Drawing.Point(424, 260);
             this.lblHealthNote.Name = "lblHealthNote";
-            this.lblHealthNote.Size = new System.Drawing.Size(2, 2);
+            this.lblHealthNote.Size = new System.Drawing.Size(60, 20);
             this.lblHealthNote.TabIndex = 123127;
-            this.lblHealthNote.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblHealthNote.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblHealthCost
             // 
             this.lblHealthCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHealthCost.AutoSize = false;
             this.lblHealthCost.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHealthCost.Location = new System.Drawing.Point(454, 206);
+            this.lblHealthCost.Location = new System.Drawing.Point(424, 206);
             this.lblHealthCost.Name = "lblHealthCost";
-            this.lblHealthCost.Size = new System.Drawing.Size(2, 2);
+            this.lblHealthCost.Size = new System.Drawing.Size(60, 20);
             this.lblHealthCost.TabIndex = 123126;
-            this.lblHealthCost.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblHealthCost.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDoctor
             // 
             this.lblDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDoctor.AutoSize = false;
             this.lblDoctor.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoctor.Location = new System.Drawing.Point(460, 168);
+            this.lblDoctor.Location = new System.Drawing.Point(424, 168);
             this.lblDoctor.Name = "lblDoctor";
-            this.lblDoctor.Size = new System.Drawing.Size(2, 2);
+            this.lblDoctor.Size = new System.Drawing.Size(60, 20);
             this.lblDoctor.TabIndex = 123125;
-            this.lblDoctor.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblDoctor.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblMedicen
             // 
             this.lblMedicen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMedicen.AutoSize = false;
             this.lblMedicen.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedicen.Location = new System.Drawing.Point(459, 124);
+            this.lblMedicen.Location = new System.Drawing.Point(424, 124);
             this.lblMedicen.Name = "lblMedicen";
-            this.lblMedicen.Size = new System.Drawing.Size(2, 2);
+            this.lblMedicen.Size = new System.Drawing.Size(60, 20);
             this.lblMedicen.TabIndex = 123130;
-            this.lblMedicen.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblMedicen.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblIsSick
             // 
             this.lblIsSick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIsSick.AutoSize = false;
             this.lblIsSick.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsSick.Location = new System.Drawing.Point(460, 30);
+            this.lblIsSick.Location = new System.Drawing.Point(424, 30);
             this.lblIsSick.Name = "lblIsSick";
-            this.lblIsSick.Size = new System.Drawing.Size(2, 2);
+            this.lblIsSick.Size = new System.Drawing.Size(60, 20);
             this.lblIsSick.TabIndex = 123129;
-            this.lblIsSick.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblIsSick.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblSicknessName
             // 
             this.lblSicknessName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSicknessName.AutoSize = false;
             this.lblSicknessName.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSicknessName.Location = new System.Drawing.Point(479, 66);
+            this.lblSicknessName.Location = new System.Drawing.Point(424, 66);
             this.lblSicknessName.Name = "lblSicknessName";
-            this.lblSicknessName.Size = new System.Drawing.Size(2, 2);
+            this.lblSicknessName.Size = new System.Drawing.Size(60, 20);
             this.lblSicknessName.TabIndex = 123128;
-            this.lblSicknessName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.lblSicknessName.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnBondsMan
             // 

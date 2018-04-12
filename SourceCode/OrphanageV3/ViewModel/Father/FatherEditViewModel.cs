@@ -7,8 +7,6 @@ namespace OrphanageV3.ViewModel.Father
     public class FatherEditViewModel
     {
         private readonly IApiClient _apiClient;
-        private Size _ImageSize = new Size(153, 126);
-        public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
         private OrphanageDataModel.Persons.Father _CurrentFather = null;
 
@@ -28,8 +26,8 @@ namespace OrphanageV3.ViewModel.Father
         public async Task<OrphanageDataModel.Persons.Father> getFather(int Cid)
         {
             var returnedFather = await _apiClient.FathersController_GetAsync(Cid);
-            var deathCertificatePhotoTask = _apiClient.GetImageData(returnedFather.DeathCertificateImageURI, _ImageSize, 50);
-            var personalPhotoTask = _apiClient.GetImageData(returnedFather.PersonalPhotoURI, _ImageSize, 50);
+            var deathCertificatePhotoTask = _apiClient.GetImageData(returnedFather.DeathCertificateImageURI);
+            var personalPhotoTask = _apiClient.GetImageData(returnedFather.PersonalPhotoURI);
             returnedFather.DeathCertificatePhotoData = await deathCertificatePhotoTask;
             returnedFather.PhotoData = await personalPhotoTask;
             _CurrentFather = returnedFather;
