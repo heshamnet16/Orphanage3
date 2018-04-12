@@ -2041,3 +2041,20 @@ Der angegebene Dienst ist kein installierter Dienst.
 2018-04-12 14:28:34.946 [INF] didn't found any similar contact data to guarantor address in the database
 2018-04-12 14:28:35.535 [INF] new guarantor object with id 133 has been added
 2018-04-12 14:28:35.537 [INF] the guarantor object with id 133  will be returned
+2018-04-12 15:39:46.196 [INF] Logging initialized.
+2018-04-12 15:39:46.227 [INF] Logging initialized.
+2018-04-12 15:39:46.228 [INF] checking if firewall is existed
+2018-04-12 15:39:46.263 [INF] firewall rules are already existed
+2018-04-12 15:39:46.274 [INF] Logging initialized.
+2018-04-12 15:39:46.274 [INF] creating RunspaceFactory
+2018-04-12 15:39:46.406 [INF] opening the created RunspaceFactory
+2018-04-12 15:39:46.632 [INF] create a pipeline and feed it the script text
+2018-04-12 15:39:46.633 [INF] try to execute the script
+2018-04-12 15:39:46.922 [INF] closing the RunspaceFactory
+2018-04-12 15:39:46.928 [INF] the output: OK
+
+2018-04-12 15:39:47.415 [INF] Logging initialized.
+2018-04-12 15:39:49.983 [INF] Logging initialized.
+2018-04-12 15:39:49.984 [INF] Logging initialized.
+2018-04-12 15:39:49.985 [INF] Logging initialized.
+2018-04-12 15:39:50.092 [INF] Trying to get Guarantor with id 17

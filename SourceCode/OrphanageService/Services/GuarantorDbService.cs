@@ -380,13 +380,15 @@ namespace OrphanageService.Services
                     .Include(c => c.Name)
                     .Include(g => g.Account)
                     .FirstOrDefaultAsync(c => c.Id == Gid);
+
                 if (guarantor == null)
                 {
                     _logger.Warning($"Guarantor with id{Gid} cannot be found null is returned");
                     return null;
                 }
                 _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantor);
-                guarantor.Address = guarantor.Address.Clean();
+                if (guarantor.Address != null)
+                    guarantor.Address = guarantor.Address.Clean();
                 _logger.Information($"returned Guarantor with id {Gid}");
                 return guarantor;
             }
@@ -412,7 +414,8 @@ namespace OrphanageService.Services
             foreach (var guarantor in Foundedguarantors)
             {
                 _logger.Information($"guarantor with id({guarantor.Id}) has the same address");
-                guarantor.Address = guarantor.Address.Clean();
+                if (guarantor.Address != null)
+                    guarantor.Address = guarantor.Address.Clean();
                 yield return guarantor;
             }
         }
