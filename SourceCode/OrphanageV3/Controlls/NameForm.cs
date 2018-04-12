@@ -12,7 +12,6 @@ namespace OrphanageV3.Controlls
     public partial class NameForm : UserControl
     {
         private IAutoCompleteService _AutoCompleteServic /*= Program.Factory.Resolve<IAutoCompleteService>()*/;
-        private IDataFormatterService _DataFormatterService  /*= Program.Factory.Resolve<IDataFormatterService>()*/;
         private IEntityValidator _entityValidator;
 
         public object NameDataSource
@@ -144,18 +143,11 @@ namespace OrphanageV3.Controlls
             try
             {
                 _entityValidator = Program.Factory.Resolve<IEntityValidator>();
+                _entityValidator.controlCollection = Controls;
             }
             catch
             {
                 _entityValidator = null;
-            }
-            try
-            {
-                _DataFormatterService = Program.Factory.Resolve<IDataFormatterService>();
-            }
-            catch
-            {
-                _DataFormatterService = null;
             }
             try
             {
@@ -218,7 +210,11 @@ namespace OrphanageV3.Controlls
             }
         }
 
-        public bool IsValid() => _entityValidator.IsValid();
+        public bool IsValid()
+        {
+            _entityValidator.DataEntity = this.NameDataSource;
+            return _entityValidator.IsValid();
+        }
 
         public void HideMe()
         {

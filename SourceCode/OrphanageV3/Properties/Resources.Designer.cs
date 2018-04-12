@@ -1087,6 +1087,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الرجاء التحقق من العنوان ähnelt.
+        /// </summary>
+        public static string ErrorMessageCheckAddress {
+            get {
+                return ResourceManager.GetString("ErrorMessageCheckAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الرجاء التحقق من الاسم ähnelt.
+        /// </summary>
+        public static string ErrorMessageCheckName {
+            get {
+                return ResourceManager.GetString("ErrorMessageCheckName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die استبعاد ähnelt.
         /// </summary>
         public static string Exclude {

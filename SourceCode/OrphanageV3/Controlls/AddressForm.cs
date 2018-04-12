@@ -26,7 +26,11 @@ namespace OrphanageV3.Controlls
             }
         }
 
-        public bool IsValid() => _entityValidator.IsValid();
+        public bool IsValid()
+        {
+            _entityValidator.DataEntity = this.AddressDataSource;
+            return _entityValidator.IsValid();
+        }
 
         public RadGroupBoxStyle Style
         {
@@ -160,6 +164,7 @@ namespace OrphanageV3.Controlls
             try
             {
                 _entityValidator = Program.Factory.Resolve<IEntityValidator>();
+                _entityValidator.controlCollection = Controls;
             }
             catch
             {

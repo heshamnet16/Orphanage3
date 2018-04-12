@@ -1193,4 +1193,10 @@
   <data name="ChooseAccount" xml:space="preserve">
     <value>اختر حساب</value>
   </data>
+  <data name="ErrorMessageCheckAddress" xml:space="preserve">
+    <value>الرجاء التحقق من العنوان</value>
+  </data>
+  <data name="ErrorMessageCheckName" xml:space="preserve">
+    <value>الرجاء التحقق من الاسم</value>
+  </data>
 </root>

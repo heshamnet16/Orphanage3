@@ -128,6 +128,18 @@ namespace OrphanageV3.Views.Guarantor
             {
                 _Guarantor.Address = (Address)addressForm1.AddressDataSource;
                 _Guarantor.Name = (Name)nameForm1.NameDataSource;
+                if (!nameForm1.IsValid())
+                {
+                    errorProvider1.SetError(txtName, Properties.Resources.ErrorMessageCheckName);
+                    nameForm1.ShowMe();
+                    return;
+                }
+                if (!addressForm1.IsValid())
+                {
+                    errorProvider1.SetError(txtAddress, Properties.Resources.ErrorMessageCheckAddress);
+                    addressForm1.ShowMe();
+                    return;
+                }
                 if (!_isNewGuarantor)
                 {
                     if (await _guarantorEditViewModel.Save(_Guarantor))

@@ -350,8 +350,10 @@ namespace OrphanageService.Services
                         if (forceDelete)
                         {
                             _logger.Warning($"the bail object with id {bailID} has not null foreign key on Orphans table, all related orphan object will be not bailed");
-                            foreach (var orphan in bail.Orphans)
+                            int orphansCount = bail.Orphans.Count;
+                            for (int i = 0; i < orphansCount; i++)
                             {
+                                var orphan = bail.Orphans.ToArray()[0];
                                 _logger.Warning($"trying to set orphan ({orphan.Id}) to not bailed");
                                 try
                                 {
@@ -380,8 +382,10 @@ namespace OrphanageService.Services
                         if (forceDelete)
                         {
                             _logger.Error($"the bail object with id {bailID} has not null foreign key on Families table, all related families object will be not bailed");
-                            foreach (var family in bail.Families)
+                            int FamilesCount = bail.Families.Count;
+                            for (int i = 0; i < FamilesCount; i++)
                             {
+                                var family = bail.Families.ToArray()[0];
                                 _logger.Warning($"trying to set family ({family.Id}) to not bailed");
                                 try
                                 {
