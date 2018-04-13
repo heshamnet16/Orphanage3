@@ -19,16 +19,18 @@ namespace OrphanageV3.ViewModel.Father
         private readonly IMapperService _mapperService;
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
+        private readonly IExceptionHandler _exceptionHandler;
 
         public event EventHandler DataLoaded;
 
         public FathersViewModel(IApiClient apiClient, IMapperService mapperService,
-            ITranslateService translateService, IDataFormatterService dataFormatterService)
+            ITranslateService translateService, IDataFormatterService dataFormatterService, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async void LoadFathers()
@@ -83,15 +85,22 @@ namespace OrphanageV3.ViewModel.Father
         public async Task<long?> SetColor(int motherId, long? colorValue)
         {
             long? returnedColor = null;
-
-            var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
-            returnedColor = father.ColorMark;
-            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                father.ColorMark = colorValue;
-            else
-                father.ColorMark = -1;
-            await _apiClient.FathersController_SetFatherColorAsync(father.Id, (int)father.ColorMark.Value);
-            return father.ColorMark;
+            try
+            {
+                var father = _SourceFathers.FirstOrDefault(c => c.Id == motherId);
+                returnedColor = father.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    father.ColorMark = colorValue;
+                else
+                    father.ColorMark = -1;
+                await _apiClient.FathersController_SetFatherColorAsync(father.Id, (int)father.ColorMark.Value);
+                return father.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
+                return returnedColor;
+            }
         }
 
         public async Task<IList<int>> OrphansIds(int motherId)

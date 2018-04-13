@@ -131,6 +131,7 @@
             this.btnSetColor.Text = "";
             this.btnSetColor.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnSetColor.ToolTipText = "تعيين لون";
+            this.btnSetColor.Click += new System.EventHandler(this.btnSetColor_Click);
             // 
             // mnuSep1
             // 

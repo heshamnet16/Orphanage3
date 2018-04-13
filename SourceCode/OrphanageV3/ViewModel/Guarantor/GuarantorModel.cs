@@ -28,6 +28,9 @@ namespace OrphanageV3.ViewModel.Guarantor
         [ShowInChooser(Order = 4)]
         public int FamiliesCount { get; set; }
 
+        [ShowInChooser(Order = 5)]
+        public int BailsCount { get; set; }
+
         public bool IsSupportingOnlyFamilies { get; set; }
 
         public bool IsPayingMonthly { get; set; }

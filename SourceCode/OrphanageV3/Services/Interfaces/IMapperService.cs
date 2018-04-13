@@ -1,6 +1,7 @@
 ﻿using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;
+using OrphanageV3.ViewModel.Account;
 using OrphanageV3.ViewModel.Bail;
 using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
@@ -42,5 +43,9 @@ namespace OrphanageV3.Services.Interfaces
         IEnumerable<GuarantorModel> MapToGuarantorModel(IEnumerable<Guarantor> guarantorsList);
 
         GuarantorModel MapToGuarantorModel(Guarantor guarantor);
+
+        IEnumerable<AccountModel> MapToAccountModel(IEnumerable<Account> accountsList);
+
+        AccountModel MapToAccountModel(Account account);
     }
 }

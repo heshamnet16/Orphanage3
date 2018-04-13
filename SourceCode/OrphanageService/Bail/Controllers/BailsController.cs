@@ -58,6 +58,18 @@ namespace OrphanageService.Bail.Controllers
         }
 
         [HttpGet]
+        [Route("byIds")]
+        public async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> GetByIds([FromUri] IList<int> bailsIds)
+        {
+            if (bailsIds == null || bailsIds.Count == 0) return null;
+            var ret = await _bailDbService.GetBails(bailsIds);
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
         [Route("orphans/{BId}")]
         [CacheFilter(TimeDuration = 200)]
         public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int BId)

@@ -166,5 +166,20 @@ namespace OrphanageV3.Views.Caregiver
             fathersView.MdiParent = this.MdiParent;
             fathersView.Show();
         }
+
+        private async void btnSetColor_Click(object sender, EventArgs e)
+        {
+            var dialogResult = radColorDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                var selectedIds = orphanageGridView1.SelectedIds;
+                if (selectedIds == null || selectedIds.Count == 0)
+                    return;
+                foreach (var id in selectedIds)
+                {
+                    _radGridHelper.UpdateRowColor("ColorMark", await _caregiversViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
+                }
+            }
+        }
     }
 }

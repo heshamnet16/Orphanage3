@@ -19,6 +19,7 @@ namespace OrphanageV3.ViewModel.Orphan
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
         private readonly Bail.BailsViewModel _bailsViewModel;
+        private readonly IExceptionHandler _exceptionHandler;
 
         public IEnumerable<Bail.BailModel> Bails { get; set; }
 
@@ -34,13 +35,14 @@ namespace OrphanageV3.ViewModel.Orphan
         private int PhotoCompressRatio = 40;
 
         public OrphansViewModel(IApiClient apiClient, IMapperService mapperService, ITranslateService translateService, IDataFormatterService dataFormatterService,
-            Bail.BailsViewModel bailsViewModel)
+            Bail.BailsViewModel bailsViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
             _bailsViewModel = bailsViewModel;
+            _exceptionHandler = exceptionHandler;
             _bailsViewModel.DataLoaded += bailsLoaded;
             _bailsViewModel.LoadBailsByIsFamily(false);
         }
@@ -128,51 +130,86 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> DeleteOrphan(int Oid)
         {
-            await _apiClient.OrphansController_DeleteAsync(Oid);
-            return true;
+            try
+            {
+                await _apiClient.OrphansController_DeleteAsync(Oid);
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<bool> DeleteOrphan(List<int> orphanIds)
         {
-            foreach (var orphanId in orphanIds)
+            try
             {
-                await DeleteOrphan(orphanId);
+                foreach (var orphanId in orphanIds)
+                {
+                    await DeleteOrphan(orphanId);
+                }
+                return true;
             }
-            return true;
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<bool> ExcludeOrphan(int Oid)
         {
-            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
-            var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
-            await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, true);
-            orphanModel.IsExcluded = true;
-            orphan.IsExcluded = true;
-            return true;
+            try
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
+                await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, true);
+                orphanModel.IsExcluded = true;
+                orphan.IsExcluded = true;
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<bool> UnExcludeOrphan(int Oid)
         {
-            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
-            var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
-            await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, false);
-            orphan.IsExcluded = false;
-            orphanModel.IsExcluded = false;
-            return true;
+            try
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
+                await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, false);
+                orphan.IsExcluded = false;
+                orphanModel.IsExcluded = false;
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<long?> SetColor(int Oid, long? colorValue)
         {
             long? returnedColor = null;
-
-            var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
-            returnedColor = orphan.ColorMark;
-            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                orphan.ColorMark = colorValue;
-            else
-                orphan.ColorMark = -1;
-            await _apiClient.OrphansController_SetOrphanColorAsync(orphan.Id, (int)orphan.ColorMark.Value);
-            return orphan.ColorMark;
+            try
+            {
+                var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
+                returnedColor = orphan.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    orphan.ColorMark = colorValue;
+                else
+                    orphan.ColorMark = -1;
+                await _apiClient.OrphansController_SetOrphanColorAsync(orphan.Id, (int)orphan.ColorMark.Value);
+                return orphan.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
+                return returnedColor;
+            }
         }
 
         public async Task<string> GetOrphanSummary(int Oid)
@@ -425,24 +462,36 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             if (bailId <= 0) return;
             if (orphansIds == null || orphansIds.Count() == 0) return;
-
-            var ret = await _apiClient.OrphansController_SetBailAsync(bailId, orphansIds);
-            if (ret)
+            try
             {
-                foreach (int orphanId in orphansIds)
-                    UpdateOrphan(orphanId);
+                var ret = await _apiClient.OrphansController_SetBailAsync(bailId, orphansIds);
+                if (ret)
+                {
+                    foreach (int orphanId in orphansIds)
+                        UpdateOrphan(orphanId);
+                }
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
             }
         }
 
         public async void UnBailOrphans(IEnumerable<int> orphansIds)
         {
             if (orphansIds == null || orphansIds.Count() == 0) return;
-
-            var ret = await _apiClient.OrphansController_SetBailAsync(-1, orphansIds);
-            if (ret)
+            try
             {
-                foreach (int orphanId in orphansIds)
-                    UpdateOrphan(orphanId);
+                var ret = await _apiClient.OrphansController_SetBailAsync(-1, orphansIds);
+                if (ret)
+                {
+                    foreach (int orphanId in orphansIds)
+                        UpdateOrphan(orphanId);
+                }
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
             }
         }
     }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,22 +20,38 @@ namespace OrphanageV3.ViewModel.Bail
         private readonly IMapperService _mapperService;
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
+        private readonly IExceptionHandler _exceptionHandler;
 
         public event EventHandler DataLoaded;
 
         public BailsViewModel(IApiClient apiClient, IMapperService mapperService,
-            ITranslateService translateService, IDataFormatterService dataFormatterService)
+            ITranslateService translateService, IDataFormatterService dataFormatterService, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async void LoadBails()
         {
             var bailsCount = await _apiClient.BailsController_GetBailsCountAsync();
             var ReturnedBails = await _apiClient.BailsController_GetAllAsync(bailsCount, 0);
+
+            _SourceBails = ReturnedBails;
+
+            Bails = new ObservableCollection<BailModel>(_mapperService.MapToBailModel(_SourceBails));
+
+            UpdateFamiliesCount();
+            UpdateOrphansCount();
+
+            DataLoaded?.Invoke(this, new EventArgs());
+        }
+
+        public async void LoadBails(IEnumerable<int> bailsIds)
+        {
+            var ReturnedBails = await _apiClient.BailsController_GetByIdsAsync(bailsIds);
 
             _SourceBails = ReturnedBails;
 
@@ -106,8 +123,15 @@ namespace OrphanageV3.ViewModel.Bail
             var bail = _SourceBails.FirstOrDefault(c => c.Id == bailId);
             if (bail == null)
                 return false;
-            await _apiClient.BailsController_DeleteAsync(bailId, ForceDelete);
-            return true;
+            try
+            {
+                await _apiClient.BailsController_DeleteAsync(bailId, ForceDelete);
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<IEnumerable<int>> OrphansIds(int bailId)

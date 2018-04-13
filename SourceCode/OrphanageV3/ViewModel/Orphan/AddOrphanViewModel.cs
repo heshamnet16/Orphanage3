@@ -20,6 +20,7 @@ namespace OrphanageV3.ViewModel.Orphan
         private CaregiverEditViewModel _caregiverEditViewModel;
         private readonly IMapperService _mapper;
         private readonly OrphanViewModel _orphanViewModel;
+        private readonly IExceptionHandler _exceptionHandler;
         private IEnumerable<OrphanageDataModel.RegularData.Family> _sourceFamilies;
         private IEnumerable<OrphanageDataModel.Persons.Caregiver> _sourceCaregivers;
 
@@ -30,12 +31,14 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public event EventHandler FamiliesSelectionListLoad;
 
-        public AddOrphanViewModel(IApiClient apiClient, CaregiverEditViewModel caregiverEditViewModel, IMapperService mapper, OrphanViewModel orphanViewModel)
+        public AddOrphanViewModel(IApiClient apiClient, CaregiverEditViewModel caregiverEditViewModel, IMapperService mapper,
+            OrphanViewModel orphanViewModel, IExceptionHandler exceptionHandler)
         {
-            this._apiClient = apiClient;
+            _apiClient = apiClient;
             _caregiverEditViewModel = caregiverEditViewModel;
-            this._mapper = mapper;
-            this._orphanViewModel = orphanViewModel;
+            _mapper = mapper;
+            _orphanViewModel = orphanViewModel;
+            _exceptionHandler = exceptionHandler;
         }
 
         /// <summary>

@@ -10,6 +10,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int pageSize, int pageNum);
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(IEnumerable<int> guarantorsIds);
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Gid);
 
         Task<IEnumerable<int>> GetOrphansIds(int Gid);

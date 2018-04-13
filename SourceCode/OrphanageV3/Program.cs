@@ -52,17 +52,41 @@ namespace OrphanageV3
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Main.MainView());
             }
-            catch (ApiClientException)
-            {
-                //Nothing Changed
-                //if (apiEx.StatusCode == "304")
-                //if (apiException.StatusCode != "404")
-                //{
-                //    //TODO show error message
-                //}
-            }
             catch (Exception ex)
             {
+                HandleApiExceptions(ex);
+            }
+        }
+
+        private static void HandleApiExceptions(Exception exception)
+        {
+            if (exception is ApiClientException)
+            {
+                var apiEx = (ApiClientException)exception;
+                if (apiEx.StatusCode == "304")
+                {
+                }
+                else
+                {
+                    MessageBox.Show(GetErrorMessage(apiEx), "Orphanage3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if (exception.InnerException != null)
+                    HandleApiExceptions(exception.InnerException);
+            }
+        }
+
+        private static string GetErrorMessage(Exception ex)
+        {
+            if (ex.InnerException != null)
+            {
+                return ex.Message + Environment.NewLine + GetErrorMessage(ex.InnerException);
+            }
+            else
+            {
+                return ex.Message;
             }
         }
 
@@ -76,6 +100,7 @@ namespace OrphanageV3
             currentContainer.RegisterSingleton<IDataFormatterService, DataFormatterService>();
             currentContainer.RegisterSingleton<IAutoCompleteService, AutoCompleteService>();
             currentContainer.RegisterType<IEntityValidator, EntityValidator>();
+            currentContainer.RegisterType<IExceptionHandler, ExceptionHandler>();
             currentContainer.RegisterType<OrphansViewModel>();
             currentContainer.RegisterType<CaregiversViewModel>();
             currentContainer.RegisterType<MothersViewModel>();

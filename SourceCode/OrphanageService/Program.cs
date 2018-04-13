@@ -33,8 +33,10 @@ namespace OrphanageService
 
                 //uncommit to debug the service
                 //string baseUrl = Properties.Settings.Default.BaseURI;
-                //_webapp = WebApp.Start<Startup>(baseUrl);
+                //WebApp.Start<Startup>(baseUrl);
+                //Console.ForegroundColor = ConsoleColor.Green;
                 //Console.WriteLine("Orphan Service is started on port 1515");
+                //Console.ForegroundColor = ConsoleColor.White;
                 //Console.ReadLine();
             }
             catch (Exception exc)

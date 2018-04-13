@@ -23,6 +23,7 @@ namespace OrphanageV3.ViewModel.Family
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
         private readonly Bail.BailsViewModel _bailsViewModel;
+        private readonly IExceptionHandler _exceptionHandler;
 
         public event EventHandler DataLoaded;
 
@@ -31,13 +32,14 @@ namespace OrphanageV3.ViewModel.Family
         public object LockObject = new object();
 
         public FamiliesViewModel(IApiClient apiClient, IMapperService mapperService,
-            ITranslateService translateService, IDataFormatterService dataFormatterService, Bail.BailsViewModel bailsViewModel)
+            ITranslateService translateService, IDataFormatterService dataFormatterService, Bail.BailsViewModel bailsViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
             _bailsViewModel = bailsViewModel;
+            _exceptionHandler = exceptionHandler;
             _bailsViewModel.DataLoaded += bailsLoaded;
         }
 
@@ -138,15 +140,22 @@ namespace OrphanageV3.ViewModel.Family
         public async Task<long?> SetColor(int familyId, long? colorValue)
         {
             long? returnedColor = null;
-
-            var family = _SourceFamilies.FirstOrDefault(c => c.Id == familyId);
-            returnedColor = family.ColorMark;
-            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                family.ColorMark = colorValue;
-            else
-                family.ColorMark = -1;
-            await _apiClient.FamiliesController_SetFamilyColorAsync(family.Id, (int)family.ColorMark.Value);
-            return family.ColorMark;
+            try
+            {
+                var family = _SourceFamilies.FirstOrDefault(c => c.Id == familyId);
+                returnedColor = family.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    family.ColorMark = colorValue;
+                else
+                    family.ColorMark = -1;
+                await _apiClient.FamiliesController_SetFamilyColorAsync(family.Id, (int)family.ColorMark.Value);
+                return family.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
+                return returnedColor;
+            }
         }
 
         public IList<int> OrphansIds(int familyId)
@@ -230,10 +239,17 @@ namespace OrphanageV3.ViewModel.Family
             if (familiesIds == null) return;
             foreach (var famId in familiesIds)
             {
-                var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
-                var family = Families.FirstOrDefault(o => o.Id == famId);
-                sourceFamily.IsExcluded = family.IsExcluded = true;
-                await _apiClient.FamiliesController_SetFamilyExcludeAsync(sourceFamily.Id, true);
+                try
+                {
+                    var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
+                    var family = Families.FirstOrDefault(o => o.Id == famId);
+                    sourceFamily.IsExcluded = family.IsExcluded = true;
+                    await _apiClient.FamiliesController_SetFamilyExcludeAsync(sourceFamily.Id, true);
+                }
+                catch (ApiClientException apiEx)
+                {
+                    _exceptionHandler.HandleApiSaveException(apiEx);
+                }
             }
         }
 
@@ -242,10 +258,17 @@ namespace OrphanageV3.ViewModel.Family
             if (familiesIds == null) return;
             foreach (var famId in familiesIds)
             {
-                var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
-                var family = Families.FirstOrDefault(o => o.Id == famId);
-                sourceFamily.IsExcluded = family.IsExcluded = false;
-                await _apiClient.FamiliesController_SetFamilyExcludeAsync(sourceFamily.Id, false);
+                try
+                {
+                    var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
+                    var family = Families.FirstOrDefault(o => o.Id == famId);
+                    sourceFamily.IsExcluded = family.IsExcluded = false;
+                    await _apiClient.FamiliesController_SetFamilyExcludeAsync(sourceFamily.Id, false);
+                }
+                catch (ApiClientException apiEx)
+                {
+                    _exceptionHandler.HandleApiSaveException(apiEx);
+                }
             }
         }
 
@@ -254,11 +277,18 @@ namespace OrphanageV3.ViewModel.Family
             if (familiesIds == null) return;
             foreach (var famId in familiesIds)
             {
-                var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
-                var family = Families.FirstOrDefault(o => o.Id == famId);
-                await _apiClient.FamiliesController_DeleteAsync(famId);
-                _SourceFamilies.Remove(sourceFamily);
-                Families.Remove(family);
+                try
+                {
+                    var sourceFamily = _SourceFamilies.FirstOrDefault(o => o.Id == famId);
+                    var family = Families.FirstOrDefault(o => o.Id == famId);
+                    await _apiClient.FamiliesController_DeleteAsync(famId);
+                    _SourceFamilies.Remove(sourceFamily);
+                    Families.Remove(family);
+                }
+                catch (ApiClientException apiEx)
+                {
+                    _exceptionHandler.HandleApiSaveException(apiEx);
+                }
             }
         }
 
@@ -266,24 +296,36 @@ namespace OrphanageV3.ViewModel.Family
         {
             if (bailId <= 0) return;
             if (fmailiesIds == null || fmailiesIds.Count() == 0) return;
-
-            var ret = await _apiClient.FamiliesController_SetBailAsync(bailId, fmailiesIds);
-            if (ret)
+            try
             {
-                foreach (int familyId in fmailiesIds)
-                    Update(familyId);
+                var ret = await _apiClient.FamiliesController_SetBailAsync(bailId, fmailiesIds);
+                if (ret)
+                {
+                    foreach (int familyId in fmailiesIds)
+                        Update(familyId);
+                }
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
             }
         }
 
         public async void UnBailFamilies(IEnumerable<int> orphansIds)
         {
             if (orphansIds == null || orphansIds.Count() == 0) return;
-
-            var ret = await _apiClient.FamiliesController_SetBailAsync(-1, orphansIds);
-            if (ret)
+            try
             {
-                foreach (int familyId in orphansIds)
-                    Update(familyId);
+                var ret = await _apiClient.FamiliesController_SetBailAsync(-1, orphansIds);
+                if (ret)
+                {
+                    foreach (int familyId in orphansIds)
+                        Update(familyId);
+                }
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
             }
         }
     }

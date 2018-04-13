@@ -1,7 +1,9 @@
-﻿using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
+using OrphanageService.Utilities;
 using OrphanageService.Utilities.Interfaces;
 using OrphanageV3.Extensions;
 using System;
@@ -77,8 +79,8 @@ namespace OrphanageService.Services
                             var retguarantors = GetGuarantorByAddress(guarantor.Address, orphanageDBC).FirstOrDefault();
                             if (retguarantors != null)
                             {
-                                _logger.Error($"guarantor with id({retguarantors.Id}) has the same address, DuplicatedObjectException will be thrown");
-                                throw new DuplicatedObjectException(guarantor.GetType(), retguarantors.GetType(), retguarantors.Id);
+                                _logger.Warning($"guarantor with id({retguarantors.Id}) has the same address, no DuplicatedObjectException will be thrown");
+                                //    throw new DuplicatedObjectException(guarantor.GetType(), retguarantors.GetType(), retguarantors.Id);
                             }
                             else
                             {
@@ -94,6 +96,17 @@ namespace OrphanageService.Services
                         return null;
                     }
                     guarantor.NameId = nameId;
+                    if (guarantor.Address != null)
+                    {
+                        var addressId = await _regularDataService.AddAddress(guarantor.Address, orphanageDBC);
+                        if (addressId == -1)
+                        {
+                            Dbt.Rollback();
+                            _logger.Warning($"Address object has not been added, nothing will be added, null will be returned");
+                            return null;
+                        }
+                        guarantor.AddressId = addressId;
+                    }
                     if (guarantor.Orphans != null || guarantor.Orphans.Count > 0) guarantor.Orphans = null;
                     if (guarantor.Account != null) guarantor.Account = null;
                     orphanageDBC.Guarantors.Add(guarantor);
@@ -367,12 +380,15 @@ namespace OrphanageService.Services
                     .Include(c => c.Name)
                     .Include(g => g.Account)
                     .FirstOrDefaultAsync(c => c.Id == Gid);
+
                 if (guarantor == null)
                 {
                     _logger.Warning($"Guarantor with id{Gid} cannot be found null is returned");
                     return null;
                 }
                 _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantor);
+                if (guarantor.Address != null)
+                    guarantor.Address = guarantor.Address.Clean();
                 _logger.Information($"returned Guarantor with id {Gid}");
                 return guarantor;
             }
@@ -389,13 +405,20 @@ namespace OrphanageService.Services
 
             var guarantors = orphanageDbCNo.Guarantors
             .Include(m => m.Address)
+            .Where(m => m.AddressId.HasValue)
             .ToArray();
 
-            var Foundedguarantors = guarantors.Where(n => n.Address.Equals(addressObject));
+            if (guarantors == null || guarantors.Count() == 0)
+                yield return null;
+            var Foundedguarantors = guarantors.Where(n => n.Address.Equals(addressObject)).ToList();
+
+            if (Foundedguarantors == null || Foundedguarantors.Count() == 0) yield return null;
 
             foreach (var guarantor in Foundedguarantors)
             {
                 _logger.Information($"guarantor with id({guarantor.Id}) has the same address");
+                if (guarantor.Address != null)
+                    guarantor.Address = guarantor.Address.Clean();
                 yield return guarantor;
             }
         }
@@ -414,9 +437,9 @@ namespace OrphanageService.Services
             .ToArray();
 
             var Foundedguarantors = guarantors.Where(n =>
-            n.Name.Equals(nameObject));
+            n.Name.Equals(nameObject)).ToList();
 
-            if (Foundedguarantors == null) yield return null;
+            if (Foundedguarantors == null || Foundedguarantors.Count() == 0) yield return null;
 
             foreach (var guarantor in Foundedguarantors)
             {
@@ -428,7 +451,7 @@ namespace OrphanageService.Services
         public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(int pageSize, int pageNum)
         {
             _logger.Information($"Trying to get Guarantors with pageSize {pageSize} and pageNumber {pageNum}");
-            IList<OrphanageDataModel.Persons.Guarantor> guarantorsList = new List<OrphanageDataModel.Persons.Guarantor>();
+
             using (var _orphanageDBC = new OrphanageDbCNoBinary())
             {
                 int totalSkiped = pageSize * pageNum;
@@ -452,21 +475,49 @@ namespace OrphanageService.Services
                     .Include(g => g.Account)
                     .ToListAsync();
 
-                if (guarantors != null && guarantors.Count > 0)
+                return prepareGuarantorsList(guarantors);
+            }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Guarantor>> GetGuarantors(IEnumerable<int> guarantorsIds)
+        {
+            _logger.Information($"trying to get Guarantors with the given Id list");
+            if (guarantorsIds == null || guarantorsIds.Count() == 0)
+            {
+                _logger.Information($"the given Id list is null or empty, null will be returned");
+                return null;
+            }
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var guarantors = await _orphanageDBC.Guarantors.AsNoTracking()
+                    .Where(f => guarantorsIds.Contains(f.Id))
+                    .Include(g => g.Address)
+                    .Include(c => c.Name)
+                    .Include(g => g.Account)
+                    .ToListAsync();
+
+                return prepareGuarantorsList(guarantors);
+            }
+        }
+
+        private IEnumerable<OrphanageDataModel.Persons.Guarantor> prepareGuarantorsList(IEnumerable<OrphanageDataModel.Persons.Guarantor> guarantorsList)
+        {
+            IList<OrphanageDataModel.Persons.Guarantor> returnedGuarantorsList = new List<OrphanageDataModel.Persons.Guarantor>();
+            if (guarantorsList != null && guarantorsList.Count() > 0)
+            {
+                foreach (var guarantor in guarantorsList)
                 {
-                    foreach (var guarantor in guarantors)
-                    {
-                        OrphanageDataModel.Persons.Guarantor guarantorToFill = guarantor;
-                        _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantorToFill);
-                        guarantorsList.Add(guarantorToFill);
-                    }
-                }
-                else
-                {
-                    _logger.Warning($"the returned guarantors are null, empty list will be returned");
+                    OrphanageDataModel.Persons.Guarantor guarantorToFill = guarantor;
+                    _selfLoopBlocking.BlockGuarantorSelfLoop(ref guarantorToFill);
+                    returnedGuarantorsList.Add(guarantorToFill);
                 }
             }
-            return guarantorsList;
+            else
+            {
+                _logger.Warning($"the returned guarantors are null, empty list will be returned");
+            }
+            _logger.Information($"{returnedGuarantorsList.Count} records of guarantors will be returned");
+            return returnedGuarantorsList;
         }
 
         public async Task<int> GetGuarantorsCount()

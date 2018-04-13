@@ -1,4 +1,5 @@
 ﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.ValidationAttributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,6 +32,7 @@ namespace OrphanageDataModel.FinancialData
         public string CurrencyShortcut { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [AccountAlwaysPositiv]
         [Column("AMount")]
         public decimal Amount { get; set; }
 

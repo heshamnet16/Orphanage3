@@ -24,7 +24,6 @@ namespace OrphanageV3.Views.Father
 
             _fatherEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-            _fatherEditViewModel.ImagesSize = picPhoto.Size;
             LoadFather(FatherID);
         }
 

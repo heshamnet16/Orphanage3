@@ -18,16 +18,18 @@ namespace OrphanageV3.ViewModel.Caregiver
         private readonly IMapperService _mapperService;
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
+        private readonly IExceptionHandler _exceptionHandler;
 
         public event EventHandler DataLoaded;
 
         public CaregiversViewModel(IApiClient apiClient, IMapperService mapperService,
-            ITranslateService translateService, IDataFormatterService dataFormatterService)
+            ITranslateService translateService, IDataFormatterService dataFormatterService, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async void LoadCaregivers()
@@ -58,39 +60,53 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async Task<bool> Delete(int caregiverId, bool ForceDelete)
         {
-            var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
-            if (caregiver == null)
-                return false;
-            if (caregiver.Orphans != null && caregiver.Orphans.Count > 0)
+            try
             {
-                if (ForceDelete)
-                {
-                    var orphans = await _apiClient.CaregiversController_GetFamilyOrphansAsync(caregiverId);
-                    foreach (var orphan in orphans)
-                        await _apiClient.OrphansController_DeleteAsync(orphan.Id);
-                }
-                else
-                {
-                    // the caregiver has orphans
+                var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
+                if (caregiver == null)
                     return false;
+                if (caregiver.Orphans != null && caregiver.Orphans.Count > 0)
+                {
+                    if (ForceDelete)
+                    {
+                        var orphans = await _apiClient.CaregiversController_GetFamilyOrphansAsync(caregiverId);
+                        foreach (var orphan in orphans)
+                            await _apiClient.OrphansController_DeleteAsync(orphan.Id);
+                    }
+                    else
+                    {
+                        // the caregiver has orphans
+                        return false;
+                    }
                 }
+                await _apiClient.CaregiversController_DeleteAsync(caregiverId);
+                return true;
             }
-            await _apiClient.CaregiversController_DeleteAsync(caregiverId);
-            return true;
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<long?> SetColor(int caregiverId, long? colorValue)
         {
             long? returnedColor = null;
-
-            var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
-            returnedColor = caregiver.ColorMark;
-            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                caregiver.ColorMark = colorValue;
-            else
-                caregiver.ColorMark = -1;
-            await _apiClient.CaregiversController_SetCaregiverColorAsync(caregiver.Id, (int)caregiver.ColorMark.Value);
-            return caregiver.ColorMark;
+            try
+            {
+                var caregiver = _SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId);
+                returnedColor = caregiver.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    caregiver.ColorMark = colorValue;
+                else
+                    caregiver.ColorMark = -1;
+                await _apiClient.CaregiversController_SetCaregiverColorAsync(caregiver.Id, (int)caregiver.ColorMark.Value);
+                return caregiver.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
+                return returnedColor;
+            }
         }
 
         public IList<int> OrphansIds(int caregiverId)

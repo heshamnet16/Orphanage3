@@ -407,7 +407,7 @@ namespace OrphanageService.Services
 
                 if (img?.FamilyCardImagePage1Data == null)
                 {
-                    _logger.Information($"family with id({FamId}) family card photo page1");
+                    _logger.Information($"family({FamId}) family card photo page1 is null");
                     return null;
                 }
                 else

@@ -297,11 +297,30 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die الكفالات ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die كفالات ähnelt.
         /// </summary>
         public static string Bails {
             get {
                 return ResourceManager.GetString("Bails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عدد الكفالات ähnelt.
+        /// </summary>
+        public static string BailsCount {
+            get {
+                return ResourceManager.GetString("BailsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap BailsPic {
+            get {
+                object obj = ResourceManager.GetObject("BailsPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -547,6 +566,15 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("ChildrenPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اختر حساب ähnelt.
+        /// </summary>
+        public static string ChooseAccount {
+            get {
+                return ResourceManager.GetString("ChooseAccount", resourceCulture);
             }
         }
         
@@ -1059,6 +1087,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الرجاء التحقق من العنوان ähnelt.
+        /// </summary>
+        public static string ErrorMessageCheckAddress {
+            get {
+                return ResourceManager.GetString("ErrorMessageCheckAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الرجاء التحقق من الاسم ähnelt.
+        /// </summary>
+        public static string ErrorMessageCheckName {
+            get {
+                return ResourceManager.GetString("ErrorMessageCheckName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die استبعاد ähnelt.
         /// </summary>
         public static string Exclude {
@@ -1537,6 +1583,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كفيل ähnelt.
+        /// </summary>
+        public static string Guarantor {
+            get {
+                return ResourceManager.GetString("Guarantor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die رقم الكفيل ähnelt.
         /// </summary>
         public static string GuarantorID {
@@ -1551,6 +1606,15 @@ namespace OrphanageV3.Properties {
         public static string GuarantorName {
             get {
                 return ResourceManager.GetString("GuarantorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الكفلاء ähnelt.
+        /// </summary>
+        public static string Guarantors {
+            get {
+                return ResourceManager.GetString("Guarantors", resourceCulture);
             }
         }
         

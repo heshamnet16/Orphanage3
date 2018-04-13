@@ -146,12 +146,17 @@
     <Compile Include="Services\ApiClientPhotos.cs" />
     <Compile Include="Services\AutoCompleteService.cs" />
     <Compile Include="Services\DataFormatterService.cs" />
+    <Compile Include="Services\ExceptionHandler.cs" />
     <Compile Include="Services\Interfaces\IAutoCompleteService.cs" />
     <Compile Include="Services\Interfaces\IDataFormatterService.cs" />
+    <Compile Include="Services\Interfaces\IExceptionHandler.cs" />
     <Compile Include="Services\Interfaces\IMapperService.cs" />
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
     <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\TranslateService.cs" />
+    <Compile Include="ViewModel\Account\AccountEditViewModel.cs" />
+    <Compile Include="ViewModel\Account\AccountModel.cs" />
+    <Compile Include="ViewModel\Account\AccountsViewModel.cs" />
     <Compile Include="ViewModel\Bail\BailEditViewModel.cs" />
     <Compile Include="ViewModel\Bail\BailModel.cs" />
     <Compile Include="ViewModel\Bail\BailsViewModel.cs" />
@@ -164,7 +169,7 @@
     <Compile Include="ViewModel\Father\FatherEditViewModel.cs" />
     <Compile Include="ViewModel\Father\FatherModel.cs" />
     <Compile Include="ViewModel\Father\FathersViewModel.cs" />
-    <Compile Include="ViewModel\Guarantor\GuarantorEditViewModle.cs" />
+    <Compile Include="ViewModel\Guarantor\GuarantorEditViewModel.cs" />
     <Compile Include="ViewModel\Guarantor\GuarantorModel.cs" />
     <Compile Include="ViewModel\Guarantor\GuarantorsViewModel.cs" />
     <Compile Include="ViewModel\Main\MainViewModel.cs" />
@@ -242,6 +247,18 @@
     </Compile>
     <Compile Include="Views\Father\FatherEditView.Designer.cs">
       <DependentUpon>FatherEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Guarantor\GuarantorEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Guarantor\GuarantorEditView.Designer.cs">
+      <DependentUpon>GuarantorEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Guarantor\GuarantorsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Guarantor\GuarantorsView.Designer.cs">
+      <DependentUpon>GuarantorsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Helper\EntityValidator.cs" />
     <Compile Include="Views\Helper\Interfaces\IEntityValidator.cs" />
@@ -341,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Father\FatherEditView.resx">
       <DependentUpon>FatherEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Guarantor\GuarantorEditView.resx">
+      <DependentUpon>GuarantorEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Guarantor\GuarantorsView.resx">
+      <DependentUpon>GuarantorsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -468,6 +491,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UnBail_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bails.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

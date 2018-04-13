@@ -23,7 +23,6 @@ namespace OrphanageV3.Views.Caregiver
 
             _CaregiverEntityValidator = Program.Factory.Resolve<IEntityValidator>();
 
-            _caregiverEditViewModel.ImagesSize = picIDFront.Size;
             LoadCaregiver(CaregiverId);
         }
 
