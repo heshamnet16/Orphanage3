@@ -407,7 +407,7 @@ namespace OrphanageService.Services
                         }
                     }
                     orphanageDb.Bails.Remove(bail);
-                    if (await orphanageDb.SaveChangesAsync() > 1)
+                    if (await orphanageDb.SaveChangesAsync() > 0)
                     {
                         dbT.Commit();
                         _logger.Information($"the bail object with id {bailID} has been successfully removed");

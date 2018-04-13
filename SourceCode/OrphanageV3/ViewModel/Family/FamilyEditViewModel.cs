@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
 using System.Drawing;
 using System.Threading.Tasks;
 
@@ -7,20 +8,28 @@ namespace OrphanageV3.ViewModel.Family
     public class FamilyEditViewModel
     {
         private readonly IApiClient _apiClient;
-
+        private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.RegularData.Family _CurrentFamily = null;
 
-        public FamilyEditViewModel(IApiClient apiClient)
+        public FamilyEditViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async Task<bool> Save(OrphanageDataModel.RegularData.Family family)
         {
-            family.FamilyCardImagePage1Data = null;
-            family.FamilyCardImagePage2Data = null;
-            await _apiClient.FamiliesController_PutAsync(family);
-            return true;
+            try
+            {
+                family.FamilyCardImagePage1Data = null;
+                family.FamilyCardImagePage2Data = null;
+                await _apiClient.FamiliesController_PutAsync(family);
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<OrphanageDataModel.RegularData.Family> getFamily(int Cid)
@@ -36,8 +45,15 @@ namespace OrphanageV3.ViewModel.Family
 
         public async Task<bool> SaveImage(string url, Image image)
         {
-            var ret = await _apiClient.SetImage(url, image);
-            return ret;
+            try
+            {
+                var ret = await _apiClient.SetImage(url, image);
+                return ret;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<bool> Save()
@@ -57,10 +73,7 @@ namespace OrphanageV3.ViewModel.Family
                 }
                 catch (ApiClientException apiEx)
                 {
-                    //Created
-                    if (apiEx.StatusCode == "201")
-                        return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.RegularData.Family>(apiEx.Response) ?? null;
-                    return null;
+                    return _exceptionHandler.HandleApiPostFunctions(getFamily, apiEx);
                 }
             }
             return null;

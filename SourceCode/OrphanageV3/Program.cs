@@ -100,6 +100,7 @@ namespace OrphanageV3
             currentContainer.RegisterSingleton<IDataFormatterService, DataFormatterService>();
             currentContainer.RegisterSingleton<IAutoCompleteService, AutoCompleteService>();
             currentContainer.RegisterType<IEntityValidator, EntityValidator>();
+            currentContainer.RegisterType<IExceptionHandler, ExceptionHandler>();
             currentContainer.RegisterType<OrphansViewModel>();
             currentContainer.RegisterType<CaregiversViewModel>();
             currentContainer.RegisterType<MothersViewModel>();

@@ -405,8 +405,11 @@ namespace OrphanageService.Services
 
             var guarantors = orphanageDbCNo.Guarantors
             .Include(m => m.Address)
+            .Where(m => m.AddressId.HasValue)
             .ToArray();
 
+            if (guarantors == null || guarantors.Count() == 0)
+                yield return null;
             var Foundedguarantors = guarantors.Where(n => n.Address.Equals(addressObject)).ToList();
 
             if (Foundedguarantors == null || Foundedguarantors.Count() == 0) yield return null;

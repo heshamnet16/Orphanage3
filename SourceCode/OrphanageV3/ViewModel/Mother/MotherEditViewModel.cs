@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
 using System.Drawing;
 using System.Threading.Tasks;
 
@@ -7,20 +8,28 @@ namespace OrphanageV3.ViewModel.Mother
     public class MotherEditViewModel
     {
         private readonly IApiClient _apiClient;
-
+        private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.Persons.Mother _CurrentMother = null;
 
-        public MotherEditViewModel(IApiClient apiClient)
+        public MotherEditViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Mother mother)
         {
-            mother.IdentityCardPhotoBackData = null;
-            mother.IdentityCardPhotoFaceData = null;
-            await _apiClient.MothersController_PutAsync(mother);
-            return true;
+            try
+            {
+                mother.IdentityCardPhotoBackData = null;
+                mother.IdentityCardPhotoFaceData = null;
+                await _apiClient.MothersController_PutAsync(mother);
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<OrphanageDataModel.Persons.Mother> getMother(int Cid)
@@ -36,8 +45,15 @@ namespace OrphanageV3.ViewModel.Mother
 
         public async Task<bool> SaveImage(string url, Image image)
         {
-            var ret = await _apiClient.SetImage(url, image);
-            return ret;
+            try
+            {
+                var ret = await _apiClient.SetImage(url, image);
+                return ret;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<bool> Save()

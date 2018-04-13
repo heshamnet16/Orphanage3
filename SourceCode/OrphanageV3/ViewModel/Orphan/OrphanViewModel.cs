@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
 using System.Drawing;
 using System.Threading.Tasks;
 using Unity;
@@ -10,32 +11,42 @@ namespace OrphanageV3.ViewModel.Orphan
         private OrphansViewModel _orphansViewModel = Program.Factory.Resolve<OrphansViewModel>();
 
         private readonly IApiClient _apiClient;
+        private readonly IExceptionHandler _exceptionHandler;
+
         //private Size _ImageSize = new Size(153, 126);
 
         public OrphanageDataModel.Persons.Orphan CurrentOrphan { get; private set; }
 
         //public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
-        public OrphanViewModel(IApiClient apiClient)
+        public OrphanViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Orphan orphan)
         {
-            orphan.BirthCertificatePhotoData = null;
-            orphan.FacePhotoData = null;
-            orphan.FamilyCardPagePhotoData = null;
-            orphan.FullPhotoData = null;
-            if (orphan.Education != null)
+            try
             {
-                orphan.Education.CertificatePhotoBack = null;
-                orphan.Education.CertificatePhotoFront = null;
+                orphan.BirthCertificatePhotoData = null;
+                orphan.FacePhotoData = null;
+                orphan.FamilyCardPagePhotoData = null;
+                orphan.FullPhotoData = null;
+                if (orphan.Education != null)
+                {
+                    orphan.Education.CertificatePhotoBack = null;
+                    orphan.Education.CertificatePhotoFront = null;
+                }
+                if (orphan.HealthStatus != null)
+                    orphan.HealthStatus.ReporteFileData = null;
+                await _apiClient.OrphansController_PutAsync(orphan);
+                return true;
             }
-            if (orphan.HealthStatus != null)
-                orphan.HealthStatus.ReporteFileData = null;
-            await _apiClient.OrphansController_PutAsync(orphan);
-            return true;
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<OrphanageDataModel.Persons.Orphan> Add(OrphanageDataModel.Persons.Orphan orphan)
@@ -58,10 +69,7 @@ namespace OrphanageV3.ViewModel.Orphan
             }
             catch (ApiClientException apiEx)
             {
-                //Created
-                if (apiEx.StatusCode == "201")
-                    return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Orphan>(apiEx.Response) ?? null;
-                return null;
+                return _exceptionHandler.HandleApiPostFunctions(getOrphan, apiEx);
             }
             return null;
         }
@@ -125,8 +133,15 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<bool> SaveImage(string url, Image image)
         {
-            var ret = await _apiClient.SetImage(url, image);
-            return ret;
+            try
+            {
+                var ret = await _apiClient.SetImage(url, image);
+                return ret;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<bool> Save()

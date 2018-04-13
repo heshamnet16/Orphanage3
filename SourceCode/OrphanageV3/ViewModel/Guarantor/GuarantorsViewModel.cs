@@ -20,16 +20,18 @@ namespace OrphanageV3.ViewModel.Guarantor
         private readonly IMapperService _mapperService;
         private readonly ITranslateService _translateService;
         private readonly IDataFormatterService _dataFormatterService;
+        private readonly IExceptionHandler _exceptionHandler;
 
         public event EventHandler DataLoaded;
 
         public GuarantorsViewModel(IApiClient apiClient, IMapperService mapperService,
-            ITranslateService translateService, IDataFormatterService dataFormatterService)
+            ITranslateService translateService, IDataFormatterService dataFormatterService, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _mapperService = mapperService;
             _translateService = translateService;
             _dataFormatterService = dataFormatterService;
+            _exceptionHandler = exceptionHandler;
         }
 
         public async void LoadGuarantors()
@@ -102,24 +104,38 @@ namespace OrphanageV3.ViewModel.Guarantor
         public async Task<long?> SetColor(int caregiverId, long? colorValue)
         {
             long? returnedColor = null;
-
-            var guarantor = _SourceGuarantor.FirstOrDefault(c => c.Id == caregiverId);
-            returnedColor = guarantor.ColorMark;
-            if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
-                guarantor.ColorMark = colorValue;
-            else
-                guarantor.ColorMark = -1;
-            await _apiClient.GuarantorsController_SetGuarantorColorAsync(guarantor.Id, (int)guarantor.ColorMark.Value);
-            return guarantor.ColorMark;
+            try
+            {
+                var guarantor = _SourceGuarantor.FirstOrDefault(c => c.Id == caregiverId);
+                returnedColor = guarantor.ColorMark;
+                if (colorValue != Color.White.ToArgb() && colorValue != Color.Black.ToArgb())
+                    guarantor.ColorMark = colorValue;
+                else
+                    guarantor.ColorMark = -1;
+                await _apiClient.GuarantorsController_SetGuarantorColorAsync(guarantor.Id, (int)guarantor.ColorMark.Value);
+                return guarantor.ColorMark;
+            }
+            catch (ApiClientException apiEx)
+            {
+                _exceptionHandler.HandleApiSaveException(apiEx);
+                return returnedColor;
+            }
         }
 
         public async Task<bool> Delete(int guarantorId, bool ForceDelete)
         {
-            var guarantor = _SourceGuarantor.FirstOrDefault(c => c.Id == guarantorId);
-            if (guarantor == null)
-                return false;
-            await _apiClient.GuarantorsController_DeleteAsync(guarantorId, ForceDelete);
-            return true;
+            try
+            {
+                var guarantor = _SourceGuarantor.FirstOrDefault(c => c.Id == guarantorId);
+                if (guarantor == null)
+                    return false;
+                await _apiClient.GuarantorsController_DeleteAsync(guarantorId, ForceDelete);
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<IEnumerable<int>> BailsIds(int guarantorId)

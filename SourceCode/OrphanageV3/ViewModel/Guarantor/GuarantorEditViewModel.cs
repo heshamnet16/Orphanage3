@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,18 @@ namespace OrphanageV3.ViewModel.Guarantor
     {
         private readonly IApiClient _apiClient;
         private readonly Account.AccountsViewModel _accountsViewModel;
+        private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.Persons.Guarantor _CurrentGuarantor = null;
 
         public IEnumerable<Account.AccountModel> Accounts = null;
 
         public event EventHandler AccountsLoaded;
 
-        public GuarantorEditViewModel(IApiClient apiClient, Account.AccountsViewModel accountsViewModel)
+        public GuarantorEditViewModel(IApiClient apiClient, Account.AccountsViewModel accountsViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _accountsViewModel = accountsViewModel;
+            _exceptionHandler = exceptionHandler;
             _accountsViewModel.DataLoaded += AccountsDataLoaded;
             _accountsViewModel.LoadAccounts();
         }
@@ -33,8 +36,15 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public async Task<bool> Save(OrphanageDataModel.Persons.Guarantor guarantor)
         {
-            await _apiClient.GuarantorsController_PutAsync(guarantor);
-            return true;
+            try
+            {
+                await _apiClient.GuarantorsController_PutAsync(guarantor);
+                return true;
+            }
+            catch (ApiClientException apiEx)
+            {
+                return _exceptionHandler.HandleApiSaveException(apiEx);
+            }
         }
 
         public async Task<OrphanageDataModel.Persons.Guarantor> getGuarantor(int Bid)
@@ -55,15 +65,12 @@ namespace OrphanageV3.ViewModel.Guarantor
             {
                 guarantor.UserId = Program.CurrentUser.Id;
                 var retBail = (OrphanageDataModel.Persons.Guarantor)await _apiClient.GuarantorsController_PostAsync(guarantor);
+                return retBail;
             }
             catch (ApiClientException apiEx)
             {
-                //Created
-                if (apiEx.StatusCode == "201")
-                    return Newtonsoft.Json.JsonConvert.DeserializeObject<OrphanageDataModel.Persons.Guarantor>(apiEx.Response) ?? null;
-                return null;
+                return _exceptionHandler.HandleApiPostFunctions(getGuarantor, apiEx);
             }
-            return null;
         }
 
         public OrphanageDataModel.FinancialData.Account GetSourceAccount(int AccountId) => _accountsViewModel.GetSourceAccount(AccountId);

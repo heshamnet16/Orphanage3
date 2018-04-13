@@ -146,8 +146,10 @@
     <Compile Include="Services\ApiClientPhotos.cs" />
     <Compile Include="Services\AutoCompleteService.cs" />
     <Compile Include="Services\DataFormatterService.cs" />
+    <Compile Include="Services\ExceptionHandler.cs" />
     <Compile Include="Services\Interfaces\IAutoCompleteService.cs" />
     <Compile Include="Services\Interfaces\IDataFormatterService.cs" />
+    <Compile Include="Services\Interfaces\IExceptionHandler.cs" />
     <Compile Include="Services\Interfaces\IMapperService.cs" />
     <Compile Include="Services\Interfaces\ITranslateService.cs" />
     <Compile Include="Services\MapperService.cs" />
