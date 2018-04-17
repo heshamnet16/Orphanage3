@@ -88,10 +88,10 @@ namespace OrphanageDataModel.Persons
         public string Note { get; set; }
 
         [NotMapped]
-        public Image PersonalPhoto { get => PhotoData != null ? Image.FromStream(new MemoryStream(this.PhotoData)) : null; }
+        public Image PersonalPhoto {  get {  return PhotoData != null ? Image.FromStream(new MemoryStream(this.PhotoData)) : null; } }
 
         [NotMapped]
-        public Image DeathCertificateImage { get => DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; }
+        public Image DeathCertificateImage { get { return DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; } }
 
         [NotMapped]
         public string PersonalPhotoURI { get; set; }

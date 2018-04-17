@@ -81,10 +81,10 @@ namespace OrphanageDataModel.Persons
         public string Note { get; set; }
 
         [NotMapped]
-        public Image IdentityCardImageFace { get => IdentityCardPhotoFaceData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoFaceData)) : null; }
+        public Image IdentityCardImageFace { get { return IdentityCardPhotoFaceData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoFaceData)) : null; } }
 
         [NotMapped]
-        public Image IdentityCardImageBack { get => IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; }
+        public Image IdentityCardImageBack { get { return IdentityCardPhotoBackData != null ? Image.FromStream(new MemoryStream(this.IdentityCardPhotoBackData)) : null; } }
 
         [NotMapped]
         public string IdentityCardImageFaceURI { get; set; }
