@@ -514,58 +514,69 @@ namespace OrphanageV3.Services
             var client_ = new System.Net.Http.HttpClient();
             try
             {
-                using (var memoryStream = new System.IO.MemoryStream())
+                byte[] imageToSend = null;
+                if (img != null)
                 {
-                    if (img != null)
-                        img.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                    using (var request_ = new System.Net.Http.HttpRequestMessage())
+                    using (var memoryStream = new System.IO.MemoryStream())
                     {
-                        System.Net.Http.HttpContent content = new System.Net.Http.ByteArrayContent(memoryStream.ToArray());
-
-                        content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
-
-                        var content_ = new System.Net.Http.MultipartFormDataContent();
-                        content_.Add(content);
-                        request_.Content = content_;
-                        request_.Method = new System.Net.Http.HttpMethod("PUT");
-                        request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
-
-                        PrepareRequest(client_, request_, urlBuilder_);
-                        var url_ = urlBuilder_.ToString();
-                        request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                        PrepareRequest(client_, request_, url_);
-
-                        var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
                         try
                         {
-                            var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                            foreach (var item_ in response_.Content.Headers)
-                                headers_[item_.Key] = item_.Value;
-
-                            ProcessResponse(client_, response_);
-
-                            var status_ = ((int)response_.StatusCode).ToString();
-                            if (status_ == "200")
-                            {
-                                return true;
-                            }
-                            else if (status_ == "304")
-                                return true;
-                            else
-                            {
-                                if (status_ != "200" && status_ != "204")
-                                {
-                                    return false;
-                                }
-                            }
-                            return false;
+                            img.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
-                        finally
+                        catch
                         {
-                            if (response_ != null)
-                                response_.Dispose();
+                            Bitmap bitmap = (Bitmap)img;
+                            bitmap.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                         }
+                        imageToSend = memoryStream.ToArray();
+                    }
+                }
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    System.Net.Http.HttpContent content = new System.Net.Http.ByteArrayContent(imageToSend);
+
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+
+                    var content_ = new System.Net.Http.MultipartFormDataContent();
+                    content_.Add(content);
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200")
+                        {
+                            return true;
+                        }
+                        else if (status_ == "304")
+                            return true;
+                        else
+                        {
+                            if (status_ != "200" && status_ != "204")
+                            {
+                                return false;
+                            }
+                        }
+                        return false;
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
                     }
                 }
             }

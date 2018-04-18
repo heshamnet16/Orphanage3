@@ -71,6 +71,7 @@ namespace OrphanageV3.Views.Caregiver
             lblNotes.Text = Properties.Resources.Notes.getDobblePunkt();
             btnSave.Text = Properties.Resources.SaveText;
             btnCancel.Text = Properties.Resources.CancelText;
+            grpIdentityCard.HeaderText = Properties.Resources.IdentityCard;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)

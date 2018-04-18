@@ -1755,6 +1755,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die بطاقة شخصية ähnelt.
+        /// </summary>
+        public static string IdentityCard {
+            get {
+                return ResourceManager.GetString("IdentityCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die رقم الهوية ähnelt.
         /// </summary>
         public static string IdentityCardNumber {
@@ -2189,11 +2198,29 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أخ ähnelt.
+        /// </summary>
+        public static string NewBorther {
+            get {
+                return ResourceManager.GetString("NewBorther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die معيل جديد ähnelt.
         /// </summary>
         public static string NewCaregiver {
             get {
                 return ResourceManager.GetString("NewCaregiver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die يتيم ähnelt.
+        /// </summary>
+        public static string NewOrphan {
+            get {
+                return ResourceManager.GetString("NewOrphan", resourceCulture);
             }
         }
         

@@ -145,6 +145,10 @@ namespace OrphanageV3.Views.Orphan
             pgeProgress.Title = Properties.Resources.Progress;
             pgeOrphan.Title = Properties.Resources.AddOrphan;
 
+            btnNew.Text = Properties.Resources.New;
+            mnuNewBrother.Text = Properties.Resources.NewBorther;
+            mnuNewOrphan.Text = Properties.Resources.NewOrphan;
+
             lblFatherName.Text = Properties.Resources.FatherName.getDobblePunkt();
             lblMotherName.Text = Properties.Resources.MotherFirstName.getDobblePunkt();
             lblOrphanBirthday.Text = Properties.Resources.Birthday.getDobblePunkt();
@@ -222,6 +226,7 @@ namespace OrphanageV3.Views.Orphan
             optChooseCaregiver.Text = Properties.Resources.ChooseCaregiver;
             optMotherCaregiver.Text = Properties.Resources.MotherCaregiver;
             optNewCaregiver.Text = Properties.Resources.NewCaregiver;
+            grpCaregiverIdentity.Text = Properties.Resources.IdentityCard;
 
             radWizard1.CancelButton.Text = Properties.Resources.CancelText;
             radWizard1.NextButton.Text = Properties.Resources.NextText;
@@ -474,10 +479,14 @@ namespace OrphanageV3.Views.Orphan
             {
                 lblResult.Text = Properties.Resources.CaregiverAddedSuccess;
             }
-            if (picCaregiverIdPhotoBack.Photo != null)
-                await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageBackURI, picCaregiverIdPhotoBack.Photo);
-            if (picCaregiverIdPhotoFace.Photo != null)
-                await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageFaceURI, picCaregiverIdPhotoFace.Photo);
+            //New Caregiver
+            if (optNewCaregiver.IsChecked)
+            {
+                if (picCaregiverIdPhotoBack.Photo != null)
+                    await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageBackURI, picCaregiverIdPhotoBack.Photo);
+                if (picCaregiverIdPhotoFace.Photo != null)
+                    await _AddOrphanViewModel.SendImage(_mainCaregiver.IdentityCardImageFaceURI, picCaregiverIdPhotoFace.Photo);
+            }
 
             _orphan.CaregiverId = _mainCaregiver.Id;
             _orphan.Caregiver = _mainCaregiver;
@@ -520,7 +529,6 @@ namespace OrphanageV3.Views.Orphan
         private void optNewCaregiver_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
             setMainCaregiver(null);
-            caregiverNameForm.Enabled = true;
         }
 
         private void optMotherCaregiver_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
@@ -528,7 +536,6 @@ namespace OrphanageV3.Views.Orphan
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
                 setMainCaregiver(_motherCaregiver);
-                caregiverNameForm.Enabled = false;
             }
         }
 
@@ -537,7 +544,6 @@ namespace OrphanageV3.Views.Orphan
             if (args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
             {
                 setMainCaregiver(_brothersCaregiver);
-                caregiverNameForm.Enabled = false;
             }
         }
 
@@ -558,7 +564,6 @@ namespace OrphanageV3.Views.Orphan
                 {
                     setMainCaregiver(null);
                 }
-                caregiverNameForm.Enabled = false;
             }
         }
 
@@ -570,10 +575,26 @@ namespace OrphanageV3.Views.Orphan
                 caregiverBindingSource.DataSource = _mainCaregiver;
                 caregiverNameForm.NameDataSource = _mainCaregiver.Name;
                 caregiverAddressForm.AddressDataSource = _mainCaregiver.Address;
+                grpCaregiverIdentity.Enabled = false;
+                grpCaregiverBaiscData.Enabled = false;
                 if (_mainCaregiver.IdentityCardImageBackURI != null && _mainCaregiver.IdentityCardImageBackURI.Length > 0)
+                {
+                    picCaregiverIdPhotoBack.ShowLoadingGif();
                     picCaregiverIdPhotoBack.Photo = await _AddOrphanViewModel.GetImage(_mainCaregiver.IdentityCardImageBackURI);
+                    picCaregiverIdPhotoBack.HideLoadingGif();
+                }
                 if (_mainCaregiver.IdentityCardImageFaceURI != null && _mainCaregiver.IdentityCardImageFaceURI.Length > 0)
+                {
+                    picCaregiverIdPhotoFace.ShowLoadingGif();
                     picCaregiverIdPhotoFace.Photo = await _AddOrphanViewModel.GetImage(_mainCaregiver.IdentityCardImageFaceURI);
+                    picCaregiverIdPhotoFace.HideLoadingGif();
+                }
+                else
+                {
+                    grpCaregiverIdentity.Enabled = true;
+                    grpCaregiverBaiscData.Enabled = true;
+                }
+                caregiverNameForm.Enabled = false;
             }
             else
             {
@@ -586,7 +607,62 @@ namespace OrphanageV3.Views.Orphan
                 caregiverAddressForm.AddressDataSource = _mainCaregiver.Address;
                 picCaregiverIdPhotoBack.Photo = null;
                 picCaregiverIdPhotoFace.Photo = null;
+                grpCaregiverBaiscData.Enabled = true;
+                grpCaregiverIdentity.Enabled = true;
+                caregiverNameForm.Enabled = true;
             }
+        }
+
+        private void mnuNewBrother_Click(object sender, EventArgs e)
+        {
+            _orphan = new OrphanageDataModel.Persons.Orphan();
+            _orphan.Name = new OrphanageDataModel.RegularData.Name();
+            _orphan.Education = new Study() { Stage = Properties.Resources.EducationStageDefaultString };
+            orphanBindingSource.DataSource = _orphan;
+            orphanNameForm.NameDataSource = _orphan.Name;
+            studyBindingSource.DataSource = _orphan.Education;
+            caregiverBindingSource.DataSource = new OrphanageDataModel.Persons.Caregiver();
+            caregiverNameForm.NameDataSource = new OrphanageDataModel.RegularData.Name();
+            caregiverAddressForm.AddressDataSource = new OrphanageDataModel.RegularData.Address();
+
+            orphanNameForm.txtEnglishFather.Text = _family.Father.Name.EnglishFirst;
+            orphanNameForm.txtFather.Text = _family.Father.Name.First;
+            orphanNameForm.txtLast.Text = _family.Father.Name.Last;
+            orphanNameForm.txtEnglishLast.Text = _family.Father.Name.EnglishLast;
+
+            _entityValidator = Program.Factory.Resolve<IEntityValidator>();
+            _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
+            _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
+
+            radWaitingBar1.StartWaiting();
+
+            DisableEnableEducationControls(false);
+            DisableEnableHealthControls(false);
+            _motherCaregiver = null;
+            _selectedCaregiver = null;
+            _brothersCaregiver = null;
+            radWizard1.SelectedPage = pgeOrphan;
+        }
+
+        private void clearControls()
+        {
+            orphanNameForm.txtFirst.Clear();
+            //txtOConsanguinityToCaregiver.Clear();
+            //txtOPlaceOfBirth.Clear();
+            //txtOrphanGender.SelectedText = null;
+            //txtOrphanIdentityCardNumber.Clear();
+            //txtEducationNote.Clear();
+            //txtEducationReasons.Clear();
+            //txtEducationSchool.Clear();
+            //txtEducationStage.Clear();
+            //txtHDoctorName.Clear();
+            //txtHMedicen.Clear();
+            orphanBindingSource.DataSource = new OrphanageDataModel.Persons.Orphan();
+            orphanBindingSource.ResetBindings(false);
+        }
+
+        private void mnuNewOrphan_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -30,24 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrphanView));
-            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem4 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem5 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem6 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem7 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem8 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem9 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem10 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem11 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem12 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem13 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem14 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem15 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem16 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem17 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem18 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem19 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem20 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem21 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem22 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem23 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem24 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem25 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem26 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem27 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem28 = new Telerik.WinControls.UI.RadListDataItem();
             this.radWizard1 = new Telerik.WinControls.UI.RadWizard();
             this.wizardCompletionPage1 = new Telerik.WinControls.UI.WizardCompletionPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.lblResult = new Telerik.WinControls.UI.RadLabel();
+            this.btnNew = new Telerik.WinControls.UI.RadDropDownButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.mnuNewBrother = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.mnuNewOrphan = new Telerik.WinControls.UI.RadMenuItem();
             this.pnlOrphan = new System.Windows.Forms.Panel();
             this.tblOrphanMain = new System.Windows.Forms.TableLayoutPanel();
             this.grpOrphanFamily = new Telerik.WinControls.UI.RadGroupBox();
@@ -55,7 +61,6 @@
             this.txtFatherName = new Telerik.WinControls.UI.RadTextBox();
             this.lblFatherName = new Telerik.WinControls.UI.RadLabel();
             this.btnFamilyBrowse = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblMotherName = new Telerik.WinControls.UI.RadLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grpOrphanBasicData = new Telerik.WinControls.UI.RadGroupBox();
@@ -149,12 +154,13 @@
             this.caregiverNameForm = new OrphanageV3.Controlls.NameForm();
             this.pnlCaregiverOtherData = new System.Windows.Forms.Panel();
             this.tblCaregiverOtherDataMain = new System.Windows.Forms.TableLayoutPanel();
-            this.caregiverAddressForm = new OrphanageV3.Controlls.AddressForm();
+            this.grpCaregiverIdentity = new Telerik.WinControls.UI.RadGroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.grpCaregiverIdPhotoBack = new Telerik.WinControls.UI.RadGroupBox();
             this.picCaregiverIdPhotoBack = new PictureSelector.PictureSelector();
             this.grpCaregiverIdPhotoFace = new Telerik.WinControls.UI.RadGroupBox();
             this.picCaregiverIdPhotoFace = new PictureSelector.PictureSelector();
+            this.caregiverAddressForm = new OrphanageV3.Controlls.AddressForm();
             this.panel4 = new System.Windows.Forms.Panel();
             this.radWaitingBar1 = new Telerik.WinControls.UI.RadWaitingBar();
             this.dotsSpinnerWaitingBarIndicatorElement1 = new Telerik.WinControls.UI.DotsSpinnerWaitingBarIndicatorElement();
@@ -168,7 +174,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).BeginInit();
             this.radWizard1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
             this.pnlOrphan.SuspendLayout();
             this.tblOrphanMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpOrphanFamily)).BeginInit();
@@ -272,6 +280,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblCaregiverJob)).BeginInit();
             this.pnlCaregiverOtherData.SuspendLayout();
             this.tblCaregiverOtherDataMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grpCaregiverIdentity)).BeginInit();
+            this.grpCaregiverIdentity.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpCaregiverIdPhotoBack)).BeginInit();
             this.grpCaregiverIdPhotoBack.SuspendLayout();
@@ -320,22 +330,106 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.lblResult);
+            this.panel3.Controls.Add(this.tableLayoutPanel7);
             this.panel3.Location = new System.Drawing.Point(0, 41);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(397, 282);
             this.panel3.TabIndex = 2;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Controls.Add(this.lblResult, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnNew, 0, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(397, 282);
+            this.tableLayoutPanel7.TabIndex = 1;
+            // 
             // lblResult
             // 
             this.lblResult.AutoSize = false;
-            this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblResult.Location = new System.Drawing.Point(0, 0);
+            this.lblResult.Location = new System.Drawing.Point(117, 3);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(397, 282);
+            this.lblResult.Size = new System.Drawing.Size(277, 99);
             this.lblResult.TabIndex = 0;
             this.lblResult.Text = "radLabel1";
             this.lblResult.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // btnNew
+            // 
+            this.btnNew.ImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNew.ImageKey = "Add.png";
+            this.btnNew.ImageList = this.imageList1;
+            this.btnNew.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.mnuNewBrother,
+            this.radMenuSeparatorItem1,
+            this.mnuNewOrphan});
+            this.btnNew.Location = new System.Drawing.Point(284, 251);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(110, 28);
+            this.btnNew.TabIndex = 1;
+            this.btnNew.Text = "New";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "BrowseFamily.png");
+            this.imageList1.Images.SetKeyName(1, "siblings.png");
+            this.imageList1.Images.SetKeyName(2, "UnknownMale.png");
+            this.imageList1.Images.SetKeyName(3, "Add.png");
+            // 
+            // mnuNewBrother
+            // 
+            this.mnuNewBrother.AutoSize = true;
+            this.mnuNewBrother.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            this.mnuNewBrother.ClipDrawing = true;
+            this.mnuNewBrother.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.mnuNewBrother.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewBrother.Image")));
+            this.mnuNewBrother.ImageIndex = 1;
+            this.mnuNewBrother.ImageKey = "siblings.png";
+            this.mnuNewBrother.Name = "mnuNewBrother";
+            this.mnuNewBrother.Shape = null;
+            this.mnuNewBrother.ShouldPaint = false;
+            this.mnuNewBrother.ShowArrow = true;
+            this.mnuNewBrother.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.mnuNewBrother.StretchHorizontally = false;
+            this.mnuNewBrother.StretchVertically = true;
+            this.mnuNewBrother.Text = "radMenuItem2";
+            this.mnuNewBrother.Click += new System.EventHandler(this.mnuNewBrother_Click);
+            // 
+            // radMenuSeparatorItem1
+            // 
+            this.radMenuSeparatorItem1.AutoSize = true;
+            this.radMenuSeparatorItem1.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            this.radMenuSeparatorItem1.ClipDrawing = true;
+            this.radMenuSeparatorItem1.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.radMenuSeparatorItem1.Name = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.radMenuSeparatorItem1.StretchHorizontally = false;
+            this.radMenuSeparatorItem1.Text = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // mnuNewOrphan
+            // 
+            this.mnuNewOrphan.AutoSize = true;
+            this.mnuNewOrphan.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            this.mnuNewOrphan.ClipDrawing = true;
+            this.mnuNewOrphan.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.mnuNewOrphan.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewOrphan.Image")));
+            this.mnuNewOrphan.ImageIndex = 2;
+            this.mnuNewOrphan.ImageKey = "UnknownMale.png";
+            this.mnuNewOrphan.Name = "mnuNewOrphan";
+            this.mnuNewOrphan.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.mnuNewOrphan.StretchHorizontally = false;
+            this.mnuNewOrphan.Text = "radMenuItem3";
+            this.mnuNewOrphan.Click += new System.EventHandler(this.mnuNewOrphan_Click);
             // 
             // pnlOrphan
             // 
@@ -427,12 +521,6 @@
             this.btnFamilyBrowse.TabIndex = 4;
             this.btnFamilyBrowse.UseVisualStyleBackColor = false;
             this.btnFamilyBrowse.Click += new System.EventHandler(this.btnFamilyBrowse_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "BrowseFamily.png");
             // 
             // lblMotherName
             // 
@@ -891,7 +979,8 @@
             // 
             // picEdiucationCertificate2
             // 
-            this.picEdiucationCertificate2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEdiucationCertificate2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picEdiucationCertificate2.BackgroundImage")));
+            this.picEdiucationCertificate2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picEdiucationCertificate2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picEdiucationCertificate2.Location = new System.Drawing.Point(2, 18);
             this.picEdiucationCertificate2.Name = "picEdiucationCertificate2";
@@ -918,7 +1007,8 @@
             // 
             // picEducationCertificate1
             // 
-            this.picEducationCertificate1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEducationCertificate1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picEducationCertificate1.BackgroundImage")));
+            this.picEducationCertificate1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picEducationCertificate1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picEducationCertificate1.Location = new System.Drawing.Point(2, 18);
             this.picEducationCertificate1.Name = "picEducationCertificate1";
@@ -992,7 +1082,7 @@
             this.txtEducationReasons.Location = new System.Drawing.Point(6, 24);
             this.txtEducationReasons.Name = "txtEducationReasons";
             this.txtEducationReasons.NullText = "s";
-            this.txtEducationReasons.Size = new System.Drawing.Size(210, 0);
+            this.txtEducationReasons.Size = new System.Drawing.Size(210, 20);
             this.txtEducationReasons.TabIndex = 52;
             this.txtEducationReasons.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
             this.txtEducationReasons.Leave += new System.EventHandler(this.ReturnSavedLanguage_Enter);
@@ -1023,7 +1113,7 @@
             this.txtEducationStage.Location = new System.Drawing.Point(164, 86);
             this.txtEducationStage.Name = "txtEducationStage";
             this.txtEducationStage.NullText = "s";
-            this.txtEducationStage.Size = new System.Drawing.Size(124, 0);
+            this.txtEducationStage.Size = new System.Drawing.Size(124, 20);
             this.txtEducationStage.TabIndex = 54;
             this.txtEducationStage.Text = "s";
             this.txtEducationStage.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
@@ -1040,7 +1130,7 @@
             this.txtEducationSchool.Location = new System.Drawing.Point(164, 63);
             this.txtEducationSchool.Name = "txtEducationSchool";
             this.txtEducationSchool.NullText = "s";
-            this.txtEducationSchool.Size = new System.Drawing.Size(124, 0);
+            this.txtEducationSchool.Size = new System.Drawing.Size(124, 20);
             this.txtEducationSchool.TabIndex = 53;
             this.txtEducationSchool.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
             this.txtEducationSchool.Leave += new System.EventHandler(this.ReturnSavedLanguage_Enter);
@@ -1155,7 +1245,8 @@
             // 
             // PicOBodyPhoto
             // 
-            this.PicOBodyPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PicOBodyPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicOBodyPhoto.BackgroundImage")));
+            this.PicOBodyPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PicOBodyPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicOBodyPhoto.Location = new System.Drawing.Point(2, 18);
             this.PicOBodyPhoto.Name = "PicOBodyPhoto";
@@ -1180,7 +1271,8 @@
             // 
             // PicOFacePhoto
             // 
-            this.PicOFacePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PicOFacePhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicOFacePhoto.BackgroundImage")));
+            this.PicOFacePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PicOFacePhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicOFacePhoto.Location = new System.Drawing.Point(2, 18);
             this.PicOFacePhoto.Name = "PicOFacePhoto";
@@ -1244,7 +1336,8 @@
             // 
             // picOFamilyCardPhoto
             // 
-            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picOFamilyCardPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picOFamilyCardPhoto.BackgroundImage")));
+            this.picOFamilyCardPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picOFamilyCardPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picOFamilyCardPhoto.Location = new System.Drawing.Point(2, 18);
             this.picOFamilyCardPhoto.Name = "picOFamilyCardPhoto";
@@ -1269,7 +1362,8 @@
             // 
             // picObirthCertificate
             // 
-            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picObirthCertificate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picObirthCertificate.BackgroundImage")));
+            this.picObirthCertificate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picObirthCertificate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picObirthCertificate.Location = new System.Drawing.Point(2, 18);
             this.picObirthCertificate.Name = "picObirthCertificate";
@@ -1320,7 +1414,8 @@
             // 
             // picHealthReportPhoto
             // 
-            this.picHealthReportPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealthReportPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHealthReportPhoto.BackgroundImage")));
+            this.picHealthReportPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picHealthReportPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picHealthReportPhoto.Location = new System.Drawing.Point(2, 18);
             this.picHealthReportPhoto.Name = "picHealthReportPhoto";
@@ -1391,34 +1486,34 @@
             // 
             this.txtHSicknessName.AcceptsTab = true;
             this.txtHSicknessName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            radListDataItem1.Text = "سكري";
-            radListDataItem2.Text = "قلب";
-            radListDataItem3.Text = "سحايا";
-            radListDataItem4.Text = "توحد";
-            radListDataItem5.Text = "قصور كلوي";
-            radListDataItem6.Text = "بتر يد";
-            radListDataItem7.Text = "بتر قدم";
-            radListDataItem8.Text = "بتر ذراع";
-            radListDataItem9.Text = "بتر رجل";
-            radListDataItem10.Text = "شلل نصفي";
-            radListDataItem11.Text = "شلل رباعي";
-            radListDataItem12.Text = "صرع";
-            radListDataItem13.Text = "شقيقة";
-            radListDataItem14.Text = "سلّ";
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem1);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem2);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem3);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem4);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem5);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem6);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem7);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem8);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem9);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem10);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem11);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem12);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem13);
-            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem14);
+            radListDataItem15.Text = "سكري";
+            radListDataItem16.Text = "قلب";
+            radListDataItem17.Text = "سحايا";
+            radListDataItem18.Text = "توحد";
+            radListDataItem19.Text = "قصور كلوي";
+            radListDataItem20.Text = "بتر يد";
+            radListDataItem21.Text = "بتر قدم";
+            radListDataItem22.Text = "بتر ذراع";
+            radListDataItem23.Text = "بتر رجل";
+            radListDataItem24.Text = "شلل نصفي";
+            radListDataItem25.Text = "شلل رباعي";
+            radListDataItem26.Text = "صرع";
+            radListDataItem27.Text = "شقيقة";
+            radListDataItem28.Text = "سلّ";
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem15);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem16);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem17);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem18);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem19);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem20);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem21);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem22);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem23);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem24);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem25);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem26);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem27);
+            this.txtHSicknessName.AutoCompleteItems.Add(radListDataItem28);
             this.txtHSicknessName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtHSicknessName.Delimiter = '+';
             this.txtHSicknessName.Enabled = false;
@@ -1654,7 +1749,7 @@
             0,
             0});
             this.numCaregiverIncome.Name = "numCaregiverIncome";
-            this.numCaregiverIncome.Size = new System.Drawing.Size(190, 0);
+            this.numCaregiverIncome.Size = new System.Drawing.Size(190, 20);
             this.numCaregiverIncome.TabIndex = 85;
             this.numCaregiverIncome.TabStop = false;
             // 
@@ -1693,7 +1788,7 @@
             this.txtCaregiverIdentityCardId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caregiverBindingSource, "IdentityCardId", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtCaregiverIdentityCardId.Location = new System.Drawing.Point(6, 49);
             this.txtCaregiverIdentityCardId.Name = "txtCaregiverIdentityCardId";
-            this.txtCaregiverIdentityCardId.Size = new System.Drawing.Size(190, 0);
+            this.txtCaregiverIdentityCardId.Size = new System.Drawing.Size(190, 20);
             this.txtCaregiverIdentityCardId.TabIndex = 83;
             // 
             // txtCaregiverJop
@@ -1727,7 +1822,7 @@
             this.txtCaregiverJop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caregiverBindingSource, "Jop", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtCaregiverJop.Location = new System.Drawing.Point(5, 23);
             this.txtCaregiverJop.Name = "txtCaregiverJop";
-            this.txtCaregiverJop.Size = new System.Drawing.Size(190, 0);
+            this.txtCaregiverJop.Size = new System.Drawing.Size(190, 20);
             this.txtCaregiverJop.TabIndex = 83;
             this.txtCaregiverJop.Enter += new System.EventHandler(this.ChangeLanguageToArabic_Enter);
             this.txtCaregiverJop.Leave += new System.EventHandler(this.ReturnSavedLanguage_Enter);
@@ -1837,8 +1932,8 @@
             this.tblCaregiverOtherDataMain.ColumnCount = 2;
             this.tblCaregiverOtherDataMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.5777F));
             this.tblCaregiverOtherDataMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.4223F));
+            this.tblCaregiverOtherDataMain.Controls.Add(this.grpCaregiverIdentity, 1, 0);
             this.tblCaregiverOtherDataMain.Controls.Add(this.caregiverAddressForm, 0, 0);
-            this.tblCaregiverOtherDataMain.Controls.Add(this.tableLayoutPanel6, 1, 0);
             this.tblCaregiverOtherDataMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblCaregiverOtherDataMain.Location = new System.Drawing.Point(0, 0);
             this.tblCaregiverOtherDataMain.Name = "tblCaregiverOtherDataMain";
@@ -1846,6 +1941,84 @@
             this.tblCaregiverOtherDataMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblCaregiverOtherDataMain.Size = new System.Drawing.Size(547, 282);
             this.tblCaregiverOtherDataMain.TabIndex = 0;
+            // 
+            // grpCaregiverIdentity
+            // 
+            this.grpCaregiverIdentity.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.grpCaregiverIdentity.Controls.Add(this.tableLayoutPanel6);
+            this.grpCaregiverIdentity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpCaregiverIdentity.HeaderText = "radGroupBox1";
+            this.grpCaregiverIdentity.Location = new System.Drawing.Point(3, 3);
+            this.grpCaregiverIdentity.Name = "grpCaregiverIdentity";
+            this.grpCaregiverIdentity.Size = new System.Drawing.Size(144, 276);
+            this.grpCaregiverIdentity.TabIndex = 8;
+            this.grpCaregiverIdentity.Text = "radGroupBox1";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Controls.Add(this.grpCaregiverIdPhotoBack, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.grpCaregiverIdPhotoFace, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 18);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(140, 256);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // grpCaregiverIdPhotoBack
+            // 
+            this.grpCaregiverIdPhotoBack.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.grpCaregiverIdPhotoBack.Controls.Add(this.picCaregiverIdPhotoBack);
+            this.grpCaregiverIdPhotoBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpCaregiverIdPhotoBack.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
+            this.grpCaregiverIdPhotoBack.HeaderText = "s";
+            this.grpCaregiverIdPhotoBack.Location = new System.Drawing.Point(3, 131);
+            this.grpCaregiverIdPhotoBack.Name = "grpCaregiverIdPhotoBack";
+            this.grpCaregiverIdPhotoBack.Size = new System.Drawing.Size(134, 122);
+            this.grpCaregiverIdPhotoBack.TabIndex = 10110;
+            this.grpCaregiverIdPhotoBack.Text = "s";
+            this.grpCaregiverIdPhotoBack.ThemeName = "ControlDefault";
+            // 
+            // picCaregiverIdPhotoBack
+            // 
+            this.picCaregiverIdPhotoBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picCaregiverIdPhotoBack.BackgroundImage")));
+            this.picCaregiverIdPhotoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCaregiverIdPhotoBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picCaregiverIdPhotoBack.Location = new System.Drawing.Point(2, 18);
+            this.picCaregiverIdPhotoBack.Name = "picCaregiverIdPhotoBack";
+            this.picCaregiverIdPhotoBack.Photo = null;
+            this.picCaregiverIdPhotoBack.Size = new System.Drawing.Size(130, 102);
+            this.picCaregiverIdPhotoBack.TabIndex = 5;
+            // 
+            // grpCaregiverIdPhotoFace
+            // 
+            this.grpCaregiverIdPhotoFace.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.grpCaregiverIdPhotoFace.Controls.Add(this.picCaregiverIdPhotoFace);
+            this.grpCaregiverIdPhotoFace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpCaregiverIdPhotoFace.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
+            this.grpCaregiverIdPhotoFace.HeaderText = "s";
+            this.grpCaregiverIdPhotoFace.Location = new System.Drawing.Point(3, 3);
+            this.grpCaregiverIdPhotoFace.Name = "grpCaregiverIdPhotoFace";
+            this.grpCaregiverIdPhotoFace.Size = new System.Drawing.Size(134, 122);
+            this.grpCaregiverIdPhotoFace.TabIndex = 10109;
+            this.grpCaregiverIdPhotoFace.Text = "s";
+            this.grpCaregiverIdPhotoFace.ThemeName = "ControlDefault";
+            // 
+            // picCaregiverIdPhotoFace
+            // 
+            this.picCaregiverIdPhotoFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picCaregiverIdPhotoFace.BackgroundImage")));
+            this.picCaregiverIdPhotoFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCaregiverIdPhotoFace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picCaregiverIdPhotoFace.Location = new System.Drawing.Point(2, 18);
+            this.picCaregiverIdPhotoFace.Name = "picCaregiverIdPhotoFace";
+            this.picCaregiverIdPhotoFace.Photo = null;
+            this.picCaregiverIdPhotoFace.Size = new System.Drawing.Size(130, 102);
+            this.picCaregiverIdPhotoFace.TabIndex = 5;
             // 
             // caregiverAddressForm
             // 
@@ -1861,70 +2034,6 @@
             this.caregiverAddressForm.Size = new System.Drawing.Size(391, 276);
             this.caregiverAddressForm.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
             this.caregiverAddressForm.TabIndex = 0;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.grpCaregiverIdPhotoBack, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.grpCaregiverIdPhotoFace, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(144, 276);
-            this.tableLayoutPanel6.TabIndex = 1;
-            // 
-            // grpCaregiverIdPhotoBack
-            // 
-            this.grpCaregiverIdPhotoBack.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.grpCaregiverIdPhotoBack.Controls.Add(this.picCaregiverIdPhotoBack);
-            this.grpCaregiverIdPhotoBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpCaregiverIdPhotoBack.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpCaregiverIdPhotoBack.HeaderText = "s";
-            this.grpCaregiverIdPhotoBack.Location = new System.Drawing.Point(3, 141);
-            this.grpCaregiverIdPhotoBack.Name = "grpCaregiverIdPhotoBack";
-            this.grpCaregiverIdPhotoBack.Size = new System.Drawing.Size(138, 132);
-            this.grpCaregiverIdPhotoBack.TabIndex = 10110;
-            this.grpCaregiverIdPhotoBack.Text = "s";
-            this.grpCaregiverIdPhotoBack.ThemeName = "ControlDefault";
-            // 
-            // picCaregiverIdPhotoBack
-            // 
-            this.picCaregiverIdPhotoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCaregiverIdPhotoBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picCaregiverIdPhotoBack.Location = new System.Drawing.Point(2, 18);
-            this.picCaregiverIdPhotoBack.Name = "picCaregiverIdPhotoBack";
-            this.picCaregiverIdPhotoBack.Photo = null;
-            this.picCaregiverIdPhotoBack.Size = new System.Drawing.Size(134, 112);
-            this.picCaregiverIdPhotoBack.TabIndex = 5;
-            // 
-            // grpCaregiverIdPhotoFace
-            // 
-            this.grpCaregiverIdPhotoFace.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.grpCaregiverIdPhotoFace.Controls.Add(this.picCaregiverIdPhotoFace);
-            this.grpCaregiverIdPhotoFace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpCaregiverIdPhotoFace.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpCaregiverIdPhotoFace.HeaderText = "s";
-            this.grpCaregiverIdPhotoFace.Location = new System.Drawing.Point(3, 3);
-            this.grpCaregiverIdPhotoFace.Name = "grpCaregiverIdPhotoFace";
-            this.grpCaregiverIdPhotoFace.Size = new System.Drawing.Size(138, 132);
-            this.grpCaregiverIdPhotoFace.TabIndex = 10109;
-            this.grpCaregiverIdPhotoFace.Text = "s";
-            this.grpCaregiverIdPhotoFace.ThemeName = "ControlDefault";
-            // 
-            // picCaregiverIdPhotoFace
-            // 
-            this.picCaregiverIdPhotoFace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCaregiverIdPhotoFace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picCaregiverIdPhotoFace.Location = new System.Drawing.Point(2, 18);
-            this.picCaregiverIdPhotoFace.Name = "picCaregiverIdPhotoFace";
-            this.picCaregiverIdPhotoFace.Photo = null;
-            this.picCaregiverIdPhotoFace.Size = new System.Drawing.Size(134, 112);
-            this.picCaregiverIdPhotoFace.TabIndex = 5;
             // 
             // panel4
             // 
@@ -2030,7 +2139,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).EndInit();
             this.radWizard1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lblResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
             this.pnlOrphan.ResumeLayout(false);
             this.tblOrphanMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpOrphanFamily)).EndInit();
@@ -2139,6 +2250,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblCaregiverJob)).EndInit();
             this.pnlCaregiverOtherData.ResumeLayout(false);
             this.tblCaregiverOtherDataMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grpCaregiverIdentity)).EndInit();
+            this.grpCaregiverIdentity.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpCaregiverIdPhotoBack)).EndInit();
             this.grpCaregiverIdPhotoBack.ResumeLayout(false);
@@ -2275,5 +2388,11 @@
         private Telerik.WinControls.UI.RadWaitingBar radWaitingBar1;
         private Telerik.WinControls.UI.DotsSpinnerWaitingBarIndicatorElement dotsSpinnerWaitingBarIndicatorElement1;
         private Telerik.WinControls.UI.RadLabel lblResult;
+        private Telerik.WinControls.UI.RadGroupBox grpCaregiverIdentity;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private Telerik.WinControls.UI.RadDropDownButton btnNew;
+        private Telerik.WinControls.UI.RadMenuItem mnuNewBrother;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem1;
+        private Telerik.WinControls.UI.RadMenuItem mnuNewOrphan;
     }
 }
