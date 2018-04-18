@@ -81,6 +81,18 @@ namespace OrphanageV3.ViewModel.Account
             return (await _apiClient.AccountsController_GetBailsAsync(accountId)).Select(b => b.Id);
         }
 
+        public async Task<IEnumerable<int>> BailsIds(IEnumerable<int> accountsIds)
+        {
+            IList<int> returnedBailsIds = new List<int>();
+            foreach (var id in accountsIds)
+            {
+                var bailIds = await BailsIds(id);
+                foreach (var bailId in bailIds)
+                    returnedBailsIds.Add(bailId);
+            }
+            return returnedBailsIds;
+        }
+
         public async Task<IList<OrphanageDataModel.FinancialData.Bail>> Bails(int accountId)
         {
             return await _apiClient.AccountsController_GetBailsAsync(accountId);
@@ -89,6 +101,18 @@ namespace OrphanageV3.ViewModel.Account
         public async Task<IEnumerable<int>> GuarantorsIds(int accountId)
         {
             return (await _apiClient.AccountsController_GetGuarantorsAsync(accountId)).Select(a => a.Id);
+        }
+
+        public async Task<IEnumerable<int>> GuarantorsIds(IEnumerable<int> accountsIds)
+        {
+            IList<int> returnedGuarantorsIds = new List<int>();
+            foreach (var id in accountsIds)
+            {
+                var guarantorIds = await GuarantorsIds(id);
+                foreach (var guarantorId in guarantorIds)
+                    returnedGuarantorsIds.Add(guarantorId);
+            }
+            return returnedGuarantorsIds;
         }
 
         public async Task<IList<OrphanageDataModel.Persons.Guarantor>> Guarantors(int accountId)

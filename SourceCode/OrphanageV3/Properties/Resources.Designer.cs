@@ -61,11 +61,39 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حساب ähnelt.
+        /// </summary>
+        public static string Account {
+            get {
+                return ResourceManager.GetString("Account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اسم الحساب ähnelt.
         /// </summary>
         public static string AccountName {
             get {
                 return ResourceManager.GetString("AccountName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حسابات ähnelt.
+        /// </summary>
+        public static string Accounts {
+            get {
+                return ResourceManager.GetString("Accounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap AccountsPic {
+            get {
+                object obj = ResourceManager.GetObject("AccountsPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1619,11 +1647,31 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GuarantorPic {
+            get {
+                object obj = ResourceManager.GetObject("GuarantorPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الكفلاء ähnelt.
         /// </summary>
         public static string Guarantors {
             get {
                 return ResourceManager.GetString("Guarantors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GuarantorsPic {
+            get {
+                object obj = ResourceManager.GetObject("GuarantorsPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
