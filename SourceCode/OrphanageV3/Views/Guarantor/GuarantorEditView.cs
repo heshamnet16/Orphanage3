@@ -5,12 +5,8 @@ using OrphanageV3.ViewModel.Guarantor;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
 
 namespace OrphanageV3.Views.Guarantor

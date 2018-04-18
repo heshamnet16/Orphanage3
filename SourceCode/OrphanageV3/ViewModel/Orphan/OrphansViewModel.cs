@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.FinancialData;
-using OrphanageV3.Extensions;
+﻿using OrphanageV3.Extensions;
 using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
 using System.Collections.Generic;

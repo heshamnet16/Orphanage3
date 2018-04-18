@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrphanageDataModel.ValidationAttributes
 {
@@ -32,7 +29,7 @@ namespace OrphanageDataModel.ValidationAttributes
             if (endDate == null)
                 return ValidationResult.Success;
 
-            if (!isExpired  && DateTime.Now > endDate)
+            if (!isExpired && DateTime.Now > endDate)
             {
                 return new ValidationResult(Properties.Resources.ErrorBailDateEnded, new List<string>() { validationContext.MemberName });
             }

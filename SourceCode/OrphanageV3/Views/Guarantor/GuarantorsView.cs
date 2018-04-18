@@ -2,15 +2,10 @@
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
-using Unity;
-using System.Linq;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using Unity;
 
 namespace OrphanageV3.Views.Guarantor
 {

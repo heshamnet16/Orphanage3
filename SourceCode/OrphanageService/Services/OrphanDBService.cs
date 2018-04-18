@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace OrphanageService.Services
 {
@@ -968,9 +967,11 @@ namespace OrphanageService.Services
                     }
 
                     orphanageDbc.Orphans.Remove(orphanTodelete);
-
+                    orphanageDbc.Names.Remove(orphanTodelete.Name);
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
+                        dbT.Commit();
+                        _logger.Information($"orphan with id({Oid}) has been successfully deleted from the database");
                         if (deleteEducation)
                         {
                             if (!await _regularDataService.DeleteStudy(eduId.Value, orphanageDbc))
@@ -987,8 +988,6 @@ namespace OrphanageService.Services
                                 return false;
                             }
                         }
-                        dbT.Commit();
-                        _logger.Information($"orphan with id({Oid}) has been successfully deleted from the database");
                         return true;
                     }
                     else

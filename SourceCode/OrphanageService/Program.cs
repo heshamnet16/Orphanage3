@@ -1,14 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.Owin.Hosting;
-using OrphanageService.Services;
+﻿using OrphanageService.Services;
 using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Text;
-using W.Firewall;
-using System.Management.Automation;
-using System.Management.Automation.Runspaces;
 using System.ServiceProcess;
+using W.Firewall;
 
 namespace OrphanageService
 {

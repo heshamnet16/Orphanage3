@@ -1,14 +1,7 @@
 ﻿using OrphanageV3.Views.Tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
 
 namespace OrphanageV3.Views.Main

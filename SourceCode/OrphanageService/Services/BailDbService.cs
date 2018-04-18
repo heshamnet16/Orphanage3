@@ -1,5 +1,4 @@
-﻿using OrphanageDataModel.FinancialData;
-using OrphanageService.DataContext;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;

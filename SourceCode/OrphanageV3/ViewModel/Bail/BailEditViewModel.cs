@@ -1,11 +1,6 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace OrphanageV3.ViewModel.Bail
 {

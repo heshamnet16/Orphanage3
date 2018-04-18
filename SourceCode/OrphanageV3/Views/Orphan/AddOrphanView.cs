@@ -1,20 +1,17 @@
-﻿using OrphanageV3.Extensions;
+﻿using LangChanger;
+using OrphanageDataModel.RegularData;
+using OrphanageV3.Extensions;
+using OrphanageV3.Services.Interfaces;
+using OrphanageV3.ViewModel.Orphan;
+using OrphanageV3.Views.Helper.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls;
-using System.Linq;
 using Unity;
-using OrphanageV3.Services.Interfaces;
-using OrphanageV3.Views.Helper.Interfaces;
-using OrphanageDataModel.RegularData;
-using LangChanger;
-using System.Threading.Tasks;
-using OrphanageV3.ViewModel.Orphan;
 
 namespace OrphanageV3.Views.Orphan
 {
