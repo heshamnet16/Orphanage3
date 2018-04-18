@@ -1199,4 +1199,7 @@
   <data name="ErrorMessageCheckName" xml:space="preserve">
     <value>الرجاء التحقق من الاسم</value>
   </data>
+  <data name="ErrorMessageDublicated" xml:space="preserve">
+    <value>الغرض موجود فعلا ضمن قاعدة البينات بالرقم </value>
+  </data>
 </root>

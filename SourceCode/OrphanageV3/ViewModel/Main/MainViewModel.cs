@@ -132,6 +132,31 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Guarantor.GuarantorEditView());
         }
 
+        public void ShowOrphanEditView(int OrphanId)
+        {
+            ShowView(new Views.Orphan.OrphanEditView(OrphanId));
+        }
+
+        public void ShowBailEditView(int BailId)
+        {
+            ShowView(new Views.Bail.BailEditView(BailId));
+        }
+
+        public void ShowCaregiverEditView(int CaregiverId)
+        {
+            ShowView(new Views.Caregiver.CaregiverEditView(CaregiverId));
+        }
+
+        public void ShowFamilyEditView(int FamilyId)
+        {
+            ShowView(new Views.Family.FamilyEditView(FamilyId));
+        }
+
+        public void ShowGuarantorEditView(int GuarantorId)
+        {
+            ShowView(new Views.Guarantor.GuarantorEditView(GuarantorId));
+        }
+
         private void ShowView(RadForm frm)
         {
             frm.MdiParent = _MainView;

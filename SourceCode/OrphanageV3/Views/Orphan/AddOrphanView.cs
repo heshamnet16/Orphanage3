@@ -51,7 +51,7 @@ namespace OrphanageV3.Views.Orphan
 
             _orphan = new OrphanageDataModel.Persons.Orphan();
             _orphan.Name = new OrphanageDataModel.RegularData.Name();
-            _orphan.Education = new Study();
+            _orphan.Education = new Study() { Stage = Properties.Resources.EducationStageDefaultString };
             orphanBindingSource.DataSource = _orphan;
             orphanNameForm.NameDataSource = _orphan.Name;
             studyBindingSource.DataSource = _orphan.Education;

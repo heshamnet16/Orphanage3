@@ -914,12 +914,14 @@ namespace OrphanageService.Services
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
                         _uriGenerator.SetOrphanUris(ref orphan);
+                        dbT.Commit();
                         _logger.Information($"orphan with id({orphan.Id}) has been successfully added to the database");
                         return orphan;
                     }
                     else
                     {
                         _logger.Information($"nothing has changed, orphan has not added, null will be returned");
+                        dbT.Rollback();
                         return null;
                     }
                 }

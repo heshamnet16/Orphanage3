@@ -12,6 +12,7 @@ namespace OrphanageV3.ViewModel.Guarantor
     {
         private readonly IApiClient _apiClient;
         private readonly Account.AccountsViewModel _accountsViewModel;
+        private readonly Main.MainViewModel _mainViewModel;
         private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.Persons.Guarantor _CurrentGuarantor = null;
 
@@ -19,10 +20,11 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public event EventHandler AccountsLoaded;
 
-        public GuarantorEditViewModel(IApiClient apiClient, Account.AccountsViewModel accountsViewModel, IExceptionHandler exceptionHandler)
+        public GuarantorEditViewModel(IApiClient apiClient, Account.AccountsViewModel accountsViewModel, Main.MainViewModel mainViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
             _accountsViewModel = accountsViewModel;
+            _mainViewModel = mainViewModel;
             _exceptionHandler = exceptionHandler;
             _accountsViewModel.DataLoaded += AccountsDataLoaded;
             _accountsViewModel.LoadAccounts();
@@ -69,7 +71,16 @@ namespace OrphanageV3.ViewModel.Guarantor
             }
             catch (ApiClientException apiEx)
             {
-                return _exceptionHandler.HandleApiPostFunctions(getGuarantor, apiEx);
+                var retObject = await _exceptionHandler.HandleApiPostFunctionsAndShowErrors(getGuarantor, apiEx);
+                if (retObject == null)
+                {
+                    retObject = await _exceptionHandler.HandleApiPostFunctions(getGuarantor, apiEx);
+                    if (retObject != null)
+                    { _mainViewModel.ShowGuarantorEditView(retObject.Id); }
+                    return null;
+                }
+                else
+                    return retObject;
             }
         }
 

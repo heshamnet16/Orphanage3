@@ -14,6 +14,8 @@ namespace OrphanageV3.Services.Interfaces
 
         //T HandleApiDublicatedException<T>(Func<int, Task<T>> getObject, ApiClientException apiClientException);
 
-        T HandleApiPostFunctions<T>(Func<int, Task<T>> getObject, ApiClientException apiEx);
+        Task<T> HandleApiPostFunctions<T>(Func<int, Task<T>> getObject, ApiClientException apiEx);
+
+        Task<T> HandleApiPostFunctionsAndShowErrors<T>(Func<int, Task<T>> getObject, ApiClientException apiEx);
     }
 }
