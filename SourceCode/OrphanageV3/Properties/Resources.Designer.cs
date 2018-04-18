@@ -1105,6 +1105,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الغرض موجود فعلا ضمن قاعدة البينات بالرقم  ähnelt.
+        /// </summary>
+        public static string ErrorMessageDublicated {
+            get {
+                return ResourceManager.GetString("ErrorMessageDublicated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die استبعاد ähnelt.
         /// </summary>
         public static string Exclude {

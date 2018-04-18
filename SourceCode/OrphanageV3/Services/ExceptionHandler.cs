@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace OrphanageV3.Services
 {
@@ -28,16 +29,14 @@ namespace OrphanageV3.Services
                 return default(T);
         }
 
-        private T HandleApiDublicatedException<T>(Func<int, Task<T>> getObjectFunction, ApiClientException apiClientException)
+        private async Task<T> HandleApiDublicatedException<T>(Func<int, Task<T>> getObjectFunction, ApiClientException apiClientException)
         {
             if (apiClientException.StatusCode == "409")
             {
                 if (apiClientException.Response.Contains("Id"))
                 {
-                    int IdIndex = apiClientException.Response.IndexOf("Id") + 3;
-                    string idString = apiClientException.Response.Substring(IdIndex, apiClientException.Response.Length - IdIndex - 1);
-                    int id = System.Convert.ToInt32(idString);
-                    var rr = getObjectFunction(id).Result;
+                    int id = getIdfromDublicatedMessage(apiClientException.Response);
+                    var rr = await getObjectFunction(id);
                     return rr;
                 }
                 else
@@ -47,6 +46,13 @@ namespace OrphanageV3.Services
             }
             else
                 return default(T);
+        }
+
+        private int getIdfromDublicatedMessage(string message)
+        {
+            int IdIndex = message.IndexOf("Id") + 3;
+            string idString = message.Substring(IdIndex, message.Length - IdIndex);
+            return System.Convert.ToInt32(idString);
         }
 
         public bool HandleApiSaveException(ApiClientException apiClientException)
@@ -63,7 +69,7 @@ namespace OrphanageV3.Services
             }
         }
 
-        public T HandleApiPostFunctions<T>(Func<int, Task<T>> getObjectFunction, ApiClientException apiClientException)
+        public async Task<T> HandleApiPostFunctions<T>(Func<int, Task<T>> getObjectFunction, ApiClientException apiClientException)
         {
             if (apiClientException.StatusCode == "201")
             {
@@ -71,7 +77,29 @@ namespace OrphanageV3.Services
             }
             else if (apiClientException.StatusCode == "409")
             {
-                return HandleApiDublicatedException(getObjectFunction, apiClientException);
+                return await HandleApiDublicatedException(getObjectFunction, apiClientException);
+            }
+            else
+                return default(T);
+        }
+
+        public async Task<T> HandleApiPostFunctionsAndShowErrors<T>(Func<int, Task<T>> getObject, ApiClientException apiEx)
+        {
+            if (apiEx.StatusCode == "201")
+            {
+                var retObject = HandleApiCreatedException<T>(apiEx);
+                return retObject;
+            }
+            else if (apiEx.StatusCode == "409")
+            {
+                dynamic retObject = await HandleApiDublicatedException(getObject, apiEx);
+                if (retObject != default(T))
+                {
+                    int id = getIdfromDublicatedMessage(apiEx.Response);
+                    string errorMessage = Properties.Resources.ErrorMessageDublicated + " " + id;
+                    MessageBox.Show(errorMessage, "Orphanage3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return default(T);
             }
             else
                 return default(T);

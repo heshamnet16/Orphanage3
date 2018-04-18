@@ -8,12 +8,14 @@ namespace OrphanageV3.ViewModel.Caregiver
     public class CaregiverEditViewModel
     {
         private readonly IApiClient _apiClient;
+        private readonly Main.MainViewModel _mainViewModel;
         private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.Persons.Caregiver _CurrentCaregiver = null;
 
-        public CaregiverEditViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
+        public CaregiverEditViewModel(IApiClient apiClient, Main.MainViewModel mainViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _mainViewModel = mainViewModel;
             _exceptionHandler = exceptionHandler;
         }
 
@@ -73,7 +75,16 @@ namespace OrphanageV3.ViewModel.Caregiver
             }
             catch (ApiClientException apiEx)
             {
-                return _exceptionHandler.HandleApiPostFunctions(getCaregiver, apiEx);
+                var retObject = await _exceptionHandler.HandleApiPostFunctionsAndShowErrors(getCaregiver, apiEx);
+                if (retObject == null)
+                {
+                    retObject = await _exceptionHandler.HandleApiPostFunctions(getCaregiver, apiEx);
+                    if (retObject != null)
+                    { _mainViewModel.ShowCaregiverEditView(retObject.Id); }
+                    return null;
+                }
+                else
+                    return retObject;
             }
             return null;
         }

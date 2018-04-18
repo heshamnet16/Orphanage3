@@ -8,12 +8,14 @@ namespace OrphanageV3.ViewModel.Family
     public class FamilyEditViewModel
     {
         private readonly IApiClient _apiClient;
+        private readonly Main.MainViewModel _mainViewModel;
         private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.RegularData.Family _CurrentFamily = null;
 
-        public FamilyEditViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
+        public FamilyEditViewModel(IApiClient apiClient, Main.MainViewModel mainViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _mainViewModel = mainViewModel;
             _exceptionHandler = exceptionHandler;
         }
 
@@ -73,7 +75,16 @@ namespace OrphanageV3.ViewModel.Family
                 }
                 catch (ApiClientException apiEx)
                 {
-                    return _exceptionHandler.HandleApiPostFunctions(getFamily, apiEx);
+                    var retObject = await _exceptionHandler.HandleApiPostFunctionsAndShowErrors(getFamily, apiEx);
+                    if (retObject == null)
+                    {
+                        retObject = await _exceptionHandler.HandleApiPostFunctions(getFamily, apiEx);
+                        if (retObject != null)
+                        { _mainViewModel.ShowFamilyEditView(retObject.Id); }
+                        return null;
+                    }
+                    else
+                        return retObject;
                 }
             }
             return null;

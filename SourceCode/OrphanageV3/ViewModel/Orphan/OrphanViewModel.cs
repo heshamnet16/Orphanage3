@@ -11,6 +11,7 @@ namespace OrphanageV3.ViewModel.Orphan
         private OrphansViewModel _orphansViewModel = Program.Factory.Resolve<OrphansViewModel>();
 
         private readonly IApiClient _apiClient;
+        private readonly Main.MainViewModel _mainViewModel;
         private readonly IExceptionHandler _exceptionHandler;
 
         //private Size _ImageSize = new Size(153, 126);
@@ -19,9 +20,10 @@ namespace OrphanageV3.ViewModel.Orphan
 
         //public Size ImagesSize { get => _ImageSize; set { _ImageSize = value; } }
 
-        public OrphanViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
+        public OrphanViewModel(IApiClient apiClient, Main.MainViewModel mainViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _mainViewModel = mainViewModel;
             _exceptionHandler = exceptionHandler;
         }
 
@@ -69,7 +71,16 @@ namespace OrphanageV3.ViewModel.Orphan
             }
             catch (ApiClientException apiEx)
             {
-                return _exceptionHandler.HandleApiPostFunctions(getOrphan, apiEx);
+                var retObject = await _exceptionHandler.HandleApiPostFunctionsAndShowErrors(getOrphan, apiEx);
+                if (retObject == null)
+                {
+                    retObject = await _exceptionHandler.HandleApiPostFunctions(getOrphan, apiEx);
+                    if (retObject != null)
+                    { _mainViewModel.ShowOrphanEditView(retObject.Id); }
+                    return null;
+                }
+                else
+                    return retObject;
             }
             return null;
         }

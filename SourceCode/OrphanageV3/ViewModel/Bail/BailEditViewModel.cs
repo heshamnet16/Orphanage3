@@ -12,12 +12,14 @@ namespace OrphanageV3.ViewModel.Bail
     public class BailEditViewModel
     {
         private readonly IApiClient _apiClient;
+        private readonly Main.MainViewModel _mainViewModel;
         private readonly IExceptionHandler _exceptionHandler;
         private OrphanageDataModel.FinancialData.Bail _CurrentBail = null;
 
-        public BailEditViewModel(IApiClient apiClient, IExceptionHandler exceptionHandler)
+        public BailEditViewModel(IApiClient apiClient, Main.MainViewModel mainViewModel, IExceptionHandler exceptionHandler)
         {
             _apiClient = apiClient;
+            _mainViewModel = mainViewModel;
             _exceptionHandler = exceptionHandler;
         }
 
@@ -55,7 +57,16 @@ namespace OrphanageV3.ViewModel.Bail
             }
             catch (ApiClientException apiEx)
             {
-                return _exceptionHandler.HandleApiPostFunctions(getBail, apiEx);
+                var retObject = await _exceptionHandler.HandleApiPostFunctionsAndShowErrors(getBail, apiEx);
+                if (retObject == null)
+                {
+                    retObject = await _exceptionHandler.HandleApiPostFunctions(getBail, apiEx);
+                    if (retObject != null)
+                    { _mainViewModel.ShowBailEditView(retObject.Id); }
+                    return null;
+                }
+                else
+                    return retObject;
             }
 
             return null;
