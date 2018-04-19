@@ -668,6 +668,14 @@ namespace OrphanageService.Services
             {
                 orphan.HealthId = await _regularDataService.AddHealth(orphan.HealthStatus, orphanageDBC);
             }
+
+            if (orphan.Caregiver != null)
+                orphan.Caregiver = null;
+            if (orphan.Family != null)
+                orphan.Family = null;
+            if (orphan.ActingUser != null)
+                orphan.ActingUser = null;
+
             orphanageDBC.Orphans.Add(orphan);
             if (await orphanageDBC.SaveChangesAsync() > 0)
             {
@@ -909,13 +917,17 @@ namespace OrphanageService.Services
                     {
                         orphan.HealthId = await _regularDataService.AddHealth(orphan.HealthStatus, orphanageDbc);
                     }
+                    if (orphan.Caregiver != null)
+                        orphan.Caregiver = null;
+                    if (orphan.Family != null)
+                        orphan.Family = null;
+                    if (orphan.ActingUser != null)
+                        orphan.ActingUser = null;
                     orphanageDbc.Orphans.Add(orphan);
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
-                        _uriGenerator.SetOrphanUris(ref orphan);
                         dbT.Commit();
                         _logger.Information($"orphan with id({orphan.Id}) has been successfully added to the database");
-                        return orphan;
                     }
                     else
                     {
@@ -925,6 +937,7 @@ namespace OrphanageService.Services
                     }
                 }
             }
+            return await GetOrphan(orphan.Id);
         }
 
         public async Task<bool> DeleteOrphan(int Oid)
@@ -966,27 +979,22 @@ namespace OrphanageService.Services
                         orphanTodelete.HealthId = null;
                     }
 
+                    var orphanName = orphanTodelete.Name;
                     orphanageDbc.Orphans.Remove(orphanTodelete);
-                    orphanageDbc.Names.Remove(orphanTodelete.Name);
-                    if (await orphanageDbc.SaveChangesAsync() > 0)
+                    var ret = await orphanageDbc.SaveChangesAsync();
+                    orphanageDbc.Names.Remove(orphanName);
+                    ret += await orphanageDbc.SaveChangesAsync();
+                    if (ret > 0)
                     {
                         dbT.Commit();
                         _logger.Information($"orphan with id({Oid}) has been successfully deleted from the database");
                         if (deleteEducation)
                         {
-                            if (!await _regularDataService.DeleteStudy(eduId.Value, orphanageDbc))
-                            {
-                                dbT.Rollback();
-                                return false;
-                            }
+                            await _regularDataService.DeleteStudy(eduId.Value, orphanageDbc);
                         }
                         if (deleteHealth)
                         {
-                            if (!await _regularDataService.DeleteHealth(healthId.Value, orphanageDbc))
-                            {
-                                dbT.Rollback();
-                                return false;
-                            }
+                            await _regularDataService.DeleteHealth(healthId.Value, orphanageDbc);
                         }
                         return true;
                     }

@@ -151,6 +151,8 @@ namespace OrphanageService.Services
             {
                 using (var Dbt = orphanageDBC.Database.BeginTransaction())
                 {
+                    if (accountToAdd.ActingUser != null)
+                        accountToAdd.ActingUser = null;
                     orphanageDBC.Accounts.Add(accountToAdd);
                     var ret = await orphanageDBC.SaveChangesAsync();
                     if (ret >= 1)

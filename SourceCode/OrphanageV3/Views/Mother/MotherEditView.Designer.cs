@@ -209,7 +209,7 @@
             this.lblNote.Size = new System.Drawing.Size(51, 17);
             this.lblNote.TabIndex = 2;
             this.lblNote.Text = "ملاحظات :";
-            this.lblNote.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNote.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblNote.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblNote.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -236,7 +236,7 @@
             this.lblColor.Size = new System.Drawing.Size(53, 17);
             this.lblColor.TabIndex = 2;
             this.lblColor.Text = "تمييز بلون :";
-            this.lblColor.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblColor.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblColor.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblColor.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -249,7 +249,7 @@
             this.lblIdentityBackPhoto.Size = new System.Drawing.Size(88, 17);
             this.lblIdentityBackPhoto.TabIndex = 2;
             this.lblIdentityBackPhoto.Text = "صورة الهوية خلفية :";
-            this.lblIdentityBackPhoto.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIdentityBackPhoto.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIdentityBackPhoto.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblIdentityBackPhoto.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -262,7 +262,7 @@
             this.lblIdentityFacePhoto.Size = new System.Drawing.Size(84, 17);
             this.lblIdentityFacePhoto.TabIndex = 2;
             this.lblIdentityFacePhoto.Text = "صورة الهوية وجه :";
-            this.lblIdentityFacePhoto.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIdentityFacePhoto.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIdentityFacePhoto.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblIdentityFacePhoto.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -275,7 +275,7 @@
             this.lblStory.Size = new System.Drawing.Size(31, 17);
             this.lblStory.TabIndex = 2;
             this.lblStory.Text = "قصة :";
-            this.lblStory.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblStory.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblStory.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblStory.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -308,7 +308,7 @@
             this.lblAddress.Size = new System.Drawing.Size(61, 17);
             this.lblAddress.TabIndex = 2;
             this.lblAddress.Text = "العنوان :";
-            this.lblAddress.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAddress.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // grpBasicData
             // 
@@ -359,7 +359,7 @@
             this.lblHasOrphans.Size = new System.Drawing.Size(61, 17);
             this.lblHasOrphans.TabIndex = 2;
             this.lblHasOrphans.Text = "تحتضن ايتام :";
-            this.lblHasOrphans.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblHasOrphans.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblHasOrphans.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblHasOrphans.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -381,7 +381,7 @@
             this.lblIsMarried.Size = new System.Drawing.Size(43, 17);
             this.lblIsMarried.TabIndex = 2;
             this.lblIsMarried.Text = "متزوجة :";
-            this.lblIsMarried.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIsMarried.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIsMarried.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblIsMarried.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -403,7 +403,7 @@
             this.lblIsDead.Size = new System.Drawing.Size(37, 17);
             this.lblIsDead.TabIndex = 2;
             this.lblIsDead.Text = "متوفية :";
-            this.lblIsDead.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIsDead.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIsDead.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblIsDead.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -454,7 +454,7 @@
             this.lblIdentityNumber.Size = new System.Drawing.Size(53, 17);
             this.lblIdentityNumber.TabIndex = 2;
             this.lblIdentityNumber.Text = "رقم الهوية :";
-            this.lblIdentityNumber.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIdentityNumber.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIdentityNumber.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblIdentityNumber.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -478,7 +478,7 @@
             this.lblName.Size = new System.Drawing.Size(33, 17);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "الاسم :";
-            this.lblName.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblName.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblName.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -491,7 +491,7 @@
             this.lblHusbandName.Size = new System.Drawing.Size(53, 17);
             this.lblHusbandName.TabIndex = 2;
             this.lblHusbandName.Text = "اسم الزوج :";
-            this.lblHusbandName.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblHusbandName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblHusbandName.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblHusbandName.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -504,7 +504,7 @@
             this.lblIncome.Size = new System.Drawing.Size(69, 17);
             this.lblIncome.TabIndex = 2;
             this.lblIncome.Text = "الدخل الشهري :";
-            this.lblIncome.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIncome.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblIncome.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblIncome.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -517,7 +517,7 @@
             this.lblJob.Size = new System.Drawing.Size(34, 17);
             this.lblJob.TabIndex = 2;
             this.lblJob.Text = "العمل :";
-            this.lblJob.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblJob.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblJob.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblJob.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -543,7 +543,7 @@
             this.lblDateOfDeath.Size = new System.Drawing.Size(58, 17);
             this.lblDateOfDeath.TabIndex = 2;
             this.lblDateOfDeath.Text = "تاريخ الوفاة :";
-            this.lblDateOfDeath.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDateOfDeath.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblDateOfDeath.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblDateOfDeath.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -596,7 +596,7 @@
             this.lblBirthday.Size = new System.Drawing.Size(62, 17);
             this.lblBirthday.TabIndex = 2;
             this.lblBirthday.Text = "تاريخ الولادة :";
-            this.lblBirthday.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblBirthday.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.lblBirthday.Click += new System.EventHandler(this.HideNameAddressForms);
             this.lblBirthday.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
@@ -618,6 +618,7 @@
             this.nameForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nameForm1.ShowMovement = false;
             this.nameForm1.Size = new System.Drawing.Size(204, 178);
+            this.nameForm1.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.nameForm1.TabIndex = 15;
             this.nameForm1.Visible = false;
             // 
@@ -632,6 +633,7 @@
             this.addressForm1.Name = "addressForm1";
             this.addressForm1.ShowMovement = false;
             this.addressForm1.Size = new System.Drawing.Size(420, 284);
+            this.addressForm1.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Standard;
             this.addressForm1.TabIndex = 16;
             this.addressForm1.Visible = false;
             // 
@@ -640,11 +642,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 354);
+            this.Controls.Add(this.nameForm1);
+            this.Controls.Add(this.addressForm1);
             this.Controls.Add(this.FlowLayoutPanel1);
             this.Controls.Add(this.grpOtherData);
             this.Controls.Add(this.grpBasicData);
-            this.Controls.Add(this.addressForm1);
-            this.Controls.Add(this.nameForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

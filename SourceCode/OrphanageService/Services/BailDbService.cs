@@ -242,6 +242,15 @@ namespace OrphanageService.Services
             {
                 using (var Dbt = orphanageDBC.Database.BeginTransaction())
                 {
+                    if (bailToAdd.Account != null)
+                        bailToAdd.Account = null;
+
+                    if (bailToAdd.ActingUser != null)
+                        bailToAdd = null;
+
+                    if (bailToAdd.Guarantor != null)
+                        bailToAdd.Guarantor = null;
+
                     orphanageDBC.Bails.Add(bailToAdd);
                     var ret = await orphanageDBC.SaveChangesAsync();
                     if (ret >= 1)

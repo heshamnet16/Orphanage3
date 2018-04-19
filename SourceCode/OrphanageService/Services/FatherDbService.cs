@@ -160,6 +160,18 @@ namespace OrphanageService.Services
                     }
                 }
             }
+            var fatherName = father.Name;
+            var taskFatherName = _regularDataService.AddName(fatherName, orphanageDBC);
+            father.NameId = await taskFatherName;
+            father.Name = null;
+
+            if (father.ActingUser != null)
+            {
+                father.ActingUser = null;
+            }
+            if (father.Families != null)
+                father.Families = null;
+
             orphanageDBC.Fathers.Add(father);
 
             if (await orphanageDBC.SaveChangesAsync() == 1)

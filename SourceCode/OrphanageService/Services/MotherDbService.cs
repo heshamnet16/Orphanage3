@@ -61,6 +61,28 @@ namespace OrphanageService.Services
                     }
                 }
             }
+            var motherName = mother.Name;
+            var motherAddress = mother.Address;
+            var taskMotherName = _regularDataService.AddName(motherName, orphanageDBC);
+            mother.NameId = await taskMotherName;
+            var taskMotherAddress = _regularDataService.AddAddress(motherAddress, orphanageDBC);
+            mother.AddressId = await taskMotherAddress;
+            if (mother.Address != null)
+            {
+                mother.Address = null;
+            }
+            if (mother.ActingUser != null)
+            {
+                mother.ActingUser = null;
+            }
+            if (mother.Families != null)
+            {
+                mother.Families = null;
+            }
+            if (mother.Name != null)
+            {
+                mother.Name = null;
+            }
             orphanageDBC.Mothers.Add(mother);
 
             if (await orphanageDBC.SaveChangesAsync() == 1)

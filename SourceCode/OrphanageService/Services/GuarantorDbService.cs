@@ -106,8 +106,30 @@ namespace OrphanageService.Services
                         }
                         guarantor.AddressId = addressId;
                     }
-                    if (guarantor.Orphans != null || guarantor.Orphans.Count > 0) guarantor.Orphans = null;
-                    if (guarantor.Account != null) guarantor.Account = null;
+                    if (guarantor.Orphans != null)
+                    {
+                        guarantor.Orphans = null;
+                    }
+                    if (guarantor.Account != null)
+                    {
+                        guarantor.Account = null;
+                    }
+                    if (guarantor.Address != null)
+                    {
+                        guarantor.Address = null;
+                    }
+                    if (guarantor.Name != null)
+                    {
+                        guarantor.Name = null;
+                    }
+                    if (guarantor.Bails != null)
+                    {
+                        guarantor.Bails = null;
+                    }
+                    if (guarantor.ActingUser != null)
+                    {
+                        guarantor.ActingUser = null;
+                    }
                     orphanageDBC.Guarantors.Add(guarantor);
                     var ret = await orphanageDBC.SaveChangesAsync();
                     if (ret >= 1)

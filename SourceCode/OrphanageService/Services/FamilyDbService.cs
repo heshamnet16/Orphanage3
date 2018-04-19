@@ -86,10 +86,7 @@ namespace OrphanageService.Services
 
                     var addressPrim = family.PrimaryAddress;
                     var addressAlter = family.AlternativeAddress;
-                    var fatherName = family.Father.Name;
                     var father = family.Father;
-                    var motherName = family.Mother.Name;
-                    var motherAddress = family.Mother.Address;
                     var mother = family.Mother;
                     var taskPrimAddress = _regularDataService.AddAddress(addressPrim, orphanageDbc);
                     Task<int> taskAlterAddress = null;
@@ -109,32 +106,31 @@ namespace OrphanageService.Services
                         family.AlternativeAddress = addressAlter;
                     }
                     // set father
-                    var taskFatherName = _regularDataService.AddName(fatherName, orphanageDbc);
-                    father.NameId = await taskFatherName;
-                    father.Name = fatherName;
                     var taskFather = _fatherDbService.AddFather(father, orphanageDbc);
                     family.FatherId = await taskFather;
-                    _uriGenerator.SetFatherUris(ref father);
-                    family.Father = father;
+                    family.Father = null;
                     // set mother
-                    var taskMotherName = _regularDataService.AddName(motherName, orphanageDbc);
-                    mother.NameId = await taskMotherName;
-                    mother.Name = motherName;
-                    var taskMotherAddress = _regularDataService.AddAddress(motherAddress, orphanageDbc);
-                    mother.AddressId = await taskMotherAddress;
-                    mother.Address = motherAddress;
                     var taskMother = _motherDbService.AddMother(mother, orphanageDbc);
                     family.MotherId = await taskMother;
-                    _uriGenerator.SetMotherUris(ref mother);
-                    family.Mother = mother;
+                    family.Mother = null;
 
+                    if (family.Bail != null)
+                    {
+                        family.Bail = null;
+                    }
+                    if (family.ActingUser != null)
+                    {
+                        family.ActingUser = null;
+                    }
+                    if (family.Orphans != null)
+                    {
+                        family.Orphans = null;
+                    }
                     orphanageDbc.Families.Add(family);
                     if (await orphanageDbc.SaveChangesAsync() > 0)
                     {
                         DbT.Commit();
                         _logger.Information($"family with id({family.Id}) has been successfully added to the database");
-                        _uriGenerator.SetFamilyUris(ref family);
-                        return family;
                     }
                     else
                     {
@@ -144,6 +140,7 @@ namespace OrphanageService.Services
                     }
                 }
             }
+            return await GetFamily(family.Id);
         }
 
         public async Task<bool> DeleteFamily(int Famid)

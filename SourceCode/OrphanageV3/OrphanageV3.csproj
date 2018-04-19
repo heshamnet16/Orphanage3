@@ -230,12 +230,6 @@
     <Compile Include="Views\Family\FimiliesView.Designer.cs">
       <DependentUpon>FimiliesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Father\FatherChooserView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Father\FatherChooserView.Designer.cs">
-      <DependentUpon>FatherChooserView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Father\FathersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,9 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Family\FimiliesView.resx">
       <DependentUpon>FimiliesView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Father\FatherChooserView.resx">
-      <DependentUpon>FatherChooserView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Father\FathersView.resx">
       <DependentUpon>FathersView.cs</DependentUpon>

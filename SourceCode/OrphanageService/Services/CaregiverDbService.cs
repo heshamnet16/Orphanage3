@@ -96,7 +96,9 @@ namespace OrphanageService.Services
                         }
                         caregiver.AddressId = addressId;
                     }
+
                     if (caregiver.Orphans != null && caregiver.Orphans.Count > 0) caregiver.Orphans = null;
+                    if (caregiver.ActingUser != null) caregiver.ActingUser = null;
                     orphanageDBC.Caregivers.Add(caregiver);
                     var ret = await orphanageDBC.SaveChangesAsync();
                     if (ret >= 1)

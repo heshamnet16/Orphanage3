@@ -39,6 +39,7 @@
             this.picPhoto = new PictureSelector.PictureSelector();
             this.lblNote = new Telerik.WinControls.UI.RadLabel();
             this.txtNote = new Telerik.WinControls.UI.RadTextBox();
+            this.fatherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDeathCertificatePhoto = new Telerik.WinControls.UI.RadLabel();
             this.lblPersonalPhoto = new Telerik.WinControls.UI.RadLabel();
             this.lblColor = new Telerik.WinControls.UI.RadLabel();
@@ -55,11 +56,10 @@
             this.lblDateOfDeath = new Telerik.WinControls.UI.RadLabel();
             this.txtJop = new Telerik.WinControls.UI.RadTextBox();
             this.lblBirthday = new Telerik.WinControls.UI.RadLabel();
+            this.txtIdentityCardNumber = new Telerik.WinControls.UI.RadTextBox();
             this.txtDeathReason = new Telerik.WinControls.UI.RadTextBox();
             this.fatherErrorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.fatherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameForm1 = new OrphanageV3.Controlls.NameForm();
-            this.txtIdentityCardNumber = new Telerik.WinControls.UI.RadTextBox();
             this.FlowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
@@ -68,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clrColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fatherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDeathCertificatePhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPersonalPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblColor)).BeginInit();
@@ -85,10 +86,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDateOfDeath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBirthday)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeathReason)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatherErrorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fatherBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,6 +198,10 @@
             this.txtNote.Click += new System.EventHandler(this.HideNameAddressForms);
             this.txtNote.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
+            // fatherBindingSource
+            // 
+            this.fatherBindingSource.DataSource = typeof(OrphanageDataModel.Persons.Father);
+            // 
             // lblDeathCertificatePhoto
             // 
             this.lblDeathCertificatePhoto.AutoSize = false;
@@ -237,9 +241,9 @@
             // lblStory
             // 
             this.lblStory.AutoSize = false;
-            this.lblStory.Location = new System.Drawing.Point(445, 21);
+            this.lblStory.Location = new System.Drawing.Point(412, 21);
             this.lblStory.Name = "lblStory";
-            this.lblStory.Size = new System.Drawing.Size(34, 18);
+            this.lblStory.Size = new System.Drawing.Size(67, 18);
             this.lblStory.TabIndex = 2;
             this.lblStory.Text = "قصة :";
             this.lblStory.TextAlignment = System.Drawing.ContentAlignment.TopRight;
@@ -408,6 +412,26 @@
             this.lblBirthday.Text = "تاريخ الولادة :";
             this.lblBirthday.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
+            // txtIdentityCardNumber
+            // 
+            this.txtIdentityCardNumber.AutoCompleteCustomSource.AddRange(new string[] {
+            "سكتة قلبية",
+            "سكتة دماغية",
+            "طلق ناري",
+            "شظية",
+            "مرض مزمن",
+            "مرض خبيث",
+            "غير معروف"});
+            this.txtIdentityCardNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtIdentityCardNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtIdentityCardNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fatherBindingSource, "IdentityCardNumber", true));
+            this.txtIdentityCardNumber.Location = new System.Drawing.Point(20, 46);
+            this.txtIdentityCardNumber.Name = "txtIdentityCardNumber";
+            this.txtIdentityCardNumber.Size = new System.Drawing.Size(144, 20);
+            this.txtIdentityCardNumber.TabIndex = 0;
+            this.txtIdentityCardNumber.Click += new System.EventHandler(this.HideNameAddressForms);
+            this.txtIdentityCardNumber.Enter += new System.EventHandler(this.HideNameAddressForms);
+            // 
             // txtDeathReason
             // 
             this.txtDeathReason.AutoCompleteCustomSource.AddRange(new string[] {
@@ -433,10 +457,6 @@
             this.fatherErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.fatherErrorProvider1.ContainerControl = this;
             // 
-            // fatherBindingSource
-            // 
-            this.fatherBindingSource.DataSource = typeof(OrphanageDataModel.Persons.Father);
-            // 
             // nameForm1
             // 
             this.nameForm1.FocusWhenShow = true;
@@ -450,28 +470,9 @@
             this.nameForm1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nameForm1.ShowMovement = false;
             this.nameForm1.Size = new System.Drawing.Size(207, 178);
+            this.nameForm1.Style = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.nameForm1.TabIndex = 11;
             this.nameForm1.Visible = false;
-            // 
-            // txtIdentityCardNumber
-            // 
-            this.txtIdentityCardNumber.AutoCompleteCustomSource.AddRange(new string[] {
-            "سكتة قلبية",
-            "سكتة دماغية",
-            "طلق ناري",
-            "شظية",
-            "مرض مزمن",
-            "مرض خبيث",
-            "غير معروف"});
-            this.txtIdentityCardNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtIdentityCardNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtIdentityCardNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fatherBindingSource, "IdentityCardNumber", true));
-            this.txtIdentityCardNumber.Location = new System.Drawing.Point(20, 46);
-            this.txtIdentityCardNumber.Name = "txtIdentityCardNumber";
-            this.txtIdentityCardNumber.Size = new System.Drawing.Size(144, 20);
-            this.txtIdentityCardNumber.TabIndex = 0;
-            this.txtIdentityCardNumber.Click += new System.EventHandler(this.HideNameAddressForms);
-            this.txtIdentityCardNumber.Enter += new System.EventHandler(this.HideNameAddressForms);
             // 
             // FatherEditView
             // 
@@ -502,6 +503,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clrColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNote)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fatherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDeathCertificatePhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPersonalPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblColor)).EndInit();
@@ -520,10 +522,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDateOfDeath)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBirthday)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeathReason)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatherErrorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fatherBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentityCardNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

@@ -626,36 +626,28 @@ namespace OrphanageV3.Views.Orphan
             orphanNameForm.txtFather.Text = _family.Father.Name.First;
             orphanNameForm.txtLast.Text = _family.Father.Name.Last;
             orphanNameForm.txtEnglishLast.Text = _family.Father.Name.EnglishLast;
+            dteOBirthday.Text = "";
+            txtOrphanIdentityCardNumber.Text = "";
 
-            _entityValidator = Program.Factory.Resolve<IEntityValidator>();
-            _AutoCompleteServic = Program.Factory.Resolve<IAutoCompleteService>();
-            _AutoCompleteServic.DataLoaded += _AutoCompleteServic_DataLoaded;
-
-            radWaitingBar1.StartWaiting();
+            clearPictureControls(this);
 
             DisableEnableEducationControls(false);
             DisableEnableHealthControls(false);
-            _motherCaregiver = null;
-            _selectedCaregiver = null;
-            _brothersCaregiver = null;
             radWizard1.SelectedPage = pgeOrphan;
         }
 
-        private void clearControls()
+        private void clearPictureControls(Control control)
         {
-            orphanNameForm.txtFirst.Clear();
-            //txtOConsanguinityToCaregiver.Clear();
-            //txtOPlaceOfBirth.Clear();
-            //txtOrphanGender.SelectedText = null;
-            //txtOrphanIdentityCardNumber.Clear();
-            //txtEducationNote.Clear();
-            //txtEducationReasons.Clear();
-            //txtEducationSchool.Clear();
-            //txtEducationStage.Clear();
-            //txtHDoctorName.Clear();
-            //txtHMedicen.Clear();
-            orphanBindingSource.DataSource = new OrphanageDataModel.Persons.Orphan();
-            orphanBindingSource.ResetBindings(false);
+            if (control.HasChildren)
+            {
+                foreach (Control childControl in control.Controls)
+                    clearPictureControls(childControl);
+            }
+            if (control is PictureSelector.PictureSelector)
+            {
+                var picSelector = (PictureSelector.PictureSelector)control;
+                picSelector.Photo = null;
+            }
         }
 
         private void mnuNewOrphan_Click(object sender, EventArgs e)

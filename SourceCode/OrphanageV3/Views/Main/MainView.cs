@@ -2,6 +2,9 @@
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Telerik.WinControls;
+using Telerik.WinControls.UI;
 using Unity;
 
 namespace OrphanageV3.Views.Main
@@ -118,6 +121,31 @@ namespace OrphanageV3.Views.Main
             var connectionValue = await CheckConnection();
             lblConnectionStatus.Text = connectionValue ? Properties.Resources.Connected : Properties.Resources.Disconnected;
             lblConnectionStatus.ForeColor = connectionValue ? Color.Green : Color.Red;
+            disableEnableMenus(RadMenu1.Items, connectionValue);
+        }
+
+        private void disableEnableMenus(RadItemOwnerCollection radItemOwnerCollection, bool value)
+        {
+            if (radItemOwnerCollection != null && radItemOwnerCollection.Count > 0)
+            {
+                foreach (object itmObjct in radItemOwnerCollection)
+                {
+                    try
+                    {
+                        RadMenuItem itm = (RadMenuItem)itmObjct;
+                        disableEnableMenus(itm.Items, value);
+                        if (itm is RadMenuItem)
+                        {
+                            RadMenuItem radMenuItem = (RadMenuItem)itm;
+                            if (radMenuItem.Name != "mnuTools" && radMenuItem.Name != "mnuShowSetting")
+                            {
+                                radMenuItem.Enabled = value;
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
         }
 
         private async Task<bool> CheckConnection()
