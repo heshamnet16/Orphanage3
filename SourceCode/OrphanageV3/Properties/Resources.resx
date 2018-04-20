@@ -1226,4 +1226,79 @@
   <data name="NewOrphan" xml:space="preserve">
     <value>يتيم</value>
   </data>
+  <data name="GuarantorsCount" xml:space="preserve">
+    <value>عدد الكفلاء</value>
+  </data>
+  <data name="CurrencyNameAmericanDollar" xml:space="preserve">
+    <value>الدولار الأمريكي</value>
+  </data>
+  <data name="CurrencyShortcutAmericanDollar" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="CurrencyNameBritishPoundSterling" xml:space="preserve">
+    <value>الجنيه الإسترليني</value>
+  </data>
+  <data name="CurrencyShortcutBritishPoundSterling" xml:space="preserve">
+    <value>£</value>
+  </data>
+  <data name="CurrencyNameEgyptianPound" xml:space="preserve">
+    <value>الجنيه المصري</value>
+  </data>
+  <data name="CurrencyShortcutEgyptianPound" xml:space="preserve">
+    <value>ج.م</value>
+  </data>
+  <data name="CurrencyNameEuropeanEuro" xml:space="preserve">
+    <value>اليورو الأوربي</value>
+  </data>
+  <data name="CurrencyShortcutEuropeanEuro" xml:space="preserve">
+    <value>€</value>
+  </data>
+  <data name="CurrencyNameJordanianDinar" xml:space="preserve">
+    <value>الدينار الأردني</value>
+  </data>
+  <data name="CurrencyShortcutJordanianDinar" xml:space="preserve">
+    <value>د.ا</value>
+  </data>
+  <data name="CurrencyNameKuwaitiDinar" xml:space="preserve">
+    <value>الدينار الكويتي</value>
+  </data>
+  <data name="CurrencyShortcutKuwaitiDinar" xml:space="preserve">
+    <value>د.ك</value>
+  </data>
+  <data name="CurrencyNameQatariRiyal" xml:space="preserve">
+    <value>الريال القطري</value>
+  </data>
+  <data name="CurrencyShortcutQatariRiyal" xml:space="preserve">
+    <value>ر.ق</value>
+  </data>
+  <data name="CurrencyNameSaudiRiyal" xml:space="preserve">
+    <value>الريال السعودي</value>
+  </data>
+  <data name="CurrencyShortcutSaudiRiyal" xml:space="preserve">
+    <value>ر.س</value>
+  </data>
+  <data name="CurrencyNameSyrianLira" xml:space="preserve">
+    <value>الليرة السورية</value>
+  </data>
+  <data name="CurrencyShortcutSyrianLira" xml:space="preserve">
+    <value>ل.س</value>
+  </data>
+  <data name="CurrencyNameTurkishLira" xml:space="preserve">
+    <value>الليرة التركية</value>
+  </data>
+  <data name="CurrencyShortcutTurkishLira" xml:space="preserve">
+    <value>₺</value>
+  </data>
+  <data name="UAEDirham" xml:space="preserve">
+    <value>الدرهم الإماراتي</value>
+  </data>
+  <data name="UAEDirhamShortcut" xml:space="preserve">
+    <value>‎د.إ</value>
+  </data>
+  <data name="CurrentAccount" xml:space="preserve">
+    <value>حساب جاري</value>
+  </data>
+  <data name="NewAccount" xml:space="preserve">
+    <value>حساب جديد</value>
+  </data>
 </root>

@@ -33,6 +33,7 @@
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnChooseGuarantor = new Telerik.WinControls.UI.RadButton();
             this.dteEndDate = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.bailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dteStartDate = new Telerik.WinControls.UI.RadDateTimePicker();
             this.numAmount = new Telerik.WinControls.UI.RadSpinEditor();
             this.txtNote = new Telerik.WinControls.UI.RadTextBox();
@@ -52,11 +53,11 @@
             this.lblAmount = new Telerik.WinControls.UI.RadLabel();
             this.chkIsMonthlyBail = new Telerik.WinControls.UI.RadCheckBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.bailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChooseGuarantor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteEndDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteStartDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote)).BeginInit();
@@ -76,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIsMonthlyBail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,7 @@
             this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.TabIndex = 38;
             this.btnCancel.Text = "cv";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -120,6 +121,11 @@
             this.dteEndDate.TabStop = false;
             this.dteEndDate.Text = "Samstag, 31. Mai 2014";
             this.dteEndDate.Value = new System.DateTime(2014, 5, 31, 12, 4, 52, 559);
+            // 
+            // bailBindingSource
+            // 
+            this.bailBindingSource.AllowNew = true;
+            this.bailBindingSource.DataSource = typeof(OrphanageDataModel.FinancialData.Bail);
             // 
             // dteStartDate
             // 
@@ -316,11 +322,6 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // bailBindingSource
-            // 
-            this.bailBindingSource.AllowNew = true;
-            this.bailBindingSource.DataSource = typeof(OrphanageDataModel.FinancialData.Bail);
-            // 
             // BailEditView
             // 
             this.AcceptButton = this.btnSave;
@@ -364,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChooseGuarantor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteEndDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteStartDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote)).EndInit();
@@ -383,7 +385,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIsMonthlyBail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -218,7 +218,11 @@ namespace OrphanageV3.Views.Main
 
         private void mnuShowAccounts_Click(object sender, EventArgs e)
         {
-            _mainViewModel.ShowShowAccounts();
+            _mainViewModel.ShowAccounts();
+        }
+
+        private void mnuNewAccount_Click(object sender, EventArgs e)
+        {
         }
     }
 }

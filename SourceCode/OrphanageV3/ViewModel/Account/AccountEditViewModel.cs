@@ -54,7 +54,7 @@ namespace OrphanageV3.ViewModel.Account
             }
             catch (ApiClientException apiEx)
             {
-                return _exceptionHandler.HandleApiPostFunctions(getAccount, apiEx);
+                return await _exceptionHandler.HandleApiPostFunctions(getAccount, apiEx);
             }
 
             return null;

@@ -135,6 +135,7 @@
             this.btnDelete.Text = "";
             this.btnDelete.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnDelete.ToolTipText = "حذف";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -153,6 +154,7 @@
             this.btnEdit.Text = "";
             this.btnEdit.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnEdit.ToolTipText = "تعديل";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // mnuSep2
             // 
@@ -174,6 +176,7 @@
             this.btnShowGuarantors.Name = "btnShowGuarantors";
             this.btnShowGuarantors.Text = "";
             this.btnShowGuarantors.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnShowGuarantors.Click += new System.EventHandler(this.btnShowGuarantos_Click);
             // 
             // btnShowBails
             // 
@@ -187,6 +190,7 @@
             this.btnShowBails.Text = "";
             this.btnShowBails.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnShowBails.ToolTipText = "عرض العائلات";
+            this.btnShowBails.Click += new System.EventHandler(this.btnShowBails_Click);
             // 
             // btnSep3
             // 
@@ -211,6 +215,7 @@
             this.btnColumn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnColumn.TextWrap = false;
             this.btnColumn.ToolTipText = "الأعمدة";
+            this.btnColumn.Click += new System.EventHandler(this.btnColumn_Click);
             // 
             // orphanageGridView1
             // 
@@ -238,6 +243,8 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "AccountsView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccountsView_FormClosing);
+            this.Load += new System.EventHandler(this.AccountsView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCmdBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

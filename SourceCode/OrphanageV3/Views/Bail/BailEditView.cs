@@ -11,7 +11,7 @@ namespace OrphanageV3.Views.Bail
 {
     public partial class BailEditView : Telerik.WinControls.UI.RadForm
     {
-        private DateTime _endDatePlaceholder = DateTime.Now;
+        private DateTime _endDateValueholder = DateTime.Now;
         private GuarantorsViewModel _guarantorsViewModel;
         private BailEditViewModel _bailEditViewModel;
         private IEntityValidator _bailEntityValidator;
@@ -112,12 +112,12 @@ namespace OrphanageV3.Views.Bail
             {
                 if (value)
                 {
-                    _endDatePlaceholder = dteEndDate.Value;
+                    _endDateValueholder = dteEndDate.Value;
                     dteEndDate.Value = DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0));
                 }
                 else
                 {
-                    dteEndDate.Value = _endDatePlaceholder;
+                    dteEndDate.Value = _endDateValueholder;
                 }
             }
         }
@@ -229,6 +229,12 @@ namespace OrphanageV3.Views.Bail
             {
                 bailBindingSource.DataSource = new OrphanageDataModel.FinancialData.Bail();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

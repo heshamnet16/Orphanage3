@@ -124,6 +124,8 @@
             // 
             this.mnuNewOrphan.AccessibleDescription = "RadMenuItem3";
             this.mnuNewOrphan.AccessibleName = "RadMenuItem3";
+            this.mnuNewOrphan.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewOrphan.Image")));
+            this.mnuNewOrphan.ImageIndex = 10;
             this.mnuNewOrphan.Name = "mnuNewOrphan";
             this.mnuNewOrphan.Text = "fgdfgdfg";
             this.mnuNewOrphan.Click += new System.EventHandler(this.mnuNewOrphan_Click);
@@ -138,6 +140,8 @@
             // 
             this.mnuNewFamily.AccessibleDescription = "RadMenuItem4";
             this.mnuNewFamily.AccessibleName = "RadMenuItem4";
+            this.mnuNewFamily.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewFamily.Image")));
+            this.mnuNewFamily.ImageKey = "Parents.png";
             this.mnuNewFamily.Name = "mnuNewFamily";
             this.mnuNewFamily.Text = "asdasd";
             this.mnuNewFamily.Click += new System.EventHandler(this.mnuNewFamily_Click);
@@ -152,12 +156,16 @@
             // 
             this.mnuNewGuarantor.AccessibleDescription = "RadMenuItem6";
             this.mnuNewGuarantor.AccessibleName = "RadMenuItem6";
+            this.mnuNewGuarantor.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewGuarantor.Image")));
+            this.mnuNewGuarantor.ImageIndex = 6;
             this.mnuNewGuarantor.Name = "mnuNewGuarantor";
             this.mnuNewGuarantor.Text = "guarantor";
             this.mnuNewGuarantor.Click += new System.EventHandler(this.mnuNewGuarantor_Click);
             // 
             // mnuNewBail
             // 
+            this.mnuNewBail.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewBail.Image")));
+            this.mnuNewBail.ImageKey = "Bails.png";
             this.mnuNewBail.Name = "mnuNewBail";
             this.mnuNewBail.Text = "bail";
             this.mnuNewBail.Click += new System.EventHandler(this.mnuNewBail_Click);
@@ -362,7 +370,6 @@
             // 
             // radMnuAccounts
             // 
-            this.radMnuAccounts.Enabled = false;
             this.radMnuAccounts.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.mnuNewAccount,
             this.RadMenuSeparatorItem6,
@@ -377,6 +384,7 @@
             this.mnuNewAccount.ImageKey = "Account.png";
             this.mnuNewAccount.Name = "mnuNewAccount";
             this.mnuNewAccount.Text = "حساب جديد";
+            this.mnuNewAccount.Click += new System.EventHandler(this.mnuNewAccount_Click);
             // 
             // RadMenuSeparatorItem6
             // 
@@ -388,6 +396,7 @@
             // 
             this.mnuBills.AccessibleDescription = "فاتورة";
             this.mnuBills.AccessibleName = "فاتورة";
+            this.mnuBills.Enabled = false;
             this.mnuBills.Image = ((System.Drawing.Image)(resources.GetObject("mnuBills.Image")));
             this.mnuBills.ImageKey = "Bill1.png";
             this.mnuBills.Items.AddRange(new Telerik.WinControls.RadItem[] {
@@ -594,6 +603,7 @@
             this.imageList1.Images.SetKeyName(7, "Accounts.png");
             this.imageList1.Images.SetKeyName(8, "Caregivers.png");
             this.imageList1.Images.SetKeyName(9, "Account.png");
+            this.imageList1.Images.SetKeyName(10, "UnknownMale.png");
             // 
             // RadMenu1
             // 

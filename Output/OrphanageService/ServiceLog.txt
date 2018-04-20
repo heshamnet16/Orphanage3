@@ -4296,3 +4296,43 @@ Der angegebene Dienst ist kein installierter Dienst.
 2018-04-18 08:40:46.504 [INF] the output: Degraded
 
 2018-04-18 08:40:47.878 [INF] Logging initialized.
+2018-04-20 21:58:38.889 [INF] Logging initialized.
+2018-04-20 21:58:38.906 [INF] Logging initialized.
+2018-04-20 21:58:38.908 [INF] checking if firewall is existed
+2018-04-20 21:58:38.929 [INF] firewall rules are already existed
+2018-04-20 21:58:38.942 [INF] Logging initialized.
+2018-04-20 21:58:38.942 [INF] creating RunspaceFactory
+2018-04-20 21:58:39.047 [INF] opening the created RunspaceFactory
+2018-04-20 21:58:39.138 [INF] create a pipeline and feed it the script text
+2018-04-20 21:58:39.138 [INF] try to execute the script
+2018-04-20 21:58:39.448 [INF] closing the RunspaceFactory
+2018-04-20 21:58:39.453 [INF] the output: OK
+
+2018-04-20 21:58:39.591 [INF] Logging initialized.
+2018-04-20 21:58:59.171 [INF] Logging initialized.
+2018-04-20 21:59:03.623 [INF] Logging initialized.
+2018-04-20 21:59:08.385 [INF] Logging initialized.
+2018-04-20 21:59:08.546 [INF] something went wrong, account with id (32) was not be removed, false will be returned
+2018-04-20 21:59:55.164 [INF] Logging initialized.
+2018-04-20 21:59:55.444 [INF] Logging initialized.
+2018-04-20 21:59:58.491 [INF] Logging initialized.
+2018-04-20 22:01:12.915 [INF] Logging initialized.
+2018-04-20 22:01:12.962 [INF] Logging initialized.
+2018-04-20 22:01:12.963 [INF] checking if firewall is existed
+2018-04-20 22:01:12.980 [INF] firewall rules are already existed
+2018-04-20 22:01:12.989 [INF] Logging initialized.
+2018-04-20 22:01:12.989 [INF] creating RunspaceFactory
+2018-04-20 22:01:13.098 [INF] opening the created RunspaceFactory
+2018-04-20 22:01:13.184 [INF] create a pipeline and feed it the script text
+2018-04-20 22:01:13.185 [INF] try to execute the script
+2018-04-20 22:01:13.440 [INF] closing the RunspaceFactory
+2018-04-20 22:01:13.445 [INF] the output: OK
+
+2018-04-20 22:01:13.597 [INF] Logging initialized.
+2018-04-20 22:01:28.613 [INF] Logging initialized.
+2018-04-20 22:01:28.899 [INF] Logging initialized.
+2018-04-20 22:01:33.344 [INF] Logging initialized.
+2018-04-20 22:01:38.527 [INF] the account object with id 32 has been successfully removed
+2018-04-20 22:01:51.783 [INF] Logging initialized.
+2018-04-20 22:01:59.440 [ERR] the account object with id 29 has not null foreign key on Guarantors table, HasForeignKeyException will be thrown
+2018-04-20 22:02:00.394 [ERR] an Exception has occurred with exception message: (لايمكن حذف السجل المطلوب لأنه مرتبط بسجلات أخرى) and exception type OrphanageService.Services.Exceptions.HasForeignKeyException

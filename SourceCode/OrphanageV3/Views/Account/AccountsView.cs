@@ -24,7 +24,6 @@ namespace OrphanageV3.Views.Account
             InitializeComponent();
 
             _accountViewModel.DataLoaded += _accountsViewModel_DataLoaded;
-            orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
 
             _radGridHelper.GridView = orphanageGridView1.GridView;
             TranslateControls();
@@ -35,7 +34,6 @@ namespace OrphanageV3.Views.Account
             InitializeComponent();
 
             _accountViewModel.DataLoaded += _accountsViewModel_DataLoaded;
-            orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
 
             _radGridHelper.GridView = orphanageGridView1.GridView;
             TranslateControls();
@@ -92,6 +90,7 @@ namespace OrphanageV3.Views.Account
         private void _accountsViewModel_DataLoaded(object sender, EventArgs e)
         {
             orphanageGridView1.GridView.DataSource = _accountViewModel.Accounts;
+            orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
         }
 
         private void AccountsView_Load(object sender, EventArgs e)
@@ -105,9 +104,9 @@ namespace OrphanageV3.Views.Account
                 _accountViewModel.LoadAccounts();
             }
 
-            if (File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
+            if (File.Exists(Properties.Settings.Default.AccountsLayoutFilePath))
             {
-                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.BailsLayoutFilePath);
+                orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.AccountsLayoutFilePath);
             }
         }
 
@@ -141,9 +140,9 @@ namespace OrphanageV3.Views.Account
             guarantorsView.Show();
         }
 
-        private void BailsView_FormClosing(object sender, FormClosingEventArgs e)
+        private void AccountsView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.BailsLayoutFilePath);
+            orphanageGridView1.GridView.SaveLayout(Properties.Settings.Default.AccountsLayoutFilePath);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

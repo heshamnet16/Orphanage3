@@ -100,7 +100,7 @@ namespace OrphanageV3.Views.Bail
                 _bailsViewModel.LoadBails();
             }
 
-            if (File.Exists(Properties.Settings.Default.CaregiverLayoutFilePath))
+            if (File.Exists(Properties.Settings.Default.BailsLayoutFilePath))
             {
                 orphanageGridView1.GridView.LoadLayout(Properties.Settings.Default.BailsLayoutFilePath);
             }

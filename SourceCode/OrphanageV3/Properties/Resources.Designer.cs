@@ -834,11 +834,200 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الدولار الأمريكي ähnelt.
+        /// </summary>
+        public static string CurrencyNameAmericanDollar {
+            get {
+                return ResourceManager.GetString("CurrencyNameAmericanDollar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الجنيه الإسترليني ähnelt.
+        /// </summary>
+        public static string CurrencyNameBritishPoundSterling {
+            get {
+                return ResourceManager.GetString("CurrencyNameBritishPoundSterling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الجنيه المصري ähnelt.
+        /// </summary>
+        public static string CurrencyNameEgyptianPound {
+            get {
+                return ResourceManager.GetString("CurrencyNameEgyptianPound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die اليورو الأوربي ähnelt.
+        /// </summary>
+        public static string CurrencyNameEuropeanEuro {
+            get {
+                return ResourceManager.GetString("CurrencyNameEuropeanEuro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الدينار الأردني ähnelt.
+        /// </summary>
+        public static string CurrencyNameJordanianDinar {
+            get {
+                return ResourceManager.GetString("CurrencyNameJordanianDinar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الدينار الكويتي ähnelt.
+        /// </summary>
+        public static string CurrencyNameKuwaitiDinar {
+            get {
+                return ResourceManager.GetString("CurrencyNameKuwaitiDinar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الريال القطري ähnelt.
+        /// </summary>
+        public static string CurrencyNameQatariRiyal {
+            get {
+                return ResourceManager.GetString("CurrencyNameQatariRiyal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الريال السعودي ähnelt.
+        /// </summary>
+        public static string CurrencyNameSaudiRiyal {
+            get {
+                return ResourceManager.GetString("CurrencyNameSaudiRiyal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الليرة السورية ähnelt.
+        /// </summary>
+        public static string CurrencyNameSyrianLira {
+            get {
+                return ResourceManager.GetString("CurrencyNameSyrianLira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الليرة التركية ähnelt.
+        /// </summary>
+        public static string CurrencyNameTurkishLira {
+            get {
+                return ResourceManager.GetString("CurrencyNameTurkishLira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die اختصار العملة ähnelt.
         /// </summary>
         public static string CurrencyShortcut {
             get {
                 return ResourceManager.GetString("CurrencyShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die $ ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutAmericanDollar {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutAmericanDollar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die £ ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutBritishPoundSterling {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutBritishPoundSterling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ج.م ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutEgyptianPound {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutEgyptianPound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die € ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutEuropeanEuro {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutEuropeanEuro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die د.ا ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutJordanianDinar {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutJordanianDinar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die د.ك ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutKuwaitiDinar {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutKuwaitiDinar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ر.ق ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutQatariRiyal {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutQatariRiyal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ر.س ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutSaudiRiyal {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutSaudiRiyal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ل.س ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutSyrianLira {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutSyrianLira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ₺ ähnelt.
+        /// </summary>
+        public static string CurrencyShortcutTurkishLira {
+            get {
+                return ResourceManager.GetString("CurrencyShortcutTurkishLira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حساب جاري ähnelt.
+        /// </summary>
+        public static string CurrentAccount {
+            get {
+                return ResourceManager.GetString("CurrentAccount", resourceCulture);
             }
         }
         
@@ -1666,6 +1855,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عدد الكفلاء ähnelt.
+        /// </summary>
+        public static string GuarantorsCount {
+            get {
+                return ResourceManager.GetString("GuarantorsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap GuarantorsPic {
@@ -2233,6 +2431,15 @@ namespace OrphanageV3.Properties {
         public static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حساب جديد ähnelt.
+        /// </summary>
+        public static string NewAccount {
+            get {
+                return ResourceManager.GetString("NewAccount", resourceCulture);
             }
         }
         
@@ -3228,6 +3435,24 @@ namespace OrphanageV3.Properties {
         public static string Twitter {
             get {
                 return ResourceManager.GetString("Twitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الدرهم الإماراتي ähnelt.
+        /// </summary>
+        public static string UAEDirham {
+            get {
+                return ResourceManager.GetString("UAEDirham", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ‎د.إ ähnelt.
+        /// </summary>
+        public static string UAEDirhamShortcut {
+            get {
+                return ResourceManager.GetString("UAEDirhamShortcut", resourceCulture);
             }
         }
         

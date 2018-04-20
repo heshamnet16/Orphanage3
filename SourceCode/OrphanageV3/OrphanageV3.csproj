@@ -410,6 +410,7 @@
       <DependentUpon>SettingView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\OrphanageDataModel.FinancialData.Account.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.FinancialData.Bail.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Caregiver.datasource" />
     <None Include="Properties\DataSources\OrphanageDataModel.Persons.Father.datasource" />

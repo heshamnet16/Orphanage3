@@ -13,6 +13,7 @@ namespace OrphanageV3.Views.Guarantor
     {
         private GuarantorsViewModel _guarantorsViewModel = Program.Factory.Resolve<GuarantorsViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
+        private IEnumerable<int> _guarantorsIds = null;
 
         public GuarantorsView()
         {
@@ -22,6 +23,17 @@ namespace OrphanageV3.Views.Guarantor
             orphanageGridView1.Load += orphanageGridView1_Load;
             _radGridHelper.GridView = orphanageGridView1.GridView;
             TranslateControls();
+        }
+
+        public GuarantorsView(IEnumerable<int> guarantorsIds)
+        {
+            InitializeComponent();
+            _guarantorsViewModel.DataLoaded += _guarantorsViewModel_DataLoaded;
+            orphanageGridView1.GridView.SelectionChanged += GridView_SelectionChanged;
+            orphanageGridView1.Load += orphanageGridView1_Load;
+            _radGridHelper.GridView = orphanageGridView1.GridView;
+            TranslateControls();
+            _guarantorsIds = guarantorsIds;
         }
 
         private void TranslateControls()
@@ -87,7 +99,14 @@ namespace OrphanageV3.Views.Guarantor
 
         private void orphanageGridView1_Load(object sender, EventArgs e)
         {
-            _guarantorsViewModel.LoadGuarantors();
+            if (_guarantorsIds != null)
+            {
+                _guarantorsViewModel.LoadGuarantors(_guarantorsIds);
+            }
+            else
+            {
+                _guarantorsViewModel.LoadGuarantors();
+            }
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
