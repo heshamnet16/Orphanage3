@@ -202,5 +202,17 @@ namespace OrphanageV3.Properties {
                 this["GuarantorsLayoutFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Accounts.layout")]
+        public string AccountsLayoutFilePath {
+            get {
+                return ((string)(this["AccountsLayoutFilePath"]));
+            }
+            set {
+                this["AccountsLayoutFilePath"] = value;
+            }
+        }
     }
 }

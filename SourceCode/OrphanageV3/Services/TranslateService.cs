@@ -127,6 +127,7 @@ namespace OrphanageV3.Services
 
         public bool IsBoy(string arabicGender)
         {
+            //TODO must be another logic to do it
             if (arabicGender.Contains("ذ"))
                 return true;
             else

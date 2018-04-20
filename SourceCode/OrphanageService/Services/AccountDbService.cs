@@ -252,7 +252,7 @@ namespace OrphanageService.Services
                     }
 
                     orphanageDb.Accounts.Remove(account);
-                    if (await orphanageDb.SaveChangesAsync() > 1)
+                    if (await orphanageDb.SaveChangesAsync() > 0)
                     {
                         dbT.Commit();
                         _logger.Information($"the account object with id {accountID} has been successfully removed");

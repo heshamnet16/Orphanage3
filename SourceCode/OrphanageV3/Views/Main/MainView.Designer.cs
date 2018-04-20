@@ -124,6 +124,8 @@
             // 
             this.mnuNewOrphan.AccessibleDescription = "RadMenuItem3";
             this.mnuNewOrphan.AccessibleName = "RadMenuItem3";
+            this.mnuNewOrphan.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewOrphan.Image")));
+            this.mnuNewOrphan.ImageIndex = 10;
             this.mnuNewOrphan.Name = "mnuNewOrphan";
             this.mnuNewOrphan.Text = "fgdfgdfg";
             this.mnuNewOrphan.Click += new System.EventHandler(this.mnuNewOrphan_Click);
@@ -138,6 +140,8 @@
             // 
             this.mnuNewFamily.AccessibleDescription = "RadMenuItem4";
             this.mnuNewFamily.AccessibleName = "RadMenuItem4";
+            this.mnuNewFamily.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewFamily.Image")));
+            this.mnuNewFamily.ImageKey = "Parents.png";
             this.mnuNewFamily.Name = "mnuNewFamily";
             this.mnuNewFamily.Text = "asdasd";
             this.mnuNewFamily.Click += new System.EventHandler(this.mnuNewFamily_Click);
@@ -152,12 +156,16 @@
             // 
             this.mnuNewGuarantor.AccessibleDescription = "RadMenuItem6";
             this.mnuNewGuarantor.AccessibleName = "RadMenuItem6";
+            this.mnuNewGuarantor.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewGuarantor.Image")));
+            this.mnuNewGuarantor.ImageIndex = 6;
             this.mnuNewGuarantor.Name = "mnuNewGuarantor";
             this.mnuNewGuarantor.Text = "guarantor";
             this.mnuNewGuarantor.Click += new System.EventHandler(this.mnuNewGuarantor_Click);
             // 
             // mnuNewBail
             // 
+            this.mnuNewBail.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewBail.Image")));
+            this.mnuNewBail.ImageKey = "Bails.png";
             this.mnuNewBail.Name = "mnuNewBail";
             this.mnuNewBail.Text = "bail";
             this.mnuNewBail.Click += new System.EventHandler(this.mnuNewBail_Click);
@@ -302,6 +310,8 @@
             // 
             // mnuShowBonds
             // 
+            this.mnuShowBonds.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowBonds.Image")));
+            this.mnuShowBonds.ImageIndex = 8;
             this.mnuShowBonds.Name = "mnuShowBonds";
             this.mnuShowBonds.Text = "معيلين";
             this.mnuShowBonds.Click += new System.EventHandler(this.mnuShowBonds_Click);
@@ -309,7 +319,7 @@
             // mnuShowGuarantors
             // 
             this.mnuShowGuarantors.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowGuarantors.Image")));
-            this.mnuShowGuarantors.ImageKey = "Supporter.png";
+            this.mnuShowGuarantors.ImageKey = "Guarantors.png";
             this.mnuShowGuarantors.Name = "mnuShowGuarantors";
             this.mnuShowGuarantors.Text = "asdasd";
             this.mnuShowGuarantors.Click += new System.EventHandler(this.mnuShowGuarantors_Click);
@@ -330,19 +340,19 @@
             // 
             // mnuShowAccounts
             // 
-            this.mnuShowAccounts.Enabled = false;
             this.mnuShowAccounts.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowAccounts.Image")));
-            this.mnuShowAccounts.ImageKey = "Account.png";
+            this.mnuShowAccounts.ImageKey = "Accounts.png";
             this.mnuShowAccounts.Name = "mnuShowAccounts";
-            this.mnuShowAccounts.Text = "حسابات";
+            this.mnuShowAccounts.Text = "Accounts";
+            this.mnuShowAccounts.Click += new System.EventHandler(this.mnuShowAccounts_Click);
             // 
             // mnuShowBills
             // 
             this.mnuShowBills.AccessibleDescription = "فواتير";
             this.mnuShowBills.AccessibleName = "فواتير";
             this.mnuShowBills.Enabled = false;
-            this.mnuShowBills.Image = ((System.Drawing.Image)(resources.GetObject("mnuShowBills.Image")));
-            this.mnuShowBills.ImageKey = "Bills.png";
+            this.mnuShowBills.Image = null;
+            this.mnuShowBills.ImageKey = "";
             this.mnuShowBills.Name = "mnuShowBills";
             this.mnuShowBills.Text = "وصول";
             // 
@@ -360,7 +370,6 @@
             // 
             // radMnuAccounts
             // 
-            this.radMnuAccounts.Enabled = false;
             this.radMnuAccounts.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.mnuNewAccount,
             this.RadMenuSeparatorItem6,
@@ -371,9 +380,11 @@
             // mnuNewAccount
             // 
             this.mnuNewAccount.Image = ((System.Drawing.Image)(resources.GetObject("mnuNewAccount.Image")));
+            this.mnuNewAccount.ImageIndex = 9;
             this.mnuNewAccount.ImageKey = "Account.png";
             this.mnuNewAccount.Name = "mnuNewAccount";
             this.mnuNewAccount.Text = "حساب جديد";
+            this.mnuNewAccount.Click += new System.EventHandler(this.mnuNewAccount_Click);
             // 
             // RadMenuSeparatorItem6
             // 
@@ -385,6 +396,7 @@
             // 
             this.mnuBills.AccessibleDescription = "فاتورة";
             this.mnuBills.AccessibleName = "فاتورة";
+            this.mnuBills.Enabled = false;
             this.mnuBills.Image = ((System.Drawing.Image)(resources.GetObject("mnuBills.Image")));
             this.mnuBills.ImageKey = "Bill1.png";
             this.mnuBills.Items.AddRange(new Telerik.WinControls.RadItem[] {
@@ -586,6 +598,12 @@
             this.imageList1.Images.SetKeyName(2, "Mother.png");
             this.imageList1.Images.SetKeyName(3, "Parents.png");
             this.imageList1.Images.SetKeyName(4, "Bails.png");
+            this.imageList1.Images.SetKeyName(5, "Guarantors.png");
+            this.imageList1.Images.SetKeyName(6, "Guarantor.png");
+            this.imageList1.Images.SetKeyName(7, "Accounts.png");
+            this.imageList1.Images.SetKeyName(8, "Caregivers.png");
+            this.imageList1.Images.SetKeyName(9, "Account.png");
+            this.imageList1.Images.SetKeyName(10, "UnknownMale.png");
             // 
             // RadMenu1
             // 

@@ -47,5 +47,8 @@
     <Setting Name="GuarantorsLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Guarantors.layout</Value>
     </Setting>
+    <Setting Name="AccountsLayoutFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Accounts.layout</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

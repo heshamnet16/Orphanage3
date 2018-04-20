@@ -128,6 +128,16 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Guarantor.GuarantorEditView());
         }
 
+        public void ShowAccounts()
+        {
+            ShowView(new Views.Account.AccountsView());
+        }
+
+        public void ShowNewAccount()
+        {
+            ShowView(new Views.Account.AccountEditView());
+        }
+
         public void ShowOrphanEditView(int OrphanId)
         {
             ShowView(new Views.Orphan.OrphanEditView(OrphanId));

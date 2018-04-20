@@ -49,6 +49,21 @@ namespace OrphanageV3.ViewModel.Guarantor
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
+        public async void LoadGuarantors(IEnumerable<int> guarantorsIds)
+        {
+            var ReturnedGuarantors = await _apiClient.GuarantorsController_GetByIdsAsync(guarantorsIds);
+
+            _SourceGuarantor = ReturnedGuarantors;
+
+            Guarantors = new ObservableCollection<GuarantorModel>(_mapperService.MapToGuarantorModel(_SourceGuarantor));
+
+            UpdateFamiliesCount();
+            UpdateOrphansCount();
+            UpdateBailsCount();
+
+            DataLoaded?.Invoke(this, new EventArgs());
+        }
+
         private void UpdateFamiliesCount()
         {
             new Thread(new ThreadStart(async () =>
