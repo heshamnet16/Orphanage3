@@ -15,7 +15,7 @@ namespace OrphanageService.Services
             string currentPath = System.IO.Path.GetDirectoryName(currentFileName);
             _log = new LoggerConfiguration().MinimumLevel.Debug()
                 .WriteTo.Console()
-                .WriteTo.File($"{currentPath}\\ServiceLog.txt",
+                .WriteTo.File($"{currentPath}\\ServiceLog.log",
                 fileSizeLimitBytes: 10485760,
                 outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
                 shared: true)
