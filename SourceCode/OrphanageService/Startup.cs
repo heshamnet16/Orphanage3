@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
+using OrphanageService.Services;
 using Owin;
 using System;
 using System.Web.Http.Dispatcher;
@@ -18,6 +19,7 @@ namespace OrphanageService
             ConfigureOAuth(appBuilder);
             appBuilder.UseWebApi(httpConfiguration);
         }
+
         public void ConfigureOAuth(IAppBuilder app)
         {
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
@@ -25,13 +27,12 @@ namespace OrphanageService
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                Provider = new AuthorizationService()
             };
 
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
         }
     }
 }
