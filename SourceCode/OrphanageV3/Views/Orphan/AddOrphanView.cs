@@ -618,9 +618,6 @@ namespace OrphanageV3.Views.Orphan
             orphanBindingSource.DataSource = _orphan;
             orphanNameForm.NameDataSource = _orphan.Name;
             studyBindingSource.DataSource = _orphan.Education;
-            caregiverBindingSource.DataSource = new OrphanageDataModel.Persons.Caregiver();
-            caregiverNameForm.NameDataSource = new OrphanageDataModel.RegularData.Name();
-            caregiverAddressForm.AddressDataSource = new OrphanageDataModel.RegularData.Address();
 
             orphanNameForm.txtEnglishFather.Text = _family.Father.Name.EnglishFirst;
             orphanNameForm.txtFather.Text = _family.Father.Name.First;
