@@ -285,9 +285,11 @@
     <Compile Include="Utilities\HttpMessageConfiguerer.cs" />
     <Compile Include="Utilities\ImageAdapter.cs" />
     <Compile Include="Utilities\Interfaces\IHttpMessageConfiguerer.cs" />
+    <Compile Include="Utilities\Interfaces\ISecurePasswordHasher.cs" />
     <Compile Include="Utilities\Interfaces\ISelfLoopBlocking.cs" />
     <Compile Include="Utilities\Interfaces\IStringsFixer.cs" />
     <Compile Include="Utilities\Interfaces\IUriGenerator.cs" />
+    <Compile Include="Utilities\SecurePasswordHasher.cs" />
     <Compile Include="Utilities\SelfLoopBlocking.cs" />
     <Compile Include="Utilities\StringsFixer.cs" />
     <Compile Include="Utilities\UriGenerator.cs" />

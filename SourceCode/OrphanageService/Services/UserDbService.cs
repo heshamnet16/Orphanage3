@@ -4,6 +4,7 @@ using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services
@@ -17,6 +18,25 @@ namespace OrphanageService.Services
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
+        }
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        public byte[] hashPassword(string password)
+        {
+            var md5 = new MD5CryptoServiceProvider();
+            var data = Base64Encode(password);
+            var md5data = md5.ComputeHash(data);
         }
 
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(int Uid)
