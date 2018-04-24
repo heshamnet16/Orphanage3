@@ -147,6 +147,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Services\ApiClientPhotos.cs" />
+    <Compile Include="Services\ApiClientTokenProvider.cs" />
     <Compile Include="Services\AutoCompleteService.cs" />
     <Compile Include="Services\DataFormatterService.cs" />
     <Compile Include="Services\ExceptionHandler.cs" />

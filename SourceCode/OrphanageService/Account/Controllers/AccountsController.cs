@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Account.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/account")]
     public class AccountsController : ApiController
     {

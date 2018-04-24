@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace OrphanageService.User.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/user")]
     public class UsersController : ApiController
     {

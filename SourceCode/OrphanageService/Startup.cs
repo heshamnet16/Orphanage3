@@ -14,8 +14,9 @@ namespace OrphanageService
         {
             var httpConfiguration = WepApiConfig.Register();
             httpConfiguration.Services.Replace(typeof(IHttpControllerSelector), new HttpAreaSelector(httpConfiguration));
-            httpConfiguration.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionsHandler());
+            httpConfiguration.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionsHandlers.GlobalExceptionsHandler());
             httpConfiguration.EnsureInitialized();
+            appBuilder.Use<GlobalExceptionsHandlers.GlobalExceptionMiddleware>();
             ConfigureOAuth(appBuilder);
             appBuilder.UseWebApi(httpConfiguration);
         }

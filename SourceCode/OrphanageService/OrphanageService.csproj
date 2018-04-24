@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7FB5E937-FAE6-4A43-B108-36C0B1143ADB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>OrphanageService</RootNamespace>
     <AssemblyName>OrphanageService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -189,7 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Controllers\AccountsController.cs" />
-    <Compile Include="App_Start\GlobalExceptionsHandler.cs" />
+    <Compile Include="GlobalExceptionsHandlers\ExceptionHandler.cs" />
+    <Compile Include="GlobalExceptionsHandlers\GlobalExceptionMiddleware.cs" />
+    <Compile Include="GlobalExceptionsHandlers\GlobalExceptionsHandler.cs" />
     <Compile Include="App_Start\HttpAreaSelector.cs" />
     <Compile Include="App_Start\PowerShellExecuter.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />

@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Bail.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/bail")]
     public class BailsController : ApiController
     {

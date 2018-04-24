@@ -24,12 +24,7 @@ namespace OrphanageService.Utilities
         {
         }
 
-        /// <summary>
-        /// Creates a hash from a password
-        /// </summary>
-        /// <param name="password">the password</param>
-        /// <param name="iterations">number of iterations</param>
-        /// <returns>the hash</returns>
+        ///<inheritdoc/>
         public string Hash(string password, int iterations)
         {
             //create salt
@@ -52,32 +47,19 @@ namespace OrphanageService.Utilities
             return string.Format("$OrphanHASH$V1${0}${1}", iterations, base64Hash);
         }
 
-        /// <summary>
-        /// Creates a hash from a password with 10000 iterations
-        /// </summary>
-        /// <param name="password">the password</param>
-        /// <returns>the hash</returns>
+        ///<inheritdoc/>
         public string Hash(string password)
         {
             return Hash(password, 10000);
         }
 
-        /// <summary>
-        /// Check if hash is supported
-        /// </summary>
-        /// <param name="hashString">the hash</param>
-        /// <returns>is supported?</returns>
+        ///<inheritdoc/>
         public bool IsHashSupported(string hashString)
         {
             return hashString.Contains("$OrphanHASH$V1$");
         }
 
-        /// <summary>
-        /// verify a password against a hash
-        /// </summary>
-        /// <param name="password">the password</param>
-        /// <param name="hashedPassword">the hash</param>
-        /// <returns>could be verified?</returns>
+        ///<inheritdoc/>
         public bool Verify(string password, string hashedPassword)
         {
             //check hash

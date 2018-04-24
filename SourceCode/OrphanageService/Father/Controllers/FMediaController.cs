@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Father.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/father/media")]
     public class FMediaController : ApiController
     {

@@ -11,6 +11,7 @@ using OrphanageService.DataContext;
 
 namespace OrphanageService.Services
 {
+    //this class will be needed, when more security methods will be implemented
     public class AuthenticationService : IAuthenticationService
     {
         private OrphanageAuthContext _ctx;
@@ -37,12 +38,13 @@ namespace OrphanageService.Services
         }
 
         #region IDisposable Support
+
         public void Dispose()
         {
             _ctx?.Dispose();
             _userManager?.Dispose();
         }
-        #endregion
 
+        #endregion IDisposable Support
     }
 }

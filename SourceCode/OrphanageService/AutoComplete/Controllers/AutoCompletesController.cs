@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace OrphanageService.AutoComplete.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/autocomplete")]
     public class AutoCompletesController : ApiController
     {

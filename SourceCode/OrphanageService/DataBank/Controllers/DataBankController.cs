@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace OrphanageService.DataBank.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/databank")]
     public class DataBanksController : ApiController
     {
