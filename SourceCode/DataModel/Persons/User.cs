@@ -30,6 +30,7 @@ namespace OrphanageDataModel.Persons
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [MinLength(4, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]

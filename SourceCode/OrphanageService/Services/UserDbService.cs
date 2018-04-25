@@ -1,9 +1,15 @@
-﻿using OrphanageService.DataContext;
+﻿using OrphanageDataModel.Persons;
+using OrphanageService.DataContext;
+using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.Linq;
+using System.Security.Authentication;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services
@@ -12,11 +18,143 @@ namespace OrphanageService.Services
     {
         private readonly ISelfLoopBlocking _selfLoopBlocking;
         private readonly IUriGenerator _uriGenerator;
+        private readonly ISecurePasswordHasher _passwordHasher;
+        private readonly ILogger _logger;
+        private readonly IRegularDataService _regularDataService;
 
-        public UserDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator)
+        public UserDbService(ISelfLoopBlocking selfLoopBlocking, IUriGenerator uriGenerator, ISecurePasswordHasher securePasswordHasher, ILogger logger, IRegularDataService regularDataService)
         {
             _selfLoopBlocking = selfLoopBlocking;
             _uriGenerator = uriGenerator;
+            _passwordHasher = securePasswordHasher;
+            _logger = logger;
+            _regularDataService = regularDataService;
+        }
+
+        public async Task<OrphanageDataModel.Persons.User> AddUser(OrphanageDataModel.Persons.User user)
+        {
+            _logger.Information("trying to add new user");
+            if (user == null)
+            {
+                _logger.Error("user is null, NullReferenceException will be thrown");
+                throw new NullReferenceException();
+            }
+            using (var orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                using (var Dbt = orphanageDBC.Database.BeginTransaction())
+                {
+                    int ret = 0;
+                    if (user.Name != null)
+                    {
+                        var nameId = await _regularDataService.AddName(user.Name, orphanageDBC);
+                        if (nameId > 0)
+                        {
+                            user.NameId = nameId;
+                        }
+                        else
+                        {
+                            Dbt.Rollback();
+                            _logger.Warning($"Name object has not been added, nothing will be added, null will be returned");
+                            return null;
+                        }
+                    }
+                    if (user.Address != null)
+                    {
+                        var addressId = await _regularDataService.AddAddress(user.Address, orphanageDBC);
+                        if (addressId == -1)
+                        {
+                            Dbt.Rollback();
+                            _logger.Warning($"Address object has not been added, nothing will be added, null will be returned");
+                            return null;
+                        }
+                        user.AddressId = addressId;
+                    }
+                    user.Accounts = null;
+                    user.Bails = null;
+                    user.Caregivers = null;
+                    user.Famlies = null;
+                    user.Fathers = null;
+                    user.Guarantors = null;
+                    user.Mothers = null;
+                    user.Orphans = null;
+                    _logger.Information("trying to hash the user password");
+                    user.Password = _passwordHasher.Hash(user.Password);
+                    orphanageDBC.Users.Add(user);
+                    ret = await orphanageDBC.SaveChangesAsync();
+                    if (ret >= 1)
+                    {
+                        Dbt.Commit();
+                        _logger.Information($"new user object with id {user.Id} has been added");
+                        _logger.Information($"the caregiver object with id {user.Id}  will be returned");
+                        return user;
+                    }
+                    else
+                    {
+                        Dbt.Rollback();
+                        _logger.Warning($"something went wrong, nothing was added, null will be returned");
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public async Task<OrphanageDataModel.Persons.User> AuthenticateUser(string userName, string password)
+        {
+            _logger.Information($"trying to authenticate user, username={userName}");
+            if (userName == null || userName.Length == 0)
+            {
+                _logger.Error("username is empty, NullReferenceException will be thrown");
+                throw new NullReferenceException();
+            }
+            if (password == null || password.Length == 0)
+            {
+                _logger.Error("password is empty, NullReferenceException will be thrown");
+                throw new NullReferenceException();
+            }
+            using (var orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var user = await orphanageDBC.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+                if (user == null)
+                {
+                    _logger.Warning($"username is not existed, AuthenticationException will be thrown");
+                    throw new AuthenticationException($"username={userName}");
+                }
+                if (!_passwordHasher.Verify(password, user.Password))
+                {
+                    _logger.Warning($"password doesn't match, AuthenticationException will be thrown");
+                    throw new AuthenticationException($"wrong password");
+                }
+                _logger.Information($"username={userName} is successfully authenticated");
+                return user;
+            }
+        }
+
+        public async Task<bool> DeleteUser(int userId)
+        {
+            _logger.Information($"trying to delete User with id({userId})");
+            if (userId <= 0)
+            {
+                _logger.Error($"the integer parameter User ID is less than zero, false will be returned");
+                throw new NullReferenceException();
+            }
+            var user = await GetUser(userId);
+            user.CanAdd = false;
+            user.CanDelete = false;
+            user.CanDeposit = false;
+            user.CanDraw = false;
+            user.CanRead = false;
+            user.IsAdmin = false;
+            var ret = await SaveUser(user);
+            if (ret)
+            {
+                _logger.Information($"User with id({userId}) has been successfully deleted from the database");
+                return true;
+            }
+            else
+            {
+                _logger.Information($"nothing has changed, false will be returned");
+                return false;
+            }
         }
 
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetAccounts(int Uid)
@@ -593,6 +731,105 @@ namespace OrphanageService.Services
                 int usersCount = await _orphanageDBC.Users.AsNoTracking()
                     .CountAsync();
                 return usersCount;
+            }
+        }
+
+        public async Task<bool> SaveUser(OrphanageDataModel.Persons.User user)
+        {
+            _logger.Information($"Trying to save user");
+            if (user == null)
+            {
+                _logger.Error($"the parameter object user is null, NullReferenceException will be thrown");
+                throw new NullReferenceException();
+            }
+            if (user.UserName == null || user.UserName.Length == 0)
+            {
+                _logger.Error($"the UserName of the parameter object user equals {user.UserName}, NullReferenceException will be thrown");
+                throw new NullReferenceException();
+            }
+            using (OrphanageDbCNoBinary orphanageDc = new OrphanageDbCNoBinary())
+            {
+                int ret = 0;
+                orphanageDc.Configuration.LazyLoadingEnabled = true;
+                orphanageDc.Configuration.ProxyCreationEnabled = true;
+                orphanageDc.Configuration.AutoDetectChangesEnabled = true;
+
+                var orginalUser = await orphanageDc.Users.
+                    Include(m => m.Address).
+                    Include(c => c.Name).
+                    FirstOrDefaultAsync(m => m.Id == user.Id);
+
+                if (orginalUser == null)
+                {
+                    _logger.Error($"the original user object with id {user.Id} object is not founded, ObjectNotFoundException will be thrown");
+                    throw new Exceptions.ObjectNotFoundException();
+                }
+
+                _logger.Information($"processing the address object of the user with id({user.Id})");
+                if (user.Address != null)
+                    if (orginalUser.Address != null)
+                        //edit existing user address
+                        ret += await _regularDataService.SaveAddress(user.Address, orphanageDc);
+                    else
+                    {
+                        //create new address for the user
+                        var addressId = await _regularDataService.AddAddress(user.Address, orphanageDc);
+                        orginalUser.AddressId = addressId;
+                        ret++;
+                    }
+                else
+                {
+                    if (orginalUser.Address != null)
+                    {
+                        //delete existing user address
+                        int alAdd = orginalUser.AddressId.Value;
+                        orginalUser.AddressId = null;
+                        await orphanageDc.SaveChangesAsync();
+                        await _regularDataService.DeleteAddress(alAdd, orphanageDc);
+                    }
+                }
+                if (user.Name != null)
+                    if (orginalUser.Name != null)
+                        //edit existing user name
+                        ret += await _regularDataService.SaveName(user.Name, orphanageDc);
+                    else
+                    {
+                        //create new name for the user
+                        var nameId = await _regularDataService.AddName(user.Name, orphanageDc);
+                        orginalUser.NameId = nameId;
+                        ret++;
+                    }
+                else
+                {
+                    if (orginalUser.Name != null)
+                    {
+                        //delete existing user name
+                        int alAdd = orginalUser.NameId.Value;
+                        orginalUser.NameId = null;
+                        await orphanageDc.SaveChangesAsync();
+                        await _regularDataService.DeleteName(alAdd, orphanageDc);
+                    }
+                }
+                orginalUser.CanAdd = user.CanAdd;
+                orginalUser.CanDelete = user.CanDelete;
+                orginalUser.CanDeposit = user.CanDeposit;
+                orginalUser.CanDraw = user.CanDraw;
+                orginalUser.CanRead = user.CanRead;
+                orginalUser.IsAdmin = user.IsAdmin;
+                orginalUser.Password = _passwordHasher.Hash(user.Password);
+                orginalUser.UserName = user.UserName;
+                orginalUser.Note = user.Note;
+                ret += await orphanageDc.SaveChangesAsync();
+                if (ret > 0)
+                {
+                    _logger.Information($"user with id({user.Id}) has been successfully saved to the database, {ret} changes have been made");
+                    return true;
+                }
+                else
+                {
+                    _logger.Information($"nothing has changed, false will be returned");
+                    return false;
+                }
             }
         }
     }

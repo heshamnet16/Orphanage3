@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Family.Controllers
 {
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/family")]
     public class FamiliesController : ApiController
     {
@@ -33,6 +34,7 @@ namespace OrphanageService.Family.Controllers
                 return ret;
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.RegularData.Family family)
@@ -51,6 +53,7 @@ namespace OrphanageService.Family.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("BailFamilies/{BailId}")]
         public async Task<bool> SetBail(int BailId, [FromUri] IList<int> OrphanIds)
@@ -59,6 +62,7 @@ namespace OrphanageService.Family.Controllers
             return ret;
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("color")]
         public async Task<HttpResponseMessage> SetFamilyColor(int FamilyId, int colorValue)
@@ -71,6 +75,7 @@ namespace OrphanageService.Family.Controllers
             return _httpMessageConfiguerer.OK();
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("exclude")]
         public async Task<HttpResponseMessage> SetFamilyExclude(int FamilyId, bool value)
@@ -80,6 +85,7 @@ namespace OrphanageService.Family.Controllers
             return _httpMessageConfiguerer.OK();
         }
 
+        [Authorize(Roles = "Admin, CanAdd")]
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(OrphanageDataModel.RegularData.Family family)
@@ -98,6 +104,7 @@ namespace OrphanageService.Family.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpDelete]
         [Route("{FamID}")]
         public async Task<HttpResponseMessage> Delete(int FamID)

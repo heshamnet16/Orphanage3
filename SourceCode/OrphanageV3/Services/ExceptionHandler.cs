@@ -56,7 +56,7 @@ namespace OrphanageV3.Services
             //nothing changed
             if (apiClientException.StatusCode != "304")
             {
-                MessageBox.Show(apiClientException.Message, "Orphanage3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(apiClientException.Message, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -93,7 +93,7 @@ namespace OrphanageV3.Services
                 {
                     int id = getIdfromDublicatedMessage(apiEx.Response);
                     string errorMessage = Properties.Resources.ErrorMessageDublicated + " " + id;
-                    MessageBox.Show(errorMessage, "Orphanage3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(errorMessage, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return default(T);
             }

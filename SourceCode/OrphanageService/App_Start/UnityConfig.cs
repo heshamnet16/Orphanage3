@@ -50,6 +50,7 @@ namespace OrphanageService
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
+            container.RegisterType<IUserDbService, UserDbService>();
             container.RegisterType<IOrphanDbService, OrphanDbService>();
             container.RegisterType<IFatherDbService, FatherDbService>();
             container.RegisterType<IFamilyDbService, FamilyDbService>();
@@ -67,6 +68,7 @@ namespace OrphanageService
             container.RegisterType<IStringsFixer, StringsFixer>();
             container.RegisterSingleton<ILogger, Logger>();
             container.RegisterType<ICheckerService, CheckerService>();
+            container.RegisterType<ISecurePasswordHasher, SecurePasswordHasher>();
         }
     }
 }

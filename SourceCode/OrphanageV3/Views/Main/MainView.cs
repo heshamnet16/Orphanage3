@@ -1,4 +1,5 @@
-﻿using OrphanageV3.Views.Tools;
+﻿using OrphanageV3.Extensions;
+using OrphanageV3.Views.Tools;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -43,6 +44,9 @@ namespace OrphanageV3.Views.Main
             mnuShowGuarantors.Text = Properties.Resources.Guarantors;
             mnuNewGuarantor.Text = Properties.Resources.Guarantor;
             mnuShowAccounts.Text = Properties.Resources.Accounts;
+            lblRemainingTime.Text = Properties.Resources.RemainingTime.getDobblePunkt();
+            lblRemainingTime.TextAlignment = ContentAlignment.MiddleLeft;
+            lblRemainingTimeValue.TextAlignment = ContentAlignment.MiddleRight;
             lblConnectionStatus.Text = Properties.Resources.Disconnected;
         }
 
@@ -123,6 +127,7 @@ namespace OrphanageV3.Views.Main
             lblConnectionStatus.Text = connectionValue ? Properties.Resources.Connected : Properties.Resources.Disconnected;
             lblConnectionStatus.ForeColor = connectionValue ? Color.Green : Color.Red;
             disableEnableMenus(RadMenu1.Items, connectionValue);
+            lblRemainingTimeValue.Text = Services.ApiClientProvider.RemainTime.ToString("g").Trim();
         }
 
         private void disableEnableMenus(RadItemOwnerCollection radItemOwnerCollection, bool value)
@@ -224,6 +229,11 @@ namespace OrphanageV3.Views.Main
         private void mnuNewAccount_Click(object sender, EventArgs e)
         {
             _mainViewModel.ShowNewAccount();
+        }
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+            _mainViewModel.ShowLoginDialog();
         }
     }
 }

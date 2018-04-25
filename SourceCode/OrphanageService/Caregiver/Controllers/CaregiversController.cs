@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Caregiver.Controllers
 {
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/caregiver")]
     public class CaregiversController : ApiController
     {
@@ -57,6 +58,7 @@ namespace OrphanageService.Caregiver.Controllers
             return await _CaregiverDBService.GetOrphans(CId);
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(object caregiver)
@@ -76,6 +78,7 @@ namespace OrphanageService.Caregiver.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("color")]
         public async Task<HttpResponseMessage> SetCaregiverColor(int CaregiverId, int colorValue)
@@ -88,6 +91,7 @@ namespace OrphanageService.Caregiver.Controllers
             return _httpMessageConfiguerer.OK();
         }
 
+        [Authorize(Roles = "Admin, CanAdd")]
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object caregiver)
@@ -107,6 +111,7 @@ namespace OrphanageService.Caregiver.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpDelete]
         [Route("{CID}")]
         public async Task<HttpResponseMessage> Delete(int CID)

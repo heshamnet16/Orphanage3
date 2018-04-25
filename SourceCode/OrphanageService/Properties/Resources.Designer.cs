@@ -61,6 +61,15 @@ namespace OrphanageService.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم رفض الوصول, هناك خطأ باسم المستخدم أو كلمة المرور ähnelt.
+        /// </summary>
+        public static string Error_AccessDenied {
+            get {
+                return ResourceManager.GetString("Error_AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die موجود سجل مطابق ضمن قاعدة البيانات ähnelt.
         /// </summary>
         public static string Error_DuplicatedObject {

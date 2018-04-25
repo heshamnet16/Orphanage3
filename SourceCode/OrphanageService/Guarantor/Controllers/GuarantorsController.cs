@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Guarantor.Controllers
 {
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/guarantor")]
     public class GuarantorsController : ApiController
     {
@@ -133,6 +134,7 @@ namespace OrphanageService.Guarantor.Controllers
             return await _GuarantorDBService.GetBailsIds(GId);
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(object guarantor)
@@ -152,6 +154,7 @@ namespace OrphanageService.Guarantor.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("color")]
         public async Task<HttpResponseMessage> SetGuarantorColor(int guarantorId, int colorValue)
@@ -164,6 +167,7 @@ namespace OrphanageService.Guarantor.Controllers
             return _httpMessageConfiguerer.OK();
         }
 
+        [Authorize(Roles = "Admin, CanAdd")]
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object guarantor)
@@ -183,6 +187,7 @@ namespace OrphanageService.Guarantor.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpDelete]
         [Route("{GID}")]
         public async Task<HttpResponseMessage> Delete(int GID, bool forceDelete)

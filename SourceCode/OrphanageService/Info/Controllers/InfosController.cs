@@ -6,6 +6,7 @@ namespace OrphanageService.Info.Controllers
     public class InfosController : ApiController
     {
         //api/info/verison
+        [AllowAnonymous]
         [HttpGet]
         [Route("version")]
         public string GetVersion()

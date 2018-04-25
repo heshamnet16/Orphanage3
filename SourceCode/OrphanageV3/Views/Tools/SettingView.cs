@@ -158,6 +158,7 @@ namespace OrphanageV3.Views.Tools
             Properties.Settings.Default.OrphanageServiceURL = getBaseUrl(txtBaseUrl.Text);
             Properties.Settings.Default.Save();
             Program.RenewApiClient();
+            Services.ApiClientProvider.RefreshHostUri();
         }
 
         private void chkUseBackgroundColor_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)

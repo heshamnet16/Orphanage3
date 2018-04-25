@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -12,6 +13,8 @@
     <AssemblyName>OrphanageV3</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -144,6 +147,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Services\ApiClientPhotos.cs" />
+    <Compile Include="Services\ApiClientTokenProvider.cs" />
     <Compile Include="Services\AutoCompleteService.cs" />
     <Compile Include="Services\DataFormatterService.cs" />
     <Compile Include="Services\ExceptionHandler.cs" />
@@ -172,6 +176,7 @@
     <Compile Include="ViewModel\Guarantor\GuarantorEditViewModel.cs" />
     <Compile Include="ViewModel\Guarantor\GuarantorModel.cs" />
     <Compile Include="ViewModel\Guarantor\GuarantorsViewModel.cs" />
+    <Compile Include="ViewModel\Login\LoginViewModel.cs" />
     <Compile Include="ViewModel\Main\MainViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherEditViewModel.cs" />
     <Compile Include="ViewModel\Mother\MotherModel.cs" />
@@ -270,6 +275,12 @@
     <Compile Include="Views\Helper\Interfaces\IEntityValidator.cs" />
     <Compile Include="Views\Helper\Interfaces\IRadGridHelper.cs" />
     <Compile Include="Views\Helper\RadGridHelper.cs" />
+    <Compile Include="Views\Login\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Guarantor\GuarantorsView.resx">
       <DependentUpon>GuarantorsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -514,7 +528,16 @@
   <ItemGroup>
     <None Include="Resources\Accounts.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Setting.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,5 +1,6 @@
 ﻿using OrphanageV3.Services;
 using System.Linq;
+using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
 namespace OrphanageV3.ViewModel.Main
@@ -18,6 +19,13 @@ namespace OrphanageV3.ViewModel.Main
         public MainViewModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
+            Services.ApiClientProvider.AccessTokenExpired += ApiClientProvider_MustLogin;
+            Services.ApiClientProvider.MustLogin += ApiClientProvider_MustLogin;
+        }
+
+        private void ApiClientProvider_MustLogin(object sender, System.EventArgs e)
+        {
+            _MainView.Invoke(new MethodInvoker(() => { ShowLoginDialog(); }));
         }
 
         public void UpdateApiClient(IApiClient apiClient)
@@ -161,6 +169,41 @@ namespace OrphanageV3.ViewModel.Main
         public void ShowGuarantorEditView(int GuarantorId)
         {
             ShowView(new Views.Guarantor.GuarantorEditView(GuarantorId));
+        }
+
+        public void ShowLoginDialog()
+        {
+            var frm = new Views.Login.LoginView();
+            //frm.MdiParent = _MainView;
+            //frm.ThemeClassName = _MainView.ThemeClassName;
+            frm.ThemeName = _MainView.ThemeName;
+
+            var overlayForm = new RadForm();
+            overlayForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            overlayForm.ShowInTaskbar = false;
+            overlayForm.Width = _MainView.Width;
+            overlayForm.Height = _MainView.Height;
+            overlayForm.Top = _MainView.Top;
+            overlayForm.Left = _MainView.Left;
+            overlayForm.StartPosition = _MainView.StartPosition;
+            // Set the opacity to 75%.
+            overlayForm.Opacity = .75;
+            overlayForm.MdiParent = _MainView;
+            overlayForm.Show();
+            frm.ShowDialog();
+            overlayForm.Close();
+            overlayForm.Dispose();
+        }
+
+        public void CloseAllwindows()
+        {
+            if (this.MainView.MdiChildren != null && this.MainView.MdiChildren.Length > 0)
+            {
+                foreach (var frm in this.MainView.MdiChildren)
+                {
+                    frm.Close();
+                }
+            }
         }
 
         private void ShowView(RadForm frm)

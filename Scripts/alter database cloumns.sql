@@ -27,6 +27,8 @@ GO
 
 use OrphansDB;
 
+update Users set Password='$OrphanHASH$V1$10000$Q1QQ8svGPImwbLr7nHqYEqABMUBm9DjT+94ArcYuISS5K4zuUlQ0wI2eSTNCjhBpkhfbZ2zFxMw=' where ID =1
+
 ALTER TABLE Mothers
 ALTER COLUMN Dieday datetime2;
 

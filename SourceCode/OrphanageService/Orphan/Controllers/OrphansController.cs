@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Orphan.Controllers
 {
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/orphan")]
     public class OrphansController : ApiController
     {
@@ -44,6 +45,7 @@ namespace OrphanageService.Orphan.Controllers
                 return ret;
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("BailOrphans/{BailId}")]
         public async Task<bool> SetBail(int BailId, [FromUri] IList<int> OrphanIds)
@@ -92,6 +94,7 @@ namespace OrphanageService.Orphan.Controllers
             return await _OrphanDBService.GetBrothersCount(Oid);
         }
 
+        [Authorize(Roles = "Admin, CanAdd")]
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object orphan)
@@ -111,6 +114,7 @@ namespace OrphanageService.Orphan.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(object orphan)
@@ -130,6 +134,7 @@ namespace OrphanageService.Orphan.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("color")]
         public async Task<HttpResponseMessage> SetOrphanColor(int orphanId, int colorValue)
@@ -142,6 +147,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpMessageConfigurere.OK();
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("exclude")]
         public async Task<HttpResponseMessage> SetOrphanExclude(int orphanId, bool value)
@@ -151,6 +157,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpMessageConfigurere.OK();
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpDelete]
         [Route("{Oid}")]
         public async Task<HttpResponseMessage> Delete(int Oid)

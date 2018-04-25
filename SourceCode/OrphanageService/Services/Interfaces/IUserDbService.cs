@@ -5,6 +5,14 @@ namespace OrphanageService.Services.Interfaces
 {
     public interface IUserDbService
     {
+        Task<OrphanageDataModel.Persons.User> AddUser(OrphanageDataModel.Persons.User user);
+
+        Task<bool> DeleteUser(int userId);
+
+        Task<bool> SaveUser(OrphanageDataModel.Persons.User user);
+
+        Task<OrphanageDataModel.Persons.User> AuthenticateUser(string userName, string password);
+
         Task<OrphanageDataModel.Persons.User> GetUser(int Uid);
 
         Task<IEnumerable<OrphanageDataModel.Persons.User>> GetUsers(int pageSize, int pageNum);

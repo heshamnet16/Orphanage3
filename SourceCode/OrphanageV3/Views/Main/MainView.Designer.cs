@@ -93,10 +93,15 @@
             this.mnuAppDefault = new Telerik.WinControls.UI.RadMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
+            this.lblRemainingTime = new Telerik.WinControls.UI.RadLabel();
+            this.lblRemainingTimeValue = new Telerik.WinControls.UI.RadLabel();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.lblConnectionStatus = new Telerik.WinControls.UI.RadLabelElement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
+            this.RadMenu1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -608,6 +613,8 @@
             // RadMenu1
             // 
             this.RadMenu1.AllItemsEqualHeight = true;
+            this.RadMenu1.Controls.Add(this.lblRemainingTime);
+            this.RadMenu1.Controls.Add(this.lblRemainingTimeValue);
             this.RadMenu1.DropDownAnimationEnabled = true;
             this.RadMenu1.ImageList = this.imageList1;
             this.RadMenu1.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -622,6 +629,27 @@
             this.RadMenu1.Name = "RadMenu1";
             this.RadMenu1.Size = new System.Drawing.Size(1034, 20);
             this.RadMenu1.TabIndex = 5;
+            // 
+            // lblRemainingTime
+            // 
+            this.lblRemainingTime.AutoSize = false;
+            this.lblRemainingTime.Location = new System.Drawing.Point(58, 1);
+            this.lblRemainingTime.Name = "lblRemainingTime";
+            this.lblRemainingTime.Size = new System.Drawing.Size(100, 18);
+            this.lblRemainingTime.TabIndex = 10;
+            this.lblRemainingTime.Text = "remaining time";
+            this.lblRemainingTime.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblRemainingTimeValue
+            // 
+            this.lblRemainingTimeValue.AutoSize = false;
+            this.lblRemainingTimeValue.ForeColor = System.Drawing.Color.Red;
+            this.lblRemainingTimeValue.Location = new System.Drawing.Point(2, 1);
+            this.lblRemainingTimeValue.Name = "lblRemainingTimeValue";
+            this.lblRemainingTimeValue.Size = new System.Drawing.Size(51, 18);
+            this.lblRemainingTimeValue.TabIndex = 9;
+            this.lblRemainingTimeValue.Text = "99:99:99";
+            this.lblRemainingTimeValue.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // radStatusStrip1
             // 
@@ -666,7 +694,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).EndInit();
+            this.RadMenu1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -742,5 +774,7 @@
         private Telerik.WinControls.UI.RadLabelElement lblConnectionStatus;
         private System.Windows.Forms.Timer timer1;
         private Telerik.WinControls.UI.RadMenuItem mnuShowBails;
+        private Telerik.WinControls.UI.RadLabel lblRemainingTime;
+        private Telerik.WinControls.UI.RadLabel lblRemainingTimeValue;
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Father.Controllers
 {
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/father")]
     public class FathersController : ApiController
     {
@@ -32,6 +33,7 @@ namespace OrphanageService.Father.Controllers
                 return ret;
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(OrphanageDataModel.Persons.Father father)
@@ -50,6 +52,7 @@ namespace OrphanageService.Father.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("color")]
         public async Task<HttpResponseMessage> SetFatherColor(int FatherId, int colorValue)

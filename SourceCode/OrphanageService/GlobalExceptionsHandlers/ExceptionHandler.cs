@@ -1,27 +1,44 @@
-﻿using OrphanageService.Services;
-using OrphanageService.Services.Exceptions;
+﻿using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
+using System.Security.Authentication;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.ExceptionHandling;
+using Unity;
 
-namespace OrphanageService
+namespace OrphanageService.GlobalExceptionsHandlers
 {
-    public class GlobalExceptionsHandler : IExceptionHandler
+    public static class ExceptionHandler
     {
-        private ILogger _logger = new Logger();
+        private static ILogger _logger = null;
 
-        public Task HandleAsync(ExceptionHandlerContext context, CancellationToken cancellationToken)
+        static ExceptionHandler()
         {
-            logException(context.Exception);
-            if (context.Exception is HasForeignKeyException)
+            _logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
+        }
+
+        private static void logException(Exception exc)
+        {
+            if (exc == null) return;
+            _logger.Error($"an Exception has occurred with exception message: ({exc.Message}) and exception type {exc.GetType().ToString()}");
+            if (exc.InnerException != null)
             {
-                var hasForeignKeyException = (HasForeignKeyException)context.Exception;
+                logException(exc.InnerException.InnerException);
+            }
+        }
+
+        public static void ThrowHttpResponseMessage(Exception exception)
+        {
+            logException(exception);
+            if (exception is HasForeignKeyException)
+            {
+                var hasForeignKeyException = (HasForeignKeyException)exception;
                 string message = hasForeignKeyException.InnerException.Message;
                 var response = new HttpResponseMessage(HttpStatusCode.PreconditionFailed)
                 {
@@ -30,9 +47,9 @@ namespace OrphanageService
                 response.Content = new StringContent(message);
                 throw new HttpResponseException(response);
             }
-            else if (context.Exception is DuplicatedObjectException)
+            else if (exception is DuplicatedObjectException)
             {
-                var objectNotFoundException = (DuplicatedObjectException)context.Exception;
+                var objectNotFoundException = (DuplicatedObjectException)exception;
                 string message = objectNotFoundException.InnerException.Message;
                 var response = new HttpResponseMessage(HttpStatusCode.Conflict)
                 {
@@ -41,7 +58,7 @@ namespace OrphanageService
                 response.Content = new StringContent(message);
                 throw new HttpResponseException(response);
             }
-            else if (context.Exception is ObjectNotFoundException)
+            else if (exception is ObjectNotFoundException)
             {
                 string message = "the object ist not found";
                 var response = new HttpResponseMessage(HttpStatusCode.NotFound)
@@ -51,9 +68,9 @@ namespace OrphanageService
                 response.Content = new StringContent(message);
                 throw new HttpResponseException(response);
             }
-            else if (context.Exception is DbEntityValidationException)
+            else if (exception is DbEntityValidationException)
             {
-                var dbEntityValidation = (DbEntityValidationException)context.Exception;
+                var dbEntityValidation = (DbEntityValidationException)exception;
                 string message = string.Empty;
                 foreach (var msg in dbEntityValidation.EntityValidationErrors)
                 {
@@ -70,18 +87,18 @@ namespace OrphanageService
                 response.Content = new StringContent(message);
                 throw new HttpResponseException(response);
             }
-            else
-                throw context.Exception;
-        }
-
-        private void logException(Exception exc)
-        {
-            if (exc == null) return;
-            _logger.Error($"an Exception has occurred with exception message: ({exc.Message}) and exception type {exc.GetType().ToString()}");
-            if (exc.InnerException != null)
+            else if (exception is AuthenticationException)
             {
-                logException(exc.InnerException.InnerException);
+                string message = exception.Message;
+                var response = new HttpResponseMessage(HttpStatusCode.Forbidden)
+                {
+                    ReasonPhrase = message
+                };
+                response.Content = new StringContent(message);
+                throw new HttpResponseException(response);
             }
+            else
+                throw exception;
         }
     }
 }

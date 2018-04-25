@@ -263,6 +263,10 @@ namespace OrphanageService.DataContext
                 .WithRequired(e => e.ActingUser)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<OrphanageDataModel.Persons.User>()
+                .HasIndex(u => u.UserName)
+                .IsUnique();
         }
     }
 }

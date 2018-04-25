@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Bail.Controllers
 {
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/bail")]
     public class BailsController : ApiController
     {
@@ -117,6 +118,7 @@ namespace OrphanageService.Bail.Controllers
             return await _bailDbService.GetFamiliesIds(BId);
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(object bail)
@@ -136,6 +138,7 @@ namespace OrphanageService.Bail.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanAdd")]
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object bail)
@@ -155,6 +158,7 @@ namespace OrphanageService.Bail.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpDelete]
         [Route("{CID}/{forceDelete}")]
         public async Task<HttpResponseMessage> Delete(int CID, bool forceDelete)
