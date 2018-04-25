@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Family.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/family/media")]
     public class FamMediaController : ApiController
     {
@@ -53,6 +53,7 @@ namespace OrphanageService.Family.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPost]
         [HttpPut]
         [Route("page1/{FamId}")]
@@ -105,6 +106,7 @@ namespace OrphanageService.Family.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPost]
         [HttpPut]
         [Route("page2/{FamId}")]

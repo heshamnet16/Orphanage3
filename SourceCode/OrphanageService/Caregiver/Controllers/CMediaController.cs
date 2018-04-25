@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Caregiver.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/caregiver/media")]
     public class CMediaController : ApiController
     {
@@ -53,6 +53,7 @@ namespace OrphanageService.Caregiver.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPost]
         [HttpPut]
         [System.Web.Http.Route("idface/{Cid}")]
@@ -105,6 +106,7 @@ namespace OrphanageService.Caregiver.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPost]
         [HttpPut]
         [System.Web.Http.Route("idback/{Cid}")]

@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Account.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/account")]
     public class AccountsController : ApiController
     {
@@ -24,6 +24,7 @@ namespace OrphanageService.Account.Controllers
         }
 
         //api/account/{id}
+        [Authorize(Roles = "Admin, CanRead")]
         [HttpGet]
         [Route("{id}")]
         public async Task<OrphanageDataModel.FinancialData.Account> Get(int id)
@@ -35,6 +36,7 @@ namespace OrphanageService.Account.Controllers
                 return ret;
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("")]
         public async Task<HttpResponseMessage> Put(object account)
@@ -54,6 +56,7 @@ namespace OrphanageService.Account.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanAdd")]
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> Post(object account)
@@ -73,6 +76,7 @@ namespace OrphanageService.Account.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanDelete")]
         [HttpDelete]
         [Route("{AID}")]
         public async Task<HttpResponseMessage> Delete(int AID)
@@ -88,6 +92,7 @@ namespace OrphanageService.Account.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin, CanRead")]
         [HttpGet]
         [Route("{pageSize}/{pageNumber}")]
         [CacheFilter(TimeDuration = 200)]
@@ -96,6 +101,7 @@ namespace OrphanageService.Account.Controllers
             return await _accountDbService.GetAccounts(pageSize, pageNumber);
         }
 
+        [Authorize(Roles = "Admin, CanRead")]
         [HttpGet]
         [Route("byIds")]
         public async Task<IEnumerable<OrphanageDataModel.FinancialData.Account>> GetByIds([FromUri] IList<int> accoutnsIds)
@@ -108,6 +114,7 @@ namespace OrphanageService.Account.Controllers
                 return ret;
         }
 
+        [Authorize(Roles = "Admin, CanRead")]
         [HttpGet]
         [Route("count")]
         [CacheFilter(TimeDuration = 200)]
@@ -116,6 +123,7 @@ namespace OrphanageService.Account.Controllers
             return await _accountDbService.GetAccountsCount();
         }
 
+        [Authorize(Roles = "Admin, CanRead")]
         [HttpGet]
         [Route("bails/{AId}")]
         [CacheFilter(TimeDuration = 200)]
@@ -124,6 +132,7 @@ namespace OrphanageService.Account.Controllers
             return await _accountDbService.GetBails(AId);
         }
 
+        [Authorize(Roles = "Admin, CanRead")]
         [HttpGet]
         [Route("guarantors/{AId}")]
         [CacheFilter(TimeDuration = 200)]

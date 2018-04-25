@@ -6,12 +6,15 @@ using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.ViewModel.Family;
 using OrphanageV3.ViewModel.Father;
 using OrphanageV3.ViewModel.Guarantor;
+using OrphanageV3.ViewModel.Login;
 using OrphanageV3.ViewModel.Main;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
+using System.Net.Sockets;
+using System.Security.Authentication;
 using System.Windows.Forms;
 using Unity;
 using Unity.Injection;
@@ -33,21 +36,21 @@ namespace OrphanageV3
             try
             {
                 Factory = BuildContainer();
-                try
-                {
-                    //Todo set login User
-                    var _apiClient = Factory.Resolve<IApiClient>();
-                    CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
-                }
-                catch
-                {
-                    CurrentUser = new User()
-                    {
-                        IsAdmin = true,
-                        UserName = "مدير",
-                        Id = 1
-                    };
-                }
+                //try
+                //{
+                //    //Todo set login User
+                //    var _apiClient = Factory.Resolve<IApiClient>();
+                //    CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
+                //}
+                //catch
+                //{
+                //    CurrentUser = new User()
+                //    {
+                //        IsAdmin = true,
+                //        UserName = "مدير",
+                //        Id = 1
+                //    };
+                //}
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Main.MainView());
@@ -58,7 +61,7 @@ namespace OrphanageV3
             }
         }
 
-        private static void HandleApiExceptions(Exception exception)
+        public static void HandleApiExceptions(Exception exception)
         {
             if (exception is ApiClientException)
             {
@@ -66,9 +69,25 @@ namespace OrphanageV3
                 if (apiEx.StatusCode == "304")
                 {
                 }
+                if (apiEx.StatusCode == "401")
+                {
+                    MessageBox.Show(Properties.Resources.ErrorMessageUnauthorized, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
-                    MessageBox.Show(GetErrorMessage(apiEx), "Orphanage3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(GetErrorMessage(apiEx), System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (exception is AuthenticationException)
+            {
+                MessageBox.Show(Properties.Resources.ErrorMessageUnauthorized, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (exception is SocketException)
+            {
+                var socketException = (SocketException)exception;
+                if (socketException.ErrorCode == 10061)
+                {
+                    MessageBox.Show(Properties.Resources.ErrorMessageCannotConnectServer, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -110,6 +129,7 @@ namespace OrphanageV3
             currentContainer.RegisterSingleton<MainViewModel>();
             currentContainer.RegisterType<GuarantorsViewModel>();
             currentContainer.RegisterType<BailsViewModel>();
+            currentContainer.RegisterSingleton<LoginViewModel>();
             return currentContainer;
         }
 

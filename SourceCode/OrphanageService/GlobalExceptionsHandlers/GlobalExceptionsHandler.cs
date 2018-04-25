@@ -16,9 +16,10 @@ namespace OrphanageService.GlobalExceptionsHandlers
     {
         private ILogger _logger = new Logger();
 
-        public async Task HandleAsync(ExceptionHandlerContext context, CancellationToken cancellationToken)
+        public Task HandleAsync(ExceptionHandlerContext context, CancellationToken cancellationToken)
         {
             ExceptionHandler.ThrowHttpResponseMessage(context.Exception);
+            throw context.Exception;
         }
     }
 }

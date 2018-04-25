@@ -61,6 +61,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير مسموح بالدخول ähnelt.
+        /// </summary>
+        public static string AccessDenied {
+            get {
+                return ResourceManager.GetString("AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die حساب ähnelt.
         /// </summary>
         public static string Account {
@@ -1295,6 +1304,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لا يمكن الاتصال بالسيرفر الرجاء التحقق من العنوان أو أن السيرفر قيد التشغيل ähnelt.
+        /// </summary>
+        public static string ErrorMessageCannotConnectServer {
+            get {
+                return ResourceManager.GetString("ErrorMessageCannotConnectServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die لايمكن حذف السجل ähnelt.
         /// </summary>
         public static string ErrorMessageCannotDelete {
@@ -1331,6 +1349,42 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كلمة المرور أو اسم المستخدم خطأ ähnelt.
+        /// </summary>
+        public static string ErrorMessageNotAuthenticated {
+            get {
+                return ResourceManager.GetString("ErrorMessageNotAuthenticated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ادخل كلمة المرور ähnelt.
+        /// </summary>
+        public static string ErrorMessagePassword {
+            get {
+                return ResourceManager.GetString("ErrorMessagePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم رفض الوصول, سجل دخولك من جديد أو اطلب رفع الصلاحية من المدير ähnelt.
+        /// </summary>
+        public static string ErrorMessageUnauthorized {
+            get {
+                return ResourceManager.GetString("ErrorMessageUnauthorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ادخل اسم المستخدم ähnelt.
+        /// </summary>
+        public static string ErrorMessageUserName {
+            get {
+                return ResourceManager.GetString("ErrorMessageUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die استبعاد ähnelt.
         /// </summary>
         public static string Exclude {
@@ -1354,6 +1408,15 @@ namespace OrphanageV3.Properties {
         public static string ExcludedFamilies {
             get {
                 return ResourceManager.GetString("ExcludedFamilies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die خروج ähnelt.
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
             }
         }
         
@@ -2227,6 +2290,24 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تسجيل الدخول ähnelt.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الرجاء تسجيل الدخول ähnelt.
+        /// </summary>
+        public static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الذكور ähnelt.
         /// </summary>
         public static string MalesString {
@@ -2913,6 +2994,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die كلمة المرور ähnelt.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die صورة شخصية ähnelt.
         /// </summary>
         public static string PersonalPhoto {
@@ -2992,6 +3082,15 @@ namespace OrphanageV3.Properties {
         public static string RegDate {
             get {
                 return ResourceManager.GetString("RegDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الوقت المتبقي ähnelt.
+        /// </summary>
+        public static string RemainingTime {
+            get {
+                return ResourceManager.GetString("RemainingTime", resourceCulture);
             }
         }
         
@@ -3227,6 +3326,16 @@ namespace OrphanageV3.Properties {
         public static string Setting {
             get {
                 return ResourceManager.GetString("Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SettingPic {
+            get {
+                object obj = ResourceManager.GetObject("SettingPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

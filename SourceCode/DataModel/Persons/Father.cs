@@ -55,7 +55,7 @@ namespace OrphanageDataModel.Persons
         private string _IdentityCardNumber;
 
         [Column("IdentityCard_ID")]
-        [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
+        //[Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [MinLength(10, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         [MaxLength(11, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string IdentityCardNumber
@@ -88,7 +88,7 @@ namespace OrphanageDataModel.Persons
         public string Note { get; set; }
 
         [NotMapped]
-        public Image PersonalPhoto {  get {  return PhotoData != null ? Image.FromStream(new MemoryStream(this.PhotoData)) : null; } }
+        public Image PersonalPhoto { get { return PhotoData != null ? Image.FromStream(new MemoryStream(this.PhotoData)) : null; } }
 
         [NotMapped]
         public Image DeathCertificateImage { get { return DeathCertificatePhotoData != null ? Image.FromStream(new MemoryStream(this.DeathCertificatePhotoData)) : null; } }

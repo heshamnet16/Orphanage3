@@ -1,12 +1,14 @@
-﻿using OrphanageService.Services.Interfaces;
+﻿using Newtonsoft.Json;
+using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace OrphanageService.User.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/user")]
     public class UsersController : ApiController
     {
@@ -211,6 +213,67 @@ namespace OrphanageService.User.Controllers
         public async Task<int> GetUsersCount()
         {
             return await _userDBService.GetUsersCount();
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("authenticate/{username}/{password}")]
+        public async Task<OrphanageDataModel.Persons.User> Authenticate(string username, string password)
+        {
+            return await _userDBService.AuthenticateUser(username, password);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> SaveUser(object user)
+        {
+            var userEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.User>(user.ToString());
+            var ret = false;
+
+            ret = await _userDBService.SaveUser(userEntity);
+
+            if (ret)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.OK); ;
+            }
+            else
+            {
+                return _httpResponseMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> Post(object guarantor)
+        {
+            var userEntity = JsonConvert.DeserializeObject<OrphanageDataModel.Persons.User>(guarantor.ToString());
+            OrphanageDataModel.Persons.User ret = null;
+
+            ret = await _userDBService.AddUser(userEntity);
+
+            if (ret != null)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.Created, ret);
+            }
+            else
+            {
+                return _httpResponseMessageConfiguerer.NothingChanged();
+            }
+        }
+
+        [HttpDelete]
+        [Route("{UId}")]
+        public async Task<HttpResponseMessage> Delete(int UId)
+        {
+            var ret = await _userDBService.DeleteUser(UId);
+            if (ret)
+            {
+                return _httpResponseMessageConfiguerer.OK();
+            }
+            else
+            {
+                return _httpResponseMessageConfiguerer.NothingChanged();
+            }
         }
     }
 }

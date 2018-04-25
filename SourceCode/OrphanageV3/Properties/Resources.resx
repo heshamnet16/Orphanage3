@@ -1301,4 +1301,40 @@
   <data name="NewAccount" xml:space="preserve">
     <value>حساب جديد</value>
   </data>
+  <data name="ErrorMessageUnauthorized" xml:space="preserve">
+    <value>تم رفض الوصول, سجل دخولك من جديد أو اطلب رفع الصلاحية من المدير</value>
+  </data>
+  <data name="ErrorMessageNotAuthenticated" xml:space="preserve">
+    <value>كلمة المرور أو اسم المستخدم خطأ</value>
+  </data>
+  <data name="ErrorMessagePassword" xml:space="preserve">
+    <value>ادخل كلمة المرور</value>
+  </data>
+  <data name="ErrorMessageUserName" xml:space="preserve">
+    <value>ادخل اسم المستخدم</value>
+  </data>
+  <data name="RemainingTime" xml:space="preserve">
+    <value>الوقت المتبقي</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>الرجاء تسجيل الدخول</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>غير مسموح بالدخول</value>
+  </data>
+  <data name="ErrorMessageCannotConnectServer" xml:space="preserve">
+    <value>لا يمكن الاتصال بالسيرفر الرجاء التحقق من العنوان أو أن السيرفر قيد التشغيل</value>
+  </data>
+  <data name="SettingPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Setting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

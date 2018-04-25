@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace OrphanageService.Orphan.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, CanRead")]
     [RoutePrefix("api/orphan/media")]
     public class OMediaController : ApiController
     {
@@ -52,6 +52,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("face/{Oid}")]
@@ -106,6 +107,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("birth/{Oid}")]
@@ -160,6 +162,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("familycard/{Oid}")]
@@ -214,6 +217,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("full/{Oid}")]
@@ -268,6 +272,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("education/{Oid}")]
@@ -322,6 +327,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.ImageContent(thumb);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("education2/{Oid}")]
@@ -354,6 +360,7 @@ namespace OrphanageService.Orphan.Controllers
             return _httpResponseMessageConfiguerer.PDFFileContent(image);
         }
 
+        [Authorize(Roles = "Admin, CanAdd, CanDelete")]
         [HttpPut]
         [HttpPost]
         [System.Web.Http.Route("healthreport/{Oid}")]

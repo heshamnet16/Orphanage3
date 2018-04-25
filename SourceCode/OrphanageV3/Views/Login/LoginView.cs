@@ -1,19 +1,47 @@
 ﻿using OrphanageV3.Extensions;
+using OrphanageV3.ViewModel.Login;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
+using Unity;
 
-namespace OrphanageV3.Views.Tools
+namespace OrphanageV3.Views.Login
 {
-    public partial class SettingView : Telerik.WinControls.UI.RadForm
+    public partial class LoginView : Telerik.WinControls.UI.ShapedForm
     {
-        public SettingView()
+        private LoginViewModel _loginViewModel = null;
+
+        public LoginView()
         {
             InitializeComponent();
-            CreateCircleLabel();
+            _loginViewModel = Program.Factory.Resolve<LoginViewModel>();
             TranslateControls();
-            LoadSettings();
+            CreateCircleLabel();
             lblStatusCircle.BackColor = Color.Gray;
+            txtBaseUrl.Text = getHostName(Properties.Settings.Default.OrphanageServiceURL);
+        }
+
+        public void TranslateControls()
+        {
+            lblTitle.Text = Properties.Resources.LoginTitle;
+            lblUserName.Text = Properties.Resources.UserName.getDobblePunkt();
+            lblPassword.Text = Properties.Resources.Password.getDobblePunkt();
+            btnLogin.Text = Properties.Resources.Login;
+            lblStatus.Text = Properties.Resources.AccessDenied;
+            lblPassword.TextAlignment = ContentAlignment.MiddleCenter;
+            lblStatus.TextAlignment = ContentAlignment.MiddleCenter;
+            lblTitle.TextAlignment = ContentAlignment.MiddleCenter;
+            lblUserName.TextAlignment = ContentAlignment.MiddleCenter;
+            grpSetBaseUri.HeaderText = Properties.Resources.Connection;
+            lblBaseUrl.Text = Properties.Resources.RemoteAddress.getDobblePunkt();
+            lblConnectionStatus.Text = Properties.Resources.Status.getDobblePunkt();
+            lblVersion.Text = Properties.Resources.Version.getDobblePunkt();
+            btnClose.Text = Properties.Resources.Exit;
+            btnCheck.Text = Properties.Resources.CheckConnection;
         }
 
         private void CreateCircleLabel()
@@ -23,20 +51,6 @@ namespace OrphanageV3.Views.Tools
             path.AddEllipse(0, 0, lblStatusCircle.Width, lblStatusCircle.Height);
 
             this.lblStatusCircle.Region = new Region(path);
-        }
-
-        private void TranslateControls()
-        {
-            pnlConnection.HeaderText = Properties.Resources.Connection;
-            pnlAppearance.HeaderText = Properties.Resources.Appearance;
-            lblBaseUrl.Text = Properties.Resources.RemoteAddress.getDobblePunkt();
-            lblStatus.Text = Properties.Resources.Status.getDobblePunkt();
-            lblVersion.Text = Properties.Resources.Version.getDobblePunkt();
-            btnCheck.Text = Properties.Resources.CheckConnection;
-            lblUseBackgroundColor.Text = Properties.Resources.UseBackgroundColor.getDobblePunkt();
-            lblShowHidden.Text = Properties.Resources.ShowHiddenRecords.getDobblePunkt();
-            lblRecordsNumber.Text = Properties.Resources.DefaultPageSize.getDobblePunkt();
-            lblUseColors.Text = Properties.Resources.UseColors.getDobblePunkt();
         }
 
         private async void btnCheck_Click(object sender, EventArgs e)
@@ -140,17 +154,34 @@ namespace OrphanageV3.Views.Tools
             txtVersion.Text = value ? version : ".............";
         }
 
-        private void LoadSettings()
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            txtBaseUrl.Text = getHostName(Properties.Settings.Default.OrphanageServiceURL);
-            chkUseBackgroundColor.Checked = Properties.Settings.Default.UseBackgroundColor;
-            chkShowHidden.Checked = Properties.Settings.Default.ShowHiddenRows;
-            numRowsCount.Value = Properties.Settings.Default.DefaultPageSize;
-            chkUseColors.Checked = Properties.Settings.Default.UseColors;
+            try
+            {
+                if (await _loginViewModel.Login(txtUserName.Text, txtPassword.Text))
+                {
+                    this.Close();
+                }
+                else
+                {
+                    lblStatus.Visible = true;
+                }
+            }
+            catch
+            {
+            }
         }
 
-        private void SettingView_FormClosing(object sender, FormClosingEventArgs e)
+        private void HideConnectionGroup(object sender, EventArgs e)
         {
+            grpSetBaseUri.Visible = false;
+            btnLogin.Enabled = true;
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            btnLogin.Enabled = false;
+            grpSetBaseUri.Visible = true;
         }
 
         private void txtBaseUrl_TextChanged(object sender, EventArgs e)
@@ -161,28 +192,9 @@ namespace OrphanageV3.Views.Tools
             Services.ApiClientProvider.RefreshHostUri();
         }
 
-        private void chkUseBackgroundColor_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.UseBackgroundColor = args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On;
-            Properties.Settings.Default.Save();
-        }
-
-        private void chkShowHidden_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
-        {
-            Properties.Settings.Default.ShowHiddenRows = args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On;
-            Properties.Settings.Default.Save();
-        }
-
-        private void numRowsCount_ValueChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.DefaultPageSize = (int)numRowsCount.Value;
-            Properties.Settings.Default.Save();
-        }
-
-        private void chkUseColors_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
-        {
-            Properties.Settings.Default.UseColors = args.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On;
-            Properties.Settings.Default.Save();
+            Application.Exit();
         }
     }
 }

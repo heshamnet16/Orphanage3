@@ -32,7 +32,6 @@ namespace OrphanageService.Services
             var user = await _userDbService.AuthenticateUser(context.UserName, context.Password);
             if (user == null)
             {
-                //TODO Set error message
                 context.SetError("invalid_grant", Properties.Resources.Error_AccessDenied);
                 return;
             }
