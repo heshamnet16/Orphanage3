@@ -49,6 +49,8 @@
             this.lblVersion = new Telerik.WinControls.UI.RadLabel();
             this.lblBaseUrl = new Telerik.WinControls.UI.RadLabel();
             this.btnClose = new Telerik.WinControls.UI.RadButton();
+            this.radWaitingBar2 = new Telerik.WinControls.UI.RadWaitingBar();
+            this.dotsRingWaitingBarIndicatorElement1 = new Telerik.WinControls.UI.DotsRingWaitingBarIndicatorElement();
             ((System.ComponentModel.ISupportInitialize)(this.lblUserName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPassword)).BeginInit();
@@ -68,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblVersion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBaseUrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radWaitingBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -279,6 +282,22 @@
             this.btnClose.Text = "exit";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // radWaitingBar2
+            // 
+            this.radWaitingBar2.Location = new System.Drawing.Point(146, 235);
+            this.radWaitingBar2.Name = "radWaitingBar2";
+            this.radWaitingBar2.Size = new System.Drawing.Size(70, 70);
+            this.radWaitingBar2.TabIndex = 10;
+            this.radWaitingBar2.Text = "radWaitingBar1";
+            this.radWaitingBar2.Visible = false;
+            this.radWaitingBar2.WaitingIndicators.Add(this.dotsRingWaitingBarIndicatorElement1);
+            this.radWaitingBar2.WaitingSpeed = 20;
+            this.radWaitingBar2.WaitingStyle = Telerik.WinControls.Enumerations.WaitingBarStyles.DotsRing;
+            // 
+            // dotsRingWaitingBarIndicatorElement1
+            // 
+            this.dotsRingWaitingBarIndicatorElement1.Name = "dotsRingWaitingBarIndicatorElement1";
+            // 
             // LoginView
             // 
             this.AcceptButton = this.btnLogin;
@@ -289,14 +308,15 @@
             this.ClientSize = new System.Drawing.Size(377, 308);
             this.Controls.Add(this.grpSetBaseUri);
             this.Controls.Add(this.btnSetting);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.radWaitingBar2);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnClose);
             this.Name = "LoginView";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Shape = this.roundRectShape1;
@@ -323,6 +343,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblVersion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBaseUrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radWaitingBar2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,5 +370,7 @@
         private Telerik.WinControls.UI.RadLabel lblVersion;
         private Telerik.WinControls.UI.RadLabel lblBaseUrl;
         private Telerik.WinControls.UI.RadButton btnClose;
+        private Telerik.WinControls.UI.RadWaitingBar radWaitingBar2;
+        private Telerik.WinControls.UI.DotsRingWaitingBarIndicatorElement dotsRingWaitingBarIndicatorElement1;
     }
 }

@@ -12,7 +12,7 @@ using Telerik.WinControls.UI.Diagrams;
 
 namespace OrphanageV3.Services
 {
-    public static class ApiClientProvider
+    public static class ApiClientTokenProvider
     {
         private static string _hostUri;
         public static string AccessToken { get; private set; }
@@ -31,7 +31,7 @@ namespace OrphanageV3.Services
             }
         }
 
-        static ApiClientProvider()
+        static ApiClientTokenProvider()
         {
             RefreshHostUri();
             _timer = new Timer(delegate
@@ -58,7 +58,7 @@ namespace OrphanageV3.Services
             var ret = await GetTokenDictionary(username, password);
             try
             {
-                ApiClientProvider.AccessToken = ret["access_token"];
+                ApiClientTokenProvider.AccessToken = ret["access_token"];
                 remainSeconds = Convert.ToDouble(ret["expires_in"]);
                 //start the timer
                 _timer.Change(0, 1000);
@@ -103,7 +103,7 @@ namespace OrphanageV3.Services
                 var responseContent = await response.Content.ReadAsStringAsync();
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new AuthenticationException(string.Format("Error: {0}", responseContent));
+                    throw new AuthenticationException(string.Format("Error cannot get Token: {0}", responseContent));
                 }
 
                 var ret = GetTokenDictionary(responseContent);
@@ -125,14 +125,14 @@ namespace OrphanageV3.Services
     {
         partial void PrepareRequest(HttpClient client, HttpRequestMessage request, string url)
         {
-            if (ApiClientProvider.AccessToken != null)
+            if (ApiClientTokenProvider.AccessToken != null)
             {
                 client.DefaultRequestHeaders.Authorization
-                      = new AuthenticationHeaderValue("Bearer", ApiClientProvider.AccessToken);
+                      = new AuthenticationHeaderValue("Bearer", ApiClientTokenProvider.AccessToken);
             }
             else
             {
-                ApiClientProvider.RaiseMustLoginEvent();
+                ApiClientTokenProvider.RaiseMustLoginEvent();
                 //await ApiClientProvider.SetToken("مدير", "0000");
                 //if (ApiClientProvider.AccessToken != null)
                 //{

@@ -23,6 +23,7 @@ namespace OrphanageV3.Views.Login
             CreateCircleLabel();
             lblStatusCircle.BackColor = Color.Gray;
             txtBaseUrl.Text = getHostName(Properties.Settings.Default.OrphanageServiceURL);
+            radWaitingBar2.StartWaiting();
         }
 
         public void TranslateControls()
@@ -158,14 +159,20 @@ namespace OrphanageV3.Views.Login
         {
             try
             {
+                radWaitingBar2.Visible = true;
+                btnLogin.Enabled = false;
                 if (await _loginViewModel.Login(txtUserName.Text, txtPassword.Text))
                 {
+                    radWaitingBar2.Visible = false;
+                    btnLogin.Enabled = true;
                     this.Close();
                 }
                 else
                 {
                     lblStatus.Visible = true;
                 }
+                radWaitingBar2.Visible = false;
+                btnLogin.Enabled = true;
             }
             catch
             {
@@ -189,7 +196,7 @@ namespace OrphanageV3.Views.Login
             Properties.Settings.Default.OrphanageServiceURL = getBaseUrl(txtBaseUrl.Text);
             Properties.Settings.Default.Save();
             Program.RenewApiClient();
-            Services.ApiClientProvider.RefreshHostUri();
+            Services.ApiClientTokenProvider.RefreshHostUri();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

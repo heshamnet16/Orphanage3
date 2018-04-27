@@ -1,8 +1,10 @@
 ﻿using Microsoft.Owin.Hosting;
 using OrphanageService.Services;
+using OrphanageService.Services.Interfaces;
 using System;
 using System.ServiceProcess;
 using W.Firewall;
+using Unity;
 
 namespace OrphanageService
 {
@@ -10,7 +12,17 @@ namespace OrphanageService
     {
         private static void Main(string[] args)
         {
-            var logger = new Logger();
+            string logfileName = AppDomain.CurrentDomain.BaseDirectory + "servicelog.log";
+            if (System.IO.File.Exists(logfileName))
+            {
+                try
+                {
+                    System.IO.File.Delete(logfileName);
+                }
+                catch { }
+            }
+            var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
+            AddUser("hesham", logger);
             try
             {
                 CreateFirewallRules();
@@ -39,9 +51,26 @@ namespace OrphanageService
             }
         }
 
+        private static void AddUser(string userName, ILogger logger)
+        {
+            try
+            {
+                var usr = new OrphanageDataModel.Persons.User()
+                {
+                    CanAdd = true,
+                    CanRead = true,
+                    Password = "1234",
+                    UserName = userName
+                };
+                var userDbService = UnityConfig.GetConfiguredContainer().Resolve<IUserDbService>();
+                userDbService.AddUser(usr);
+            }
+            catch { }
+        }
+
         private static void CreateFirewallRules()
         {
-            var logger = new Logger();
+            var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
             try
             {
                 logger.Information("checking if firewall is existed");

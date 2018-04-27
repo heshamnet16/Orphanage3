@@ -1,17 +1,21 @@
 ﻿using AutoMapper;
 using Microsoft.Owin.Hosting;
+using OrphanageService.Services.Interfaces;
 using System;
 using System.ServiceProcess;
+using Unity;
 
 namespace OrphanageService
 {
     partial class SelfHostServiceBase : ServiceBase
     {
         private IDisposable _webapp;
+        private ILogger _logger;
 
         public SelfHostServiceBase()
         {
             InitializeComponent();
+            _logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
         }
 
         protected override void OnStart(string[] args)
@@ -19,7 +23,7 @@ namespace OrphanageService
             ConfigureMapper();
             string baseUrl = Properties.Settings.Default.BaseURI;
             _webapp = WebApp.Start<Startup>(baseUrl);
-            Console.WriteLine("Orphan Service is started on port 1515");
+            _logger.Information("Orphan Service is started on port 1515");
             Console.ReadLine();
         }
 

@@ -36,9 +36,9 @@ namespace OrphanageV3.ViewModel.Login
             {
                 int previousUserId = -1;
                 previousUserId = Program.CurrentUser == null ? -1 : Program.CurrentUser.Id;
-                await ApiClientProvider.SetToken(UserName, Password);
+                await ApiClientTokenProvider.SetToken(UserName, Password);
                 Program.CurrentUser = await _apiClient.UsersController_AuthenticateAsync(UserName, Password);
-                if (ApiClientProvider.AccessToken != null && Program.CurrentUser != null)
+                if (ApiClientTokenProvider.AccessToken != null && Program.CurrentUser != null)
                 {
                     if (previousUserId > 0 && previousUserId != Program.CurrentUser.Id)
                     {

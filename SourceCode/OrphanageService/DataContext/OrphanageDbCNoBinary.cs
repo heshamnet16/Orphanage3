@@ -266,7 +266,7 @@ namespace OrphanageService.DataContext
 
             modelBuilder.Entity<OrphanageDataModel.Persons.User>()
                 .HasIndex(u => u.UserName)
-                .IsUnique();
+                .IsUnique(true);
         }
     }
 }

@@ -24,6 +24,8 @@ namespace OrphanageDataModel.Persons
 
         public virtual Name Name { get; set; }
 
+        [StringLength(450)]
+        [Index(IsUnique = true)]
         [Required(ErrorMessageResourceName = "ErrorRequired", ErrorMessageResourceType = typeof(Properties.Resources))]
         [MinLength(2, ErrorMessageResourceName = "ErrorWrongData", ErrorMessageResourceType = typeof(Properties.Resources))]
         public string UserName { get; set; }

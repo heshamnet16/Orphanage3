@@ -1,9 +1,11 @@
 ﻿using OrphanageService.Services;
+using OrphanageService.Services.Interfaces;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Text;
+using Unity;
 
 namespace OrphanageService
 {
@@ -11,7 +13,7 @@ namespace OrphanageService
     {
         public static void CreateAndRunPsFileScript()
         {
-            var logger = new Logger();
+            var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
             logger.Information("creating the power-shell script file");
             string currentFileName = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string currentPath = System.IO.Path.GetDirectoryName(currentFileName);
@@ -58,7 +60,7 @@ namespace OrphanageService
 
         private static string RunPsScript(string psScript)
         {
-            var logger = new Logger();
+            var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
 
             logger.Information("creating RunspaceFactory");
             Runspace runspace = RunspaceFactory.CreateRunspace();

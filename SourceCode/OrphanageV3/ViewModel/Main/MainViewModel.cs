@@ -19,8 +19,8 @@ namespace OrphanageV3.ViewModel.Main
         public MainViewModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
-            Services.ApiClientProvider.AccessTokenExpired += ApiClientProvider_MustLogin;
-            Services.ApiClientProvider.MustLogin += ApiClientProvider_MustLogin;
+            Services.ApiClientTokenProvider.AccessTokenExpired += ApiClientProvider_MustLogin;
+            Services.ApiClientTokenProvider.MustLogin += ApiClientProvider_MustLogin;
         }
 
         private void ApiClientProvider_MustLogin(object sender, System.EventArgs e)

@@ -80,7 +80,14 @@ namespace OrphanageV3
             }
             else if (exception is AuthenticationException)
             {
-                MessageBox.Show(Properties.Resources.ErrorMessageUnauthorized, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (exception.Message.Contains("Token"))
+                {
+                    MessageBox.Show(Properties.Resources.ErrorMessageNotAuthenticated, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.ErrorMessageUnauthorized, System.AppDomain.CurrentDomain.FriendlyName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (exception is SocketException)
             {

@@ -127,7 +127,7 @@ namespace OrphanageV3.Views.Main
             lblConnectionStatus.Text = connectionValue ? Properties.Resources.Connected : Properties.Resources.Disconnected;
             lblConnectionStatus.ForeColor = connectionValue ? Color.Green : Color.Red;
             disableEnableMenus(RadMenu1.Items, connectionValue);
-            lblRemainingTimeValue.Text = Services.ApiClientProvider.RemainTime.ToString("g").Trim();
+            lblRemainingTimeValue.Text = Services.ApiClientTokenProvider.RemainTime.ToString("g").Trim();
         }
 
         private void disableEnableMenus(RadItemOwnerCollection radItemOwnerCollection, bool value)
