@@ -1,13 +1,8 @@
-﻿using OrphanageService.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using OrphanageDataModel.Persons;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using OrphanageService.DataContext;
+using OrphanageService.Services.Interfaces;
+using System.Threading.Tasks;
 
 namespace OrphanageService.Services
 {

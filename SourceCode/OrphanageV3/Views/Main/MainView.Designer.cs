@@ -98,11 +98,22 @@
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.lblConnectionStatus = new Telerik.WinControls.UI.RadLabelElement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.RadCommandBar1 = new Telerik.WinControls.UI.RadCommandBar();
+            this.CommandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
+            this.barAppearance = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.btnSetFont = new Telerik.WinControls.UI.CommandBarButton();
+            this.CommandBarSeparator1 = new Telerik.WinControls.UI.CommandBarSeparator();
+            this.btnPrintPreview = new Telerik.WinControls.UI.CommandBarButton();
+            this.btnPrint = new Telerik.WinControls.UI.CommandBarButton();
+            this.CommandBarStripElement2 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.btnTrabslateToWord = new Telerik.WinControls.UI.CommandBarButton();
+            this.btnTranslateToExcel = new Telerik.WinControls.UI.CommandBarButton();
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
             this.RadMenu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RadCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -677,11 +688,158 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // RadCommandBar1
+            // 
+            this.RadCommandBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RadCommandBar1.Location = new System.Drawing.Point(0, 20);
+            this.RadCommandBar1.Name = "RadCommandBar1";
+            this.RadCommandBar1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
+            this.CommandBarRowElement1});
+            this.RadCommandBar1.Size = new System.Drawing.Size(1034, 64);
+            this.RadCommandBar1.TabIndex = 9;
+            this.RadCommandBar1.Text = "RadCommandBar1";
+            // 
+            // CommandBarRowElement1
+            // 
+            this.CommandBarRowElement1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.CommandBarRowElement1.MinSize = new System.Drawing.Size(25, 25);
+            this.CommandBarRowElement1.Strips.AddRange(new Telerik.WinControls.UI.CommandBarStripElement[] {
+            this.CommandBarStripElement2,
+            this.barAppearance});
+            this.CommandBarRowElement1.Text = "";
+            this.CommandBarRowElement1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // barAppearance
+            // 
+            this.barAppearance.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.barAppearance.DisplayName = "CommandBarStripElement1";
+            this.barAppearance.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.btnSetFont,
+            this.CommandBarSeparator1,
+            this.btnPrintPreview,
+            this.btnPrint});
+            this.barAppearance.Name = "CommandBarStripElement1";
+            // 
+            // 
+            // 
+            this.barAppearance.OverflowButton.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            this.barAppearance.Padding = new System.Windows.Forms.Padding(0);
+            this.barAppearance.RightToLeft = true;
+            this.barAppearance.StretchHorizontally = false;
+            this.barAppearance.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.barAppearance.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            ((Telerik.WinControls.UI.RadCommandBarOverflowButton)(this.barAppearance.GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // btnSetFont
+            // 
+            this.btnSetFont.AccessibleDescription = "CommandBarButton1";
+            this.btnSetFont.AccessibleName = "CommandBarButton1";
+            this.btnSetFont.AutoSize = false;
+            this.btnSetFont.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnSetFont.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnSetFont.DisplayName = "CommandBarButton1";
+            this.btnSetFont.Enabled = false;
+            this.btnSetFont.Image = ((System.Drawing.Image)(resources.GetObject("btnSetFont.Image")));
+            this.btnSetFont.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSetFont.Name = "btnSetFont";
+            this.btnSetFont.Padding = new System.Windows.Forms.Padding(0);
+            this.btnSetFont.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnSetFont.ToolTipText = "تغير الخط";
+            // 
+            // CommandBarSeparator1
+            // 
+            this.CommandBarSeparator1.AccessibleDescription = "CommandBarSeparator1";
+            this.CommandBarSeparator1.AccessibleName = "CommandBarSeparator1";
+            this.CommandBarSeparator1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.CommandBarSeparator1.DisplayName = "CommandBarSeparator1";
+            this.CommandBarSeparator1.Name = "CommandBarSeparator1";
+            this.CommandBarSeparator1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.CommandBarSeparator1.VisibleInOverflowMenu = false;
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.AutoSize = false;
+            this.btnPrintPreview.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnPrintPreview.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPrintPreview.DisplayName = "CommandBarButton2";
+            this.btnPrintPreview.Enabled = false;
+            this.btnPrintPreview.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintPreview.Image")));
+            this.btnPrintPreview.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Padding = new System.Windows.Forms.Padding(0);
+            this.btnPrintPreview.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPrintPreview.ToolTipText = "معاينة قبل الطباعة";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.AutoSize = false;
+            this.btnPrint.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnPrint.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPrint.DisplayName = "CommandBarButton3";
+            this.btnPrint.Enabled = false;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Padding = new System.Windows.Forms.Padding(0);
+            this.btnPrint.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPrint.ToolTipText = "طباعة";
+            // 
+            // CommandBarStripElement2
+            // 
+            this.CommandBarStripElement2.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.CommandBarStripElement2.DisplayName = "CommandBarStripElement2";
+            // 
+            // 
+            // 
+            this.CommandBarStripElement2.Grip.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.CommandBarStripElement2.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.btnTrabslateToWord,
+            this.btnTranslateToExcel});
+            this.CommandBarStripElement2.Name = "CommandBarStripElement2";
+            // 
+            // 
+            // 
+            this.CommandBarStripElement2.OverflowButton.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            this.CommandBarStripElement2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            ((Telerik.WinControls.UI.RadCommandBarGrip)(this.CommandBarStripElement2.GetChildAt(0))).Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            ((Telerik.WinControls.UI.RadCommandBarOverflowButton)(this.CommandBarStripElement2.GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // btnTrabslateToWord
+            // 
+            this.btnTrabslateToWord.AutoSize = false;
+            this.btnTrabslateToWord.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnTrabslateToWord.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnTrabslateToWord.DisplayName = "CommandBarButton1";
+            this.btnTrabslateToWord.Enabled = false;
+            this.btnTrabslateToWord.Image = global::OrphanageV3.Properties.Resources.WordPic;
+            this.btnTrabslateToWord.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTrabslateToWord.Name = "btnTrabslateToWord";
+            this.btnTrabslateToWord.Padding = new System.Windows.Forms.Padding(2);
+            this.btnTrabslateToWord.Text = "تحويل لورد";
+            this.btnTrabslateToWord.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // btnTranslateToExcel
+            // 
+            this.btnTranslateToExcel.AutoSize = false;
+            this.btnTranslateToExcel.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnTranslateToExcel.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnTranslateToExcel.DisplayName = "CommandBarButton1";
+            this.btnTranslateToExcel.Enabled = false;
+            this.btnTranslateToExcel.Image = global::OrphanageV3.Properties.Resources.ExcelPic;
+            this.btnTranslateToExcel.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTranslateToExcel.Name = "btnTranslateToExcel";
+            this.btnTranslateToExcel.Padding = new System.Windows.Forms.Padding(2);
+            this.btnTranslateToExcel.Text = "";
+            this.btnTranslateToExcel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnTranslateToExcel.ToolTipText = "تحويل إلى اكسل";
+            this.btnTranslateToExcel.Click += new System.EventHandler(this.btnTranslateToExcel_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 561);
+            this.Controls.Add(this.RadCommandBar1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.RadMenu1);
             this.IsMdiContainer = true;
@@ -700,6 +858,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RadCommandBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -776,5 +935,15 @@
         private Telerik.WinControls.UI.RadMenuItem mnuShowBails;
         private Telerik.WinControls.UI.RadLabel lblRemainingTime;
         private Telerik.WinControls.UI.RadLabel lblRemainingTimeValue;
+        internal Telerik.WinControls.UI.RadCommandBar RadCommandBar1;
+        internal Telerik.WinControls.UI.CommandBarRowElement CommandBarRowElement1;
+        internal Telerik.WinControls.UI.CommandBarStripElement barAppearance;
+        internal Telerik.WinControls.UI.CommandBarButton btnSetFont;
+        internal Telerik.WinControls.UI.CommandBarSeparator CommandBarSeparator1;
+        internal Telerik.WinControls.UI.CommandBarButton btnPrintPreview;
+        internal Telerik.WinControls.UI.CommandBarButton btnPrint;
+        internal Telerik.WinControls.UI.CommandBarStripElement CommandBarStripElement2;
+        internal Telerik.WinControls.UI.CommandBarButton btnTrabslateToWord;
+        internal Telerik.WinControls.UI.CommandBarButton btnTranslateToExcel;
     }
 }

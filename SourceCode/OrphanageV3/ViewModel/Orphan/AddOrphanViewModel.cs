@@ -46,9 +46,9 @@ namespace OrphanageV3.ViewModel.Orphan
         /// <returns></returns>
         public async Task<OrphanageDataModel.Persons.Caregiver> GetCaregiverFromMother(int familyId)
         {
-            var family = await _apiClient.FamiliesController_GetAsync(familyId);
+            var family = await _apiClient.Families_GetAsync(familyId);
             var allOrphans = await getOrphanAndBrothers(familyId);
-            var mother = await _apiClient.MothersController_GetAsync(family.MotherId);
+            var mother = await _apiClient.Mothers_GetAsync(family.MotherId);
             OrphanageDataModel.Persons.Caregiver caregiverToReturn = null;
             if (allOrphans != null && allOrphans.Count > 0)
             {// returns null when there is more than one mother
@@ -60,7 +60,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 //check if there is a mother as caregiver in the family
                 foreach (var orp in allOrphans)
                 {
-                    var caregiver = await _apiClient.CaregiversController_GetAsync(orp.CaregiverId);
+                    var caregiver = await _apiClient.Caregivers_GetAsync(orp.CaregiverId);
                     if (caregiver.Name.Equals(mother.Name))
                     {
                         caregiverToReturn = caregiver;
@@ -102,10 +102,10 @@ namespace OrphanageV3.ViewModel.Orphan
         /// <returns></returns>
         public async Task<OrphanageDataModel.Persons.Caregiver> GetCaregiverFromOrphans(int familyId)
         {
-            var family = await _apiClient.FamiliesController_GetAsync(familyId);
+            var family = await _apiClient.Families_GetAsync(familyId);
             var allOrphans = await getOrphanAndBrothers(familyId);
             if (allOrphans == null) return null;
-            var caregiverToReturnTask = _apiClient.CaregiversController_GetAsync(allOrphans[0].CaregiverId);
+            var caregiverToReturnTask = _apiClient.Caregivers_GetAsync(allOrphans[0].CaregiverId);
             int idToCompare = -1;
             // returns null when there is more than one caregiver
             foreach (var orp in allOrphans)
@@ -119,13 +119,13 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<IList<OrphanageDataModel.Persons.Orphan>> getOrphanAndBrothers(int familyId)
         {
-            var orphans = await _apiClient.FamiliesController_GetFamilyOrphansAsync(familyId);
+            var orphans = await _apiClient.Families_GetFamilyOrphansAsync(familyId);
             IList<OrphanageDataModel.Persons.Orphan> allOrphans = new List<OrphanageDataModel.Persons.Orphan>();
             if (orphans != null)
             {
                 foreach (var orp in orphans)
                 {
-                    var brothers = await _apiClient.OrphansController_GetBrothersAsync(orp.Id);
+                    var brothers = await _apiClient.Orphans_GetBrothersAsync(orp.Id);
                     if (brothers != null)
                     {
                         foreach (var bro in brothers)
@@ -163,16 +163,16 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async void getCaregiverSelectionList()
         {
-            var caregiversCount = await _apiClient.CaregiversController_GetCaregiversCountAsync();
-            _sourceCaregivers = await _apiClient.CaregiversController_GetAllAsync(caregiversCount, 0);
+            var caregiversCount = await _apiClient.Caregivers_GetCaregiversCountAsync();
+            _sourceCaregivers = await _apiClient.Caregivers_GetAllAsync(caregiversCount, 0);
             CaregiversSelectionList = _mapper.MapToCaregiverModel(_sourceCaregivers);
             CaregiversSelectionListLoad?.Invoke(null, null);
         }
 
         public async void getFamiliesSelectionList()
         {
-            var familiesCount = await _apiClient.FamiliesController_GetFamiliesCountAsync();
-            _sourceFamilies = await _apiClient.FamiliesController_GetAllAsync(familiesCount, 0);
+            var familiesCount = await _apiClient.Families_GetFamiliesCountAsync();
+            _sourceFamilies = await _apiClient.Families_GetAllAsync(familiesCount, 0);
             FamiliesSelectionList = _mapper.MapToFamilyModel(_sourceFamilies);
             UpdateFamilyOrphansCount();
             FamiliesSelectionListLoad?.Invoke(null, null);
@@ -184,7 +184,7 @@ namespace OrphanageV3.ViewModel.Orphan
             {
                 foreach (var fam in FamiliesSelectionList)
                 {
-                    var value = await _apiClient.FamiliesController_GetOrphansCountAsync(fam.Id);
+                    var value = await _apiClient.Families_GetOrphansCountAsync(fam.Id);
                     fam.OrphansCount = value;
                 }
             })).Start();

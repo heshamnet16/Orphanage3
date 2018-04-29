@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7FB5E937-FAE6-4A43-B108-36C0B1143ADB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>OrphanageService</RootNamespace>
     <AssemblyName>OrphanageService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -66,11 +66,23 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="ClosedXML, Version=0.92.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.92.1\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.3.0.0, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.3.0\lib\net45\FastMember.Signed.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -174,29 +186,29 @@
     <Reference Include="Tungsten.Firewall, Version=2.0.0.18, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Tungsten.Firewall.2.0.0\lib\net45\Tungsten.Firewall.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Abstractions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Abstractions.3.2.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.3.3.0\lib\net45\Unity.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AspNet.WebApi, Version=5.0.11.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.AspNet.WebApi.5.0.11\lib\net45\Unity.AspNet.WebApi.dll</HintPath>
+    <Reference Include="Unity.AspNet.WebApi, Version=5.0.13.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.AspNet.WebApi.5.0.13\lib\net45\Unity.AspNet.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Container, Version=5.6.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Container.5.6.0\lib\net45\Unity.Container.dll</HintPath>
+    <Reference Include="Unity.Container, Version=5.7.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.7.0\lib\net45\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Controllers\AccountsController.cs" />
+    <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="GlobalExceptionsHandlers\ExceptionHandler.cs" />
     <Compile Include="GlobalExceptionsHandlers\GlobalExceptionMiddleware.cs" />
     <Compile Include="GlobalExceptionsHandlers\GlobalExceptionsHandler.cs" />
-    <Compile Include="App_Start\HttpAreaSelector.cs" />
     <Compile Include="App_Start\PowerShellExecuter.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="AutoComplete\Controllers\AutoCompletesController.cs" />
     <Compile Include="Bail\Controllers\BailsController.cs" />
     <Compile Include="Caregiver\Controllers\CaregiversController.cs" />
@@ -219,6 +231,7 @@
     <Compile Include="Info\Controllers\InfosController.cs" />
     <Compile Include="Mother\Controllers\MMediaController.cs" />
     <Compile Include="Mother\Controllers\MothersController.cs" />
+    <Compile Include="Office\Controllers\ExcelController.cs" />
     <Compile Include="Orphan\Controllers\OMediaController.cs" />
     <Compile Include="Orphan\Controllers\OrphansController.cs" />
     <Compile Include="ProjectInstaller.cs">
@@ -246,6 +259,7 @@
     <Compile Include="Services\CaregiverDbService.cs" />
     <Compile Include="Services\CheckerService.cs" />
     <Compile Include="Services\DataModel\CheckerResultData.cs" />
+    <Compile Include="Services\ExcelService.cs" />
     <Compile Include="Services\Exceptions\DuplicatedObjectException.cs" />
     <Compile Include="Services\Exceptions\HasForeignKeyException.cs" />
     <Compile Include="Services\Exceptions\ObjectNotFoundException.cs" />
@@ -253,6 +267,7 @@
     <Compile Include="Services\FamilyDbService.cs" />
     <Compile Include="Services\FatherDbService.cs" />
     <Compile Include="Services\GuarantorDbService.cs" />
+    <Compile Include="Services\Interfaces\IExcelService.cs" />
     <Compile Include="Services\Interfaces\IAccountDbService.cs" />
     <Compile Include="Services\Interfaces\IAuthenticationService.cs" />
     <Compile Include="Services\Interfaces\IAuthorizationService.cs" />

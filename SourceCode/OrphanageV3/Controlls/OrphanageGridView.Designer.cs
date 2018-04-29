@@ -32,8 +32,11 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.radGridView = new Telerik.WinControls.UI.RadGridView();
             this.LayoutControl = new Telerik.WinControls.UI.RadLayoutControl();
+            this.radContextMenu1 = new Telerik.WinControls.UI.RadContextMenu(this.components);
+            this.mnuSelectAll = new Telerik.WinControls.UI.RadMenuItem();
             this.orphansViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orphansViewModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mnuDeselectAll = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayoutControl)).BeginInit();
@@ -58,7 +61,6 @@
             // 
             // 
             this.radGridView.MasterTemplate.AllowAddNewRow = false;
-            this.radGridView.MasterTemplate.AllowCellContextMenu = false;
             this.radGridView.MasterTemplate.AllowColumnHeaderContextMenu = false;
             this.radGridView.MasterTemplate.AllowDeleteRow = false;
             this.radGridView.MasterTemplate.AllowEditRow = false;
@@ -80,6 +82,7 @@
             this.radGridView.RowFormatting += new Telerik.WinControls.UI.RowFormattingEventHandler(this.radGridView_RowFormatting);
             this.radGridView.PageChanged += new System.EventHandler<System.EventArgs>(this.radGridView_PageChanged);
             this.radGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.radGridView_CellClick);
+            this.radGridView.ContextMenuOpening += new Telerik.WinControls.UI.ContextMenuOpeningEventHandler(this.radGridView_ContextMenuOpening);
             this.radGridView.DataBindingComplete += new Telerik.WinControls.UI.GridViewBindingCompleteEventHandler(this.radGridView_DataBindingComplete);
             this.radGridView.GroupByChanged += new Telerik.WinControls.UI.GridViewCollectionChangedEventHandler(this.radGridView_GroupByChanged);
             this.radGridView.LayoutLoaded += new Telerik.WinControls.UI.LayoutLoadedEventHandler(this.radGridView_LayoutLoaded);
@@ -94,6 +97,18 @@
             this.LayoutControl.Size = new System.Drawing.Size(298, 148);
             this.LayoutControl.TabIndex = 0;
             // 
+            // radContextMenu1
+            // 
+            this.radContextMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.mnuSelectAll,
+            this.mnuDeselectAll});
+            // 
+            // mnuSelectAll
+            // 
+            this.mnuSelectAll.Name = "mnuSelectAll";
+            this.mnuSelectAll.RightToLeft = true;
+            this.mnuSelectAll.Text = "select All";
+            // 
             // orphansViewModelBindingSource
             // 
             this.orphansViewModelBindingSource.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphanModel);
@@ -101,6 +116,11 @@
             // orphansViewModelBindingSource1
             // 
             this.orphansViewModelBindingSource1.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphanModel);
+            // 
+            // mnuDeselectAll
+            // 
+            this.mnuDeselectAll.Name = "mnuDeselectAll";
+            this.mnuDeselectAll.Text = "deselect all";
             // 
             // OrphanageGridView
             // 
@@ -124,5 +144,8 @@
         private Telerik.WinControls.UI.RadLayoutControl LayoutControl;
         private System.Windows.Forms.BindingSource orphansViewModelBindingSource;
         private System.Windows.Forms.BindingSource orphansViewModelBindingSource1;
+        private Telerik.WinControls.UI.RadContextMenu radContextMenu1;
+        private Telerik.WinControls.UI.RadMenuItem mnuSelectAll;
+        private Telerik.WinControls.UI.RadMenuItem mnuDeselectAll;
     }
 }

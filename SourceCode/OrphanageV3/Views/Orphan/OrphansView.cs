@@ -1,7 +1,9 @@
-﻿using OrphanageV3.ViewModel.Orphan;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Orphan;
 using OrphanageV3.Views.Family;
 using OrphanageV3.Views.Father;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using OrphanageV3.Views.Mother;
 using System;
 using System.Collections.Generic;
@@ -15,7 +17,7 @@ using Unity;
 
 namespace OrphanageV3.Views.Orphan
 {
-    public partial class OrphansView : Telerik.WinControls.UI.RadForm
+    public partial class OrphansView : Telerik.WinControls.UI.RadForm, IView
     {
         private OrphansViewModel _orphansViewModel = Program.Factory.Resolve<OrphansViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
@@ -92,33 +94,33 @@ namespace OrphanageV3.Views.Orphan
                 _radGridHelper.UpadteCellData("Id", id, "Photo", ref _loading);
             }
             var t = new Thread(new ParameterizedThreadStart((IdsList) =>
-            {
-                IList<int> idsList = (IList<int>)IdsList;
-                if (idsList.Count > 0)
-                    try
-                    {
-                        foreach (var id in idsList)
-                        {
-                            _orphansViewModel.UpdateOrphanThumbnail(id).Wait();
-                            this.Invoke(new MethodInvoker(() =>
-                            {
-                                _radGridHelper.InvalidateRow("Id", id);
-                            }));
-                        }
-                        //_orphansViewModel.LoadImages(idsList).Wait();
-                    }
-                    catch (ObjectDisposedException) { }
-                    catch (Exception ex)
-                    {
-                        if (ex.HResult != -2146233063 && ex.HResult != -2146233040 && ex.HResult != -2146233079)
-                            throw ex;
-                    }
-                    finally
-                    {
-                        GC.Collect();
-                    }
-            }));
-            t.Priority = ThreadPriority.Normal;
+           {
+               IList<int> idsList = (IList<int>)IdsList;
+               if (idsList.Count > 0)
+                   try
+                   {
+                       foreach (var id in idsList)
+                       {
+                           _orphansViewModel.UpdateOrphanThumbnail(id).Wait();
+                           //this.Invoke(new MethodInvoker(() =>
+                           //{
+                           //    _radGridHelper.InvalidateRow("Id", id);
+                           //}));
+                       }
+                       //_orphansViewModel.LoadImages(idsList).Wait();
+                   }
+                   catch (ObjectDisposedException) { }
+                   catch (Exception ex)
+                   {
+                       if (ex.HResult != -2146233063 && ex.HResult != -2146233040 && ex.HResult != -2146233079)
+                           throw ex;
+                   }
+                   finally
+                   {
+                       GC.Collect();
+                   }
+           }));
+            t.Priority = ThreadPriority.BelowNormal;
             t.IsBackground = true;
             t.Start(idsListFromGrid);
             PagingThreads.Add(t);
@@ -354,6 +356,16 @@ namespace OrphanageV3.Views.Orphan
             {
                 _orphansViewModel.UnBailOrphans(orphanageGridView1.SelectedIds);
             }
+        }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _orphansViewModel.UpdateOrphan(ObjectId);
         }
     }
 }

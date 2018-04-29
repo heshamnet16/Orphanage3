@@ -23,7 +23,7 @@ namespace OrphanageV3.ViewModel.Father
             {
                 father.DeathCertificatePhotoData = null;
                 father.PhotoData = null;
-                await _apiClient.FathersController_PutAsync(father);
+                await _apiClient.Fathers_PutAsync(father);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -34,7 +34,7 @@ namespace OrphanageV3.ViewModel.Father
 
         public async Task<OrphanageDataModel.Persons.Father> getFather(int Cid)
         {
-            var returnedFather = await _apiClient.FathersController_GetAsync(Cid);
+            var returnedFather = await _apiClient.Fathers_GetAsync(Cid);
             var deathCertificatePhotoTask = _apiClient.GetImageData(returnedFather.DeathCertificateImageURI);
             var personalPhotoTask = _apiClient.GetImageData(returnedFather.PersonalPhotoURI);
             returnedFather.DeathCertificatePhotoData = await deathCertificatePhotoTask;

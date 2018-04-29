@@ -1,14 +1,10 @@
 ﻿using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using Unity;
 

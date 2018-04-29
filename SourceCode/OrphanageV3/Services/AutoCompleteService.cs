@@ -54,27 +54,27 @@ namespace OrphanageV3.Services
 
         private async void GetAutoCompleteStrings()
         {
-            var engFirstNamesTask = _apiClient.AutoCompletesController_GetEnglishFirstNamesAsync();
-            var engFatherNamesTask = _apiClient.AutoCompletesController_GetEnglishFatherNamesAsync();
-            var engLastNamesTask = _apiClient.AutoCompletesController_GetEnglishLastNamesAsync();
+            var engFirstNamesTask = _apiClient.AutoCompletes_GetEnglishFirstNamesAsync();
+            var engFatherNamesTask = _apiClient.AutoCompletes_GetEnglishFatherNamesAsync();
+            var engLastNamesTask = _apiClient.AutoCompletes_GetEnglishLastNamesAsync();
 
-            var ArabicFirstNamesTask = _apiClient.AutoCompletesController_GetFirstNamesAsync();
-            var ArabicFatherNamesTask = _apiClient.AutoCompletesController_GetFatherNamesAsync();
-            var ArabicLastNamesTask = _apiClient.AutoCompletesController_GetLastNamesAsync();
+            var ArabicFirstNamesTask = _apiClient.AutoCompletes_GetFirstNamesAsync();
+            var ArabicFatherNamesTask = _apiClient.AutoCompletes_GetFatherNamesAsync();
+            var ArabicLastNamesTask = _apiClient.AutoCompletes_GetLastNamesAsync();
 
-            var BirthPlacesTask = _apiClient.AutoCompletesController_GetOrphansPlacesOfBirthAsync();
+            var BirthPlacesTask = _apiClient.AutoCompletes_GetOrphansPlacesOfBirthAsync();
 
-            var SicknessNamesTask = _apiClient.AutoCompletesController_GetSicknessNamesAsync();
-            var MedicensNamesTask = _apiClient.AutoCompletesController_GetMedicensAsync();
+            var SicknessNamesTask = _apiClient.AutoCompletes_GetSicknessNamesAsync();
+            var MedicensNamesTask = _apiClient.AutoCompletes_GetMedicensAsync();
 
-            var EducationReasonsTask = _apiClient.AutoCompletesController_GetEducationReasonsAsync();
-            var EducationSchoolsTask = _apiClient.AutoCompletesController_GetEducationSchoolsAsync();
-            var EducationStagesTask = _apiClient.AutoCompletesController_GetEducationStagesAsync();
+            var EducationReasonsTask = _apiClient.AutoCompletes_GetEducationReasonsAsync();
+            var EducationSchoolsTask = _apiClient.AutoCompletes_GetEducationSchoolsAsync();
+            var EducationStagesTask = _apiClient.AutoCompletes_GetEducationStagesAsync();
 
-            var CitiesTask = _apiClient.AutoCompletesController_GetCitiesAsync();
-            var TownsTask = _apiClient.AutoCompletesController_GetTownsAsync();
-            var StreetsTask = _apiClient.AutoCompletesController_GetStreetsAsync();
-            var CountriesTask = _apiClient.AutoCompletesController_GetCountriesAsync();
+            var CitiesTask = _apiClient.AutoCompletes_GetCitiesAsync();
+            var TownsTask = _apiClient.AutoCompletes_GetTownsAsync();
+            var StreetsTask = _apiClient.AutoCompletes_GetStreetsAsync();
+            var CountriesTask = _apiClient.AutoCompletes_GetCountriesAsync();
 
             var engFirstList = await engFirstNamesTask;
             foreach (var firstN in engFirstList)

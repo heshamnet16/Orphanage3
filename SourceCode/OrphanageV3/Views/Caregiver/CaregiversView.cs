@@ -1,5 +1,7 @@
-﻿using OrphanageV3.ViewModel.Caregiver;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Caregiver;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +10,7 @@ using Unity;
 
 namespace OrphanageV3.Views.Caregiver
 {
-    public partial class CaregiversView : Telerik.WinControls.UI.RadForm
+    public partial class CaregiversView : Telerik.WinControls.UI.RadForm, IView
     {
         private CaregiversViewModel _caregiversViewModel = Program.Factory.Resolve<CaregiversViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
@@ -180,6 +182,16 @@ namespace OrphanageV3.Views.Caregiver
                     _radGridHelper.UpdateRowColor("ColorMark", await _caregiversViewModel.SetColor(id, radColorDialog.Color.ToArgb()), "Id", id);
                 }
             }
+        }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _caregiversViewModel.Update(ObjectId);
         }
     }
 }

@@ -35,8 +35,8 @@ namespace OrphanageV3.ViewModel.Mother
 
         public async void LoadMothers()
         {
-            var mothersCount = await _apiClient.MothersController_GetMotherCountAsync();
-            var ReturnedMothers = await _apiClient.MothersController_GetAllAsync(mothersCount, 0);
+            var mothersCount = await _apiClient.Mothers_GetMotherCountAsync();
+            var ReturnedMothers = await _apiClient.Mothers_GetAllAsync(mothersCount, 0);
 
             _SourceMothers = ReturnedMothers;
 
@@ -47,7 +47,7 @@ namespace OrphanageV3.ViewModel.Mother
 
         public async void LoadMothers(IEnumerable<int> motherIdsList)
         {
-            var ReturnedMothers = await _apiClient.MothersController_GetByIdsAsync(motherIdsList);
+            var ReturnedMothers = await _apiClient.Mothers_GetByIdsAsync(motherIdsList);
 
             _SourceMothers = ReturnedMothers;
 
@@ -62,15 +62,15 @@ namespace OrphanageV3.ViewModel.Mother
             {
                 foreach (var mother in Mothers)
                 {
-                    mother.OrphansCount = await _apiClient.MothersController_GetOrphansCountAsync(mother.Id);
+                    mother.OrphansCount = await _apiClient.Mothers_GetOrphansCountAsync(mother.Id);
                 }
             })).Start();
         }
 
         public async void Update(int motherId)
         {
-            var sourceMother = await _apiClient.MothersController_GetAsync(motherId);
-            var orphansCountTask = _apiClient.MothersController_GetOrphansCountAsync(motherId);
+            var sourceMother = await _apiClient.Mothers_GetAsync(motherId);
+            var orphansCountTask = _apiClient.Mothers_GetOrphansCountAsync(motherId);
             //update father object in the source list
             var sourceMotherIndex = _SourceMothers.IndexOf(_SourceMothers.FirstOrDefault(f => f.Id == motherId));
             _SourceMothers[sourceMotherIndex] = sourceMother;
@@ -93,7 +93,7 @@ namespace OrphanageV3.ViewModel.Mother
                     mother.ColorMark = colorValue;
                 else
                     mother.ColorMark = -1;
-                await _apiClient.MothersController_SetMotherColorAsync(mother.Id, (int)mother.ColorMark.Value);
+                await _apiClient.Mothers_SetMotherColorAsync(mother.Id, (int)mother.ColorMark.Value);
                 return mother.ColorMark;
             }
             catch (ApiClientException apiEx)
@@ -106,7 +106,7 @@ namespace OrphanageV3.ViewModel.Mother
         public async Task<IList<int>> OrphansIds(int motherId)
         {
             var mother = _SourceMothers.FirstOrDefault(c => c.Id == motherId);
-            var orphansList = await _apiClient.MothersController_GetOrphansAsync(motherId);
+            var orphansList = await _apiClient.Mothers_GetOrphansAsync(motherId);
             if (orphansList != null && orphansList.Count > 0)
                 return orphansList.Select(o => o.Id).ToList();
             else

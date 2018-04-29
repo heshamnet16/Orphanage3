@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Authentication;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Telerik.WinControls.UI.Diagrams;
 
 namespace OrphanageV3.Services
 {
@@ -133,17 +130,6 @@ namespace OrphanageV3.Services
             else
             {
                 ApiClientTokenProvider.RaiseMustLoginEvent();
-                //await ApiClientProvider.SetToken("مدير", "0000");
-                //if (ApiClientProvider.AccessToken != null)
-                //{
-                //    client.DefaultRequestHeaders.Authorization
-                //            = new AuthenticationHeaderValue("Bearer", ApiClientProvider.AccessToken);
-                //}
-                //else
-                //{
-                //    client.Dispose();
-                //    throw new AuthenticationException();
-                //}
             }
         }
     }

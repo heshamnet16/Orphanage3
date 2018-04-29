@@ -89,6 +89,78 @@ namespace OrphanageV3.Controlls
             _translateService = new TranslateService();
             TranslateGroupTools();
             TranslatePagingPanel(radGridView.TableElement.GridViewElement.PagingPanelElement.Children);
+            mnuSelectAll.Click += MnuSelectAll_Click;
+            mnuDeselectAll.Click += MnuDeselectAll_Click;
+            mnuSelectAll.Text = Properties.Resources.SellectAll;
+            mnuDeselectAll.Text = Properties.Resources.DeselectAll;
+        }
+
+        private void MnuDeselectAll_Click(object sender, EventArgs e)
+        {
+            if (radGridView.SelectedRows != null && radGridView.SelectedRows.Count > 0)
+            {
+                var row = radGridView.SelectedRows[0];
+                if (row.Group != null)
+                {
+                    foreach (var groupedRow in row.Group)
+                    {
+                        deselectRow(groupedRow);
+                    }
+                }
+                else
+                {
+                    foreach (var gridRow in radGridView.Rows)
+                    {
+                        deselectRow(gridRow);
+                    }
+                }
+            }
+        }
+
+        private void MnuSelectAll_Click(object sender, EventArgs e)
+        {
+            if (radGridView.SelectedRows != null && radGridView.SelectedRows.Count > 0)
+            {
+                var row = radGridView.SelectedRows[0];
+                if (row.Group != null)
+                {
+                    foreach (var groupedRow in row.Group)
+                    {
+                        selectRow(groupedRow);
+                    }
+                }
+                else
+                {
+                    foreach (var gridRow in radGridView.Rows)
+                    {
+                        selectRow(gridRow);
+                    }
+                }
+            }
+        }
+
+        private void selectRow(GridViewRowInfo gridViewRowInfo)
+        {
+            if (_AddSelectColumn && radGridView.Columns.Contains("Select"))
+            {
+                gridViewRowInfo.Cells["Select"].Value = true;
+            }
+            if (gridViewRowInfo.Index % 10 == 0)
+            {
+                Application.DoEvents();
+            }
+        }
+
+        private void deselectRow(GridViewRowInfo gridViewRowInfo)
+        {
+            if (_AddSelectColumn && radGridView.Columns.Contains("Select"))
+            {
+                gridViewRowInfo.Cells["Select"].Value = false;
+            }
+            if (gridViewRowInfo.Index % 10 == 0)
+            {
+                Application.DoEvents();
+            }
         }
 
         private void radGridView_CreateCell(object sender, Telerik.WinControls.UI.GridViewCreateCellEventArgs e)
@@ -333,6 +405,11 @@ namespace OrphanageV3.Controlls
                 e.Row.IsSelected = !val;
                 e.Row.Cells[e.ColumnIndex].Value = !val;
             }
+        }
+
+        private void radGridView_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu = radContextMenu1.DropDown;
         }
     }
 }

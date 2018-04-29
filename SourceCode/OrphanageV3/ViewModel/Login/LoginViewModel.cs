@@ -1,9 +1,6 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.ViewModel.Main;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +34,7 @@ namespace OrphanageV3.ViewModel.Login
                 int previousUserId = -1;
                 previousUserId = Program.CurrentUser == null ? -1 : Program.CurrentUser.Id;
                 await ApiClientTokenProvider.SetToken(UserName, Password);
-                Program.CurrentUser = await _apiClient.UsersController_AuthenticateAsync(UserName, Password);
+                Program.CurrentUser = await _apiClient.Users_AuthenticateAsync(UserName, Password);
                 if (ApiClientTokenProvider.AccessToken != null && Program.CurrentUser != null)
                 {
                     if (previousUserId > 0 && previousUserId != Program.CurrentUser.Id)

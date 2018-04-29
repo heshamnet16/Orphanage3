@@ -99,6 +99,12 @@ namespace OrphanageDataModel.Persons
         [NotMapped]
         public string DeathCertificateImageURI { get; set; }
 
+        [NotMapped]
+        public int OrphansCount { get; set; }
+
+        [NotMapped]
+        public string WifeName { get; set; }
+
         public virtual ICollection<Family> Families { get; set; }
     }
 }

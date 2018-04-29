@@ -25,7 +25,7 @@ namespace OrphanageV3.ViewModel.Caregiver
             caregiver.IdentityCardPhotoFaceData = null;
             try
             {
-                await _apiClient.CaregiversController_PutAsync(caregiver);
+                await _apiClient.Caregivers_PutAsync(caregiver);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -36,7 +36,7 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async Task<OrphanageDataModel.Persons.Caregiver> getCaregiver(int Cid)
         {
-            var returnedCaregiver = await _apiClient.CaregiversController_GetAsync(Cid);
+            var returnedCaregiver = await _apiClient.Caregivers_GetAsync(Cid);
             var fronPhotoTask = _apiClient.GetImageData(returnedCaregiver.IdentityCardImageFaceURI);
             var backPhotoTask = _apiClient.GetImageData(returnedCaregiver.IdentityCardImageBackURI);
             returnedCaregiver.IdentityCardPhotoFaceData = await fronPhotoTask;
@@ -71,7 +71,7 @@ namespace OrphanageV3.ViewModel.Caregiver
             try
             {
                 caregiver.UserId = Program.CurrentUser.Id;
-                var retOrp = (OrphanageDataModel.Persons.Caregiver)await _apiClient.CaregiversController_PostAsync(caregiver);
+                var retOrp = (OrphanageDataModel.Persons.Caregiver)await _apiClient.Caregivers_PostAsync(caregiver);
             }
             catch (ApiClientException apiEx)
             {

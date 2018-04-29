@@ -3,7 +3,6 @@ using OrphanageV3.Views.Tools;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
 using Unity;
@@ -128,6 +127,15 @@ namespace OrphanageV3.Views.Main
             lblConnectionStatus.ForeColor = connectionValue ? Color.Green : Color.Red;
             disableEnableMenus(RadMenu1.Items, connectionValue);
             lblRemainingTimeValue.Text = Services.ApiClientTokenProvider.RemainTime.ToString("g").Trim();
+            var hasIview = hasIView();
+            btnTrabslateToWord.Enabled = hasIview;
+            btnTranslateToExcel.Enabled = hasIview;
+        }
+
+        private bool hasIView()
+        {
+            var view = _mainViewModel.getActiveView();
+            return view != null;
         }
 
         private void disableEnableMenus(RadItemOwnerCollection radItemOwnerCollection, bool value)
@@ -234,6 +242,11 @@ namespace OrphanageV3.Views.Main
         private void MainView_Load(object sender, EventArgs e)
         {
             _mainViewModel.ShowLoginDialog();
+        }
+
+        private void btnTranslateToExcel_Click(object sender, EventArgs e)
+        {
+            _mainViewModel.ConvertToExcel();
         }
     }
 }

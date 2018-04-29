@@ -28,9 +28,9 @@ namespace OrphanageV3.Views.Summary
 
         private void SummaryView_Click(object sender, EventArgs e)
         {
-            var orphansCount = _apiClient.OrphansController_GetOrphansCountAsync().Result;
+            var orphansCount = _apiClient.Orphans_GetOrphansCountAsync().Result;
             if (i * 25000 > orphansCount) i = 0;
-            var orphansTask = _apiClient.OrphansController_GetAllAsync(25000, i++);
+            var orphansTask = _apiClient.Orphans_GetAllAsync(25000, i++);
             gridOrphans.GridView.DataSource = orphansTask.Result;
         }
 

@@ -58,7 +58,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async void LoadData(IEnumerable<int> orphansList)
         {
-            var ReturnedOrphans = await _apiClient.OrphansController_GetByIdsAsync(orphansList);
+            var ReturnedOrphans = await _apiClient.Orphans_GetByIdsAsync(orphansList);
             //delete excluded orphans
             if (Properties.Settings.Default.ShowHiddenRows)
                 _SourceOrphans = ReturnedOrphans;
@@ -77,8 +77,8 @@ namespace OrphanageV3.ViewModel.Orphan
 
         private async void GetOrphans()
         {
-            var Ocounts = await _apiClient.OrphansController_GetOrphansCountAsync();
-            var ReturnedOrphans = await _apiClient.OrphansController_GetAllAsync(Ocounts, 0);
+            var Ocounts = await _apiClient.Orphans_GetOrphansCountAsync();
+            var ReturnedOrphans = await _apiClient.Orphans_GetAllAsync(Ocounts, 0);
             //delete excluded orphans
             if (Properties.Settings.Default.ShowHiddenRows)
                 _SourceOrphans = ReturnedOrphans;
@@ -131,7 +131,7 @@ namespace OrphanageV3.ViewModel.Orphan
         {
             try
             {
-                await _apiClient.OrphansController_DeleteAsync(Oid);
+                await _apiClient.Orphans_DeleteAsync(Oid);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -162,7 +162,7 @@ namespace OrphanageV3.ViewModel.Orphan
             {
                 var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
                 var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
-                await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, true);
+                await _apiClient.Orphans_SetOrphanExcludeAsync(orphan.Id, true);
                 orphanModel.IsExcluded = true;
                 orphan.IsExcluded = true;
                 return true;
@@ -179,7 +179,7 @@ namespace OrphanageV3.ViewModel.Orphan
             {
                 var orphan = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
                 var orphanModel = Orphans.FirstOrDefault(o => o.Id == Oid);
-                await _apiClient.OrphansController_SetOrphanExcludeAsync(orphan.Id, false);
+                await _apiClient.Orphans_SetOrphanExcludeAsync(orphan.Id, false);
                 orphan.IsExcluded = false;
                 orphanModel.IsExcluded = false;
                 return true;
@@ -201,7 +201,7 @@ namespace OrphanageV3.ViewModel.Orphan
                     orphan.ColorMark = colorValue;
                 else
                     orphan.ColorMark = -1;
-                await _apiClient.OrphansController_SetOrphanColorAsync(orphan.Id, (int)orphan.ColorMark.Value);
+                await _apiClient.Orphans_SetOrphanColorAsync(orphan.Id, (int)orphan.ColorMark.Value);
                 return orphan.ColorMark;
             }
             catch (ApiClientException apiEx)
@@ -216,13 +216,13 @@ namespace OrphanageV3.ViewModel.Orphan
             var orp = _SourceOrphans.FirstOrDefault(o => o.Id == Oid);
             if (orp == null)
                 return string.Empty;
-            var brothersTask = _apiClient.OrphansController_GetBrothersAsync(Oid);
+            var brothersTask = _apiClient.Orphans_GetBrothersAsync(Oid);
             Task<OrphanageDataModel.FinancialData.Bail> bailTask = null;
             Task<OrphanageDataModel.FinancialData.Bail> FamilyBailTask = null;
             if (orp.IsBailed)
-                bailTask = _apiClient.BailsController_GetAsync(orp.BailId.Value);
+                bailTask = _apiClient.Bails_GetAsync(orp.BailId.Value);
             if (orp.Family.IsBailed)
-                FamilyBailTask = _apiClient.BailsController_GetAsync(orp.Family.BailId.Value);
+                FamilyBailTask = _apiClient.Bails_GetAsync(orp.Family.BailId.Value);
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine(Properties.Resources.FatherName + ": " + orp.Family.Father.Name.FullName());
             stringBuilder.AppendLine(Properties.Resources.FatherDeathDate + ": " + _dataFormatterService.GetFormattedDate(orp.Family.Father.DateOfDeath));
@@ -328,7 +328,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async void UpdateOrphan(int Oid)
         {
-            var orp = await _apiClient.OrphansController_GetAsync(Oid);
+            var orp = await _apiClient.Orphans_GetAsync(Oid);
             int orpIndex = _SourceOrphans.IndexOf(_SourceOrphans.FirstOrDefault(o => o.Id == Oid));
             _SourceOrphans[orpIndex] = orp;
             int orpMIndex = Orphans.IndexOf(Orphans.FirstOrDefault(o => o.Id == Oid));
@@ -395,7 +395,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<IEnumerable<int>> GetBrothers(int Oid)
         {
-            var orphans = await _apiClient.OrphansController_GetBrothersAsync(Oid);
+            var orphans = await _apiClient.Orphans_GetBrothersAsync(Oid);
             if (orphans != null)
             {
                 return orphans.Select(o => o.Id).ToArray();
@@ -463,7 +463,7 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orphansIds == null || orphansIds.Count() == 0) return;
             try
             {
-                var ret = await _apiClient.OrphansController_SetBailAsync(bailId, orphansIds);
+                var ret = await _apiClient.Orphans_SetBailAsync(bailId, orphansIds);
                 if (ret)
                 {
                     foreach (int orphanId in orphansIds)
@@ -481,7 +481,7 @@ namespace OrphanageV3.ViewModel.Orphan
             if (orphansIds == null || orphansIds.Count() == 0) return;
             try
             {
-                var ret = await _apiClient.OrphansController_SetBailAsync(-1, orphansIds);
+                var ret = await _apiClient.Orphans_SetBailAsync(-1, orphansIds);
                 if (ret)
                 {
                     foreach (int orphanId in orphansIds)

@@ -4,8 +4,8 @@
 // </auto-generated>
 //----------------------
 using OrphanageDataModel.FinancialData;
-using OrphanageDataModel.Persons;
 using OrphanageDataModel.RegularData;
+using OrphanageDataModel.Persons;
 namespace OrphanageV3.Services
 {
     #pragma warning disable // Disable all warnings
@@ -15,1974 +15,1983 @@ namespace OrphanageV3.Services
     {
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Account> AccountsController_GetAsync(int id);
+        System.Threading.Tasks.Task<Account> Accounts_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Account> AccountsController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Account> Accounts_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> AccountsController_PutAsync(object account);
+        System.Threading.Tasks.Task<object> Accounts_PutAsync(object account);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> AccountsController_PutAsync(object account, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Accounts_PutAsync(object account, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> AccountsController_PostAsync(object account);
+        System.Threading.Tasks.Task<object> Accounts_PostAsync(object account);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> AccountsController_PostAsync(object account, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Accounts_PostAsync(object account, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> AccountsController_DeleteAsync(int aID);
+        System.Threading.Tasks.Task<object> Accounts_DeleteAsync(int aID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> AccountsController_DeleteAsync(int aID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Accounts_DeleteAsync(int aID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> AccountsController_GetAccountsCountAsync();
+        System.Threading.Tasks.Task<int> Accounts_GetAccountsCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> AccountsController_GetAccountsCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Accounts_GetAccountsCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> AccountsController_GetBailsAsync(int aId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Accounts_GetBailsAsync(int aId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> AccountsController_GetBailsAsync(int aId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Accounts_GetBailsAsync(int aId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> AccountsController_GetGuarantorsAsync(int aId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Accounts_GetGuarantorsAsync(int aId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> AccountsController_GetGuarantorsAsync(int aId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Accounts_GetGuarantorsAsync(int aId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCitiesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCitiesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCitiesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCitiesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCountriesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCountriesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCountriesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCountriesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationCollegesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationCollegesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationCollegesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationCollegesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationReasonsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationReasonsAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationReasonsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationReasonsAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationSchoolsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationSchoolsAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationSchoolsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationSchoolsAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationStagesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationStagesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationStagesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationStagesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationUniversitiesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationUniversitiesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationUniversitiesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationUniversitiesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFatherNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFatherNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFatherNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFatherNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFirstNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFirstNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFirstNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFirstNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishLastNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishLastNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishLastNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishLastNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFatherNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFatherNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFatherNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFatherNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFathersDeathReasonsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFathersDeathReasonsAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFathersDeathReasonsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFathersDeathReasonsAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFirstNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFirstNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFirstNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFirstNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetLastNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetLastNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetLastNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetLastNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetMedicensAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetMedicensAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetMedicensAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetMedicensAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansCaregiversConsanguinitiesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansCaregiversConsanguinitiesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansCaregiversConsanguinitiesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansCaregiversConsanguinitiesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansPlacesOfBirthAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansPlacesOfBirthAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansPlacesOfBirthAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansPlacesOfBirthAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetSicknessNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetSicknessNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetSicknessNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetSicknessNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetStreetsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetStreetsAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetStreetsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetStreetsAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetTownsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetTownsAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetTownsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetTownsAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Bail> BailsController_GetAsync(int id);
+        System.Threading.Tasks.Task<Bail> Bails_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Bail> BailsController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Bail> Bails_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetBailsByFamilyAsync(bool value);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetBailsByFamilyAsync(bool value, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> BailsController_GetBailsCountAsync();
+        System.Threading.Tasks.Task<int> Bails_GetBailsCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> BailsController_GetBailsCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Bails_GetBailsCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> BailsController_GetOrphansAsync(int bId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Bails_GetOrphansAsync(int bId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> BailsController_GetOrphansAsync(int bId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Bails_GetOrphansAsync(int bId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> BailsController_GetFamiliesAsync(int bId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Bails_GetFamiliesAsync(int bId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> BailsController_GetFamiliesAsync(int bId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Bails_GetFamiliesAsync(int bId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> BailsController_GetOrphansCountAsync(int bId);
+        System.Threading.Tasks.Task<int> Bails_GetOrphansCountAsync(int bId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> BailsController_GetOrphansCountAsync(int bId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Bails_GetOrphansCountAsync(int bId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> BailsController_GetFamiliesCountAsync(int bId);
+        System.Threading.Tasks.Task<int> Bails_GetFamiliesCountAsync(int bId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> BailsController_GetFamiliesCountAsync(int bId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Bails_GetFamiliesCountAsync(int bId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetOrphansIdsAsync(int bId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetOrphansIdsAsync(int bId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetOrphansIdsAsync(int bId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetOrphansIdsAsync(int bId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetFamiliesIdsAsync(int bId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetFamiliesIdsAsync(int bId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetFamiliesIdsAsync(int bId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetFamiliesIdsAsync(int bId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> BailsController_PutAsync(object bail);
+        System.Threading.Tasks.Task<object> Bails_PutAsync(object bail);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> BailsController_PutAsync(object bail, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Bails_PutAsync(object bail, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> BailsController_PostAsync(object bail);
+        System.Threading.Tasks.Task<object> Bails_PostAsync(object bail);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> BailsController_PostAsync(object bail, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Bails_PostAsync(object bail, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> BailsController_DeleteAsync(int cID, bool forceDelete);
+        System.Threading.Tasks.Task<object> Bails_DeleteAsync(int cID, bool forceDelete);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> BailsController_DeleteAsync(int cID, bool forceDelete, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Bails_DeleteAsync(int cID, bool forceDelete, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Caregiver> CaregiversController_GetAsync(int id);
+        System.Threading.Tasks.Task<Caregiver> Caregivers_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Caregiver> CaregiversController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Caregiver> Caregivers_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> CaregiversController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Caregivers_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> CaregiversController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Caregivers_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> CaregiversController_GetCaregiversCountAsync();
+        System.Threading.Tasks.Task<int> Caregivers_GetCaregiversCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> CaregiversController_GetCaregiversCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Caregivers_GetCaregiversCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> CaregiversController_GetFamilyOrphansAsync(int cId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Caregivers_GetFamilyOrphansAsync(int cId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> CaregiversController_GetFamilyOrphansAsync(int cId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Caregivers_GetFamilyOrphansAsync(int cId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_PutAsync(object caregiver);
+        System.Threading.Tasks.Task<object> Caregivers_PutAsync(object caregiver);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_PutAsync(object caregiver, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Caregivers_PutAsync(object caregiver, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_PostAsync(object caregiver);
+        System.Threading.Tasks.Task<object> Caregivers_PostAsync(object caregiver);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_PostAsync(object caregiver, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Caregivers_PostAsync(object caregiver, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_SetCaregiverColorAsync(int caregiverId, int colorValue);
+        System.Threading.Tasks.Task<object> Caregivers_SetCaregiverColorAsync(int caregiverId, int colorValue);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_SetCaregiverColorAsync(int caregiverId, int colorValue, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Caregivers_SetCaregiverColorAsync(int caregiverId, int colorValue, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_DeleteAsync(int cID);
+        System.Threading.Tasks.Task<object> Caregivers_DeleteAsync(int cID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CaregiversController_DeleteAsync(int cID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Caregivers_DeleteAsync(int cID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFaceAsync(int cId);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFaceAsync(int cId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFaceAsync(int cId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFaceAsync(int cId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace2Async(int cId, string size);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace2Async(int cId, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace2Async(int cId, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace2Async(int cId, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFaceAsync(int cid);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFaceAsync(int cid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFaceAsync(int cid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFaceAsync(int cid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFace2Async(int cid);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFace2Async(int cid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFace2Async(int cid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFace2Async(int cid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBackAsync(int cId);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBackAsync(int cId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBackAsync(int cId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBackAsync(int cId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack2Async(int cId, string size);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack2Async(int cId, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack2Async(int cId, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack2Async(int cId, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBackAsync(int cid);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBackAsync(int cid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBackAsync(int cid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBackAsync(int cid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBack2Async(int cid);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBack2Async(int cid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBack2Async(int cid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBack2Async(int cid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanksController_CleanAddressesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanks_CleanAddressesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanksController_CleanAddressesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanks_CleanAddressesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanksController_CleanNamesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanks_CleanNamesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanksController_CleanNamesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanks_CleanNamesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanksController_CleanStudiesAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanks_CleanStudiesAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanksController_CleanStudiesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanks_CleanStudiesAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanksController_CleanHealthsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanks_CleanHealthsAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanksController_CleanHealthsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanks_CleanHealthsAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Family> FamiliesController_GetAsync(int id);
+        System.Threading.Tasks.Task<byte[]> Excel_CreateXlsxAsync(ExportData exportData);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Family> FamiliesController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<byte[]> Excel_CreateXlsxAsync(ExportData exportData, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<Family> Families_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Family> Families_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_PutAsync(Family family);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_PutAsync(Family family, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_PostAsync(Family family);
+        System.Threading.Tasks.Task<object> Families_PutAsync(Family family);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_PostAsync(Family family, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Families_PutAsync(Family family, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<bool> FamiliesController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds);
+        System.Threading.Tasks.Task<object> Families_PostAsync(Family family);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<bool> FamiliesController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Families_PostAsync(Family family, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_SetFamilyColorAsync(int familyId, int colorValue);
+        System.Threading.Tasks.Task<bool> Families_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_SetFamilyColorAsync(int familyId, int colorValue, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<bool> Families_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_SetFamilyExcludeAsync(int familyId, bool value);
+        System.Threading.Tasks.Task<object> Families_SetFamilyColorAsync(int familyId, int colorValue);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_SetFamilyExcludeAsync(int familyId, bool value, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Families_SetFamilyColorAsync(int familyId, int colorValue, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_DeleteAsync(int famID);
+        System.Threading.Tasks.Task<object> Families_SetFamilyExcludeAsync(int familyId, bool value);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamiliesController_DeleteAsync(int famID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Families_SetFamilyExcludeAsync(int familyId, bool value, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds);
+        System.Threading.Tasks.Task<object> Families_DeleteAsync(int famID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Families_DeleteAsync(int famID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetExcludedAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetExcludedAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FamiliesController_GetFamiliesCountAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetExcludedAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FamiliesController_GetFamiliesCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetExcludedAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FamiliesController_GetFamilyOrphansAsync(int famId);
+        System.Threading.Tasks.Task<int> Families_GetFamiliesCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FamiliesController_GetFamilyOrphansAsync(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Families_GetFamiliesCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FamiliesController_GetOrphansCountAsync(int famId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Families_GetFamilyOrphansAsync(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FamiliesController_GetOrphansCountAsync(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Families_GetFamilyOrphansAsync(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage1Async(int famId);
+        System.Threading.Tasks.Task<int> Families_GetOrphansCountAsync(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Families_GetOrphansCountAsync(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage1Async(int famId);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage1Async(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage12Async(int famId);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage1Async(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage12Async(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage12Async(int famId, string size);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage12Async(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage12Async(int famId, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage12Async(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage13Async(int famId, string size, long compertion);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage12Async(int famId, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage13Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage12Async(int famId, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage2Async(int famId);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage13Async(int famId, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage13Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage2Async(int famId);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage2Async(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage22Async(int famId);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage2Async(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage22Async(int famId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage22Async(int famId, string size);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage22Async(int famId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage22Async(int famId, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage22Async(int famId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage23Async(int famId, string size, long compertion);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage22Async(int famId, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage23Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage22Async(int famId, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Father> FathersController_GetAsync(int id);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage23Async(int famId, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Father> FathersController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage23Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<Father> Fathers_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Father> Fathers_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FathersController_PutAsync(Father father);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FathersController_PutAsync(Father father, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FathersController_SetFatherColorAsync(int fatherId, int colorValue);
+        System.Threading.Tasks.Task<object> Fathers_PutAsync(Father father);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FathersController_SetFatherColorAsync(int fatherId, int colorValue, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Fathers_PutAsync(Father father, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds);
+        System.Threading.Tasks.Task<object> Fathers_SetFatherColorAsync(int fatherId, int colorValue);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Fathers_SetFatherColorAsync(int fatherId, int colorValue, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FathersController_GetFathersCountAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FathersController_GetFathersCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FathersController_GetOrphansAsync(int fatherID);
+        System.Threading.Tasks.Task<int> Fathers_GetFathersCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FathersController_GetOrphansAsync(int fatherID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Fathers_GetFathersCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FathersController_GetOrphansCountAsync(int fatherID);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Fathers_GetOrphansAsync(int fatherID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> FathersController_GetOrphansCountAsync(int fatherID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Fathers_GetOrphansAsync(int fatherID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhotoAsync(int fid);
+        System.Threading.Tasks.Task<int> Fathers_GetOrphansCountAsync(int fatherID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Fathers_GetOrphansCountAsync(int fatherID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhotoAsync(int fid);
+        System.Threading.Tasks.Task<object> FMedia_getFatherFacePhotoAsync(int fid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_getFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhoto2Async(int fid);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhotoAsync(int fid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhoto2Async(int fid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto2Async(int fid, string size);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhoto2Async(int fid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto2Async(int fid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhoto2Async(int fid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto3Async(int fid, string size, long compertion);
+        System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto2Async(int fid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto2Async(int fid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificateAsync(int fid);
+        System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto3Async(int fid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificateAsync(int fid);
+        System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificateAsync(int fid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificate2Async(int fid);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificateAsync(int fid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificate2Async(int fid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate2Async(int fid, string size);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificate2Async(int fid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate2Async(int fid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificate2Async(int fid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate3Async(int fid, string size, long compertion);
+        System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate2Async(int fid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate2Async(int fid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Guarantor> GuarantorsController_GetAsync(int id);
+        System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate3Async(int fid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Guarantor> GuarantorsController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<Guarantor> Guarantors_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Guarantor> Guarantors_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId);
+        System.Threading.Tasks.Task<int> Guarantors_GetGuarantorsCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Guarantors_GetGuarantorsCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Guarantors_GetOrphansAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Guarantors_GetOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId);
+        System.Threading.Tasks.Task<int> Guarantors_GetOrphansCountAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Guarantors_GetOrphansCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetOrphansIdsAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetOrphansIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Guarantors_GetFamiliesAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Guarantors_GetFamiliesAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId);
+        System.Threading.Tasks.Task<int> Guarantors_GetFamiliesCountAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Guarantors_GetFamiliesCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> GuarantorsController_GetBailsAsync(int gId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetFamiliesIdsAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> GuarantorsController_GetBailsAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetFamiliesIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Guarantors_GetBailsAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Guarantors_GetBailsAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId);
+        System.Threading.Tasks.Task<int> Guarantors_GetBailsCountAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Guarantors_GetBailsCountAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_PutAsync(object guarantor);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetBailsIdsAsync(int gId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_PutAsync(object guarantor, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetBailsIdsAsync(int gId, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_PostAsync(object guarantor);
+        System.Threading.Tasks.Task<object> Guarantors_PutAsync(object guarantor);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Guarantors_PutAsync(object guarantor, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_SetGuarantorColorAsync(int guarantorId, int colorValue);
+        System.Threading.Tasks.Task<object> Guarantors_PostAsync(object guarantor);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_SetGuarantorColorAsync(int guarantorId, int colorValue, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Guarantors_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete);
+        System.Threading.Tasks.Task<object> Guarantors_SetGuarantorColorAsync(int guarantorId, int colorValue);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Guarantors_SetGuarantorColorAsync(int guarantorId, int colorValue, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<string> InfosController_GetVersionAsync();
+        System.Threading.Tasks.Task<object> Guarantors_DeleteAsync(int gID, bool forceDelete);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<string> InfosController_GetVersionAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Guarantors_DeleteAsync(int gID, bool forceDelete, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFaceAsync(int mid);
+        System.Threading.Tasks.Task<string> Infos_GetVersionAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<string> Infos_GetVersionAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFaceAsync(int mid);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFaceAsync(int mid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFace2Async(int mid);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFaceAsync(int mid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFace2Async(int mid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFace2Async(int mid, string size, long compertion);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFace2Async(int mid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFace2Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFace2Async(int mid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_getFatherFacePhotoAsync(int mid, string size);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFace2Async(int mid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_getFatherFacePhotoAsync(int mid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFace2Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBackAsync(int mid);
+        System.Threading.Tasks.Task<object> MMedia_getFatherFacePhotoAsync(int mid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_getFatherFacePhotoAsync(int mid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBackAsync(int mid);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBackAsync(int mid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBack2Async(int mid);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBackAsync(int mid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBack2Async(int mid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack2Async(int mid, string size);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBack2Async(int mid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack2Async(int mid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBack2Async(int mid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack3Async(int mid, string size, long compertion);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack2Async(int mid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack3Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack2Async(int mid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Mother> MothersController_GetAsync(int id);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack3Async(int mid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Mother> MothersController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack3Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<Mother> Mothers_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Mother> Mothers_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MothersController_PutAsync(Mother mother);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MothersController_PutAsync(Mother mother, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MothersController_SetMotherColorAsync(int motherId, int colorValue);
+        System.Threading.Tasks.Task<object> Mothers_PutAsync(Mother mother);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> MothersController_SetMotherColorAsync(int motherId, int colorValue, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Mothers_PutAsync(Mother mother, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> MothersController_GetMotherCountAsync();
+        System.Threading.Tasks.Task<object> Mothers_SetMotherColorAsync(int motherId, int colorValue);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> MothersController_GetMotherCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Mothers_SetMotherColorAsync(int motherId, int colorValue, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds);
+        System.Threading.Tasks.Task<int> Mothers_GetMotherCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Mothers_GetMotherCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> MothersController_GetOrphansAsync(int motherID);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> MothersController_GetOrphansAsync(int motherID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> MothersController_GetOrphansCountAsync(int motherID);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Mothers_GetOrphansAsync(int motherID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> MothersController_GetOrphansCountAsync(int motherID, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Mothers_GetOrphansAsync(int motherID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoAsync(int oid);
+        System.Threading.Tasks.Task<int> Mothers_GetOrphansCountAsync(int motherID);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Mothers_GetOrphansCountAsync(int motherID, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhotoAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhoto2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhotoAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhoto2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhoto2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhoto2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificateAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificate2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificateAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificate2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificate2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificate2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPageAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPage2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPageAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPage2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPage2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPage2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhotoAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhoto2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhotoAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhoto2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhoto2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhoto2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCertAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCertAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert22Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert22Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert23Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert22Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert23Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert22Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert23Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert23Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAsync(int oid, string size);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanHealthReportAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_getOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReportAsync(int oid);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanHealthReportAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_getOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReport2Async(int oid);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReportAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReport2Async(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Orphan> OrphansController_GetAsync(int id);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReport2Async(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Orphan> OrphansController_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReport2Async(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetAllAsync(int pageSize, int pageNumber);
+        System.Threading.Tasks.Task<Orphan> Orphans_GetAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Orphan> Orphans_GetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetAllAsync(int pageSize, int pageNumber);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<bool> OrphansController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<bool> OrphansController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetExcludedAsync();
+        System.Threading.Tasks.Task<bool> Orphans_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetExcludedAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<bool> Orphans_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> OrphansController_GetOrphansCountAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetExcludedAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> OrphansController_GetOrphansCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetExcludedAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetBrothersAsync(int oid);
+        System.Threading.Tasks.Task<int> Orphans_GetOrphansCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetBrothersAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Orphans_GetOrphansCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> OrphansController_GetBrothersCountAsync(int oid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetBrothersAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> OrphansController_GetBrothersCountAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetBrothersAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_PutAsync(object orphan);
+        System.Threading.Tasks.Task<int> Orphans_GetBrothersCountAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_PutAsync(object orphan, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Orphans_GetBrothersCountAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_PostAsync(object orphan);
+        System.Threading.Tasks.Task<object> Orphans_PutAsync(object orphan);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_PostAsync(object orphan, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Orphans_PutAsync(object orphan, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_SetOrphanColorAsync(int orphanId, int colorValue);
+        System.Threading.Tasks.Task<object> Orphans_PostAsync(object orphan);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_SetOrphanColorAsync(int orphanId, int colorValue, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Orphans_PostAsync(object orphan, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_SetOrphanExcludeAsync(int orphanId, bool value);
+        System.Threading.Tasks.Task<object> Orphans_SetOrphanColorAsync(int orphanId, int colorValue);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_SetOrphanExcludeAsync(int orphanId, bool value, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Orphans_SetOrphanColorAsync(int orphanId, int colorValue, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_DeleteAsync(int oid);
+        System.Threading.Tasks.Task<object> Orphans_SetOrphanExcludeAsync(int orphanId, bool value);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> OrphansController_DeleteAsync(int oid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Orphans_SetOrphanExcludeAsync(int orphanId, bool value, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAllAsync(int uid);
+        System.Threading.Tasks.Task<object> Orphans_DeleteAsync(int oid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Orphans_DeleteAsync(int oid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetAccountsCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetAccountsCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetAccountsCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetAccountsCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetBailsCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetBailsCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetBailsCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetBailsCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetCaregiversCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetCaregiversCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetCaregiversCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetCaregiversCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetFamiliesCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetFamiliesCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetFamiliesCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetFamiliesCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetFathersCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetFathersCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetFathersCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetFathersCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetGuarantorsCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetGuarantorsCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetGuarantorsCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetGuarantorsCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetMothersCountAsync(int uid, string pageSize, string pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetMothersCountAsync(int uid, string pageSize, string pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAllAsync(int uid);
+        System.Threading.Tasks.Task<int> Users_GetMothersCountAsync(int uid, string pageSize, string pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetMothersCountAsync(int uid, string pageSize, string pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAsync(int uid, int pageSize, int pageNum);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAllAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAllAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetOrphansCountAsync(int uid);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAsync(int uid, int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetOrphansCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<User> UsersController_GetUserAsync(int id);
+        System.Threading.Tasks.Task<int> Users_GetOrphansCountAsync(int uid);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<User> UsersController_GetUserAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetOrphansCountAsync(int uid, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> UsersController_GetUsersAsync(int pageSize, int pageNum);
+        System.Threading.Tasks.Task<User> Users_GetUserAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> UsersController_GetUsersAsync(int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<User> Users_GetUserAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetUsersCountAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> Users_GetUsersAsync(int pageSize, int pageNum);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<int> UsersController_GetUsersCountAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> Users_GetUsersAsync(int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<User> UsersController_AuthenticateAsync(string username, string password);
+        System.Threading.Tasks.Task<int> Users_GetUsersCountAsync();
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<User> UsersController_AuthenticateAsync(string username, string password, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<int> Users_GetUsersCountAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> UsersController_SaveUserAsync(object user);
+        System.Threading.Tasks.Task<User> Users_AuthenticateAsync(string username, string password);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> UsersController_SaveUserAsync(object user, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<User> Users_AuthenticateAsync(string username, string password, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> UsersController_PostAsync(object guarantor);
+        System.Threading.Tasks.Task<object> Users_SaveUserAsync(object user);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> UsersController_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Users_SaveUserAsync(object user, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> UsersController_DeleteAsync(int uId);
+        System.Threading.Tasks.Task<object> Users_PostAsync(object guarantor);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<object> UsersController_DeleteAsync(int uId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<object> Users_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<object> Users_DeleteAsync(int uId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<object> Users_DeleteAsync(int uId, System.Threading.CancellationToken cancellationToken);
     
     }
     
@@ -2015,15 +2024,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Account> AccountsController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Account> Accounts_GetAsync(int id)
         {
-            return AccountsController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Accounts_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Account> AccountsController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Account> Accounts_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -2094,15 +2103,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetAllAsync(int pageSize, int pageNumber)
         {
-            return AccountsController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Accounts_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -2177,15 +2186,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> AccountsController_PutAsync(object account)
+        public System.Threading.Tasks.Task<object> Accounts_PutAsync(object account)
         {
-            return AccountsController_PutAsync(account, System.Threading.CancellationToken.None);
+            return Accounts_PutAsync(account, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> AccountsController_PutAsync(object account, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Accounts_PutAsync(object account, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/account");
@@ -2255,15 +2264,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> AccountsController_PostAsync(object account)
+        public System.Threading.Tasks.Task<object> Accounts_PostAsync(object account)
         {
-            return AccountsController_PostAsync(account, System.Threading.CancellationToken.None);
+            return Accounts_PostAsync(account, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> AccountsController_PostAsync(object account, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Accounts_PostAsync(object account, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/account");
@@ -2333,15 +2342,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> AccountsController_DeleteAsync(int aID)
+        public System.Threading.Tasks.Task<object> Accounts_DeleteAsync(int aID)
         {
-            return AccountsController_DeleteAsync(aID, System.Threading.CancellationToken.None);
+            return Accounts_DeleteAsync(aID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> AccountsController_DeleteAsync(int aID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Accounts_DeleteAsync(int aID, System.Threading.CancellationToken cancellationToken)
         {
             if (aID == null)
                 throw new System.ArgumentNullException("aID");
@@ -2412,15 +2421,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds)
         {
-            return AccountsController_GetByIdsAsync(accoutnsIds, System.Threading.CancellationToken.None);
+            return Accounts_GetByIdsAsync(accoutnsIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> AccountsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Accounts_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> accoutnsIds, System.Threading.CancellationToken cancellationToken)
         {
             if (accoutnsIds == null)
                 throw new System.ArgumentNullException("accoutnsIds");
@@ -2492,15 +2501,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> AccountsController_GetAccountsCountAsync()
+        public System.Threading.Tasks.Task<int> Accounts_GetAccountsCountAsync()
         {
-            return AccountsController_GetAccountsCountAsync(System.Threading.CancellationToken.None);
+            return Accounts_GetAccountsCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> AccountsController_GetAccountsCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Accounts_GetAccountsCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/account/count");
@@ -2567,15 +2576,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> AccountsController_GetBailsAsync(int aId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Accounts_GetBailsAsync(int aId)
         {
-            return AccountsController_GetBailsAsync(aId, System.Threading.CancellationToken.None);
+            return Accounts_GetBailsAsync(aId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> AccountsController_GetBailsAsync(int aId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Accounts_GetBailsAsync(int aId, System.Threading.CancellationToken cancellationToken)
         {
             if (aId == null)
                 throw new System.ArgumentNullException("aId");
@@ -2646,15 +2655,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> AccountsController_GetGuarantorsAsync(int aId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Accounts_GetGuarantorsAsync(int aId)
         {
-            return AccountsController_GetGuarantorsAsync(aId, System.Threading.CancellationToken.None);
+            return Accounts_GetGuarantorsAsync(aId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> AccountsController_GetGuarantorsAsync(int aId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Accounts_GetGuarantorsAsync(int aId, System.Threading.CancellationToken cancellationToken)
         {
             if (aId == null)
                 throw new System.ArgumentNullException("aId");
@@ -2725,15 +2734,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCitiesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCitiesAsync()
         {
-            return AutoCompletesController_GetCitiesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetCitiesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCitiesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCitiesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/cities");
@@ -2800,15 +2809,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCountriesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCountriesAsync()
         {
-            return AutoCompletesController_GetCountriesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetCountriesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetCountriesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetCountriesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/Countries");
@@ -2875,15 +2884,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationCollegesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationCollegesAsync()
         {
-            return AutoCompletesController_GetEducationCollegesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEducationCollegesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationCollegesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationCollegesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EducationColleges");
@@ -2950,15 +2959,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationReasonsAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationReasonsAsync()
         {
-            return AutoCompletesController_GetEducationReasonsAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEducationReasonsAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationReasonsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationReasonsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EducationReasons");
@@ -3025,15 +3034,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationSchoolsAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationSchoolsAsync()
         {
-            return AutoCompletesController_GetEducationSchoolsAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEducationSchoolsAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationSchoolsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationSchoolsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EducationSchools");
@@ -3100,15 +3109,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationStagesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationStagesAsync()
         {
-            return AutoCompletesController_GetEducationStagesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEducationStagesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationStagesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationStagesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EducationStages");
@@ -3175,15 +3184,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationUniversitiesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationUniversitiesAsync()
         {
-            return AutoCompletesController_GetEducationUniversitiesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEducationUniversitiesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEducationUniversitiesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEducationUniversitiesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EducationUniversities");
@@ -3250,15 +3259,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFatherNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFatherNamesAsync()
         {
-            return AutoCompletesController_GetEnglishFatherNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEnglishFatherNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFatherNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFatherNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EnglishFatherNames");
@@ -3325,15 +3334,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFirstNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFirstNamesAsync()
         {
-            return AutoCompletesController_GetEnglishFirstNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEnglishFirstNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishFirstNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishFirstNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EnglishFirstNames");
@@ -3400,15 +3409,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishLastNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishLastNamesAsync()
         {
-            return AutoCompletesController_GetEnglishLastNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetEnglishLastNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetEnglishLastNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetEnglishLastNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/EnglishLastNames");
@@ -3475,15 +3484,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFatherNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFatherNamesAsync()
         {
-            return AutoCompletesController_GetFatherNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetFatherNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFatherNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFatherNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/FatherNames");
@@ -3550,15 +3559,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFathersDeathReasonsAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFathersDeathReasonsAsync()
         {
-            return AutoCompletesController_GetFathersDeathReasonsAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetFathersDeathReasonsAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFathersDeathReasonsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFathersDeathReasonsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/FathersDeathReasons");
@@ -3625,15 +3634,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFirstNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFirstNamesAsync()
         {
-            return AutoCompletesController_GetFirstNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetFirstNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetFirstNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetFirstNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/FirstNames");
@@ -3700,15 +3709,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetLastNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetLastNamesAsync()
         {
-            return AutoCompletesController_GetLastNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetLastNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetLastNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetLastNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/LastNames");
@@ -3775,15 +3784,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetMedicensAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetMedicensAsync()
         {
-            return AutoCompletesController_GetMedicensAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetMedicensAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetMedicensAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetMedicensAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/Medicens");
@@ -3850,15 +3859,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansCaregiversConsanguinitiesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansCaregiversConsanguinitiesAsync()
         {
-            return AutoCompletesController_GetOrphansCaregiversConsanguinitiesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetOrphansCaregiversConsanguinitiesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansCaregiversConsanguinitiesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansCaregiversConsanguinitiesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/OrphansCaregiversConsanguinities");
@@ -3925,15 +3934,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansPlacesOfBirthAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansPlacesOfBirthAsync()
         {
-            return AutoCompletesController_GetOrphansPlacesOfBirthAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetOrphansPlacesOfBirthAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetOrphansPlacesOfBirthAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetOrphansPlacesOfBirthAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/OrphansPlacesOfBirth");
@@ -4000,15 +4009,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetSicknessNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetSicknessNamesAsync()
         {
-            return AutoCompletesController_GetSicknessNamesAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetSicknessNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetSicknessNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetSicknessNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/SicknessNames");
@@ -4075,15 +4084,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetStreetsAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetStreetsAsync()
         {
-            return AutoCompletesController_GetStreetsAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetStreetsAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetStreetsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetStreetsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/Streets");
@@ -4150,15 +4159,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetTownsAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetTownsAsync()
         {
-            return AutoCompletesController_GetTownsAsync(System.Threading.CancellationToken.None);
+            return AutoCompletes_GetTownsAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletesController_GetTownsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> AutoCompletes_GetTownsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/autocomplete/Towns");
@@ -4225,15 +4234,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Bail> BailsController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Bail> Bails_GetAsync(int id)
         {
-            return BailsController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Bails_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Bail> BailsController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Bail> Bails_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -4304,15 +4313,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetAllAsync(int pageSize, int pageNumber)
         {
-            return BailsController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Bails_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -4387,15 +4396,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetBailsByFamilyAsync(bool value)
         {
-            return BailsController_GetBailsByFamilyAsync(value, System.Threading.CancellationToken.None);
+            return Bails_GetBailsByFamilyAsync(value, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetBailsByFamilyAsync(bool value, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetBailsByFamilyAsync(bool value, System.Threading.CancellationToken cancellationToken)
         {
             if (value == null)
                 throw new System.ArgumentNullException("value");
@@ -4466,15 +4475,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> BailsController_GetBailsCountAsync()
+        public System.Threading.Tasks.Task<int> Bails_GetBailsCountAsync()
         {
-            return BailsController_GetBailsCountAsync(System.Threading.CancellationToken.None);
+            return Bails_GetBailsCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> BailsController_GetBailsCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Bails_GetBailsCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/bail/count");
@@ -4541,15 +4550,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds)
         {
-            return BailsController_GetByIdsAsync(bailsIds, System.Threading.CancellationToken.None);
+            return Bails_GetByIdsAsync(bailsIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> BailsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Bails_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> bailsIds, System.Threading.CancellationToken cancellationToken)
         {
             if (bailsIds == null)
                 throw new System.ArgumentNullException("bailsIds");
@@ -4621,15 +4630,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> BailsController_GetOrphansAsync(int bId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Bails_GetOrphansAsync(int bId)
         {
-            return BailsController_GetOrphansAsync(bId, System.Threading.CancellationToken.None);
+            return Bails_GetOrphansAsync(bId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> BailsController_GetOrphansAsync(int bId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Bails_GetOrphansAsync(int bId, System.Threading.CancellationToken cancellationToken)
         {
             if (bId == null)
                 throw new System.ArgumentNullException("bId");
@@ -4700,15 +4709,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> BailsController_GetFamiliesAsync(int bId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Bails_GetFamiliesAsync(int bId)
         {
-            return BailsController_GetFamiliesAsync(bId, System.Threading.CancellationToken.None);
+            return Bails_GetFamiliesAsync(bId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> BailsController_GetFamiliesAsync(int bId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Bails_GetFamiliesAsync(int bId, System.Threading.CancellationToken cancellationToken)
         {
             if (bId == null)
                 throw new System.ArgumentNullException("bId");
@@ -4779,15 +4788,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> BailsController_GetOrphansCountAsync(int bId)
+        public System.Threading.Tasks.Task<int> Bails_GetOrphansCountAsync(int bId)
         {
-            return BailsController_GetOrphansCountAsync(bId, System.Threading.CancellationToken.None);
+            return Bails_GetOrphansCountAsync(bId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> BailsController_GetOrphansCountAsync(int bId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Bails_GetOrphansCountAsync(int bId, System.Threading.CancellationToken cancellationToken)
         {
             if (bId == null)
                 throw new System.ArgumentNullException("bId");
@@ -4858,15 +4867,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> BailsController_GetFamiliesCountAsync(int bId)
+        public System.Threading.Tasks.Task<int> Bails_GetFamiliesCountAsync(int bId)
         {
-            return BailsController_GetFamiliesCountAsync(bId, System.Threading.CancellationToken.None);
+            return Bails_GetFamiliesCountAsync(bId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> BailsController_GetFamiliesCountAsync(int bId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Bails_GetFamiliesCountAsync(int bId, System.Threading.CancellationToken cancellationToken)
         {
             if (bId == null)
                 throw new System.ArgumentNullException("bId");
@@ -4937,15 +4946,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetOrphansIdsAsync(int bId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetOrphansIdsAsync(int bId)
         {
-            return BailsController_GetOrphansIdsAsync(bId, System.Threading.CancellationToken.None);
+            return Bails_GetOrphansIdsAsync(bId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetOrphansIdsAsync(int bId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetOrphansIdsAsync(int bId, System.Threading.CancellationToken cancellationToken)
         {
             if (bId == null)
                 throw new System.ArgumentNullException("bId");
@@ -5016,15 +5025,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetFamiliesIdsAsync(int bId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetFamiliesIdsAsync(int bId)
         {
-            return BailsController_GetFamiliesIdsAsync(bId, System.Threading.CancellationToken.None);
+            return Bails_GetFamiliesIdsAsync(bId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> BailsController_GetFamiliesIdsAsync(int bId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Bails_GetFamiliesIdsAsync(int bId, System.Threading.CancellationToken cancellationToken)
         {
             if (bId == null)
                 throw new System.ArgumentNullException("bId");
@@ -5095,15 +5104,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> BailsController_PutAsync(object bail)
+        public System.Threading.Tasks.Task<object> Bails_PutAsync(object bail)
         {
-            return BailsController_PutAsync(bail, System.Threading.CancellationToken.None);
+            return Bails_PutAsync(bail, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> BailsController_PutAsync(object bail, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Bails_PutAsync(object bail, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/bail");
@@ -5173,15 +5182,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> BailsController_PostAsync(object bail)
+        public System.Threading.Tasks.Task<object> Bails_PostAsync(object bail)
         {
-            return BailsController_PostAsync(bail, System.Threading.CancellationToken.None);
+            return Bails_PostAsync(bail, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> BailsController_PostAsync(object bail, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Bails_PostAsync(object bail, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/bail");
@@ -5251,15 +5260,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> BailsController_DeleteAsync(int cID, bool forceDelete)
+        public System.Threading.Tasks.Task<object> Bails_DeleteAsync(int cID, bool forceDelete)
         {
-            return BailsController_DeleteAsync(cID, forceDelete, System.Threading.CancellationToken.None);
+            return Bails_DeleteAsync(cID, forceDelete, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> BailsController_DeleteAsync(int cID, bool forceDelete, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Bails_DeleteAsync(int cID, bool forceDelete, System.Threading.CancellationToken cancellationToken)
         {
             if (cID == null)
                 throw new System.ArgumentNullException("cID");
@@ -5334,15 +5343,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Caregiver> CaregiversController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Caregiver> Caregivers_GetAsync(int id)
         {
-            return CaregiversController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Caregivers_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Caregiver> CaregiversController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Caregiver> Caregivers_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -5413,15 +5422,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> CaregiversController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Caregivers_GetAllAsync(int pageSize, int pageNumber)
         {
-            return CaregiversController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Caregivers_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> CaregiversController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Caregivers_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -5496,15 +5505,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> CaregiversController_GetCaregiversCountAsync()
+        public System.Threading.Tasks.Task<int> Caregivers_GetCaregiversCountAsync()
         {
-            return CaregiversController_GetCaregiversCountAsync(System.Threading.CancellationToken.None);
+            return Caregivers_GetCaregiversCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> CaregiversController_GetCaregiversCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Caregivers_GetCaregiversCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/caregiver/count");
@@ -5571,15 +5580,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> CaregiversController_GetFamilyOrphansAsync(int cId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Caregivers_GetFamilyOrphansAsync(int cId)
         {
-            return CaregiversController_GetFamilyOrphansAsync(cId, System.Threading.CancellationToken.None);
+            return Caregivers_GetFamilyOrphansAsync(cId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> CaregiversController_GetFamilyOrphansAsync(int cId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Caregivers_GetFamilyOrphansAsync(int cId, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -5650,15 +5659,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CaregiversController_PutAsync(object caregiver)
+        public System.Threading.Tasks.Task<object> Caregivers_PutAsync(object caregiver)
         {
-            return CaregiversController_PutAsync(caregiver, System.Threading.CancellationToken.None);
+            return Caregivers_PutAsync(caregiver, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CaregiversController_PutAsync(object caregiver, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Caregivers_PutAsync(object caregiver, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/caregiver");
@@ -5728,15 +5737,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CaregiversController_PostAsync(object caregiver)
+        public System.Threading.Tasks.Task<object> Caregivers_PostAsync(object caregiver)
         {
-            return CaregiversController_PostAsync(caregiver, System.Threading.CancellationToken.None);
+            return Caregivers_PostAsync(caregiver, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CaregiversController_PostAsync(object caregiver, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Caregivers_PostAsync(object caregiver, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/caregiver");
@@ -5806,15 +5815,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CaregiversController_SetCaregiverColorAsync(int caregiverId, int colorValue)
+        public System.Threading.Tasks.Task<object> Caregivers_SetCaregiverColorAsync(int caregiverId, int colorValue)
         {
-            return CaregiversController_SetCaregiverColorAsync(caregiverId, colorValue, System.Threading.CancellationToken.None);
+            return Caregivers_SetCaregiverColorAsync(caregiverId, colorValue, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CaregiversController_SetCaregiverColorAsync(int caregiverId, int colorValue, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Caregivers_SetCaregiverColorAsync(int caregiverId, int colorValue, System.Threading.CancellationToken cancellationToken)
         {
             if (caregiverId == null)
                 throw new System.ArgumentNullException("caregiverId");
@@ -5892,15 +5901,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CaregiversController_DeleteAsync(int cID)
+        public System.Threading.Tasks.Task<object> Caregivers_DeleteAsync(int cID)
         {
-            return CaregiversController_DeleteAsync(cID, System.Threading.CancellationToken.None);
+            return Caregivers_DeleteAsync(cID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CaregiversController_DeleteAsync(int cID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Caregivers_DeleteAsync(int cID, System.Threading.CancellationToken cancellationToken)
         {
             if (cID == null)
                 throw new System.ArgumentNullException("cID");
@@ -5971,15 +5980,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFaceAsync(int cId)
+        public System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFaceAsync(int cId)
         {
-            return CMediaController_getCaregiverIdentityCardPhotoFaceAsync(cId, System.Threading.CancellationToken.None);
+            return CMedia_getCaregiverIdentityCardPhotoFaceAsync(cId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFaceAsync(int cId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFaceAsync(int cId, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -6050,15 +6059,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace2Async(int cId, string size)
+        public System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace2Async(int cId, string size)
         {
-            return CMediaController_getCaregiverIdentityCardPhotoFace2Async(cId, size, System.Threading.CancellationToken.None);
+            return CMedia_getCaregiverIdentityCardPhotoFace2Async(cId, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace2Async(int cId, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace2Async(int cId, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -6133,15 +6142,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion)
+        public System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion)
         {
-            return CMediaController_getCaregiverIdentityCardPhotoFace3Async(cId, size, compertion, System.Threading.CancellationToken.None);
+            return CMedia_getCaregiverIdentityCardPhotoFace3Async(cId, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoFace3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -6220,15 +6229,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFaceAsync(int cid)
+        public System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFaceAsync(int cid)
         {
-            return CMediaController_SetCaregiverIdentityCardPhotoFaceAsync(cid, System.Threading.CancellationToken.None);
+            return CMedia_SetCaregiverIdentityCardPhotoFaceAsync(cid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFaceAsync(int cid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFaceAsync(int cid, System.Threading.CancellationToken cancellationToken)
         {
             if (cid == null)
                 throw new System.ArgumentNullException("cid");
@@ -6301,15 +6310,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFace2Async(int cid)
+        public System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFace2Async(int cid)
         {
-            return CMediaController_SetCaregiverIdentityCardPhotoFace2Async(cid, System.Threading.CancellationToken.None);
+            return CMedia_SetCaregiverIdentityCardPhotoFace2Async(cid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoFace2Async(int cid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoFace2Async(int cid, System.Threading.CancellationToken cancellationToken)
         {
             if (cid == null)
                 throw new System.ArgumentNullException("cid");
@@ -6382,15 +6391,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBackAsync(int cId)
+        public System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBackAsync(int cId)
         {
-            return CMediaController_getCaregiverIdentityCardPhotoBackAsync(cId, System.Threading.CancellationToken.None);
+            return CMedia_getCaregiverIdentityCardPhotoBackAsync(cId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBackAsync(int cId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBackAsync(int cId, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -6461,15 +6470,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack2Async(int cId, string size)
+        public System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack2Async(int cId, string size)
         {
-            return CMediaController_getCaregiverIdentityCardPhotoBack2Async(cId, size, System.Threading.CancellationToken.None);
+            return CMedia_getCaregiverIdentityCardPhotoBack2Async(cId, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack2Async(int cId, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack2Async(int cId, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -6544,15 +6553,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion)
+        public System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion)
         {
-            return CMediaController_getCaregiverIdentityCardPhotoBack3Async(cId, size, compertion, System.Threading.CancellationToken.None);
+            return CMedia_getCaregiverIdentityCardPhotoBack3Async(cId, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_getCaregiverIdentityCardPhotoBack3Async(int cId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (cId == null)
                 throw new System.ArgumentNullException("cId");
@@ -6631,15 +6640,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBackAsync(int cid)
+        public System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBackAsync(int cid)
         {
-            return CMediaController_SetCaregiverIdentityCardPhotoBackAsync(cid, System.Threading.CancellationToken.None);
+            return CMedia_SetCaregiverIdentityCardPhotoBackAsync(cid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBackAsync(int cid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBackAsync(int cid, System.Threading.CancellationToken cancellationToken)
         {
             if (cid == null)
                 throw new System.ArgumentNullException("cid");
@@ -6712,15 +6721,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBack2Async(int cid)
+        public System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBack2Async(int cid)
         {
-            return CMediaController_SetCaregiverIdentityCardPhotoBack2Async(cid, System.Threading.CancellationToken.None);
+            return CMedia_SetCaregiverIdentityCardPhotoBack2Async(cid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> CMediaController_SetCaregiverIdentityCardPhotoBack2Async(int cid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> CMedia_SetCaregiverIdentityCardPhotoBack2Async(int cid, System.Threading.CancellationToken cancellationToken)
         {
             if (cid == null)
                 throw new System.ArgumentNullException("cid");
@@ -6793,15 +6802,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanksController_CleanAddressesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanks_CleanAddressesAsync()
         {
-            return DataBanksController_CleanAddressesAsync(System.Threading.CancellationToken.None);
+            return DataBanks_CleanAddressesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanksController_CleanAddressesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Address>> DataBanks_CleanAddressesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/databank/clean/addresses");
@@ -6868,15 +6877,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanksController_CleanNamesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanks_CleanNamesAsync()
         {
-            return DataBanksController_CleanNamesAsync(System.Threading.CancellationToken.None);
+            return DataBanks_CleanNamesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanksController_CleanNamesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Name>> DataBanks_CleanNamesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/databank/clean/names");
@@ -6943,15 +6952,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanksController_CleanStudiesAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanks_CleanStudiesAsync()
         {
-            return DataBanksController_CleanStudiesAsync(System.Threading.CancellationToken.None);
+            return DataBanks_CleanStudiesAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanksController_CleanStudiesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Study>> DataBanks_CleanStudiesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/databank/clean/studies");
@@ -7018,15 +7027,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanksController_CleanHealthsAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanks_CleanHealthsAsync()
         {
-            return DataBanksController_CleanHealthsAsync(System.Threading.CancellationToken.None);
+            return DataBanks_CleanHealthsAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanksController_CleanHealthsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Health>> DataBanks_CleanHealthsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/databank/clean/healths");
@@ -7093,15 +7102,93 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Family> FamiliesController_GetAsync(int id)
+        public System.Threading.Tasks.Task<byte[]> Excel_CreateXlsxAsync(ExportData exportData)
         {
-            return FamiliesController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Excel_CreateXlsxAsync(exportData, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Family> FamiliesController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<byte[]> Excel_CreateXlsxAsync(ExportData exportData, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/api/office/excel");
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(exportData, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(byte[]); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<byte[]>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiClientException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiClientException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(byte[]);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<Family> Families_GetAsync(int id)
+        {
+            return Families_GetAsync(id, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiClientException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task<Family> Families_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7172,15 +7259,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetAllAsync(int pageSize, int pageNumber)
         {
-            return FamiliesController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Families_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -7255,15 +7342,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamiliesController_PutAsync(Family family)
+        public System.Threading.Tasks.Task<object> Families_PutAsync(Family family)
         {
-            return FamiliesController_PutAsync(family, System.Threading.CancellationToken.None);
+            return Families_PutAsync(family, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamiliesController_PutAsync(Family family, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Families_PutAsync(Family family, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/family");
@@ -7333,15 +7420,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamiliesController_PostAsync(Family family)
+        public System.Threading.Tasks.Task<object> Families_PostAsync(Family family)
         {
-            return FamiliesController_PostAsync(family, System.Threading.CancellationToken.None);
+            return Families_PostAsync(family, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamiliesController_PostAsync(Family family, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Families_PostAsync(Family family, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/family");
@@ -7411,15 +7498,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<bool> FamiliesController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds)
+        public System.Threading.Tasks.Task<bool> Families_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds)
         {
-            return FamiliesController_SetBailAsync(bailId, orphanIds, System.Threading.CancellationToken.None);
+            return Families_SetBailAsync(bailId, orphanIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<bool> FamiliesController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> Families_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
         {
             if (bailId == null)
                 throw new System.ArgumentNullException("bailId");
@@ -7497,15 +7584,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamiliesController_SetFamilyColorAsync(int familyId, int colorValue)
+        public System.Threading.Tasks.Task<object> Families_SetFamilyColorAsync(int familyId, int colorValue)
         {
-            return FamiliesController_SetFamilyColorAsync(familyId, colorValue, System.Threading.CancellationToken.None);
+            return Families_SetFamilyColorAsync(familyId, colorValue, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamiliesController_SetFamilyColorAsync(int familyId, int colorValue, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Families_SetFamilyColorAsync(int familyId, int colorValue, System.Threading.CancellationToken cancellationToken)
         {
             if (familyId == null)
                 throw new System.ArgumentNullException("familyId");
@@ -7583,15 +7670,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamiliesController_SetFamilyExcludeAsync(int familyId, bool value)
+        public System.Threading.Tasks.Task<object> Families_SetFamilyExcludeAsync(int familyId, bool value)
         {
-            return FamiliesController_SetFamilyExcludeAsync(familyId, value, System.Threading.CancellationToken.None);
+            return Families_SetFamilyExcludeAsync(familyId, value, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamiliesController_SetFamilyExcludeAsync(int familyId, bool value, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Families_SetFamilyExcludeAsync(int familyId, bool value, System.Threading.CancellationToken cancellationToken)
         {
             if (familyId == null)
                 throw new System.ArgumentNullException("familyId");
@@ -7669,15 +7756,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamiliesController_DeleteAsync(int famID)
+        public System.Threading.Tasks.Task<object> Families_DeleteAsync(int famID)
         {
-            return FamiliesController_DeleteAsync(famID, System.Threading.CancellationToken.None);
+            return Families_DeleteAsync(famID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamiliesController_DeleteAsync(int famID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Families_DeleteAsync(int famID, System.Threading.CancellationToken cancellationToken)
         {
             if (famID == null)
                 throw new System.ArgumentNullException("famID");
@@ -7748,15 +7835,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds)
         {
-            return FamiliesController_GetByIdsAsync(familiesIds, System.Threading.CancellationToken.None);
+            return Families_GetByIdsAsync(familiesIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> familiesIds, System.Threading.CancellationToken cancellationToken)
         {
             if (familiesIds == null)
                 throw new System.ArgumentNullException("familiesIds");
@@ -7828,15 +7915,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetExcludedAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetExcludedAsync()
         {
-            return FamiliesController_GetExcludedAsync(System.Threading.CancellationToken.None);
+            return Families_GetExcludedAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> FamiliesController_GetExcludedAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Families_GetExcludedAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/family/excluded");
@@ -7903,15 +7990,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> FamiliesController_GetFamiliesCountAsync()
+        public System.Threading.Tasks.Task<int> Families_GetFamiliesCountAsync()
         {
-            return FamiliesController_GetFamiliesCountAsync(System.Threading.CancellationToken.None);
+            return Families_GetFamiliesCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> FamiliesController_GetFamiliesCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Families_GetFamiliesCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/family/count");
@@ -7978,15 +8065,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FamiliesController_GetFamilyOrphansAsync(int famId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Families_GetFamilyOrphansAsync(int famId)
         {
-            return FamiliesController_GetFamilyOrphansAsync(famId, System.Threading.CancellationToken.None);
+            return Families_GetFamilyOrphansAsync(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FamiliesController_GetFamilyOrphansAsync(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Families_GetFamilyOrphansAsync(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8057,15 +8144,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> FamiliesController_GetOrphansCountAsync(int famId)
+        public System.Threading.Tasks.Task<int> Families_GetOrphansCountAsync(int famId)
         {
-            return FamiliesController_GetOrphansCountAsync(famId, System.Threading.CancellationToken.None);
+            return Families_GetOrphansCountAsync(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> FamiliesController_GetOrphansCountAsync(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Families_GetOrphansCountAsync(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8136,15 +8223,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage1Async(int famId)
+        public System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage1Async(int famId)
         {
-            return FamMediaController_getFamilyCardPhotoPage1Async(famId, System.Threading.CancellationToken.None);
+            return FamMedia_getFamilyCardPhotoPage1Async(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8215,15 +8302,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage1Async(int famId)
+        public System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage1Async(int famId)
         {
-            return FamMediaController_SetFamilyCardPhotoPage1Async(famId, System.Threading.CancellationToken.None);
+            return FamMedia_SetFamilyCardPhotoPage1Async(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage1Async(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8296,15 +8383,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage12Async(int famId)
+        public System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage12Async(int famId)
         {
-            return FamMediaController_SetFamilyCardPhotoPage12Async(famId, System.Threading.CancellationToken.None);
+            return FamMedia_SetFamilyCardPhotoPage12Async(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage12Async(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage12Async(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8377,15 +8464,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage12Async(int famId, string size)
+        public System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage12Async(int famId, string size)
         {
-            return FamMediaController_getFamilyCardPhotoPage12Async(famId, size, System.Threading.CancellationToken.None);
+            return FamMedia_getFamilyCardPhotoPage12Async(famId, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage12Async(int famId, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage12Async(int famId, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8460,15 +8547,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage13Async(int famId, string size, long compertion)
+        public System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage13Async(int famId, string size, long compertion)
         {
-            return FamMediaController_getFamilyCardPhotoPage13Async(famId, size, compertion, System.Threading.CancellationToken.None);
+            return FamMedia_getFamilyCardPhotoPage13Async(famId, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage13Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage13Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8547,15 +8634,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage2Async(int famId)
+        public System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage2Async(int famId)
         {
-            return FamMediaController_getFamilyCardPhotoPage2Async(famId, System.Threading.CancellationToken.None);
+            return FamMedia_getFamilyCardPhotoPage2Async(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8626,15 +8713,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage2Async(int famId)
+        public System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage2Async(int famId)
         {
-            return FamMediaController_SetFamilyCardPhotoPage2Async(famId, System.Threading.CancellationToken.None);
+            return FamMedia_SetFamilyCardPhotoPage2Async(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage2Async(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8707,15 +8794,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage22Async(int famId)
+        public System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage22Async(int famId)
         {
-            return FamMediaController_SetFamilyCardPhotoPage22Async(famId, System.Threading.CancellationToken.None);
+            return FamMedia_SetFamilyCardPhotoPage22Async(famId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_SetFamilyCardPhotoPage22Async(int famId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_SetFamilyCardPhotoPage22Async(int famId, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8788,15 +8875,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage22Async(int famId, string size)
+        public System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage22Async(int famId, string size)
         {
-            return FamMediaController_getFamilyCardPhotoPage22Async(famId, size, System.Threading.CancellationToken.None);
+            return FamMedia_getFamilyCardPhotoPage22Async(famId, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage22Async(int famId, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage22Async(int famId, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8871,15 +8958,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage23Async(int famId, string size, long compertion)
+        public System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage23Async(int famId, string size, long compertion)
         {
-            return FamMediaController_getFamilyCardPhotoPage23Async(famId, size, compertion, System.Threading.CancellationToken.None);
+            return FamMedia_getFamilyCardPhotoPage23Async(famId, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FamMediaController_getFamilyCardPhotoPage23Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FamMedia_getFamilyCardPhotoPage23Async(int famId, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (famId == null)
                 throw new System.ArgumentNullException("famId");
@@ -8958,15 +9045,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Father> FathersController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Father> Fathers_GetAsync(int id)
         {
-            return FathersController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Fathers_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Father> FathersController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Father> Fathers_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -9037,15 +9124,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetAllAsync(int pageSize, int pageNumber)
         {
-            return FathersController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Fathers_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -9120,15 +9207,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FathersController_PutAsync(Father father)
+        public System.Threading.Tasks.Task<object> Fathers_PutAsync(Father father)
         {
-            return FathersController_PutAsync(father, System.Threading.CancellationToken.None);
+            return Fathers_PutAsync(father, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FathersController_PutAsync(Father father, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Fathers_PutAsync(Father father, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/father");
@@ -9198,15 +9285,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FathersController_SetFatherColorAsync(int fatherId, int colorValue)
+        public System.Threading.Tasks.Task<object> Fathers_SetFatherColorAsync(int fatherId, int colorValue)
         {
-            return FathersController_SetFatherColorAsync(fatherId, colorValue, System.Threading.CancellationToken.None);
+            return Fathers_SetFatherColorAsync(fatherId, colorValue, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FathersController_SetFatherColorAsync(int fatherId, int colorValue, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Fathers_SetFatherColorAsync(int fatherId, int colorValue, System.Threading.CancellationToken cancellationToken)
         {
             if (fatherId == null)
                 throw new System.ArgumentNullException("fatherId");
@@ -9284,15 +9371,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds)
         {
-            return FathersController_GetByIdsAsync(fathersIds, System.Threading.CancellationToken.None);
+            return Fathers_GetByIdsAsync(fathersIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> FathersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Fathers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> fathersIds, System.Threading.CancellationToken cancellationToken)
         {
             if (fathersIds == null)
                 throw new System.ArgumentNullException("fathersIds");
@@ -9364,15 +9451,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> FathersController_GetFathersCountAsync()
+        public System.Threading.Tasks.Task<int> Fathers_GetFathersCountAsync()
         {
-            return FathersController_GetFathersCountAsync(System.Threading.CancellationToken.None);
+            return Fathers_GetFathersCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> FathersController_GetFathersCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Fathers_GetFathersCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/father/count");
@@ -9439,15 +9526,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FathersController_GetOrphansAsync(int fatherID)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Fathers_GetOrphansAsync(int fatherID)
         {
-            return FathersController_GetOrphansAsync(fatherID, System.Threading.CancellationToken.None);
+            return Fathers_GetOrphansAsync(fatherID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> FathersController_GetOrphansAsync(int fatherID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Fathers_GetOrphansAsync(int fatherID, System.Threading.CancellationToken cancellationToken)
         {
             if (fatherID == null)
                 throw new System.ArgumentNullException("fatherID");
@@ -9518,15 +9605,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> FathersController_GetOrphansCountAsync(int fatherID)
+        public System.Threading.Tasks.Task<int> Fathers_GetOrphansCountAsync(int fatherID)
         {
-            return FathersController_GetOrphansCountAsync(fatherID, System.Threading.CancellationToken.None);
+            return Fathers_GetOrphansCountAsync(fatherID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> FathersController_GetOrphansCountAsync(int fatherID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Fathers_GetOrphansCountAsync(int fatherID, System.Threading.CancellationToken cancellationToken)
         {
             if (fatherID == null)
                 throw new System.ArgumentNullException("fatherID");
@@ -9597,15 +9684,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhotoAsync(int fid)
+        public System.Threading.Tasks.Task<object> FMedia_getFatherFacePhotoAsync(int fid)
         {
-            return FMediaController_getFatherFacePhotoAsync(fid, System.Threading.CancellationToken.None);
+            return FMedia_getFatherFacePhotoAsync(fid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_getFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -9676,15 +9763,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhotoAsync(int fid)
+        public System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhotoAsync(int fid)
         {
-            return FMediaController_SetFatherFacePhotoAsync(fid, System.Threading.CancellationToken.None);
+            return FMedia_SetFatherFacePhotoAsync(fid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhotoAsync(int fid, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -9757,15 +9844,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhoto2Async(int fid)
+        public System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhoto2Async(int fid)
         {
-            return FMediaController_SetFatherFacePhoto2Async(fid, System.Threading.CancellationToken.None);
+            return FMedia_SetFatherFacePhoto2Async(fid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_SetFatherFacePhoto2Async(int fid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_SetFatherFacePhoto2Async(int fid, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -9838,15 +9925,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto2Async(int fid, string size)
+        public System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto2Async(int fid, string size)
         {
-            return FMediaController_getFatherFacePhoto2Async(fid, size, System.Threading.CancellationToken.None);
+            return FMedia_getFatherFacePhoto2Async(fid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto2Async(int fid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto2Async(int fid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -9921,15 +10008,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto3Async(int fid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto3Async(int fid, string size, long compertion)
         {
-            return FMediaController_getFatherFacePhoto3Async(fid, size, compertion, System.Threading.CancellationToken.None);
+            return FMedia_getFatherFacePhoto3Async(fid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_getFatherFacePhoto3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_getFatherFacePhoto3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -10008,15 +10095,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificateAsync(int fid)
+        public System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificateAsync(int fid)
         {
-            return FMediaController_GetFatherDeathCertificateAsync(fid, System.Threading.CancellationToken.None);
+            return FMedia_GetFatherDeathCertificateAsync(fid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -10087,15 +10174,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificateAsync(int fid)
+        public System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificateAsync(int fid)
         {
-            return FMediaController_SetFatherDeathCertificateAsync(fid, System.Threading.CancellationToken.None);
+            return FMedia_SetFatherDeathCertificateAsync(fid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificateAsync(int fid, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -10168,15 +10255,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificate2Async(int fid)
+        public System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificate2Async(int fid)
         {
-            return FMediaController_SetFatherDeathCertificate2Async(fid, System.Threading.CancellationToken.None);
+            return FMedia_SetFatherDeathCertificate2Async(fid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_SetFatherDeathCertificate2Async(int fid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_SetFatherDeathCertificate2Async(int fid, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -10249,15 +10336,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate2Async(int fid, string size)
+        public System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate2Async(int fid, string size)
         {
-            return FMediaController_GetFatherDeathCertificate2Async(fid, size, System.Threading.CancellationToken.None);
+            return FMedia_GetFatherDeathCertificate2Async(fid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate2Async(int fid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate2Async(int fid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -10332,15 +10419,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate3Async(int fid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate3Async(int fid, string size, long compertion)
         {
-            return FMediaController_GetFatherDeathCertificate3Async(fid, size, compertion, System.Threading.CancellationToken.None);
+            return FMedia_GetFatherDeathCertificate3Async(fid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> FMediaController_GetFatherDeathCertificate3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> FMedia_GetFatherDeathCertificate3Async(int fid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (fid == null)
                 throw new System.ArgumentNullException("fid");
@@ -10419,15 +10506,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Guarantor> GuarantorsController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Guarantor> Guarantors_GetAsync(int id)
         {
-            return GuarantorsController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Guarantors_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Guarantor> GuarantorsController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Guarantor> Guarantors_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -10498,15 +10585,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetAllAsync(int pageSize, int pageNumber)
         {
-            return GuarantorsController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Guarantors_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -10581,15 +10668,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds)
         {
-            return GuarantorsController_GetByIdsAsync(guarantorsIds, System.Threading.CancellationToken.None);
+            return Guarantors_GetByIdsAsync(guarantorsIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> GuarantorsController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Guarantors_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> guarantorsIds, System.Threading.CancellationToken cancellationToken)
         {
             if (guarantorsIds == null)
                 throw new System.ArgumentNullException("guarantorsIds");
@@ -10661,15 +10748,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync()
+        public System.Threading.Tasks.Task<int> Guarantors_GetGuarantorsCountAsync()
         {
-            return GuarantorsController_GetGuarantorsCountAsync(System.Threading.CancellationToken.None);
+            return Guarantors_GetGuarantorsCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> GuarantorsController_GetGuarantorsCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Guarantors_GetGuarantorsCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/guarantor/count");
@@ -10736,15 +10823,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Guarantors_GetOrphansAsync(int gId)
         {
-            return GuarantorsController_GetOrphansAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetOrphansAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> GuarantorsController_GetOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Guarantors_GetOrphansAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -10815,15 +10902,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId)
+        public System.Threading.Tasks.Task<int> Guarantors_GetOrphansCountAsync(int gId)
         {
-            return GuarantorsController_GetOrphansCountAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetOrphansCountAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> GuarantorsController_GetOrphansCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Guarantors_GetOrphansCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -10894,15 +10981,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetOrphansIdsAsync(int gId)
         {
-            return GuarantorsController_GetOrphansIdsAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetOrphansIdsAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetOrphansIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetOrphansIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -10973,15 +11060,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Guarantors_GetFamiliesAsync(int gId)
         {
-            return GuarantorsController_GetFamiliesAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetFamiliesAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> GuarantorsController_GetFamiliesAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Guarantors_GetFamiliesAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -11052,15 +11139,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId)
+        public System.Threading.Tasks.Task<int> Guarantors_GetFamiliesCountAsync(int gId)
         {
-            return GuarantorsController_GetFamiliesCountAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetFamiliesCountAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> GuarantorsController_GetFamiliesCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Guarantors_GetFamiliesCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -11131,15 +11218,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetFamiliesIdsAsync(int gId)
         {
-            return GuarantorsController_GetFamiliesIdsAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetFamiliesIdsAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetFamiliesIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetFamiliesIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -11210,15 +11297,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> GuarantorsController_GetBailsAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Guarantors_GetBailsAsync(int gId)
         {
-            return GuarantorsController_GetBailsAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetBailsAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> GuarantorsController_GetBailsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Guarantors_GetBailsAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -11289,15 +11376,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId)
+        public System.Threading.Tasks.Task<int> Guarantors_GetBailsCountAsync(int gId)
         {
-            return GuarantorsController_GetBailsCountAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetBailsCountAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> GuarantorsController_GetBailsCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Guarantors_GetBailsCountAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -11368,15 +11455,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetBailsIdsAsync(int gId)
         {
-            return GuarantorsController_GetBailsIdsAsync(gId, System.Threading.CancellationToken.None);
+            return Guarantors_GetBailsIdsAsync(gId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> GuarantorsController_GetBailsIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<int>> Guarantors_GetBailsIdsAsync(int gId, System.Threading.CancellationToken cancellationToken)
         {
             if (gId == null)
                 throw new System.ArgumentNullException("gId");
@@ -11447,15 +11534,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> GuarantorsController_PutAsync(object guarantor)
+        public System.Threading.Tasks.Task<object> Guarantors_PutAsync(object guarantor)
         {
-            return GuarantorsController_PutAsync(guarantor, System.Threading.CancellationToken.None);
+            return Guarantors_PutAsync(guarantor, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> GuarantorsController_PutAsync(object guarantor, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Guarantors_PutAsync(object guarantor, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/guarantor");
@@ -11525,15 +11612,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> GuarantorsController_PostAsync(object guarantor)
+        public System.Threading.Tasks.Task<object> Guarantors_PostAsync(object guarantor)
         {
-            return GuarantorsController_PostAsync(guarantor, System.Threading.CancellationToken.None);
+            return Guarantors_PostAsync(guarantor, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> GuarantorsController_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Guarantors_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/guarantor");
@@ -11603,15 +11690,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> GuarantorsController_SetGuarantorColorAsync(int guarantorId, int colorValue)
+        public System.Threading.Tasks.Task<object> Guarantors_SetGuarantorColorAsync(int guarantorId, int colorValue)
         {
-            return GuarantorsController_SetGuarantorColorAsync(guarantorId, colorValue, System.Threading.CancellationToken.None);
+            return Guarantors_SetGuarantorColorAsync(guarantorId, colorValue, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> GuarantorsController_SetGuarantorColorAsync(int guarantorId, int colorValue, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Guarantors_SetGuarantorColorAsync(int guarantorId, int colorValue, System.Threading.CancellationToken cancellationToken)
         {
             if (guarantorId == null)
                 throw new System.ArgumentNullException("guarantorId");
@@ -11689,15 +11776,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete)
+        public System.Threading.Tasks.Task<object> Guarantors_DeleteAsync(int gID, bool forceDelete)
         {
-            return GuarantorsController_DeleteAsync(gID, forceDelete, System.Threading.CancellationToken.None);
+            return Guarantors_DeleteAsync(gID, forceDelete, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> GuarantorsController_DeleteAsync(int gID, bool forceDelete, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Guarantors_DeleteAsync(int gID, bool forceDelete, System.Threading.CancellationToken cancellationToken)
         {
             if (gID == null)
                 throw new System.ArgumentNullException("gID");
@@ -11773,15 +11860,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<string> InfosController_GetVersionAsync()
+        public System.Threading.Tasks.Task<string> Infos_GetVersionAsync()
         {
-            return InfosController_GetVersionAsync(System.Threading.CancellationToken.None);
+            return Infos_GetVersionAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<string> InfosController_GetVersionAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<string> Infos_GetVersionAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/info/version");
@@ -11848,15 +11935,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFaceAsync(int mid)
+        public System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFaceAsync(int mid)
         {
-            return MMediaController_GetMotherIdPhotoFaceAsync(mid, System.Threading.CancellationToken.None);
+            return MMedia_GetMotherIdPhotoFaceAsync(mid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -11927,15 +12014,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFaceAsync(int mid)
+        public System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFaceAsync(int mid)
         {
-            return MMediaController_SetMotherIdPhotoFaceAsync(mid, System.Threading.CancellationToken.None);
+            return MMedia_SetMotherIdPhotoFaceAsync(mid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFaceAsync(int mid, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12008,15 +12095,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFace2Async(int mid)
+        public System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFace2Async(int mid)
         {
-            return MMediaController_SetMotherIdPhotoFace2Async(mid, System.Threading.CancellationToken.None);
+            return MMedia_SetMotherIdPhotoFace2Async(mid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoFace2Async(int mid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoFace2Async(int mid, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12089,15 +12176,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFace2Async(int mid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFace2Async(int mid, string size, long compertion)
         {
-            return MMediaController_GetMotherIdPhotoFace2Async(mid, size, compertion, System.Threading.CancellationToken.None);
+            return MMedia_GetMotherIdPhotoFace2Async(mid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoFace2Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoFace2Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12176,15 +12263,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_getFatherFacePhotoAsync(int mid, string size)
+        public System.Threading.Tasks.Task<object> MMedia_getFatherFacePhotoAsync(int mid, string size)
         {
-            return MMediaController_getFatherFacePhotoAsync(mid, size, System.Threading.CancellationToken.None);
+            return MMedia_getFatherFacePhotoAsync(mid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_getFatherFacePhotoAsync(int mid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_getFatherFacePhotoAsync(int mid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12259,15 +12346,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBackAsync(int mid)
+        public System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBackAsync(int mid)
         {
-            return MMediaController_GetMotherIdPhotoBackAsync(mid, System.Threading.CancellationToken.None);
+            return MMedia_GetMotherIdPhotoBackAsync(mid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12338,15 +12425,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBackAsync(int mid)
+        public System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBackAsync(int mid)
         {
-            return MMediaController_SetMotherIdPhotoBackAsync(mid, System.Threading.CancellationToken.None);
+            return MMedia_SetMotherIdPhotoBackAsync(mid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBackAsync(int mid, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12419,15 +12506,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBack2Async(int mid)
+        public System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBack2Async(int mid)
         {
-            return MMediaController_SetMotherIdPhotoBack2Async(mid, System.Threading.CancellationToken.None);
+            return MMedia_SetMotherIdPhotoBack2Async(mid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_SetMotherIdPhotoBack2Async(int mid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_SetMotherIdPhotoBack2Async(int mid, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12500,15 +12587,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack2Async(int mid, string size)
+        public System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack2Async(int mid, string size)
         {
-            return MMediaController_GetMotherIdPhotoBack2Async(mid, size, System.Threading.CancellationToken.None);
+            return MMedia_GetMotherIdPhotoBack2Async(mid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack2Async(int mid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack2Async(int mid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12583,15 +12670,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack3Async(int mid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack3Async(int mid, string size, long compertion)
         {
-            return MMediaController_GetMotherIdPhotoBack3Async(mid, size, compertion, System.Threading.CancellationToken.None);
+            return MMedia_GetMotherIdPhotoBack3Async(mid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MMediaController_GetMotherIdPhotoBack3Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> MMedia_GetMotherIdPhotoBack3Async(int mid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (mid == null)
                 throw new System.ArgumentNullException("mid");
@@ -12670,15 +12757,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Mother> MothersController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Mother> Mothers_GetAsync(int id)
         {
-            return MothersController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Mothers_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Mother> MothersController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Mother> Mothers_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -12749,15 +12836,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetAllAsync(int pageSize, int pageNumber)
         {
-            return MothersController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Mothers_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -12832,15 +12919,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MothersController_PutAsync(Mother mother)
+        public System.Threading.Tasks.Task<object> Mothers_PutAsync(Mother mother)
         {
-            return MothersController_PutAsync(mother, System.Threading.CancellationToken.None);
+            return Mothers_PutAsync(mother, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MothersController_PutAsync(Mother mother, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Mothers_PutAsync(Mother mother, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/mother");
@@ -12910,15 +12997,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> MothersController_SetMotherColorAsync(int motherId, int colorValue)
+        public System.Threading.Tasks.Task<object> Mothers_SetMotherColorAsync(int motherId, int colorValue)
         {
-            return MothersController_SetMotherColorAsync(motherId, colorValue, System.Threading.CancellationToken.None);
+            return Mothers_SetMotherColorAsync(motherId, colorValue, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> MothersController_SetMotherColorAsync(int motherId, int colorValue, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Mothers_SetMotherColorAsync(int motherId, int colorValue, System.Threading.CancellationToken cancellationToken)
         {
             if (motherId == null)
                 throw new System.ArgumentNullException("motherId");
@@ -12996,15 +13083,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> MothersController_GetMotherCountAsync()
+        public System.Threading.Tasks.Task<int> Mothers_GetMotherCountAsync()
         {
-            return MothersController_GetMotherCountAsync(System.Threading.CancellationToken.None);
+            return Mothers_GetMotherCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> MothersController_GetMotherCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Mothers_GetMotherCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/mother/count");
@@ -13071,15 +13158,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds)
         {
-            return MothersController_GetByIdsAsync(motherIds, System.Threading.CancellationToken.None);
+            return Mothers_GetByIdsAsync(motherIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> MothersController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Mothers_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> motherIds, System.Threading.CancellationToken cancellationToken)
         {
             if (motherIds == null)
                 throw new System.ArgumentNullException("motherIds");
@@ -13151,15 +13238,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> MothersController_GetOrphansAsync(int motherID)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Mothers_GetOrphansAsync(int motherID)
         {
-            return MothersController_GetOrphansAsync(motherID, System.Threading.CancellationToken.None);
+            return Mothers_GetOrphansAsync(motherID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> MothersController_GetOrphansAsync(int motherID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Mothers_GetOrphansAsync(int motherID, System.Threading.CancellationToken cancellationToken)
         {
             if (motherID == null)
                 throw new System.ArgumentNullException("motherID");
@@ -13230,15 +13317,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> MothersController_GetOrphansCountAsync(int motherID)
+        public System.Threading.Tasks.Task<int> Mothers_GetOrphansCountAsync(int motherID)
         {
-            return MothersController_GetOrphansCountAsync(motherID, System.Threading.CancellationToken.None);
+            return Mothers_GetOrphansCountAsync(motherID, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> MothersController_GetOrphansCountAsync(int motherID, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Mothers_GetOrphansCountAsync(int motherID, System.Threading.CancellationToken cancellationToken)
         {
             if (motherID == null)
                 throw new System.ArgumentNullException("motherID");
@@ -13309,15 +13396,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoAsync(int oid)
         {
-            return OMediaController_getOrphanFacePhotoAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFacePhotoAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13388,15 +13475,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhotoAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhotoAsync(int oid)
         {
-            return OMediaController_setOrphanFacePhotoAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanFacePhotoAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13469,15 +13556,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhoto2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhoto2Async(int oid)
         {
-            return OMediaController_setOrphanFacePhoto2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanFacePhoto2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanFacePhoto2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanFacePhoto2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13550,15 +13637,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanFacePhotoSizedAsync(oid, size, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFacePhotoSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13633,15 +13720,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFacePhotoSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFacePhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13720,15 +13807,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateAsync(int oid)
         {
-            return OMediaController_getOrphanBirthCertificateAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanBirthCertificateAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13799,15 +13886,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificateAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificateAsync(int oid)
         {
-            return OMediaController_setOrphanBirthCertificateAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanBirthCertificateAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificateAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13880,15 +13967,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificate2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificate2Async(int oid)
         {
-            return OMediaController_setOrphanBirthCertificate2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanBirthCertificate2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanBirthCertificate2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanBirthCertificate2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -13961,15 +14048,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanBirthCertificateSizedAsync(oid, size, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanBirthCertificateSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14044,15 +14131,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanBirthCertificateSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanBirthCertificateSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14131,15 +14218,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageAsync(int oid)
         {
-            return OMediaController_getOrphanFamilyCardPageAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFamilyCardPageAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14210,15 +14297,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPageAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPageAsync(int oid)
         {
-            return OMediaController_setOrphanFamilyCardPageAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanFamilyCardPageAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPageAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14291,15 +14378,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPage2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPage2Async(int oid)
         {
-            return OMediaController_setOrphanFamilyCardPage2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanFamilyCardPage2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanFamilyCardPage2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanFamilyCardPage2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14372,15 +14459,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanFamilyCardPageSizedAsync(oid, size, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFamilyCardPageSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14455,15 +14542,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFamilyCardPageSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFamilyCardPageSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14542,15 +14629,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoAsync(int oid)
         {
-            return OMediaController_getOrphanFullPhotoAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFullPhotoAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14621,15 +14708,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhotoAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhotoAsync(int oid)
         {
-            return OMediaController_setOrphanFullPhotoAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanFullPhotoAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhotoAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14702,15 +14789,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhoto2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhoto2Async(int oid)
         {
-            return OMediaController_setOrphanFullPhoto2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanFullPhoto2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanFullPhoto2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanFullPhoto2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14783,15 +14870,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanFullPhotoSizedAsync(oid, size, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFullPhotoSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14866,15 +14953,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanFullPhotoSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanFullPhotoSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -14953,15 +15040,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertAsync(int oid)
         {
-            return OMediaController_getOrphanEducationCertAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanEducationCertAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15032,15 +15119,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCertAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCertAsync(int oid)
         {
-            return OMediaController_setOrphanEducationCertAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanEducationCertAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCertAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15113,15 +15200,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert2Async(int oid)
         {
-            return OMediaController_setOrphanEducationCert2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanEducationCert2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15194,15 +15281,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanEducationCertSizedAsync(oid, size, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanEducationCertSizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15277,15 +15364,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanEducationCertSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanEducationCertSizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCertSizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15364,15 +15451,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2Async(int oid)
         {
-            return OMediaController_getOrphanEducationCert2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanEducationCert2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15443,15 +15530,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert22Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert22Async(int oid)
         {
-            return OMediaController_setOrphanEducationCert22Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanEducationCert22Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert22Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert22Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15524,15 +15611,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert23Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert23Async(int oid)
         {
-            return OMediaController_setOrphanEducationCert23Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanEducationCert23Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanEducationCert23Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanEducationCert23Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15605,15 +15692,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAsync(int oid, string size)
         {
-            return OMediaController_getOrphanEducationCert2SizedAsync(oid, size, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanEducationCert2SizedAsync(oid, size, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAsync(int oid, string size, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15688,15 +15775,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion)
         {
-            return OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanEducationCert2SizedAndCompressedAsync(oid, size, compertion, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanEducationCert2SizedAndCompressedAsync(int oid, string size, long compertion, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15775,15 +15862,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_getOrphanHealthReportAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_getOrphanHealthReportAsync(int oid)
         {
-            return OMediaController_getOrphanHealthReportAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_getOrphanHealthReportAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_getOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_getOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15854,15 +15941,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReportAsync(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReportAsync(int oid)
         {
-            return OMediaController_setOrphanHealthReportAsync(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanHealthReportAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReportAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -15935,15 +16022,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReport2Async(int oid)
+        public System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReport2Async(int oid)
         {
-            return OMediaController_setOrphanHealthReport2Async(oid, System.Threading.CancellationToken.None);
+            return OMedia_setOrphanHealthReport2Async(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OMediaController_setOrphanHealthReport2Async(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> OMedia_setOrphanHealthReport2Async(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -16016,15 +16103,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Orphan> OrphansController_GetAsync(int id)
+        public System.Threading.Tasks.Task<Orphan> Orphans_GetAsync(int id)
         {
-            return OrphansController_GetAsync(id, System.Threading.CancellationToken.None);
+            return Orphans_GetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Orphan> OrphansController_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Orphan> Orphans_GetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -16095,15 +16182,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetAllAsync(int pageSize, int pageNumber)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetAllAsync(int pageSize, int pageNumber)
         {
-            return OrphansController_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
+            return Orphans_GetAllAsync(pageSize, pageNumber, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetAllAsync(int pageSize, int pageNumber, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -16178,15 +16265,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds)
         {
-            return OrphansController_GetByIdsAsync(orphanIds, System.Threading.CancellationToken.None);
+            return Orphans_GetByIdsAsync(orphanIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetByIdsAsync(System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
         {
             if (orphanIds == null)
                 throw new System.ArgumentNullException("orphanIds");
@@ -16258,15 +16345,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<bool> OrphansController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds)
+        public System.Threading.Tasks.Task<bool> Orphans_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds)
         {
-            return OrphansController_SetBailAsync(bailId, orphanIds, System.Threading.CancellationToken.None);
+            return Orphans_SetBailAsync(bailId, orphanIds, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<bool> OrphansController_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> Orphans_SetBailAsync(int bailId, System.Collections.Generic.IEnumerable<int> orphanIds, System.Threading.CancellationToken cancellationToken)
         {
             if (bailId == null)
                 throw new System.ArgumentNullException("bailId");
@@ -16344,15 +16431,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetExcludedAsync()
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetExcludedAsync()
         {
-            return OrphansController_GetExcludedAsync(System.Threading.CancellationToken.None);
+            return Orphans_GetExcludedAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetExcludedAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetExcludedAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/orphan/excluded");
@@ -16419,15 +16506,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> OrphansController_GetOrphansCountAsync()
+        public System.Threading.Tasks.Task<int> Orphans_GetOrphansCountAsync()
         {
-            return OrphansController_GetOrphansCountAsync(System.Threading.CancellationToken.None);
+            return Orphans_GetOrphansCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> OrphansController_GetOrphansCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Orphans_GetOrphansCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/orphan/count");
@@ -16494,15 +16581,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetBrothersAsync(int oid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetBrothersAsync(int oid)
         {
-            return OrphansController_GetBrothersAsync(oid, System.Threading.CancellationToken.None);
+            return Orphans_GetBrothersAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> OrphansController_GetBrothersAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Orphans_GetBrothersAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -16573,15 +16660,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> OrphansController_GetBrothersCountAsync(int oid)
+        public System.Threading.Tasks.Task<int> Orphans_GetBrothersCountAsync(int oid)
         {
-            return OrphansController_GetBrothersCountAsync(oid, System.Threading.CancellationToken.None);
+            return Orphans_GetBrothersCountAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> OrphansController_GetBrothersCountAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Orphans_GetBrothersCountAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -16652,15 +16739,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OrphansController_PutAsync(object orphan)
+        public System.Threading.Tasks.Task<object> Orphans_PutAsync(object orphan)
         {
-            return OrphansController_PutAsync(orphan, System.Threading.CancellationToken.None);
+            return Orphans_PutAsync(orphan, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OrphansController_PutAsync(object orphan, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Orphans_PutAsync(object orphan, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/orphan");
@@ -16730,15 +16817,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OrphansController_PostAsync(object orphan)
+        public System.Threading.Tasks.Task<object> Orphans_PostAsync(object orphan)
         {
-            return OrphansController_PostAsync(orphan, System.Threading.CancellationToken.None);
+            return Orphans_PostAsync(orphan, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OrphansController_PostAsync(object orphan, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Orphans_PostAsync(object orphan, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/orphan");
@@ -16808,15 +16895,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OrphansController_SetOrphanColorAsync(int orphanId, int colorValue)
+        public System.Threading.Tasks.Task<object> Orphans_SetOrphanColorAsync(int orphanId, int colorValue)
         {
-            return OrphansController_SetOrphanColorAsync(orphanId, colorValue, System.Threading.CancellationToken.None);
+            return Orphans_SetOrphanColorAsync(orphanId, colorValue, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OrphansController_SetOrphanColorAsync(int orphanId, int colorValue, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Orphans_SetOrphanColorAsync(int orphanId, int colorValue, System.Threading.CancellationToken cancellationToken)
         {
             if (orphanId == null)
                 throw new System.ArgumentNullException("orphanId");
@@ -16894,15 +16981,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OrphansController_SetOrphanExcludeAsync(int orphanId, bool value)
+        public System.Threading.Tasks.Task<object> Orphans_SetOrphanExcludeAsync(int orphanId, bool value)
         {
-            return OrphansController_SetOrphanExcludeAsync(orphanId, value, System.Threading.CancellationToken.None);
+            return Orphans_SetOrphanExcludeAsync(orphanId, value, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OrphansController_SetOrphanExcludeAsync(int orphanId, bool value, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Orphans_SetOrphanExcludeAsync(int orphanId, bool value, System.Threading.CancellationToken cancellationToken)
         {
             if (orphanId == null)
                 throw new System.ArgumentNullException("orphanId");
@@ -16980,15 +17067,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> OrphansController_DeleteAsync(int oid)
+        public System.Threading.Tasks.Task<object> Orphans_DeleteAsync(int oid)
         {
-            return OrphansController_DeleteAsync(oid, System.Threading.CancellationToken.None);
+            return Orphans_DeleteAsync(oid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> OrphansController_DeleteAsync(int oid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Orphans_DeleteAsync(int oid, System.Threading.CancellationToken cancellationToken)
         {
             if (oid == null)
                 throw new System.ArgumentNullException("oid");
@@ -17059,15 +17146,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAllAsync(int uid)
         {
-            return UsersController_GetAccountsAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetAccountsAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17138,15 +17225,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetAccountsAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetAccountsAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> UsersController_GetAccountsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Account>> Users_GetAccountsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17225,15 +17312,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetAccountsCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetAccountsCountAsync(int uid)
         {
-            return UsersController_GetAccountsCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetAccountsCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetAccountsCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetAccountsCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17304,15 +17391,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAllAsync(int uid)
         {
-            return UsersController_GetBailsAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetBailsAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17383,15 +17470,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetBailsAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetBailsAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> UsersController_GetBailsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Bail>> Users_GetBailsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17470,15 +17557,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetBailsCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetBailsCountAsync(int uid)
         {
-            return UsersController_GetBailsCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetBailsCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetBailsCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetBailsCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17549,15 +17636,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAllAsync(int uid)
         {
-            return UsersController_GetCaregiversAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetCaregiversAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17628,15 +17715,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetCaregiversAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetCaregiversAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> UsersController_GetCaregiversAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Caregiver>> Users_GetCaregiversAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17715,15 +17802,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetCaregiversCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetCaregiversCountAsync(int uid)
         {
-            return UsersController_GetCaregiversCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetCaregiversCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetCaregiversCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetCaregiversCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17794,15 +17881,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAllAsync(int uid)
         {
-            return UsersController_GetFamiliesAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetFamiliesAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17873,15 +17960,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetFamiliesAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetFamiliesAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> UsersController_GetFamiliesAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Family>> Users_GetFamiliesAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -17960,15 +18047,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetFamiliesCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetFamiliesCountAsync(int uid)
         {
-            return UsersController_GetFamiliesCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetFamiliesCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetFamiliesCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetFamiliesCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18039,15 +18126,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAllAsync(int uid)
         {
-            return UsersController_GetFathersAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetFathersAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18118,15 +18205,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetFathersAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetFathersAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> UsersController_GetFathersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Father>> Users_GetFathersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18205,15 +18292,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetFathersCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetFathersCountAsync(int uid)
         {
-            return UsersController_GetFathersCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetFathersCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetFathersCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetFathersCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18284,15 +18371,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAllAsync(int uid)
         {
-            return UsersController_GetGuarantorsAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetGuarantorsAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18363,15 +18450,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetGuarantorsAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetGuarantorsAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> UsersController_GetGuarantorsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Guarantor>> Users_GetGuarantorsAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18450,15 +18537,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetGuarantorsCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetGuarantorsCountAsync(int uid)
         {
-            return UsersController_GetGuarantorsCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetGuarantorsCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetGuarantorsCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetGuarantorsCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18529,15 +18616,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAllAsync(int uid)
         {
-            return UsersController_GetMothersAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetMothersAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18608,15 +18695,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetMothersAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetMothersAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> UsersController_GetMothersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Mother>> Users_GetMothersAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18695,15 +18782,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetMothersCountAsync(int uid, string pageSize, string pageNum)
+        public System.Threading.Tasks.Task<int> Users_GetMothersCountAsync(int uid, string pageSize, string pageNum)
         {
-            return UsersController_GetMothersCountAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetMothersCountAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetMothersCountAsync(int uid, string pageSize, string pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetMothersCountAsync(int uid, string pageSize, string pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18782,15 +18869,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAllAsync(int uid)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAllAsync(int uid)
         {
-            return UsersController_GetOrphansAllAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetOrphansAllAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAllAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18861,15 +18948,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAsync(int uid, int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAsync(int uid, int pageSize, int pageNum)
         {
-            return UsersController_GetOrphansAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetOrphansAsync(uid, pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> UsersController_GetOrphansAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Orphan>> Users_GetOrphansAsync(int uid, int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -18948,15 +19035,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetOrphansCountAsync(int uid)
+        public System.Threading.Tasks.Task<int> Users_GetOrphansCountAsync(int uid)
         {
-            return UsersController_GetOrphansCountAsync(uid, System.Threading.CancellationToken.None);
+            return Users_GetOrphansCountAsync(uid, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetOrphansCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetOrphansCountAsync(int uid, System.Threading.CancellationToken cancellationToken)
         {
             if (uid == null)
                 throw new System.ArgumentNullException("uid");
@@ -19027,15 +19114,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<User> UsersController_GetUserAsync(int id)
+        public System.Threading.Tasks.Task<User> Users_GetUserAsync(int id)
         {
-            return UsersController_GetUserAsync(id, System.Threading.CancellationToken.None);
+            return Users_GetUserAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User> UsersController_GetUserAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<User> Users_GetUserAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -19106,15 +19193,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> UsersController_GetUsersAsync(int pageSize, int pageNum)
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> Users_GetUsersAsync(int pageSize, int pageNum)
         {
-            return UsersController_GetUsersAsync(pageSize, pageNum, System.Threading.CancellationToken.None);
+            return Users_GetUsersAsync(pageSize, pageNum, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> UsersController_GetUsersAsync(int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<User>> Users_GetUsersAsync(int pageSize, int pageNum, System.Threading.CancellationToken cancellationToken)
         {
             if (pageSize == null)
                 throw new System.ArgumentNullException("pageSize");
@@ -19189,15 +19276,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<int> UsersController_GetUsersCountAsync()
+        public System.Threading.Tasks.Task<int> Users_GetUsersCountAsync()
         {
-            return UsersController_GetUsersCountAsync(System.Threading.CancellationToken.None);
+            return Users_GetUsersCountAsync(System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<int> UsersController_GetUsersCountAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<int> Users_GetUsersCountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/user/count");
@@ -19264,15 +19351,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<User> UsersController_AuthenticateAsync(string username, string password)
+        public System.Threading.Tasks.Task<User> Users_AuthenticateAsync(string username, string password)
         {
-            return UsersController_AuthenticateAsync(username, password, System.Threading.CancellationToken.None);
+            return Users_AuthenticateAsync(username, password, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<User> UsersController_AuthenticateAsync(string username, string password, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<User> Users_AuthenticateAsync(string username, string password, System.Threading.CancellationToken cancellationToken)
         {
             if (username == null)
                 throw new System.ArgumentNullException("username");
@@ -19347,15 +19434,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> UsersController_SaveUserAsync(object user)
+        public System.Threading.Tasks.Task<object> Users_SaveUserAsync(object user)
         {
-            return UsersController_SaveUserAsync(user, System.Threading.CancellationToken.None);
+            return Users_SaveUserAsync(user, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> UsersController_SaveUserAsync(object user, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Users_SaveUserAsync(object user, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/user");
@@ -19425,15 +19512,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> UsersController_PostAsync(object guarantor)
+        public System.Threading.Tasks.Task<object> Users_PostAsync(object guarantor)
         {
-            return UsersController_PostAsync(guarantor, System.Threading.CancellationToken.None);
+            return Users_PostAsync(guarantor, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> UsersController_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Users_PostAsync(object guarantor, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl).Append("/api/user");
@@ -19503,15 +19590,15 @@ namespace OrphanageV3.Services
     
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<object> UsersController_DeleteAsync(int uId)
+        public System.Threading.Tasks.Task<object> Users_DeleteAsync(int uId)
         {
-            return UsersController_DeleteAsync(uId, System.Threading.CancellationToken.None);
+            return Users_DeleteAsync(uId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiClientException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<object> UsersController_DeleteAsync(int uId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<object> Users_DeleteAsync(int uId, System.Threading.CancellationToken cancellationToken)
         {
             if (uId == null)
                 throw new System.ArgumentNullException("uId");

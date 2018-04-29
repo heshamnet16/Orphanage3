@@ -18,7 +18,8 @@ namespace OrphanageService.Services
                 .WriteTo.File($"{currentPath}\\ServiceLog.log",
                 fileSizeLimitBytes: 10485760,
                 outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
-                shared: true)
+                buffered: true,
+                shared: false)
                 .CreateLogger();
 
             _log.Information("Logging initialized.");

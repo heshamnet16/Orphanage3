@@ -25,7 +25,7 @@ namespace OrphanageV3.ViewModel.Family
             {
                 family.FamilyCardImagePage1Data = null;
                 family.FamilyCardImagePage2Data = null;
-                await _apiClient.FamiliesController_PutAsync(family);
+                await _apiClient.Families_PutAsync(family);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -36,7 +36,7 @@ namespace OrphanageV3.ViewModel.Family
 
         public async Task<OrphanageDataModel.RegularData.Family> getFamily(int Cid)
         {
-            var returnedFamily = await _apiClient.FamiliesController_GetAsync(Cid);
+            var returnedFamily = await _apiClient.Families_GetAsync(Cid);
             var FamilyCardP1Task = _apiClient.GetImageData(returnedFamily.FamilyCardImagePage1URI);
             var FamilyCardP2Task = _apiClient.GetImageData(returnedFamily.FamilyCardImagePage2URI);
             returnedFamily.FamilyCardImagePage1Data = await FamilyCardP1Task;
@@ -70,7 +70,7 @@ namespace OrphanageV3.ViewModel.Family
                 try
                 {
                     family.UserId = Program.CurrentUser.Id;
-                    var fam = (OrphanageDataModel.RegularData.Family)await _apiClient.FamiliesController_PostAsync(family);
+                    var fam = (OrphanageDataModel.RegularData.Family)await _apiClient.Families_PostAsync(family);
                     return fam ?? null;
                 }
                 catch (ApiClientException apiEx)

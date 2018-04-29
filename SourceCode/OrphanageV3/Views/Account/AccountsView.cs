@@ -1,19 +1,16 @@
-﻿using OrphanageV3.ViewModel.Account;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Account;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
 using Unity;
 
 namespace OrphanageV3.Views.Account
 {
-    public partial class AccountsView : Telerik.WinControls.UI.RadForm
+    public partial class AccountsView : Telerik.WinControls.UI.RadForm, IView
     {
         private AccountsViewModel _accountViewModel = Program.Factory.Resolve<AccountsViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
@@ -162,6 +159,16 @@ namespace OrphanageV3.Views.Account
             Bail.BailsView bailsView = new Bail.BailsView(bailsIds);
             bailsView.MdiParent = this.MdiParent;
             bailsView.Show();
+        }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return this.orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _accountViewModel.Update(ObjectId);
         }
     }
 }

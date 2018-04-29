@@ -1,15 +1,11 @@
-﻿using OrphanageDataModel.Persons;
-using OrphanageService.DataContext;
-using OrphanageService.Services.Exceptions;
+﻿using OrphanageService.DataContext;
 using OrphanageService.Services.Interfaces;
 using OrphanageService.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core;
 using System.Linq;
 using System.Security.Authentication;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace OrphanageService.Services

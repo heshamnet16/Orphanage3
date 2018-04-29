@@ -35,8 +35,8 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public async void LoadGuarantors()
         {
-            var guarantorsCount = await _apiClient.GuarantorsController_GetGuarantorsCountAsync();
-            var ReturnedGuarantors = await _apiClient.GuarantorsController_GetAllAsync(guarantorsCount, 0);
+            var guarantorsCount = await _apiClient.Guarantors_GetGuarantorsCountAsync();
+            var ReturnedGuarantors = await _apiClient.Guarantors_GetAllAsync(guarantorsCount, 0);
 
             _SourceGuarantor = ReturnedGuarantors;
 
@@ -51,7 +51,7 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public async void LoadGuarantors(IEnumerable<int> guarantorsIds)
         {
-            var ReturnedGuarantors = await _apiClient.GuarantorsController_GetByIdsAsync(guarantorsIds);
+            var ReturnedGuarantors = await _apiClient.Guarantors_GetByIdsAsync(guarantorsIds);
 
             _SourceGuarantor = ReturnedGuarantors;
 
@@ -70,7 +70,7 @@ namespace OrphanageV3.ViewModel.Guarantor
             {
                 foreach (var guarantor in Guarantors)
                 {
-                    var value = await _apiClient.GuarantorsController_GetFamiliesCountAsync(guarantor.Id);
+                    var value = await _apiClient.Guarantors_GetFamiliesCountAsync(guarantor.Id);
                     guarantor.FamiliesCount = value;
                 }
             })).Start();
@@ -82,7 +82,7 @@ namespace OrphanageV3.ViewModel.Guarantor
             {
                 foreach (var guarantor in Guarantors)
                 {
-                    var value = await _apiClient.GuarantorsController_GetBailsCountAsync(guarantor.Id);
+                    var value = await _apiClient.Guarantors_GetBailsCountAsync(guarantor.Id);
                     guarantor.BailsCount = value;
                 }
             })).Start();
@@ -94,7 +94,7 @@ namespace OrphanageV3.ViewModel.Guarantor
             {
                 foreach (var guarantor in Guarantors)
                 {
-                    var value = await _apiClient.GuarantorsController_GetOrphansCountAsync(guarantor.Id);
+                    var value = await _apiClient.Guarantors_GetOrphansCountAsync(guarantor.Id);
                     guarantor.OrphansCount = value;
                 }
             })).Start();
@@ -102,7 +102,7 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public async void Update(int guarantorId)
         {
-            var sourceGuarantor = await _apiClient.GuarantorsController_GetAsync(guarantorId);
+            var sourceGuarantor = await _apiClient.Guarantors_GetAsync(guarantorId);
 
             var sourceGuarantorToReplace = _SourceGuarantor.FirstOrDefault(b => b.Id == guarantorId);
             var sourceGuarantorIndex = _SourceGuarantor.IndexOf(sourceGuarantorToReplace);
@@ -126,7 +126,7 @@ namespace OrphanageV3.ViewModel.Guarantor
                     guarantor.ColorMark = colorValue;
                 else
                     guarantor.ColorMark = -1;
-                await _apiClient.GuarantorsController_SetGuarantorColorAsync(guarantor.Id, (int)guarantor.ColorMark.Value);
+                await _apiClient.Guarantors_SetGuarantorColorAsync(guarantor.Id, (int)guarantor.ColorMark.Value);
                 return guarantor.ColorMark;
             }
             catch (ApiClientException apiEx)
@@ -143,7 +143,7 @@ namespace OrphanageV3.ViewModel.Guarantor
                 var guarantor = _SourceGuarantor.FirstOrDefault(c => c.Id == guarantorId);
                 if (guarantor == null)
                     return false;
-                await _apiClient.GuarantorsController_DeleteAsync(guarantorId, ForceDelete);
+                await _apiClient.Guarantors_DeleteAsync(guarantorId, ForceDelete);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -154,32 +154,32 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public async Task<IEnumerable<int>> BailsIds(int guarantorId)
         {
-            return await _apiClient.GuarantorsController_GetBailsIdsAsync(guarantorId);
+            return await _apiClient.Guarantors_GetBailsIdsAsync(guarantorId);
         }
 
         public async Task<IList<OrphanageDataModel.FinancialData.Bail>> Bails(int guarantorId)
         {
-            return await _apiClient.GuarantorsController_GetBailsAsync(guarantorId);
+            return await _apiClient.Guarantors_GetBailsAsync(guarantorId);
         }
 
         public async Task<IEnumerable<int>> OrphansIds(int guarantorId)
         {
-            return await _apiClient.GuarantorsController_GetOrphansIdsAsync(guarantorId);
+            return await _apiClient.Guarantors_GetOrphansIdsAsync(guarantorId);
         }
 
         public async Task<IList<OrphanageDataModel.Persons.Orphan>> Orphans(int guarantorId)
         {
-            return await _apiClient.GuarantorsController_GetOrphansAsync(guarantorId);
+            return await _apiClient.Guarantors_GetOrphansAsync(guarantorId);
         }
 
         public async Task<IEnumerable<int>> FamiliesIds(int guarantorId)
         {
-            return await _apiClient.GuarantorsController_GetFamiliesIdsAsync(guarantorId);
+            return await _apiClient.Guarantors_GetFamiliesIdsAsync(guarantorId);
         }
 
         public async Task<IList<OrphanageDataModel.RegularData.Family>> Families(int guarantorId)
         {
-            return await _apiClient.GuarantorsController_GetFamiliesAsync(guarantorId);
+            return await _apiClient.Guarantors_GetFamiliesAsync(guarantorId);
         }
 
         public async Task<IList<int>> FamiliesIds(IEnumerable<int> guarantorIds)

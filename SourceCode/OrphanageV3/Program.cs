@@ -40,7 +40,7 @@ namespace OrphanageV3
                 //{
                 //    //Todo set login User
                 //    var _apiClient = Factory.Resolve<IApiClient>();
-                //    CurrentUser = _apiClient.UsersController_GetUserAsync(1).Result;
+                //    CurrentUser = _apiClient.Users_GetUserAsync(1).Result;
                 //}
                 //catch
                 //{
