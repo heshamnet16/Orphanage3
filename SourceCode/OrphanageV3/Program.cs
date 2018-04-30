@@ -10,6 +10,7 @@ using OrphanageV3.ViewModel.Login;
 using OrphanageV3.ViewModel.Main;
 using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.ViewModel.Orphan;
+using OrphanageV3.ViewModel.Tools;
 using OrphanageV3.Views.Helper;
 using OrphanageV3.Views.Helper.Interfaces;
 using System;
@@ -36,21 +37,6 @@ namespace OrphanageV3
             try
             {
                 Factory = BuildContainer();
-                //try
-                //{
-                //    //Todo set login User
-                //    var _apiClient = Factory.Resolve<IApiClient>();
-                //    CurrentUser = _apiClient.Users_GetUserAsync(1).Result;
-                //}
-                //catch
-                //{
-                //    CurrentUser = new User()
-                //    {
-                //        IsAdmin = true,
-                //        UserName = "مدير",
-                //        Id = 1
-                //    };
-                //}
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Views.Main.MainView());
@@ -137,6 +123,7 @@ namespace OrphanageV3
             currentContainer.RegisterType<GuarantorsViewModel>();
             currentContainer.RegisterType<BailsViewModel>();
             currentContainer.RegisterSingleton<LoginViewModel>();
+            currentContainer.RegisterSingleton<DownloadViewModel>();
             return currentContainer;
         }
 

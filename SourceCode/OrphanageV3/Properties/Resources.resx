@@ -1349,4 +1349,10 @@
   <data name="DeselectAll" xml:space="preserve">
     <value>الغاء تحديد الكل</value>
   </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>حفظ باسم</value>
+  </data>
+  <data name="ShowDownloads" xml:space="preserve">
+    <value>عرض التنزيلات</value>
+  </data>
 </root>

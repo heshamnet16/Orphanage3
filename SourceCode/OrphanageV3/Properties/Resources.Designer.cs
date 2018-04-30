@@ -3303,6 +3303,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حفظ باسم ähnelt.
+        /// </summary>
+        public static string SaveAs {
+            get {
+                return ResourceManager.GetString("SaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die حفظ ähnelt.
         /// </summary>
         public static string SaveText {
@@ -3391,6 +3400,15 @@ namespace OrphanageV3.Properties {
         public static string ShowCaregivers {
             get {
                 return ResourceManager.GetString("ShowCaregivers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عرض التنزيلات ähnelt.
+        /// </summary>
+        public static string ShowDownloads {
+            get {
+                return ResourceManager.GetString("ShowDownloads", resourceCulture);
             }
         }
         

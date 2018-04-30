@@ -1,4 +1,5 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.ViewModel.Tools;
 using OrphanageV3.Views.Helper.Interfaces;
 using OrphanageV3.Views.Interfaces;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace OrphanageV3.ViewModel.Main
         private RadForm _MainView;
         private IApiClient _apiClient;
         private readonly IRadGridHelper _radHelper;
+        private readonly DownloadViewModel _downloadViewModel;
 
         public RadForm MainView
         {
@@ -21,10 +23,11 @@ namespace OrphanageV3.ViewModel.Main
             set { _MainView = value; }
         }
 
-        public MainViewModel(IApiClient apiClient, IRadGridHelper radHelper)
+        public MainViewModel(IApiClient apiClient, IRadGridHelper radHelper, DownloadViewModel downloadViewModel)
         {
             _apiClient = apiClient;
             _radHelper = radHelper;
+            _downloadViewModel = downloadViewModel;
             Services.ApiClientTokenProvider.AccessTokenExpired += ApiClientProvider_MustLogin;
             Services.ApiClientTokenProvider.MustLogin += ApiClientProvider_MustLogin;
         }
@@ -177,6 +180,11 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Guarantor.GuarantorEditView(GuarantorId));
         }
 
+        public void ShowDownloadView()
+        {
+            ShowView(new Views.Tools.DownloadView());
+        }
+
         public void ShowLoginDialog()
         {
             var frm = new Views.Login.LoginView();
@@ -218,7 +226,13 @@ namespace OrphanageV3.ViewModel.Main
             _radHelper.GridView = view.GetOrphanageGridView().GridView;
             var data = _radHelper.GetSelectedData(view.GetOrphanageGridView().SelectedRows);
             var ret = await _apiClient.Excel_CreateXlsxAsync(new OrphanageDataModel.RegularData.ExportData() { Data = data });
-            File.WriteAllBytes("d:\\123123.xlsx", ret);
+            var downloadDataModel = new DownloadDataModel()
+            {
+                Data = ret,
+                DataType = FileExtentionEnum.xlsx,
+                Name = "Excel"
+            };
+            _downloadViewModel.Add(downloadDataModel);
         }
 
         public IView getActiveView()

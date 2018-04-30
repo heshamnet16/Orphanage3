@@ -15,10 +15,10 @@ namespace OrphanageServiceTests
         private IDictionary<string, IList<string>> getTestData()
         {
             var ret = new Dictionary<string, IList<string>>();
-            for (int col = 0; col <= 10; col++)
+            for (int col = 0; col <= 40; col++)
             {
                 var listValues = new List<string>();
-                for (int row = 0; row <= 500; row++)
+                for (int row = 0; row <= 5000; row++)
                 {
                     listValues.Add(row.ToString());
                 }

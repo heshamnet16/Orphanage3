@@ -92,7 +92,6 @@
             this.mnuAppWin8 = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuAppDefault = new Telerik.WinControls.UI.RadMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.lblRemainingTime = new Telerik.WinControls.UI.RadLabel();
             this.lblRemainingTimeValue = new Telerik.WinControls.UI.RadLabel();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
@@ -100,21 +99,24 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.RadCommandBar1 = new Telerik.WinControls.UI.RadCommandBar();
             this.CommandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
+            this.CommandBarStripElement2 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.btnTrabslateToWord = new Telerik.WinControls.UI.CommandBarButton();
+            this.btnTranslateToExcel = new Telerik.WinControls.UI.CommandBarButton();
             this.barAppearance = new Telerik.WinControls.UI.CommandBarStripElement();
             this.btnSetFont = new Telerik.WinControls.UI.CommandBarButton();
             this.CommandBarSeparator1 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnPrintPreview = new Telerik.WinControls.UI.CommandBarButton();
             this.btnPrint = new Telerik.WinControls.UI.CommandBarButton();
-            this.CommandBarStripElement2 = new Telerik.WinControls.UI.CommandBarStripElement();
-            this.btnTrabslateToWord = new Telerik.WinControls.UI.CommandBarButton();
-            this.btnTranslateToExcel = new Telerik.WinControls.UI.CommandBarButton();
-            ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
-            this.RadMenu1.SuspendLayout();
+            this.radMenuSeparatorItem11 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.mnuShowDownload = new Telerik.WinControls.UI.RadMenuItem();
+            this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
+            this.RadMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuNew
@@ -215,7 +217,9 @@
             this.mnuShowAccounts,
             this.mnuShowBills,
             this.SepShowUser,
-            this.mnuShowUsers});
+            this.mnuShowUsers,
+            this.radMenuSeparatorItem11,
+            this.mnuShowDownload});
             this.mnuShow.Name = "mnuShow";
             this.mnuShow.Text = "show";
             // 
@@ -621,26 +625,6 @@
             this.imageList1.Images.SetKeyName(9, "Account.png");
             this.imageList1.Images.SetKeyName(10, "UnknownMale.png");
             // 
-            // RadMenu1
-            // 
-            this.RadMenu1.AllItemsEqualHeight = true;
-            this.RadMenu1.Controls.Add(this.lblRemainingTime);
-            this.RadMenu1.Controls.Add(this.lblRemainingTimeValue);
-            this.RadMenu1.DropDownAnimationEnabled = true;
-            this.RadMenu1.ImageList = this.imageList1;
-            this.RadMenu1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.RadMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.mnuNew,
-            this.mnuShow,
-            this.radMnuAccounts,
-            this.mnuSearch,
-            this.mnuTools,
-            this.mnuApperance});
-            this.RadMenu1.Location = new System.Drawing.Point(0, 0);
-            this.RadMenu1.Name = "RadMenu1";
-            this.RadMenu1.Size = new System.Drawing.Size(1034, 20);
-            this.RadMenu1.TabIndex = 5;
-            // 
             // lblRemainingTime
             // 
             this.lblRemainingTime.AutoSize = false;
@@ -695,7 +679,7 @@
             this.RadCommandBar1.Name = "RadCommandBar1";
             this.RadCommandBar1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.CommandBarRowElement1});
-            this.RadCommandBar1.Size = new System.Drawing.Size(1034, 64);
+            this.RadCommandBar1.Size = new System.Drawing.Size(1034, 39);
             this.RadCommandBar1.TabIndex = 9;
             this.RadCommandBar1.Text = "RadCommandBar1";
             // 
@@ -708,6 +692,56 @@
             this.barAppearance});
             this.CommandBarRowElement1.Text = "";
             this.CommandBarRowElement1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // CommandBarStripElement2
+            // 
+            this.CommandBarStripElement2.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.CommandBarStripElement2.DisplayName = "CommandBarStripElement2";
+            // 
+            // 
+            // 
+            this.CommandBarStripElement2.Grip.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.CommandBarStripElement2.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.btnTrabslateToWord,
+            this.btnTranslateToExcel});
+            this.CommandBarStripElement2.Name = "CommandBarStripElement2";
+            // 
+            // 
+            // 
+            this.CommandBarStripElement2.OverflowButton.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            this.CommandBarStripElement2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            ((Telerik.WinControls.UI.RadCommandBarGrip)(this.CommandBarStripElement2.GetChildAt(0))).Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            ((Telerik.WinControls.UI.RadCommandBarOverflowButton)(this.CommandBarStripElement2.GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // btnTrabslateToWord
+            // 
+            this.btnTrabslateToWord.AutoSize = false;
+            this.btnTrabslateToWord.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnTrabslateToWord.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnTrabslateToWord.DisplayName = "CommandBarButton1";
+            this.btnTrabslateToWord.Enabled = false;
+            this.btnTrabslateToWord.Image = global::OrphanageV3.Properties.Resources.WordPic;
+            this.btnTrabslateToWord.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTrabslateToWord.Name = "btnTrabslateToWord";
+            this.btnTrabslateToWord.Padding = new System.Windows.Forms.Padding(2);
+            this.btnTrabslateToWord.Text = "تحويل لورد";
+            this.btnTrabslateToWord.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // btnTranslateToExcel
+            // 
+            this.btnTranslateToExcel.AutoSize = false;
+            this.btnTranslateToExcel.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
+            this.btnTranslateToExcel.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnTranslateToExcel.DisplayName = "CommandBarButton1";
+            this.btnTranslateToExcel.Enabled = false;
+            this.btnTranslateToExcel.Image = global::OrphanageV3.Properties.Resources.ExcelPic;
+            this.btnTranslateToExcel.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTranslateToExcel.Name = "btnTranslateToExcel";
+            this.btnTranslateToExcel.Padding = new System.Windows.Forms.Padding(2);
+            this.btnTranslateToExcel.Text = "";
+            this.btnTranslateToExcel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnTranslateToExcel.ToolTipText = "تحويل إلى اكسل";
+            this.btnTranslateToExcel.Click += new System.EventHandler(this.btnTranslateToExcel_Click);
             // 
             // barAppearance
             // 
@@ -784,61 +818,43 @@
             this.btnPrint.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnPrint.ToolTipText = "طباعة";
             // 
-            // CommandBarStripElement2
+            // radMenuSeparatorItem11
             // 
-            this.CommandBarStripElement2.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.CommandBarStripElement2.DisplayName = "CommandBarStripElement2";
+            this.radMenuSeparatorItem11.Name = "radMenuSeparatorItem11";
+            this.radMenuSeparatorItem11.Text = "radMenuSeparatorItem11";
+            this.radMenuSeparatorItem11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // mnuShowDownload
             // 
-            // 
-            this.CommandBarStripElement2.Grip.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.CommandBarStripElement2.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.btnTrabslateToWord,
-            this.btnTranslateToExcel});
-            this.CommandBarStripElement2.Name = "CommandBarStripElement2";
-            // 
-            // 
-            // 
-            this.CommandBarStripElement2.OverflowButton.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-            this.CommandBarStripElement2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            ((Telerik.WinControls.UI.RadCommandBarGrip)(this.CommandBarStripElement2.GetChildAt(0))).Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            ((Telerik.WinControls.UI.RadCommandBarOverflowButton)(this.CommandBarStripElement2.GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-            // 
-            // btnTrabslateToWord
-            // 
-            this.btnTrabslateToWord.AutoSize = false;
-            this.btnTrabslateToWord.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
-            this.btnTrabslateToWord.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnTrabslateToWord.DisplayName = "CommandBarButton1";
-            this.btnTrabslateToWord.Enabled = false;
-            this.btnTrabslateToWord.Image = global::OrphanageV3.Properties.Resources.WordPic;
-            this.btnTrabslateToWord.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTrabslateToWord.Name = "btnTrabslateToWord";
-            this.btnTrabslateToWord.Padding = new System.Windows.Forms.Padding(2);
-            this.btnTrabslateToWord.Text = "تحويل لورد";
-            this.btnTrabslateToWord.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // btnTranslateToExcel
-            // 
-            this.btnTranslateToExcel.AutoSize = false;
-            this.btnTranslateToExcel.Bounds = new System.Drawing.Rectangle(0, 0, 37, 35);
-            this.btnTranslateToExcel.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnTranslateToExcel.DisplayName = "CommandBarButton1";
-            this.btnTranslateToExcel.Enabled = false;
-            this.btnTranslateToExcel.Image = global::OrphanageV3.Properties.Resources.ExcelPic;
-            this.btnTranslateToExcel.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTranslateToExcel.Name = "btnTranslateToExcel";
-            this.btnTranslateToExcel.Padding = new System.Windows.Forms.Padding(2);
-            this.btnTranslateToExcel.Text = "";
-            this.btnTranslateToExcel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.btnTranslateToExcel.ToolTipText = "تحويل إلى اكسل";
-            this.btnTranslateToExcel.Click += new System.EventHandler(this.btnTranslateToExcel_Click);
+            this.mnuShowDownload.Name = "mnuShowDownload";
+            this.mnuShowDownload.Text = "show Download";
+            this.mnuShowDownload.Click += new System.EventHandler(this.mnuShowDownload_Click);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 561);
+            // 
+            // RadMenu1
+            // 
+            this.RadMenu1.AllItemsEqualHeight = true;
+            this.RadMenu1.Controls.Add(this.lblRemainingTime);
+            this.RadMenu1.Controls.Add(this.lblRemainingTimeValue);
+            this.RadMenu1.DropDownAnimationEnabled = true;
+            this.RadMenu1.ImageList = this.imageList1;
+            this.RadMenu1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.RadMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.mnuNew,
+            this.mnuShow,
+            this.radMnuAccounts,
+            this.mnuSearch,
+            this.mnuTools,
+            this.mnuApperance});
+            this.RadMenu1.Location = new System.Drawing.Point(0, 0);
+            this.RadMenu1.Name = "RadMenu1";
+            this.RadMenu1.Size = new System.Drawing.Size(1034, 20);
+            this.RadMenu1.TabIndex = 5;
             this.Controls.Add(this.RadCommandBar1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.RadMenu1);
@@ -853,12 +869,12 @@
             this.Text = "MainView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).EndInit();
-            this.RadMenu1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadCommandBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).EndInit();
+            this.RadMenu1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -928,7 +944,6 @@
         internal Telerik.WinControls.UI.RadMenuItem mnuAppWin8;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppDefault;
         private System.Windows.Forms.ImageList imageList1;
-        private Telerik.WinControls.UI.RadMenu RadMenu1;
         private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
         private Telerik.WinControls.UI.RadLabelElement lblConnectionStatus;
         private System.Windows.Forms.Timer timer1;
@@ -945,5 +960,8 @@
         internal Telerik.WinControls.UI.CommandBarStripElement CommandBarStripElement2;
         internal Telerik.WinControls.UI.CommandBarButton btnTrabslateToWord;
         internal Telerik.WinControls.UI.CommandBarButton btnTranslateToExcel;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem11;
+        private Telerik.WinControls.UI.RadMenuItem mnuShowDownload;
+        private Telerik.WinControls.UI.RadMenu RadMenu1;
     }
 }

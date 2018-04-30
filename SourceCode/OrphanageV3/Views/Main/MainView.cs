@@ -43,6 +43,7 @@ namespace OrphanageV3.Views.Main
             mnuShowGuarantors.Text = Properties.Resources.Guarantors;
             mnuNewGuarantor.Text = Properties.Resources.Guarantor;
             mnuShowAccounts.Text = Properties.Resources.Accounts;
+            mnuShowDownload.Text = Properties.Resources.ShowDownloads;
             lblRemainingTime.Text = Properties.Resources.RemainingTime.getDobblePunkt();
             lblRemainingTime.TextAlignment = ContentAlignment.MiddleLeft;
             lblRemainingTimeValue.TextAlignment = ContentAlignment.MiddleRight;
@@ -247,6 +248,11 @@ namespace OrphanageV3.Views.Main
         private void btnTranslateToExcel_Click(object sender, EventArgs e)
         {
             _mainViewModel.ConvertToExcel();
+        }
+
+        private void mnuShowDownload_Click(object sender, EventArgs e)
+        {
+            _mainViewModel.ShowDownloadView();
         }
     }
 }

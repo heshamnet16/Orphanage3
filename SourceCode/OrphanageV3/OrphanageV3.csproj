@@ -72,6 +72,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -187,6 +188,9 @@
     <Compile Include="ViewModel\Orphan\OrphanViewModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryModel.cs" />
     <Compile Include="ViewModel\Summary\SummaryViewModel.cs" />
+    <Compile Include="ViewModel\Tools\DownloadDataModel.cs" />
+    <Compile Include="ViewModel\Tools\DownloadViewModel.cs" />
+    <Compile Include="ViewModel\Tools\FileExtentionEnum.cs" />
     <Compile Include="Views\Account\AccountEditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +330,12 @@
     <Compile Include="Views\Summary\SummaryView.Designer.cs">
       <DependentUpon>SummaryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tools\DownloadView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\DownloadView.Designer.cs">
+      <DependentUpon>DownloadView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tools\SettingView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +430,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Summary\SummaryView.resx">
       <DependentUpon>SummaryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\DownloadView.resx">
+      <DependentUpon>DownloadView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\SettingView.resx">
       <DependentUpon>SettingView.cs</DependentUpon>
