@@ -1,6 +1,6 @@
-﻿using Microsoft.Owin.Hosting;
-using OrphanageService.Services.Interfaces;
+﻿using OrphanageService.Services.Interfaces;
 using System;
+using System.ServiceProcess;
 using Unity;
 using W.Firewall;
 
@@ -24,24 +24,24 @@ namespace OrphanageService
             try
             {
                 CreateFirewallRules();
-                //if (!PowerShellExecuter.IsExist())
-                //    PowerShellExecuter.CreateAndRunPsFileScript();
+                if (!PowerShellExecuter.IsExist())
+                    PowerShellExecuter.CreateAndRunPsFileScript();
 
-                //// commit to debug the service
-                //ServiceBase[] ServicesToRun;
-                //ServicesToRun = new ServiceBase[]
-                //{
-                //        new SelfHostServiceBase()
-                //};
-                //ServiceBase.Run(ServicesToRun);
+                // commit to debug the service
+                ServiceBase[] ServicesToRun;
+                ServicesToRun = new ServiceBase[]
+                {
+                        new SelfHostServiceBase()
+                };
+                ServiceBase.Run(ServicesToRun);
 
                 //uncommit to debug the service
-                string baseUrl = Properties.Settings.Default.BaseURI;
-                WebApp.Start<Startup>(baseUrl);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Orphan Service is started on port 1515");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.ReadLine();
+                //string baseUrl = Properties.Settings.Default.BaseURI;
+                //WebApp.Start<Startup>(baseUrl);
+                //Console.ForegroundColor = ConsoleColor.Green;
+                //Console.WriteLine("Orphan Service is started on port 1515");
+                //Console.ForegroundColor = ConsoleColor.White;
+                //Console.ReadLine();
             }
             catch (Exception exc)
             {
