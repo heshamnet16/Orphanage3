@@ -7,6 +7,8 @@ namespace OrphanageV3.Views.Helper.Interfaces
     {
         RadGridView GridView { get; set; }
 
+        IDictionary<string, IList<string>> GetSelectedData(IList<GridViewRowInfo> selectedRows);
+
         GridViewRowInfo GetRowByColumnName(string ColumnName, object SearchValue);
 
         object GetValueBySelectedRow(string ColumnName);

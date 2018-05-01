@@ -23,7 +23,7 @@ namespace OrphanageV3.ViewModel.Mother
             {
                 mother.IdentityCardPhotoBackData = null;
                 mother.IdentityCardPhotoFaceData = null;
-                await _apiClient.MothersController_PutAsync(mother);
+                await _apiClient.Mothers_PutAsync(mother);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -34,7 +34,7 @@ namespace OrphanageV3.ViewModel.Mother
 
         public async Task<OrphanageDataModel.Persons.Mother> getMother(int Cid)
         {
-            var returnedMother = await _apiClient.MothersController_GetAsync(Cid);
+            var returnedMother = await _apiClient.Mothers_GetAsync(Cid);
             var fronPhotoTask = _apiClient.GetImageData(returnedMother.IdentityCardFaceURI);
             var backPhotoTask = _apiClient.GetImageData(returnedMother.IdentityCardBackURI);
             returnedMother.IdentityCardPhotoFaceData = await fronPhotoTask;

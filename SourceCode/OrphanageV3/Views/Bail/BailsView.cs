@@ -1,5 +1,7 @@
-﻿using OrphanageV3.ViewModel.Bail;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Bail;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,11 +10,13 @@ using Unity;
 
 namespace OrphanageV3.Views.Bail
 {
-    public partial class BailsView : Telerik.WinControls.UI.RadForm
+    public partial class BailsView : Telerik.WinControls.UI.RadForm, IView
     {
         private BailsViewModel _bailsViewModel = Program.Factory.Resolve<BailsViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _bailsIds = null;
+
+        public string GetTitle() => this.Text;
 
         public BailsView()
         {
@@ -158,6 +162,16 @@ namespace OrphanageV3.Views.Bail
             Family.FimiliesView familiesView = new Family.FimiliesView(familiesIds);
             familiesView.MdiParent = this.MdiParent;
             familiesView.Show();
+        }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _bailsViewModel.Update(ObjectId);
         }
     }
 }

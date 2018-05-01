@@ -22,7 +22,7 @@ namespace OrphanageV3.ViewModel.Bail
         {
             try
             {
-                await _apiClient.BailsController_PutAsync(bail);
+                await _apiClient.Bails_PutAsync(bail);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -33,7 +33,7 @@ namespace OrphanageV3.ViewModel.Bail
 
         public async Task<OrphanageDataModel.FinancialData.Bail> getBail(int Bid)
         {
-            var returnedBail = await _apiClient.BailsController_GetAsync(Bid);
+            var returnedBail = await _apiClient.Bails_GetAsync(Bid);
             _CurrentBail = returnedBail;
             return returnedBail;
         }
@@ -48,7 +48,7 @@ namespace OrphanageV3.ViewModel.Bail
             try
             {
                 bail.UserId = Program.CurrentUser.Id;
-                var retBail = (OrphanageDataModel.FinancialData.Bail)await _apiClient.BailsController_PostAsync(bail);
+                var retBail = (OrphanageDataModel.FinancialData.Bail)await _apiClient.Bails_PostAsync(bail);
             }
             catch (ApiClientException apiEx)
             {

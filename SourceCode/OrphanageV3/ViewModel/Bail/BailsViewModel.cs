@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Bail
@@ -34,82 +33,49 @@ namespace OrphanageV3.ViewModel.Bail
 
         public async void LoadBails()
         {
-            var bailsCount = await _apiClient.BailsController_GetBailsCountAsync();
-            var ReturnedBails = await _apiClient.BailsController_GetAllAsync(bailsCount, 0);
+            var bailsCount = await _apiClient.Bails_GetBailsCountAsync();
+            var ReturnedBails = await _apiClient.Bails_GetAllAsync(bailsCount, 0);
 
             _SourceBails = ReturnedBails;
 
             Bails = new ObservableCollection<BailModel>(_mapperService.MapToBailModel(_SourceBails));
-
-            UpdateFamiliesCount();
-            UpdateOrphansCount();
 
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
         public async void LoadBails(IEnumerable<int> bailsIds)
         {
-            var ReturnedBails = await _apiClient.BailsController_GetByIdsAsync(bailsIds);
+            var ReturnedBails = await _apiClient.Bails_GetByIdsAsync(bailsIds);
 
             _SourceBails = ReturnedBails;
 
             Bails = new ObservableCollection<BailModel>(_mapperService.MapToBailModel(_SourceBails));
-
-            UpdateFamiliesCount();
-            UpdateOrphansCount();
 
             DataLoaded?.Invoke(this, new EventArgs());
         }
 
         public async void LoadBailsByIsFamily(bool value)
         {
-            var ReturnedBails = await _apiClient.BailsController_GetBailsByFamilyAsync(value);
+            var ReturnedBails = await _apiClient.Bails_GetBailsByFamilyAsync(value);
 
             _SourceBails = ReturnedBails;
 
             Bails = new ObservableCollection<BailModel>(_mapperService.MapToBailModel(_SourceBails));
 
-            UpdateFamiliesCount();
-            UpdateOrphansCount();
-
             DataLoaded?.Invoke(this, new EventArgs());
-        }
-
-        private void UpdateFamiliesCount()
-        {
-            new Thread(new ThreadStart(async () =>
-            {
-                foreach (var bail in Bails)
-                {
-                    var value = await _apiClient.BailsController_GetFamiliesCountAsync(bail.Id);
-                    bail.FamiliesCount = value;
-                }
-            })).Start();
-        }
-
-        private void UpdateOrphansCount()
-        {
-            new Thread(new ThreadStart(async () =>
-            {
-                foreach (var bail in Bails)
-                {
-                    var value = await _apiClient.BailsController_GetOrphansCountAsync(bail.Id);
-                    bail.OrphansCount = value;
-                }
-            })).Start();
         }
 
         public async void Update(int bailId)
         {
-            var sourceBail = await _apiClient.BailsController_GetAsync(bailId);
+            var sourceBail = await _apiClient.Bails_GetAsync(bailId);
 
             var sourceBailToReplace = _SourceBails.FirstOrDefault(b => b.Id == bailId);
             var sourceBailIndex = _SourceBails.IndexOf(sourceBailToReplace);
             _SourceBails[sourceBailIndex] = sourceBail;
 
             var bailModel = _mapperService.MapToBailModel(sourceBail);
-            bailModel.OrphansCount = await _apiClient.BailsController_GetOrphansCountAsync(bailId);
-            bailModel.FamiliesCount = await _apiClient.BailsController_GetFamiliesCountAsync(bailId);
+            bailModel.OrphansCount = await _apiClient.Bails_GetOrphansCountAsync(bailId);
+            bailModel.FamiliesCount = await _apiClient.Bails_GetFamiliesCountAsync(bailId);
 
             var bailToEdit = Bails.FirstOrDefault(c => c.Id == bailId);
             var bailToEditIndex = Bails.IndexOf(bailToEdit);
@@ -123,7 +89,7 @@ namespace OrphanageV3.ViewModel.Bail
                 return false;
             try
             {
-                await _apiClient.BailsController_DeleteAsync(bailId, ForceDelete);
+                await _apiClient.Bails_DeleteAsync(bailId, ForceDelete);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -134,22 +100,22 @@ namespace OrphanageV3.ViewModel.Bail
 
         public async Task<IEnumerable<int>> OrphansIds(int bailId)
         {
-            return await _apiClient.BailsController_GetOrphansIdsAsync(bailId);
+            return await _apiClient.Bails_GetOrphansIdsAsync(bailId);
         }
 
         public async Task<IList<OrphanageDataModel.Persons.Orphan>> Orphans(int bailId)
         {
-            return await _apiClient.BailsController_GetOrphansAsync(bailId);
+            return await _apiClient.Bails_GetOrphansAsync(bailId);
         }
 
         public async Task<IEnumerable<int>> FamiliesIds(int bailId)
         {
-            return await _apiClient.BailsController_GetFamiliesIdsAsync(bailId);
+            return await _apiClient.Bails_GetFamiliesIdsAsync(bailId);
         }
 
         public async Task<IList<OrphanageDataModel.RegularData.Family>> Families(int bailId)
         {
-            return await _apiClient.BailsController_GetFamiliesAsync(bailId);
+            return await _apiClient.Bails_GetFamiliesAsync(bailId);
         }
 
         public async Task<IList<int>> FamiliesIds(IEnumerable<int> bailsIds)

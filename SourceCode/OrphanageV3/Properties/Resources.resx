@@ -1337,4 +1337,22 @@
   <data name="SettingPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Setting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ExcelPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WordPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Word.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SellectAll" xml:space="preserve">
+    <value>تحديد الكل</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>الغاء تحديد الكل</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>حفظ باسم</value>
+  </data>
+  <data name="ShowDownloads" xml:space="preserve">
+    <value>عرض التنزيلات</value>
+  </data>
 </root>

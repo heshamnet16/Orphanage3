@@ -34,8 +34,8 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async void LoadCaregivers()
         {
-            var caregiversCount = await _apiClient.CaregiversController_GetCaregiversCountAsync();
-            var ReturnedCaregivers = await _apiClient.CaregiversController_GetAllAsync(caregiversCount, 0);
+            var caregiversCount = await _apiClient.Caregivers_GetCaregiversCountAsync();
+            var ReturnedCaregivers = await _apiClient.Caregivers_GetAllAsync(caregiversCount, 0);
 
             _SourceCaregivers = ReturnedCaregivers;
 
@@ -46,7 +46,7 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async void Update(int caregiverId)
         {
-            var sourceCaregiver = await _apiClient.CaregiversController_GetAsync(caregiverId);
+            var sourceCaregiver = await _apiClient.Caregivers_GetAsync(caregiverId);
 
             var sourceCaregiverIndex = _SourceCaregivers.IndexOf(_SourceCaregivers.FirstOrDefault(c => c.Id == caregiverId));
             _SourceCaregivers[sourceCaregiverIndex] = sourceCaregiver;
@@ -69,9 +69,9 @@ namespace OrphanageV3.ViewModel.Caregiver
                 {
                     if (ForceDelete)
                     {
-                        var orphans = await _apiClient.CaregiversController_GetFamilyOrphansAsync(caregiverId);
+                        var orphans = await _apiClient.Caregivers_GetFamilyOrphansAsync(caregiverId);
                         foreach (var orphan in orphans)
-                            await _apiClient.OrphansController_DeleteAsync(orphan.Id);
+                            await _apiClient.Orphans_DeleteAsync(orphan.Id);
                     }
                     else
                     {
@@ -79,7 +79,7 @@ namespace OrphanageV3.ViewModel.Caregiver
                         return false;
                     }
                 }
-                await _apiClient.CaregiversController_DeleteAsync(caregiverId);
+                await _apiClient.Caregivers_DeleteAsync(caregiverId);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -99,7 +99,7 @@ namespace OrphanageV3.ViewModel.Caregiver
                     caregiver.ColorMark = colorValue;
                 else
                     caregiver.ColorMark = -1;
-                await _apiClient.CaregiversController_SetCaregiverColorAsync(caregiver.Id, (int)caregiver.ColorMark.Value);
+                await _apiClient.Caregivers_SetCaregiverColorAsync(caregiver.Id, (int)caregiver.ColorMark.Value);
                 return caregiver.ColorMark;
             }
             catch (ApiClientException apiEx)
@@ -117,7 +117,7 @@ namespace OrphanageV3.ViewModel.Caregiver
 
         public async Task<IList<OrphanageDataModel.Persons.Orphan>> Orphans(int caregiverId)
         {
-            return await _apiClient.CaregiversController_GetFamilyOrphansAsync(caregiverId);
+            return await _apiClient.Caregivers_GetFamilyOrphansAsync(caregiverId);
         }
 
         public async Task<IList<int>> MothersIds(IEnumerable<int> caregiversIds)

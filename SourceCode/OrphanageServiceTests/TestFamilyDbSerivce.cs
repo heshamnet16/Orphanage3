@@ -55,7 +55,7 @@ namespace OrphanageServiceTests
             try
             {
                 var famId = _familyDbService.AddFamily(fam).Result;
-                famId.ShouldBeGreaterThan(0);
+                famId.Id.ShouldBeGreaterThan(0);
                 _familyDbService.DeleteFamily(fam.Id).Result.ShouldBe(true);
             }
             catch (DbEntityValidationException exc)
@@ -72,16 +72,29 @@ namespace OrphanageServiceTests
             var family = _familyDbService.GetFamily(555).Result;
             family.Father.Name.EnglishFather = "EFatherEnglish";
             family.Mother.Name.EnglishFather = "EFatherEnglish";
-            if (family.PrimaryAddress != null) family.PrimaryAddress.Country = "Country";
-            if (family.AlternativeAddress != null) family.AlternativeAddress.Country = "Country";
+            if (family.Mother.Address != null)
+            {
+                family.Mother.Address.City = "city";
+                family.Mother.Address.Street = "street";
+            }
+            if (family.PrimaryAddress != null)
+            {
+                family.PrimaryAddress.City = "city";
+                family.PrimaryAddress.Street = "street";
+            }
+            if (family.AlternativeAddress != null)
+            {
+                family.AlternativeAddress.City = "city";
+                family.AlternativeAddress.Street = "street";
+            }
             family.FinncialStatus = family.FinncialStatus + "_Test";
             var ret = _familyDbService.SaveFamily(family).Result;
             ret.ShouldBe(true);
             var newFamily = _familyDbService.GetFamily(555).Result;
             newFamily.Father.Name.EnglishFather.ShouldBe("EFatherEnglish");
             newFamily.Mother.Name.EnglishFather.ShouldBe("EFatherEnglish");
-            if (family.PrimaryAddress != null) family.PrimaryAddress.Country.ShouldBe("Country");
-            if (family.AlternativeAddress != null) family.AlternativeAddress.Country.ShouldBe("Country");
+            if (family.PrimaryAddress != null) family.PrimaryAddress.Street.ShouldBe("street");
+            if (family.AlternativeAddress != null) family.AlternativeAddress.Street.ShouldBe("street");
             family.FinncialStatus.EndsWith("_Test").ShouldBe(true);
         }
     }

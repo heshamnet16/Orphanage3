@@ -64,6 +64,12 @@ namespace OrphanageDataModel.FinancialData
 
         public string Note { get; set; }
 
+        [NotMapped]
+        public int OrphansCount { get; set; }
+
+        [NotMapped]
+        public int FamiliesCount { get; set; }
+
         public virtual ICollection<Orphan> Orphans { get; set; }
 
         public virtual ICollection<Family> Families { get; set; }

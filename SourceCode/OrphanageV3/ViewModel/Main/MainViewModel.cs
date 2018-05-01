@@ -1,4 +1,9 @@
 ﻿using OrphanageV3.Services;
+using OrphanageV3.ViewModel.Tools;
+using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
@@ -9,6 +14,8 @@ namespace OrphanageV3.ViewModel.Main
     {
         private RadForm _MainView;
         private IApiClient _apiClient;
+        private readonly IRadGridHelper _radHelper;
+        private readonly DownloadViewModel _downloadViewModel;
 
         public RadForm MainView
         {
@@ -16,9 +23,11 @@ namespace OrphanageV3.ViewModel.Main
             set { _MainView = value; }
         }
 
-        public MainViewModel(IApiClient apiClient)
+        public MainViewModel(IApiClient apiClient, IRadGridHelper radHelper, DownloadViewModel downloadViewModel)
         {
             _apiClient = apiClient;
+            _radHelper = radHelper;
+            _downloadViewModel = downloadViewModel;
             Services.ApiClientTokenProvider.AccessTokenExpired += ApiClientProvider_MustLogin;
             Services.ApiClientTokenProvider.MustLogin += ApiClientProvider_MustLogin;
         }
@@ -50,14 +59,14 @@ namespace OrphanageV3.ViewModel.Main
 
         public async void ShowExcludedOrphan()
         {
-            var orphanList = await _apiClient.OrphansController_GetExcludedAsync();
+            var orphanList = await _apiClient.Orphans_GetExcludedAsync();
             ShowView(new Views.Orphan.OrphansView(orphanList));
         }
 
         public async void ShowBailedOrphan()
         {
-            var orphanCount = await _apiClient.OrphansController_GetOrphansCountAsync();
-            var orphans = await _apiClient.OrphansController_GetAllAsync(orphanCount, 0);
+            var orphanCount = await _apiClient.Orphans_GetOrphansCountAsync();
+            var orphans = await _apiClient.Orphans_GetAllAsync(orphanCount, 0);
             var bailedOrphans = orphans.Where(o => o.IsBailed || o.Family.IsBailed || o.BailId.HasValue || o.Family.BailId.HasValue).Select(o => o.Id)
                 .ToList();
             ShowView(new Views.Orphan.OrphansView(bailedOrphans));
@@ -65,8 +74,8 @@ namespace OrphanageV3.ViewModel.Main
 
         public async void ShowUnBailedOrphan()
         {
-            var orphanCount = await _apiClient.OrphansController_GetOrphansCountAsync();
-            var orphans = await _apiClient.OrphansController_GetAllAsync(orphanCount, 0);
+            var orphanCount = await _apiClient.Orphans_GetOrphansCountAsync();
+            var orphans = await _apiClient.Orphans_GetAllAsync(orphanCount, 0);
             var bailedOrphans = orphans.Where(o => o.IsBailed == false && o.Family.IsBailed == false
                             && !o.BailId.HasValue && !o.Family.BailId.HasValue).Select(o => o.Id).ToList();
             ShowView(new Views.Orphan.OrphansView(bailedOrphans));
@@ -79,14 +88,14 @@ namespace OrphanageV3.ViewModel.Main
 
         public async void ShowExcludedFamilies()
         {
-            var familiesList = await _apiClient.FamiliesController_GetExcludedAsync();
+            var familiesList = await _apiClient.Families_GetExcludedAsync();
             ShowView(new Views.Family.FimiliesView(familiesList));
         }
 
         public async void ShowBailedFamiliesView()
         {
-            var familiesCount = await _apiClient.FamiliesController_GetFamiliesCountAsync();
-            var allFamilies = await _apiClient.FamiliesController_GetAllAsync(familiesCount, 0);
+            var familiesCount = await _apiClient.Families_GetFamiliesCountAsync();
+            var allFamilies = await _apiClient.Families_GetAllAsync(familiesCount, 0);
             var returnedFamilies = allFamilies.Where(f => f.IsBailed == true || f.BailId.HasValue).Select(f => f.Id).ToList();
 
             ShowView(new Views.Family.FimiliesView(returnedFamilies));
@@ -94,8 +103,8 @@ namespace OrphanageV3.ViewModel.Main
 
         public async void ShowUnBailedFamiliesView()
         {
-            var familiesCount = await _apiClient.FamiliesController_GetFamiliesCountAsync();
-            var allFamilies = await _apiClient.FamiliesController_GetAllAsync(familiesCount, 0);
+            var familiesCount = await _apiClient.Families_GetFamiliesCountAsync();
+            var allFamilies = await _apiClient.Families_GetAllAsync(familiesCount, 0);
             var returnedFamilies = allFamilies.Where(f => f.IsBailed == false && !f.BailId.HasValue).Select(f => f.Id).ToList();
 
             ShowView(new Views.Family.FimiliesView(returnedFamilies));
@@ -171,6 +180,11 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Guarantor.GuarantorEditView(GuarantorId));
         }
 
+        public void ShowDownloadView()
+        {
+            ShowView(new Views.Tools.DownloadView());
+        }
+
         public void ShowLoginDialog()
         {
             var frm = new Views.Login.LoginView();
@@ -204,6 +218,47 @@ namespace OrphanageV3.ViewModel.Main
                     frm.Close();
                 }
             }
+        }
+
+        public void ConvertToExcel()
+        {
+            var view = getActiveView();
+            _radHelper.GridView = view.GetOrphanageGridView().GridView;
+            var data = _radHelper.GetSelectedData(view.GetOrphanageGridView().SelectedRows);
+            var ret = _apiClient.Excel_CreateXlsxAsync(new OrphanageDataModel.RegularData.ExportData() { Data = data });
+            var downloadDataModel = new DownloadDataModel()
+            {
+                DataType = FileExtentionEnum.xlsx,
+                Name = view.GetTitle() + " (Excel)"
+            };
+            _downloadViewModel.Add(downloadDataModel, ret);
+        }
+
+        public IView getActiveView()
+        {
+            var activeForm = MainView.ActiveMdiChild;
+            if (activeForm is IView)
+            {
+                return (IView)MainView.ActiveMdiChild;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IList<IView> getViews()
+
+        {
+            var views = new List<IView>();
+            foreach (var child in MainView.MdiChildren)
+            {
+                if (child is IView)
+                {
+                    views.Add((IView)child);
+                }
+            }
+            return views;
         }
 
         private void ShowView(RadForm frm)

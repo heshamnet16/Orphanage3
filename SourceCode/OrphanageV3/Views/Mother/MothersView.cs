@@ -1,5 +1,7 @@
-﻿using OrphanageV3.ViewModel.Mother;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Mother;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,7 +9,7 @@ using Unity;
 
 namespace OrphanageV3.Views.Mother
 {
-    public partial class MothersView : Telerik.WinControls.UI.RadForm
+    public partial class MothersView : Telerik.WinControls.UI.RadForm, IView
     {
         private MothersViewModel _mothersViewModel = Program.Factory.Resolve<MothersViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
@@ -188,5 +190,17 @@ namespace OrphanageV3.Views.Mother
             or.MdiParent = this.MdiParent;
             or.Show();
         }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _mothersViewModel.Update(ObjectId);
+        }
+
+        public string GetTitle() => this.Text;
     }
 }

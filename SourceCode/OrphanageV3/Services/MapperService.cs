@@ -198,7 +198,7 @@ namespace OrphanageV3.Services
                 {
                     if (fam.Father == null || fam.Father.Name == null)
                     {
-                        fam.Father = await _ApiClient.FathersController_GetAsync(fam.FatherId);
+                        fam.Father = await _ApiClient.Fathers_GetAsync(fam.FatherId);
                     }
                     if (mother.Families.Count > 1)
                         retMother.HusbandsNames += fam.Father.Name.FullName() + ", ";
@@ -215,39 +215,24 @@ namespace OrphanageV3.Services
             return retMother;
         }
 
-        public async Task<IEnumerable<FatherModel>> MapToFatherModel(IEnumerable<Father> fathersList)
+        public IEnumerable<FatherModel> MapToFatherModel(IEnumerable<Father> fathersList)
         {
             IList<FatherModel> returnedFathers = new List<FatherModel>();
             foreach (var father in fathersList)
             {
-                FatherModel retFather = await MapToFatherModel(father);
+                FatherModel retFather = MapToFatherModel(father);
                 returnedFathers.Add(retFather);
             }
             return returnedFathers;
         }
 
-        public async Task<FatherModel> MapToFatherModel(Father father)
+        public FatherModel MapToFatherModel(Father father)
         {
             FatherModel retFather = null;
             try
             {
                 retFather = _mapper.Map<FatherModel>(father);
                 retFather.FullName = father.Name.FullName();
-                retFather.WifeName = "";
-                foreach (var fam in father.Families)
-                {
-                    if (fam.Mother == null || fam.Mother.Name == null)
-                    {
-                        fam.Mother = await _ApiClient.MothersController_GetAsync(fam.MotherId);
-                    }
-                    if (father.Families.Count > 1)
-                        retFather.WifeName += fam.Mother.Name.FullName() + ", ";
-                    else
-                        retFather.WifeName += fam.Mother.Name.FullName() + ", ";
-                }
-                if (retFather.WifeName.EndsWith(", "))
-                    retFather.WifeName = retFather.WifeName.Substring(0, retFather.WifeName.Length - 2);
-                retFather.OrphansCount = -1;
             }
             catch
             {
@@ -321,8 +306,6 @@ namespace OrphanageV3.Services
             try
             {
                 retBail = _mapper.Map<BailModel>(bail);
-                retBail.FamiliesCount = -1;
-                retBail.OrphansCount = -1;
             }
             catch
             {

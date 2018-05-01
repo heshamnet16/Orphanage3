@@ -38,7 +38,7 @@ namespace OrphanageV3.ViewModel.Guarantor
         {
             try
             {
-                await _apiClient.GuarantorsController_PutAsync(guarantor);
+                await _apiClient.Guarantors_PutAsync(guarantor);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -49,7 +49,7 @@ namespace OrphanageV3.ViewModel.Guarantor
 
         public async Task<OrphanageDataModel.Persons.Guarantor> getGuarantor(int Bid)
         {
-            var returnedGuarantor = await _apiClient.GuarantorsController_GetAsync(Bid);
+            var returnedGuarantor = await _apiClient.Guarantors_GetAsync(Bid);
             _CurrentGuarantor = returnedGuarantor;
             return returnedGuarantor;
         }
@@ -64,7 +64,7 @@ namespace OrphanageV3.ViewModel.Guarantor
             try
             {
                 guarantor.UserId = Program.CurrentUser.Id;
-                var retBail = (OrphanageDataModel.Persons.Guarantor)await _apiClient.GuarantorsController_PostAsync(guarantor);
+                var retBail = (OrphanageDataModel.Persons.Guarantor)await _apiClient.Guarantors_PostAsync(guarantor);
                 return retBail;
             }
             catch (ApiClientException apiEx)

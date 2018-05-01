@@ -4,7 +4,6 @@ using OrphanageService.Services;
 using OrphanageService.Services.Interfaces;
 using Owin;
 using System;
-using System.Web.Http.Dispatcher;
 using System.Web.Http.ExceptionHandling;
 using Unity;
 
@@ -15,7 +14,6 @@ namespace OrphanageService
         public void Configuration(IAppBuilder appBuilder)
         {
             var httpConfiguration = WepApiConfig.Register();
-            httpConfiguration.Services.Replace(typeof(IHttpControllerSelector), new HttpAreaSelector(httpConfiguration));
             httpConfiguration.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionsHandlers.GlobalExceptionsHandler());
             httpConfiguration.EnsureInitialized();
             appBuilder.Use<GlobalExceptionsHandlers.GlobalExceptionMiddleware>();

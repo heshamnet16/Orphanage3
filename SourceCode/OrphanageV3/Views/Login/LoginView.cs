@@ -1,11 +1,7 @@
 ﻿using OrphanageV3.Extensions;
 using OrphanageV3.ViewModel.Login;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Unity;
 

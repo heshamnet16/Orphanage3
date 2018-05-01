@@ -42,7 +42,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 }
                 if (orphan.HealthStatus != null)
                     orphan.HealthStatus.ReporteFileData = null;
-                await _apiClient.OrphansController_PutAsync(orphan);
+                await _apiClient.Orphans_PutAsync(orphan);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -67,7 +67,7 @@ namespace OrphanageV3.ViewModel.Orphan
                 orphan.HealthStatus.ReporteFileData = null;
             try
             {
-                var retOrp = (OrphanageDataModel.Persons.Orphan)await _apiClient.OrphansController_PostAsync(orphan);
+                var retOrp = (OrphanageDataModel.Persons.Orphan)await _apiClient.Orphans_PostAsync(orphan);
             }
             catch (ApiClientException apiEx)
             {
@@ -87,7 +87,7 @@ namespace OrphanageV3.ViewModel.Orphan
 
         public async Task<OrphanageDataModel.Persons.Orphan> getOrphan(int Oid)
         {
-            var returnedOrphan = await _apiClient.OrphansController_GetAsync(Oid);
+            var returnedOrphan = await _apiClient.Orphans_GetAsync(Oid);
             var facePhotoTask = _apiClient.GetImageData(returnedOrphan.FacePhotoURI);
             var bodyPhotoTask = _apiClient.GetImageData(returnedOrphan.FullPhotoURI);
             var birthCertificateTask = _apiClient.GetImageData(returnedOrphan.BirthCertificatePhotoURI);

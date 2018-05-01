@@ -39,6 +39,8 @@ namespace OrphanageService.Services
                     _logger.Warning($"Bail with id{Bid} cannot be found null is returned");
                     return null;
                 }
+                bail.OrphansCount = await GetOrphansCount(Bid);
+                bail.FamiliesCount = await GetFamiliesCount(Bid);
                 _selfLoopBlocking.BlockBailSelfLoop(ref bail);
                 _logger.Information($"returned Bail with id {Bid}");
                 return bail;
@@ -72,7 +74,7 @@ namespace OrphanageService.Services
                     .Include(b => b.Guarantor.Name)
                     .ToListAsync();
 
-                return prepareBailsList(bails);
+                return await prepareBailsList(bails);
             }
         }
 
@@ -111,6 +113,7 @@ namespace OrphanageService.Services
                         var famToFill = fam;
                         _selfLoopBlocking.BlockFamilySelfLoop(ref famToFill);
                         _uriGenerator.SetFamilyUris(ref famToFill);
+                        fam.OrphansCount = await dbContext.Orphans.Where(o => o.FamilyId == fam.Id).AsNoTracking().CountAsync();
                         returnedFamilies.Add(famToFill);
                     }
                 }
@@ -520,7 +523,7 @@ namespace OrphanageService.Services
                     .Include(b => b.Guarantor.Name)
                     .Where(b => b.IsFamilyBail == isFamily)
                     .ToListAsync();
-                return prepareBailsList(bails);
+                return await prepareBailsList(bails);
             }
         }
 
@@ -541,11 +544,11 @@ namespace OrphanageService.Services
                     .Include(b => b.Guarantor.Name)
                     .ToListAsync();
 
-                return prepareBailsList(bails);
+                return await prepareBailsList(bails);
             }
         }
 
-        private IEnumerable<OrphanageDataModel.FinancialData.Bail> prepareBailsList(IEnumerable<OrphanageDataModel.FinancialData.Bail> bailsList)
+        private async Task<IEnumerable<OrphanageDataModel.FinancialData.Bail>> prepareBailsList(IEnumerable<OrphanageDataModel.FinancialData.Bail> bailsList)
         {
             IList<OrphanageDataModel.FinancialData.Bail> returnedbailsList = new List<OrphanageDataModel.FinancialData.Bail>();
             if (bailsList != null && bailsList.Count() > 0)
@@ -554,6 +557,8 @@ namespace OrphanageService.Services
                 {
                     OrphanageDataModel.FinancialData.Bail bailsToFill = bail;
                     _selfLoopBlocking.BlockBailSelfLoop(ref bailsToFill);
+                    bail.OrphansCount = await GetOrphansCount(bail.Id);
+                    bail.FamiliesCount = await GetFamiliesCount(bail.Id);
                     returnedbailsList.Add(bailsToFill);
                 }
             }

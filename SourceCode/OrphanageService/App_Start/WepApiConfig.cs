@@ -10,22 +10,21 @@ namespace OrphanageService
             HttpConfiguration config = new HttpConfiguration();
 
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.DependencyResolver = new UnityDependencyResolver(UnityConfig.GetConfiguredContainer());
+            config.MapHttpAttributeRoutes();
 
-            SwaggerConfig.Register(config);
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{namespace}/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{namespace}/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
             //config.Routes.MapHttpRoute(
             //        name: "DefaultApiPaging",
             //        routeTemplate: "api/{namespace}/{controller}/{pageSize}/{pageNumber}",
             //        defaults: new { id = RouteParameter.Optional }
             //    );
 
-            config.MapHttpAttributeRoutes();
-
-            config.DependencyResolver = new UnityDependencyResolver(UnityConfig.GetConfiguredContainer());
+            SwaggerConfig.Register(config);
             return config;
         }
     }

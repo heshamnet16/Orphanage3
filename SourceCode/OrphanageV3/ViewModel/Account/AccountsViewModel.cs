@@ -31,8 +31,8 @@ namespace OrphanageV3.ViewModel.Account
 
         public async void LoadAccounts()
         {
-            var accoutnsCount = await _apiClient.AccountsController_GetAccountsCountAsync();
-            var ReturnedAccoutns = await _apiClient.AccountsController_GetAllAsync(accoutnsCount, 0);
+            var accoutnsCount = await _apiClient.Accounts_GetAccountsCountAsync();
+            var ReturnedAccoutns = await _apiClient.Accounts_GetAllAsync(accoutnsCount, 0);
 
             _SourceAccounts = ReturnedAccoutns;
 
@@ -43,7 +43,7 @@ namespace OrphanageV3.ViewModel.Account
 
         public async void LoadAccounts(IEnumerable<int> bailsIds)
         {
-            var ReturnedAccoutns = await _apiClient.AccountsController_GetByIdsAsync(bailsIds);
+            var ReturnedAccoutns = await _apiClient.Accounts_GetByIdsAsync(bailsIds);
 
             _SourceAccounts = ReturnedAccoutns;
 
@@ -54,7 +54,7 @@ namespace OrphanageV3.ViewModel.Account
 
         public async void Update(int accountId)
         {
-            var sourceAccount = await _apiClient.AccountsController_GetAsync(accountId);
+            var sourceAccount = await _apiClient.Accounts_GetAsync(accountId);
 
             var sourceAccountToReplace = _SourceAccounts.FirstOrDefault(b => b.Id == accountId);
             var sourceAccountIndex = _SourceAccounts.IndexOf(sourceAccountToReplace);
@@ -72,13 +72,13 @@ namespace OrphanageV3.ViewModel.Account
             var account = _SourceAccounts.FirstOrDefault(c => c.Id == accountId);
             if (account == null)
                 return false;
-            await _apiClient.AccountsController_DeleteAsync(accountId);
+            await _apiClient.Accounts_DeleteAsync(accountId);
             return true;
         }
 
         public async Task<IEnumerable<int>> BailsIds(int accountId)
         {
-            return (await _apiClient.AccountsController_GetBailsAsync(accountId)).Select(b => b.Id);
+            return (await _apiClient.Accounts_GetBailsAsync(accountId)).Select(b => b.Id);
         }
 
         public async Task<IEnumerable<int>> BailsIds(IEnumerable<int> accountsIds)
@@ -95,12 +95,12 @@ namespace OrphanageV3.ViewModel.Account
 
         public async Task<IList<OrphanageDataModel.FinancialData.Bail>> Bails(int accountId)
         {
-            return await _apiClient.AccountsController_GetBailsAsync(accountId);
+            return await _apiClient.Accounts_GetBailsAsync(accountId);
         }
 
         public async Task<IEnumerable<int>> GuarantorsIds(int accountId)
         {
-            return (await _apiClient.AccountsController_GetGuarantorsAsync(accountId)).Select(a => a.Id);
+            return (await _apiClient.Accounts_GetGuarantorsAsync(accountId)).Select(a => a.Id);
         }
 
         public async Task<IEnumerable<int>> GuarantorsIds(IEnumerable<int> accountsIds)
@@ -117,7 +117,7 @@ namespace OrphanageV3.ViewModel.Account
 
         public async Task<IList<OrphanageDataModel.Persons.Guarantor>> Guarantors(int accountId)
         {
-            return await _apiClient.AccountsController_GetGuarantorsAsync(accountId);
+            return await _apiClient.Accounts_GetGuarantorsAsync(accountId);
         }
 
         public OrphanageDataModel.FinancialData.Account GetSourceAccount(int accountModelId) =>

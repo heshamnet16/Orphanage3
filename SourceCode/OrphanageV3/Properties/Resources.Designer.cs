@@ -1123,6 +1123,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الغاء تحديد الكل ähnelt.
+        /// </summary>
+        public static string DeselectAll {
+            get {
+                return ResourceManager.GetString("DeselectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die حذف ähnelt.
         /// </summary>
         public static string Detele {
@@ -1381,6 +1390,16 @@ namespace OrphanageV3.Properties {
         public static string ErrorMessageUserName {
             get {
                 return ResourceManager.GetString("ErrorMessageUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ExcelPic {
+            get {
+                object obj = ResourceManager.GetObject("ExcelPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -3284,6 +3303,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حفظ باسم ähnelt.
+        /// </summary>
+        public static string SaveAs {
+            get {
+                return ResourceManager.GetString("SaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die حفظ ähnelt.
         /// </summary>
         public static string SaveText {
@@ -3308,6 +3336,15 @@ namespace OrphanageV3.Properties {
         public static string Select {
             get {
                 return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تحديد الكل ähnelt.
+        /// </summary>
+        public static string SellectAll {
+            get {
+                return ResourceManager.GetString("SellectAll", resourceCulture);
             }
         }
         
@@ -3363,6 +3400,15 @@ namespace OrphanageV3.Properties {
         public static string ShowCaregivers {
             get {
                 return ResourceManager.GetString("ShowCaregivers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die عرض التنزيلات ähnelt.
+        /// </summary>
+        public static string ShowDownloads {
+            get {
+                return ResourceManager.GetString("ShowDownloads", resourceCulture);
             }
         }
         
@@ -3711,6 +3757,16 @@ namespace OrphanageV3.Properties {
         public static string WifeName {
             get {
                 return ResourceManager.GetString("WifeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WordPic {
+            get {
+                object obj = ResourceManager.GetObject("WordPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

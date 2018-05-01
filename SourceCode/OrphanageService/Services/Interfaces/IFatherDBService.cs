@@ -14,6 +14,8 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetOrphans(int Fid);
 
+        Task<string> GetWifeName(OrphanageDataModel.Persons.Father father);
+
         Task<int> GetFathersCount();
 
         Task<int> GetOrphansCount(int FatherId);

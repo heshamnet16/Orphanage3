@@ -1,6 +1,8 @@
-﻿using OrphanageV3.ViewModel.Family;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Family;
 using OrphanageV3.Views.Father;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +11,14 @@ using Unity;
 
 namespace OrphanageV3.Views.Family
 {
-    public partial class FimiliesView : Telerik.WinControls.UI.RadForm
+    public partial class FimiliesView : Telerik.WinControls.UI.RadForm, IView
     {
         private FamiliesViewModel _familiesViewModel = Program.Factory.Resolve<FamiliesViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _FamiliesIdsList;
         private IEnumerable<OrphanageDataModel.RegularData.Family> _FamiliesList;
+
+        public string GetTitle() => this.Text;
 
         public FimiliesView()
         {
@@ -246,6 +250,16 @@ namespace OrphanageV3.Views.Family
             {
                 _familiesViewModel.UnBailFamilies(orphanageGridView1.SelectedIds);
             }
+        }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _familiesViewModel.Update(ObjectId);
         }
     }
 }

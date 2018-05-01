@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
-using System.Linq;
+﻿using LangChanger;
+using OrphanageV3.Extensions;
 using OrphanageV3.ViewModel.Account;
 using OrphanageV3.Views.Helper.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 using Unity;
-using OrphanageV3.Extensions;
-using LangChanger;
 
 namespace OrphanageV3.Views.Account
 {

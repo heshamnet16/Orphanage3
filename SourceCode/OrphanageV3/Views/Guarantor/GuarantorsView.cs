@@ -1,5 +1,7 @@
-﻿using OrphanageV3.ViewModel.Guarantor;
+﻿using OrphanageV3.Controlls;
+using OrphanageV3.ViewModel.Guarantor;
 using OrphanageV3.Views.Helper.Interfaces;
+using OrphanageV3.Views.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,11 +11,13 @@ using Unity;
 
 namespace OrphanageV3.Views.Guarantor
 {
-    public partial class GuarantorsView : Telerik.WinControls.UI.RadForm
+    public partial class GuarantorsView : Telerik.WinControls.UI.RadForm, IView
     {
         private GuarantorsViewModel _guarantorsViewModel = Program.Factory.Resolve<GuarantorsViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _guarantorsIds = null;
+
+        public string GetTitle() => this.Text;
 
         public GuarantorsView()
         {
@@ -201,6 +205,16 @@ namespace OrphanageV3.Views.Guarantor
             Bail.BailsView bailsView = new Bail.BailsView(bailsIds);
             bailsView.MdiParent = this.MdiParent;
             bailsView.Show();
+        }
+
+        public OrphanageGridView GetOrphanageGridView()
+        {
+            return orphanageGridView1;
+        }
+
+        public void Update(int ObjectId)
+        {
+            _guarantorsViewModel.Update(ObjectId);
         }
     }
 }

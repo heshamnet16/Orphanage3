@@ -1,9 +1,5 @@
 ﻿using OrphanageV3.Services;
 using OrphanageV3.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrphanageV3.ViewModel.Account
@@ -24,7 +20,7 @@ namespace OrphanageV3.ViewModel.Account
         {
             try
             {
-                await _apiClient.AccountsController_PutAsync(account);
+                await _apiClient.Accounts_PutAsync(account);
                 return true;
             }
             catch (ApiClientException apiEx)
@@ -35,7 +31,7 @@ namespace OrphanageV3.ViewModel.Account
 
         public async Task<OrphanageDataModel.FinancialData.Account> getAccount(int Aid)
         {
-            var returnedAccount = await _apiClient.AccountsController_GetAsync(Aid);
+            var returnedAccount = await _apiClient.Accounts_GetAsync(Aid);
             _CurrentAccount = returnedAccount;
             return returnedAccount;
         }
@@ -50,7 +46,7 @@ namespace OrphanageV3.ViewModel.Account
             try
             {
                 account.UserId = Program.CurrentUser.Id;
-                var retBail = (OrphanageDataModel.FinancialData.Account)await _apiClient.AccountsController_PostAsync(account);
+                var retBail = (OrphanageDataModel.FinancialData.Account)await _apiClient.Accounts_PostAsync(account);
             }
             catch (ApiClientException apiEx)
             {

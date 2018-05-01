@@ -372,6 +372,7 @@
             this.mnuNewOrphan});
             this.btnNew.Location = new System.Drawing.Point(284, 251);
             this.btnNew.Name = "btnNew";
+            this.btnNew.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnNew.Size = new System.Drawing.Size(110, 28);
             this.btnNew.TabIndex = 1;
             this.btnNew.Text = "New";

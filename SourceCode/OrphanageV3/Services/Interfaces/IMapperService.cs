@@ -28,9 +28,9 @@ namespace OrphanageV3.Services.Interfaces
 
         Task<MotherModel> MapToMotherModel(Mother mother);
 
-        Task<IEnumerable<FatherModel>> MapToFatherModel(IEnumerable<Father> fathersList);
+        IEnumerable<FatherModel> MapToFatherModel(IEnumerable<Father> fathersList);
 
-        Task<FatherModel> MapToFatherModel(Father father);
+        FatherModel MapToFatherModel(Father father);
 
         IEnumerable<FamilyModel> MapToFamilyModel(IEnumerable<Family> familyList);
 
