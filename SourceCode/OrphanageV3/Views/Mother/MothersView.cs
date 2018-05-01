@@ -200,5 +200,7 @@ namespace OrphanageV3.Views.Mother
         {
             _mothersViewModel.Update(ObjectId);
         }
+
+        public string GetTitle() => this.Text;
     }
 }

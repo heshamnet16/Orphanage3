@@ -7,5 +7,7 @@ namespace OrphanageV3.Views.Interfaces
         OrphanageGridView GetOrphanageGridView();
 
         void Update(int ObjectId);
+
+        string GetTitle();
     }
 }

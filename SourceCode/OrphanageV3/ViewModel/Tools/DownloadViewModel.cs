@@ -13,13 +13,13 @@ namespace OrphanageV3.ViewModel.Tools
     {
         public ObservableCollection<DownloadDataModel> DownloadedDataList { get; private set; }
 
-        public delegate void AddedDelegate(DownloadDataModel downloadDataModel);
+        public delegate void DownloadDataModelDelegate(DownloadDataModel downloadDataModel);
 
-        public delegate void RemovedDelegate(DownloadDataModel downloadDataModel);
+        public event DownloadDataModelDelegate Added;
 
-        public event AddedDelegate Added;
+        public event DownloadDataModelDelegate Removed;
 
-        public event RemovedDelegate Removed;
+        public event DownloadDataModelDelegate Downloaded;
 
         private static int counter = 0;
 
@@ -28,11 +28,13 @@ namespace OrphanageV3.ViewModel.Tools
             DownloadedDataList = new ObservableCollection<DownloadDataModel>();
         }
 
-        public void Add(DownloadDataModel downloadDataModel)
+        public async void Add(DownloadDataModel downloadDataModel, Task<byte[]> callback)
         {
             downloadDataModel.Id = counter++;
             DownloadedDataList.Add(downloadDataModel);
             Added?.Invoke(downloadDataModel);
+            downloadDataModel.Data = await callback;
+            Downloaded?.Invoke(downloadDataModel);
         }
 
         public void Remove(DownloadDataModel downloadDataModel)

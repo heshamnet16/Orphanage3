@@ -15,6 +15,8 @@ namespace OrphanageV3.Views.Caregiver
         private CaregiversViewModel _caregiversViewModel = Program.Factory.Resolve<CaregiversViewModel>();
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
 
+        public string GetTitle() => this.Text;
+
         public CaregiversView()
         {
             InitializeComponent();

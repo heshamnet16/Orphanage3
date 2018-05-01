@@ -12,9 +12,12 @@ using Unity;
 
 namespace OrphanageV3.Views.Tools
 {
-    public partial class DownloadView : Telerik.WinControls.UI.RadForm
+    public partial class DownloadView : RadForm
     {
         private DownloadViewModel _downloadViewModel = null;
+
+        private int _RadDropDownButtonWidthPadding = 5;
+        private int _RadDropDownButtonHeight = 30;
 
         public DownloadView()
         {
@@ -22,42 +25,119 @@ namespace OrphanageV3.Views.Tools
             _downloadViewModel = Program.Factory.Resolve<DownloadViewModel>();
             _downloadViewModel.Added += _downloadViewModel_Added;
             _downloadViewModel.Removed += _downloadViewModel_Removed;
+            _downloadViewModel.Downloaded += _downloadViewModel_Downloaded;
+        }
+
+        private void _downloadViewModel_Downloaded(DownloadDataModel downloadDataModel)
+        {
+            TableLayoutPanel tblToDelete = getControlById(downloadDataModel.Id);
+            if (tblToDelete != null)
+            {
+                RadWaitingBar radWaitingBar = null;
+                foreach (var cont in tblToDelete.Controls)
+                {
+                    if (cont is RadDropDownButton)
+                    {
+                        var btn = (RadDropDownButton)cont;
+                        btn.Enabled = true;
+                    }
+                    if (cont is RadWaitingBar)
+                    {
+                        var wBar = (RadWaitingBar)cont;
+                        wBar.StopWaiting();
+                        radWaitingBar = wBar;
+                    }
+                }
+                if (radWaitingBar != null)
+                {
+                    tblToDelete.Controls.Remove(radWaitingBar);
+                    tblToDelete.ColumnStyles.RemoveAt(1);
+                }
+            }
         }
 
         private void _downloadViewModel_Removed(DownloadDataModel downloadDataModel)
         {
-            RadDropDownButton btnToDelete = null;
+            TableLayoutPanel tblToDelete = getControlById(downloadDataModel.Id);
+            if (tblToDelete != null)
+                flowLayoutPanel1.Controls.Remove(tblToDelete);
+        }
+
+        private TableLayoutPanel getControlById(int DownloadDataModelId)
+        {
             foreach (var con in flowLayoutPanel1.Controls)
             {
                 try
                 {
-                    var btn = (RadDropDownButton)con;
-                    var id = (int)btn.Tag;
-                    if (id == downloadDataModel.Id)
+                    var tbl = (TableLayoutPanel)con;
+                    var id = (int)tbl.Tag;
+                    if (id == DownloadDataModelId)
                     {
-                        btnToDelete = btn;
-                        break;
+                        return tbl;
                     }
                 }
                 catch { }
             }
-            if (btnToDelete != null)
-                flowLayoutPanel1.Controls.Remove(btnToDelete);
+            return null;
         }
 
         private void _downloadViewModel_Added(DownloadDataModel downloadDataModel)
         {
-            CreateDropDownButton(downloadDataModel);
+            CreateDownloadObject(downloadDataModel);
         }
 
-        private void CreateDropDownButton(DownloadDataModel downloadDataModel)
+        private TableLayoutPanel CreateTableLayoutPanel(DownloadDataModel downloadDataModel)
         {
+            TableLayoutPanel tbl = new TableLayoutPanel();
+            tbl.ColumnCount = 2;
+            tbl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tbl.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60));
+            tbl.Name = "tableLayoutPanel1";
+            tbl.RowCount = 1;
+            tbl.Tag = downloadDataModel.Id;
+            tbl.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbl.Size = new Size(flowLayoutPanel1.Width - 5, _RadDropDownButtonHeight); ;
+            return tbl;
+        }
+
+        private void CreateDownloadObject(DownloadDataModel downloadDataModel)
+        {
+            var tbl = CreateTableLayoutPanel(downloadDataModel);
             RadDropDownButton btn = new RadDropDownButton();
             btn.Text = downloadDataModel.Name;
             btn.Tag = downloadDataModel.Id;
-            btn.Size = new Size(flowLayoutPanel1.Width - 5, 30);
+            btn.Dock = DockStyle.Fill;
             CreateMenuItems(btn);
-            flowLayoutPanel1.Controls.Add(btn);
+            if (downloadDataModel.Data == null)
+            {
+                //not downloaded yet
+                btn.Enabled = false;
+                tbl.Controls.Add(btn, 0, 0);
+                tbl.Controls.Add(createWatingBar(downloadDataModel), 1, 0);
+            }
+            else
+            {
+                //downloaded data
+                tbl.Controls.Add(btn, 0, 0);
+                tbl.ColumnStyles.RemoveAt(1);
+            }
+            flowLayoutPanel1.Controls.Add(tbl);
+        }
+
+        private RadWaitingBar createWatingBar(DownloadDataModel downloadDataModel)
+        {
+            RadWaitingBar radWaitingBar1 = new RadWaitingBar();
+            DotsSpinnerWaitingBarIndicatorElement dotsSpinnerWaitingBarIndicatorElement1 = new DotsSpinnerWaitingBarIndicatorElement();
+            radWaitingBar1.Dock = DockStyle.Fill;
+            radWaitingBar1.Location = new Point(3, 3);
+            radWaitingBar1.Size = new Size(54, 57);
+            radWaitingBar1.TabIndex = 1;
+            radWaitingBar1.WaitingIndicators.Add(dotsSpinnerWaitingBarIndicatorElement1);
+            radWaitingBar1.WaitingSpeed = 100;
+            radWaitingBar1.WaitingStyle = Telerik.WinControls.Enumerations.WaitingBarStyles.DotsSpinner;
+            radWaitingBar1.Tag = downloadDataModel.Id;
+            radWaitingBar1.StartWaiting();
+            return radWaitingBar1;
         }
 
         private void CreateMenuItems(RadDropDownButton btn)
@@ -92,7 +172,7 @@ namespace OrphanageV3.Views.Tools
         {
             foreach (var itm in _downloadViewModel.DownloadedDataList)
             {
-                CreateDropDownButton(itm);
+                CreateDownloadObject(itm);
             }
         }
 
@@ -100,8 +180,8 @@ namespace OrphanageV3.Views.Tools
         {
             foreach (var elem in flowLayoutPanel1.Controls)
             {
-                var btn = (RadDropDownButton)elem;
-                btn.Size = new Size(flowLayoutPanel1.Width - 5, 30);
+                var tbl = (TableLayoutPanel)elem;
+                tbl.Size = new Size(flowLayoutPanel1.Width - _RadDropDownButtonWidthPadding, _RadDropDownButtonHeight);
             }
         }
     }

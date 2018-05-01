@@ -16,6 +16,8 @@ namespace OrphanageV3.Views.Account
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _accountsIds = null;
 
+        public string GetTitle() => this.Text;
+
         public AccountsView()
         {
             InitializeComponent();

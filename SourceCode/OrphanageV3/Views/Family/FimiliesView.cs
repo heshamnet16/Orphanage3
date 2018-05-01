@@ -18,6 +18,8 @@ namespace OrphanageV3.Views.Family
         private IEnumerable<int> _FamiliesIdsList;
         private IEnumerable<OrphanageDataModel.RegularData.Family> _FamiliesList;
 
+        public string GetTitle() => this.Text;
+
         public FimiliesView()
         {
             InitializeComponent();

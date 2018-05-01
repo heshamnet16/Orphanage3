@@ -17,6 +17,8 @@ namespace OrphanageV3.Views.Guarantor
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _guarantorsIds = null;
 
+        public string GetTitle() => this.Text;
+
         public GuarantorsView()
         {
             InitializeComponent();

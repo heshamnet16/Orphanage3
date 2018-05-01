@@ -16,6 +16,8 @@ namespace OrphanageV3.Views.Bail
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _bailsIds = null;
 
+        public string GetTitle() => this.Text;
+
         public BailsView()
         {
             InitializeComponent();

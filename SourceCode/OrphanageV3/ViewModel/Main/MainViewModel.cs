@@ -220,19 +220,18 @@ namespace OrphanageV3.ViewModel.Main
             }
         }
 
-        public async void ConvertToExcel()
+        public void ConvertToExcel()
         {
             var view = getActiveView();
             _radHelper.GridView = view.GetOrphanageGridView().GridView;
             var data = _radHelper.GetSelectedData(view.GetOrphanageGridView().SelectedRows);
-            var ret = await _apiClient.Excel_CreateXlsxAsync(new OrphanageDataModel.RegularData.ExportData() { Data = data });
+            var ret = _apiClient.Excel_CreateXlsxAsync(new OrphanageDataModel.RegularData.ExportData() { Data = data });
             var downloadDataModel = new DownloadDataModel()
             {
-                Data = ret,
                 DataType = FileExtentionEnum.xlsx,
-                Name = "Excel"
+                Name = view.GetTitle() + " (Excel)"
             };
-            _downloadViewModel.Add(downloadDataModel);
+            _downloadViewModel.Add(downloadDataModel, ret);
         }
 
         public IView getActiveView()

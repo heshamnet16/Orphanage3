@@ -15,6 +15,8 @@ namespace OrphanageV3.Views.Father
         private IRadGridHelper _radGridHelper = Program.Factory.Resolve<IRadGridHelper>();
         private IEnumerable<int> _FathersIdsList;
 
+        public string GetTitle() => this.Text;
+
         public FathersView()
         {
             InitializeComponent();

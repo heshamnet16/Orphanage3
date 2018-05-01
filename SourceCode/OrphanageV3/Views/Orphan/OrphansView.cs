@@ -29,6 +29,8 @@ namespace OrphanageV3.Views.Orphan
         private IEnumerable<int> _orphansIds;
         private IEnumerable<OrphanageDataModel.Persons.Orphan> _orphansList;
 
+        public string GetTitle() => this.Text;
+
         public OrphansView()
         {
             InitializeComponent();
