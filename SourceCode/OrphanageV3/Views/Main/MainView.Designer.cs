@@ -62,6 +62,8 @@
             this.mnuShowBills = new Telerik.WinControls.UI.RadMenuItem();
             this.SepShowUser = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowUsers = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem11 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.mnuShowDownload = new Telerik.WinControls.UI.RadMenuItem();
             this.radMnuAccounts = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuNewAccount = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem6 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
@@ -107,16 +109,14 @@
             this.CommandBarSeparator1 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.btnPrintPreview = new Telerik.WinControls.UI.CommandBarButton();
             this.btnPrint = new Telerik.WinControls.UI.CommandBarButton();
-            this.radMenuSeparatorItem11 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
-            this.mnuShowDownload = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadCommandBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.RadCommandBar1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).BeginInit();
-            this.RadMenu1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuNew
@@ -388,6 +388,18 @@
             this.mnuShowUsers.Name = "mnuShowUsers";
             this.mnuShowUsers.Text = "مستخدمين";
             // 
+            // radMenuSeparatorItem11
+            // 
+            this.radMenuSeparatorItem11.Name = "radMenuSeparatorItem11";
+            this.radMenuSeparatorItem11.Text = "radMenuSeparatorItem11";
+            this.radMenuSeparatorItem11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // mnuShowDownload
+            // 
+            this.mnuShowDownload.Name = "mnuShowDownload";
+            this.mnuShowDownload.Text = "show Download";
+            this.mnuShowDownload.Click += new System.EventHandler(this.mnuShowDownload_Click);
+            // 
             // radMnuAccounts
             // 
             this.radMnuAccounts.Items.AddRange(new Telerik.WinControls.RadItem[] {
@@ -628,7 +640,7 @@
             // lblRemainingTime
             // 
             this.lblRemainingTime.AutoSize = false;
-            this.lblRemainingTime.Location = new System.Drawing.Point(58, 1);
+            this.lblRemainingTime.Location = new System.Drawing.Point(66, 18);
             this.lblRemainingTime.Name = "lblRemainingTime";
             this.lblRemainingTime.Size = new System.Drawing.Size(100, 18);
             this.lblRemainingTime.TabIndex = 10;
@@ -639,7 +651,7 @@
             // 
             this.lblRemainingTimeValue.AutoSize = false;
             this.lblRemainingTimeValue.ForeColor = System.Drawing.Color.Red;
-            this.lblRemainingTimeValue.Location = new System.Drawing.Point(2, 1);
+            this.lblRemainingTimeValue.Location = new System.Drawing.Point(3, 18);
             this.lblRemainingTimeValue.Name = "lblRemainingTimeValue";
             this.lblRemainingTimeValue.Size = new System.Drawing.Size(51, 18);
             this.lblRemainingTimeValue.TabIndex = 9;
@@ -674,6 +686,8 @@
             // 
             // RadCommandBar1
             // 
+            this.RadCommandBar1.Controls.Add(this.lblRemainingTimeValue);
+            this.RadCommandBar1.Controls.Add(this.lblRemainingTime);
             this.RadCommandBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.RadCommandBar1.Location = new System.Drawing.Point(0, 20);
             this.RadCommandBar1.Name = "RadCommandBar1";
@@ -818,29 +832,9 @@
             this.btnPrint.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnPrint.ToolTipText = "طباعة";
             // 
-            // radMenuSeparatorItem11
-            // 
-            this.radMenuSeparatorItem11.Name = "radMenuSeparatorItem11";
-            this.radMenuSeparatorItem11.Text = "radMenuSeparatorItem11";
-            this.radMenuSeparatorItem11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // mnuShowDownload
-            // 
-            this.mnuShowDownload.Name = "mnuShowDownload";
-            this.mnuShowDownload.Text = "show Download";
-            this.mnuShowDownload.Click += new System.EventHandler(this.mnuShowDownload_Click);
-            // 
-            // MainView
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 561);
-            // 
             // RadMenu1
             // 
             this.RadMenu1.AllItemsEqualHeight = true;
-            this.RadMenu1.Controls.Add(this.lblRemainingTime);
-            this.RadMenu1.Controls.Add(this.lblRemainingTimeValue);
             this.RadMenu1.DropDownAnimationEnabled = true;
             this.RadMenu1.ImageList = this.imageList1;
             this.RadMenu1.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -855,6 +849,12 @@
             this.RadMenu1.Name = "RadMenu1";
             this.RadMenu1.Size = new System.Drawing.Size(1034, 20);
             this.RadMenu1.TabIndex = 5;
+            // 
+            // MainView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1034, 561);
             this.Controls.Add(this.RadCommandBar1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.RadMenu1);
@@ -873,8 +873,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadCommandBar1)).EndInit();
+            this.RadCommandBar1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RadMenu1)).EndInit();
-            this.RadMenu1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
