@@ -1,4 +1,4 @@
-﻿using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.RegularData.DTOs;
 using OrphanageService.Services.Interfaces;
 using System.Threading.Tasks;
 using System.Web.Http;

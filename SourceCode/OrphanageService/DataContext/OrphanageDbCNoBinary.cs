@@ -34,6 +34,7 @@ namespace OrphanageService.DataContext
                 .Ignore(o => o.FacePhotoData)
                 .Ignore(o => o.FamilyCardPagePhotoData)
                 .Ignore(o => o.FullPhotoData);
+
             modelBuilder.Entity<OrphanageDataModel.RegularData.Address>()
                 .HasMany(e => e.Caregivers)
                 .WithOptional(e => e.Address)

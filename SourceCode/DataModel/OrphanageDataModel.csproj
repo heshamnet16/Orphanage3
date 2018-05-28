@@ -61,7 +61,11 @@
     <Compile Include="FinancialData\Bail.cs" />
     <Compile Include="Persons\Caregiver.cs" />
     <Compile Include="FinancialData\Account.cs" />
-    <Compile Include="RegularData\ExportData.cs" />
+    <Compile Include="RegularData\DTOs\DataTypeEnum.cs" />
+    <Compile Include="RegularData\DTOs\ExportData.cs" />
+    <Compile Include="RegularData\DTOs\ImageReference.cs" />
+    <Compile Include="RegularData\DTOs\WordPage.cs" />
+    <Compile Include="RegularData\DTOs\WordTemplete.cs" />
     <Compile Include="RegularData\Family.cs" />
     <Compile Include="Persons\Father.cs" />
     <Compile Include="Persons\Guarantor.cs" />

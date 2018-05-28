@@ -5,6 +5,7 @@
 //----------------------
 using OrphanageDataModel.FinancialData;
 using OrphanageDataModel.RegularData;
+using OrphanageDataModel.RegularData.DTOs;
 using OrphanageDataModel.Persons;
 namespace OrphanageV3.Services
 {

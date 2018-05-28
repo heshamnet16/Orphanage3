@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OrphanageDataModel.RegularData
+namespace OrphanageDataModel.RegularData.DTOs
 {
     public class ExportData
     {
