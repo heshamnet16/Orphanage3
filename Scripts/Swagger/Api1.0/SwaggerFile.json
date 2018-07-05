@@ -2075,6 +2075,38 @@
         }
       }
     },
+    "/api/databank/script/executer": {
+      "put": {
+        "tags": [
+          "DataBanks"
+        ],
+        "operationId": "DataBanks_ExecuteScript",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "scripts",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
     "/api/office/excel": {
       "post": {
         "tags": [

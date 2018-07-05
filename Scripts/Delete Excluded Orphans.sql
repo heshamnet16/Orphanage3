@@ -115,9 +115,12 @@ delete from Orphans where IsExcluded = 1
 go
 
 delete from BondsMen where ID not in (select Orphans.BondsMan_ID from orphans)
+GO
 
 delete from Famlies where id not in (select Orphans.Family_ID from Orphans)
+GO
 
 delete from Fathers where ID not in (select Famlies.Father_Id from Famlies)
-
+GO
 delete from Mothers where ID not in (select Famlies.Mother_ID from Famlies)
+GO

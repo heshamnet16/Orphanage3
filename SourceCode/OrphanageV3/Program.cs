@@ -124,6 +124,7 @@ namespace OrphanageV3
             currentContainer.RegisterType<BailsViewModel>();
             currentContainer.RegisterSingleton<LoginViewModel>();
             currentContainer.RegisterSingleton<DownloadViewModel>();
+
             return currentContainer;
         }
 

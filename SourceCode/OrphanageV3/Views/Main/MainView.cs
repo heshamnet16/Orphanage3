@@ -44,6 +44,7 @@ namespace OrphanageV3.Views.Main
             mnuNewGuarantor.Text = Properties.Resources.Guarantor;
             mnuShowAccounts.Text = Properties.Resources.Accounts;
             mnuShowDownload.Text = Properties.Resources.ShowDownloads;
+            mnuCustomSQL.Text = Properties.Resources.RunCustomSQL;
             lblRemainingTime.Text = Properties.Resources.RemainingTime.getDobblePunkt();
             lblRemainingTime.TextAlignment = ContentAlignment.MiddleLeft;
             lblRemainingTimeValue.TextAlignment = ContentAlignment.MiddleRight;
@@ -253,6 +254,11 @@ namespace OrphanageV3.Views.Main
         private void mnuShowDownload_Click(object sender, EventArgs e)
         {
             _mainViewModel.ShowDownloadView();
+        }
+
+        private void mnuCustomSQL_Click(object sender, EventArgs e)
+        {
+            _mainViewModel.ShowCustomSQLView();
         }
     }
 }

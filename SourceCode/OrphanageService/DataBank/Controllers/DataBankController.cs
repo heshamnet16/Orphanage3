@@ -10,10 +10,12 @@ namespace OrphanageService.DataBank.Controllers
     public class DataBanksController : ApiController
     {
         private readonly IRegularDataService _regularDataService;
+        private readonly ISQLStatmentsExecuter _sQLStatmentsExecuter;
 
-        public DataBanksController(IRegularDataService regularDataService)
+        public DataBanksController(IRegularDataService regularDataService, ISQLStatmentsExecuter sQLStatmentsExecuter)
         {
             _regularDataService = regularDataService;
+            _sQLStatmentsExecuter = sQLStatmentsExecuter;
         }
 
         //api/databse/clean/addresses
@@ -49,6 +51,16 @@ namespace OrphanageService.DataBank.Controllers
         public async Task<IEnumerable<OrphanageDataModel.RegularData.Health>> CleanHealths()
         {
             var ret = await _regularDataService.CleanHealthies();
+            return ret;
+        }
+
+        //api/databse/script/executer
+        [HttpPut]
+        [Route("script/executer")]
+        [Authorize(Roles = "Admin")]
+        public async Task<int> ExecuteScript(string scripts)
+        {
+            var ret = await _sQLStatmentsExecuter.ExecuteCommands(scripts);
             return ret;
         }
     }

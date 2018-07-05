@@ -1355,4 +1355,13 @@
   <data name="ShowDownloads" xml:space="preserve">
     <value>عرض التنزيلات</value>
   </data>
+  <data name="RunCustomSQL" xml:space="preserve">
+    <value>سكربت</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="SQLReturnMessage" xml:space="preserve">
+    <value>تم إجراء [UPDATE] تغيرات على قاعدة البينات</value>
+  </data>
 </root>

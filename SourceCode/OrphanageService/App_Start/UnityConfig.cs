@@ -70,6 +70,7 @@ namespace OrphanageService
             container.RegisterType<ICheckerService, CheckerService>();
             container.RegisterType<ISecurePasswordHasher, SecurePasswordHasher>();
             container.RegisterType<IExcelService, ExcelService>();
+            container.RegisterType<ISQLStatmentsExecuter, SQLStatmentsExecuterService>();
         }
     }
 }

@@ -179,6 +179,11 @@ namespace OrphanageV3.ViewModel.Main
             ShowView(new Views.Guarantor.GuarantorEditView(GuarantorId));
         }
 
+        public void ShowCustomSQLView()
+        {
+            ShowView(new Views.Tools.CustomSQLView());
+        }
+
         public void ShowDownloadView()
         {
             ShowView(new Views.Tools.DownloadView());

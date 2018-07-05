@@ -11,8 +11,11 @@ BEGIN
 	ALTER LOGIN [OrphansApp] ENABLE
 	EXEC sp_addsrvrolemember 'OrphansApp', 'dbcreator'
 END
+GO
 
 USE [OrphansDB]
+GO
+
 IF EXISTS (SELECT * FROM sys.database_principals WHERE name = 'OrphansApp' AND type = 'S')
 BEGIN
 	DROP USER [OrphansApp]
@@ -26,8 +29,10 @@ END
 GO
 
 use OrphansDB;
+GO
 
 update Users set Password='$OrphanHASH$V1$10000$Q1QQ8svGPImwbLr7nHqYEqABMUBm9DjT+94ArcYuISS5K4zuUlQ0wI2eSTNCjhBpkhfbZ2zFxMw=' where ID =1
+GO
 
 ALTER TABLE USERS
 ALTER COLUMN USERNAME nvarchar(450);
@@ -45,30 +50,38 @@ GO
 
 ALTER TABLE Mothers
 ALTER COLUMN Dieday datetime2;
+GO
 
 ALTER TABLE Orphans
 ALTER COLUMN Weight int;
+GO
 
 ALTER TABLE Orphans
 ALTER COLUMN Tallness int;
+GO
 
 ALTER TABLE BondsMen
 ALTER COLUMN  IdentityCard_ID nvarchar(30);
+GO
 
 ALTER TABLE Fathers
 ALTER COLUMN  IdentityCard_ID nvarchar(30);
+GO
 
 ALTER TABLE Mothers
 ALTER COLUMN  IdentityCard_ID nvarchar(30);
+GO
 
 ALTER TABLE Orphans
 ALTER COLUMN  IdentityNumber nvarchar(30);
+GO
 
 ALTER TABLE [dbo].[Bails] DROP CONSTRAINT [Supporter_Bail]
 GO
 
 ALTER TABLE Bails
 ALTER COLUMN Supporter_ID  int NOT NULL;
+GO
 
 ALTER TABLE [dbo].[Bails]  WITH CHECK ADD  CONSTRAINT [Supporter_Bail] FOREIGN KEY([Supporter_ID])
 REFERENCES [dbo].[Supporters] ([ID])
