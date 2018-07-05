@@ -68,11 +68,13 @@
       <HintPath>I:\Programming\Orphanage\PictureSelector\WindowsControlLibrary1\bin\Release\PictureSelector.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,6 +89,7 @@
     </Reference>
     <Reference Include="Telerik.WinControls.GridView, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.RadDiagram, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RichTextEditor, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Scheduler, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.2.503.40\Telerik.WinControls.UI.dll</HintPath>
@@ -95,6 +98,9 @@
     <Reference Include="TelerikCommon, Version=2016.2.503.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.2.503.40\TelerikCommon.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="TetraSQLFormatter, Version=1.5.1.2099, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TetraSQLFormatter.1.2.0\lib\net35\TetraSQLFormatter.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Abstractions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.6.1\lib\net45\Unity.Abstractions.dll</HintPath>
@@ -330,6 +336,12 @@
     <Compile Include="Views\Summary\SummaryView.Designer.cs">
       <DependentUpon>SummaryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tools\CustomSQLView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\CustomSQLView.Designer.cs">
+      <DependentUpon>CustomSQLView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tools\DownloadView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,6 +442,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Summary\SummaryView.resx">
       <DependentUpon>SummaryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\CustomSQLView.resx">
+      <DependentUpon>CustomSQLView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\DownloadView.resx">
       <DependentUpon>DownloadView.cs</DependentUpon>

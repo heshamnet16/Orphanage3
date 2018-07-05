@@ -281,6 +281,7 @@
     <Compile Include="Services\Interfaces\ILogger.cs" />
     <Compile Include="Services\Interfaces\IMotherDbService.cs" />
     <Compile Include="Services\Interfaces\IRegularDataService.cs" />
+    <Compile Include="Services\Interfaces\ISQLStatmentsExcuter.cs" />
     <Compile Include="Services\Interfaces\IUserDbService.cs" />
     <Compile Include="Services\Logger.cs" />
     <Compile Include="Services\MotherDbService.cs" />
@@ -295,6 +296,7 @@
     </Compile>
     <Compile Include="Services\Interfaces\IOrphanDbService.cs" />
     <Compile Include="Services\RegularDataService.cs" />
+    <Compile Include="Services\SQLStatmentsExcuterService.cs" />
     <Compile Include="Services\UserDbService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="User\Controllers\UsersController.cs" />

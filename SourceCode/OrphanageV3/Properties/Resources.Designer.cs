@@ -3303,6 +3303,15 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die سكربت ähnelt.
+        /// </summary>
+        public static string RunCustomSQL {
+            get {
+                return ResourceManager.GetString("RunCustomSQL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die حفظ باسم ähnelt.
         /// </summary>
         public static string SaveAs {
@@ -3345,6 +3354,15 @@ namespace OrphanageV3.Properties {
         public static string SellectAll {
             get {
                 return ResourceManager.GetString("SellectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ارسال ähnelt.
+        /// </summary>
+        public static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
             }
         }
         
@@ -3473,6 +3491,15 @@ namespace OrphanageV3.Properties {
             get {
                 object obj = ResourceManager.GetObject("SiblingsPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم إجراء [UPDATE] تغيرات على قاعدة البينات ähnelt.
+        /// </summary>
+        public static string SQLReturnMessage {
+            get {
+                return ResourceManager.GetString("SQLReturnMessage", resourceCulture);
             }
         }
         

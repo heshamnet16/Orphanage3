@@ -1,4 +1,5 @@
-﻿using OrphanageService.Services.Interfaces;
+﻿using Microsoft.Owin.Hosting;
+using OrphanageService.Services.Interfaces;
 using System;
 using System.ServiceProcess;
 using Unity;

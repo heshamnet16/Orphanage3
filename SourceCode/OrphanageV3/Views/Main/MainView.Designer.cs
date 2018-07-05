@@ -80,7 +80,7 @@
             this.RadMenuSeparatorItem8 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuCreateSalaryTable = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem10 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
-            this.mnuCorrections = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuCustomSQL = new Telerik.WinControls.UI.RadMenuItem();
             this.RadMenuSeparatorItem7 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowSetting = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuApperance = new Telerik.WinControls.UI.RadMenuItem();
@@ -461,7 +461,7 @@
             this.RadMenuSeparatorItem8,
             this.mnuCreateSalaryTable,
             this.RadMenuSeparatorItem10,
-            this.mnuCorrections,
+            this.mnuCustomSQL,
             this.RadMenuSeparatorItem7,
             this.mnuShowSetting});
             this.mnuTools.Name = "mnuTools";
@@ -519,11 +519,12 @@
             this.RadMenuSeparatorItem10.Text = "RadMenuSeparatorItem10";
             this.RadMenuSeparatorItem10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // mnuCorrections
+            // mnuCustomSQL
             // 
-            this.mnuCorrections.Enabled = false;
-            this.mnuCorrections.Name = "mnuCorrections";
-            this.mnuCorrections.Text = "تحقق و تصحيح";
+            this.mnuCustomSQL.Enabled = false;
+            this.mnuCustomSQL.Name = "mnuCustomSQL";
+            this.mnuCustomSQL.Text = "CustomSQL";
+            this.mnuCustomSQL.Click += new System.EventHandler(this.mnuCustomSQL_Click);
             // 
             // RadMenuSeparatorItem7
             // 
@@ -930,7 +931,7 @@
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem8;
         internal Telerik.WinControls.UI.RadMenuItem mnuCreateSalaryTable;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem10;
-        internal Telerik.WinControls.UI.RadMenuItem mnuCorrections;
+        internal Telerik.WinControls.UI.RadMenuItem mnuCustomSQL;
         internal Telerik.WinControls.UI.RadMenuSeparatorItem RadMenuSeparatorItem7;
         internal Telerik.WinControls.UI.RadMenuItem mnuShowSetting;
         internal Telerik.WinControls.UI.RadMenuItem mnuApperance;
