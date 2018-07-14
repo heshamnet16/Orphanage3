@@ -28,7 +28,7 @@ namespace OrphanageService
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 ApplicationCanDisplayErrors = true,
-                AllowInsecureHttp = true,
+                //AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/Token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(1),
                 Provider = new AuthorizationService()
