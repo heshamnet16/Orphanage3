@@ -45,6 +45,27 @@ namespace OrphanageService.Orphan.Controllers
                 return ret;
         }
 
+        [HttpGet]
+        [Route("Bailed")]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBailedOrphans()
+        {
+            var ret = await _OrphanDBService.GetBailedOrphans();
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
+
+        [HttpGet]
+        [Route("unBailed")]
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetUnBailedOrphans()
+        {
+            var ret = await _OrphanDBService.GetUnBailedOrphans();
+            if (ret == null)
+                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+            else
+                return ret;
+        }
         [Authorize(Roles = "Admin, CanDelete")]
         [HttpPut]
         [Route("BailOrphans/{BailId}")]

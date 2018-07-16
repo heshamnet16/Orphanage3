@@ -6102,58 +6102,6 @@
         }
       }
     },
-    "/api/orphan/Bailed": {
-      "get": {
-        "tags": [
-          "Orphans"
-        ],
-        "operationId": "Orphans_GetBailedOrphans",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Orphan"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/orphan/unBailed": {
-      "get": {
-        "tags": [
-          "Orphans"
-        ],
-        "operationId": "Orphans_GetUnBailedOrphans",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Orphan"
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/orphan/BailOrphans/{BailId}": {
       "put": {
         "tags": [

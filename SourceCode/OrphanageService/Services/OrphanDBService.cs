@@ -1,4 +1,5 @@
-﻿using OrphanageDataModel.RegularData;
+﻿using OrphanageDataModel.Persons;
+using OrphanageDataModel.RegularData;
 using OrphanageService.DataContext;
 using OrphanageService.Services.Exceptions;
 using OrphanageService.Services.Interfaces;
@@ -1184,6 +1185,57 @@ namespace OrphanageService.Services
                 }
             }
             return ret;
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBailedOrphans()
+        {
+            _logger.Information($"trying to get all bailed orphans");
+            IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var orphans = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Education)
+                    .Include(o => o.Name)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
+                    .Include(o => o.Bail)
+                    .Include(o => o.HealthStatus)
+                    .Where(o=>o.IsBailed || o.BailId.HasValue)
+                    .ToListAsync();
+
+                return prepareOrphansList(orphans);
+            }
+        }
+
+        public async Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetUnBailedOrphans()
+        {
+            _logger.Information($"trying to get all orphans, those are not bailed");
+            IList<OrphanageDataModel.Persons.Orphan> orphansList = new List<OrphanageDataModel.Persons.Orphan>();
+            using (var _orphanageDBC = new OrphanageDbCNoBinary())
+            {
+                var orphans = await _orphanageDBC.Orphans.AsNoTracking()
+                    .Include(o => o.Education)
+                    .Include(o => o.Name)
+                    .Include(o => o.Caregiver.Name)
+                    .Include(o => o.Caregiver.Address)
+                    .Include(o => o.Family.Father.Name)
+                    .Include(o => o.Family.Mother.Name)
+                    .Include(o => o.Family.PrimaryAddress)
+                    .Include(o => o.Family.AlternativeAddress)
+                    .Include(o => o.Guarantor.Name)
+                    .Include(o => o.Bail)
+                    .Include(o => o.HealthStatus)
+                    .Where(o => !o.IsBailed && !o.BailId.HasValue)
+                    .ToListAsync();
+
+                return prepareOrphansList(orphans);
+            }
+
         }
     }
 }
