@@ -64,20 +64,15 @@ namespace OrphanageV3.ViewModel.Main
 
         public async void ShowBailedOrphan()
         {
-            var orphanCount = await _apiClient.Orphans_GetOrphansCountAsync();
-            var orphans = await _apiClient.Orphans_GetAllAsync(orphanCount, 0);
-            var bailedOrphans = orphans.Where(o => o.IsBailed || o.Family.IsBailed || o.BailId.HasValue || o.Family.BailId.HasValue).Select(o => o.Id)
-                .ToList();
+            var bailedOrphans = await _apiClient.Orphans_GetBailedOrphansAsync();
             ShowView(new Views.Orphan.OrphansView(bailedOrphans));
         }
 
         public async void ShowUnBailedOrphan()
         {
-            var orphanCount = await _apiClient.Orphans_GetOrphansCountAsync();
-            var orphans = await _apiClient.Orphans_GetAllAsync(orphanCount, 0);
-            var bailedOrphans = orphans.Where(o => o.IsBailed == false && o.Family.IsBailed == false
-                            && !o.BailId.HasValue && !o.Family.BailId.HasValue).Select(o => o.Id).ToList();
-            ShowView(new Views.Orphan.OrphansView(bailedOrphans));
+            var unBailedOrphans = await _apiClient.Orphans_GetUnBailedOrphansAsync();
+
+            ShowView(new Views.Orphan.OrphansView(unBailedOrphans));
         }
 
         public void ShowFamiliesView()

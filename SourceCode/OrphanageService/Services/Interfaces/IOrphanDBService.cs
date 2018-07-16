@@ -14,6 +14,10 @@ namespace OrphanageService.Services.Interfaces
 
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetExcludedOrphans();
 
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBailedOrphans();
+
+        Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetUnBailedOrphans();
+
         Task<IEnumerable<OrphanageDataModel.Persons.Orphan>> GetBrothers(int Oid);
 
         Task<bool> BailOrphans(int BailId, IList<int> ids);
