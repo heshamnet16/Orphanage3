@@ -3,7 +3,6 @@ using OrphanageService.Services.Interfaces;
 using System;
 using System.ServiceProcess;
 using Unity;
-using W.Firewall;
 
 namespace OrphanageService
 {
@@ -21,14 +20,11 @@ namespace OrphanageService
                 catch { }
             }
             var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
-            AddUser("hesham", logger);
             try
             {
-                CreateFirewallRules();
-                if (!PowerShellExecuter.IsExist())
-                    PowerShellExecuter.CreateAndRunPsFileScript();
 
                 // commit to debug the service
+                logger.Information("try to startup the service");
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[]
                 {
@@ -50,57 +46,5 @@ namespace OrphanageService
             }
         }
 
-        private static void AddUser(string userName, ILogger logger)
-        {
-            try
-            {
-                var usr = new OrphanageDataModel.Persons.User()
-                {
-                    CanAdd = true,
-                    CanRead = true,
-                    Password = "1234",
-                    UserName = userName
-                };
-                var userDbService = UnityConfig.GetConfiguredContainer().Resolve<IUserDbService>();
-                userDbService.AddUser(usr);
-            }
-            catch { }
-        }
-
-        private static void CreateFirewallRules()
-        {
-            var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
-            try
-            {
-                logger.Information("checking if firewall is existed");
-                if (!Rules.Exists("Orphanage3"))
-                {
-                    logger.Information("trying create firewall rules");
-                    Rules.Add("Orphanage3", "", localPorts: "1515");
-                    logger.Information("firewall rules are successfully created");
-                }
-                else
-                {
-                    logger.Information("firewall rules are already existed");
-                }
-            }
-            catch (Exception ex)
-            {
-                logger.Fatal("Connot create Orphanage3 rule");
-                logger.Fatal(ex.Message);
-                if (ex.InnerException != null)
-                {
-                    logger.Fatal(ex.InnerException.Message);
-                    if (ex.InnerException.InnerException != null)
-                    {
-                        logger.Fatal(ex.InnerException.InnerException.Message);
-                        if (ex.InnerException.InnerException.InnerException != null)
-                        {
-                            logger.Fatal(ex.InnerException.InnerException.InnerException.Message);
-                        }
-                    }
-                }
-            }
-        }
     }
 }

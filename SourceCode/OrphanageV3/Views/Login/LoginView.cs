@@ -104,7 +104,7 @@ namespace OrphanageV3.Views.Login
                     }
                 }
             }
-            catch (System.Exception)
+            catch (Exception ex)
             {
                 SetConnectionResult(false, "");
             }
@@ -142,7 +142,7 @@ namespace OrphanageV3.Views.Login
         {
             if (hostName == null || hostName == "." || hostName.Length == 0)
                 hostName = "localhost";
-            return "http://" + hostName + ":1515/";
+            return "https://" + hostName + ":1515/";
         }
 
         private void SetConnectionResult(bool value, string version)

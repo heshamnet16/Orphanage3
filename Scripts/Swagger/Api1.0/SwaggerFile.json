@@ -6,7 +6,7 @@
   },
   "host": "localhost:1515",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api/account/{id}": {

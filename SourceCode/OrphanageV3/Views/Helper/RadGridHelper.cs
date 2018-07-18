@@ -23,7 +23,7 @@ namespace OrphanageV3.Views.Helper
         {
             lock (LockObject)
             {
-                return GridView.Rows.FirstOrDefault(r => r.Cells[ColumnName].Value.ToString() == SearchValue.ToString());
+                return GridView.Rows.FirstOrDefault(r => r.Cells[ColumnName].Value?.ToString() == SearchValue.ToString());
             }
         }
 
@@ -86,9 +86,12 @@ namespace OrphanageV3.Views.Helper
         public void UpadteCellData(string IdColumnName, int IdValue, string ColumnName, ref object value)
         {
             var row = GetRowByColumnName(IdColumnName, IdValue);
-            lock (LockObject)
+            if (row != null)
             {
-                row.Cells[ColumnName].Value = value;
+                lock (LockObject)
+                {
+                    row.Cells[ColumnName].Value = value;
+                }
             }
         }
 

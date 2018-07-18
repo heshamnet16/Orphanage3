@@ -20,6 +20,7 @@ namespace OrphanageService
 
         protected override void OnStart(string[] args)
         {
+            _logger.Information("trying to configure mapper");
             ConfigureMapper();
             string baseUrl = Properties.Settings.Default.BaseURI;
             _webapp = WebApp.Start<Startup>(baseUrl);
@@ -31,7 +32,7 @@ namespace OrphanageService
         /// configure the mapper between the DataModel and the DataContract
         /// </summary>
         private static void ConfigureMapper()
-        {
+        {            
             Mapper.Initialize((cfg) =>
             {
                 cfg.CreateMap<OrphanageDataModel.Persons.Orphan, OrphanageDataModel.Persons.Orphan>();
