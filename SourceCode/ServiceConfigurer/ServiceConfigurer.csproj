@@ -102,9 +102,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
-    <None Include="Certificates\Orphanage3.pvk" />
-    <None Include="Certificates\Orphanage3CA.cer" />
-    <None Include="Certificates\Orphanage3CA.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +121,9 @@
     <None Include="Resources\database.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Orphanage3.pvk" />
+    <None Include="Resources\Orphanage3CA.cer" />
+    <None Include="Resources\Orphanage3CA.pfx" />
     <None Include="Resources\service.png" />
   </ItemGroup>
   <ItemGroup />

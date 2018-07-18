@@ -166,4 +166,52 @@
   <data name="Error_Cannot_Close" xml:space="preserve">
     <value>لايمكن اغلاق البرنامج هنالك عملية قيد التشغيل</value>
   </data>
+  <data name="CertificateState" xml:space="preserve">
+    <value>حالة الشهادة الأمنية</value>
+  </data>
+  <data name="LoadCertificate" xml:space="preserve">
+    <value>فتح</value>
+  </data>
+  <data name="Mangement" xml:space="preserve">
+    <value>إدارة</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="ServiceState" xml:space="preserve">
+    <value>حالة الخدمة</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>تنصيب</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاربخ الانتهاء</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ الإنشاء</value>
+  </data>
+  <data name="State_Invaild" xml:space="preserve">
+    <value>غير صالحة</value>
+  </data>
+  <data name="State_Vaild" xml:space="preserve">
+    <value>صالحة</value>
+  </data>
+  <data name="Orphanage3CA_Cer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orphanage3CA.cer;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Orphanage3CA_Pfx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orphanage3CA.pfx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Orphanage3_Pvk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orphanage3.pvk;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="INFO_Success" xml:space="preserve">
+    <value>تم العملبة بنجاح</value>
+  </data>
 </root>

@@ -2028,7 +2028,7 @@ namespace OrphanageV3.Services
     public partial class ApiClient : IApiClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        private string _baseUrl = "http://localhost:1515";
+        private string _baseUrl = "https://localhost:1515";
         
         public ApiClient()
         {

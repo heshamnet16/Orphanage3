@@ -79,6 +79,15 @@ namespace ServiceConfigurer.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حالة الشهادة الأمنية ähnelt.
+        /// </summary>
+        internal static string CertificateState {
+            get {
+                return ResourceManager.GetString("CertificateState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die تحقق ähnelt.
         /// </summary>
         internal static string Check {
@@ -112,6 +121,24 @@ namespace ServiceConfigurer.Properties {
             get {
                 object obj = ResourceManager.GetObject("database_Pic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاربخ الانتهاء ähnelt.
+        /// </summary>
+        internal static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die خطأ ähnelt.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -179,6 +206,72 @@ namespace ServiceConfigurer.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تم العملبة بنجاح ähnelt.
+        /// </summary>
+        internal static string INFO_Success {
+            get {
+                return ResourceManager.GetString("INFO_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die فتح ähnelt.
+        /// </summary>
+        internal static string LoadCertificate {
+            get {
+                return ResourceManager.GetString("LoadCertificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إدارة ähnelt.
+        /// </summary>
+        internal static string Mangement {
+            get {
+                return ResourceManager.GetString("Mangement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Orphanage3_Pvk {
+            get {
+                object obj = ResourceManager.GetObject("Orphanage3_Pvk", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Orphanage3CA_Cer {
+            get {
+                object obj = ResourceManager.GetObject("Orphanage3CA_Cer", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Orphanage3CA_Pfx {
+            get {
+                object obj = ResourceManager.GetObject("Orphanage3CA_Pfx", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تحديث ähnelt.
+        /// </summary>
+        internal static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die استعادة نسخة ähnelt.
         /// </summary>
         internal static string Restore {
@@ -203,6 +296,60 @@ namespace ServiceConfigurer.Properties {
             get {
                 object obj = ResourceManager.GetObject("service_Pic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die حالة الخدمة ähnelt.
+        /// </summary>
+        internal static string ServiceState {
+            get {
+                return ResourceManager.GetString("ServiceState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تنصيب ähnelt.
+        /// </summary>
+        internal static string Setup {
+            get {
+                return ResourceManager.GetString("Setup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تاريخ الإنشاء ähnelt.
+        /// </summary>
+        internal static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die غير صالحة ähnelt.
+        /// </summary>
+        internal static string State_Invaild {
+            get {
+                return ResourceManager.GetString("State_Invaild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صالحة ähnelt.
+        /// </summary>
+        internal static string State_Vaild {
+            get {
+                return ResourceManager.GetString("State_Vaild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إزالة ähnelt.
+        /// </summary>
+        internal static string Uninstall {
+            get {
+                return ResourceManager.GetString("Uninstall", resourceCulture);
             }
         }
     }

@@ -203,7 +203,6 @@
     <Compile Include="GlobalExceptionsHandlers\ExceptionHandler.cs" />
     <Compile Include="GlobalExceptionsHandlers\GlobalExceptionMiddleware.cs" />
     <Compile Include="GlobalExceptionsHandlers\GlobalExceptionsHandler.cs" />
-    <Compile Include="App_Start\PowerShellExecuter.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="AutoComplete\Controllers\AutoCompletesController.cs" />

@@ -22,10 +22,9 @@ namespace OrphanageService
             var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
             try
             {
-                if (!PowerShellExecuter.IsExist())
-                    PowerShellExecuter.CreateAndRunPsFileScript();
 
                 // commit to debug the service
+                logger.Information("try to startup the service");
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[]
                 {

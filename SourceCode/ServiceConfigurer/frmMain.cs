@@ -19,11 +19,13 @@ namespace ServiceConfigurer
         private InstallerService _installerService;
 
         private Timer _timer;
-        
-        private bool _canClose = true; 
+
+        private bool _canClose = true;
 
         private int _timerStepValue;
         private bool _timerIsIncrement;
+
+        private string _certificatePath;
         public frmMain()
         {
             InitializeComponent();
@@ -82,13 +84,50 @@ namespace ServiceConfigurer
             btnRestore.Text = Properties.Resources.Restore;
             btnCheck.Text = Properties.Resources.Check;
             btnFix.Text = Properties.Resources.FixDatabase;
+            btnInstall.Text = Properties.Resources.Setup;
+            btnInstallCertificate.Text = Properties.Resources.Setup;
+            btnLoadCertificate.Text = Properties.Resources.LoadCertificate;
+            btnRefresh.Text = Properties.Resources.Refresh;
+            btnUninstall.Text = Properties.Resources.Uninstall;
+            grpCertificateState.Text = Properties.Resources.CertificateState;
+            grpServiceInstall.Text = Properties.Resources.Mangement;
+            grpServiceState.Text = Properties.Resources.ServiceState;
+            lblEndDate.Text = Properties.Resources.EndDate;
+            lblStartDate.Text = Properties.Resources.StartDate;
+            lblState.Text = Properties.Resources.INFO_State;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             CheckState();
+            var certValues = _installerService.LoadCurrentCACertificate();
+            if (certValues == null)
+            {
+                _installerService.InstallCACertificate();
+                certValues = _installerService.LoadCurrentCACertificate();
+
+            }
+            FillCertificateLabels(certValues);
+            if(!_installerService.IsServiceInstalled())
+            {
+                _installerService.InstallService();
+            }
         }
 
+        private void FillCertificateLabels(string[] list)
+        {
+            if (list != null)
+            {
+                lblEndDateText.Text = list[2];
+                lblStartDateText.Text = list[1];
+                lblStateText.Text = bool.Parse(list[0]) ? Properties.Resources.State_Vaild : Properties.Resources.State_Invaild;
+            }
+            else
+            {
+                lblEndDateText.Text = lblStartDateText.Text =
+                            lblStateText.Text = Properties.Resources.Error;
+            }
+        }
         private void setFaildState()
         {
             radialGaugeArc1.BackColor = radialGaugeArc1.BackColor2 = Color.Red;
@@ -165,7 +204,7 @@ namespace ServiceConfigurer
                 sfd.CheckPathExists = true;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    if(System.IO.File.Exists(sfd.FileName))
+                    if (System.IO.File.Exists(sfd.FileName))
                     {
                         System.IO.File.Delete(sfd.FileName);
                     }
@@ -238,14 +277,19 @@ namespace ServiceConfigurer
             }
         }
 
-        private void lblEndDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-           togServiceState.Value =  _installerService.IsRunning();
+            if (_installerService.IsServiceInstalled())
+            {
+                togServiceState.Value = _installerService.IsRunning();
+                grpServiceState.Enabled = true;
+                togServiceState.Enabled = true;
+            }
+            else
+            {
+                grpServiceState.Enabled = false;
+                togServiceState.Enabled = false;
+            }
         }
 
         private void togServiceState_Click(object sender, EventArgs e)
@@ -254,6 +298,59 @@ namespace ServiceConfigurer
                 _installerService.StartService();
             else
                 _installerService.StopService();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            var certValues = _installerService.LoadCurrentLocalhostCertificate();
+
+                FillCertificateLabels(certValues);
+            
+        }
+
+        private void btnLoadCertificate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Pfx|*.pfx";
+                ofd.RestoreDirectory = true;
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                ofd.CheckPathExists = true;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    if (System.IO.File.Exists(ofd.FileName))
+                    {
+                        _certificatePath = ofd.FileName;
+                        var cerValues = _installerService.getCertificate(_certificatePath);
+                        FillCertificateLabels(cerValues);
+                        Application.DoEvents();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnInstallCertificate_Click(object sender, EventArgs e)
+        {
+            if(_certificatePath != null && _certificatePath.Length > 0)
+            {
+                _installerService.InstallCertificate(_certificatePath);
+                MessageBox.Show(Properties.Resources.INFO_Success, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnInstall_Click(object sender, EventArgs e)
+        {
+            _installerService.InstallService();
+        }
+
+        private void btnUninstall_Click(object sender, EventArgs e)
+        {
+            _installerService.UninstallService();
         }
     }
 }

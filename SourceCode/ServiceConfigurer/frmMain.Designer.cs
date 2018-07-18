@@ -42,22 +42,22 @@
             this.radialGaugeArc2 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
             this.radialGaugeNeedle1 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.pgeService = new Telerik.WinControls.UI.RadPageViewPage();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.togServiceState = new Telerik.WinControls.UI.RadToggleSwitch();
             this.grpCertificateState = new Telerik.WinControls.UI.RadGroupBox();
-            this.btnInstallCertificate = new Telerik.WinControls.UI.RadButton();
-            this.btnLoadCertificate = new Telerik.WinControls.UI.RadButton();
-            this.grpServiceState = new Telerik.WinControls.UI.RadGroupBox();
-            this.grpServiceInstall = new Telerik.WinControls.UI.RadGroupBox();
-            this.btnInstall = new Telerik.WinControls.UI.RadButton();
-            this.btnUninstall = new Telerik.WinControls.UI.RadButton();
-            this.lblState = new Telerik.WinControls.UI.RadLabel();
-            this.lblStartDate = new Telerik.WinControls.UI.RadLabel();
             this.lblEndDate = new Telerik.WinControls.UI.RadLabel();
-            this.lblStateText = new Telerik.WinControls.UI.RadLabel();
-            this.lblStartDateText = new Telerik.WinControls.UI.RadLabel();
+            this.lblStartDate = new Telerik.WinControls.UI.RadLabel();
             this.lblEndDateText = new Telerik.WinControls.UI.RadLabel();
+            this.lblStartDateText = new Telerik.WinControls.UI.RadLabel();
+            this.lblStateText = new Telerik.WinControls.UI.RadLabel();
+            this.lblState = new Telerik.WinControls.UI.RadLabel();
+            this.btnInstallCertificate = new Telerik.WinControls.UI.RadButton();
             this.btnRefresh = new Telerik.WinControls.UI.RadButton();
+            this.btnLoadCertificate = new Telerik.WinControls.UI.RadButton();
+            this.grpServiceInstall = new Telerik.WinControls.UI.RadGroupBox();
+            this.btnUninstall = new Telerik.WinControls.UI.RadButton();
+            this.btnInstall = new Telerik.WinControls.UI.RadButton();
+            this.grpServiceState = new Telerik.WinControls.UI.RadGroupBox();
+            this.togServiceState = new Telerik.WinControls.UI.RadToggleSwitch();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
@@ -72,37 +72,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radRadialGauge1)).BeginInit();
             this.pgeService.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.togServiceState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCertificateState)).BeginInit();
             this.grpCertificateState.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblEndDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStartDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblEndDateText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStartDateText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStateText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInstallCertificate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoadCertificate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grpServiceState)).BeginInit();
-            this.grpServiceState.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpServiceInstall)).BeginInit();
             this.grpServiceInstall.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInstall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUninstall)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblState)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStartDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblEndDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStateText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStartDateText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblEndDateText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInstall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpServiceState)).BeginInit();
+            this.grpServiceState.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.togServiceState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radPageView1
             // 
-            this.radPageView1.Controls.Add(this.pgeDatabase);
             this.radPageView1.Controls.Add(this.pgeService);
+            this.radPageView1.Controls.Add(this.pgeDatabase);
             this.radPageView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPageView1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.radPageView1.Location = new System.Drawing.Point(0, 0);
             this.radPageView1.Name = "radPageView1";
             this.radPageView1.SelectedPage = this.pgeService;
-            this.radPageView1.Size = new System.Drawing.Size(423, 226);
+            this.radPageView1.Size = new System.Drawing.Size(423, 243);
             this.radPageView1.TabIndex = 0;
             this.radPageView1.Text = "radPageView1";
             ((Telerik.WinControls.UI.RadPageViewStripElement)(this.radPageView1.GetChildAt(0))).StripButtons = Telerik.WinControls.UI.StripViewButtons.None;
@@ -118,7 +118,7 @@
             this.pgeDatabase.ItemSize = new System.Drawing.SizeF(205F, 28F);
             this.pgeDatabase.Location = new System.Drawing.Point(10, 37);
             this.pgeDatabase.Name = "pgeDatabase";
-            this.pgeDatabase.Size = new System.Drawing.Size(402, 178);
+            this.pgeDatabase.Size = new System.Drawing.Size(402, 195);
             this.pgeDatabase.Text = "radPageViewPage1";
             // 
             // grpBackupRestore
@@ -129,7 +129,7 @@
             this.grpBackupRestore.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
             this.grpBackupRestore.HeaderText = "radGroupBox1";
             this.grpBackupRestore.HeaderTextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.grpBackupRestore.Location = new System.Drawing.Point(119, 81);
+            this.grpBackupRestore.Location = new System.Drawing.Point(119, 92);
             this.grpBackupRestore.Name = "grpBackupRestore";
             this.grpBackupRestore.Size = new System.Drawing.Size(280, 77);
             this.grpBackupRestore.TabIndex = 7;
@@ -242,25 +242,8 @@
             this.pgeService.ItemSize = new System.Drawing.SizeF(205F, 28F);
             this.pgeService.Location = new System.Drawing.Point(10, 37);
             this.pgeService.Name = "pgeService";
-            this.pgeService.Size = new System.Drawing.Size(402, 178);
+            this.pgeService.Size = new System.Drawing.Size(402, 195);
             this.pgeService.Text = "radPageViewPage1";
-            // 
-            // togServiceState
-            // 
-            this.togServiceState.Location = new System.Drawing.Point(12, 27);
-            this.togServiceState.Name = "togServiceState";
-            this.togServiceState.OffText = "";
-            this.togServiceState.OnText = "";
-            this.togServiceState.Size = new System.Drawing.Size(112, 25);
-            this.togServiceState.TabIndex = 0;
-            this.togServiceState.Text = "radToggleSwitch1";
-            this.togServiceState.Value = false;
-            this.togServiceState.Click += new System.EventHandler(this.togServiceState_Click);
-            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(245)))), ((int)(((byte)(229)))));
-            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(244)))), ((int)(((byte)(225)))));
-            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(241)))), ((int)(((byte)(40)))));
-            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).Text = "";
-            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(241)))), ((int)(((byte)(40)))));
             // 
             // grpCertificateState
             // 
@@ -283,6 +266,66 @@
             this.grpCertificateState.TabIndex = 8;
             this.grpCertificateState.Text = "radGroupBox1";
             // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = false;
+            this.lblEndDate.Location = new System.Drawing.Point(178, 69);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(80, 18);
+            this.lblEndDate.TabIndex = 1;
+            this.lblEndDate.Text = "EndDate";
+            this.lblEndDate.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = false;
+            this.lblStartDate.Location = new System.Drawing.Point(178, 45);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(80, 18);
+            this.lblStartDate.TabIndex = 1;
+            this.lblStartDate.Text = "startDate";
+            this.lblStartDate.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblEndDateText
+            // 
+            this.lblEndDateText.AutoSize = false;
+            this.lblEndDateText.BorderVisible = true;
+            this.lblEndDateText.Location = new System.Drawing.Point(13, 69);
+            this.lblEndDateText.Name = "lblEndDateText";
+            this.lblEndDateText.Size = new System.Drawing.Size(159, 18);
+            this.lblEndDateText.TabIndex = 1;
+            this.lblEndDateText.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblStartDateText
+            // 
+            this.lblStartDateText.AutoSize = false;
+            this.lblStartDateText.BorderVisible = true;
+            this.lblStartDateText.Location = new System.Drawing.Point(13, 45);
+            this.lblStartDateText.Name = "lblStartDateText";
+            this.lblStartDateText.Size = new System.Drawing.Size(159, 18);
+            this.lblStartDateText.TabIndex = 1;
+            this.lblStartDateText.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblStateText
+            // 
+            this.lblStateText.AutoSize = false;
+            this.lblStateText.BorderVisible = true;
+            this.lblStateText.Location = new System.Drawing.Point(13, 21);
+            this.lblStateText.Name = "lblStateText";
+            this.lblStateText.Size = new System.Drawing.Size(159, 18);
+            this.lblStateText.TabIndex = 1;
+            this.lblStateText.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblState
+            // 
+            this.lblState.AutoSize = false;
+            this.lblState.Location = new System.Drawing.Point(178, 21);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(80, 18);
+            this.lblState.TabIndex = 1;
+            this.lblState.Text = "state";
+            this.lblState.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
             // btnInstallCertificate
             // 
             this.btnInstallCertificate.Location = new System.Drawing.Point(264, 54);
@@ -290,6 +333,16 @@
             this.btnInstallCertificate.Size = new System.Drawing.Size(60, 35);
             this.btnInstallCertificate.TabIndex = 0;
             this.btnInstallCertificate.Text = "Install";
+            this.btnInstallCertificate.Click += new System.EventHandler(this.btnInstallCertificate_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(330, 13);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(60, 74);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnLoadCertificate
             // 
@@ -298,19 +351,7 @@
             this.btnLoadCertificate.Size = new System.Drawing.Size(60, 35);
             this.btnLoadCertificate.TabIndex = 0;
             this.btnLoadCertificate.Text = "Load";
-            // 
-            // grpServiceState
-            // 
-            this.grpServiceState.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.grpServiceState.Controls.Add(this.togServiceState);
-            this.grpServiceState.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
-            this.grpServiceState.HeaderText = "asd";
-            this.grpServiceState.HeaderTextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.grpServiceState.Location = new System.Drawing.Point(3, 3);
-            this.grpServiceState.Name = "grpServiceState";
-            this.grpServiceState.Size = new System.Drawing.Size(136, 72);
-            this.grpServiceState.TabIndex = 9;
-            this.grpServiceState.Text = "asd";
+            this.btnLoadCertificate.Click += new System.EventHandler(this.btnLoadCertificate_Click);
             // 
             // grpServiceInstall
             // 
@@ -326,14 +367,6 @@
             this.grpServiceInstall.TabIndex = 9;
             this.grpServiceInstall.Text = "asd";
             // 
-            // btnInstall
-            // 
-            this.btnInstall.Location = new System.Drawing.Point(139, 21);
-            this.btnInstall.Name = "btnInstall";
-            this.btnInstall.Size = new System.Drawing.Size(110, 35);
-            this.btnInstall.TabIndex = 0;
-            this.btnInstall.Text = "insta";
-            // 
             // btnUninstall
             // 
             this.btnUninstall.Location = new System.Drawing.Point(23, 21);
@@ -341,75 +374,47 @@
             this.btnUninstall.Size = new System.Drawing.Size(110, 35);
             this.btnUninstall.TabIndex = 0;
             this.btnUninstall.Text = "uninstal";
+            this.btnUninstall.Click += new System.EventHandler(this.btnUninstall_Click);
             // 
-            // lblState
+            // btnInstall
             // 
-            this.lblState.AutoSize = false;
-            this.lblState.Location = new System.Drawing.Point(178, 21);
-            this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(80, 18);
-            this.lblState.TabIndex = 1;
-            this.lblState.Text = "state";
-            this.lblState.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInstall.Location = new System.Drawing.Point(139, 21);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(110, 35);
+            this.btnInstall.TabIndex = 0;
+            this.btnInstall.Text = "insta";
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
-            // lblStartDate
+            // grpServiceState
             // 
-            this.lblStartDate.AutoSize = false;
-            this.lblStartDate.Location = new System.Drawing.Point(178, 45);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(80, 18);
-            this.lblStartDate.TabIndex = 1;
-            this.lblStartDate.Text = "startDate";
-            this.lblStartDate.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.grpServiceState.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.grpServiceState.Controls.Add(this.togServiceState);
+            this.grpServiceState.HeaderAlignment = Telerik.WinControls.UI.HeaderAlignment.Center;
+            this.grpServiceState.HeaderText = "asd";
+            this.grpServiceState.HeaderTextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.grpServiceState.Location = new System.Drawing.Point(3, 3);
+            this.grpServiceState.Name = "grpServiceState";
+            this.grpServiceState.Size = new System.Drawing.Size(136, 72);
+            this.grpServiceState.TabIndex = 9;
+            this.grpServiceState.Text = "asd";
             // 
-            // lblEndDate
+            // togServiceState
             // 
-            this.lblEndDate.AutoSize = false;
-            this.lblEndDate.Location = new System.Drawing.Point(178, 69);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(80, 18);
-            this.lblEndDate.TabIndex = 1;
-            this.lblEndDate.Text = "EndDate";
-            this.lblEndDate.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblEndDate.Click += new System.EventHandler(this.lblEndDate_Click);
-            // 
-            // lblStateText
-            // 
-            this.lblStateText.AutoSize = false;
-            this.lblStateText.BorderVisible = true;
-            this.lblStateText.Location = new System.Drawing.Point(13, 21);
-            this.lblStateText.Name = "lblStateText";
-            this.lblStateText.Size = new System.Drawing.Size(159, 18);
-            this.lblStateText.TabIndex = 1;
-            this.lblStateText.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblStartDateText
-            // 
-            this.lblStartDateText.AutoSize = false;
-            this.lblStartDateText.BorderVisible = true;
-            this.lblStartDateText.Location = new System.Drawing.Point(13, 45);
-            this.lblStartDateText.Name = "lblStartDateText";
-            this.lblStartDateText.Size = new System.Drawing.Size(159, 18);
-            this.lblStartDateText.TabIndex = 1;
-            this.lblStartDateText.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblEndDateText
-            // 
-            this.lblEndDateText.AutoSize = false;
-            this.lblEndDateText.BorderVisible = true;
-            this.lblEndDateText.Location = new System.Drawing.Point(13, 69);
-            this.lblEndDateText.Name = "lblEndDateText";
-            this.lblEndDateText.Size = new System.Drawing.Size(159, 18);
-            this.lblEndDateText.TabIndex = 1;
-            this.lblEndDateText.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(330, 13);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(60, 74);
-            this.btnRefresh.TabIndex = 0;
-            this.btnRefresh.Text = "Refresh";
+            this.togServiceState.Location = new System.Drawing.Point(12, 28);
+            this.togServiceState.Name = "togServiceState";
+            this.togServiceState.OffText = "";
+            this.togServiceState.OnText = "";
+            this.togServiceState.Size = new System.Drawing.Size(112, 25);
+            this.togServiceState.TabIndex = 0;
+            this.togServiceState.Text = "radToggleSwitch1";
+            this.togServiceState.Value = false;
+            this.togServiceState.Click += new System.EventHandler(this.togServiceState_Click);
+            ((Telerik.WinControls.UI.RadToggleSwitchElement)(this.togServiceState.GetChildAt(0))).ThumbOffset = 0;
+            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(245)))), ((int)(((byte)(229)))));
+            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(244)))), ((int)(((byte)(225)))));
+            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(241)))), ((int)(((byte)(40)))));
+            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(241)))), ((int)(((byte)(40)))));
             // 
             // timer1
             // 
@@ -421,7 +426,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 226);
+            this.ClientSize = new System.Drawing.Size(423, 243);
             this.Controls.Add(this.radPageView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -447,24 +452,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radRadialGauge1)).EndInit();
             this.pgeService.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.togServiceState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCertificateState)).EndInit();
             this.grpCertificateState.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lblEndDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStartDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblEndDateText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStartDateText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStateText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInstallCertificate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoadCertificate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grpServiceState)).EndInit();
-            this.grpServiceState.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpServiceInstall)).EndInit();
             this.grpServiceInstall.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnInstall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUninstall)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblState)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStartDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblEndDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStateText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblStartDateText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblEndDateText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInstall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpServiceState)).EndInit();
+            this.grpServiceState.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.togServiceState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
