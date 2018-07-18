@@ -61,6 +61,42 @@ namespace ServiceConfigurer.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die إنشاء نسخة ähnelt.
+        /// </summary>
+        internal static string Backup {
+            get {
+                return ResourceManager.GetString("Backup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die النسخ الاحتياطي ähnelt.
+        /// </summary>
+        internal static string BackupRestore {
+            get {
+                return ResourceManager.GetString("BackupRestore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تحقق ähnelt.
+        /// </summary>
+        internal static string Check {
+            get {
+                return ResourceManager.GetString("Check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تحقق وتصحيح ähnelt.
+        /// </summary>
+        internal static string CheckAndFix {
+            get {
+                return ResourceManager.GetString("CheckAndFix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die قاعدة البينات ähnelt.
         /// </summary>
         internal static string Database {
@@ -76,6 +112,78 @@ namespace ServiceConfigurer.Properties {
             get {
                 object obj = ResourceManager.GetObject("database_Pic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die لايمكن اغلاق البرنامج هنالك عملية قيد التشغيل ähnelt.
+        /// </summary>
+        internal static string Error_Cannot_Close {
+            get {
+                return ResourceManager.GetString("Error_Cannot_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die قاعدة البيانات غير موجودة ähnelt.
+        /// </summary>
+        internal static string Error_Database_Dont_Exist {
+            get {
+                return ResourceManager.GetString("Error_Database_Dont_Exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die خادم SQL غير مثبت أو مطفئ ähnelt.
+        /// </summary>
+        internal static string Error_Server_Dont_Exist {
+            get {
+                return ResourceManager.GetString("Error_Server_Dont_Exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تحديث قاعدة البيانات ähnelt.
+        /// </summary>
+        internal static string FixDatabase {
+            get {
+                return ResourceManager.GetString("FixDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die جاري التحقق ... ähnelt.
+        /// </summary>
+        internal static string INFO_Processing {
+            get {
+                return ResourceManager.GetString("INFO_Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الحالة ähnelt.
+        /// </summary>
+        internal static string INFO_State {
+            get {
+                return ResourceManager.GetString("INFO_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die الحالة جيدة ähnelt.
+        /// </summary>
+        internal static string INFO_State_Good {
+            get {
+                return ResourceManager.GetString("INFO_State_Good", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die استعادة نسخة ähnelt.
+        /// </summary>
+        internal static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
             }
         }
         

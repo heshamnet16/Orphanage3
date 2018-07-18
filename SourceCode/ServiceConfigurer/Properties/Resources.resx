@@ -130,4 +130,40 @@
   <data name="service_Pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\service.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Backup" xml:space="preserve">
+    <value>إنشاء نسخة</value>
+  </data>
+  <data name="BackupRestore" xml:space="preserve">
+    <value>النسخ الاحتياطي</value>
+  </data>
+  <data name="Error_Database_Dont_Exist" xml:space="preserve">
+    <value>قاعدة البيانات غير موجودة</value>
+  </data>
+  <data name="Error_Server_Dont_Exist" xml:space="preserve">
+    <value>خادم SQL غير مثبت أو مطفئ</value>
+  </data>
+  <data name="FixDatabase" xml:space="preserve">
+    <value>تحديث قاعدة البيانات</value>
+  </data>
+  <data name="INFO_Processing" xml:space="preserve">
+    <value>جاري التحقق ...</value>
+  </data>
+  <data name="INFO_State" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="INFO_State_Good" xml:space="preserve">
+    <value>الحالة جيدة</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>استعادة نسخة</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>تحقق</value>
+  </data>
+  <data name="CheckAndFix" xml:space="preserve">
+    <value>تحقق وتصحيح</value>
+  </data>
+  <data name="Error_Cannot_Close" xml:space="preserve">
+    <value>لايمكن اغلاق البرنامج هنالك عملية قيد التشغيل</value>
+  </data>
 </root>
