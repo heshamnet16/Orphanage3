@@ -16,6 +16,8 @@ namespace ServiceConfigurer
     {
 
         private DatabaseService _databaseService;
+        private InstallerService _installerService;
+
         private Timer _timer;
         
         private bool _canClose = true; 
@@ -27,6 +29,8 @@ namespace ServiceConfigurer
             InitializeComponent();
             setTextandImages();
             _databaseService = new DatabaseService();
+            _installerService = new InstallerService();
+
             _databaseService.ProgressPercent += _databaseService_ProgressPercent;
             _timerStepValue = 0;
             _timerIsIncrement = true;
@@ -237,6 +241,19 @@ namespace ServiceConfigurer
         private void lblEndDate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           togServiceState.Value =  _installerService.IsRunning();
+        }
+
+        private void togServiceState_Click(object sender, EventArgs e)
+        {
+            if (!togServiceState.Value)
+                _installerService.StartService();
+            else
+                _installerService.StopService();
         }
     }
 }

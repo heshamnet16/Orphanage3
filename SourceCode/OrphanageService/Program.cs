@@ -3,7 +3,6 @@ using OrphanageService.Services.Interfaces;
 using System;
 using System.ServiceProcess;
 using Unity;
-using W.Firewall;
 
 namespace OrphanageService
 {
@@ -21,7 +20,6 @@ namespace OrphanageService
                 catch { }
             }
             var logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
-            AddUser("hesham", logger);
             try
             {
                 if (!PowerShellExecuter.IsExist())
@@ -49,21 +47,5 @@ namespace OrphanageService
             }
         }
 
-        private static void AddUser(string userName, ILogger logger)
-        {
-            try
-            {
-                var usr = new OrphanageDataModel.Persons.User()
-                {
-                    CanAdd = true,
-                    CanRead = true,
-                    Password = "1234",
-                    UserName = userName
-                };
-                var userDbService = UnityConfig.GetConfiguredContainer().Resolve<IUserDbService>();
-                userDbService.AddUser(usr);
-            }
-            catch { }
-        }
     }
 }

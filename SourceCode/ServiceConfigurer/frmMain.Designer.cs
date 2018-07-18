@@ -58,6 +58,7 @@
             this.lblStartDateText = new Telerik.WinControls.UI.RadLabel();
             this.lblEndDateText = new Telerik.WinControls.UI.RadLabel();
             this.btnRefresh = new Telerik.WinControls.UI.RadButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.pgeDatabase.SuspendLayout();
@@ -253,6 +254,8 @@
             this.togServiceState.Size = new System.Drawing.Size(112, 25);
             this.togServiceState.TabIndex = 0;
             this.togServiceState.Text = "radToggleSwitch1";
+            this.togServiceState.Value = false;
+            this.togServiceState.Click += new System.EventHandler(this.togServiceState_Click);
             ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(245)))), ((int)(((byte)(229)))));
             ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(244)))), ((int)(((byte)(225)))));
             ((Telerik.WinControls.UI.ToggleSwitchPartElement)(this.togServiceState.GetChildAt(0).GetChildAt(0))).BackColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(241)))), ((int)(((byte)(40)))));
@@ -408,6 +411,12 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Refresh";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,5 +501,6 @@
         private Telerik.WinControls.UI.RadLabel lblStateText;
         private Telerik.WinControls.UI.RadLabel lblState;
         private Telerik.WinControls.UI.RadButton btnRefresh;
+        private System.Windows.Forms.Timer timer1;
     }
 }

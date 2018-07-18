@@ -9,6 +9,26 @@
             Provides static methods to add, remove and check the existance of, Windows firewall rules
             </summary>
         </member>
+        <member name="T:W.Firewall.Rules.EFirewallProtocol">
+            <summary>
+            Firewall protocols
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallProtocol.Any">
+            <summary>
+            Any
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallProtocol.Tcp">
+            <summary>
+            Tcp
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallProtocol.Udp">
+            <summary>
+            Udp
+            </summary>
+        </member>
         <member name="T:W.Firewall.Rules.EFirewallRuleAction">
             <summary>
             Firewall rule actions
@@ -22,6 +42,11 @@
         <member name="F:W.Firewall.Rules.EFirewallRuleAction.Block">
             <summary>
             Block communications
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallRuleAction.Max">
+            <summary>
+            Max
             </summary>
         </member>
         <member name="T:W.Firewall.Rules.EFirewallProfiles">
@@ -49,7 +74,27 @@
             All
             </summary>
         </member>
-        <member name="M:W.Firewall.Rules.Add(System.String,System.String,System.Int32,System.String,W.Firewall.Rules.EFirewallRuleAction,W.Firewall.Rules.EFirewallProfiles)">
+        <member name="T:W.Firewall.Rules.EFirewallRuleDirection">
+            <summary>
+            Firewall rule direction
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallRuleDirection.In">
+            <summary>
+            Inbound rule
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallRuleDirection.Out">
+            <summary>
+            Outbound rule
+            </summary>
+        </member>
+        <member name="F:W.Firewall.Rules.EFirewallRuleDirection.Max">
+            <summary>
+            Max
+            </summary>
+        </member>
+        <member name="M:W.Firewall.Rules.Add(System.String,System.String,W.Firewall.Rules.EFirewallProtocol,System.String,W.Firewall.Rules.EFirewallRuleAction,W.Firewall.Rules.EFirewallProfiles)">
             <summary>
             Adds a rule to the firewall
             </summary>
@@ -59,6 +104,33 @@
             <param name="localPorts">The desired rule port</param>
             <param name="action">The desired rule action, to allow or block communications</param>
             <param name="profiles">The desired rule profile</param>
+            <returns>True if the rule was created, False if it already exists</returns>
+        </member>
+        <member name="M:W.Firewall.Rules.Add(System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,W.Firewall.Rules.EFirewallRuleDirection,System.Object,System.String,System.Boolean,System.String,System.Int32,System.Boolean,W.Firewall.Rules.EFirewallRuleAction,System.Int32)">
+            <summary>
+            Create a firewall rule
+            </summary>
+            <param name="name">The name of the firewall rule</param>
+            <param name="description">The description</param>
+            <param name="applicationName">The application name</param>
+            <param name="serviceName">The service name</param>
+            <param name="protocol">The  protocol</param>
+            <param name="localPorts">The local port(s)</param>
+            <param name="remotePorts">The remote port(s)</param>
+            <param name="localAddresses">The local address(es)</param>
+            <param name="remoteAddresses">The remote address(es)</param>
+            <param name="IcmpTypesAndCodes">IcmpTypesAndCodes</param>
+            <param name="direction">The rule direction</param>
+            <param name="interfaces">interfaces</param>
+            <param name="interfaceTypes">interfaceTypes</param>
+            <param name="enabled">Whether the rule is enabled or not</param>
+            <param name="grouping">grouping</param>
+            <param name="profiles">profiles</param>
+            <param name="edgeTraversal">edgeTraversal</param>
+            <param name="action">action</param>
+            <param name="edgeTraversalOptions">edgeTraversalOptions</param>
+            <returns>True if the rule was created, False if it already exists</returns>
+            <remarks>I have not tested all scenarios.  Please reports any issues.</remarks>
         </member>
         <member name="M:W.Firewall.Rules.Exists(System.String)">
             <summary>
@@ -72,6 +144,7 @@
             Removes a firewall rule
             </summary>
             <param name="ruleName">The name of the rule to remove</param>
+            <returns>True if the rule exists and was removed, otherwise False</returns>
         </member>
     </members>
 </doc>

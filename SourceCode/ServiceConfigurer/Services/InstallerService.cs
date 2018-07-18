@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using W.Firewall;
@@ -12,7 +13,9 @@ namespace ServiceConfigurer.Services
 {
     public class InstallerService
     {
-        public static bool IsExist()
+        private string _ServiceName = "OrphanageService";
+
+        public bool IsExist()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("$service = Get-WmiObject -Class Win32_Service -Filter \"Name = 'OrphanageService'\"");
@@ -25,7 +28,7 @@ namespace ServiceConfigurer.Services
         }
 
 
-        private static string RunPsScript(string psScript)
+        private string RunPsScript(string psScript)
         {
 
             Runspace runspace = RunspaceFactory.CreateRunspace();
@@ -60,12 +63,33 @@ namespace ServiceConfigurer.Services
             return stringBuilder.ToString();
         }
 
-        private static void CreateFirewallRules()
+        private void CreateFirewallRules()
         {
             if (!Rules.Exists("Orphanage3"))
             {
                 Rules.Add("Orphanage3", "", localPorts: "1515");
             }
+        }
+
+        public bool IsRunning()
+        {
+            using (ServiceController serviceController = new ServiceController(_ServiceName))
+                return serviceController.Status == ServiceControllerStatus.Running;
+        }
+
+        public void StartService()
+        {
+            ServiceController serviceController = new ServiceController(_ServiceName);
+            serviceController.Start();
+            serviceController.Close();
+
+        }
+
+        public void StopService()
+        {
+            ServiceController serviceController = new ServiceController(_ServiceName);
+            serviceController.Stop();
+            serviceController.Close();
         }
     }
 }
