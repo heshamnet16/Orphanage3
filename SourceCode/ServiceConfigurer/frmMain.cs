@@ -233,5 +233,10 @@ namespace ServiceConfigurer
                 MessageBox.Show(Properties.Resources.Error_Cannot_Close, "Service Configurer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void lblEndDate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
