@@ -209,7 +209,7 @@ namespace OrphanageV3.Views.Main
                 if(requestException.InnerException is WebException)
                 {
                     WebException webException = (WebException) requestException.InnerException;
-                    if (webException.HResult == -2146233079 && webException.InnerException == null)
+                    if (webException.HResult == -2146233079)
                     {
                         //SecurityProtocol is false
                         var protocols = Enum.GetValues(typeof(SecurityProtocolType));
