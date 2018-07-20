@@ -1,7 +1,11 @@
 ﻿using OrphanageV3.Extensions;
 using OrphanageV3.Views.Tools;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
@@ -12,6 +16,7 @@ namespace OrphanageV3.Views.Main
     public partial class MainView : Telerik.WinControls.UI.RadForm
     {
         private ViewModel.Main.MainViewModel _mainViewModel = Program.Factory.Resolve<ViewModel.Main.MainViewModel>();
+        private IList<SecurityProtocolType> _ProtocolsList = new List<SecurityProtocolType>();
 
         public MainView()
         {
@@ -199,7 +204,32 @@ namespace OrphanageV3.Views.Main
                     }
                 }
             }
-            catch (System.Exception)
+            catch(HttpRequestException requestException)
+            {
+                if(requestException.InnerException is WebException)
+                {
+                    WebException webException = (WebException) requestException.InnerException;
+                    if (webException.HResult == -2146233079 && webException.InnerException == null)
+                    {
+                        //SecurityProtocol is false
+                        var protocols = Enum.GetValues(typeof(SecurityProtocolType));
+                        foreach (SecurityProtocolType pro in protocols)
+                        {
+                            if (pro != ServicePointManager.SecurityProtocol && !_ProtocolsList.Contains(pro))
+                            {
+                                ServicePointManager.SecurityProtocol = pro;
+                                _ProtocolsList.Add(pro);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        throw webException;
+                    }
+                }                
+            }
+            catch (System.Exception ex)
             {
                 return false;
             }
