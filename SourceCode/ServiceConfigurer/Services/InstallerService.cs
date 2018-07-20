@@ -168,7 +168,7 @@ namespace ServiceConfigurer.Services
                 store.Add(certificate);
             }
             string installArgs = $"http add sslcert ipport=0.0.0.0:1515 certhash={certificate.Thumbprint} appid=\"{{7fb5e937-fae6-4a43-b108-36c0b1143adb}}\"";
-            string deleteArgs = "http delete sslcert ipport = 0.0.0.0:1515";
+            string deleteArgs = "http delete sslcert ipport=0.0.0.0:1515";
             ProcessStartInfo processStartInfo = new ProcessStartInfo("netsh.exe", installArgs);
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.CreateNoWindow = true;
