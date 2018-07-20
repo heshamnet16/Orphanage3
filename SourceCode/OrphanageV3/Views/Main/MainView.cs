@@ -223,11 +223,8 @@ namespace OrphanageV3.Views.Main
                             }
                         }
                     }
-                    else
-                    {
-                        throw webException;
-                    }
-                }                
+                }
+                return false;
             }
             catch (System.Exception ex)
             {
