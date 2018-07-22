@@ -523,6 +523,7 @@
             this.Controls.Add(this.grpPhoneNumbers);
             this.Controls.Add(this.grpInternet);
             this.Controls.Add(this.grpAddress);
+            this.DoubleBuffered = true;
             this.Name = "AddressForm";
             this.Size = new System.Drawing.Size(502, 284);
             this.Load += new System.EventHandler(this.AddressFrom_Load);

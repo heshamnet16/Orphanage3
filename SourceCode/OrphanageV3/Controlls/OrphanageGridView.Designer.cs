@@ -34,9 +34,9 @@
             this.LayoutControl = new Telerik.WinControls.UI.RadLayoutControl();
             this.radContextMenu1 = new Telerik.WinControls.UI.RadContextMenu(this.components);
             this.mnuSelectAll = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuDeselectAll = new Telerik.WinControls.UI.RadMenuItem();
             this.orphansViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orphansViewModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.mnuDeselectAll = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayoutControl)).BeginInit();
@@ -109,6 +109,11 @@
             this.mnuSelectAll.RightToLeft = true;
             this.mnuSelectAll.Text = "select All";
             // 
+            // mnuDeselectAll
+            // 
+            this.mnuDeselectAll.Name = "mnuDeselectAll";
+            this.mnuDeselectAll.Text = "deselect all";
+            // 
             // orphansViewModelBindingSource
             // 
             this.orphansViewModelBindingSource.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphanModel);
@@ -117,16 +122,12 @@
             // 
             this.orphansViewModelBindingSource1.DataSource = typeof(OrphanageV3.ViewModel.Orphan.OrphanModel);
             // 
-            // mnuDeselectAll
-            // 
-            this.mnuDeselectAll.Name = "mnuDeselectAll";
-            this.mnuDeselectAll.Text = "deselect all";
-            // 
             // OrphanageGridView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.radGridView);
+            this.DoubleBuffered = true;
             this.Name = "OrphanageGridView";
             this.Size = new System.Drawing.Size(1034, 546);
             ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).EndInit();

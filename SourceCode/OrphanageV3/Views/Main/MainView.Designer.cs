@@ -84,15 +84,29 @@
             this.RadMenuSeparatorItem7 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuShowSetting = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuApperance = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuAppDesert = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuAppBreaze = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppDefault = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuAppAqua = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppBreaze = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppDesert = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuAppHighCont = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuAppOffice2013 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem12 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.mnuAppOffice2007Black = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppOffice2007Silver = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppOffice2010Black = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppOffice2010Blue = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppOffice2010Silver = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppOffice2013Light = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppOffice2013Dark = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem13 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuAppMetro = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppMetroBlue = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppMetroTouch = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem14 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.mnuAppVSLight = new Telerik.WinControls.UI.RadMenuItem();
+            this.mnuAppVSDark = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem15 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.mnuAppWin7 = new Telerik.WinControls.UI.RadMenuItem();
             this.mnuAppWin8 = new Telerik.WinControls.UI.RadMenuItem();
-            this.mnuAppDefault = new Telerik.WinControls.UI.RadMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblRemainingTime = new Telerik.WinControls.UI.RadLabel();
             this.lblRemainingTimeValue = new Telerik.WinControls.UI.RadLabel();
@@ -110,6 +124,24 @@
             this.btnPrintPreview = new Telerik.WinControls.UI.CommandBarButton();
             this.btnPrint = new Telerik.WinControls.UI.CommandBarButton();
             this.RadMenu1 = new Telerik.WinControls.UI.RadMenu();
+            this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
+            this.windows7Theme1 = new Telerik.WinControls.Themes.Windows7Theme();
+            this.visualStudio2012LightTheme1 = new Telerik.WinControls.Themes.VisualStudio2012LightTheme();
+            this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
+            this.telerikMetroTouchTheme1 = new Telerik.WinControls.Themes.TelerikMetroTouchTheme();
+            this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
+            this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
+            this.office2013LightTheme1 = new Telerik.WinControls.Themes.Office2013LightTheme();
+            this.office2013DarkTheme1 = new Telerik.WinControls.Themes.Office2013DarkTheme();
+            this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
+            this.office2010BlueTheme1 = new Telerik.WinControls.Themes.Office2010BlueTheme();
+            this.office2010BlackTheme1 = new Telerik.WinControls.Themes.Office2010BlackTheme();
+            this.office2007SilverTheme1 = new Telerik.WinControls.Themes.Office2007SilverTheme();
+            this.office2007BlackTheme1 = new Telerik.WinControls.Themes.Office2007BlackTheme();
+            this.highContrastBlackTheme1 = new Telerik.WinControls.Themes.HighContrastBlackTheme();
+            this.desertTheme1 = new Telerik.WinControls.Themes.DesertTheme();
+            this.breezeTheme1 = new Telerik.WinControls.Themes.BreezeTheme();
+            this.aquaTheme1 = new Telerik.WinControls.Themes.AquaTheme();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblRemainingTimeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
@@ -541,33 +573,37 @@
             // mnuApperance
             // 
             this.mnuApperance.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.mnuAppDesert,
-            this.mnuAppBreaze,
+            this.mnuAppDefault,
             this.mnuAppAqua,
+            this.mnuAppBreaze,
+            this.mnuAppDesert,
             this.mnuAppHighCont,
-            this.mnuAppOffice2013,
+            this.radMenuSeparatorItem12,
+            this.mnuAppOffice2007Black,
+            this.mnuAppOffice2007Silver,
+            this.mnuAppOffice2010Black,
+            this.mnuAppOffice2010Blue,
+            this.mnuAppOffice2010Silver,
+            this.mnuAppOffice2013Light,
+            this.mnuAppOffice2013Dark,
+            this.radMenuSeparatorItem13,
             this.mnuAppMetro,
+            this.mnuAppMetroBlue,
+            this.mnuAppMetroTouch,
+            this.radMenuSeparatorItem14,
+            this.mnuAppVSLight,
+            this.mnuAppVSDark,
+            this.radMenuSeparatorItem15,
             this.mnuAppWin7,
-            this.mnuAppWin8,
-            this.mnuAppDefault});
+            this.mnuAppWin8});
             this.mnuApperance.Name = "mnuApperance";
             this.mnuApperance.Text = "مظهر";
             // 
-            // mnuAppDesert
+            // mnuAppDefault
             // 
-            this.mnuAppDesert.AutoToolTip = true;
-            this.mnuAppDesert.CheckOnClick = true;
-            this.mnuAppDesert.Name = "mnuAppDesert";
-            this.mnuAppDesert.Text = "صحراء";
-            this.mnuAppDesert.ToolTipText = "صحراء";
-            // 
-            // mnuAppBreaze
-            // 
-            this.mnuAppBreaze.AutoToolTip = true;
-            this.mnuAppBreaze.CheckOnClick = true;
-            this.mnuAppBreaze.Name = "mnuAppBreaze";
-            this.mnuAppBreaze.Text = "تنفس";
-            this.mnuAppBreaze.ToolTipText = "تنفس";
+            this.mnuAppDefault.Name = "mnuAppDefault";
+            this.mnuAppDefault.Text = "افتراضي";
+            this.mnuAppDefault.Click += new System.EventHandler(this.themeChange_Click);
             // 
             // mnuAppAqua
             // 
@@ -576,6 +612,25 @@
             this.mnuAppAqua.Name = "mnuAppAqua";
             this.mnuAppAqua.Text = "اكوا";
             this.mnuAppAqua.ToolTipText = "اكوا";
+            this.mnuAppAqua.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppBreaze
+            // 
+            this.mnuAppBreaze.AutoToolTip = true;
+            this.mnuAppBreaze.CheckOnClick = true;
+            this.mnuAppBreaze.Name = "mnuAppBreaze";
+            this.mnuAppBreaze.Text = "تنفس";
+            this.mnuAppBreaze.ToolTipText = "تنفس";
+            this.mnuAppBreaze.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppDesert
+            // 
+            this.mnuAppDesert.AutoToolTip = true;
+            this.mnuAppDesert.CheckOnClick = true;
+            this.mnuAppDesert.Name = "mnuAppDesert";
+            this.mnuAppDesert.Text = "صحراء";
+            this.mnuAppDesert.ToolTipText = "صحراء";
+            this.mnuAppDesert.Click += new System.EventHandler(this.themeChange_Click);
             // 
             // mnuAppHighCont
             // 
@@ -584,14 +639,64 @@
             this.mnuAppHighCont.Name = "mnuAppHighCont";
             this.mnuAppHighCont.Text = "تباين عالي";
             this.mnuAppHighCont.ToolTipText = "تباين عالي";
+            this.mnuAppHighCont.Click += new System.EventHandler(this.themeChange_Click);
             // 
-            // mnuAppOffice2013
+            // radMenuSeparatorItem12
             // 
-            this.mnuAppOffice2013.AutoToolTip = true;
-            this.mnuAppOffice2013.CheckOnClick = true;
-            this.mnuAppOffice2013.Name = "mnuAppOffice2013";
-            this.mnuAppOffice2013.Text = "اوفيس 2013";
-            this.mnuAppOffice2013.ToolTipText = "اوفيس 2013";
+            this.radMenuSeparatorItem12.Name = "radMenuSeparatorItem12";
+            this.radMenuSeparatorItem12.Text = "radMenuSeparatorItem12";
+            this.radMenuSeparatorItem12.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // mnuAppOffice2007Black
+            // 
+            this.mnuAppOffice2007Black.Name = "mnuAppOffice2007Black";
+            this.mnuAppOffice2007Black.Text = "radMenuItem3";
+            this.mnuAppOffice2007Black.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppOffice2007Silver
+            // 
+            this.mnuAppOffice2007Silver.Name = "mnuAppOffice2007Silver";
+            this.mnuAppOffice2007Silver.Text = "radMenuItem1";
+            this.mnuAppOffice2007Silver.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppOffice2010Black
+            // 
+            this.mnuAppOffice2010Black.Name = "mnuAppOffice2010Black";
+            this.mnuAppOffice2010Black.Text = "radMenuItem4";
+            this.mnuAppOffice2010Black.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppOffice2010Blue
+            // 
+            this.mnuAppOffice2010Blue.Name = "mnuAppOffice2010Blue";
+            this.mnuAppOffice2010Blue.Text = "radMenuItem5";
+            this.mnuAppOffice2010Blue.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppOffice2010Silver
+            // 
+            this.mnuAppOffice2010Silver.Name = "mnuAppOffice2010Silver";
+            this.mnuAppOffice2010Silver.Text = "radMenuItem1";
+            this.mnuAppOffice2010Silver.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppOffice2013Light
+            // 
+            this.mnuAppOffice2013Light.AutoToolTip = true;
+            this.mnuAppOffice2013Light.CheckOnClick = true;
+            this.mnuAppOffice2013Light.Name = "mnuAppOffice2013Light";
+            this.mnuAppOffice2013Light.Text = "اوفيس 2013";
+            this.mnuAppOffice2013Light.ToolTipText = "اوفيس 2013";
+            this.mnuAppOffice2013Light.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppOffice2013Dark
+            // 
+            this.mnuAppOffice2013Dark.Name = "mnuAppOffice2013Dark";
+            this.mnuAppOffice2013Dark.Text = "radMenuItem1";
+            this.mnuAppOffice2013Dark.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // radMenuSeparatorItem13
+            // 
+            this.radMenuSeparatorItem13.Name = "radMenuSeparatorItem13";
+            this.radMenuSeparatorItem13.Text = "radMenuSeparatorItem13";
+            this.radMenuSeparatorItem13.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mnuAppMetro
             // 
@@ -600,6 +705,43 @@
             this.mnuAppMetro.Name = "mnuAppMetro";
             this.mnuAppMetro.Text = "ميترو";
             this.mnuAppMetro.ToolTipText = "ميترو";
+            this.mnuAppMetro.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppMetroBlue
+            // 
+            this.mnuAppMetroBlue.Name = "mnuAppMetroBlue";
+            this.mnuAppMetroBlue.Text = "radMenuItem1";
+            this.mnuAppMetroBlue.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppMetroTouch
+            // 
+            this.mnuAppMetroTouch.Name = "mnuAppMetroTouch";
+            this.mnuAppMetroTouch.Text = "radMenuItem3";
+            this.mnuAppMetroTouch.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // radMenuSeparatorItem14
+            // 
+            this.radMenuSeparatorItem14.Name = "radMenuSeparatorItem14";
+            this.radMenuSeparatorItem14.Text = "radMenuSeparatorItem14";
+            this.radMenuSeparatorItem14.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // mnuAppVSLight
+            // 
+            this.mnuAppVSLight.Name = "mnuAppVSLight";
+            this.mnuAppVSLight.Text = "radMenuItem1";
+            this.mnuAppVSLight.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // mnuAppVSDark
+            // 
+            this.mnuAppVSDark.Name = "mnuAppVSDark";
+            this.mnuAppVSDark.Text = "radMenuItem3";
+            this.mnuAppVSDark.Click += new System.EventHandler(this.themeChange_Click);
+            // 
+            // radMenuSeparatorItem15
+            // 
+            this.radMenuSeparatorItem15.Name = "radMenuSeparatorItem15";
+            this.radMenuSeparatorItem15.Text = "radMenuSeparatorItem15";
+            this.radMenuSeparatorItem15.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mnuAppWin7
             // 
@@ -608,6 +750,7 @@
             this.mnuAppWin7.Name = "mnuAppWin7";
             this.mnuAppWin7.Text = "ويندوز7";
             this.mnuAppWin7.ToolTipText = "ويندوز7";
+            this.mnuAppWin7.Click += new System.EventHandler(this.themeChange_Click);
             // 
             // mnuAppWin8
             // 
@@ -616,11 +759,7 @@
             this.mnuAppWin8.Name = "mnuAppWin8";
             this.mnuAppWin8.Text = "ويندوز8";
             this.mnuAppWin8.ToolTipText = "ويندوز8";
-            // 
-            // mnuAppDefault
-            // 
-            this.mnuAppDefault.Name = "mnuAppDefault";
-            this.mnuAppDefault.Text = "افتراضي";
+            this.mnuAppWin8.Click += new System.EventHandler(this.themeChange_Click);
             // 
             // imageList1
             // 
@@ -939,7 +1078,7 @@
         internal Telerik.WinControls.UI.RadMenuItem mnuAppBreaze;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppAqua;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppHighCont;
-        internal Telerik.WinControls.UI.RadMenuItem mnuAppOffice2013;
+        internal Telerik.WinControls.UI.RadMenuItem mnuAppOffice2013Light;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppMetro;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppWin7;
         internal Telerik.WinControls.UI.RadMenuItem mnuAppWin8;
@@ -964,5 +1103,37 @@
         private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem11;
         private Telerik.WinControls.UI.RadMenuItem mnuShowDownload;
         private Telerik.WinControls.UI.RadMenu RadMenu1;
+        private Telerik.WinControls.Themes.Windows8Theme windows8Theme1;
+        private Telerik.WinControls.Themes.Windows7Theme windows7Theme1;
+        private Telerik.WinControls.Themes.VisualStudio2012LightTheme visualStudio2012LightTheme1;
+        private Telerik.WinControls.Themes.VisualStudio2012DarkTheme visualStudio2012DarkTheme1;
+        private Telerik.WinControls.Themes.TelerikMetroTouchTheme telerikMetroTouchTheme1;
+        private Telerik.WinControls.Themes.TelerikMetroBlueTheme telerikMetroBlueTheme1;
+        private Telerik.WinControls.Themes.TelerikMetroTheme telerikMetroTheme1;
+        private Telerik.WinControls.Themes.Office2013LightTheme office2013LightTheme1;
+        private Telerik.WinControls.Themes.Office2013DarkTheme office2013DarkTheme1;
+        private Telerik.WinControls.Themes.Office2010SilverTheme office2010SilverTheme1;
+        private Telerik.WinControls.Themes.Office2010BlueTheme office2010BlueTheme1;
+        private Telerik.WinControls.Themes.Office2010BlackTheme office2010BlackTheme1;
+        private Telerik.WinControls.Themes.Office2007SilverTheme office2007SilverTheme1;
+        private Telerik.WinControls.Themes.Office2007BlackTheme office2007BlackTheme1;
+        private Telerik.WinControls.Themes.HighContrastBlackTheme highContrastBlackTheme1;
+        private Telerik.WinControls.Themes.DesertTheme desertTheme1;
+        private Telerik.WinControls.Themes.BreezeTheme breezeTheme1;
+        private Telerik.WinControls.Themes.AquaTheme aquaTheme1;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem12;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppOffice2007Silver;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppOffice2007Black;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem13;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppOffice2010Black;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppOffice2010Blue;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppOffice2010Silver;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppOffice2013Dark;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppMetroBlue;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppMetroTouch;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem14;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppVSLight;
+        private Telerik.WinControls.UI.RadMenuItem mnuAppVSDark;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem15;
     }
 }

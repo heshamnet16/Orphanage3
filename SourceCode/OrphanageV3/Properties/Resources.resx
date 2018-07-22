@@ -1364,4 +1364,64 @@
   <data name="SQLReturnMessage" xml:space="preserve">
     <value>تم إجراء [UPDATE] تغيرات على قاعدة البينات</value>
   </data>
+  <data name="ThemeAqua" xml:space="preserve">
+    <value>أكوا</value>
+  </data>
+  <data name="ThemeBreeze" xml:space="preserve">
+    <value>تنفس</value>
+  </data>
+  <data name="ThemeDesert" xml:space="preserve">
+    <value>صحراء</value>
+  </data>
+  <data name="ThemeHightConstrast" xml:space="preserve">
+    <value>تباين عالي</value>
+  </data>
+  <data name="ThemeMetro" xml:space="preserve">
+    <value>ميترو</value>
+  </data>
+  <data name="ThemeMetroBlue" xml:space="preserve">
+    <value>ميترو أزرق</value>
+  </data>
+  <data name="ThemeMetroBlueTouch" xml:space="preserve">
+    <value>ميترو أزرق لمس</value>
+  </data>
+  <data name="ThemeOffice2007Black" xml:space="preserve">
+    <value>أوفيس2007 اسود</value>
+  </data>
+  <data name="ThemeOffice2007Silver" xml:space="preserve">
+    <value>أوفيس 2007 فضي</value>
+  </data>
+  <data name="ThemeOffice2010Black" xml:space="preserve">
+    <value>أوفيس2010 اسود</value>
+  </data>
+  <data name="ThemeOffice2010Blue" xml:space="preserve">
+    <value>أوفيس2010 ازرق</value>
+  </data>
+  <data name="ThemeOffice2010Silver" xml:space="preserve">
+    <value>أوفيس2010 فضي</value>
+  </data>
+  <data name="ThemeOffice2013Dark" xml:space="preserve">
+    <value>أوفيس2013 قاتم</value>
+  </data>
+  <data name="ThemeOffice2013Light" xml:space="preserve">
+    <value>أوفيس2013 فاتح</value>
+  </data>
+  <data name="ThemeVSDark" xml:space="preserve">
+    <value>فيجوال قاتم</value>
+  </data>
+  <data name="ThemeVSLight" xml:space="preserve">
+    <value>فيجوال فاتح</value>
+  </data>
+  <data name="ThemeWindows7" xml:space="preserve">
+    <value>ويندوز7</value>
+  </data>
+  <data name="ThemeWindows8" xml:space="preserve">
+    <value>ويندوز8</value>
+  </data>
+  <data name="ThemeDefault" xml:space="preserve">
+    <value>افتراضي</value>
+  </data>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

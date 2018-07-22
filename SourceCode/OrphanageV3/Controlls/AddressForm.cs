@@ -283,7 +283,7 @@ namespace OrphanageV3.Controlls
                                 + (_MoveFactor * -1)))
                     {
                         this.Height = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                     }
 
@@ -296,7 +296,7 @@ namespace OrphanageV3.Controlls
                                 + (_MoveFactor * -1)))
                     {
                         this.Height = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                         this.Top = (this.Top
                                     + (_MoveFactor / 2));
@@ -313,7 +313,7 @@ namespace OrphanageV3.Controlls
                                 + (_MoveFactor * -1)))
                     {
                         this.Width = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                     }
 
@@ -327,7 +327,7 @@ namespace OrphanageV3.Controlls
                                 + (_MoveFactor * -1)))
                     {
                         this.Width = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                         this.Left = (this.Left
                                     + (_MoveFactor / 2));
@@ -362,7 +362,7 @@ namespace OrphanageV3.Controlls
                     for (int i = 0; (i <= hi); i = (i + _MoveFactor))
                     {
                         this.Height = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                     }
 
@@ -377,7 +377,7 @@ namespace OrphanageV3.Controlls
                     for (int i = 0; (i <= hi); i = (i + _MoveFactor))
                     {
                         this.Height = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                         this.Top = (this.Top
                                     - (_MoveFactor / 2));
@@ -394,7 +394,7 @@ namespace OrphanageV3.Controlls
                     for (int i = 0; (i <= wi); i = (i + _MoveFactor))
                     {
                         this.Width = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                         // Me.Left += (i / 2)
                     }
@@ -409,7 +409,7 @@ namespace OrphanageV3.Controlls
                     for (int i = 0; (i <= wi); i = (i + _MoveFactor))
                     {
                         this.Width = i;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         this.Refresh();
                         this.Left = (this.Left
                                     - (_MoveFactor / 2));
