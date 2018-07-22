@@ -2327,6 +2327,16 @@ namespace OrphanageV3.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Logo {
+            get {
+                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die الذكور ähnelt.
         /// </summary>
         public static string MalesString {
@@ -3563,6 +3573,177 @@ namespace OrphanageV3.Properties {
         public static string Tallness {
             get {
                 return ResourceManager.GetString("Tallness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أكوا ähnelt.
+        /// </summary>
+        public static string ThemeAqua {
+            get {
+                return ResourceManager.GetString("ThemeAqua", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تنفس ähnelt.
+        /// </summary>
+        public static string ThemeBreeze {
+            get {
+                return ResourceManager.GetString("ThemeBreeze", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die افتراضي ähnelt.
+        /// </summary>
+        public static string ThemeDefault {
+            get {
+                return ResourceManager.GetString("ThemeDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die صحراء ähnelt.
+        /// </summary>
+        public static string ThemeDesert {
+            get {
+                return ResourceManager.GetString("ThemeDesert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die تباين عالي ähnelt.
+        /// </summary>
+        public static string ThemeHightConstrast {
+            get {
+                return ResourceManager.GetString("ThemeHightConstrast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ميترو ähnelt.
+        /// </summary>
+        public static string ThemeMetro {
+            get {
+                return ResourceManager.GetString("ThemeMetro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ميترو أزرق ähnelt.
+        /// </summary>
+        public static string ThemeMetroBlue {
+            get {
+                return ResourceManager.GetString("ThemeMetroBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ميترو أزرق لمس ähnelt.
+        /// </summary>
+        public static string ThemeMetroBlueTouch {
+            get {
+                return ResourceManager.GetString("ThemeMetroBlueTouch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس2007 اسود ähnelt.
+        /// </summary>
+        public static string ThemeOffice2007Black {
+            get {
+                return ResourceManager.GetString("ThemeOffice2007Black", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس 2007 فضي ähnelt.
+        /// </summary>
+        public static string ThemeOffice2007Silver {
+            get {
+                return ResourceManager.GetString("ThemeOffice2007Silver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس2010 اسود ähnelt.
+        /// </summary>
+        public static string ThemeOffice2010Black {
+            get {
+                return ResourceManager.GetString("ThemeOffice2010Black", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس2010 ازرق ähnelt.
+        /// </summary>
+        public static string ThemeOffice2010Blue {
+            get {
+                return ResourceManager.GetString("ThemeOffice2010Blue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس2010 فضي ähnelt.
+        /// </summary>
+        public static string ThemeOffice2010Silver {
+            get {
+                return ResourceManager.GetString("ThemeOffice2010Silver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس2013 قاتم ähnelt.
+        /// </summary>
+        public static string ThemeOffice2013Dark {
+            get {
+                return ResourceManager.GetString("ThemeOffice2013Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die أوفيس2013 فاتح ähnelt.
+        /// </summary>
+        public static string ThemeOffice2013Light {
+            get {
+                return ResourceManager.GetString("ThemeOffice2013Light", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die فيجوال قاتم ähnelt.
+        /// </summary>
+        public static string ThemeVSDark {
+            get {
+                return ResourceManager.GetString("ThemeVSDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die فيجوال فاتح ähnelt.
+        /// </summary>
+        public static string ThemeVSLight {
+            get {
+                return ResourceManager.GetString("ThemeVSLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ويندوز7 ähnelt.
+        /// </summary>
+        public static string ThemeWindows7 {
+            get {
+                return ResourceManager.GetString("ThemeWindows7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ويندوز8 ähnelt.
+        /// </summary>
+        public static string ThemeWindows8 {
+            get {
+                return ResourceManager.GetString("ThemeWindows8", resourceCulture);
             }
         }
         

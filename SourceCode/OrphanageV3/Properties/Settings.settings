@@ -50,5 +50,8 @@
     <Setting Name="AccountsLayoutFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Accounts.layout</Value>
     </Setting>
+    <Setting Name="ThemeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
